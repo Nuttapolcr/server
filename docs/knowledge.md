@@ -222,6 +222,50 @@ if (BaseJob == Job_Wizard || BaseJob == Job_Sage) bonus bMatkRate,20;
 
 ---
 
+## Source Hooks (C++)
+
+> งานที่แก้ source code โดยตรง ไม่ใช่ item script / YAML — อยู่ใน `src/map/`
+
+### Full Refine Set Bonus
+
+ระบบโบนัสชุดตามระดับตีบวก: ใส่ครบ 6 slot (หัว+เสื้อ+อาวุธ+โล่+เท้า+มัฟ) และทุก slot
+ตีบวกถึงระดับเดียวกัน → ได้โบนัสตาม **min refine** ของทั้งชุด (single-tier แทนที่ ไม่สะสม)
+
+**จุด hook:** `status_calc_pc_sub` ใน `src/map/status.cpp` — แทรกหลัง equipment loop
+(`// Parse equipment`) ปิด ก่อน block `EQI_AMMO` มาร์กด้วย `// === Custom: Full Refine Set Bonus ===`
+
+**Slot ที่นับ:** `EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_R, EQI_HAND_L, EQI_SHOES, EQI_GARMENT`
+(หัว = เฉพาะ HEAD_TOP)
+
+**ตาราง tier (pre-re: MAX_REFINE=11 → มีถึง +11):**
+
+| min refine | DROP | Weight | HP | resist | all stat |
+|---|---|---|---|---|---|
+| 7 | +10% | +200 | +500 | — | — |
+| 8 | +15% | +300 | +700 | — | — |
+| 9 | +20% | +400 | +900 | — | — |
+| 10 | +25% | +500 | +1200 | 1% | +1 |
+| 11 | +25% | +600 | +1500 | 2% | +1 |
+
+**Field ที่ set (ทุกตัวถูก consume หลังจุด hook ใน calc รอบเดียวกัน):**
+
+| โบนัส | C++ field | consume ที่ |
+|---|---|---|
+| DROP+N% | `sd->indexed_bonus.dropaddrace[RC_ALL] += N` | mob.cpp drop calc |
+| Weight+N | `sd->add_max_weight += N` | status.cpp `status_calc_weight` |
+| HP+N | `sd->bonus.hp += N` | status.cpp `status_calc_maxhpsp_pc` |
+| resist N% (กันกึ่ง) | `subrace[RC_DEMIHUMAN] += N` **และ** `subrace[RC_PLAYER_HUMAN] += N` | battle damage calc |
+| all stat +N | `param_bonus[PARAM_STR..LUK] += N` (6 ตัว) | status.cpp stat finalize |
+
+**หมายเหตุสำคัญ:**
+- **อาวุธ 2 มือ:** `pc_equipitem` set ทั้ง `equip_index[EQI_HAND_R]` และ `[EQI_HAND_L]`
+  เป็น inventory index เดียวกัน (equip ที่ `EQP_ARMS`) → อ่าน refine ของ HAND_L ได้ค่าเดียวกับอาวุธ
+  ตรงตาม spec "อาวุธ2มือ นับเป็น อาวุธ+โล่" โดยไม่ต้องเขียน logic พิเศษ
+- การ set `subrace[]` ตรงๆ ข้าม cap `battle_config.limit_race_def` (path script ปกติจะ cap) แต่ค่าน้อยมากจึงไม่มีปัญหา
+- ถ้าอนาคตเปิด renewal / เพิ่ม `MAX_REFINE` ค่อยเพิ่ม tier +12~+15 ตาม spreadsheet เดิม
+
+---
+
 ## Item Categories
 
 ### [Legend] Vicious Mind Weapons

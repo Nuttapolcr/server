@@ -1,0 +1,8 @@
+diff a/src/custom/battle_config_struct.inc b/src/custom/battle_config_struct.inc	(rejected hunks)
+@@ -12,3 +12,5 @@
+  *	 <datatype> name;
+  **/
+ 
++	// Show Element Info [Hyroshima]
++	int mob_ele_view;
+\ No newline at end of file
