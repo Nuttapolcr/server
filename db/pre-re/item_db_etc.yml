@@ -1,93 +1,6 @@
-# This file is a part of rAthena.
-#   Copyright(C) 2021 rAthena Development Team
-#   https://rathena.org - https://github.com/rathena
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-###########################################################################
-# Item Database
-###########################################################################
-#
-# Item Settings
-#
-###########################################################################
-# - Id                      Item ID.
-#   AegisName               Server name to reference the item in scripts and lookups, should use no spaces.
-#   Name                    Name in English for displaying as output.
-#   Type                    Item type. (Default: Etc)
-#   SubType                 Weapon, Ammo or Card type. (Default: 0)
-#   Buy                     Buying price. When not specified, becomes double the sell price. (Default: 0)
-#   Sell                    Selling price. When not specified, becomes half the buy price. (Default: 0)
-#   Weight                  Item weight. Each 10 is 1 weight. (Default: 0)
-#   Attack                  Weapon's attack. (Default: 0)
-#   MagicAttack             Weapon's magic attack. (Default: 0)
-#   Defense                 Armor's defense. (Default: 0)
-#   Range                   Weapon's attack range. (Default: 0)
-#   Slots                   Available slots in item. (Default: 0)
-#   Jobs                    Jobs that can equip the item. (Map default is 'All: true')
-#   Classes                 Upper class types that can equip the item. (Map default is 'All: true')
-#   Gender                  Gender that can equip the item. (Default: Both)
-#   Locations               Equipment's placement. (Default: None)
-#   WeaponLevel             Weapon level. (Default: 1 for Weapons)
-#   ArmorLevel              Armor level. (Default: 1 for Armors)
-#   EquipLevelMin           Minimum required level to equip. (Default: 0)
-#   EquipLevelMax           Maximum level that can equip. (Default: 0)
-#   Refineable              If the item can be refined. (Default: false)
-#   Gradable                If the item can be graded. (Default: false)
-#   View                    View sprite of an item. (Default: 0)
-#   AliasName               Another item's AegisName that will be sent to the client instead of this item's AegisName. (Default: null)
-#   Flags:                  Item flags. (Default: null)
-#     BuyingStore           If the item is available for Buyingstores. (Default: false)
-#     DeadBranch            If the item is a Dead Branch. (Default: false)
-#     Container             If the item is part of a container. (Default: false)
-#     UniqueId              If the item is a unique stack. (Default: false)
-#     BindOnEquip           If the item is bound to the character upon equipping. (Default: false)
-#     DropAnnounce          If the item has a special announcement to self on drop. (Default: false)
-#     NoConsume             If the item is consumed on use. (Default: false)
-#     DropEffect            If the item has a special effect on the ground when dropped by a monster. (Default: None)
-#   Delay:                  Item use delay. (Default: null)
-#     Duration              Duration of delay in seconds.
-#     Status                Status Change used to track delay. (Default: None)
-#   Stack:                  Item stack amount. (Default: null)
-#     Amount                Maximum amount that can be stacked.
-#     Inventory             If the stack is applied to player's inventory. (Default: true)
-#     Cart                  If the stack is applied to the player's cart. (Default: false)
-#     Storage               If the stack is applied to the player's storage. (Default: false)
-#     GuildStorage          If the stack is applied to the player's guild storage. (Default: false)
-#   NoUse:                  Conditions when the item is unusable. (Default: null)
-#     Override              Group level to override these conditions. (Default: 100)
-#     Sitting               If the item can not be used while sitting. (Default: false)
-#   Trade:                  Trade restrictions. (Default: null)
-#     Override              Group level to override these conditions. (Default: 100)
-#     NoDrop                If the item can not be dropped. (Default: false)
-#     NoTrade               If the item can not be traded. (Default: false)
-#     TradePartner          If the item can not be traded to the player's partner. (Default: false)
-#     NoSell                If the item can not be sold. (Default: false)
-#     NoCart                If the item can not be put in a cart. (Default: false)
-#     NoStorage             If the item can not be put in a storage. (Default: false)
-#     NoGuildStorage        If the item can not be put in a guild storage. (Default: false)
-#     NoMail                If the item can not be put in a mail. (Default: false)
-#     NoAuction             If the item can not be put in an auction. (Default: false)
-#   Script                  Script to execute when the item is used/equipped. (Default: null)
-#   EquipScript             Script to execute when the item is equipped. (Default: null)
-#   UnEquipScript           Script to execute when the item is unequipped or when a rental item expires. (Default: null)
-###########################################################################
-
 Header:
   Type: ITEM_DB
   Version: 3
-
 Body:
   - Id: 6909
     AegisName: Nyangvine_Fruit
@@ -2692,10 +2605,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-    Decomposition:
-      Type1: 1
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bLuk,2;
       bonus bFlee2,1;
@@ -2710,10 +2621,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-    Decomposition:
-      Type1: 1
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,1;
       bonus bMaxHP,100;
@@ -2728,10 +2637,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-    Decomposition:
-      Type1: 1
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHP,700;
   - Id: 4004
@@ -2745,10 +2652,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-    Decomposition:
-      Type1: 1
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDex,1;
       bonus bHit,3;
@@ -2763,8 +2668,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEle,Ele_Dark,20;
   - Id: 4006
@@ -2778,10 +2683,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-    Decomposition:
-      Type1: 1
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bLuk,1;
       bonus bCritical,1;
@@ -2797,8 +2700,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace,RC_Formless,20;
   - Id: 4008
@@ -2812,8 +2715,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bStr,1;
       bonus bBaseAtk,10;
@@ -2828,8 +2731,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,1;
       bonus bFlee,2;
@@ -2846,8 +2749,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxSP,80;
   - Id: 4011
@@ -2861,8 +2764,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,1;
       bonus bMaxHP,100;
@@ -2877,8 +2780,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHP,400;
   - Id: 4013
@@ -2892,8 +2795,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHPrate,5;
   - Id: 4014
@@ -2907,8 +2810,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHP,400;
       bonus bMaxSP,50;
@@ -2924,8 +2827,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bFlee,10;
   - Id: 4016
@@ -2939,8 +2842,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,1;
   - Id: 4017
@@ -2954,8 +2857,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEff,Eff_Stun,500;
   - Id: 4018
@@ -2969,8 +2872,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bInt,1;
       bonus bMaxSP,10;
@@ -2985,8 +2888,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bStr,1;
       bonus bBaseAtk,3;
@@ -3001,8 +2904,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEff,Eff_Blind,500;
       bonus bBaseAtk,5;
@@ -3017,8 +2920,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDex,1;
       bonus bBaseAtk,5;
@@ -3033,8 +2936,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,2;
   - Id: 4023
@@ -3048,8 +2951,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bInt,1;
   - Id: 4024
@@ -3063,8 +2966,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEff,Eff_Sleep,500;
       bonus bBaseAtk,5;
@@ -3079,8 +2982,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bBaseAtk,10;
       bonus2 bAddEff,Eff_Stun,200;
@@ -3095,8 +2998,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,1;
       bonus bFlee,1;
@@ -3111,8 +3014,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,2;
   - Id: 4028
@@ -3126,8 +3029,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bStr,2;
   - Id: 4029
@@ -3141,8 +3044,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bBaseAtk,15;
       bonus bCritical,1;
@@ -3157,8 +3060,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEle,Ele_Wind,20;
   - Id: 4031
@@ -3172,8 +3075,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHPrate,10;
   - Id: 4032
@@ -3187,8 +3090,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDef,2;
   - Id: 4033
@@ -3202,8 +3105,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "TF_DETOXIFY",1;
   - Id: 4034
@@ -3217,8 +3120,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDex,2;
   - Id: 4035
@@ -3232,8 +3135,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace,RC_DemiHuman,20;
       bonus2 bAddRace,RC_Player_Human,20;
@@ -3248,8 +3151,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bHPrecovRate,10;
   - Id: 4037
@@ -3263,8 +3166,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEff,Eff_Poison,500;
       bonus bBaseAtk,5;
@@ -3279,8 +3182,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bHPrecovRate,20;
   - Id: 4039
@@ -3296,8 +3199,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Silence,2000;
       bonus bDef,1;
@@ -3324,8 +3227,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Sleep,2000;
       bonus bDef,1;
@@ -3340,8 +3243,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Wind,10;
       bonus bDef,2;
@@ -3356,8 +3259,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bBaseAtk,20;
   - Id: 4044
@@ -3371,8 +3274,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "TF_HIDING",1;
     UnEquipScript: |
@@ -3388,8 +3291,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bLongAtkDef,35;
   - Id: 4046
@@ -3405,8 +3308,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Blind,2000;
       bonus bDef,1;
@@ -3421,8 +3324,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
   - Id: 4048
     AegisName: Poison_Spore_Card
     Name: Poison Spore Card
@@ -3434,8 +3337,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "TF_POISON",3;
   - Id: 4049
@@ -3449,8 +3352,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEle,Ele_Fire,20;
   - Id: 4050
@@ -3464,8 +3367,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bAgi,2;
   - Id: 4051
@@ -3479,8 +3382,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bFlee2,5;
       bonus bAgi,1;
@@ -3497,8 +3400,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bInt,2;
   - Id: 4053
@@ -3512,8 +3415,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "AL_HEAL",1;
       bonus bUseSPrate,25;
@@ -3528,8 +3431,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDefEle,Ele_Holy;
   - Id: 4055
@@ -3543,8 +3446,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEff,Eff_Freeze,500;
       bonus bBaseAtk,5;
@@ -3559,8 +3462,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Wind,30;
       bonus bFlee,5;
@@ -3575,8 +3478,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEff,Eff_Silence,500;
       bonus bBaseAtk,5;
@@ -3591,8 +3494,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_DemiHuman,30;
       bonus2 bSubRace,RC_Player_Human,30;
@@ -3608,8 +3511,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Plant,30;
       bonus2 bMagicAddRace,RC_Plant,2;
@@ -3624,8 +3527,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace,RC_Brute,20;
   - Id: 4061
@@ -3639,8 +3542,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bUnbreakableArmor;
       bonus bDef,1;
@@ -3655,8 +3558,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEle,Ele_Poison,20;
   - Id: 4063
@@ -3670,8 +3573,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace,RC_Insect,20;
   - Id: 4064
@@ -3685,8 +3588,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDex,3;
   - Id: 4065
@@ -3700,8 +3603,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEle,Ele_Earth,20;
   - Id: 4066
@@ -3715,8 +3618,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Brute,30;
   - Id: 4067
@@ -3730,8 +3633,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Freeze,2000;
       bonus bDef,1;
@@ -3746,8 +3649,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace,RC_Plant,20;
   - Id: 4069
@@ -3761,8 +3664,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEle,Ele_Water,20;
   - Id: 4070
@@ -3776,8 +3679,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bSPrecovRate,15;
   - Id: 4071
@@ -3791,8 +3694,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Undead,30;
       bonus bFlee,5;
@@ -3807,8 +3710,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bUnbreakableWeapon;
       bonus bBaseAtk,5;
@@ -3823,8 +3726,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "MC_DISCOUNT",5;
   - Id: 4074
@@ -3838,8 +3741,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Insect,30;
   - Id: 4075
@@ -3853,8 +3756,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Stone,2000;
       bonus bDef,1;
@@ -3869,8 +3772,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEff,Eff_Curse,500;
       bonus bBaseAtk,5;
@@ -3885,8 +3788,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bNoCastCancel;
       bonus bVariableCastrate,25;
@@ -3901,8 +3804,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,3;
   - Id: 4079
@@ -3916,8 +3819,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bStr,3;
   - Id: 4080
@@ -3931,8 +3834,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace,RC_Fish,20;
   - Id: 4081
@@ -3946,8 +3849,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Earth,30;
       bonus bFlee,5;
@@ -3962,8 +3865,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddSize,Size_Small,15;
       bonus bBaseAtk,5;
@@ -3978,8 +3881,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Fish,30;
   - Id: 4084
@@ -3993,8 +3896,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "SM_MAGNUM",3;
   - Id: 4085
@@ -4008,8 +3911,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEle,Ele_Holy,20;
   - Id: 4086
@@ -4023,8 +3926,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritical,9;
   - Id: 4087
@@ -4040,8 +3943,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Confusion,10000;
       bonus2 bSubEle,Ele_Earth,15;
@@ -4056,8 +3959,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "AS_CLOAKING",1;
     UnEquipScript: |
@@ -4073,8 +3976,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDefEle,Ele_Water;
       bonus bDef,1;
@@ -4089,8 +3992,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Stone,1500;
       bonus2 bSubEle,Ele_Earth,5;
@@ -4106,8 +4009,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bStr,1;
       bonus bCritical,4;
@@ -4122,8 +4025,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddSize,Size_Medium,15;
       bonus bBaseAtk,5;
@@ -4138,8 +4041,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "AL_CURE",1;
   - Id: 4094
@@ -4153,8 +4056,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bLongAtkRate,10;
   - Id: 4095
@@ -4168,8 +4071,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Water,30;
       bonus bFlee,5;
@@ -4184,8 +4087,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEff,Eff_Poison,400;
       bonus bBaseAtk,10;
@@ -4200,8 +4103,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHPrate,10;
       bonus bAgi,1;
@@ -4216,8 +4119,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDefEle,Ele_Wind;
       bonus bDef,1;
@@ -4232,8 +4135,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDefEle,Ele_Fire;
       bonus bDef,1;
@@ -4248,8 +4151,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxSPrate,15;
       bonus bSPrecovRate,3;
@@ -4264,8 +4167,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDefEle,Ele_Earth;
       bonus bDef,1;
@@ -4280,8 +4183,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bFlee,20;
       bonus2 bSubEle,Ele_Ghost,-50;
@@ -4296,8 +4199,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "MG_SIGHT",1;
     UnEquipScript: |
@@ -4313,8 +4216,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEff,Eff_Confusion,500;
   - Id: 4105
@@ -4328,8 +4231,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Water,5;
       bonus2 bResEff,Eff_Freeze,10000;
@@ -4344,8 +4247,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bHit,20;
   - Id: 4107
@@ -4359,8 +4262,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHPrate,8;
       bonus bMaxSPrate,8;
@@ -4376,8 +4279,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Poison,30;
       bonus bFlee,5;
@@ -4392,8 +4295,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Fire,30;
       bonus bFlee,5;
@@ -4410,8 +4313,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Poison,2000;
       bonus bDef,1;
@@ -4426,8 +4329,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace,RC_Demon,20;
   - Id: 4112
@@ -4443,8 +4346,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Silence,10000;
   - Id: 4113
@@ -4458,8 +4361,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Ghost,30;
       bonus bFlee,5;
@@ -4474,8 +4377,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDefEle,Ele_Poison;
       bonus bDef,1;
@@ -4490,8 +4393,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bHPDrainRate,30,15;
   - Id: 4116
@@ -4505,8 +4408,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Dark,30;
       bonus bFlee,5;
@@ -4521,8 +4424,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "TF_DOUBLE",1;
   - Id: 4118
@@ -4536,8 +4439,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace,RC_Dragon,20;
   - Id: 4119
@@ -4551,8 +4454,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDefEle,Ele_Dark;
   - Id: 4120
@@ -4566,8 +4469,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Dragon,30;
   - Id: 4121
@@ -4581,8 +4484,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bHit,100;
   - Id: 4122
@@ -4598,8 +4501,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bStr,1;
       bonus2 bResEff,Eff_Blind,10000;
@@ -4614,8 +4517,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHPrate,-25;
       bonus bNoWalkDelay;
@@ -4630,8 +4533,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Demon,15;
       bonus2 bResEff,Eff_Stone,10000;
@@ -4646,8 +4549,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace,RC_DemiHuman,7;
       bonus2 bAddRace,RC_Player_Human,7;
@@ -4665,8 +4568,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddSize,Size_Large,15;
       bonus bBaseAtk,5;
@@ -4683,8 +4586,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bResEff,Eff_Sleep,10000;
       bonus bAgi,1;
@@ -4699,8 +4602,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
   - Id: 4129
     AegisName: Baphomet__Card
     Name: Bapho Jr. Card
@@ -4712,8 +4615,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,3;
       bonus bCritical,1;
@@ -4728,8 +4631,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEle,Ele_Undead,20;
   - Id: 4131
@@ -4743,8 +4646,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bSpeedRate,25;
   - Id: 4132
@@ -4760,8 +4663,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bNoGemStone;
       bonus bUseSPrate,25;
@@ -4776,8 +4679,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Neutral,20;
   - Id: 4134
@@ -4791,8 +4694,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSPDrainRate,100,5;
   - Id: 4135
@@ -4806,8 +4709,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bShortWeaponDamageReturn,30;
   - Id: 4136
@@ -4821,8 +4724,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Demon,30;
   - Id: 4137
@@ -4836,8 +4739,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bNoSizeFix;
   - Id: 4138
@@ -4851,8 +4754,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Angel,30;
   - Id: 4139
@@ -4866,8 +4769,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       skill "TF_STEAL",1;
   - Id: 4140
@@ -4881,8 +4784,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddClass,Class_Boss,25;
   - Id: 4141
@@ -4896,8 +4799,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDefEle,Ele_Undead;
       bonus bInt,1;
@@ -4913,8 +4816,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAspdRate,10;
   - Id: 4143
@@ -4930,8 +4833,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,3;
       bonus2 bResEff,Eff_Stun,10000;
@@ -4946,8 +4849,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bRestartFullRecover;
   - Id: 4145
@@ -4961,8 +4864,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVariableCastrate,-30;
   - Id: 4146
@@ -4976,8 +4879,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
   - Id: 4147
     AegisName: Baphomet_Card
     Name: Baphomet Card
@@ -4989,8 +4892,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bHit,-10;
       bonus bSplashRange,1;
@@ -5007,8 +4910,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bUseSPrate,-30;
   - Id: 4149
@@ -5022,8 +4925,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddMonsterDropItem,12028,RC_Insect,100;
   - Id: 4150
@@ -5037,8 +4940,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       if (getrefine()<6) {
          bonus bDef,2;
@@ -5054,9 +4957,9 @@ Body:
       Shoes: true
     Flags:
       BuyingStore: true
-      Collection: True
+      Collection: true
       DropEffect: CLIENT
-      DropAnnounce: True
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Plant,-20;
       bonus2 bExpAddRace,RC_Plant,10;
@@ -5071,8 +4974,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddItemGroupHealRate,IG_Juice,50;
       bonus3 bAddMonsterDropItem,531,RC_Insect,300;
@@ -5089,8 +4992,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bBaseAtk,5;
       bonus2 bAddDamageClass,1266,30;
@@ -5105,8 +5008,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddItemGroupHealRate,IG_Candy,50;
       bonus3 bAddMonsterDropItem,529,RC_DemiHuman,300;
@@ -5122,8 +5025,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace2,RC2_Goblin,30;
   - Id: 4156
@@ -5137,8 +5040,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritAtkRate,10;
       bonus2 bCriticalAddRace,RC_Formless,7;
@@ -5153,8 +5056,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritAtkRate,10;
       bonus2 bCriticalAddRace,RC_Undead,7;
@@ -5169,8 +5072,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bNoRegen,1;
       bonus bHPGainValue,100;
@@ -5185,8 +5088,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,2;
       if (getrefine()>8)
@@ -5202,8 +5105,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bStr,2;
       if (getrefine()>8) {
@@ -5223,8 +5126,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpellWhenHit,"PR_GLORIA",1,50;
   - Id: 4162
@@ -5238,8 +5141,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Blind,300;
   - Id: 4163
@@ -5253,8 +5156,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bFlee,2;
       bonus bCritical,7;
@@ -5271,8 +5174,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Fish,-20;
       bonus2 bExpAddRace,RC_Fish,10;
@@ -5287,12 +5190,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-#    Script: |
-#      bonus2 bSPGainRace,RC_Insect,5;
-#    UnEquipScript: |
-#      heal 0,-5;
+      Collection: true
+      DropAnnounce: true
   - Id: 4166
     AegisName: Nightmare_Terror_Card
     Name: Nightmare Terror Card
@@ -5304,8 +5203,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Curse,300;
   - Id: 4167
@@ -5319,13 +5218,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-#    Script: |
-#      bonus2 bSPGainRace,RC_Brute,5;
-#      bonus2 bSPGainRace,RC_Player_Doram,5;
-#    UnEquipScript: |
-#      heal 0,-5;
+      Collection: true
+      DropAnnounce: true
   - Id: 4168
     AegisName: Dark_Lord_Card
     Name: Dark Lord Card
@@ -5337,8 +5231,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpellWhenHit,"WZ_METEOR",5,100;
   - Id: 4169
@@ -5354,8 +5248,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHPrate,-10;
       bonus bMaxSPrate,-10;
@@ -5371,8 +5265,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Stone,600;
   - Id: 4171
@@ -5386,8 +5280,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bSPVanishRate,50,10,BF_WEAPON|BF_MAGIC|BF_MISC;
       if (BaseJob == Job_Sage)
@@ -5403,8 +5297,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritAtkRate,20;
       bonus bSPDrainValue,-1;
@@ -5419,8 +5313,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Sleep,600;
   - Id: 4174
@@ -5434,8 +5328,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Neutral,50;
       bonus2 bSubEle,Ele_Water,-50;
@@ -5458,8 +5352,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"TF_POISON",1,20;
       bonus2 bAddSkillBlow,52,5;
@@ -5475,8 +5369,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritAtkRate,10;
       bonus2 bCriticalAddRace,RC_Dragon,7;
@@ -5493,8 +5387,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddMonsterDropItem,993,RC_Plant,100;
       bonus2 bSubEle,Ele_Earth,10;
@@ -5509,8 +5403,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,1;
       bonus bFlee,10;
@@ -5527,8 +5421,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,1;
   - Id: 4180
@@ -5542,12 +5436,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-#    Script: |
-#      bonus2 bSPGainRace,RC_Dragon,5;
-#    UnEquipScript: |
-#      heal 0,-5;
+      Collection: true
+      DropAnnounce: true
   - Id: 4181
     AegisName: Disguise_Card
     Name: Disguise Card
@@ -5559,8 +5449,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Silence,300+600*(readparam(bVit)>=77);
   - Id: 4182
@@ -5574,12 +5464,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-#    Script: |
-#      bonus2 bSPGainRace,RC_Demon,5;
-#    UnEquipScript: |
-#      heal 0,-5;
+      Collection: true
+      DropAnnounce: true
   - Id: 4183
     AegisName: Vagabond_Wolf_Card
     Name: Vagabond Wolf Card
@@ -5591,8 +5477,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bStr,1;
   - Id: 4184
@@ -5606,8 +5492,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace2,RC2_Golem,30;
   - Id: 4185
@@ -5623,8 +5509,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bInt,1;
       if (BaseClass == Job_Acolyte) {
@@ -5642,8 +5528,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bStr,1;
       bonus bVit,1;
@@ -5658,8 +5544,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddMonsterDropItem,12030,RC_Demon,100;
   - Id: 4188
@@ -5675,8 +5561,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Fire,10;
       bonus3 bAddMonsterDropItem,990,RC_Brute,100;
@@ -5691,8 +5577,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Curse,600;
   - Id: 4190
@@ -5706,8 +5592,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddMonsterDropItem,12027,RC_Undead,100;
   - Id: 4191
@@ -5721,8 +5607,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpellWhenHit,"AL_HEAL",3,50;
   - Id: 4192
@@ -5736,8 +5622,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritAtkRate,10;
       bonus2 bCriticalAddRace,RC_Fish,7;
@@ -5752,8 +5638,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       if (BaseJob == Job_Novice || BaseJob == Job_SuperNovice)
          bonus3 bAutoSpellWhenHit,"SM_ENDURE",1,200;
@@ -5768,8 +5654,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Stun,300+600*(readparam(bDex)>=77);
   - Id: 4195
@@ -5785,8 +5671,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Water,10;
       bonus3 bAddMonsterDropItem,991,RC_Fish,100;
@@ -5801,8 +5687,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddMonsterDropItem,909,2000;
       bonus2 bAddMonsterDropItem,7126,10;
@@ -5817,8 +5703,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bLuk,1;
   - Id: 4198
@@ -5834,10 +5720,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-#    Script: |
-#      bonus bIntravision;
+      Collection: true
+      DropAnnounce: true
   - Id: 4199
     AegisName: Merman_Card
     Name: Merman Card
@@ -5849,8 +5733,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bHPrecovRate,10;
       bonus bSPrecovRate,10;
@@ -5866,8 +5750,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       if (getrefine()<6)
          bonus bMdef,7;
@@ -5882,8 +5766,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Stun,600;
   - Id: 4202
@@ -5897,8 +5781,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEle,Ele_Ghost,20;
   - Id: 4203
@@ -5912,8 +5796,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bBaseAtk,15;
       bonus3 bAutoSpell,"MG_FIREBALL",3+7*(getskilllv("MG_FIREBALL") == 10),50;
@@ -5928,8 +5812,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Brute,-20;
       bonus2 bSubRace,RC_Player_Doram,-20;
@@ -5945,8 +5829,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddMonsterDropItem,603,10;
   - Id: 4206
@@ -5962,8 +5846,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddMonsterDropItem,644,30;
   - Id: 4207
@@ -5977,8 +5861,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubSize,Size_Small,25;
       bonus bDef,1;
@@ -5993,8 +5877,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxSPrate,10;
       bonus2 bSkillAtk,"MG_FROSTDIVER",5;
@@ -6009,8 +5893,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"BA_FROSTJOKER",1+4*(getskilllv("BA_FROSTJOKER") == 5),20;
   - Id: 4210
@@ -6024,8 +5908,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       if (!isequipped(4172,4257,4230,4272))
          bonus3 bAutoSpell,"RG_INTIMIDATE",1,20;
@@ -6042,8 +5926,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMdef,3;
   - Id: 4212
@@ -6057,8 +5941,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"SM_BASH",1,20;
       bonus2 bAddSkillBlow,"SM_BASH",5;
@@ -6074,8 +5958,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Silence,600;
   - Id: 4214
@@ -6089,8 +5973,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritAtkRate,10;
       bonus2 bCriticalAddRace,RC_Insect,7;
@@ -6105,8 +5989,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddMonsterDropItemGroup,IG_Food,600;
   - Id: 4216
@@ -6120,8 +6004,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Freeze,600;
   - Id: 4217
@@ -6135,8 +6019,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"AL_HEAL",1+9*(getskilllv("AL_HEAL") == 10),20;
   - Id: 4218
@@ -6150,8 +6034,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,-3;
       bonus bHPrecovRate,-20;
@@ -6167,8 +6051,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddMonsterDropItem,715,30;
       bonus2 bAddMonsterDropItem,716,30;
@@ -6184,8 +6068,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDef,2;
       bonus bMdef,2;
@@ -6200,8 +6084,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Insect,-20;
       bonus2 bExpAddRace,RC_Insect,10;
@@ -6216,8 +6100,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Sleep,300;
   - Id: 4223
@@ -6233,8 +6117,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDef,1;
       bonus2 bResEff,Eff_Stun,2000;
@@ -6249,8 +6133,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddMonsterDropItem,12032,RC_Brute,100;
   - Id: 4225
@@ -6264,8 +6148,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bBaseAtk,10;
       bonus bHit,10;
@@ -6280,8 +6164,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDef,2;
       if (getrefine()>8)
@@ -6297,8 +6181,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddItemGroupHealRate,IG_Meat,50;
       bonus3 bAddMonsterDropItem,517,RC_Brute,200;
@@ -6314,8 +6198,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddMonsterDropItem,12031,RC_Fish,100;
   - Id: 4229
@@ -6331,8 +6215,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bInt,1;
       bonus bVariableCastrate,-5;
@@ -6347,8 +6231,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,1;
       bonus3 bAutoSpellWhenHit,"AS_CLOAKING",5,100;
@@ -6363,8 +6247,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddDefMonster,1285,-50;
       bonus2 bAddDefMonster,1286,-50;
@@ -6382,8 +6266,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddItemGroupHealRate,IG_Herb,50;
       bonus3 bAddMonsterDropItem,507,RC_Plant,300;
@@ -6400,8 +6284,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bLuk,3;
       if (BaseClass == Job_Merchant)
@@ -6417,8 +6301,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpellWhenHit,"AC_CONCENTRATION",1+9*(getskilllv("AC_CONCENTRATION") == 10),30;
   - Id: 4235
@@ -6432,8 +6316,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Angel,-20;
       bonus2 bExpAddRace,RC_Angel,10;
@@ -6448,8 +6332,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAllStats,1;
       bonus3 bAutoSpellWhenHit,"PR_KYRIE",10,(30+70*(readparam(bInt)>=99));
@@ -6464,8 +6348,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"PR_IMPOSITIO",3,3;
   - Id: 4238
@@ -6479,8 +6363,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"PR_LEXAETERNA",1,30;
   - Id: 4239
@@ -6494,8 +6378,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Formless,-20;
       bonus2 bExpAddRace,RC_Formless,10;
@@ -6510,8 +6394,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       if (getrefine()<6) {
          bonus bDef,2;
@@ -6530,8 +6414,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMaxHP,300;
       if (readparam(bLuk)>=77) {
@@ -6550,8 +6434,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,2;
       if (getrefine()>8)
@@ -6567,8 +6451,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpellWhenHit,"AL_TELEPORT",1,500;
       bonus bMatkRate,1;
@@ -6583,8 +6467,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpellWhenHit,"MG_SIGHT",1,200;
       bonus bMaxHP,300;
@@ -6600,8 +6484,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_DemiHuman,-20;
       bonus2 bSubRace,RC_Player_Human,-20;
@@ -6617,8 +6501,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritAtkRate,10;
       bonus2 bCriticalAddRace,RC_DemiHuman,7;
@@ -6635,8 +6519,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bBaseAtk,5;
       bonus2 bAddDamageClass,1074,30;
@@ -6651,8 +6535,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpellWhenHit,"AL_CRUCIS",5,30;
   - Id: 4249
@@ -6666,8 +6550,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Demon,-20;
       bonus2 bExpAddRace,RC_Demon,10;
@@ -6682,8 +6566,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubSize,Size_Large,25;
       bonus bDef,1;
@@ -6698,8 +6582,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddDamageClass,1285,40;
       bonus2 bAddDamageClass,1286,40;
@@ -6717,8 +6601,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bLongAtkDef,5;
   - Id: 4253
@@ -6732,8 +6616,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubClass,Class_Boss,40;
       bonus2 bSubClass,Class_Normal,-40;
@@ -6748,8 +6632,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubSize,Size_Medium,25;
       bonus bDef,1;
@@ -6764,8 +6648,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddRace2,RC2_Orc,30;
   - Id: 4256
@@ -6779,8 +6663,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddMonsterDropItem,12034,RC_DemiHuman,100;
   - Id: 4257
@@ -6794,8 +6678,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,1;
       if (BaseClass == Job_Thief)
@@ -6813,8 +6697,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bInt,1;
       bonus bMaxSP,50;
@@ -6829,8 +6713,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDef,1;
       bonus bHPrecovRate,30;
@@ -6847,8 +6731,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDef,1;
       bonus2 bResEff,Eff_Confusion,2000;
@@ -6865,8 +6749,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bDef,1;
       bonus2 bResEff,Eff_Bleeding,2000;
@@ -6881,8 +6765,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddMonsterDropItem,12029,RC_Plant,100;
   - Id: 4263
@@ -6896,8 +6780,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bIgnoreDefClass,Class_Normal;
       bonus bNoRegen,1;
@@ -6920,8 +6804,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"WZ_JUPITEL",3+7*(getskilllv("WZ_JUPITEL") == 10),20;
   - Id: 4265
@@ -6935,8 +6819,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddMonsterDropItem,12033,RC_Angel,100;
   - Id: 4266
@@ -6950,8 +6834,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,1;
   - Id: 4267
@@ -6965,8 +6849,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Dragon,-20;
       bonus2 bExpAddRace,RC_Dragon,10;
@@ -6981,8 +6865,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"AS_SONICBLOW",1,50;
   - Id: 4269
@@ -6998,8 +6882,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bInt,-3;
       bonus bSPrecovRate,-20;
@@ -7015,8 +6899,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Poison,600;
   - Id: 4271
@@ -7032,8 +6916,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubEle,Ele_Wind,10;
       bonus3 bAddMonsterDropItem,992,RC_Insect,100;
@@ -7048,8 +6932,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bAgi,1;
       bonus bCritical,3;
@@ -7064,8 +6948,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bBaseAtk,5;
       bonus2 bAddDamageClass,1073,30;
@@ -7080,12 +6964,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
-#    Script: |
-#      bonus2 bSPGainRace,RC_Undead,5;
-#    UnEquipScript: |
-#      heal 0,-5;
+      Collection: true
+      DropAnnounce: true
   - Id: 4275
     AegisName: Zombie_Prisoner_Card
     Name: Zombie Prisoner Card
@@ -7097,8 +6977,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bSubRace,RC_Undead,-20;
       bonus2 bExpAddRace,RC_Undead,10;
@@ -7113,8 +6993,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAddEff,Eff_Stun,500,ATF_SHORT;
       bonus3 bAddEff,Eff_Curse,500,ATF_SHORT;
@@ -7133,8 +7013,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bLuk,2;
       bonus2 bSkillAtk,"BA_MUSICALSTRIKE",10;
@@ -7152,8 +7032,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       if (getrefine()<6)
          bonus bMdef,5;
@@ -7168,8 +7048,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bSPrecovRate,-100;
       bonus bSPGainValue,10;
@@ -7186,8 +7066,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpellWhenHit,"AL_BLESSING",2+8*(getskilllv("AL_BLESSING") == 10),30;
   - Id: 4281
@@ -7201,8 +7081,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bBaseAtk,30;
       bonus bSPDrainValue,-1;
@@ -7219,8 +7099,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddMonsterDropItemGroup,IG_Recovery,600;
   - Id: 4283
@@ -7234,8 +7114,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus3 bAutoSpell,"MO_CALLSPIRITS",5,2+18*(BaseClass == Job_Acolyte);
   - Id: 4284
@@ -7249,8 +7129,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus4 bAutoSpell,"AL_HEAL",5,50,1;
   - Id: 4285
@@ -7264,8 +7144,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bFlee2,5;
       bonus bFlee,10;
@@ -7280,8 +7160,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Confusion,300+600*(readparam(bStr)>=77);
   - Id: 4287
@@ -7295,8 +7175,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       if (getrefine()<6)
          bonus bMdef,8;
@@ -7313,8 +7193,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bInt,2;
       bonus bMaxSP,150;
@@ -7328,13 +7208,9 @@ Body:
       Right_Hand: true
     Flags:
       BuyingStore: true
-      DropAnnounce: True
+      DropAnnounce: true
       DropEffect: CLIENT
-      Collection: True
-#    Script: |
-#      bonus2 bSPGainRace,RC_Plant,5;
-#    UnEquipScript: |
-#      heal 0,-5;
+      Collection: true
   - Id: 4290
     AegisName: Cat_O_Nine_Tail_Card
     Name: Cat O' Nine Tails Card
@@ -7346,8 +7222,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bMdef,3;
       bonus bMagicDamageReturn,5;
@@ -7362,8 +7238,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bAddRace2,RC2_Kobold,30;
   - Id: 4292
@@ -7377,8 +7253,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bCritAtkRate,10;
       bonus2 bCriticalAddRace,RC_Plant,7;
@@ -7393,8 +7269,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bLuk,2;
       bonus2 bSkillAtk,"AL_HOLYLIGHT",10;
@@ -7409,8 +7285,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       if (BaseJob == Job_Novice || BaseJob == Job_SuperNovice)
          bonus3 bAutoSpellWhenHit,"AL_INCAGI",1,100;
@@ -7425,8 +7301,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Blind,600;
   - Id: 4296
@@ -7442,8 +7318,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
   - Id: 4297
     AegisName: Cruiser_Card
     Name: Cruiser Card
@@ -7455,8 +7331,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritAtkRate,10;
       bonus2 bCriticalAddRace,RC_Brute,7;
@@ -7472,8 +7348,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Confusion,600;
   - Id: 4299
@@ -7487,8 +7363,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus3 bAutoSpellWhenHit,"CR_AUTOGUARD",3+7*(getskilllv("CR_AUTOGUARD") == 10),30;
   - Id: 4300
@@ -7502,8 +7378,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_    ,300+600*(BaseJob == Job_Assassin);
   - Id: 4301
@@ -7516,9 +7392,9 @@ Body:
       Armor: true
     Flags:
       BuyingStore: true
-      DropAnnounce: True
+      DropAnnounce: true
       DropEffect: CLIENT
-      Collection: True
+      Collection: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Bleeding,600;
   - Id: 4302
@@ -7531,9 +7407,9 @@ Body:
       Armor: true
     Flags:
       BuyingStore: true
-      DropAnnounce: True
+      DropAnnounce: true
       DropEffect: CLIENT
-      Collection: True
+      Collection: true
     Script: |
       bonus bMaxHPrate,100;
       bonus bDefRate,-50;
@@ -7549,8 +7425,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bFlee,10;
       if (readparam(bStr)>=80)
@@ -7570,8 +7446,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bDef,2;
       bonus2 bSkillAtk,"CR_SHIELDCHARGE",10;
@@ -7586,9 +7462,9 @@ Body:
       Right_Hand: true
     Flags:
       BuyingStore: true
-      DropAnnounce: True
+      DropAnnounce: true
       DropEffect: CLIENT
-      Collection: True
+      Collection: true
     Script: |
       bonus2 bAddClass,Class_All,20;
       bonus3 bAutoSpell,"SM_MAGNUM",10,30;
@@ -7603,8 +7479,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bFlee2,1;
   - Id: 4307
@@ -7618,12 +7494,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
-#    Script: |
-#      bonus2 bSPGainRace,RC_Fish,5;
-#    UnEquipScript: |
-#      heal 0,-5;
+      DropAnnounce: true
+      Collection: true
   - Id: 4308
     AegisName: Tri_Joint_Card
     Name: Tri Joint Card
@@ -7635,12 +7507,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
-#    Script: |
-#      bonus2 bSPGainRace,RC_Formless,5;
-#    UnEquipScript: |
-#      heal 0,-5;
+      DropAnnounce: true
+      Collection: true
   - Id: 4309
     AegisName: Parasite_Card
     Name: Parasite Card
@@ -7652,8 +7520,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bDef,1;
       bonus2 bSubEle,Ele_Neutral,5;
@@ -7668,8 +7536,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bCritAtkRate,10;
       bonus2 bCriticalAddRace,RC_Demon,7;
@@ -7686,8 +7554,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bSubEle,Ele_Dark,15;
       bonus2 bSubEle,Ele_Undead,15;
@@ -7702,8 +7570,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bFlee,3;
       bonus bHit,10;
@@ -7722,8 +7590,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus4 bAutoSpellWhenHit,"WZ_QUAGMIRE",1+4*(getskilllv("WZ_QUAGMIRE") == 5),50,0;
   - Id: 4314
@@ -7737,8 +7605,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bSubRace,RC_Formless,30;
   - Id: 4315
@@ -7752,8 +7620,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Stone,300+600*(readparam(bInt)>=77);
   - Id: 4316
@@ -7767,8 +7635,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bSPGainRace,RC_Angel,5;
     UnEquipScript: |
@@ -7784,8 +7652,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bCritAtkRate,15;
       if (BaseClass == Job_Thief)
@@ -7801,8 +7669,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus3 bAutoSpell,"WZ_STORMGUST",1,20;
       bonus2 bAddEff,Eff_Freeze,2000;
@@ -7817,8 +7685,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bMaxHP,300;
       if (getrefine()>=9)
@@ -7834,8 +7702,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus3 bAutoSpell,"WZ_METEOR",1,20;
   - Id: 4321
@@ -7849,8 +7717,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bClassChange,100;
   - Id: 4322
@@ -7864,8 +7732,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bDef,1;
       bonus bShortWeaponDamageReturn,5;
@@ -7880,8 +7748,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"MG_FROSTDIVER",3,50;
   - Id: 4324
@@ -7895,8 +7763,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus2 bAddEffWhenHit,Eff_Freeze,5000;
   - Id: 4325
@@ -7910,8 +7778,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bSubEle,Ele_Neutral,15;
       bonus2 bSkillAtk,"MG_NAPALMBEAT",5;
@@ -7926,8 +7794,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bAddItemGroupHealRate,IG_Fish,50;
       bonus3 bAddMonsterDropItem,551,RC_Fish,300;
@@ -7942,9 +7810,9 @@ Body:
       Both_Accessory: true
     Flags:
       BuyingStore: true
-      DropAnnounce: True
+      DropAnnounce: true
       DropEffect: CLIENT
-      Collection: True
+      Collection: true
     Script: |
       bonus bVariableCastrate,30;
       bonus bNoCastCancel;
@@ -7960,8 +7828,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bFlee,15;
       bonus bCritical,1;
@@ -7976,8 +7844,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bSPGainRace,RC_DemiHuman,5;
       bonus2 bSPGainRace,RC_Player_Human,5;
@@ -7996,8 +7864,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bInt,3;
       bonus2 bResEff,Eff_Blind,10000;
@@ -8013,8 +7881,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bCritical,3;
       if (BaseClass == Job_Swordman)
@@ -8030,8 +7898,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bBaseAtk,5;
       bonus bInt,1;
@@ -8046,8 +7914,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus3 bAddEffWhenHit,Eff_Poison,3000,ATF_TARGET|ATF_SELF;
   - Id: 4334
@@ -8061,8 +7929,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bLongAtkDef,10;
       bonus2 bSubEle,Ele_Neutral,10;
@@ -8077,8 +7945,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bSkillAtk,"WZ_EARTHSPIKE",5;
       bonus2 bSkillAtk,"WZ_HEAVENDRIVE",5;
@@ -8097,8 +7965,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bHPrecovRate,10;
       bonus2 bResEff,Eff_Bleeding,10000;
@@ -8113,8 +7981,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bBaseAtk,25;
       bonus bDef,-5;
@@ -8129,8 +7997,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,readparam(bDex)/18;
   - Id: 4339
@@ -8144,8 +8012,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus bBaseAtk,-25;
       bonus bDef,3;
@@ -8160,8 +8028,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      DropAnnounce: True
-      Collection: True
+      DropAnnounce: true
+      Collection: true
     Script: |
       bonus2 bSubRace,RC_Undead,30;
   - Id: 4341
@@ -8175,8 +8043,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus3 bAutoSpell,"RG_STRIPWEAPON",1,50;
   - Id: 4342
@@ -8190,8 +8058,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      Collection: True
-      DropAnnounce: True
+      Collection: true
+      DropAnnounce: true
     Script: |
       bonus bVit,3;
       bonus bUnbreakableArmor;
@@ -15532,7 +15400,7 @@ Body:
     Buy: 500
     Weight: 10
     Flags:
-      BuyingStore: true      
+      BuyingStore: true
   - Id: 6510
     AegisName: Elegant_Flower
     Name: Elegant Flower
@@ -15548,7 +15416,7 @@ Body:
     Buy: 300
     Weight: 10
     Flags:
-      BuyingStore: true         
+      BuyingStore: true
   - Id: 6512
     AegisName: Charm_Fire
     Name: Fire Amulet
@@ -18154,7 +18022,7 @@ Body:
     Type: Etc
   - Id: 7338
     AegisName: RO_Transportation_Card
-    Name: One-way Ticket
+    Name: Gacha Ticket
     Type: Etc
   - Id: 7339
     AegisName: RO_Transportation_Card_
@@ -24045,27 +23913,27 @@ Body:
     Type: Etc
     Buy: 20
     Weight: 1
-    Trade:    
+    Trade:
       NoDrop: true
       NoTrade: true
       NoSell: true
       NoCart: true
       NoGuildStorage: true
       NoMail: true
-      NoAuction: true 
+      NoAuction: true
   - Id: 1000322
     AegisName: Craft_Dust
     Name: Craft Dust
     Type: Etc
     Weight: 10
     Flags:
-      DropEffect: RED_PILLAR    
+      DropEffect: RED_PILLAR
     Trade:
       NoDrop: true
       NoSell: true
       NoGuildStorage: true
       NoMail: true
-      NoAuction: true   
+      NoAuction: true
   - Id: 6635
     AegisName: Blacksmith_Blessing
     Name: Blacksmith Blessing
