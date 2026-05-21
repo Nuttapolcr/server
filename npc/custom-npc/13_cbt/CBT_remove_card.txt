@@ -1,0 +1,360 @@
+//!rathena
+morocc,163,180,4	script	ระบบถอดการ์ด	10057,{
+Start:
+	
+	setarray .@EQI[0],EQI_HEAD_TOP,EQI_HEAD_MID,EQI_HEAD_LOW,EQI_ARMOR,EQI_HAND_R,EQI_HAND_L,EQI_GARMENT,EQI_SHOES,EQI_ACC_L,EQI_ACC_R,EQI_COSTUME_HEAD_TOP, EQI_COSTUME_HEAD_MID, EQI_COSTUME_HEAD_LOW, EQI_COSTUME_GARMENT, EQI_SHADOW_ARMOR, EQI_SHADOW_WEAPON, EQI_SHADOW_SHIELD, EQI_SHADOW_SHOES, EQI_SHADOW_ACC_R, EQI_SHADOW_ACC_L;;
+	setarray .@EQI$[0], "หมวก", "หู", "ปาก", "ชุดเกาะ",  "อาวุธ", "โล่", "ผ้าคลุม", "รองเท้า", "ประดับ ซ้าย", "ประดับ ขวา","คอสหมวก", "คอสหู", "คอสปาก", "คอสผ้าคลุม", "คอสชุดเกาะ", "คอสอาวุธ", "คอสโล่", "คอสรองเท้า", "คอสประดับ ขวา", "คอสประดับ ซ้าย";
+	.@max_eqi = getarraysize(.@EQI);
+	
+	//			กำหนดเปิดให้ออฟอะไรได้บ้าง	หากต้องการใส่ 1	หากไม่ต้องการใส่ 0
+	
+	setarray .@open[0]	,1	//	หมวก
+						,1	//	หู
+						,1	//	ปาก
+						,1	//	เกราะ
+						,1	//	อาวุธ
+						,1	//	โล่
+						,1	//	ผ้าคลุม
+						,1	//	รองเท้า
+						,1	//	ประดับ ซ้าย
+						,1	//	ประดับ ขวา
+						,0	//	คอสหมวก
+						,0	//	คอสหู
+						,0	//	คอสปาก
+						,0	//	คอสผ้าคลุม
+						,0	//	คอสชุดเกาะ
+						,0	//	คอสอาวุธ
+						,0	//	คอสโล่
+						,0	//	คอสรองเท้า
+						,0	//	คอสประดับ ขวา
+						,0	//	คอสประดับ ซ้าย
+						;
+						
+	mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	mes "โอกาสสำเร็จ : ^009900"+.rate_win+"%^000000";
+	
+	mes "กรุณาเลือกอุปกรณ์ของเจ้า";
+	
+	if(.item_use > 0){ mes "ค่าบริการ : "+getitemname(.item_use)+" x"+.amount_use+" ea"; }
+	
+	for (set .@i, 0; .@i < .@max_eqi; set .@i, .@i + 1) {	
+		if(.@open[.@i] == 1){ 
+			if(getequipisequiped(.@EQI[.@i])){ set .@menu$, .@menu$ + "["+.@EQI$[.@i]+"] - "+getequipname(.@EQI[.@i])+""; }
+		}
+		set .@menu$, .@menu$ + ":";
+	}
+	
+	set .@part, select(.@menu$) - 1;
+	
+	set .@part2, .@EQI[.@part];
+	
+	.@id_item = getequipid(.@part2);
+	
+	if(!getequipisequiped(.@part2)){
+		next;
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้.";
+		end;
+	}
+	
+	.@select = getiteminfo(.@id_item,ITEMINFO_SLOT);
+	
+	/*
+	if(.@select == 1){
+		.@cardslot01 = getequipcardid(.@part2,0);
+	}
+	if(.@select == 2){
+		.@cardslot01 = getequipcardid(.@part2,0);
+		.@cardslot02 = getequipcardid(.@part2,1);
+	}
+	if(.@select == 3){
+		.@cardslot01 = getequipcardid(.@part2,0);
+		.@cardslot02 = getequipcardid(.@part2,1);
+		.@cardslot03 = getequipcardid(.@part2,2);
+	}
+	if(.@select == 4){
+		.@cardslot01 = getequipcardid(.@part2,0);
+		.@cardslot02 = getequipcardid(.@part2,1);
+		.@cardslot03 = getequipcardid(.@part2,2);
+		.@cardslot04 = getequipcardid(.@part2,3);
+	}
+	*/
+	
+	.@cardslot01 = getequipcardid(.@part2,0);
+	.@cardslot02 = getequipcardid(.@part2,1);
+	.@cardslot03 = getequipcardid(.@part2,2);
+	.@cardslot04 = getequipcardid(.@part2,3);
+		
+	next;
+	mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	.@can_remove_count = 0;
+	.@tag_found = 0;
+
+	if(.@cardslot01 == 1009999){
+		mes "^FF9900พบ "+getitemname(1009999)+" ติดอยู่ในอุปกรณ์ชิ้นนี้^000000";
+		mes "Tag ไม่สามารถถอดออกได้";
+		.@tag_found = 1;
+	} else if(.@cardslot01 > 0){
+		mes "เตรียมถอด ^0099FF"+getitemname(.@cardslot01)+"^000000";
+		.@card_prize_01 = .card_prize;
+		.@can_remove_count++;
+	}
+	if(.@cardslot02 == 1009999){
+		mes "^FF9900พบ "+getitemname(1009999)+" ติดอยู่ในอุปกรณ์ชิ้นนี้^000000";
+		mes "Tag ไม่สามารถถอดออกได้";
+		.@tag_found = 1;
+	} else if(.@cardslot02 > 0){
+		mes "เตรียมถอด ^0099FF"+getitemname(.@cardslot02)+"^000000";
+		.@card_prize_02 = .card_prize;
+		.@can_remove_count++;
+	}
+	if(.@cardslot03 == 1009999){
+		mes "^FF9900พบ "+getitemname(1009999)+" ติดอยู่ในอุปกรณ์ชิ้นนี้^000000";
+		mes "Tag ไม่สามารถถอดออกได้";
+		.@tag_found = 1;
+	} else if(.@cardslot03 > 0){
+		mes "เตรียมถอด ^0099FF"+getitemname(.@cardslot03)+"^000000";
+		.@card_prize_03 = .card_prize;
+		.@can_remove_count++;
+	}
+	if(.@cardslot04 == 1009999){
+		mes "^FF9900พบ "+getitemname(1009999)+" ติดอยู่ในอุปกรณ์ชิ้นนี้^000000";
+		mes "Tag ไม่สามารถถอดออกได้";
+		.@tag_found = 1;
+	} else if(.@cardslot04 > 0){
+		mes "เตรียมถอด ^0099FF"+getitemname(.@cardslot04)+"^000000";
+		.@card_prize_04 = .card_prize;
+		.@can_remove_count++;
+	}
+	
+	if(.@can_remove_count == 0){
+		mes "อุปกรณ์ "+getitemname(.@id_item)+"";
+		if(.@tag_found)
+			mes "มี Tag ติดอยู่ แต่ไม่สามารถถอดออกได้";
+		else
+			mes "ไม่มีการ์ดให้ข้าถอดนะ";
+		end;
+	}
+	
+	next;
+	mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	if(.zeny_use > 0){ mes "ค่าบริการ : "+callfunc("F_InsertComma",.zeny_use)+" Zeny"; }
+	if(.item_use > 0){ mes "ค่าบริการ : "+getitemname(.item_use)+" x"+.amount_use+" ea"; }
+	if(.@cardslot01 > 0 && .@cardslot01 != 1009999){ mes ""+getitemname(.@cardslot01)+" : "+callfunc("F_InsertComma",.@card_prize_01)+" Zeny"; }
+	if(.@cardslot02 > 0 && .@cardslot02 != 1009999){ mes ""+getitemname(.@cardslot02)+" : "+callfunc("F_InsertComma",.@card_prize_02)+" Zeny"; }
+	if(.@cardslot03 > 0 && .@cardslot03 != 1009999){ mes ""+getitemname(.@cardslot03)+" : "+callfunc("F_InsertComma",.@card_prize_03)+" Zeny"; }
+	if(.@cardslot04 > 0 && .@cardslot04 != 1009999){ mes ""+getitemname(.@cardslot04)+" : "+callfunc("F_InsertComma",.@card_prize_04)+" Zeny"; }
+	
+	.@zeny_all = (.zeny_use+.@card_prize_01+.@card_prize_02+.@card_prize_03+.@card_prize_04);
+	
+	mes "รวม : "+callfunc("F_InsertComma",.@zeny_all)+" Zeny";
+	
+	if(.@zeny_all > 0){
+		if(Zeny < .@zeny_all){
+			next;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "จำนวน Zeny ของท่านไม่เพียงพอ";
+			mes "ต้องการอีก "+callfunc("F_InsertComma",(.@zeny_all-Zeny))+" Zeny";
+			end;
+		}
+	}
+	if(.item_use > 0){
+		if(countitem(.item_use) < .amount_use){
+			next;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "จำนวน "+getitemname(.item_use)+" ไม่เพียงพอ";
+			mes "ต้องการอีก "+callfunc("F_InsertComma",(.amount_use-countitem(.item_use)))+" ea";
+			end;
+		}
+	}
+	
+	if(.rate_win < 100){
+	
+		next;
+		
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		
+		mes "โปรดเลือกรายการที่ต้องการ";
+		
+		for ( .@i=0; .@i<getarraysize(.percent_id); .@i++ ){
+			set .@menu_percent$, .@menu_percent$ + "- "+getitemname(.percent_id[.@i])+" ^009900เพิ่ม "+.percent_plus[.@i]+" %^000000";
+			set .@menu_percent$, .@menu_percent$ + ":";
+		}
+		set .@menu_percent$, .@menu_percent$ + "- ข้าไม่ต้องการใช้";
+		
+		set .@choose, select(.@menu_percent$) - 1;
+		
+		set .@choose2, .percent_id[.@choose];
+		
+	}
+	if(.@choose2 != 0){
+		next;
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		mes "ท่านเลือก ^FF9900"+getitemname(.percent_id[.@choose])+"^000000";
+		mes "สามารถเพิ่มโอกาสสำเร็จอีก ^0000FF"+.percent_plus[.@choose]+"%^000000";
+		if(countitem(.@choose2) <= 0){
+			next;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "ท่านไม่ได้พก "+getitemname(.@choose2)+" มานะ";
+			mes "หามาให้ข้าละกัน";
+			end;
+		}
+	}
+	
+	if((.rate_win+.percent_plus[.@choose]) >= 100){ goto menu_last_recheck; end; }
+	
+	next;
+	
+	mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	mes "ไอเทม "+getitemname(.broken_item)+" x"+.broken_amount+" ea";
+	mes "สามารถป้องกันอุปกรณ์เสียหายได้";
+	
+	menu	"- ใช้งาน "+getitemname(.broken_item)+"",menu_broken_01,
+			"- ข้าไม่มีไอเทม",menu_broken_02;
+	end;
+	
+	menu_broken_01:
+		
+		if(countitem(.broken_item) < .broken_amount){
+			next;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "ข้าไม่เห็น "+getitemname(.broken_item)+" มาเลย";
+			end;
+		}
+		.@broken = 1;
+		goto menu_last_recheck;
+		end;
+		
+	menu_broken_02:
+		
+		.@broken = 0;
+		goto menu_last_recheck;
+		end;
+		
+	menu_last_recheck:
+	
+	next;
+	
+	mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	/*
+	if(.@choose2 == 0){ mes "สถานะใบเพิ่มโอกาส : ^FF3300ยกเลิก^000000"; }
+	if(.@choose2 != 0){ mes "สถานะใบเพิ่มโอกาส : ^009900ใช้งาน^000000"; }
+	if(.@broken == 0){ mes "สถานะกันแตก : ^FF3300ยกเลิก^000000"; }
+	if(.@broken != 0){ mes "สถานะกันแตก : ^009900ใช้งาน^000000"; }
+	*/
+	mes "โอกาสสำเร็จ : ^0099FF"+.rate_win+"%+"+.percent_plus[.@choose]+"% = "+(.rate_win+.percent_plus[.@choose])+"%^000000";
+	
+	if(.zeny_use > 0){ mes "ค่าบริการ : "+callfunc("F_InsertComma",.zeny_use)+" Zeny"; }
+	if(.item_use > 0){ mes "ค่าบริการ : "+getitemname(.item_use)+" x"+.amount_use+" ea"; }
+	if(.@cardslot01 > 0 && .@cardslot01 != 1009999){ mes ""+getitemname(.@cardslot01)+" : "+callfunc("F_InsertComma",.@card_prize_01)+" Zeny"; }
+	if(.@cardslot02 > 0 && .@cardslot02 != 1009999){ mes ""+getitemname(.@cardslot02)+" : "+callfunc("F_InsertComma",.@card_prize_02)+" Zeny"; }
+	if(.@cardslot03 > 0 && .@cardslot03 != 1009999){ mes ""+getitemname(.@cardslot03)+" : "+callfunc("F_InsertComma",.@card_prize_03)+" Zeny"; }
+	if(.@cardslot04 > 0 && .@cardslot04 != 1009999){ mes ""+getitemname(.@cardslot04)+" : "+callfunc("F_InsertComma",.@card_prize_04)+" Zeny"; }
+	
+	.@zeny_all = (.zeny_use+.@card_prize_01+.@card_prize_02+.@card_prize_03+.@card_prize_04);
+	
+	mes "รวม : "+callfunc("F_InsertComma",.@zeny_all)+" Zeny";
+	
+	menu "- ยืนยันการถอดการ์ด",menu_ok;
+	end;
+	
+	menu_ok:
+	
+	if(.@zeny_all > 0){
+		if(Zeny < .@zeny_all){
+			next;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "จำนวน Zeny ของท่านไม่เพียงพอ";
+			mes "ต้องการอีก "+callfunc("F_InsertComma",(.@zeny_all-Zeny))+" Zeny";
+			end;
+		}
+	}
+	if(.item_use > 0){
+		if(countitem(.item_use) < .amount_use){
+			next;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "จำนวน "+getitemname(.item_use)+" ไม่เพียงพอ";
+			mes "ต้องการอีก "+callfunc("F_InsertComma",(.amount_use-countitem(.item_use)))+" ea";
+			end;
+		}
+	}
+	if(.@choose2 != 0){
+		if(countitem(.@choose2) <= 0){
+			next;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "ท่านไม่ได้พก "+getitemname(.@choose2)+" มานะ";
+			mes "หามาให้ข้าละกัน";
+			end;
+		}
+	}
+	if(.@broken != 0){
+		if(countitem(.broken_item) < .broken_amount){
+			next;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "ข้าไม่เห็น "+getitemname(.broken_item)+" มาเลย";
+			end;
+		}
+	}
+	
+	next;
+	mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	if(.@zeny_all > 0){ Zeny = Zeny -.@zeny_all; }
+	if(.item_use > 0){ delitem .item_use,.amount_use; }
+	if(.@choose2 != 0){ delitem .@choose2,1; }
+	if(.@broken != 0){ delitem .broken_item,.broken_amount; }
+	
+	.@r = rand(1,100);
+	
+	if(.@r <= (.rate_win+.percent_plus[.@choose])){
+		mes "^009900@@@ การถอดการ์ดสำเร็จ @@@^000000";
+		successremovecards .@part2;
+		specialeffect2 154;
+		end;
+	}
+	if(.@r > (.rate_win+.percent_plus[.@choose])){
+		specialeffect2 155;
+		mes "^FF9900@@@ การถอดการ์ดไม่สำเร็จ @@@^000000";
+		
+		.@a = rand(1,3);	//	1 = Item & Card เสียหาย	2 = Card เสียหาย	3 = Item เสียหาย	rand(1,3) = สุ่ม
+		
+		if(.@broken != 0){
+			mes "แต่ข้ารักษาอุปกรณ์ไว้ให้ท่านนะ";
+			end;
+		}
+		if(.@a == 1){	//	Fail Card & Item
+			mes "^FF3300เสียใจด้วย ทั้ง Item & Card เสียหายทั้งหมด^000000";
+			failedremovecards .@part2,0;
+		}
+		if(.@a == 2){	//	Fail Card
+			mes "^FF3300เสียใจด้วย Card เสียหาย^000000";
+			failedremovecards .@part2,1;
+		}
+		if(.@a == 3){	//	Fail Item
+			mes "^FF3300เสียใจด้วย Item เสียหาย^000000";
+			failedremovecards .@part2,2;
+		}
+		end;
+	}
+	
+	end;
+
+OnInit:
+	
+	waitingroom "    [ถอดการ์ด]",0;
+	
+	.item_use = 0;			//	กำหนดรหัสไอเทมที่ใช้เป็นค่าบริการ
+	.amount_use = 0;			//	กำหนดจำนวนไอเทมที่ใช้เป็นค่าบริการ
+	.zeny_use = 200000;				//	กำหนดเงินที่ใช้เป็นค่าบริการ
+	.card_prize = 50000;			//	กำหนดเงินที่ใช้เป็นค่าบริการต่อการ์ด 1 ใบ
+	.rate_win = 100;			//	กำหนด % สำเร็จในการถอด
+	.broken_item = 0;			//	กำหนดรหัสไอเทมกันแตก
+	.broken_amount = 0;			//	กำหนดจำนวนกันแตก
+	
+	end;
+}
+

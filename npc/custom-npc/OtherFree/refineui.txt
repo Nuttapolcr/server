@@ -1,0 +1,14 @@
+//Welgaia,135,101,5	duplicate(refineui)	∫√‘°“√µ’∫«°#01	63
+
+
+oasis,131,77,4	script	µ’∫«°‰Õ‡∑¡	813,{
+	switch(select("~ µ’∫«°·√Ë∏√√¡¥“:~ µ’∫«°·√Ë¢—Èπ Ÿß"))
+	{
+		case 1:
+			callfunc "refinemain",0;
+			end;
+		case 2:
+			callfunc "advance_refine",0;
+			end;
+	}
+}

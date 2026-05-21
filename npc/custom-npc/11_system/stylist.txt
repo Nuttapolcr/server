@@ -1,0 +1,186 @@
+//===== rAthena Script =======================================
+//= Stylist Scripts
+//===== By: ==================================================
+//= Tenz
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthena Project
+//============================================================
+-	script	StylistCore	-1,{
+	
+	setarray .@Styles[1],
+		getbattleflag("max_cloth_color"),
+		getbattleflag("max_hair_style"),
+		getbattleflag("max_hair_color");
+
+	setarray .@Look[1],
+		LOOK_CLOTHES_COLOR,
+		LOOK_HAIR,
+		LOOK_HAIR_COLOR;
+	
+	mes "[Stylist Girl]";
+	mes "ข้าคือดีไซน์เนอร์ที่เก่งที่สุดใน Rune-Midgard";
+	mes "เจ้าต้องการให้ข้าออกแบบส่วนไหนของเจ้าดีล่ะ";
+	next;
+	switch(select("เปลี่ยนทรงผม:เปลี่ยนสีผม:เปลี่ยนสีชุด:ยกเลิกการสนทนา")) {
+		case 1:
+			mes "[Stylist Girl]";
+			mes "ข้าต้องการ ^0000FFx1 "+ getitemname(.HairStyleCoupon) +"^000000 ในการใช้บริการเจ้ามีมันไหมล่ะ?";
+			next;
+			switch(select("ตกลง, มาเริ่มกันเลย:ยกเลิก, ข้าไม่มี")) {
+				case 1:
+					if (countitem(.HairStyleCoupon) >= 1) {
+						mes "[Stylist Girl]";
+						mes "เอาล่ะโปรดเลือกทรงผมที่เจ้าต้องการได้เลย";
+						delitem .HairStyleCoupon, 1;
+						.@s = 2;
+						.@Revert = getlook(.@Look[.@s]);
+						.@Style = 1;
+						while(1) {
+							setlook .@Look[.@s], .@Style;
+							message strcharinfo(0),"นี่คือรูปแบบที่ #"+.@Style+".";
+							.@menu$ = ""+ .li$ +"ต่อไป (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000):"+ .li$ +"ย้อนกลับ (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000):"+ .li$ +"ไปที่...:"+ .li$ +"กลับไปรูปแบบเดิม (^0055FF"+.@Revert+"^000000)";
+							switch(select(.@menu$)) {
+							case 1:
+								set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);
+								break;
+							case 2:
+								set .@Style, ((.@Style != 1) ? .@Style-1 : .@Styles[.@s]);
+								break;
+							case 3:
+								message strcharinfo(0),"เลือกรูปแบบตั้งแต่ 1 - "+.@Styles[.@s]+".";
+								input .@Style,0,.@Styles[.@s];
+								if (!.@Style)
+									set .@Style, rand(1,.@Styles[.@s]);
+								break;
+							case 4:
+								set .@Style, .@Revert;
+								setlook .@Look[.@s], .@Revert;
+								break;
+							}
+						}
+					} else {
+						mes "[Stylist Girl]";
+						mes "ดูเหมือนว่าเจ้าจะไม่มีสิ่งของที่ข้าต้องการนะ กลับไปเอามันมาสิ";
+					}
+					break;
+				default:
+					mes "[Stylist Girl]";
+					mes "หากเจ้ามีความคิดที่อยากจะโดดเด่นกว่าใคร กลับมาหาข้าล่ะ";
+					break;
+			}
+			break;
+		case 2:
+			mes "[Stylist Girl]";
+			mes "ข้าต้องการ ^0000FFx1 "+ getitemname(.HairDyeCoupon) +"^000000 ในการใช้บริการเจ้ามีมันไหมล่ะ?";
+			next;
+			switch(select("ตกลง, มาเริ่มกันเลย:ยกเลิก, ข้าไม่มี")) {
+				case 1:
+					if (countitem(.HairDyeCoupon) >= 1) {
+						mes "[Stylist Girl]";
+						mes "เอาล่ะโปรดเลือกสีผมที่เจ้าต้องการได้เลย";
+						delitem .HairDyeCoupon, 1;
+						.@s = 3;
+						.@Revert = getlook(.@Look[.@s]);
+						.@Style = 1;
+						while(1) {
+							setlook .@Look[.@s], .@Style;
+							message strcharinfo(0),"นี่คือรูปแบบที่ #"+.@Style+".";
+							.@menu$ = ""+ .li$ +"ต่อไป (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000):"+ .li$ +"ย้อนกลับ (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000):"+ .li$ +"ไปที่...:"+ .li$ +"กลับไปรูปแบบเดิม (^0055FF"+.@Revert+"^000000)";
+							switch(select(.@menu$)) {
+							case 1:
+								set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);
+								break;
+							case 2:
+								set .@Style, ((.@Style != 1) ? .@Style-1 : .@Styles[.@s]);
+								break;
+							case 3:
+								message strcharinfo(0),"เลือกรูปแบบตั้งแต่ 1 - "+.@Styles[.@s]+".";
+								input .@Style,0,.@Styles[.@s];
+								if (!.@Style)
+									set .@Style, rand(1,.@Styles[.@s]);
+								break;
+							case 4:
+								set .@Style, .@Revert;
+								setlook .@Look[.@s], .@Revert;
+								break;
+							}
+						}
+					} else {
+						mes "[Stylist Girl]";
+						mes "ดูเหมือนว่าเจ้าจะไม่มีสิ่งของที่ข้าต้องการนะ กลับไปเอามันมาสิ";
+					}
+					break;
+				default:
+					mes "[Stylist Girl]";
+					mes "หากเจ้ามีความคิดที่อยากจะโดดเด่นกว่าใคร กลับมาหาข้าล่ะ";
+					break;
+			}
+			break;
+		case 3:
+			mes "[Stylist Girl]";
+			mes "ข้าต้องการ ^0000FFx1 "+ getitemname(.ClothDyeCoupon) +"^000000 ในการใช้บริการเจ้ามีมันไหมล่ะ?";
+			next;
+			switch(select("ตกลง, มาเริ่มกันเลย:ยกเลิก, ข้าไม่มี")) {
+				case 1:
+					if (countitem(.ClothDyeCoupon) >= 1) {
+						mes "[Stylist Girl]";
+						mes "เอาล่ะโปรดเลือกสีผมที่เจ้าต้องการได้เลย";
+						delitem .ClothDyeCoupon, 1;
+						.@s = 1;
+						.@Revert = getlook(.@Look[.@s]);
+						.@Style = 1;
+						while(1) {
+							setlook .@Look[.@s], .@Style;
+							message strcharinfo(0),"นี่คือรูปแบบที่ #"+.@Style+".";
+							.@menu$ = ""+ .li$ +"ต่อไป (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000):"+ .li$ +"ย้อนกลับ (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000):"+ .li$ +"ไปที่...:"+ .li$ +"กลับไปรูปแบบเดิม (^0055FF"+.@Revert+"^000000)";
+							switch(select(.@menu$)) {
+							case 1:
+								set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);
+								break;
+							case 2:
+								set .@Style, ((.@Style != 1) ? .@Style-1 : .@Styles[.@s]);
+								break;
+							case 3:
+								message strcharinfo(0),"เลือกรูปแบบตั้งแต่ 1 - "+.@Styles[.@s]+".";
+								input .@Style,0,.@Styles[.@s];
+								if (!.@Style)
+									set .@Style, rand(1,.@Styles[.@s]);
+								break;
+							case 4:
+								set .@Style, .@Revert;
+								setlook .@Look[.@s], .@Revert;
+								break;
+							}
+						}
+					} else {
+						mes "[Stylist Girl]";
+						mes "ดูเหมือนว่าเจ้าจะไม่มีสิ่งของที่ข้าต้องการนะ กลับไปเอามันมาสิ";
+					}
+					break;
+				default:
+					mes "[Stylist Girl]";
+					mes "หากเจ้ามีความคิดที่อยากจะโดดเด่นกว่าใคร กลับมาหาข้าล่ะ";
+					break;
+			}
+			break;
+		default:
+			mes "[Stylist Girl]";
+			mes "หากเจ้ามีความคิดที่อยากจะโดดเด่นกว่าใคร กลับมาหาข้าล่ะ";
+			break;
+	}
+	end;
+
+OnInit:
+	waitingroom "   แต่งตัวละคร", 0;
+	.HairStyleCoupon = 7622;
+	.HairDyeCoupon = 6290;
+	.ClothDyeCoupon = 6046;
+	end;
+}
+
+//prontera,164,106,4	duplicate(StylistCore)	Stylist Girl#prt	4_M_ALCHE_D
+//prt_in,243,168,4	duplicate(StylistCore)	Stylist Girl#pay	4_M_ALCHE_D
+//alberta_in,55,142,7	duplicate(StylistCore)	Stylist Girl#mor	4_M_ALCHE_D
+morocc,115,74,3	duplicate(StylistCore)	Stylist Girl#izl	122

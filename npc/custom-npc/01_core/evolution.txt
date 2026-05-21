@@ -1,0 +1,825 @@
+/*
+=================== TERMS OF SERVICES. ===================
+1. ALL RIGHT RESERVED RE-SELLER OR SHARE SCRIPT TO PUBLISH.
+2. BUT YOU RE-SELLER OR SHARE SCRIPT WITH OUT UNAUTHORIZRD
+   I WILL ALL CANCEL MY SUPPORT FOR YOU.
+3. MAINTENANCE SCRIPTS WILL BE FREE SERVICES.
+4. I WILL NOT KEEP ANY INFORMATIONS FROMS YOU SERVER THAT
+   YOU SEND FOR ME.
+5. I HOPE YOU WILL ALL ACCEPT TERMS OF SERVICES.
+==========================================================
+Script. Pet Evolution																		 
+Create By. Athena Studio
+Bug Report. Kittisak Sarounram [ FB ]																					 
+Contact Us. Kittisak Sarounram [ FB ]																					 
+TEL. 0909183008 [ TRUE MOVE H ]																					 
+==========================================================
+*/
+
+morocc,118,80,6	script	Pet Evolution	433,{
+
+	mes "[ Pet Evolution ]";
+	mes "ยินดีต้อนรับสู่สถานที่เพาะพันธุ์สัตว์เลี้ยง";
+	mes "วันนี้คุณต้องการมาทำอะไร ?";
+	next;
+	switch(select("~ แลกรับสัตว์เลี้ยง:~ เพิ่มความสนิทสนมให้สัตว์เลี้ยง:~ วิวัฒนาการสัตว์เลี้ยง:~ ยกเลิกการสนทนา"))
+	{
+		case 1:
+			mes "[ Pet Evolution ]";
+			mes "คุณจะได้รับใข่สำหรับสายเริ่มต้นทั้งหมดโดยการสุ่มเท่านั้น";
+			mes " ";
+			mes "เงื่อนใขในการแลกสัตว์เลี้ยงคือ";
+			mes "1."+ getitemname(.itemid[1]) +" จำนวน "+ .amount[1];
+			mes "2."+ getitemname(.itemid[2]) +" จำนวน "+ .amount[2];
+			mes "3."+ getitemname(.itemid[3]) +" จำนวน "+ .amount[3];
+			mes "4."+ callfunc("F_InsertComma",.zeny) +" เซนี";
+			mes " ";
+			mes "คุณต้องการที่จะแลกรับใข่หรือไม่ ?";
+			next;
+			switch(select("~ แลกใข่สัตว์เลี้ยง:~ ยังก่อน"))
+			{
+				case 1:
+					if ( countitem(.itemid[1]) < .amount[1] && countitem(.itemid[2]) < .amount[2] && countitem(.itemid[3]) < .amount[3] && Zeny < .zeny )
+					{
+						mes "[ Pet Evolution ใช้ 100 Cash เพิ่มความสนิด ]";
+						mes "ดูเหมือนว่ารายการเงื่อนใขของคุณไม่เพียงพอ";
+						close;
+					}
+					set Zeny, Zeny - .zeny;
+					delitem .itemid[1],.amount[1];
+					delitem .itemid[2],.amount[2];
+					delitem .itemid[3],.amount[3];
+					makepet .petid[rand(getarraysize(.petid))];
+					end;
+					
+				case 2: end;
+			}
+			end;
+			
+		case 2:
+			if ( getpetinfo(2) == "null" )
+			{
+				mes "[ Pet Evolution ใช้ 100 Cash เพิ่มความสนิด ]";
+				mes "คุณไม่มีสัตว์เลี้ยง";
+				close;
+			}
+			else if ( getpetinfo(3) >= 1000 )
+			{
+				mes "[ Pet Evolution ]";
+				mes "สัตว์เลี้ยงของคุณในตอนนี้มีความสนิทสนมสูงสุดแล้ว";
+				close;
+			}
+			else if ( #CASHPOINTS < 100 )
+			{
+				mes "[ Pet Evolution ]";
+				mes "คุณมีจำนวนพอยท์ไม่เพียงพอ";
+				close;
+			}
+			else
+			{
+				mes "[ Pet Evolution ]";
+				mes "คุณจะต้องเสีย 100 Cash Point";
+				mes "สำหรับการทำให้สัตว์เลี้ยงสนิทสนม";
+				next;
+				if ( select("~ ยืนยัน:~ ยกเลิก") == 2 )
+				{
+					mes "[ Pet Evolution ]";
+					mes "ไว้เจอกันใหม่...";
+					close;
+				}
+				set #CASHPOINTS,#CASHPOINTS - 100;
+				atcommand "@petfriendly 1000";
+				atcommand "@pethungry 50";
+				mes "[ Pet Evolution ]";
+				mes "สัตว์เลี้ยงของคุณสนิทสนมเรียบร้อยแล้ว";
+				close;
+			}
+			end;
+			
+		case 3:
+			if ( getpetinfo(PET_CLASS) )
+			{	
+				mes "[ Pet Evolution ]";
+				mes "กรุณาเก็บสัตว์เลี้ยงของคุณให้อยู่ในสถานะไข่เพื่อดำเนินการการวิวัฒนาการขั้นต่อไป";
+				close;
+			}
+			
+			getinventorylist;	
+			for (.@i = 0; .@i < @inventorylist_count; .@i++ )
+			{
+				if ( @inventorylist_card1[.@i] != 0 )
+				{
+					query_sql "select intimate, class, name from pet where pet_id = "+( .@id = @inventorylist_card2[.@i] + ( ( @inventorylist_card2[.@i] >= 0 )? 0 : 1 << 16 ) + @inventorylist_card3[.@i] * ( 1 << 16 ) ), .@intimate, .@querylass, .@name$;	
+					if ( .@intimate > .randegg_min_friendly )
+					{		
+						.@menu$ = .@menu$ +"^CC00CC"+ .@name$ +"^000000 ^FF0000[ ค่าความสนิทสนม "+ .@intimate +" ]^000000:";		
+						.@pet_id[.@query] = .@id;		
+						.@egg_id[.@query] = @inventorylist_id[.@i];		
+						.@pet_name$[.@query] = .@name$;			
+						.@pet_class[.@query] = .@querylass;					
+						.@query++;		
+					}	
+				}	
+			}
+			if ( !.@query )
+			{	
+				mes "[ Pet Evolution ]";
+				mes "ช่องเก็บของส่วนตัวของคุณไม่ได้มีไข่สัตว์เลี้ยงที่มีค่าความสนิทสนมเพียงพอต่อความต้องการที่จะไว้วิวัฒนาการ";		
+				close;
+			}	
+			mes "[ Pet Evolution ]";
+			mes "กรุณาเลือกไข่สัตว์เลี้ยงที่ต้องการจะทำการวิวัฒนาการ";	
+			next;
+			.@list = select( .@menu$ ) -1;
+			mes "[ Pet Evolution ]";
+			mes "Name : "+ .@pet_name$[.@s];
+			mes " ";
+			if ( getd( ".requirement"+ .@pet_class[.@list] ) ) {	
+				mes "เงื่อนใขการวิวัฒนาการ : ";	
+				.@size = getarraysize( getd( ".requirement"+ .@pet_class[.@list] ) );		
+				for ( .@i = 0; .@i < .@size; .@i += 2 )		
+					mes getd( ".requirement"+ .@pet_class[.@list] +"["+( .@i +1 )+"]" )+"x "+ getitemname( getd( ".requirement"+ .@pet_class[.@list] +"["+ .@i +"]" ) );	
+			}	
+			next;
+			
+			if ( !getd( ".randegg"+ .@pet_class[.@list] ) ) {	
+				mes "[ Pet Evolution ]";
+				mes "สัตว์เลี้ยงสายพันธุ์นี้ไม่สามารถที่จะวิวัฒนาการได้";	
+				close;	
+			}		
+		
+			if ( getd( ".requirement"+ .@pet_class[.@list] ) ) {
+				.@size = getarraysize( getd( ".requirement"+ .@pet_class[.@list] ) );	
+				for ( .@i = 0; .@i < .@size; .@i += 2 ) {
+					if ( countitem( getd( ".requirement"+ .@pet_class[.@list] +"["+ .@i +"]" ) ) < getd( ".requirement"+ .@pet_class[.@list] +"["+( .@i +1 )+"]" ) ) {	
+						mes "[ Pet Evolution ]";
+						mes "จำนวนไอเท็มของคุณไม่เพียงพอต่อการวิวัฒนาการ";
+						mes " ";
+						mes "กรุณาเตรียมมาให้ครบค่อยกลับมาใหม่";
+						close;
+					}
+				}	
+				for (.@i = 0; .@i < .@size; .@i += 2 )
+				delitem getd( ".requirement"+ .@pet_class[.@list] +"["+ .@i +"]" ), getd( ".requirement"+ .@pet_class[.@list] +"["+( .@i +1 )+"]" );		
+				.@rand = rand(1,100);
+				for (.@i = 0; .@i < getarraysize( getd(".randegg"+ .@pet_class[.@s]) ); .@i++){	
+					.@ac += getd( ".percent"+.@pet_class[.@list] +"["+.@i+"]");		
+					if (.@rand <= .@ac ){
+						.@a_id = .@i;	
+						break;		
+					}		
+				}	
+		
+			}
+			delitem .@egg_id[.@s], 1;
+			makepet .@get_pet_id = getd( ".randegg"+ .@pet_class[.@list] +"["+ .@a_id +"]" );
+			mes "[ Pet Evolution ]";
+			mes "สัตว์เลี้ยง "+ .@pet_name$[.@query] +" ได้วิวัฒนาการเป็น "+ getmonsterinfo( .@get_pet_id, 0 );
+			mes "กรุณาเปลี่ยนชื่อสัตว์เลี้ยงของคุณด้วย ~";	
+			close;
+		
+		default: end;
+	}
+	
+OnInit:
+	setarray .petid[0],1129,1932,1686,1664,1615;
+	setarray .itemid[1],7511,7563,1064;
+	setarray .amount[1],200,200,100;
+	.zeny = 3000000;
+	.randegg_min_friendly = getbattleflag("pet_support_min_friendly");
+//================ SETUP FIRST CLASS ==========================
+/*
+** ตัวอย่าง
+** รายละเอียดเกี่ยวกับสายคลาสแรกทั้งหมดมี Poring, Drops, Lunatic, Picky, Smokie
+** Poring > จะสุ่ม Drops [60 %], Lunatic [20 %], Picky[70 %] ปล* Smokie จะถูกวิวัฒน์นาการจาก Lunatic หากได้ใข่สัตว์เลี้ยงนอกจาก Lunatic ที่สามารถพัฒนาเป็น Smokie แล้ว จะไม่สามารถวิวัฒน์นาการได้อีก
+** Lunatic > Smokie
+** หากมองตามแผนผังจะได้ดังนี้
+** Poring [ สามารถวิวัฒนาการเป็น Drops, Lunatic, Picky ]
+** Drops [ ไม่ส่ามารถวิวัฒนาการได้ เมื่อสุ่มได้ จะไม่สามารถนำมาวิวัฒนาการได้ ]
+** Lunatic [ สามารถวิวัฒนาการเป็น Smokie ]
+** Picky [ ไม่ส่ามารถวิวัฒนาการได้ เมื่อสุ่มได้ จะไม่สามารถนำมาวิวัฒนาการได้ ]
+*/
+
+/*
+** .requirement *เงื่อนใขสำหรับการวิวัฒนาการสัตว์เลียงโดยต้องมีไอเท็มตามเงื่อนใขจึงจะสามารถเข้าสู่ขั้นวิวัฒนาการสัตว์เลี้ยงได้
+** สำหรับใข่ที่จะสามารถวิวัฒน์การได้เท่านั้น
+*/
+////////////////////////////////////////////////
+///				SPIRIT OF INSECT			 ///
+////////////////////////////////////////////////
+//==========================================================================
+// -> Horong Evolution [ SPIRIT OF INSECT ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1129 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1129 ),100
+									 ;
+	
+	setarray getd( ".randegg"+ 1129 ),1309	// GAJOMART
+									 ;
+//==========================================================================
+// -> Earth Deleter Evolution [ SPIRIT OF INSECT ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1309 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1309 ),50				
+									 ,50				
+									 ;
+	
+	setarray getd( ".randegg"+ 1309 ),1836	// MAGMARING			
+									 ,1367	// BLAZZER		
+									 ;
+//==========================================================================
+// -> Magmaring Evolution [ SPIRIT OF INSECT ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1836 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1836 ),50			
+									 ,50			
+									 ,50			
+									 ;
+	
+	setarray getd( ".randegg"+ 1836 ),1072	// KAHO		
+									 ,1180	// Nine Tail		
+									 ,1383	// Explosion	
+									 ;
+//==========================================================================
+// -> Blazer Evolution [ SPIRIT OF INSECT ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1367 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1367 ),50			
+									 ,50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1367 ),1072	// KAHO		
+									 ,1180	// Nine Tail		
+									 ,1383	// Explosion	
+									 ;
+//==========================================================================
+// -> Kaho Evolution [ SPIRIT OF INSECT ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1072 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1072 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1072 ),1310	// Majoruros
+									 ,1837	// Imp
+									 ;
+//==========================================================================
+// -> Majoruros Evolution [ SPIRIT OF INSECT ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1310 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1310 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1310 ),2068	// Boitata
+									 ,1832	// Ifrit
+									 ;
+//==========================================================================
+// -> Nine Tail Evolution [ SPIRIT OF INSECT ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1180 ),0,0		
+										 ;
+	
+	setarray getd( ".percent"+ 1180 ),50
+									 ;
+	
+	setarray getd( ".randegg"+ 1180 ),1307	// Cat o' Nine Tails
+									 ;
+//==========================================================================
+// -> Explosion Evolution [ SPIRIT OF INSECT ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1383 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1383 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1383 ),1833	// Kasa	
+									 ,1705	// Thanatos Despero
+									 ;
+//==========================================================================
+// -> Despero Evolution [ SPIRIT OF INSECT ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1705 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1705 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1705 ),1115	// Eddga	
+									 ,2249	// Pyuriel
+									 ;
+////////////////////////////////////////////////
+///				SPIRIT OF ANGEL				 ///
+////////////////////////////////////////////////
+//==========================================================================
+// -> Garden Keeper Evolution [ SPIRIT OF ANGEL ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1932 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1932 ),100
+									 ;
+	
+	setarray getd( ".randegg"+ 1932 ),1707	// Garden Keeper
+									 ;
+//==========================================================================
+// -> Dolor Evolution [ SPIRIT OF ANGEL ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1707 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1707 ),50				
+									 ,50				
+									 ;
+	
+	setarray getd( ".randegg"+ 1707 ),1109	// Deviruchi			
+									 ,1382	// Diabolic		
+									 ;
+//==========================================================================
+// -> Deviruchi Evolution [ SPIRIT OF ANGEL ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1109 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1109 ),50			
+									 ,50			
+									 ,50			
+									 ;
+	
+	setarray getd( ".randegg"+ 1109 ),1374	// Incubus			
+									 ,1706	// Thanatos Maero			
+									 ,1370	// Succubus			
+									 ;
+//==========================================================================
+// -> Diabolic Evolution [ SPIRIT OF ANGEL ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1382 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1382 ),50			
+									 ,50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1382 ),1374	// Incubus			
+									 ,1706	// Thanatos Maero		
+									 ,1370	// Succubus			
+									 ;
+//==========================================================================
+// -> Incubus Evolution [ SPIRIT OF ANGEL ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1374 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1374 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1374 ),1933	// Garden Watcher
+									 ,1702	// Retribution
+									 ;
+//==========================================================================
+// -> Garden Watcher Evolution [ SPIRIT OF ANGEL ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1933 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1933 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1933 ),1751	// Valkyrie Randgris
+									 ,3096	// Reborn Demigod
+									 ;
+//==========================================================================
+// -> Maero Evolution [ SPIRIT OF ANGEL ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1706 ),0,0	
+										 ;
+	
+	setarray getd( ".percent"+ 1706 ),50
+									 ;
+	
+	setarray getd( ".randegg"+ 1706 ),1704	// Thanatos Odium
+									 ;
+//==========================================================================
+// -> Succubus Evolution [ SPIRIT OF ANGEL ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1370 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1370 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1370 ),1700	// Observation	
+									 ,1701	// Shelter
+									 ;
+//==========================================================================
+// -> Shelter Evolution [ SPIRIT OF ANGEL ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1701 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1701 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1701 ),1685	// Vesper
+									 ,2253	// Daehyon
+									 ;
+////////////////////////////////////////////////
+///				SPIRIT OF BRUTE				 ///
+////////////////////////////////////////////////
+//==========================================================================
+// -> Orc Baby Evolution [ SPIRIT OF BRUTE ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1686 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1686 ),100
+									 ;
+	
+	setarray getd( ".randegg"+ 1686 ),1177	// Zenorc
+									 ;
+//==========================================================================
+// -> Zenorc Deleter Evolution [ SPIRIT OF BRUTE ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1177 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1177 ),50				
+									 ,50				
+									 ;
+	
+	setarray getd( ".randegg"+ 1177 ),1107	// Desert Wolf Baby		
+									 ,1273	// Orc Lady		
+									 ;
+//==========================================================================
+// -> Desert Wolf Baby Evolution [ SPIRIT OF BRUTE ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1107 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1107 ),50			
+									 ,50			
+									 ,50			
+									 ;
+	
+	setarray getd( ".randegg"+ 1107 ),1106	// Desert Wolf		
+									 ,1308	// Panzer Goblin		
+									 ,1023	// Orc Warrior		
+									 ;
+//==========================================================================
+// -> Orc Lady Evolution [ SPIRIT OF BRUTE ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1273 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1273 ),50			
+									 ,50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1273 ),1106	// Desert Wolf		
+									 ,1308	// Panzer Goblin		
+									 ,1023	// Orc Warrior		
+									 ;
+//==========================================================================
+// -> Desert Wolf Evolution [ SPIRIT OF BRUTE ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1106 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1106 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1106 ),1783	// Galion
+									 ,1296	// Kobold Leader
+									 ;
+//==========================================================================
+// -> Galion Evolution [ SPIRIT OF BRUTE ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1783 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1783 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1783 ),2313	// Tikbalang
+									 ,1785	// Atroce
+									 ;
+//==========================================================================
+// -> Panzer Evolution [ SPIRIT OF BRUTE ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1308 ),0,0	
+										 ;
+	
+	setarray getd( ".percent"+ 1308 ),50
+									 ;
+	
+	setarray getd( ".randegg"+ 1308 ),1299	// Goblin Leader
+									 ;
+//==========================================================================
+// -> Orc Warrior Evolution [ SPIRIT OF BRUTE ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1023 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1023 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1023 ),1189	// Orc Archer
+									 ,1213	// High Orc
+									 ;
+//==========================================================================
+// -> High Orc Evolution [ SPIRIT OF BRUTE ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1213 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1213 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1213 ),1087	// Orc Hero
+									 ,1190	// Orc Lord
+									 ;
+////////////////////////////////////////////////
+///				SPIRIT OF DEMON				 ///
+////////////////////////////////////////////////
+//==========================================================================
+// -> Photon Evolution [ SPIRIT OF DEMON ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1664 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1664 ),100
+									 ;
+	
+	setarray getd( ".randegg"+ 1664 ),1738	// Constant
+									 ;
+//==========================================================================
+// -> Constant Deleter Evolution [ SPIRIT OF DEMON ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1738 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1738 ),50				
+									 ,50				
+									 ;
+	
+	setarray getd( ".randegg"+ 1738 ),1275	// Alice			
+									 ,1675	// Venatu			
+									 ;
+//==========================================================================
+// -> Alice Evolution [ SPIRIT OF DEMON ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1275 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1275 ),50			
+									 ,50			
+									 ,50			
+									 ;
+	
+	setarray getd( ".randegg"+ 1275 ),1737	// Aliza			
+									 ,1613	// Metaling			
+									 ,1669	// Dimik			
+									 ;
+//==========================================================================
+// -> Venatu Evolution [ SPIRIT OF DEMON ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1675 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1675 ),50			
+									 ,50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1675 ),1737	// Aliza	
+									 ,1613	// Metaling	
+									 ,1669	// Dimik	
+									 ;
+//==========================================================================
+// -> Aliza Evolution [ SPIRIT OF DEMON ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1737 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1737 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1737 ),1735	// Alicel
+									 ,1736	// Aliot
+									 ;
+//==========================================================================
+// -> Alicel Evolution [ SPIRIT OF DEMON ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1735 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1735 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1735 ),1871	// Fallen Bishop
+									 ,1734	// Kiel D-01
+									 ;
+//==========================================================================
+// -> Metaling Evolution [ SPIRIT OF DEMON ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1613 ),0,0		
+										 ;
+	
+	setarray getd( ".percent"+ 1613 ),50
+									 ;
+	
+	setarray getd( ".randegg"+ 1613 ),2198	// King Kray
+									 ;
+//==========================================================================
+// -> Dimik Evolution [ SPIRIT OF DEMON ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1669 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1669 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1669 ),1668	// Archdam	
+									 ,1617	// Waste Stove
+									 ;
+//==========================================================================
+// -> Waste Stove Evolution [ SPIRIT OF DEMON ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1617 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1617 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1617 ),2255	// Kades
+									 ,2251	// Gioia
+									 ;
+////////////////////////////////////////////////
+///				SPIRIT OF UNDEAD			 ///
+////////////////////////////////////////////////
+//==========================================================================
+// -> Obsidian Evolution [ SPIRIT OF UNDEAD ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1615 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1615 ),100
+									 ;
+	
+	setarray getd( ".randegg"+ 1615 ),1508	// Quve
+									 ;
+//==========================================================================
+// -> Quve Deleter Evolution [ SPIRIT OF UNDEAD ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1508 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1508 ),50				
+									 ,50				
+									 ;
+	
+	setarray getd( ".randegg"+ 1508 ),1204	// Tirfing		
+									 ,1290	// Skeleton General			
+									 ;
+//==========================================================================
+// -> Tirfing Evolution [ SPIRIT OF UNDEAD ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1204 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1204 ),50			
+									 ,50			
+									 ,50			
+									 ;
+	
+	setarray getd( ".randegg"+ 1204 ),1205	// Executioner			
+									 ,1198	// Dark Priest		
+									 ,1028	// Soldier Skeleton			
+									 ;
+//==========================================================================
+// -> Skeleton General Evolution [ SPIRIT OF UNDEAD ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1290 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1290 ),50			
+									 ,50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1290 ),1205	// Executioner		
+									 ,1198	// Dark Priest			
+									 ,1028	// Soldier Skeleton
+									 ;
+//==========================================================================
+// -> Executioner Evolution [ SPIRIT OF UNDEAD ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1205 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1205 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1205 ),1117	// Evil Druid
+									 ,1203	// Mysteltainn
+									 ;
+//==========================================================================
+// -> Evil Druid Evolution [ SPIRIT OF UNDEAD ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1117 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1117 ),50
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1117 ),1272	// Dark Lord
+									 ,2996	// Celine Kimi
+									 ;
+//==========================================================================
+// -> Dark Priest Evolution [ SPIRIT OF UNDEAD ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1198 ),0,0	
+										 ;
+	
+	setarray getd( ".percent"+ 1198 ),50
+									 ;
+	
+	setarray getd( ".randegg"+ 1198 ),1262	// Mutant Dragon
+									 ;
+//==========================================================================
+// -> Soldier Skeleton Evolution [ SPIRIT OF UNDEAD ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1028 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1028 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1028 ),1196	// Skeleton Prisoner	
+									 ,1298	// Zombie Master
+									 ;
+//==========================================================================
+// -> Zombie Master Evolution [ SPIRIT OF UNDEAD ]
+//==========================================================================
+	setarray getd( ".requirement"+ 1298 ),0,0
+										 ;
+	
+	setarray getd( ".percent"+ 1298 ),50		
+									 ,50
+									 ;
+	
+	setarray getd( ".randegg"+ 1298 ),2156	// Leak
+									 ,1112	// Drake
+									 ;
+	waitingroom "[&] Pet Evolution",0;								 
+/*
+	setarray .messages$,"P","e","t"," ","E","v","o","l","u","t","i","o","n";
+	while( 1 )
+	{
+		set .Display$,"";
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+	*/
+	end;
+	
+} 

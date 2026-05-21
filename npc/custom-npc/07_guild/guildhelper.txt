@@ -1,0 +1,155 @@
+//==============================================//==============================================
+//==============================================
+// - Script By : แม่มดน้อย จอมป่วน
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/appleroplus2
+// Gmail appleroplus@gmail.com
+// Skype appleroplus@hotmail.com
+//==============================================
+//==============================================
+//==============================================
+morocc,167,111,4	script	ผู้จัดการกิลด์#1	866,{
+			mes "[ผู้จัดการกิลด์]";
+			mes "สวัสดีนักผจญภัย";
+			mes "เลือกเมนูที่ท่านต้องการได้เลย!!";
+	next;
+	switch(select(
+		""+.sb$+" สร้างกิลด์",
+		""+.sb$+" โอนหัวหน้ากิลด์",
+		""+.sb$+" อัพเลเวลกิลด์",
+		""+.sb$+" ยุบกิลด์"
+	)) {
+		case 1:
+			mes "[ผู้จัดการกิลด์]";
+			mes "กรุณาใส่ชื่อกิลด์ทีต้องการ";
+			input @nameguildchangegm$;
+			atcommand "@guild "+@nameguildchangegm$+"";
+			next;
+			close;
+			end;
+			
+		case 2:
+			mes "[ผู้จัดการกิลด์]";
+			mes "กรุณาใส่ชื่อหัวหน้ากิลด์ที่จะโอน";
+			input @nameguildchangegm$;
+			atcommand "@changegm "+@nameguildchangegm$+"";
+			next;
+			close;
+			end;
+
+		case 3:
+			mes "ข้าเพิ่มเลเวลกิลด์ให้เจ้า เรียบร้อยแล้ว";
+			atcommand "@guildlvlup 50";
+			close;
+			end;
+
+		case 4:
+			menu "^FF0000•^000000 ยุบกิลด์",L_4,"^FF0000•^000000 ยกเลิก",no;
+
+			no:
+			close;
+
+			L_4:
+			mes "ท่านต้องการยุบกิลใช่หรือไม่";
+			next;
+			menu 
+			"^FF0000•^000000 ยกเลิก",no,
+			"^FF0000•^000000 ตกลง",L_22;
+
+			L_22:
+			atcommand "@breakguild";
+			next;
+			mes "ขอบคุณที่ใช้บริการ";
+			close;
+			end;
+
+		case 5:
+			set .@npcname$,"[คลังเก็บของกิลด์]";
+			set @GID,getcharid(2);
+
+			mes .@npcname$;
+			mes "สวัสดีครับ ยินดีให้บริการ";
+			mes "เลือกเมนูที่คุณต้องการ";
+			next;
+			menu "^FF0000•^000000 เปิดคลังกิลด์",-,"^FF0000•^000000 เปลี่ยนรหัสคลังกิลด์",change,"^FF0000•^000000 ยกเลิก",ende;
+
+			mes .@npcname$;
+			mes "กรุณาใส่รหัสคลังกิลด์";
+			input .@GuildPW;
+			if ( getd("$GuildPW_"+getcharid(2)) == .@GuildPW) goto open;
+			if ( getd("$GuildPW_"+getcharid(2)) != .@GuildPW) goto wrong;
+			close;
+
+			open:
+			if(guildopenstorage0 == 1) goto wait;
+			guildopenstorage();
+			close;
+
+			wait:
+			mes .@npcname$;
+			mes "สมาชิกท่านอื่นใช้คลังกิลด์อยู่";
+			close;
+
+			wrong:
+			mes "";
+			mes "ท่านใส่รหัสคลังกิลด์ผิด";
+			close;
+
+			passwort:
+			if(@GID == 0) goto L_NoGuild;
+			if(strcharinfo(0) == getguildmaster(@GID)) goto change;
+			mes .@npcname$;
+			mes "หัวกิลด์เท่านั้นที่เปลี่ยนรหัสได้";
+			close;
+
+			change:
+			mes .@npcname$;
+			mes "โปรดใส่รหัสที่คุณต้องการ :";
+			input .@GuildPW;
+			setd "$GuildPW_"+getcharid(2),.@GuildPW;
+			mes "รหัสใหม่คือ ^0000FF"+.@GuildPW+"^000000 ";
+			close;
+
+			L_NoGuild:
+			mes .@npcname$;
+			mes "คุณไม่ใช่สมาชิกกิลด์นี้";
+			close;
+
+			ende:
+			mes .@npcname$;
+			mes "ยินดีให้บริการ";
+			close;
+			end;
+		case 6:
+			menu 
+			"^FF0000•^000000 เรียกรวมพลกิลด์",grecall,
+			"^FF0000•^000000 ยกเลิก",Lcancel;
+
+			grecall:
+			set @nguild,getcharid(2);
+			if (strcharinfo(0) == getguildmaster(@nguild)) goto ymaster;
+			if (getcharid(2) == @nguild) goto nmaster;
+
+			ymaster:
+			atcommand "@guildrecall "+ getcharid(2) +"";
+			close;
+
+			nmaster:
+			mes "ไม่สามารถดำเนินการให้ได้";
+			mes "เนื่องจากท่านไม่ใช่หัวหน้ากิลด์";
+			close;
+
+			Lcancel:
+			mes "ยินดีให้บริการ";
+			end;
+	}
+	end;
+	
+OnInit:
+	setunitdata getnpcid(0),UNPC_GROUP_ID,1011;
+	waitingroom " ผู้จัดการกิลด์",0; //ชื่อห้อง
+	.sb$ = "~";
+end;
+}

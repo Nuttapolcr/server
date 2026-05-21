@@ -1,0 +1,7 @@
+-	script	BOSSMVP	-1,{
+	end;
+
+Oninit:
+	bindatcmd "@boss",""+strnpcinfo(0)+"::OnVipCheck",0,0;
+	end;
+}	

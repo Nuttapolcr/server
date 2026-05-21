@@ -1,0 +1,89 @@
+-	shop	special_shop	-1,909:-1
+
+oasis,174,100,4	script	Sell Boss Items	952,{
+
+	mes .NPCName$;
+	mes "สวัสดีท่าน ^0000FF"+strcharinfo(0)+"^000000";
+	mes "ข้าคือเจ้าหน้าที่^FF0000รับซื้อของบอส^000000";
+	mes "ของบอส ^FF00001 ชิ้นต่อ "+getitemname(.sellid)+" "+.sellprice+" ชิ้น^000000";
+	mes "ท่านมีของบอสมาขายให้ข้าไหม?";
+	next;
+	menu "~ ข้าแบกมาเต็มกระเป๋าเลย",-,"~ ของบอสที่ขายได้",ItemInfo,"~ ไว้คราวหน้าดีกว่า",Cancel;
+
+deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+callshop "special_shop",2;
+npcshopattach "special_shop";
+end;
+
+ItemInfo:
+	mes .NPCName$;
+	mes " ";
+	mes "^0000FFนี้คือรายการของที่ข้ารับซื้อทั้งหมด^000000";
+	next;
+	callshop "special_shop",1;
+	npcshopattach "special_shop";
+	end;
+		
+OnBuyItem:
+end;
+
+OnSellItem:
+	mes .NPCName$;
+	mes "ของบอสที่ท่านจะขาย : ";
+	mes "-----------------------------------";
+	for ( set .@i,0; .@i<getarraysize(@sold_nameid); set .@i,.@i+1 )
+		for ( set .@cselect,0; .@cselect<getarraysize(.ItemAccess); set .@cselect,.@cselect+1 )		
+			if ( @sold_nameid[.@i] == .ItemAccess[.@cselect] ) {
+				set .@Item_id[getarraysize(.@Item_id)], @sold_nameid[.@i];
+				set .@Item_amt[getarraysize(.@Item_amt)], @sold_quantity[.@i];
+				set .@item, @sold_nameid[.@i];
+				mes ((.@item)?"  ^FF0000":"  ^777777")+@sold_quantity[.@i]+"x "+getitemname(@sold_nameid[.@i])+"^000000";
+				set .@Item_total, .@Item_total+@sold_quantity[.@i];
+			}
+			
+		
+	deletearray @sold_nameid[0], getarraysize(@sold_nameid);
+	deletearray @sold_quantity[0], getarraysize(@sold_quantity);
+	
+	if ( !.@Item_id ) {
+		mes "  ^FF0000ไอเทมนี้ไม่สามารถขายได้^000000";
+		mes "-----------------------------------";
+		close;
+	}
+	
+	mes " ";
+	mes "-----------------------------------";
+	next;
+	
+	if ( select(" ~ ^0055FFยืนยันการขาย^000000: ~ ^777777ยกเลิก^000000") == 2 ) {
+		mes .NPCName$;
+		mes "โอเคไม่เป็นไร!!";
+		close;
+	}
+	
+	for ( set .@i,0; .@i<getarraysize(.@Item_id); set .@i,.@i+1 ) {
+		delitem .@Item_id[.@i],.@Item_amt[.@i];
+		getitem .sellid, (.@Item_amt[.@i]*.sellprice);
+	}
+		
+	mes .NPCName$;
+	mes "โอ้ววันนี้ข้าได้ของบอสดีๆ จากท่านเยอะเลย";
+	close;
+	
+Cancel:
+	mes .NPCName$;
+	mes " ";
+	mes "^FF0000ยังไงก็ไว้เจอกันใหม่แล้วกัน^000000";
+	close;
+
+OnInit:
+	waitingroom "[ รับซื้อของบอส ]",0;												// ตั้งค่าข้อความบนป้าย NPC
+	set .NPCName$, "[ รับซื้อของบอส ]";											// ตั้งค่าชื่อ NPC
+	setarray .ItemAccess, 2246, 5053 ,5019, 5002, 2249, 5123, 2256, 2258, 5007, 2235, 2234, 2268;					// ตั้งค่า item ที่ขายได้
+	set .sellid, 61001;		// ตั้งค่ารหัสไอเทมที่จะได้เมื่อขาย
+	set .sellprice, 10;													// ตั้งค่าจำนวนของที่จะได้
+	npcshopdelitem "special_shop",909;
+	for ( set .@i,0; .@i<getarraysize(.ItemAccess); set .@i,.@i+1 )
+		npcshopadditem "special_shop",.ItemAccess[.@i],.sellprice;
+	end;
+}

@@ -1,0 +1,433 @@
+//	===========================	//
+//	@setup_spinerHW_cash = คำสั่งพิเศษ	//
+//	===========================	//
+
+-	shop	shop_spinerHW_cash_01	-1,501:-1
+-	shop	shop_spinerHW_cash_02	-1,501:-1
+-	shop	shop_spinerHW_cash_03	-1,501:-1
+-	shop	shop_spinerHW_cash_04	-1,501:-1
+-	shop	shop_spinerHW_cash_05	-1,501:-1
+-	shop	shop_spinerHW_cash_06	-1,501:-1
+
+-	script	setting_spinerHW_cash	-1,{
+end;
+	
+	OnStart:
+			
+		$status_spinerHW_cash = 0;
+		announce "[ Hotweek Slot ] : ขณะนี้ตู้หมุนได้ทำการเปิดให้เล่นแล้ว เชิญร่วมสนุกกันได้เลย",bc_all,0xFFFF00;
+		end;
+	
+	OnClose:
+			
+		$status_spinerHW_cash = 1;
+		announce "[ Hotweek Slot ] : ขณะนี้ตู้หมุนได้ทำการปิดลงแล้ว ไว้พบกันใหม่ครั้งหน้า",bc_all,0xFFFF00;
+		end;
+	
+	OnMenu:
+		
+		while(1){
+			if($jackpot_spinerHW_cash_st == 0){ mes "Jackpot : ^009900ON^000000"; }
+			if($jackpot_spinerHW_cash_st == 1){ mes "Jackpot : ^FF3300OFF^000000"; }
+			.@menu = select(
+				"- ตั้งค่าแจ๊กพอต",
+				"- เปิดตู้ด่วน",
+				"- ปิดตู้ด่วน",
+				"- รีเซ็ต แต้มการันตีไอเทมผู้เล่น",
+				"- รีเซ็ต Jackpot ทั้งหมด",
+				"- รีเซ็ต อันดับผู้เล่น"
+			);
+			if(.@menu == 1){
+				if($jackpot_spinerHW_cash_st == 0){
+					$jackpot_spinerHW_cash_st = 1;
+					clear;
+					goto OnMenu;
+					end;
+				}
+				if($jackpot_spinerHW_cash_st == 1){
+					$jackpot_spinerHW_cash_st = 0;
+					clear;
+					goto OnMenu;
+					end;
+				}
+			}
+			if(.@menu == 2){
+				donpcevent ""+strnpcinfo(3)+"::OnStart";
+			}
+			if(.@menu == 3){
+				donpcevent ""+strnpcinfo(3)+"::OnClose";
+			}
+			if(.@menu == 4){
+				$round_garuntee_spinerHW_cash ++;
+				message strcharinfo(0),"ระบบ : รีเซ็ตแต้มการันตีสำเร็จแล้ว";
+			}
+			if(.@menu == 5){
+				$jackpot_spinerHW_cash = 0;
+				message strcharinfo(0),"ระบบ : รีเซ็ต Jackpot ทั้งหมด สำเร็จ";
+			}
+			if(.@menu == 6){
+				query_sql "UPDATE `char` SET `point_machine1`='0'";
+				message strcharinfo(0),"ระบบ : รีเซ็ต อันดับผู้เล่น ทั้งหมด สำเร็จ";
+			}
+			clear;
+		}
+		
+		end;
+OnInit:
+	
+	bindatcmd "setup_spinerHW_cash",""+strnpcinfo(3)+"::OnMenu",99,0;
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `spinerHW_cash_player_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`id_item` varchar(255) NOT NULL,"+
+		"`play_time` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	freeloop(1);
+	
+	deletearray $spinerHW_cash_01;
+	deletearray $spinerHW_cash_02;
+	deletearray $spinerHW_cash_03;
+	deletearray $spinerHW_cash_04;
+	deletearray $spinerHW_cash_05;
+	
+	//	กำหนดรหัสไอเทมสำหรับ Legend
+	setarray $spinerHW_cash_01[0]	
+								,5967,28321,28302
+								
+								;
+
+	//	กำหนดรหัสไอเทมสำหรับ General
+	setarray $spinerHW_cash_02[0]	,100000						
+								,12103
+								,616
+								;
+								
+	//	กำหนดรหัสไอเทมสำหรับ Major
+	setarray $spinerHW_cash_03[0]	,100002,7620,7619,14192
+								,70002
+								;
+								
+	//	กำหนดรหัสไอเทมสำหรับ Sergeant
+	setarray $spinerHW_cash_04[0]	,30008,603,984,985,6635,12214,12221
+								,12114,12115,12116,12117,12217
+								,12215,12216
+								;
+								
+	//	กำหนดรหัสไอเทมสำหรับ Basic
+	setarray $spinerHW_cash_05[0]	,757,756,644
+								,715,716,717
+								,12208,12209,12210
+								,11503,11504
+								;
+	
+	npcshopdelitem "shop_spinerHW_cash_01",501;
+	npcshopdelitem "shop_spinerHW_cash_02",501;
+	npcshopdelitem "shop_spinerHW_cash_03",501;
+	npcshopdelitem "shop_spinerHW_cash_04",501;
+	npcshopdelitem "shop_spinerHW_cash_05",501;
+	
+	for( .@i=0; .@i<getarraysize($spinerHW_cash_01); .@i++ ){
+		npcshopadditem "shop_spinerHW_cash_01",$spinerHW_cash_01[.@i],1;
+	}
+	for( .@i=0; .@i<getarraysize($spinerHW_cash_02); .@i++ ){
+		npcshopadditem "shop_spinerHW_cash_02",$spinerHW_cash_02[.@i],1;
+	}
+	for( .@i=0; .@i<getarraysize($spinerHW_cash_03); .@i++ ){
+		npcshopadditem "shop_spinerHW_cash_03",$spinerHW_cash_03[.@i],1;
+	}
+	for( .@i=0; .@i<getarraysize($spinerHW_cash_04); .@i++ ){
+		npcshopadditem "shop_spinerHW_cash_04",$spinerHW_cash_04[.@i],1;
+	}
+	for( .@i=0; .@i<getarraysize($spinerHW_cash_05); .@i++ ){
+		npcshopadditem "shop_spinerHW_cash_05",$spinerHW_cash_05[.@i],1;
+	}
+	
+	end;
+	
+}
+
+-	script	Hotweek Slot	-1,{
+
+//สคริปเพิ่มพ้อยอันดับ นำไปใส่หลังผู้เล่นเล่นเกม หรือ ได้รับของรางวัล
+query_sql "SELECT `point_machine1` FROM `char` WHERE `char_id`='"+getcharid(0)+"'",.@cpoint;
+
+
+Start:
+	
+	if(round_garuntee_spinerHW_cash != $round_garuntee_spinerHW_cash){
+		garuntee_spinerHW_cash = 0;
+		round_garuntee_spinerHW_cash = $round_garuntee_spinerHW_cash;
+	}
+	
+	mes .mes$;
+	
+	if(.garuntee > 0){
+		mes "^0000FF• หมุนครบ "+garuntee_spinerHW_cash+"/"+.garuntee+" ครั้ง";
+		mes "- จะได้รับ "+getitemname(.item_garuntee)+" x"+.amount_garuntee+" ea^000000";
+	}
+	mes "^CCCC00- ยอดเก็บเข้า Jackpot : "+callfunc("F_InsertComma",.jackpot)+" Cash^000000";
+	
+	mes "^CCCC00- Jackpot แตก : "+callfunc("F_InsertComma",.jp_start)+"-"+callfunc("F_InsertComma",.jp_end)+"%^000000";
+	
+	mes "คุณหมุนไปแล้ว ^009900[ "+jp_round_spinerHW_cash+"/"+.jp_round_spinerHW_cash+" ]^000000 ครั้ง";
+	
+	.@menu = select(
+		"- เริ่มหมุนได้ ^FF9900( ใช้ Cash "+callfunc("F_InsertComma",.use)+" pt )^000000",
+		"- เข้าชมร้านค้าตัวอย่าง",
+		"- เช็คอันดับ"
+	);
+	
+	if(.@menu == 1){
+		if(!.@loop){
+			.@menu_play = select(
+				"- เล่นทีละครั้ง",
+				"- เล่นแบบอัตโนมัติ สูงสุด "+.round_auto+" ครั้ง"
+			);
+			if(.@menu_play == 1){ .@loop = 1; }
+			if(.@menu_play == 2){ .@loop = 2; }
+		}
+		
+		OnRespin:
+		
+			if(round_garuntee_spinerHW_cash != $round_garuntee_spinerHW_cash){
+				garuntee_spinerHW_cash = 0;
+				round_garuntee_spinerHW_cash = $round_garuntee_spinerHW_cash;
+			}
+			
+			.@OverW = MaxWeight*.weight_percent/100;
+			if (Weight >= .@OverW) {
+				clear;
+				mes .mes$;
+				mes "คุณมีน้ำหนักมากเกินไป!!";
+				end;
+			}
+			
+			getinventorylist;
+			if (@inventorylist_count >= .max_count) {
+				clear;
+				mes .mes$;
+				mes "คุณมีไอเทมมากเกินไป เอาไปเก็บก่อน!!";
+				end;
+			}
+			
+			if($status_spinerHW_cash == 1){
+				clear;
+				mes .mes$;
+				mes "ขณะนี้ตู้หมุนยังไม่เปิดให้เล่น";
+				mes "กรุณารอการประกาศจากเซิฟเวอร์อีกครั้ง";
+				end;
+			}
+			
+			if(#CASHPOINTS < .use){
+				clear;
+				mes .mes$;
+				mes "จำนวน Cash ของคุณไม่เพียงพอ";
+				mes "ยังขาดอีก Cash "+callfunc("F_InsertComma",(.use-#CASHPOINTS))+" pt.";
+				end;
+			}
+			
+			#CASHPOINTS = #CASHPOINTS -.use;
+		
+			.@round_auto ++;
+			if(.@loop == 2){
+				clear;
+				mes .mes$;
+				mes "( "+.@round_auto+"/"+.round_auto+" ) ครั้ง";
+			}
+			
+			if(.garuntee){
+				garuntee_spinerHW_cash ++;
+			}
+			
+			jp_round_spinerHW_cash ++;
+			
+			$jackpot_spinerHW_cash = $jackpot_spinerHW_cash +.jackpot;
+			
+			if(.garuntee > 0){
+				if(garuntee_spinerHW_cash >= .garuntee){
+					getitem .item_garuntee,.amount_garuntee;
+					announce "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ได้รับ "+getitemname(.item_garuntee)+" จากการเล่นครบจำนวนครั้ง",bc_all,0xFFFF00;
+					garuntee_spinerHW_cash = 0;
+				}
+			}
+			
+			.@random_spin = rand(1,(.rate_rare+.rate_hard+.rate_normal+.rate_easy+.rate_basic));
+			
+			if(.dispbottom == 1){ dispbottom "ท่านสุ่มได้ "+.@random_spin+"%"; }
+			if(.jp_round_spinerHW_cash){
+				if(jp_round_spinerHW_cash >= .jp_round_spinerHW_cash){
+					jp_round_spinerHW_cash = 0;
+					if($jackpot_spinerHW_cash_st == 0){ .@random_jp = rand(1,100); }
+					if($jackpot_spinerHW_cash_st == 1){ .@random_jp = 10000; }
+					if(.@random_jp <= .rate_jackpot){
+						.@jackpots = rand(.jp_start,.jp_end);
+						announce "[ "+strnpcinfo(1)+" ] : ยินดีด้วย คุณ "+strcharinfo(0)+" ได้รับ Jackpot "+.@jackpots+"% Cash จำนวน "+callfunc("F_InsertComma",($jackpot_spinerHW_cash*.@jackpots/100))+" pt.",bc_all,0xFFFF00;
+						#CASHPOINTS = #CASHPOINTS +($jackpot_spinerHW_cash*.@jackpots/100);
+						dispbottom "[ระบบ] : คุณได้รับ Cash "+callfunc("F_InsertComma",($jackpot_spinerHW_cash*.@jackpots/100))+" pt.";
+						if(.jp_all == 1){ $jackpot_spinerHW_cash = 0; }
+						if(.jp_all == 2){ $jackpot_spinerHW_cash = $jackpot_spinerHW_cash -($jackpot_spinerHW_cash*.@jackpots/100); }
+					}
+					else {
+						dispbottom "[ระบบ] : น่าเสียดาย ดวงท่านไม่ดีเลย อดได้รับ Jackpot เลย",0xFF0000;
+					}
+				}
+			}
+			if(.@random_spin <= (.rate_rare)){
+				.@max_spin = getarraysize($spinerHW_cash_01);
+				.@id_item = $spinerHW_cash_01[rand(.@max_spin)];
+				.@announce = 1;		//	หากต้องการให้ประกาศใส่ 1	หากไม่ต้องการใส่ 0
+			}
+			if(.@random_spin > (.rate_rare) && .@random_spin <= (.rate_rare+.rate_hard)){
+				.@max_spin = getarraysize($spinerHW_cash_02);
+				.@id_item = $spinerHW_cash_02[rand(.@max_spin)];
+				.@announce = 2;		//	หากต้องการให้ประกาศใส่ 2	หากไม่ต้องการใส่ 0
+			}
+			if(.@random_spin > (.rate_rare+.rate_hard) && .@random_spin <= (.rate_rare+.rate_hard+.rate_normal)){
+				.@max_spin = getarraysize($spinerHW_cash_03);
+				.@id_item = $spinerHW_cash_03[rand(.@max_spin)];
+				.@announce = 3;		//	หากต้องการให้ประกาศใส่ 3	หากไม่ต้องการใส่ 0
+			}
+			if(.@random_spin > (.rate_rare+.rate_hard+.rate_normal) && .@random_spin <= (.rate_rare+.rate_hard+.rate_normal+.rate_easy)){
+				.@max_spin = getarraysize($spinerHW_cash_04);
+				.@id_item = $spinerHW_cash_04[rand(.@max_spin)];
+				.@announce = 0;		//	หากต้องการให้ประกาศใส่ 4	หากไม่ต้องการใส่ 0
+			}
+			if(.@random_spin > (.rate_rare+.rate_hard+.rate_normal+.rate_easy) && .@random_spin <= (.rate_rare+.rate_hard+.rate_normal+.rate_easy+.rate_basic)){
+				.@max_spin = getarraysize($spinerHW_cash_05);
+				.@id_item = $spinerHW_cash_05[rand(.@max_spin)];
+				.@announce = 0;		//	หากต้องการให้ประกาศใส่ 5	หากไม่ต้องการใส่ 0
+			}
+			
+			if(.@announce == 1){ announce "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ที่ได้รับ "+getitemname(.@id_item)+" จากการเสี่ยงโชค",bc_all,0xFFFF00; }
+			else if(.@announce == 2){ announce "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ที่ได้รับ "+getitemname(.@id_item)+" จากการเสี่ยงโชค",bc_all,0x0066FF; }
+			else if(.@announce == 3){ announce "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ที่ได้รับ "+getitemname(.@id_item)+" จากการเสี่ยงโชค",bc_all,0xFF0000; }
+			else {
+				npctalk "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ได้รับ "+getitemname(.@id_item)+" จากการเสี่ยงโชค";
+			}
+			
+
+			if(.log){
+				if(.@id_item){ query_sql("INSERT INTO `spinerHW_cash_player_logs` (account_id,char_id,player_name,id_item,play_time) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(.@id_item))+"',NOW())"); }
+			}
+			//สคริปเพิ่มพ้อยอันดับ นำไปใส่หลังผู้เล่นเล่นเกม หรือ ได้รับของรางวัล
+			query_sql "UPDATE `char` SET `point_machine1`=(`point_machine1` + 1) WHERE `char_id`='"+getcharid(0)+"' LIMIT 1";
+			
+			getitem .@id_item,1;
+			
+			if(.@loop == 2){
+				if(.@round_auto >= .round_auto){
+					mes "ครบทั้งหมด "+.round_auto+" ครั้งแล้ว";
+					end;
+				}
+				sleep2 250;
+				goto OnRespin;
+				end;
+			}
+			clear;
+			goto Start;
+			end;
+	}		
+	if(.@menu == 2){
+			menu	"- ตัวอย่าง^FF3300 Legend^000000",menu_shop_01,
+					"- ตัวอย่าง^FF3300 General^000000",menu_shop_02,
+					"- ตัวอย่าง^FF3300 Major^000000",menu_shop_03,
+					"- ตัวอย่าง^FF3300 Sergeant^000000",menu_shop_04,
+					"- ตัวอย่าง^FF3300 Basic^000000",menu_shop_05;
+			end;
+			
+		menu_shop_01:
+			npcshopattach "shop_spinerHW_cash_01";
+			callshop "shop_spinerHW_cash_01",1;
+			end;
+		menu_shop_02:
+			npcshopattach "shop_spinerHW_cash_02";
+			callshop "shop_spinerHW_cash_02",1;
+			end;
+		menu_shop_03:
+			npcshopattach "shop_spinerHW_cash_03";
+			callshop "shop_spinerHW_cash_03",1;
+			end;
+		menu_shop_04:
+			npcshopattach "shop_spinerHW_cash_04";
+			callshop "shop_spinerHW_cash_04",1;
+			end;
+		menu_shop_05:
+			npcshopattach "shop_spinerHW_cash_05";
+			callshop "shop_spinerHW_cash_05",1;
+			end;
+	}
+	if(.@menu == 3){
+	//สคริปโชว์ 10 อันดับแรก
+	next;
+		query_sql "SELECT `name`,`point_machine1` FROM `char` ORDER BY `point_machine1` DESC LIMIT 10",.@name$,.@point;
+		mes ".:!= จัดอันดับ =!:.";
+		for (set .@i,0; .@i < 10; set .@i,.@i+1) {
+			if (.@point[.@i] == 0) set .@name$[.@i],"None";
+			mes "["+(.@i+1)+"]  "+.@name$[.@i]+" : คะแนน " +.@point[.@i]+"";
+		}
+		set @kapo,.@name$[.@i];
+		mes "=========================";
+		end;
+	}
+	
+	end;
+
+OnBuyItem:
+	dispbottom "[ระบบ] : ไอเทมเป็นเพียงตัวอย่าง";
+	end;
+	
+OnInit:
+	
+	.mes$ = "^FF3300[ Hotweek Slot ]^000000";	//	Head Dialog
+	
+	$status_spinerHW_cash		= 0;			//	ทุกครั้งที่ Reloadscript ตู้จะปิด ไม่ให้หมุน	หากต้องการให้หมุนตลอด ให้ใส่ 0
+	
+	.dispbottom				= 0;			//	กำหนดโชว์ข้อความ % ที่สุ่มได้ หากต้องการโชว์ ใส่ 1 หากไม่ต้องการ ใส่ 0
+	
+	.round_auto				= 100;			//	กำหนดรอบการเล่นอัตโนมัติไว้สูงสุด
+	
+	//	รวม 5 เรทให้ได้ 10000 = 100%
+	.rate_rare				= 200;			//	ตั้งค่า % การออก Legend	ตัวอย่างคือ	3%
+	.rate_hard				= 900;			//	ตั้งค่า % การออก General	ตัวอย่างคือ	9%
+	.rate_normal			= 1200;			//	ตั้งค่า % การออก Major		ตัวอย่างคือ	15%
+	.rate_easy				= 2200;			//	ตั้งค่า % การออก Sergeant	ตัวอย่างคือ	23%
+	.rate_basic				= 5500;			//	ตั้งค่า % การออก Basic		ตัวอย่างคือ	50%
+	
+	.log					= 1;			//	กำหนดการเก็บค่าผู้เล่น หากไม่ต้องการใส่ 0		หากต้องการใส่ 1
+	
+	.use					= 10;			//	ตั้งค่า Cash ในการเล่น
+	.jackpot				= 1;			//	ตั้งค่าจำนวนที่เก็บเข้าไปรวม แจ๊กพอต Cash
+	
+	.jp_round_spinerHW_cash	= 10;			//	กำหนดจำนวนรอบในการเข้า Jackpot
+	.rate_jackpot			= 1;			//	ตั้งค่า % การออก Jackpot	ตัวอย่างคือ	1%
+	.jp_start				= 50;			//	ตั้งค่า % ของ แจ๊กพอต ที่ได้รับจากยอด แจ๊กพอต เริ่มต้น
+	.jp_end					= 100;			//	ตั้งค่า % ของ แจ๊กพอต ที่ได้รับจากยอด แจ๊กพอต เริ่มต้น
+	.jp_all					= 1;			//	หากแจ๊กพอตแตก	หากต้องการให้ลบแจ๊กพอตทั้งหมดให้ใส่ 1	หากต้องการให้ลบแค่ที่แตกให้ใส่ 2
+	
+	.garuntee				= 100;			//	กำหนดจำนวนรอบการันตี
+	.item_garuntee			= 100000;		//	กำหนดรหัสไอเทมจากการการันตี
+	.amount_garuntee		= 1;			//	กำหนดจำนวนไอเทมจากการการันตี
+	
+	.weight_percent			= 80;			//	กำหนด %	หากน้ำหนักเกินจะหมุนไม่ได้
+	.max_count				= 150;			//	กำหนด จำนวน ช่องกระเป๋า
+	
+	while(1){
+		delwaitingroom;
+		waitingroom "[HW] "+callfunc("F_InsertComma",$jackpot_spinerHW_cash)+" pt",0;
+		sleep 1000;
+	}
+	
+end;
+}
+
+//	Duplicate
+maintown,160,201,4	duplicate(Hotweek Slot)	Hotweek Slot#1	563
+
+

@@ -1,0 +1,456 @@
+oasis,131,78,5	script	ตีบวก 5 ทั้งตัว#1	813,{
+	mes "[ อัพเกรดอุปกรณ์ ]";
+	mes "มีอะไรมีอะไรให้ข้าช่วยท่านหรือเปล่าล่ะ ?";
+	next;
+	switch(select(" - ตีบวก 5 ทั้งตัว: - ลดตีบวก")) {
+		case 1: callfunc "upgrade5all"; end;
+		case 2: callfunc "downgraded"; end;
+	}
+}
+
+
+function	script	downgraded	{
+mes "^FF0000[ลดการตีบวก]^000000";
+mes "คุณต้องลดการตีบวกอุปกรณ์ชิ้นไหน?";
+mes "กรุณาเลือก:";
+mes "หากไม่ต้องการให้ITEM";
+mes "ชิ้นนั้น+กรุณาใส่ค่าเป็น 0 ครับ";
+next;
+setarray .@position$[1], "Head","Body","Left hand","Right hand","Robe","Shoes","Accessory 1","Accessory 2","Head 2","Head 3";
+setarray .@positionx[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+set .@menu$,"";
+for( set .@i,1; .@i <= 10; set .@i,.@i+1 )
+{
+if( getequipisequiped(.@positionx[.@i]) )
+set .@menu$, .@menu$ + .@position$[.@i] + "-" + "[" + getequipname(.@positionx[.@i]) + "]";
+
+set .@menu$, .@menu$ + ":";
+}
+set .@part,.@positionx[select(.@menu$)];
+if(!getequipisenableref(.@part)) {
+mes "[ DownGrade ]";
+mes "ไอเทมชิ้นนี้ไม่สามารถลดการตีบวกได้";
+close;
+}
+if(getequiprefinerycnt(.@part) == 0) {
+mes "[ DownGrade ]";
+mes "คุณต้องอัพเกรดมากกว่า +1";
+close;
+}
+mes "^FF0000[ลดการตีบวก]^000000";
+mes "คุณต้องการลดเหลือ บวก อะไร ?";
+mes "ถ้าใส่ลดมากกว่าบวกที่มีอยู่จะยกเลิก";
+mes ""+getequipname(.@part)+" : บวก "+getequiprefinerycnt(.@part)+"";
+mes "999 = ยกเลิก";
+input .@DG_GD;
+next;
+if (.@DG_GD >= 999) close;
+if(getequiprefinerycnt(.@part) <= .@DG_GD) {
+mes "^FF0000[ลดการตีบวก]^000000";
+mes "คุณใส่จำนวนมากกว่าการตีบวกที่คุณมีอยู่";
+mes "หรือคุณใส่จำนวนการตีบวกเท่าเดิม";
+close;
+}
+if (.@DG_GD > 10) {
+mes "^FF0000[ตีบวกแร่ปกติ]^000000";
+mes "คุณใส่มากกว่า 10 ไม่ได้";
+close;
+}
+set .@DG_EQUIPE,0;
+set .@DG_EQUIPC,0;
+set .@DG_EQUIPCA,0;
+set .@DG_EQUIPCR,0;
+set .@DG_EQUIPCD,0;
+set .@DG_EQUIPE,getequipid(.@part);
+set .@DG_EQUIPC,getequipcardid(.@part,0);
+set .@DG_EQUIPCA,getequipcardid(.@part,1);
+set .@DG_EQUIPCR,getequipcardid(.@part,2);
+set .@DG_EQUIPCD,getequipcardid(.@part,3);
+failedrefitem .@part;
+getitem2 .@DG_EQUIPE,1,1,.@DG_GD,0,.@DG_EQUIPC,.@DG_EQUIPCA,.@DG_EQUIPCR,.@DG_EQUIPCD;
+close;
+}
+
+function	script	upgrade5all	{
+for (set .@part, 0; .@part <= 9; set .@part, .@part + 1) {
+while (getequiprefinerycnt(.@part) < 5 && getequipisenableref(.@part)) {
+successrefitem .@part;
+}
+}
+return;
+}
+
+/* Set Oridecon Elumium 1-10 */
+
+function	script	refiner	{
+	disable_items;
+	set .@features,getarg(1);
+	mes "[" + getarg(0) + "]";
+	mes "ข้าเป็นช่างอาวุธ";
+	mes "ข้าสามารถตีอุปกรณ์ให้ท่านได้ทุกชนิด";
+	mes "เลือกเลยว่าจะให้ตีอุปกรณ์ชิ้นไหน";
+	next;
+	if (.@features == 2) {
+		set .@features, 0;
+		set .@featurea, 1;
+	}
+	setarray .@position$[1], "Head","Body","Left hand","Right hand","Robe","Shoes","Accessory 1","Accessory 2","Head 2","Head 3";
+	setarray .@positionx[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+	set .@menu$,"";
+	for(set .@i,1; .@i<=10; set .@i,.@i+1) {
+		if(getequipisequiped(.@positionx[.@i])) {
+			set .@menu$, .@menu$ + .@position$[.@i] + "-" + "[" + getequipname(.@positionx[.@i]) + "]";
+			set .@equipped,1;
+		}
+		set .@menu$, .@menu$ + ":";
+	}
+	if (.@equipped == 0) {
+		mes "[" + getarg(0) + "]";
+		mes "เจ้าไม่ได้สวมใส่อุปกรณ์?";
+		close;
+	}
+	set .@part, .@positionx[select(.@menu$)];
+
+	if(!getequipisequiped(.@part)) { //custom check
+		mes "[" + getarg(0) + "]";
+		mes "คุณไม่ได้สวมไส่อุปกรณ์";
+		mes "ข้าไม่สามารถ อัพเกรดให้ท่านได้.";
+		emotion e_an;
+		close;
+	}
+	//Check if the item is refinable...
+	if(!getequipisenableref(.@part)) {
+		mes "[" + getarg(0) + "]";
+		mes "ข้าคิดว่าข้าคงตีอุปกรณ์ชิ้นนี้ไม่ได้";
+		close;
+	}
+	//Check to see if the items is already +10
+	if(getequiprefinerycnt(.@part) >= 10) {
+		mes "[" + getarg(0) + "]";
+		mes "ข้าไม่สามารถ ปรับแต่งอุปกรณ์";
+		mes "ชิ้นนี้ได้อีก";
+		close;
+	}
+	set .@refineitemid, getequipid(.@part); // save id of the item
+	set .@refinerycnt, getequiprefinerycnt(.@part); //save refinery count
+	switch(getequipweaponlv(.@part)){
+	case 0: 	//Refine Armor
+		set .@price,2000;
+		set .@material,985; //Elunium
+		set .@safe,4;
+		break;
+	case 1: 	//Refine Level 1 Weapon
+		set .@price,50;
+		set .@material,1010; //Phracon
+		set .@safe,7;
+		break;
+	case 2: 	//Refine Level 2 Weapon
+		set .@price,200;
+		set .@material,1011; //Emveretarcon
+		set .@safe,6;
+		break;
+	case 3: 	//Refine Level 3 Weapon
+		set .@price,5000;
+		set .@material,984; //Oridecon
+		set .@safe,5;
+		break;
+	case 4: 	//Refine Level 4 Weapon
+		set .@price,20000;
+		set .@material,984; //Oridecon
+		set .@safe,4;
+		break;
+	case 5: 	//Refine other stuff?
+		set .@price,2000;
+		set .@material,985; //Elunium
+		set .@safe,4;
+		break;
+	}
+
+	// If the VIP system is enabled, the prices for non-VIP players are considerably higher.
+	//if (getserverdef(VAR_VIP_SCRIPT) && !vip_status(1)) {
+	//	switch(getequipweaponlv(.@part)) {
+	//		case 0: set .@price, .@price * 10; break;
+	//		case 1: set .@price, .@price * 40; break;
+	//		case 2: set .@price, .@price * 50; break;
+	//		case 3: set .@price, .@price * 2; break;
+	//		case 4: set .@price, .@price * 2; break;
+	//		case 5: set .@price, .@price * 10; break;
+	//	}
+//	}
+
+	if(.@features != 1) {
+		mes "[" + getarg(0) + "]";
+		mes "ท่านต้องการให้ข้าตีอาวุธ,ชุดเกราะ";
+		mes "ในการตี้ของชิ้นนี้ข้าต้องการ ^003366"+getitemname(.@material)+"^000000 และ";
+		mes "ค่าใช้จ่าย " + .@price + " เซนี.";
+		mes "ว่าไงละ?";
+		next;
+		if(select("ตกลง:ไม่") == 2){
+			mes "[" + getarg(0) + "]";
+			mes "ใช่...";
+			mes "ไม่จำเป็นต้องรีบร้อน";
+			mes "ถ้าพร้อมเมื่อไรมาหาข้าได้ทุกเมื่อที่ท่านต้องการ.";
+			close;
+		}
+		if(getequippercentrefinery(.@part) < 100) {
+			mes "["+getarg(0)+"]";
+			mes "ข้าต้องเตือนท่านก่อนนะ.";
+			mes "ว่ามันอาจจะเสียหายไปอย่างถาวร,";
+			mes "หากมี Card อยู่ในนั้น มันก๊จะ^FF0000เสียหายไปด้วย^000000เช่นกัน.";
+			mes "แล้วท่านยังต้องการที่จะตีอีกหรือ?.";
+			next;
+			if(select("ตกลง:ไม่") == 2){
+				mes "[" + getarg(0) + "]";
+				mes "นั่นละดีแล้ว...";
+				mes "ข้าเองก๊ไม่อยากทำลายของดีๆแบบนี้ด้วยมือข้าหลอก.";
+				close;
+			}
+		}
+		if((countitem(.@material) < 1) || (Zeny < .@price)) {
+			mes "[" + getarg(0) + "]";
+			mes "ข้าไม่สามารถทำให้ท่านได้";
+			mes "โปรดตรวจสอบ เงินของท่าน หรือ "+getitemname(.@material)+"...";
+			mes "กลับไปหาของสิ่งนั้นให้ข้า";
+			mes "เมื่อไรที่ท่านมีครบ ท่านกลับมาหาข้าได้ทุกเมื่อ.";
+			close;
+		}
+		if(.@featurea) {
+			if (countitem(32800) < 1) {
+				mes "[" + getarg(0) + "]";
+				mes "ท่านไม่มีใบกันแตกนะครับ";
+				mes "สามารถซื้อใบกันแตกได้ใน Cash Shop";
+				close;
+			}
+		}
+		set Zeny, Zeny-.@price;
+		delitem .@material,1;
+
+		//custom checks
+		if(getequipisequiped(.@part) == 0) { // hacker has removed the item (not changed, why?)
+			mes "[" + getarg(0) + "]";
+			mes "Look here... you don't have any Items on...";
+			close;
+		}
+		if(getequiprefinerycnt(.@part) != .@refinerycnt || getequipid(.@part) != .@refineitemid) { // hacker has changed the item
+			mes "[" + getarg(0) + "]";
+			emotion e_an;
+			mes "Wait a second...";
+			mes "Do you think I'm stupid?!";
+			mes "You switched the item while I wasn't looking! Get out of here!";
+			close;
+		}
+
+		if(getequippercentrefinery(.@part) <= rand(100)) {
+			if (.@featurea) {
+				delitem 32800,1;
+				downrefitem .@part,1;
+			} else failedrefitem .@part;
+			mes "[" + getarg(0) + "]";
+			emotion (!rand(5))?e_cash:e_omg;
+			set .@lose,rand(1,3);
+			if (.@lose == 1) {
+				mes "OH! MY GOD!";
+				mes "Damn it! Not again!";
+				mes "I'm terribly sorry, but you know practice does make perfect.";
+				mes "Um, right? Heh heh...";
+			} else if(.@lose == 2) {
+				mes "จ๊ากกกกกกกกก!";
+				mes "ข้าคิดว่า ฝีมือข้ายังไม่ดีพอ หรืออาจะเป็นความผิดพลาด!";
+				mes "ข้าเสียใจด้วย!";
+			} else {
+				mes "Crap!";
+				mes "It couldn't take";
+				mes "much more tempering!";
+				mes "Sorry about this...";
+			}
+			close;
+		}
+		mes "["+getarg(0)+"]";
+		successrefitem .@part;
+		emotion e_heh;
+		set .@win,rand(1,3);
+		if (.@win == 1) {
+			mes "เสร๊จแล้วครับ!";
+			mes "ดูเหมือนฝีมือข้ายังไม่ขึ้นสนิม!";
+			mes "ผลงานของข้ายังยอดเยี่ยมเหมือนเดิม";
+		} else if(.@win == 2) {
+			mes "ประสบความสำเร็จ...!";
+			mes "อีกครั้งที่น่าตื่นตาตื่นใจของฉัน";
+			mes "ความสามารถของข้าอย่างแท้จริง";
+		} else {
+			mes "หึ หึ!";
+			mes "ฉันทำทุกอย่าง.";
+			mes "ไม่มีข้อสงสัยในการทำงานของฉันคือ";
+			mes "ความพึงพอใจของคุณ";
+			mes "คือความสมบรูณ์แบบที่สุด~";
+		}
+		close;
+	}
+}
+
+/* End Set Oridecon Elumium 1-10 */
+
+/* Set Enriched Oridecon Elumium 1-10 */
+
+function	script	refineadvance	{
+	disable_items;
+	set .@featurea,getarg(1);
+	mes "[NPC ตีบวก Enriched 1-10]";
+	mes "ข้าคือช่างตีเหล็ก";
+	mes "ข้าสามารถอัพเกรดได้ทั้งอาวูธและชุดเกราะ,";
+	mes "เพียงแค่บอกว่าต้องการอัพเกรดชิ้นใหน.";
+	next;
+
+	setarray .@position$[1], "Head","Body","Left hand","Right hand","Robe","Shoes","Accessory 1","Accessory 2","Head 2","Head 3";
+	setarray .@positionx[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+	set .@menu$,"";
+	for(set .@i,1; .@i<=10; set .@i,.@i+1) {
+		if (getequipisequiped(.@positionx[.@i])) {
+			set .@menu$, .@menu$ + .@position$[.@i] + "-" + "[" + getequipname(.@positionx[.@i]) + "]";
+			set .@equipped,1;
+		}
+		set .@menu$, .@menu$ + ":";
+	}
+	if (.@equipped == 0) {
+		mes "[NPC ตีบวก Enriched 1-10]";
+		mes "ข้าไม่สามารถ ^FF0000อัพเกรด^000000 อุปกรณ์ให้ท่านได้ โปรดตัวสอบ ^FF0000Item^000000 ...";
+		close;
+	}
+	set .@part, .@positionx[select(.@menu$)];
+
+	if (!getequipisequiped(.@part)) //custom check
+		close;
+	if (!getequipisenableref(.@part)) {
+		mes "[NPC ตีบวก Enriched 1-10]";
+		mes "ข้าไม่สามารถอัพเกรดอุปกรณ์ชิ้นนี้ได้.";
+		close;
+	}
+	if (getequiprefinerycnt(.@part) >= 10) {
+		mes "[NPC ตีบวก Enriched 1-10]";
+		mes "ข้าอัพเกรดมันเพิ่มไม่ได้แล้ว...";
+		close;
+	}
+	// Make sure you have the neccessary items and Zeny to refine your items
+	// Determines chance of failure and verifies that you want to continue.
+	switch(getequipweaponlv(.@part)) {
+		case 1: callsub S_RefineValidate,1,7620,50,.@part,.@featurea; break;
+		case 2: callsub S_RefineValidate,2,7620,200,.@part,.@featurea; break;
+		case 3: callsub S_RefineValidate,3,7620,5000,.@part,.@featurea; break;
+		case 4: callsub S_RefineValidate,4,7620,20000,.@part,.@featurea; break;
+		default: callsub S_RefineValidate,0,7619,2000,.@part,.@featurea; break;
+	}
+
+	mes "[NPC ตีบวก Enriched 1-10]";
+	mes "Clang! Clang! Clang!";
+	if (getequippercentrefinery(.@part) > rand(100) || getequippercentrefinery(.@part) > rand(100)) {
+		successrefitem .@part;
+		next;
+		emotion e_no1;
+		mes "[NPC ตีบวก Enriched 1-10]";
+		mes "โอ้ว เยี่ยม!.";
+		mes "นี่คือความสำเร๊จของข้าในการอัพเกรดสิ่งนี้ "+((getequipweaponlv(.@part))?"weapon":"armor")+". คุณต้องมีความสุขเพราะมันได้กลายเป็นที่แข็งแกร่ง";
+		close;
+	}
+	if (.@featurea) {
+		delitem 32800,1;
+		downrefitem .@part,1;
+	} else failedrefitem .@part;
+	next;
+	emotion (!rand(5))?e_cash:e_omg;
+	mes "[NPC ตีบวก Enriched 1-10]";
+	mes "อื้ม...!!!";
+	next;
+	mes "[NPC ตีบวก Enriched 1-10]";
+	mes "...";
+	mes ".....";
+	mes ".......ฮา ฮา ฮา ฮา~";
+	mes "........มันเป็นทางเลือก และ ความสามารถ ที่ไม่เสียใจของข้า";
+	close;
+
+S_RefineValidate:
+	set .@price, getarg(2);
+
+	// If the VIP system is enabled, the prices for non-VIP players are considerably higher.
+//	if (getserverdef(VAR_VIP_SCRIPT) && !vip_status(1)) {
+//		switch(getarg(0)){
+//			case 0: set .@price, .@price * 10; break;
+//			case 1: set .@price, .@price * 40; break;
+//			case 2: set .@price, .@price * 50; break;
+//			case 3: set .@price, .@price * 2; break;
+//			case 4: set .@price, .@price * 2; break;
+//		}
+//	}
+
+	mes "[NPC ตีบวก Enriched 1-10]";
+	if (getarg(0))
+		mes "คุณต้องการอัพเกรดอาวุธ เลเวล " + getarg(0) + " weapon?";
+	mes "ในการอัพเกรดข้าต้องการใช้ ^ff9999" + getitemname(getarg(1)) + "^000000 และค่าแรง " + .@price + " zeny.";
+	mes "ตกลงใหม?";
+	next;
+	if(select("ตกลง:ไม่") == 1) {
+		if (getequippercentrefinery(getarg(3)) < 100) {
+			if (getarg(0)) {
+				mes "[NPC ตีบวก Enriched 1-10]";
+				mes "Wow!!";
+				mes "This weapon probably";
+				mes "looks like it's been refined...";
+				mes "many times...";
+				mes "It may break if";
+				mes "you refine it again.";
+				next;
+				mes "And if it breaks,";
+				mes "you can't use it anymore!";
+				mes "All the cards in it and the properties ^ff0000will be lost^000000!";
+				mes "^ff0000Besides, the equipment will break!^000000";
+				mes "Are you sure you still want to continue?";
+				next;
+				if(select("Yes:No") == 2) {
+					mes "[NPC ตีบวก Enriched 1-10]";
+					mes "Good.";
+					mes "Because if the weapon breaks from unreasonable refining, then I get a bad mood, too.";
+					close;
+				}
+			} else {
+				mes "[NPC ตีบวก Enriched 1-10]";
+				mes "ถ้าแตกไอเท็มจะหายไป";
+				mes "และการ์ดทั้งหมดก็จะ ^ff0000หายไปนะ! ถ้าการอัพเกรดล้มเหลว!^000000.";
+				//mes "Everything will disappear. As in... GONE!";
+				mes "เจ้ายังแน่ใจที่จะอัพเกรดใหม?";
+				next;
+				if(select("ตกลง:ไม่") == 2) {
+					mes "[NPC ตีบวก Enriched 1-10]";
+					mes "ข้าเห็นด้วยอย่างยิ่ง...";
+					mes "ข้าอาจจะเป็นช่างที่เก่ง";
+					mes "แต่ก๊ต้องมีโอกาสพลาดได้";
+					close;
+				}
+			}
+		}
+		if (countitem(getarg(1)) > 0 && Zeny > .@price) {
+			if (getarg(4)) {
+				if (countitem(32800) < 1){
+					mes "[NPC ตีบวก Enriched 1-10]";
+					mes "ท่านไม่มีใบกันแตกนะครับ";
+					mes "สามารถซื้อใบกันแตกได้ใน Cash Shop";
+					close;
+				}
+			}
+			delitem getarg(1),1;
+			set Zeny, Zeny - .@price;
+			return;
+		}
+		mes "[NPC ตีบวก Enriched 1-10]";
+		mes "ดูเหมือนเจ้าจะไม่มีเงิน หรือ ^ff9999" + getitemname(getarg(1)) + "^000000 ?";
+		mes "ไปหามาก่อนดีกว่า ข้ารออยู่นี่ตลอด";
+		close;
+	}
+	mes "[NPC ตีบวก Enriched 1-10]";
+	mes "ใช่ ไม่จำเป็นต้องรีบ ค่อยๆ ก๊ได้...";
+	close;
+}
+
+//* End Set Enriched Oridecon Elumium 1-10 */
+
+///* End Set HE Oridecon Elunium 7-9 */
+
+/* End Set HD Bradium Carnium 10-20 */

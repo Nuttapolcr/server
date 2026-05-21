@@ -1,0 +1,187 @@
+///////////////////////////////////////////////
+//                                          //
+//                                          //
+//Tharakan Khumt#ong                         //
+//////////////////////////////////////////////
+-	script	autopot#1	-1,{
+	OnInit:
+	////////ตั่งค่า///////////
+	set $setdelay,100; // ค่าดีเลย์
+	///hp Potion
+	set $hpitem1,522; // โพชั่น hp
+	set $hpitem2,504; // โพชั่น hp
+	set $hpitem_min,50; // เตือนเมื่อมี item ต่ำกว่ากี่อัน
+	///sp Potion
+	set $spitem1,526; // โพชั่น sp
+	set $spitem2,505; //  โพชั่น sp
+	set $spitem_min,50; // เตือนเมื่อมี item ต่ำกว่ากี่อัน
+	end;
+}
+
+prontera,0,0,4	script	autopot#2	-1,{
+	ONnpc:
+if(#ong == 0)	{
+menu 
+"^FF0000•^000000 [ ^3399FFเปิด ^000000]",on,
+"^FF0000•^000000 [ ตั่งค่าเติม HP]",sethp,	
+"^FF0000•^000000 [ ตั่งค่าเติม SP]",setsp,
+"^FF0000•^000000 [ ดูลายละเอียดการตั่งค่า]",config;	
+}else{
+menu
+"^FF0000•^000000 [ ^FF0000ปิด^000000 ]",off,
+"^FF0000•^000000 [ ตั่งค่าเติม HP]",sethp,	
+"^FF0000•^000000 [ ตั่งค่าเติม SP]",setsp,
+"^FF0000•^000000 [ ดูลายละเอียดการตั่งค่า]",config;	
+}
+
+config:
+			mes "รายละเอียดตั่งค่า HP Potion";
+			mes "-----------------------";
+			mes "โพชั่น : ^FF0000" + getitemname(.hpitem) + "^000000";
+			mes "เปอร์เซ็นเลือด : ^FF0000"+#hp_Min+"^000000 %";
+			mes "ดีเลย์ : ^FF0000"+$setdelay+"^000000";
+			mes "-----------------------";
+			next;
+			mes "รายละเอียดตั่งค่า SP Potion";
+			mes "-----------------------";
+			mes "โพชั่น : ^FF0000" + getitemname(.spitem) + "^000000";
+			mes "เปอร์เซ็นเลือด :^FF0000 "+#sp_Min+"^000000 %";
+			mes "ดีเลย์ : ^FF0000"+$setdelay+"^000000";
+			mes "-----------------------";
+			
+end;
+
+on:
+set #ong,1;
+message strcharinfo(0), "ออโต้โพชั่น : เปิดการทำงาน";
+addtimer $setdelay,strnpcinfo(3) + "::OnStart";
+end;
+
+off:
+set #ong,0;
+message strcharinfo(0), "ออโต้โพชั่น : ปิดการทำงาน";
+addtimer $setdelay,strnpcinfo(3) + "::OnStart";
+end;
+
+
+sethp:
+mes "เลือก HP Potion";
+message strcharinfo(0), "ออโต้โพชั่น : ปิดการทำงาน";
+set @mode,1;
+set #ong,0;
+
+menu
+"^FF0000•^000000 " + getitemname($hpitem1) + "",hp1,
+"^FF0000•^000000 " + getitemname($hpitem2) + "",hp2;
+end;
+
+hp1:
+if(countitem($hpitem1) < 1){mes "คุณไม่มี ^FF0000" + getitemname($hpitem1) + "^000000";end;}
+mes "Potion : ^FF0000" + getitemname($hpitem1) + "^000000";
+set .hpitem,$hpitem1;
+dispbottom "------------------ทำงานเมื่อเหลือ HP กี่ %------------------";
+input #hp_Min;
+mes "เปอร์เซ็นการปั้ม HP : ^FF0000"+#hp_Min+"^000000 %";
+goto ONnpc;
+end;
+
+hp2:
+if(countitem($hpitem2) < 1){mes "คุณไม่มี ^FF0000" + getitemname($hpitem2) + "^000000";end;}
+mes "Potion : ^FF0000" + getitemname($hpitem2) + "^000000";
+set .hpitem,$hpitem2;
+dispbottom "------------------ทำงานเมื่อเหลือ HP กี่ %------------------";
+input #hp_Min;
+mes "เปอร์เซ็นการปั้ม HP : ^FF0000"+#hp_Min+"^000000 %";
+goto ONnpc;
+end;
+
+setsp:
+set @mode,2;
+set #ong,0;
+mes "เลือก SP Potion";
+message strcharinfo(0), "ออโต้โพชั่น : ปิดการทำงาน";
+menu
+"^FF0000•^000000 " + getitemname($spitem1) + "",sp1,
+"^FF0000•^000000 " + getitemname($spitem2) + "",sp2;
+end;
+
+sp1:
+if(countitem($spitem1) < 1){mes "คุณไม่มี ^FF0000" + getitemname($spitem1) + "^000000";end;}
+mes "Potion : ^FF0000" + getitemname($spitem1) + "^000000";
+set .spitem,$spitem1;
+dispbottom "------------------ทำงานเมื่อเหลือ SP กี่ %------------------";
+input #sp_Min;
+mes "เปอร์เซ็นการปั้ม SP : ^FF0000"+#sp_Min+"^000000 %";
+goto ONnpc;
+end;
+
+sp2:
+if(countitem($spitem2) < 1){mes "คุณไม่มี ^FF0000" + getitemname($spitem2) + "^000000";end;}
+mes "เลือก SP Potion : ^FF0000" + getitemname($spitem2) + "^000000";
+set .spitem,$spitem2;
+dispbottom "------------------ทำงานเมื่อเหลือ SP กี่ %------------------";
+input #sp_Min;
+mes "เปอร์เซ็นการปั้ม SP : ^FF0000"+#sp_Min+"^000000 %";
+goto ONnpc;
+end;
+
+
+
+
+OnStart:
+if(#ong == 1) goto run;
+	end;
+run:
+
+if (!getstatus(SC_BERSERK) && !getstatus(SC_SATURDAYNIGHTFEVER) && !getstatus(SC_GRAVITATION) &&
+	    !getstatus(SC_TRICKDEAD) && !getstatus(SC_HIDING) && !getstatus(SC__SHADOWFORM) && !getstatus(SC__INVISIBILITY) &&
+	    !getstatus(SC__MANHOLE) && !getstatus(SC_KAGEHUMI) && !getstatus(SC_HEAT_BARREL_AFTER) &&
+		!getstatus(SC_STONE) && !getstatus(SC_FREEZE) && !getstatus(SC_STUN) && !getstatus(SC_SLEEP))
+		{
+			if(Hp * 100 / MaxHp < #hp_Min) {
+				if (countitem(.hpitem) < $hpitem_min) {
+
+				dispbottom "'" + getitemname(.hpitem) + "' ใกล้จะหมดแล้ว......";
+			}
+			if (!countitem(.hpitem)) {
+
+				dispbottom "'" + getitemname(.hpitem) + "' หมดแล้ว";
+				end;
+			}
+			
+				
+				if (countitem(.hpitem)) {
+					delitem .hpitem,1;
+					consumeitem .hpitem;
+					if(.hpitem ==  504){specialeffect2 207;}
+					
+				}
+			}
+			if(Sp * 100 / MaxSp < #sp_Min) {
+				if (countitem(.spitem) < $spitem_min) {
+
+				dispbottom "'" + getitemname(.spitem) + "' ใกล้จะหมดแล้ว......";
+			}
+						if (!countitem(.spitem)) {
+
+				dispbottom "'" + getitemname(.spitem) + "' หมดแล้ว";
+				end;
+			}
+				if (countitem(.spitem)) {
+					delitem .spitem,1;
+					consumeitem .spitem;
+					if(.spitem ==  526){specialeffect2 7;}
+					if(.spitem ==  505){specialeffect2 208;}
+				}
+			}
+		
+	}
+		addtimer $setdelay,strnpcinfo(3) + "::OnStart";
+end;
+
+
+}
+
+
+
+

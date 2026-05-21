@@ -1,0 +1,87 @@
+//===== rAthena Script =======================================
+//= Refine Master
+//===== Description: =========================================
+//= NPC All Refine Equipment.
+//===== Additional Comments: =================================
+//= 1.0 First version. [Mr.TAURUS]
+//============================================================
+
+oasis,131,78,5	script	Refine Master	4_M_LGTMAN,{
+	disable_items;
+	mes .npc$,
+		"ข้าสามารถอัพเกรดให้เจ้าได้ทั้งตัวภายในครั้งเดียว",
+		"และจะได้ ^990099+"+ .refine +"^000000 ในทันที",
+		"^FF0000โดยอุปกรณ์ที่ ^990099+"+ .refine +"^000000 ^FF0000ขึ้นไปจะไม่ถูกอัพเกรดซ้ำอีก.^000000";
+	next;
+	mes .npc$,
+		"เสร็จเรียบร้อย.";
+	//= EQI_ACC_L (0) - Accessory 1
+	//= EQI_ACC_R (1) - Accessory 2
+	if ( .refine_acc_all ) {
+		for( .@a = 0; .@a < getarraysize(.acc_all); .@a++ ) {
+			if ( getequipid(.acc_all[.@a]) > null &&
+				 getequiprefinerycnt(.acc_all[.@a]) < .refine )
+				successrefitem .acc_all[.@a],.refine;
+		}
+	}
+	//= EQI_SHOES (2) - Footgear (shoes, boots)
+	//= EQI_GARMENT (3) - Garment (mufflers, hoods, manteaux)
+	//= EQI_HEAD_TOP (6) - Upper Headgear
+	//= EQI_ARMOR (7) - Armor (jackets, robes)
+	//= EQI_HAND_L (8) - Left hand (weapons, shields)
+	//= EQI_HAND_R (9) - Right hand (weapons)
+	for( .@n = 0; .@n < getarraysize(.normal_all); .@n++ ) {
+		if ( getequipid(.normal_all[.@n]) > null &&
+			 getequiprefinerycnt(.normal_all[.@n]) < .refine )
+			successrefitem .normal_all[.@n],.refine;
+	}
+	//= EQI_HEAD_LOW (4) - Lower Headgear (beards, some masks)
+	//= EQI_HEAD_MID (5) - Middle Headgear (masks, glasses)
+	if ( .refine_head_ml ) {
+		for( .@h = 0; .@h < getarraysize(.head_ml); .@h++ ) {
+			if ( getequipid(.head_ml[.@h]) > null &&
+				 getequiprefinerycnt(.head_ml[.@h]) < .refine )
+				successrefitem .head_ml[.@h],.refine;
+		}
+	}
+	//= EQI_COSTUME_HEAD_TOP (10) - Upper Costume Headgear
+	//= EQI_COSTUME_HEAD_MID (11) - Middle Costume Headgear
+	//= EQI_COSTUME_HEAD_LOW (12) - Lower Costume Headgear
+	//= EQI_COSTUME_GARMENT (13)  - Costume Garment		
+	if ( .refine_costume ) {
+		for( .@c = 0; .@c < getarraysize(.costume_all); .@c++ ) {
+			if ( getequipid(.costume_all[.@c]) > null &&
+				 getequiprefinerycnt(.costume_all[.@c]) < .refine )
+				successrefitem .costume_all[.@c],.refine;
+		}
+	}
+	//= EQI_SHADOW_ARMOR (15) - Shadow Armor
+	//= EQI_SHADOW_WEAPON (16) - Shadow Weapon
+	//= EQI_SHADOW_SHIELD (17) - Shadow Shield
+	//= EQI_SHADOW_SHOES (18) - Shadow Shoes
+	//= EQI_SHADOW_ACC_R (19) - Shadow Accessory 2
+	//= EQI_SHADOW_ACC_L (20) - Shadow Accessory 1
+	if ( .refine_shadows ) {
+		for( .@s = 0; .@s < getarraysize(.shadow_all); .@s++ ) {
+			if ( getequipid(.shadow_all[.@s]) > null &&
+				 getequiprefinerycnt(.shadow_all[.@s]) < .refine )
+				successrefitem .shadow_all[.@s],.refine;
+		}
+	}
+	end;
+	
+	OnInit:
+		.npc$ = "[^0000FF "+ strnpcinfo(1) +" ^000000]";
+		.refine = 10;			//= ระดับตีบวก
+		.refine_head_ml = false; //= เปิด | ปิด ตีบวกหมวก กลาง/ล่าง (true:เปิด | false:ปิด).
+		.refine_acc_all = false; //= เปิด | ปิด ตีบวกประดับ (true:เปิด | false:ปิด).
+		.refine_costume = true; //= เปิด | ปิด ตีบวกคอส (true:เปิด | false:ปิด).
+		.refine_shadows = true; //= เปิด | ปิด ตีบวกชาโด้ (true:เปิด | false:ปิด).
+		setarray .acc_all[0],EQI_ACC_L,EQI_ACC_R;
+		setarray .normal_all[0],EQI_SHOES,EQI_GARMENT,EQI_HEAD_TOP,EQI_ARMOR,EQI_HAND_L,EQI_HAND_R;
+		setarray .head_ml[0],EQI_HEAD_LOW,EQI_HEAD_MID;
+		setarray .costume_all[0],EQI_COSTUME_HEAD_TOP,EQI_COSTUME_HEAD_MID,EQI_COSTUME_HEAD_LOW,EQI_COSTUME_GARMENT;
+		setarray .shadow_all[0],EQI_SHADOW_ARMOR,EQI_SHADOW_WEAPON,EQI_SHADOW_SHIELD,EQI_SHADOW_SHOES,EQI_SHADOW_ACC_R,EQI_SHADOW_ACC_L;
+		waitingroom "# ตี +10 ทั้งตัว",0;
+	end;
+}

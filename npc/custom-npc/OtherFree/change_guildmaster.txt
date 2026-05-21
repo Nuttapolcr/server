@@ -1,0 +1,64 @@
+morocc,178,101,4	script	Change Guild Master	4_M_EIN_SOLDIER,{
+
+	mes "[ Change Guild Master ]";
+	mes "คุณต้องการที่จะเปลี่ยนผู้นำกิลด์คนใหม่อย่างนั้นหรือ ?";
+	mes "คุณจะถูกริดรอนสิทธิ์อำนาจทั้งหมดจากที่คุณมีในตอนนี้";
+	mes "มั่นใจแล้วหรือว่าต้องการที่จะเปลี่ยนผู้นำ";
+	next;
+	mes "[ Change Guild Master ]";
+	mes "ค่าบริการสำหรับการเปลี่ยนผู้นำกิลด์คือ";
+	mes callfunc("F_InsertComma",.zeny_req) +" เซนี.";
+	next;
+	switch(select("~ ยืนยันการเปลี่ยนหัวหน้ากิลด์:~ ยกเลิกการสนทนา"))
+	{
+		case 1:
+			.@GID = getcharid(2);
+			if ( !.@GID )
+			{
+				mes "[ Change Guild Master ]";
+				mes "ดูเหมือนคุณจะลืมสิ่งสำคัญที่สุดสำหรับการเปลี่ยนหัวกิลด์ใหม่นะ.";
+				close;
+			}
+			else if ( getguildmaster(.@GID) != strcharinfo(0) )
+			{
+				mes "[ Change Guild Master ]";
+				mes "คุณเป็นหัวกิลดิ์นี้หรือยังไง.";
+				close;
+			}
+			else if ( agitcheck() )
+			{
+				mes "[ Change Guild Master ]";
+				mes "ในช่วงเวลาสงครามกิลด์วอร์ไม่สามารถที่จะใช้บริการนี้ได้.";
+				close;
+			}
+			else if ( Zeny < .zeny_req )
+			{
+				mes "[ Change Guild Master ]";
+				mes "ไม่ได้ฟังที่ข้าอธิบายอย่างนั้นหรือว่า ต้องใช้เงินจำนวนเท่าไหร่.";
+				close;
+			}
+			mes "[ Change Guild Master ]";
+			mes "กรุณากรอกชื่อผู้นำคนใหม่ที่คุณต้องการมอบตำแหน่งให้.";
+			next;
+			input @name$;
+			set @result, guildchangegm(.@GID,@name$);
+			if ( !@result )
+			{
+				mes "[ Change Guild Master ]";
+				mes "ชื่อตัวละครนี้ไม่ได้สังกัดภายใต้กิลด์ของคุณ หรือ ไม่ได้ออนไลน์อยู่.";
+				close;
+			}
+			mes "[ Change Guild Master ]";
+			mes "มอบอำนาจทั้งหมดให้กับหัวหน้ากิลด์คนใหม่เรียบร้อยแล้ว.";
+			close;
+			
+		default:
+			close;
+	}
+	end;
+	
+OnInit:
+	.zeny_req = 500000;
+	waitingroom "โอนหัวกิลด์",0;
+	end;
+}

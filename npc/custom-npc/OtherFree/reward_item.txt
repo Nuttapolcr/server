@@ -1,0 +1,32 @@
+-	script	REWARD_ITEM	 -1,{
+
+OnInit:
+
+	while (1)
+	{
+		query_sql "SELECT `reward_item_id`,`account_id`,`item_id`,`amount` FROM `reward_item` WHERE `status` = 0 ORDER BY RAND() LIMIT 10",.reward_item_id,.account_id,.item_id,.amount;
+		sleep 500;
+		if (getarraysize(.reward_item_id) > 0) {
+			for (set .i,0; .i < getarraysize(.reward_item_id); set .i,.i+1) {
+				if(attachrid(.account_id[.i])){
+					if(.item_id[.i] > 0 && .amount[.i] > 0)
+					{
+						dispbottom "[Reward item] คุณได้รับ " + .item_id[.i] + " x "+.amount[.i];
+						getitem .item_id[.i],.amount[.i];
+					}
+
+					query_sql "UPDATE `reward_item` SET `status` = 1 WHERE `reward_item_id` = " + .reward_item_id[.i];
+					detachrid;
+				}
+			}
+			deletearray .reward_item_id[0],getarraysize(.reward_item_id);
+			deletearray .item_id[0],getarraysize(.item_id);
+			deletearray .amount[0],getarraysize(.amount);
+			deletearray .account_id[0],getarraysize(.account_id);
+		}
+		
+		sleep 4500;
+	}
+	end;
+
+}

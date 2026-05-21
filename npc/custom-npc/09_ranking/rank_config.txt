@@ -1,0 +1,345 @@
+
+-	script	Auto_RAConfig	-1,{
+OnInit:
+
+  //ตั้งค่าเงินในการ ลงทะเบียนกิล
+ set $@feeregistb,500000;
+ 
+   //ตั้งค่าต่างเกี่ยวกับ Donate	
+ set $@tbmaxzeny,10000000; //จำนวนเงินที่โดเนท ได้มากสุดต่อรอบ
+ set $@tbmaxelu,100;	//จำนวน Elu ที่โดเนท ได้มากสุดต่อรอบ
+ set $@tbmaxori,100;	//จำนวน Ori ที่โดเนท ได้มากสุดต่อรอบ
+ set $@tbmaxemp,100;	//จำนวน Vybranium ที่โดเนท ได้มากสุดต่อรอบ
+
+ 
+   //ตั้งค่าต่างเกี่ยวกับ item 	
+ set $@tbvybranium,969;   // Vybramiun Coin( ตอนนี้ใส่เป็นททอง 969 ) 
+ 
+ 
+   //ตั้ง item ที่ต้องใช้ในการ Adventure Level
+ //config Lv0 -> Lv1
+ set $@rqElu0,10;   // Elu ที่ต้องใช้อัป 
+ set $@rqOri0,10;   // Ori ที่ต้องใช้อัป 
+ set $@rqVybra0,10; // Vybramiun ที่ต้องใช้อัป  ( ตอนนี้ใส่เป็นททอง 969 ) 
+ set $@rqZeny0,1000000; //เงินที่ต้องใช้อัป
+ set $@rqAvcoin0,1;    // Adventure Coin ที่ได้จาก ภาระกิจกำจัดมอนเตอร์
+ 
+ //config Lv1
+ set $@rqElu1,10;
+ set $@rqOri1,10;
+ set $@rqVybra1,10;
+ set $@rqZeny1,1000000;
+  set $@rqAvcoin1,1;
+  
+ //config Lv2
+ set $@rqElu2,20;
+ set $@rqOri2,20;
+ set $@rqVybra2,20;
+ set $@rqZeny2,2000000;
+ set $@rqAvcoin2,2;
+ 
+ //config Lv3
+ set $@rqElu3,30;
+ set $@rqOri3,30;
+ set $@rqVybra3,30;
+ set $@rqZeny3,3000000;
+ set $@rqAvcoin3,3;
+ 
+ //config Lv4
+ set $@rqElu4,40;
+ set $@rqOri4,40;
+ set $@rqVybra4,40;
+ set $@rqZeny4,4000000; 
+ set $@rqAvcoin4,4;
+ 
+ //config Lv5
+ set $@rqElu5,50;
+ set $@rqOri5,50;
+ set $@rqVybra5,50;
+ set $@rqZeny5,5000000; 
+ set $@rqAvcoin5,5;
+ 
+// config Lv6
+set $@rqElu6, 60;
+set $@rqOri6, 60;
+set $@rqVybra6, 60;
+set $@rqZeny6, 6000000;
+set $@rqAvcoin6,6;
+
+// config Lv7
+set $@rqElu7, 70;    // จำนวน Elunium ที่ต้องใช้สำหรับ Lv7
+set $@rqOri7, 70;    // จำนวน Orihacon ที่ต้องใช้สำหรับ Lv7
+set $@rqVybra7, 70;  // จำนวน Vybranium ที่ต้องใช้สำหรับ Lv7
+set $@rqZeny7, 7000000;  // จำนวน Zeny ที่ต้องใช้สำหรับ Lv7
+set $@rqAvcoin7,7;
+
+// config Lv8
+set $@rqElu8, 80;
+set $@rqOri8, 80;
+set $@rqVybra8, 80;
+set $@rqZeny8, 8000000;
+set $@rqAvcoin8,8;
+
+// config Lv9
+set $@rqElu9, 90;
+set $@rqOri9, 90;
+set $@rqVybra9, 90;
+set $@rqZeny9, 9000000;
+set $@rqAvcoin9,9;
+
+// config Lv10
+set $@rqElu10, 100;
+set $@rqOri10, 100;
+set $@rqVybra10, 100;
+set $@rqZeny10, 10000000;
+set $@rqAvcoin10,10;
+
+// config Lv11
+set $@rqElu11, 110;
+set $@rqOri11, 110;
+set $@rqVybra11, 110;
+set $@rqZeny11, 11000000;
+set $@rqAvcoin11,11;
+
+// config Lv12
+set $@rqElu12, 120;
+set $@rqOri12, 120;
+set $@rqVybra12, 120;
+set $@rqZeny12, 12000000;
+set $@rqAvcoin12,12;
+
+// config Lv13
+set $@rqElu13, 130;
+set $@rqOri13, 130;
+set $@rqVybra13, 130;
+set $@rqZeny13, 13000000;
+set $@rqAvcoin13,13;
+
+// config Lv14
+set $@rqElu14, 140;
+set $@rqOri14, 140;
+set $@rqVybra14, 140;
+set $@rqZeny14, 14000000;
+set $@rqAvcoin14,14;
+
+// config Lv15
+set $@rqElu15, 150;
+set $@rqOri15, 150;
+set $@rqVybra15, 150;
+set $@rqZeny15, 15000000;
+set $@rqAvcoin15,15;
+
+// config Lv16
+set $@rqElu16, 160;
+set $@rqOri16, 160;
+set $@rqVybra16, 160;
+set $@rqZeny16, 16000000;
+set $@rqAvcoin16,16;
+
+// config Lv17
+set $@rqElu17, 170;
+set $@rqOri17, 170;
+set $@rqVybra17, 170;
+set $@rqZeny17, 17000000;
+set $@rqAvcoin17,17;
+
+// config Lv18
+set $@rqElu18, 180;
+set $@rqOri18, 180;
+set $@rqVybra18, 180;
+set $@rqZeny18, 18000000;
+set $@rqAvcoin18,18;
+
+// config Lv19
+set $@rqElu19, 190;
+set $@rqOri19, 190;
+set $@rqVybra19, 190;
+set $@rqZeny19, 19000000;
+set $@rqAvcoin19,19;
+
+// config Lv20
+set $@rqElu20, 200;
+set $@rqOri20, 200;
+set $@rqVybra20, 200;
+set $@rqZeny20, 20000000;
+set $@rqAvcoin20,20;
+
+// config Lv21
+set $@rqElu21, 210;
+set $@rqOri21, 210;
+set $@rqVybra21, 210;
+set $@rqZeny21, 21000000;
+set $@rqAvcoin21,21;
+
+// config Lv22
+set $@rqElu22, 220;
+set $@rqOri22, 220;
+set $@rqVybra22, 220;
+set $@rqZeny22, 22000000;
+set $@rqAvcoin22,22;
+
+// config Lv23
+set $@rqElu23, 230;
+set $@rqOri23, 230;
+set $@rqVybra23, 230;
+set $@rqZeny23, 23000000;
+set $@rqAvcoin23,23;
+
+// config Lv24
+set $@rqElu24, 240;
+set $@rqOri24, 240;
+set $@rqVybra24, 240;
+set $@rqZeny24, 24000000;
+set $@rqAvcoin24,24;
+
+// config Lv25
+set $@rqElu25, 250;
+set $@rqOri25, 250;
+set $@rqVybra25, 250;
+set $@rqZeny25, 25000000;
+set $@rqAvcoin25,25;
+
+// config Lv26
+set $@rqElu26, 260;
+set $@rqOri26, 260;
+set $@rqVybra26, 260;
+set $@rqZeny26, 26000000;
+set $@rqAvcoin26,26;
+
+// config Lv27
+set $@rqElu27, 270;
+set $@rqOri27, 270;
+set $@rqVybra27, 270;
+set $@rqZeny27, 27000000;
+set $@rqAvcoin27,27;
+
+// config Lv28
+set $@rqElu28, 280;
+set $@rqOri28, 280;
+set $@rqVybra28, 280;
+set $@rqZeny28, 28000000;
+set $@rqAvcoin28,28;
+
+// config Lv29
+set $@rqElu29, 290;
+set $@rqOri29, 290;
+set $@rqVybra29, 290;
+set $@rqZeny29, 29000000;
+set $@rqAvcoin29,29;
+
+// config Lv30
+set $@rqElu30, 300;
+set $@rqOri30, 300;
+set $@rqVybra30, 300;
+set $@rqZeny30, 30000000;
+set $@rqAvcoin30,30;
+
+// config Lv31
+set $@rqElu31, 310;
+set $@rqOri31, 310;
+set $@rqVybra31, 310;
+set $@rqZeny31, 31000000;
+set $@rqAvcoin31,31;
+
+// config Lv32
+set $@rqElu32, 320;
+set $@rqOri32, 320;
+set $@rqVybra32, 320;
+set $@rqZeny32, 32000000;
+set $@rqAvcoin32,32;
+
+// config Lv33
+set $@rqElu33, 330;
+set $@rqOri33, 330;
+set $@rqVybra33, 330;
+set $@rqZeny33, 33000000;
+set $@rqAvcoin33,33;
+
+// config Lv34
+set $@rqElu34, 340;
+set $@rqOri34, 340;
+set $@rqVybra34, 340;
+set $@rqZeny34, 34000000;
+set $@rqAvcoin34,34;
+
+// config Lv35
+set $@rqElu35, 350;
+set $@rqOri35, 350;
+set $@rqVybra35, 350;
+set $@rqZeny35, 35000000;
+set $@rqAvcoin35,35;
+
+// config Lv36
+set $@rqElu36, 360;
+set $@rqOri36, 360;
+set $@rqVybra36, 360;
+set $@rqZeny36, 36000000;
+set $@rqAvcoin36,36;
+
+// config Lv37
+set $@rqElu37, 370;
+set $@rqOri37, 370;
+set $@rqVybra37, 370;
+set $@rqZeny37, 37000000;
+set $@rqAvcoin37,37;
+
+// config Lv38
+set $@rqElu38, 380;
+set $@rqOri38, 380;
+set $@rqVybra38, 380;
+set $@rqZeny38, 38000000;
+set $@rqAvcoin38,38;
+
+// config Lv39
+set $@rqElu39, 390;
+set $@rqOri39, 390;
+set $@rqVybra39, 390;
+set $@rqZeny39, 39000000;
+set $@rqAvcoin39,39;
+
+// config Lv40
+set $@rqElu40, 400;
+set $@rqOri40, 400;
+set $@rqVybra40, 400;
+set $@rqZeny40, 40000000;
+set $@rqAvcoin40,40;
+
+// config Lv41
+set $@rqElu41, 410;
+set $@rqOri41, 410;
+set $@rqVybra41, 410;
+set $@rqZeny41, 41000000;
+set $@rqAvcoin41,41;
+
+// config Lv42
+set $@rqElu42, 420;
+set $@rqOri42, 420;
+set $@rqVybra42, 420;
+set $@rqZeny42, 42000000;
+set $@rqAvcoin42,42;
+
+// config Lv43
+set $@rqElu43, 430;
+set $@rqOri43, 430;
+set $@rqVybra43, 430;
+set $@rqZeny43, 43000000;
+set $@rqAvcoin43,43;
+
+// config Lv44
+set $@rqElu44, 440;
+set $@rqOri44, 440;
+set $@rqVybra44, 440;
+set $@rqZeny44, 44000000;
+set $@rqAvcoin44,44;
+
+// config Lv45
+set $@rqElu45, 450;
+set $@rqOri45, 450;
+set $@rqVybra45, 450;
+set $@rqZeny45, 45000000;
+set $@rqAvcoin45,45;
+ 
+ 
+end;
+}
+

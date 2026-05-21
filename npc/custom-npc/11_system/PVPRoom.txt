@@ -1,0 +1,226 @@
+//==============================================
+// - Script By : M-Ro Online
+// - Script City : Thailand 
+// - Script Support Server : Hercules & rAthena
+//==============================================
+-	script	PvP	-1,{
+
+mes "สวัสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
+mes "ต้องการเข้าสู่สนามประลอง";
+mes "เพื่อทดสอบฝีมือของคุณไหม";
+menu 
+"^CC0000Death Match [ "+getmapusers("pvp_y_7-2")+"/100 ]^000000",Mm_pvp01,
+"^003300Izlude [ "+getmapusers("pvp_y_8-2")+"/100 ]^000000",Mm_pvp02,
+"^3333FFProntera [ "+getmapusers("pvp_y_8-1")+"/100 ]^000000",Mm_pvp03,
+"^FF99001 VS 1 [ "+getmapusers("pvp_n_1-3")+"/2 ]^000000",Mm_pvp04,
+"^3300002 VS 2 [ "+getmapusers("pvp_n_1-5")+"/4 ]^000000",Mm_pvp05,
+"ออก ",Lcancel;
+
+
+Mm_pvp01:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+if (getmapusers("pvp_y_7-2")>= 100) goto MaxPlayerRoom;
+warp "pvp_y_7-2",127,109;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Death Match แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_7-2")+"/100 ] คน",0;
+close;
+
+Mm_pvp02:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+if (getmapusers("pvp_y_8-2")>= 100) goto MaxPlayerRoom;
+warp "pvp_y_8-2",152,130;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Izlude แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_8-2")+"/100 ] คน",0;
+close;
+
+Mm_pvp03:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+if (getmapusers("pvp_y_8-1")>= 100) goto MaxPlayerRoom;
+warp "pvp_y_8-1",171,204;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Prontera แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_8-1")+"/100 ] คน",0;
+close;
+
+Mm_pvp04:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+if (getmapusers("pvp_n_1-3")>= 2) goto MaxPlayerRoom;
+warp "pvp_n_1-3",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง 1 VS 1 แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_n_1-3")+"/100 ] คน",0;
+close;
+
+Mm_pvp05:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+if (getmapusers("pvp_n_1-5")>= 4) goto MaxPlayerRoom;
+warp "pvp_n_1-5",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง 2 VS 2 แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_n_1-3")+"/100 ] คน",0;
+close;
+
+MaxPlayerRoom:
+mes "ขณะนี้สนามประลองเต็ม";
+close;
+
+Lcancel:
+close;
+OnInit:
+do {
+delwaitingroom;
+waitingroom "ผู้เล่นในห้อง " +getmapusers("pvp_y_7-2")+ " คน",0;
+sleep 1000; // Evites super infinity loop
+} while(1); // End Loop
+end;
+}
+
+morocc,146,33,4	duplicate(PvP)	P V P#0	11137
+maintown,134,248,4	duplicate(PvP)	P V P#10	11137
+maintown,179,248,4	duplicate(PvP)	P V P#11	11137
+maintown,248,248,4	duplicate(PvP)	P V P#12	11137
+maintown,248,196,4	duplicate(PvP)	P V P#13	11137
+maintown,248,105,4	duplicate(PvP)	P V P#14	11137
+maintown,248,62,4	duplicate(PvP)	P V P#15	11137
+maintown,179,62,4	duplicate(PvP)	P V P#16	11137
+maintown,134,62,4	duplicate(PvP)	P V P#17	11137
+maintown,63,62,4	duplicate(PvP)	P V P#18	11137
+maintown,63,105,4	duplicate(PvP)	P V P#19	11137
+maintown,63,196,4	duplicate(PvP)	P V P#20	11137
+maintown,155,106,4	duplicate(PvP)	P V P#21	11137
+maintown,155,193,4	duplicate(PvP)	P V P#22	11137
+
+pvp_y_8-2	mapflag	nocommand	90
+pvp_y_8-1	mapflag	nocommand	90
+pvp_n_1-3	mapflag	nocommand	90
+pvp_n_1-5	mapflag	nocommand	90
+pvp_y_7-2	mapflag	nocommand	90
+
+pvp_y_8-2	mapflag	pvp
+pvp_y_8-2	mapflag	nomemo
+pvp_y_8-2	mapflag	nosave	SavePoint
+pvp_y_8-2	mapflag	noteleport
+pvp_y_8-2	mapflag	nowarp
+pvp_y_8-2	mapflag	noreturn
+pvp_y_8-2	mapflag	nodrop
+pvp_y_8-2	mapflag	nobranch
+
+pvp_y_7-2	mapflag	pvp
+pvp_y_7-2	mapflag	nomemo
+pvp_y_7-2	mapflag	nosave	SavePoint
+pvp_y_7-2	mapflag	noteleport
+pvp_y_7-2	mapflag	nowarp
+pvp_y_7-2	mapflag	noreturn
+pvp_y_7-2	mapflag	nodrop
+pvp_y_7-2	mapflag	nobranch
+
+
+pvp_y_8-1	mapflag	pvp
+pvp_y_8-1	mapflag	nomemo
+pvp_y_8-1	mapflag	nosave	SavePoint
+pvp_y_8-1	mapflag	noteleport
+pvp_y_8-1	mapflag	nowarp
+pvp_y_8-1	mapflag	noreturn
+pvp_y_8-1	mapflag	nodrop
+pvp_y_8-1	mapflag	nobranch
+
+pvp_n_1-3	mapflag	pvp
+pvp_n_1-3	mapflag	nomemo
+pvp_n_1-3	mapflag	nosave	SavePoint
+pvp_n_1-3	mapflag	noteleport
+pvp_n_1-3	mapflag	nowarp
+pvp_n_1-3	mapflag	noreturn
+pvp_n_1-3	mapflag	nodrop
+pvp_n_1-3	mapflag	nobranch
+
+
+//----กิจกรรม
+pvp_n_1-2	mapflag	pvp
+pvp_n_1-2	mapflag	nomemo
+pvp_n_1-2	mapflag	nosave	SavePoint
+pvp_n_1-2	mapflag	noteleport
+pvp_n_1-2	mapflag	nowarp
+pvp_n_1-2	mapflag	noreturn
+pvp_n_1-2	mapflag	nodrop
+pvp_n_1-2	mapflag	nobranch
+//----กิจกรรม
+
+pvp_n_1-5	mapflag	pvp
+pvp_n_1-5	mapflag	nomemo
+pvp_n_1-5	mapflag	nosave	SavePoint
+pvp_n_1-5	mapflag	noteleport
+pvp_n_1-5	mapflag	nowarp
+pvp_n_1-5	mapflag	noreturn
+pvp_n_1-5	mapflag	nodrop
+pvp_n_1-5	mapflag	nobranch
+
+-	script	Death Match	-1,{
+OnInit:
+set .time, 10;
+setarray .map$, 
+//กำหนดแผนที่
+"pvp_y_7-2";
+end;
+	
+OnPCDieEvent:
+getmapxy( .@map$, .@x, .@y, BL_PC );
+for ( set .@i, 0; .@i < getarraysize(.map$); set .@i, .@i+1 ) {
+if ( .@map$ == .map$[.@i] ) {
+sleep2 1000;
+//เมื่อตายจะถูกชุบทันที
+atcommand "@alive";
+//เช็คไอเทมที่เสียหายถ้ามีซ่อมให้ทันที
+if (getbrokenid(1) > 0) { atcommand "@repairall"; }
+//แก้สถานะต่างๆ
+sc_end SC_POISON;
+sc_end SC_FREEZE;
+sc_end SC_SLEEP;
+sc_end SC_STAN;
+sc_end SC_STUN;
+sc_end SC_STONE;
+sc_end SC_SILENCE;
+sc_end SC_BLIND;
+sc_end SC_Bleeding;
+sc_end SC_CONFUSION;
+sc_end SC_CURSE;
+sc_end SC_HALLUCINATION;
+sc_end SC_ORCISH;
+//เพิ่มHPและSP 100%
+percentheal 100,100; 
+//==============================================
+//บัพค่าอาหาร 30นาที Support Hercules
+//sc_start SC_FOOD_STR, 1800000,5;
+//sc_start SC_FOOD_AGI, 1800000,5;
+//sc_start SC_FOOD_VIT, 1800000,5;
+//sc_start SC_FOOD_INT, 1800000,5;
+//sc_start SC_FOOD_DEX, 1800000,5;
+//sc_start SC_FOOD_LUK, 1800000,5;
+//บัพสกิลต่างๆ
+//sc_start SC_BLESSING,1800000,10;
+//sc_start SC_INC_AGI, 1800000,10;
+//sc_start 41,1800000,10; //กอเรีย
+//sc_start 40,1800000,10; // MAGNIFICAT เร่ง
+//==============================================
+//บัพค่าอาหาร 30นาที Support rAthena
+//sc_start SC_STRFood, 1800000,5;
+//sc_start SC_AGIFood, 1800000,5;
+//sc_start SC_VITFood, 1800000,5;
+//sc_start SC_INTFood, 1800000,5;
+//sc_start SC_DEXFood, 1800000,5;
+//sc_start SC_LUKFood, 1800000,5;
+//บัพสกิลต่างๆ
+sc_start SC_BLESSING,1800000,10;
+sc_start SC_INCREASEAGI,1800000,10;
+sc_start 41,1800000,10; //กอเรีย
+sc_start 40,1800000,10; // MAGNIFICAT เร่ง
+//==============================================
+//สุ่มเกิดในแผนที่
+warp .map$[.@i], 0, 0;
+break;
+}
+}
+//close;
+}
+
+-	script	Die Message	-1,{
+OnPCDieEvent:
+//ข้อความที่จะแสดงว่าตายเหมือนผู้เล่นพิมเอง
+//message strcharinfo(0),"ตูตายอีกแล้วเดียวมาใหม่!!";
+}

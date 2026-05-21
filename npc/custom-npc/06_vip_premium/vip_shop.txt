@@ -1,0 +1,208 @@
+function	script	F_ShowPackStatus	{
+	mes getarg(0);
+	mes "Pack Status ตอนนี้:";
+	mes "SC_PACK_FARMS: " + sc_check(SC_PACK_FARMS);
+	mes "SC_PACK_FARMS_EXTRA: " + sc_check(SC_PACK_FARMS_EXTRA);
+	mes "SC_PACK_LEVEL: " + sc_check(SC_PACK_LEVEL);
+	mes "SC_PACK_WAR: " + sc_check(SC_PACK_WAR);
+	return;
+}
+
+function	script	F_GetMemberLevel	{
+	.@m = 0;
+	if (sc_check(SC_MEMBER10)) .@m = 10;
+	else if (sc_check(SC_MEMBER9)) .@m = 9;
+	else if (sc_check(SC_MEMBER8)) .@m = 8;
+	else if (sc_check(SC_MEMBER7)) .@m = 7;
+	else if (sc_check(SC_MEMBER6)) .@m = 6;
+	else if (sc_check(SC_MEMBER5)) .@m = 5;
+	else if (sc_check(SC_MEMBER4)) .@m = 4;
+	else if (sc_check(SC_MEMBER3)) .@m = 3;
+	return .@m;
+}
+
+function	script	F_GetMemberDiscount	{
+	.@m = getarg(0);
+	.@d = 0;
+	if (.@m >= 5) .@d = 20;
+	else if (.@m == 4) .@d = 10;
+	else if (.@m == 3) .@d = 5;
+	return .@d;
+}
+
+function	script	F_GetDiscountPrice	{
+	.@base = getarg(0);
+	.@m = callfunc("F_GetMemberLevel");
+	.@d = callfunc("F_GetMemberDiscount", .@m);
+	.@p = .@base;
+	if (.@d > 0) .@p = (.@base * (100 - .@d)) / 100;
+	if (.@p < 1) .@p = 1;
+	return .@p;
+}
+
+function	script	F_ShowPriceInfo	{
+	.@title$ = getarg(0);
+	.@base = getarg(1);
+
+	.@m = callfunc("F_GetMemberLevel");
+	.@d = callfunc("F_GetMemberDiscount", .@m);
+	.@p = callfunc("F_GetDiscountPrice", .@base);
+
+	mes getarg(2);
+	mes .@title$;
+	mes "MEMBER Level: ^00CCFF"+.@m+"^000000";
+	if (.@d > 0) {
+		mes "ส่วนลด: ^00FF00-"+.@d+"%^000000";
+		mes "ราคาเดิม: ^AAAAAA"+.@base+"^000000 Coin";
+		mes "ราคาหลังลด: ^00CCFF"+.@p+"^000000 Coin";
+	} else {
+		mes "ส่วนลด: ^FF0000ไม่มี^000000";
+		mes "ราคา: ^00CCFF"+.@p+"^000000 Coin";
+	}
+	set .@price, .@p;
+	return .@price;
+}
+
+morocc,139,79,4	script	NPC Premium Service	4_F_NOVICE,{
+
+	.N$ = "^0055FF[ NPC Premium Service ]^000000";
+	.COIN = 30001;
+
+	.P_VIP_1DAY = 109;
+	.P_WAR_2H   = 20;
+
+	.P_FARM_2H  = 25;
+	.P_FARM_4H  = 45;
+	.P_FARM_8H  = 85;
+
+	.P_EXF_2H   = 39;
+	.P_EXF_4H   = 65;
+	.P_EXF_8H   = 119;
+
+	.P_LVL_2H   = 25;
+	.P_LVL_4H   = 45;
+	.P_LVL_8H   = 85;
+
+	mes .N$;
+	mes "Cash Coin: ^00CCFF"+countitem(.COIN)+"^000000";
+	next;
+
+	switch(select(
+		"VIP Package 1 Day",
+		"VIP Guild War 2 Hr",
+		"Vip Buff Farming",
+		"Vip Buff Extra Farming",
+		"VIP Buff Level",
+		"ยกเลิก"
+	)) {
+		case 1: goto L_VIP1DAY;
+		case 2: goto L_WAR;
+		case 3: goto L_FARM;
+		case 4: goto L_EXF;
+		case 5: goto L_LEVEL;
+		default: close;
+	}
+
+L_VIP1DAY:
+	.@base = .P_VIP_1DAY;
+	.@p = callfunc("F_ShowPriceInfo", "VIP Package 1 Day", .@base, .N$);
+	next;
+	if (select("ยืนยันซื้อ","ย้อนกลับ") == 2) close;
+
+	.@p = callfunc("F_ShowPriceInfo", "ตรวจสอบก่อนหัก Cash Coin (30001)", .@base, .N$);
+	next;
+
+	if (countitem(.COIN) < .@p) { mes .N$; mes "Cash Coin ไม่พอ"; close; }
+	delitem .COIN, .@p;
+	callfunc "1d_vip_ticket";
+	mes .N$;
+	mes "^00FF00ซื้อสำเร็จ^000000";
+	close;
+
+L_WAR:
+	.@base = .P_WAR_2H;
+	.@p = callfunc("F_ShowPriceInfo", "VIP Guild War 2 Hr", .@base, .N$);
+	next;
+	if (select("ยืนยันซื้อ","ย้อนกลับ") == 2) close;
+
+	.@p = callfunc("F_ShowPriceInfo", "ตรวจสอบก่อนหัก Cash Coin (30001)", .@base, .N$);
+	next;
+
+	if (countitem(.COIN) < .@p) { mes .N$; mes "Cash Coin ไม่พอ"; close; }
+	delitem .COIN, .@p;
+	callfunc "F_package",4,2;
+	mes .N$;
+	mes "^00FF00ซื้อสำเร็จ^000000";
+	close;
+
+L_FARM:
+	.@pick = select(
+		"2 Hr ("+.P_FARM_2H+" Coin)",
+		"4 Hr ("+.P_FARM_4H+" Coin)",
+		"8 Hr ("+.P_FARM_8H+" Coin)",
+		"ย้อนกลับ"
+	);
+	if (.@pick == 4) close;
+
+	.@hours = (.@pick==1)?2:(.@pick==2)?4:8;
+	.@base  = (.@pick==1)?.P_FARM_2H:(.@pick==2)?.P_FARM_4H:.P_FARM_8H;
+
+	callsub S_BuyPack, "Vip Buff Farming", 2, .@hours, .@base;
+	close;
+
+L_EXF:
+	.@pick = select(
+		"2 Hr ("+.P_EXF_2H+" Coin)",
+		"4 Hr ("+.P_EXF_4H+" Coin)",
+		"8 Hr ("+.P_EXF_8H+" Coin)",
+		"ย้อนกลับ"
+	);
+	if (.@pick == 4) close;
+
+	.@hours = (.@pick==1)?2:(.@pick==2)?4:8;
+	.@base  = (.@pick==1)?.P_EXF_2H:(.@pick==2)?.P_EXF_4H:.P_EXF_8H;
+
+	callsub S_BuyPack, "Vip Buff Extra Farming", 5, .@hours, .@base;
+	close;
+
+L_LEVEL:
+	.@pick = select(
+		"2 Hr ("+.P_LVL_2H+" Coin)",
+		"4 Hr ("+.P_LVL_4H+" Coin)",
+		"8 Hr ("+.P_LVL_8H+" Coin)",
+		"ย้อนกลับ"
+	);
+	if (.@pick == 4) close;
+
+	.@hours = (.@pick==1)?2:(.@pick==2)?4:8;
+	.@base  = (.@pick==1)?.P_LVL_2H:(.@pick==2)?.P_LVL_4H:.P_LVL_8H;
+
+	callsub S_BuyPack, "VIP Buff Level", 3, .@hours, .@base;
+	close;
+
+S_BuyPack:
+	.@title$ = getarg(0);
+	.@type  = getarg(1);
+	.@hours = getarg(2);
+	.@base  = getarg(3);
+
+	.@p = callfunc("F_ShowPriceInfo", .@title$, .@base, .N$);
+	mes "ยืนยันการซื้อ: ^00CCFF"+.@hours+" ชั่วโมง^000000";
+	next;
+	if (select("ยืนยันซื้อ","ยกเลิก") == 2) return;
+
+	.@p = callfunc("F_ShowPriceInfo", "ตรวจสอบก่อนหัก Cash Coin (30001)", .@base, .N$);
+	mes "ยืนยันการซื้อ: ^00CCFF"+.@hours+" ชั่วโมง^000000";
+	next;
+
+	if (countitem(.COIN) < .@p) { mes .N$; mes "Cash Coin ไม่พอ"; return; }
+	mes .N$;
+	mes "^00FF00ซื้อสำเร็จ^000000";
+	delitem .COIN, .@p;
+	callfunc "F_package", .@type, .@hours;
+	return;
+
+OnInit:
+	waitingroom "NPC Premium Service",0;
+	end;
+}

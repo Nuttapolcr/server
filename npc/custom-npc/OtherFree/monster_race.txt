@@ -1,0 +1,253 @@
+morocc,238,44,1	script	Monster Race	109,{
+
+	mes "[ Monster Race ]";
+	mes "ต้องการที่จะย้ายเข้าไปในห้องแข่งมอนสเตอร์กันมั้ยล่ะ ?";
+	next;
+	switch(select("~ ไปสนามแข่งทันที:~ ยังก่อน..."))
+	{
+		case 1:	warp "p_track01",74,41; end;
+		case 2: end;
+	}
+	end;
+
+OnMinute00:
+OnMinute10:
+OnMinute20:
+OnMinute30:
+OnMinute40:
+OnMinute50:
+	set .access_Prace, 1;
+	announce "[ Monster Race ] : เริ่มเปิดให้ลงพนันกันแล้ว !",0,0xFFAB54;
+	setnpctimer 100000,"ผู้รับลงพนัน#prace0";
+	startnpctimer "ผู้รับลงพนัน#prace0";
+	end;
+
+OnEnd:
+	set .access_Prace, 0;
+	announce "[ Monster Race ] : การแข่งขันจบลงแล้ว !",0,0xFFAB54;
+	end;
+	
+OnInit:
+waitingroom "[&] มอนวิ่งแข่ง",0; 
+//	setarray .messages$,"M","o","n","s","t","e","r"," ","R","a","c","e";
+	while(1)
+	{
+		set .Display$,"" ;
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+}
+
+
+p_track01,58,41,3	script	ผู้รับลงพนัน#prace0	877,{
+function checkevent;
+
+	mes "[ ผู้รับลงพนัน ]";
+	if( getstrlen( @prace_winner$ ) ) {
+		mes "คุณได้ทำการลงพนัน ^00bb00"+ @prace_winner$ +"^000000 ไปแล้ว "+ getd("bet_"+@prace_winner$) +" "+ getitemname(.item_req);
+		close;
+	}
+	else if ( checkevent() || .start ) {
+		mes "ขณะนี้มอนสเตอร์กำลังแข่งขันกันอยู่...";
+		close;
+	}
+	else if( !getvariableofnpc( .access_Prace,"Monster Race" ) ) {
+		mes "ตอนนี้ยังไม่มีการแข่งขัน. เวลาแข่งมีทุกๆ 10 นาที";
+		close;
+	}
+	mes "กรุณาเลือกมอนสเตอร์ที่ต้องการลงพนัน รางวัล แทง 1 ได้ 3 :";
+
+	.@s = select( .menu_$ );
+	if( .@s == 7 ) {
+		next;
+		mes "[ ผู้รับลงพนัน ]";
+		mes "โอเค ไว้เจอกัน.";
+		close;
+	}
+	.@c$ = .monst_$[ .@s -1 ];
+	
+	for ( set .@k, 0; .@k < getarraysize(.bet); set .@k, .@k+1 )
+		set .@nb$, .@nb$ + "~ ลงพนันด้วย "+ getitemname(.item_req) +" จำนวน "+ .bet[.@k] +" อัน:";
+	set .@k, select(.@nb$)-1;
+
+	if ( checkevent() ) {
+		next;
+		mes "[ ผู้รับลงพนัน ]";
+		mes "...";
+		mes "...";
+		mes "เจ้าคิดจะโกงกันหรือยังไง !!~~";
+		close;
+	}
+	else if( countitem(.item_req) < .bet[.@k] ) {
+		next;
+		mes "[ ผู้รับลงพนัน ]";
+		mes "คุณดูเหมือนไม่ได้มีจำนวนเงินที่เพียงพอเลยนะ.";
+		close;
+	}
+	delitem .item_req,.bet[.@k];
+	@prace_winner$ = .@c$;
+	setd "bet_"+@prace_winner$,.bet[.@k];
+	.prace_bidders[ .prace_bets ] = getcharid(3);
+	.prace_bets++;
+
+	next;
+	mes "[ ผู้รับลงพนัน ]";
+	mes "ฉันได้ลงพนัน "+ @prace_winner$ +" ให้แล้ว "+ getd("bet_"+@prace_winner$) +" "+ getitemname(.item_req);
+	initnpctimer;
+	npctalk "ผู้เล่น "+ strcharinfo(0) +" ได้ทำการลงพนันเรียบร้อยแล้ว !";
+	close;
+	
+OnTimer60000:
+	npctalk "ตอนนี้มีผู้ลงพนัน "+ .prace_bets +" คน. มีใครต้องการลงพนันอีกมั้ย ?";
+	end;
+	
+OnTimer80000:
+	announce "[ Monster Race ] : ปิดการลงรับพนัน การแข่งขันจะเริ่มต้นในอีก 10 วินาที !",0,0xFFAB54;
+	npctalk "การแข่งขันจะเริ่มต้นในเร็วๆนี้. อย่าไปไหนซะละ.";
+	.start = 1;
+	end;
+	
+OnTimer90000:
+	stopnpctimer;
+	mapannounce "p_track01","[ Monster Race] : เริ่มทำการนับถอยหลัง ณ บัดนี้...",1,0xFFAB54;
+	sleep 2500;
+	for( .@i = 3; .@i > 0; .@i-- ) {
+		mapannounce "p_track01","[ Monster Race ] : "+ .@i +"",1,0xFFAB54;
+		sleep 1000;
+	}
+	donpcevent strnpcinfo(0) +"::OnStartRace";
+	sleep 1000;
+	mapannounce "p_track01","[ Monster Race ] : การแข่งขันได้เริ่มต้นขึ้นแล้ว !!!",1,0xFFAB54;
+	end;
+
+OnStartRace:
+	callsub L_label, "OnRace";
+	
+OnStopRace:
+	callsub L_label, "OnStop";
+	
+OnReturnRace:
+	callsub L_label, "OnReturn";
+	
+L_label:
+	donpcevent "Metaling#prace3::"+ getarg(0);
+	donpcevent "Poring#prace1::"+ getarg(0);
+	donpcevent "Poporing#prace6::"+ getarg(0);
+	donpcevent "Angeling#prace2::"+ getarg(0);
+	donpcevent "Santa Poring#prace5::"+ getarg(0);
+	donpcevent "Deviling#prace4::"+ getarg(0);
+	if( getarg(0) == "OnStop" && .prace_winner$ != "" )
+		callsub L_WinRace;
+	end;
+	
+L_WinRace:
+	mapannounce "p_track01", "[ Monster Race ] : มอนสเตอร์ที่ชนะคือ "+ .prace_winner$,1,0xFFAB54;
+	donpcevent strnpcinfo(0) +"::OnChequeo";
+	sleep 3000;
+	donpcevent strnpcinfo(0) +"::OnReturnRace";
+	sleep 10000;
+	donpcevent "Monster Race::OnEnd";
+	.prace_winner$ = "";
+	.start = .prace_bets = 0;
+	end;
+	
+OnChequeo:
+	for( .@i = 0 ; .@i < getarraysize( .prace_bidders ); .@i++ ) {
+		if( attachrid( .prace_bidders[.@i] ) && getstrlen( @prace_winner$ ) ) {
+			dispbottom "[ Monster Race ] : มอนสเตอร์ที่ชนะคือ "+ .prace_winner$ +" และ คุณได้ลงพนันมอนสเตอร์ "+ @prace_winner$ +" เอาไว้.";
+			if( @prace_winner$ == .prace_winner$ ) {
+				dispbottom "[ Monster Race ] : ยินดีด้วยคุณชนะการลงพนันการแข่งขันมอนสเตอร์ !";
+				getitem .item_req,getd("bet_"+@prace_winner$)*3;
+			}
+			else {
+				dispbottom "[ Monster Race ] : คุณถูกกินเรียบ.";
+			}
+			@prace_winner$ = "";
+			setd "bet_"+@prace_winner$,0;
+		}
+	}
+	deletearray .prace_bidders;
+	end;
+OnInit:
+	.item_req = 32008;
+	setarray .bet[0],50,100,150,300,500,1000;
+	setarray .monst_$,"Poring","Angeling","Metaling","Deviling","Santa Poring","Poporing","ไม่ดีกว่า ฉันยังไม่อยากถูกกิน...";
+	.menu_$ = implode( .monst_$, ":" );
+	end;
+
+function checkevent {
+	getmapxy .@mapname$, .@x1, .@y, 1, "Poring#prace1";
+	getmapxy .@mapname$, .@x2, .@y, 1, "Angeling#prace2";
+	getmapxy .@mapname$, .@x3, .@y, 1, "Metaling#prace3";
+	getmapxy .@mapname$, .@x4, .@y, 1, "Deviling#prace4";
+	getmapxy .@mapname$, .@x5, .@y, 1, "Santa Poring#prace5";
+	getmapxy .@mapname$, .@x6, .@y, 1, "Poporing#prace6";
+	.@t = ( .@x1 + .@x2 + .@x3 + .@x4 + .@x5 + .@x6 ) != 58 * 6;
+	return .@t;
+}
+}
+
+-	script	pori_race	-1,{
+	mes "[ Monster Race ]";
+	mes "ฮันแน่... คิดจะทำอะไรกันหรือ ?";
+	close;
+OnRace:
+	initnpctimer;
+	end;
+OnStop:
+	stopnpctimer;
+	end;
+OnReturn:
+	sleep 1000;
+	while( strnpcinfo(1) != .monst$[ .@i ] ) .@i++;
+	movenpc strnpcinfo(3), 58, .walk_t[.@i];
+	end;
+OnTimer1100:
+	getmapxy .@mapname$,.@x,.@y,1, strnpcinfo(3);
+	if( rand(100) < .prace_random )
+		npcwalkto .@x-1, .@y;
+	.@r = rand( .prace_random2 );
+	if ( .@x -1 == 29 ) {
+		while( strnpcinfo(1) != .monst$[ .@i ] ) .@i++;
+		set getvariableofnpc( .prace_winner$, "ผู้รับลงพนัน#prace0" ), .monst$[ .@i ];
+		donpcevent "ผู้รับลงพนัน#prace0::OnStopRace";
+		end;
+	}
+	stopnpctimer;
+	setnpctimer .@r;
+	startnpctimer;
+	end;
+OnInit:
+	deletearray .walk_t;
+	deletearray .monst$;
+	setarray .walk_t, 38, 36, 34, 32, 30, 28;
+	setarray .monst$, "Poring", "Angeling", "Metaling", "Deviling", "Santa Poring", "Poporing";
+	.prace_random = 70;
+	.prace_random2 = 600;
+	end;
+}
+
+p_track01,58,38,2	duplicate(pori_race)	Poring#prace1	1002
+p_track01,58,36,2	duplicate(pori_race)	Angeling#prace2	1096
+p_track01,58,34,2	duplicate(pori_race)	Metaling#prace3	1613
+p_track01,58,32,2	duplicate(pori_race)	Deviling#prace4	1582
+p_track01,58,30,2	duplicate(pori_race)	Santa Poring#prace5	1062
+p_track01,58,28,2	duplicate(pori_race)	Poporing#prace6	1031
+
+p_track01,78,42,0	warp	p_track002	1,3,morocc,211,99
+
+p_track01	mapflag	nobranch
+p_track01	mapflag	noicewall
+p_track01	mapflag	nomemo
+p_track01	mapflag	noreturn
+p_track01	mapflag	noteleport
+p_track01	mapflag	nowarpto
+p_track01	mapflag	nowarp
+p_track01	mapflag	pvp	off
+p_track01	mapflag	nosave

@@ -1,0 +1,145 @@
+
+-	shop	card_merge_shop	-1,909:100
+
+morocc,173,49,1	script	Card Recycle#card	563,{
+	.@is_gm = ( getgmlevel() >= .gm_level && .gm_level > 0 );
+	
+	mes "[ ตู้ผสมการ์ด ]";
+	mes "ใช้ Card 3 ใบ(ไม่ซ้ำกัน) ต่อการผสม 1 ครั้ง";
+	mes "^0000FF***มีโอกาสได้รับ Card ";
+	mes "^FF0000• Mini Boss***^000000";
+	mes "เลือกเมนู";
+	if ( .zeny_cost ) {
+		mes "ต้องใช้ ^FF0000"+.zeny_cost+" Zeny^000000 ต่อการผสม 1 ครั้ง.";
+	}
+	mes " ";
+	switch ( select( 
+		( .@is_gm ) ? "[GM] ตั้งค่ารางวัล กรณีเป็นกิจกรรมหาของ":"",
+		"ผสม Card "+.card_count+" ใบ",
+		"ดูข้อมูล"
+	)) {
+		case 1:
+			mes "ระบุ Item ID ที่เป็นรางวัล";
+			mes "0 = สุ่มการ์ด";
+			input $card_cycle_reward_id,0,932767;
+			if ( getitemname( $card_cycle_reward_id ) != "null" ) {
+				mes "ของที่ได้รับถูกเปลี่ยนเป็น " + getitemname( $card_cycle_reward_id );
+			}
+			else {
+				mes "รางวัลถูกตั้งค่าเป็น Card.";
+				if ( $card_cycle_reward_id > 0 )
+					$card_cycle_reward_id = 0;
+			}
+			break;
+		case 2:
+			if( Zeny >= .zeny_cost ){
+				if( npcshopattach( .shop_npc_name$ ) ){
+					deletearray @sold_nameid;
+					mes "ใส่ Card ^FF0000 "+.card_count+" แบบ^000000 ในหน้าต่าง.";
+					callshop .shop_npc_name$,2;
+					end;
+				}
+			}
+			break;
+		default:
+			mes "คุณจะต้องใช้ ";
+			mes "  ^FF0000การ์ด "+.card_count+" แบบ และ "+.zeny_cost+" Zeny^000000";
+			mes "เพื่อผสมเป็น Item หรือ Card ใบใหม่.";
+			break;
+	}
+	close;
+
+OnSellItem:
+	.@sold_size = getarraysize( @sold_nameid );
+	if( .@sold_size == .card_count ){
+		mes "^0055FF[ตรวจสอบ Card]^000000";
+		for( .@i = 0; .@i < .@sold_size; .@i++ ){
+			if( compare( .forbidden_card$,"|"+@sold_nameid[.@i]+"|" ) ){
+				mes " ~ "+getitemname( @sold_nameid[.@i] )+"^000000 ไม่สามารถใช้ได้.";
+				close;
+			}
+			.@item_type[.@i] = getiteminfo( @sold_nameid[.@i],2 );
+			.@not_valid = ( .@item_type[.@i] != IT_CARD || @sold_nameid[.@i] < .card_id_range[0] || @sold_nameid[.@i] > .card_id_range[1] );
+			mes " ~ "+getitemname( @sold_nameid[.@i] )+"^000000 "+( ( .@not_valid )?"^FF0000ไม่ใช่ Card":" " )+"^000000.";
+			if( .@not_valid ) .@failed++;
+		}
+		if( !.@failed ){
+			mes " ";
+			mes "ยืนยันการผสม Card ทั้ง "+.card_count+" แบบเป็นของชิ้นใหม่ ??";
+			next;
+			if( select( "YES","No" ) == 1 ){
+				Zeny -= .zeny_cost;
+				for( .@i = 0; .@i < .@sold_size; .@i++ )
+					delitem @sold_nameid[.@i],1;
+					
+				if ( !$card_cycle_reward_id ) {
+					mes "กำลังทำการผสม.....";
+						specialeffect2 60;
+						specialeffect2 67;
+						specialeffect2 72;
+						specialeffect2 300;
+						specialeffect2 98;
+						specialeffect2 140;
+						specialeffect2 222;
+					for( .@i = 0; .@i < 25 ; .@i++ ){
+						if( .@i == 20 )
+							mes "^777777-- เรียบร้อย --^000000";
+						cutin card_illust( rand( .card_id_range[0],.card_id_range[1] ) ),4;
+						sleep2 ( .@i * 25 + 100 );
+					}
+					do{
+						.@new_card = rand( .card_id_range[0],.card_id_range[1] );
+					} while( compare( .forbidden_card$,"|"+.@new_card+"|" ) );
+					
+					if ( !$card_cycle_reward_id )
+						cutin card_illust( .@new_card ),4;
+				}
+				else {
+					.@new_card = $card_cycle_reward_id;
+				}
+				specialeffect2 62;
+				specialeffect2 82;
+				specialeffect2 96;
+				specialeffect2 97;
+				specialeffect2 183;
+				specialeffect2 225;
+				specialeffect2 262;
+				mes "ได้รับ : ";
+				mes " ~ ^0055FF"+getitemname( .@new_card )+"^000000";
+				getitem .@new_card,1;
+			}
+		}
+		
+	}
+	else{
+		mes "โปรดตรวจสอบว่าได้ใส่การ์ด ^FF0000 "+.card_count+" แบบ^000000.";
+	}
+	close2;
+	cutin "",255;
+	end;
+
+OnInit:
+	waitingroom "[#] Recycle Card",0;
+
+	// gm level 
+	.gm_level = 99;
+	
+	// how many card requried to change to 1 New card
+	.card_count = 3;
+
+	// zeny required for this process.
+	.zeny_cost = 200000;
+	
+	.cash_cost = 30;
+
+	// list of card that cant be used to exchange/get.
+	.forbidden_card$ = "|4990|4999|4480|4481|4482|4483|4484|4485|4486|4487|4488|4489|4490|4491|4492|4493|4494|4495|4496|4497|4498|4499|4500|4501|4502|4503|4504|4505|4198|4507|4509|4520|4527|4526|4528|4525|4529|4451|4601|4602|4604|4605|4610|4625|4636||4671|4672|4673|4674|4675|4676|4677|4678|4679|4680|4681|4682|4683|4684|4496|4236|4359|4425|4372|4147|4145|4592|4560|4561|4562|4563|4564|4565|4566|4574|4168|4386|4142|4134|4137|4123|4330|4441|4324|4576|4408|4509|4128|4363|4365|4430|4263|4580|4403|4318|4525|4419|4376|4520|4357|4276|4146|4132|4131|4236|4143|4135|4144|4148|4121|4578|4342|4367|4302|4399|4305|4407|4374|4361|4352|";
+
+	// current card id range.
+	setarray .card_id_range,4001,4331;
+	//4001,4331;
+	//setarray .card_id_range,4512,4514;
+	.shop_npc_name$ = "card_merge_shop";
+	end;
+	
+}

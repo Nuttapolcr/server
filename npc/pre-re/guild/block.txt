@@ -1,0 +1,8 @@
+-	script	BlockBug	-1,{
+
+OnInit:
+setcell "payg_cas01",125,125,125,125,cell_walkable,0;
+setcell "gefg_cas05",42,152,42,152,cell_walkable,0;
+setcell "gefg_cas03",43,234,55,234,cell_walkable,0;
+    end;
+}

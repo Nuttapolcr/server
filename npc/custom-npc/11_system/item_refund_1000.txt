@@ -1,0 +1,78 @@
+//===== Script Support rAthena =======================================
+//= Dynamic ย่อยของตามกำหนด
+//===== By: ==================================================
+//= Millornine
+//===== Last Updated: ========================================
+//= 2024/01/02 ป/ด/ว
+//===== Description: ========================================= 
+//= ระบบนี้ ทำเพื่อแจกไม่ได้ให้เอาไปขาย
+//= ระบบ ตัด MAX_AMOUNT ไอเท็มไว้ที่ 30000 ชิ้น ต่อ 1 ไอเท็ม
+//= ระบบมีบัคติดต่อ 9BANK ในดิสคอร์ด Ra-TH หากไม่ตอบแสดงว่าไม่อยู่
+//= พ่อค้าแม่ค้าที่ขายระบบนี้ ไม่ได้มีเจตนาดิสเครดิตการทำระบบของพวกคุณ
+//= ผมเพียงนำเสนอระบบที่เป็นแบบ Dynamic ปรับไดสะดวกๆ
+//= ว่างๆ V2.0 อาจจะทำ เป็น อิงไอเท็มตาม SQL
+//============================================================
+
+// Dummy shop to insert items into:
+-	shop	refound_shop	-1,501:50
+
+maintown,139,139,4	script	Dynamic Shop	624,{
+	mes .@namenpc$;
+	mes "สวัสดี, "+strcharinfo(0)+"!";
+	mes "มีอะไรให้ฉันช่วยคุณได้บ้าง ?";
+	next;
+	switch(select("~ รายละเอียดข้อมูล:~ ย่อยไอเท็ม :~ ไม่มีอะไร")) {
+		case 1:
+			mes "[รายละเอียดข้อมูล]";
+			mes "ถ้าหากคุณมีไอเท็มที่อยู่ในตู้โบนัส";
+			mes "คุณสามารถที่จะย่อยกับฉันเป็น Cash ได้";
+			mes "ในจำนวน "+.Points[0]+" ต่อ 1 ชิ้น";
+			close;
+		case 2:
+			mes .@namenpc$;
+			mes "กรุณาเลือกไอเท็มของคุณ";
+			mes "ที่จะต้องการแลกเปลี่ยน.";
+			deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+			callshop "refound_shop",2;
+			npcshopattach "refound_shop";
+			end;
+		case 3:
+			mes .@namenpc$;
+			mes "ไว้พบกันใหม่!";
+			close;	
+	}
+
+OnSellItem:
+	freeloop(1);
+	for (.@i = 0; .@i < getarraysize(@sold_nameid); .@i++) {
+		for(.@xe = 0; .@xe < getarraysize(.itemcheck); .@xe++){
+			if (@sold_nameid[.@i] == .itemcheck[.@xe]){
+				if(@sold_quantity[.@i] <= 30000) {
+					.@amountitem += @sold_quantity[.@i];
+					delitem .itemcheck[.@xe], @sold_quantity[.@i];
+				} else {
+					mes "ไม่สามารถย่อยของ มากกว่า 30000 ชิ้น ต่อไอเท็ม";
+					end;
+				}
+			}
+		}
+	}
+	freeloop(0);
+	deletearray @sold_quantity, getarraysize(@sold_quantity);
+	deletearray @sold_nameid, getarraysize(@sold_nameid);
+	if(.Points[0] > 0) {
+		.@totalpointsperitem = .Points[0]*.@amountitem;
+	}
+	mes "CASH ในอดีต : ^0055FF"+#CASHPOINTS+" แต้ม^000000";
+	setd .Parampoints$[0], getd(.Parampoints$[0])+(.@totalpointsperitem);
+	mes "ราคาทั้งหมด คือ : ^0055FF"+.@totalpointsperitem+" แต้ม.^000000";
+	mes "CASH ตอนนี้มี : ^0055FF"+#CASHPOINTS+" แต้ม แล้ว^000000";
+	end;
+OnInit:
+	.@namenpc$ = "[รับย่อยของ]";
+	setarray .Points[0],1;		//ตั้งไว้ 1000 คือ แต้มที่ได้ แต่ถ้าย่อยไม่ให้ได้แต้ม ตั้งเป็น 0
+	setarray .Parampoints$[0],"#CASHPOINTS"; //แก้ตัวแปรเองถ้าอยากให้แต้มอื่น
+	setarray .itemcheck[0],501,502,503; //กำหนดไอเท็มที่ให้ย่อยตามต้องการ แนะนำทำ description บอกสามารถเอาไอเท็มไหนย่อยได้บ้าง ลงบนดิสเซิฟของคุณ
+	waitingroom "ย่อยไอเท็มกล่ำๆ" , 0;
+	end;
+}

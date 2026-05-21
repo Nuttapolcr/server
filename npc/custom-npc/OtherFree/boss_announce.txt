@@ -1,0 +1,6 @@
+-	script	Announce	FAKE_NPC,{
+OnNPCKillEvent:
+	if ( getmonsterinfo(killedrid,MOB_MVPEXP) )
+		announce " ผู้เล่น "+ strcharinfo(0) +" ท่านนี้ ได้ทำการสังหาร บอส "+ getmonsterinfo(killedrid,MOB_NAME) +" ที่แมพ "+ strcharinfo(3) +" เรียบร้อยแล้ว ",0,0xFF0000;
+	end;
+}

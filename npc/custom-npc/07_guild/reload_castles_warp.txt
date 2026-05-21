@@ -1,0 +1,21 @@
+-	script	Auto_Reload_Warp_War	-1,{
+	end;
+
+	OnClock2000:
+		if (gettime(DT_DAYOFWEEK) == MONDAY || gettime(DT_DAYOFWEEK) == THURSDAY) {
+			announce "วาปบ้านกิล์ดได้ปิดแล้ว ! จะเปิดเวลา 21.40 !", bc_all;
+			atcommand "@unloadnpcfile npc/pre-re/warps/guild/guildcastles_warp_open.txt";
+			atcommand "@castlereset2";
+			end;
+		}
+
+
+	OnClock2140:
+		if (gettime(DT_DAYOFWEEK) == MONDAY || gettime(DT_DAYOFWEEK) == THURSDAY) {
+			announce "วาปบ้านกิล์ดได้เปิดแล้ว ! สามารถเข้ายึดบ้านกิลได้แล้ว !", bc_all;
+			atcommand "@reloadnpcfile npc/pre-re/warps/guild/guildcastles_warp_open.txt";
+			end;
+		}
+		end;
+
+}

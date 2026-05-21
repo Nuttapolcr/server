@@ -1,0 +1,1198 @@
+//!rathena
+function	script	F_autoattacktoggle	{
+
+goto(main_menu);
+end;
+
+main_menu:
+	.@menu$ = "[ระบบ Auto Attack]";
+	mes .@menu$;
+	
+	if(!rentalcountitem(97001)){
+		mes "คุณต้องมี AutoAttack Device เพื่อใช้ฟีเจอร์นี้";
+		close;
+	}
+	
+	mes "^777777== สถานะปัจจุบัน ==^000000";
+	mes "^777777---------- การฟื้นฟู ----------^000000";
+	mes "ยา HP/SP     : " + (aa_getautoattackint(1,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "รักษาอัตโนมัติ: " + (aa_getautoattackint(0,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	
+	if(aa_getautoattackint(14,0) == 1)
+		mes "นั่งพัก HP   : ^008000< 75%^000000";
+	else if(aa_getautoattackint(14,0) == 2)
+		mes "นั่งพัก HP   : ^008000< 50%^000000";
+	else if(aa_getautoattackint(14,0) == 3)
+		mes "นั่งพัก HP   : ^008000< 25%^000000";
+	else
+		mes "นั่งพัก HP   : ^FF0000ปิด^000000";
+	
+	if(aa_getautoattackint(15,0) == 1)
+		mes "นั่งพัก SP   : ^008000< 75%^000000";
+	else if(aa_getautoattackint(15,0) == 2)
+		mes "นั่งพัก SP   : ^008000< 50%^000000";
+	else if(aa_getautoattackint(15,0) == 3)
+		mes "นั่งพัก SP   : ^008000< 25%^000000";
+	else
+		mes "นั่งพัก SP   : ^FF0000ปิด^000000";
+
+	mes " ";
+	mes "^777777---------- การต่อสู้ ----------^000000";
+	mes "สกิลโจมตี   : " + (aa_getautoattackint(2,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "สกิลบัฟ     : " + (aa_getautoattackint(3,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	
+	if(aa_getautoattackint(11,0) == 1)
+		mes "ระยะประชิด  : ^FF0000ปิด^000000";
+	else if(aa_getautoattackint(11,0) == 2)
+		mes "ระยะประชิด  : ^FFAA00SP < 100^000000";
+	else
+		mes "ระยะประชิด  : ^008000เปิด^000000";
+	
+	mes "Monk Combo   : " + (aa_getautoattackint(19,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+
+	mes " ";
+	mes "^777777---------- การวาร์ป ----------^000000";
+	mes "Fly Wing     : " + (aa_getautoattackint(12,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "สกิล Teleport: " + (aa_getautoattackint(13,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	
+	if(aa_getautoattackint(20,0) > 0)
+		mes "วาร์ปฉุกเฉิน : ^FF8800< " + aa_getautoattackint(20,0) + "%^000000";
+	else
+		mes "วาร์ปฉุกเฉิน : ^FF0000ปิด^000000";
+
+	mes " ";
+	mes "^777777---------- ไอเทม & อื่นๆ ----------^000000";
+	
+	switch(aa_getautoattackint(9,0)){
+		case 0: mes "เก็บไอเทม    : ^008000ทุกชิ้น^000000"; break;
+		case 1: mes "เก็บไอเทม    : ^FFAA00เฉพาะในรายการ^000000"; break;
+		case 2: mes "เก็บไอเทม    : ^FF0000ปิด^000000"; break;
+	}
+	
+	mes "ซื้ออัตโนมัติ : " + (aa_getautoattackint(15,1) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "ขายอัตโนมัติ : " + (aa_getautoattackint(21,0) > 0 ? "^008000เปิด (" + aa_getautoattackint(21,0) + " รายการ)^000000" : "^FF0000ปิด^000000");
+	mes "Token Siegfrd : " + (aa_getautoattackint(7,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "กลับจุดเซฟ   : " + (aa_getautoattackint(6,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	
+	switch(aa_getautoattackint(18,0)){
+		case 0: mes "เมื่อหยุด AA : ^777777ไม่ทำอะไร^000000"; break;
+		case 1: mes "เมื่อหยุด AA : ^008000วาร์ปกลับจุดเซฟ^000000"; break;
+		case 2: mes "เมื่อหยุด AA : ^FF0000ออกจากเกม^000000"; break;
+	}
+	
+	mes "^777777=====================================^000000";
+	mes " ";
+	
+	.@main_menu = select(aa_getstate()?"[หยุด]":"[เริ่ม]","[ตั้งค่า]","[ยกเลิก]");
+	switch(.@main_menu){
+		case 1:
+			if(aa_getstate())
+				sc_end SC_AUTOATTACK;
+			else
+				autoattack_fromitem(97001);
+			break;
+		case 2:
+			goto(config_menu);
+			break;
+	}
+	end;
+
+config_menu:
+	clear;
+	.@menu$ = "[ระบบ Auto Attack]";
+	mes .@menu$;
+
+	// ถ้าต้องการปิดตัวเลือก ให้คอมเมนต์บรรทัดนั้น
+	menu	"กลับ",main_menu,
+			" ~ การฟื้นฟู",regeneration_menu,
+			" ~ สกิลโจมตี",attackskills_menu,
+			" ~ สกิลบัฟ",buffskills_menu,
+			" ~ ไอเทมบัฟ",buffitems_menu,
+			" ~ เลือกมอนสเตอร์",monsters_menu,
+			" ~ เลือกไอเทมเก็บ",pickupitems_menu,
+			" ~ วาร์ป",teleport_menu,
+			" ~ ซื้อไอเทมอัตโนมัติ",autobuy_menu,
+			" ~ ขายไอเทมอัตโนมัติ",autosell_menu,
+			" ~ การตั้งค่าอื่นๆ",others_menu,
+			" ~ รีเซ็ตทั้งหมด",reset_all;
+	end;
+
+
+autobuy_menu:
+	clear;
+	.@menu$ = "[ซื้อไอเทมอัตโนมัติ]";
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "เลือกไอเทมที่ต้องการซื้ออัตโนมัติ";
+	mes aa_getautoattackstring(15,0);
+	.@autobuy_menu = select("เพิ่ม/แก้ไขไอเทม","ลบไอเทม","ล้างรายการ","[ยกเลิก]");
+	switch(.@autobuy_menu){
+		case 1:
+			clear;
+			mes .@menu$;
+			mes "--- รายการไอเทมที่สามารถซื้อได้ ---";
+			mes aa_getautoattackstring(15,-1);
+			
+			if(getarraysize(.@buy_add_menu_ids) == 0){
+				clear;
+				mes .@menu$;
+				mes "ขออภัย ไม่มีไอเทมที่สามารถซื้อได้";
+				next;
+				goto(autobuy_menu);
+			}
+			
+			.@buy_add_menu_list$ = .@buy_add_menu_list$ + ":[ยกเลิก]";
+			.@i = select(.@buy_add_menu_list$);
+			
+			if(.@i > getarraysize(.@buy_add_menu_ids))
+				goto(autobuy_menu);
+			
+			.@i--;
+			.@selected_item = .@buy_add_menu_ids[.@i];
+			
+			do {
+				clear;
+				mes .@menu$;
+				mes "ระบุจำนวนที่ต้องการซื้อ (1-1000)";
+				input .@buy_quantity;
+			} while(.@buy_quantity < 1 || .@buy_quantity > 1000);
+			
+			do {
+				clear;
+				mes .@menu$;
+				mes "ซื้อเมื่อไอเทมเหลือน้อยกว่า (0-999)";
+				input .@buy_trigger;
+			} while(.@buy_trigger < 0 || .@buy_trigger > 999);
+			
+			aa_setautoattack("25;1;" + .@selected_item + ";" + .@buy_quantity + ";" + .@buy_trigger);
+			break;
+			
+		case 2:
+			clear;
+			mes .@menu$;
+			mes "--- เลือกไอเทมที่ต้องการลบ ---";
+			mes aa_getautoattackstring(15,0);
+			
+			if (getarraysize(.@buy_menu_ids) == 0) {
+				clear;
+				mes .@menu$;
+				mes "ไม่มีไอเทมในรายการซื้ออัตโนมัติ";
+				next;
+				goto(autobuy_menu);
+			}
+			
+			// แสดง menu
+			.@buy_menu_list$ = .@buy_menu_list$ + ":[ยกเลิก]";
+			.@i = select(.@buy_menu_list$);
+			
+			if(.@i > getarraysize(.@buy_menu_ids))
+				goto(autobuy_menu);
+			
+			.@i--;
+			aa_setautoattack("25;0;" + .@buy_menu_ids[.@i] + ";0;0");
+			break;
+			
+		case 3:
+			aa_setautoattack("25;-1;0;0;0");
+			break;
+			
+		case 4:
+			goto(config_menu);
+			break;
+	}
+	goto(autobuy_menu);
+	end;
+
+autosell_menu:
+	clear;
+	.@menu$ = "[ขายไอเทมอัตโนมัติ]";
+	mes .@menu$;
+	mes "ขายอัตโนมัติ ^FF0000(สูงสุด 10 รายการ)^000000";
+	mes aa_getautoattackstring(16,0);
+	.@autosell_menu = select("เพิ่มไอเทม","ลบไอเทม","ล้างรายการ","[ยกเลิก]");
+	switch(.@autosell_menu){
+		case 1:
+			// ตรวจสอบจำนวนก่อนเพิ่ม
+			if(aa_getautoattackint(21,0) >= 10){
+				clear;
+				mes .@menu$;
+				mes "รายการขายอัตโนมัติเต็มแล้ว (สูงสุด 10 รายการ)";
+				next;
+				goto(autosell_menu);
+			}
+			
+			clear;
+			mes .@menu$;
+			.@add_method = select("เลือกจากกระเป๋า","ป้อน Item ID","[ยกเลิก]");
+			
+			switch(.@add_method){
+				case 1:
+					clear;
+					mes .@menu$;
+					mes "--- รายการไอเทมในกระเป๋า (ETC, HEALING) ---";
+					mes aa_getautoattackstring(16,-1);
+					
+					if(getarraysize(.@sell_add_menu_ids) == 0){
+						clear;
+						mes .@menu$;
+						mes "ขออภัย ไม่มีไอเทมที่สามารถขายได้ในกระเป๋า";
+						next;
+						goto(autosell_menu);
+					}
+					
+					.@sell_add_menu_list$ = .@sell_add_menu_list$ + ":[ยกเลิก]";
+					.@i = select(.@sell_add_menu_list$);
+					
+					if(.@i > getarraysize(.@sell_add_menu_ids))
+						goto(autosell_menu);
+					
+					.@i--;
+					aa_setautoattack("26;1;" + .@sell_add_menu_ids[.@i]);
+					break;
+					
+				case 2:
+					clear;
+					mes .@menu$;
+					mes "ใส่ ID ของไอเทมที่ต้องการขายอัตโนมัติ (0 เพื่อยกเลิก)";
+					input .@item_id;
+					
+					if(.@item_id == 0)
+						goto(autosell_menu);
+					
+					aa_setautoattack("26;1;" + .@item_id);
+					break;
+					
+				case 3:
+					goto(autosell_menu);
+					break;
+			}
+			break;
+			
+		case 2:
+			clear;
+			mes .@menu$;
+			mes "--- เลือกไอเทมที่ต้องการลบ ---";
+			mes aa_getautoattackstring(16,0);
+			
+			if (getarraysize(.@sell_menu_ids) == 0) {
+				clear;
+				mes .@menu$;
+				mes "ไม่มีไอเทมในรายการขายอัตโนมัติ";
+				next;
+				goto(autosell_menu);
+			}
+			
+			// แสดง menu
+			.@sell_menu_list$ = .@sell_menu_list$ + ":[ยกเลิก]";
+			.@i = select(.@sell_menu_list$);
+			
+			if(.@i > getarraysize(.@sell_menu_ids))
+				goto(autosell_menu);
+			
+			.@i--;
+			aa_setautoattack("26;0;" + .@sell_menu_ids[.@i]);
+			break;
+			
+		case 3:
+			aa_setautoattack("26;-1;0");
+			break;
+			
+		case 4:
+			goto(config_menu);
+			break;
+	}
+	goto(autosell_menu);
+	end;
+	
+
+pickupitems_menu:
+	clear;
+	.@menu$ = "[เลือกไอเทมเก็บ]";
+	mes .@menu$;
+	mes "เลือกไอเทมที่ต้องการเก็บ";
+	mes aa_getautoattackstring(13,0);
+	.@pickupitems_menu = select("ตั้งค่าการเก็บไอเทม","เพิ่มไอเทม","ลบไอเทม","ล้างรายการ","[ยกเลิก]");
+	switch(.@pickupitems_menu){
+		case 1:
+			.@pickup_config_choice = 0;
+			// every item = 0
+			// on the list = 1
+			// no item = 2
+			switch(aa_getautoattackint(9,0)){
+				case 0:
+					.@pickupitems_config_menu  = select("เก็บเฉพาะไอเทมในรายการ","ไม่เก็บไอเทมเลย","[ยกเลิก]");
+					switch(.@pickupitems_config_menu){
+						case 1:
+							.@pickup_config_choice = 1;
+							break;
+						case 2 :
+							.@pickup_config_choice = 2;
+							break;
+						case 3 :
+							goto(pickupitems_menu);
+							break;
+					}
+						
+					break;
+				case 1:
+					.@pickupitems_config_menu  = select("เก็บทุกไอเทม","ไม่เก็บไอเทมเลย","[ยกเลิก]");
+					switch(.@pickupitems_config_menu){
+						case 1:
+							.@pickup_config_choice = 0;
+							break;
+						case 2 :
+							.@pickup_config_choice = 2;
+							break;
+						case 3 :
+							goto(pickupitems_menu);
+							break;
+					}
+					break;
+				case 2:
+					.@pickupitems_config_menu  = select("เก็บทุกไอเทม","เก็บเฉพาะไอเทมในรายการ","[ยกเลิก]");
+					switch(.@pickupitems_config_menu){
+						case 1:
+							.@pickup_config_choice = 0;
+							break;
+						case 2 :
+							.@pickup_config_choice = 1;
+							break;
+						case 3 :
+							goto(pickupitems_menu);
+							break;
+					}
+					break;				
+			}
+			aa_setautoattack("20;" + .@pickup_config_choice);
+			break;
+		case 2:
+			clear;
+			mes .@menu$;
+			mes "ใส่ ID ของไอเทมที่ต้องการเพิ่มในรายการ (สูงสุด 20)";
+			do {
+				input .@itempickup_id;
+			} while(.@itempickup_id < 1);
+			aa_setautoattack("21;1;" + .@itempickup_id);
+			break;
+		case 3:
+			if(aa_getautoattackint(17,0) > 0){
+				clear;
+				mes .@menu$;
+				mes "เลือกไอเทมที่ต้องการลบจากรายการ";
+				
+				// ดึงรายการ item IDs และ names
+				.@count = aa_getpickupitemlist();
+				
+				if(.@count > 0){
+					// สร้างเมนูแบบสั้น (แค่ชื่อไอเทม)
+					.@delete_menu$ = "";
+					for(.@i = 0; .@i < .@count; .@i++){
+						.@delete_menu$ += @pickup_item_names$[.@i];
+						if(.@i < .@count - 1)
+							.@delete_menu$ += ":";
+					}
+					.@delete_menu$ += ":[ยกเลิก]";
+					
+					// แสดง ID ก่อนให้เลือก
+					clear;
+					mes .@menu$;
+					mes "รายการไอเทมที่สามารถลบได้:";
+					for(.@i = 0; .@i < .@count; .@i++){
+						mes "^FF0000" + (.@i + 1) + ".^000000 " + @pickup_item_names$[.@i] + " ^0000FF(ID: " + @pickup_item_ids[.@i] + ")^000000";
+					}
+					mes " ";
+					
+					.@selected = select(.@delete_menu$);
+					
+					// ถ้าเลือกไอเทม (ไม่ใช่ยกเลิก)
+					if(.@selected <= .@count){
+						.@itempickup_id = @pickup_item_ids[.@selected - 1];
+						aa_setautoattack("21;0;" + .@itempickup_id);
+					}
+				}
+			} else {
+				clear;
+				mes .@menu$;
+				mes "ขออภัย คุณไม่มีไอเทมในรายการนี้";
+				next;
+			}
+			break;
+		case 4:
+			aa_setautoattack("21;-1;0");
+			break;
+		case 5:
+			goto(config_menu);
+			break;
+	}
+	goto(pickupitems_menu);
+	end;
+
+others_menu:
+	clear;
+	.@menu$ = "[การตั้งค่าอื่นๆ]";
+
+	mes .@menu$;
+
+	.@others_menu = select(
+	aa_getautoattackint(7,0)?"^008000(เปิด)^000000 Token of Siegfried":"^FF0000(ปิด)^000000 Token of Siegfried"
+	,aa_getautoattackint(6,0)?"^008000(เปิด)^000000 กลับจุดเซฟ":"^FF0000(ปิด)^000000 กลับจุดเซฟ"
+	,aa_getautoattackint(8,0)?"^008000(เปิด)^000000 รับเข้าปาร์ตี้อัตโนมัติ":"^FF0000(ปิด)^000000 รับเข้าปาร์ตี้อัตโนมัติ"
+	,aa_getautoattackint(10,0)?"^008000(เปิด)^000000 เก็บของก่อนสู้":"^FF0000(ปิด)^000000 เก็บของก่อนสู้"
+	,aa_getautoattackint(11,0)==1?"^FF0000(ปิด)^000000 โจมตีระยะประชิด":"^008000(เปิด)^000000 โจมตีระยะประชิด"
+	,aa_getautoattackint(11,0)==2?"^008000(เปิด)^000000 โจมตีระยะประชิดเมื่อ SP ต่ำกว่า 100":"^FF0000(ปิด)^000000 โจมตีระยะประชิดเมื่อ SP ต่ำกว่า 100"
+	,aa_getautoattackint(16,0)?"^008000(เปิด)^000000 เพิกเฉยมอนโจมตีถ้าไม่อยู่ในรายการ":"^FF0000(ปิด)^000000 เพิกเฉยมอนโจมตีถ้าไม่อยู่ในรายการ"
+	,aa_getautoattackint(19,0)?"^008000(เปิด)^000000 Monk Combo":"^FF0000(ปิด)^000000 Monk Combo"
+	,"ตั้งค่าการกระทำเมื่อ AutoAttack หยุด"
+	,"[ยกเลิก]"
+	);
+	switch(.@others_menu){
+		case 1:
+			if(aa_getautoattackint(7,0))
+				aa_setautoattack("11;0");
+			else
+				aa_setautoattack("11;1");
+			break;
+		case 2:
+			if(aa_getautoattackint(6,0))
+				aa_setautoattack("9;0");
+			else
+				aa_setautoattack("9;1");
+			break;
+		case 3:
+			if(aa_getautoattackint(8,0))
+				aa_setautoattack("12;0");
+			else
+				aa_setautoattack("12;1");
+			break;
+		case 4:
+			if(aa_getautoattackint(10,0))
+				aa_setautoattack("13;0");
+			else
+				aa_setautoattack("13;1");
+			break;
+		case 5:
+			if(aa_getautoattackint(11,0) == 1)
+				aa_setautoattack("7;0");
+			else
+				aa_setautoattack("7;1");
+			break;
+		case 6:
+			if(aa_getautoattackint(11,0) == 2)
+				aa_setautoattack("7;0");
+			else
+				aa_setautoattack("7;2");
+			break;
+		case 7:
+			if(aa_getautoattackint(16,0))
+				aa_setautoattack("18;0");
+			else
+				aa_setautoattack("18;1");
+			break;
+		case 8:
+			if(aa_getautoattackint(19,0))
+				aa_setautoattack("24;0");
+			else
+				aa_setautoattack("24;1");
+			break;
+		case 9:
+			goto(action_on_end_menu);
+			break;
+		case 10:
+			goto(config_menu);
+			break;
+	}
+	goto(others_menu);
+
+	end;
+
+action_on_end_menu:
+	clear;
+	.@menu$ = "[การกระทำเมื่อ AutoAttack หยุด]";
+
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes aa_getautoattackstring(4,0);
+
+	.@action_on_end_menu = select(
+	aa_getautoattackint(18,0) == 0?"^008000[x]^000000 ไม่ทำอะไร":"[ ] ไม่ทำอะไร"
+	,aa_getautoattackint(18,0) == 1?"^008000[x]^000000 วาร์ปกลับจุดเซฟ":"[ ] วาร์ปกลับจุดเซฟ"
+	,aa_getautoattackint(18,0) == 2?"^008000[x]^000000 ออกจากเกม":"[ ] ออกจากเกม"
+	,"[ยกเลิก]"
+	);
+
+	switch(.@action_on_end_menu){
+		case 1:
+			if(aa_getautoattackint(18,0) != 0)
+				aa_setautoattack("22;0");
+			break;
+		case 2:
+			if(aa_getautoattackint(18,0) != 1)
+				aa_setautoattack("22;1");
+			break;
+		case 3:
+			if(aa_getautoattackint(18,0) != 2)
+				aa_setautoattack("22;2");
+			break;
+		case 4:
+			clear;
+			goto(others_menu);
+			break;
+	}
+
+	clear;
+	goto(others_menu);
+	end;
+
+reset_all:
+	clear;
+	.@menu$ = "[รีเซ็ตการตั้งค่า]";
+	mes .@menu$;
+	
+	.@reset_menu = select("ยืนยันการรีเซ็ตทั้งหมด","[ยกเลิก]");
+
+	switch(.@reset_menu){
+		case 1:
+			aa_setautoattack("10;0");
+			break;
+	}
+
+	goto(config_menu);
+	end;
+
+monsters_menu:
+	clear;
+	.@menu$ = "[เลือกมอนสเตอร์]";
+
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "เลือกมอนสเตอร์ที่คุณไม่ต้องการโจมตี";
+	mes aa_getautoattackstring(12,0);
+	
+	if(getarraysize(.@mobs_menu_ids) == 0){
+		clear;
+		mes .@menu$;
+		mes "ขออภัย ไม่มีมอนสเตอร์ในแผนที่นี้";
+		next;
+		goto(main_menu);
+	}
+	
+	.@mobs_menu_list$ = "[ยกเลิก]:" + .@mobs_menu_list$;
+	.@i = select( .@mobs_menu_list$ );
+
+	if(.@i == 1)
+		goto(config_menu);
+	else
+		.@i--;
+
+	if(.@mobs_menu_state[.@mobs_menu_ids[.@i]])
+		aa_setautoattack("19;"+ .@mobs_menu_ids[.@i] + ";0");
+	else
+		aa_setautoattack("19;"+ .@mobs_menu_ids[.@i] + ";1");
+
+	goto(monsters_menu);
+	end;
+
+teleport_menu:
+	clear;
+	.@menu$ = "[วาร์ป]";
+
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes aa_getautoattackstring(6,0);
+
+	.@teleport_menu = select(
+	aa_getautoattackint(12,0)?"^FF0000(ปิด)^000000 เปิดใช้ Fly Wing สำหรับวาร์ป":"^008000(เปิด)^000000 เปิดใช้ Fly Wing สำหรับวาร์ป"
+	,aa_getautoattackint(13,0)?"^FF0000(ปิด)^000000 เปิดใช้สกิล Teleport":"^008000(เปิด)^000000 เปิดใช้สกิล Teleport"
+	,"ตั้งค่า HP ขั้นต่ำสำหรับวาร์ปฉุกเฉิน"
+	,"ตั้งค่าเวลาวาร์ปถ้าไม่เจอมอนสเตอร์"
+	,"ตั้งค่าจำนวนมอนสุดที่สามารถตีคุณก่อนวาร์ป"
+	,"[ยกเลิก]"
+	);
+	
+	switch(.@teleport_menu){
+		case 1:
+			if(aa_getautoattackint(12,0))
+				aa_setautoattack("4;0");
+			else
+				aa_setautoattack("4;1");
+			break;
+		case 2:
+			if(aa_getautoattackint(13,0))
+				aa_setautoattack("6;0");
+			else
+				aa_setautoattack("6;1");
+			break;
+		case 3:
+			do {
+				clear;
+				mes .@menu$;
+				mes "เลือกค่า HP % ขั้นต่ำสำหรับวาร์ปฉุกเฉิน";
+				mes "ค่าต่ำสุด 5, ค่าสูงสุด 90 (0 เพื่อปิด)";
+				input .@teleport_minhpvalue;
+			} while(.@teleport_minhpvalue != 0 && (.@teleport_minhpvalue < 5 || .@teleport_minhpvalue > 90));
+			aa_setautoattack("16;"+.@teleport_minhpvalue);
+			break;
+		case 4:
+			do {
+				clear;
+				mes .@menu$;
+				mes "ตั้งค่าเวลาวาร์ป (วินาที) ถ้าไม่เจอมอนสเตอร์";
+				mes "ค่าต่ำสุด 2, ค่าสูงสุด 600 (0 เพื่อปิด)";
+				input .@teleport_delayvalue;
+			} while(.@teleport_delayvalue != 0 && (.@teleport_delayvalue < 2 || .@teleport_delayvalue > 600));
+			.@teleport_delayvalue = .@teleport_delayvalue * 1000;
+			aa_setautoattack("17;"+.@teleport_delayvalue);
+			break;
+		case 5:
+			do {
+				clear;
+				mes .@menu$;
+				mes "ตั้งค่าจำนวนมอนสเตอร์สูงสุดที่สามารถตีคุณก่อนวาร์ป";
+				mes "ค่าสูงสุด 30 (0 เพื่อปิด)";
+				input .@monster_surround;
+			} while(.@monster_surround != 0 && (.@monster_surround < 0 || .@monster_surround > 30));
+			aa_setautoattack("23;"+.@monster_surround);
+			break;
+		case 6:
+			goto(config_menu);
+			break;
+	}
+
+	goto(teleport_menu);
+	end;
+
+regeneration_menu:
+	clear;
+	.@menu$ = "[การฟื้นฟู]";
+	
+	mes .@menu$;
+	menu	"กลับ",config_menu,
+			" ~ รักษาอัตโนมัติ",heal_menu,
+			" ~ ยา HP / SP",potion_menu,
+			" ~ นั่งพัก",sit_regen_menu;
+	end;
+
+heal_menu:
+	clear;
+	.@menu$ = "[รักษาอัตโนมัติ]";
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบสกิลต่อไปนี้";
+	setarray .@lheal_skill[0],28,2051,2043;
+	.@healskill_menu1$ = "";
+	.@j = 0;
+	
+	// ตรวจสอบว่ามีสกิล
+	for (.@i = 0; .@i < getarraysize(.@lheal_skill); .@i++){
+		if(getskilllv(.@lheal_skill[.@i]))
+			.@lheal_skill2[.@j++] = .@lheal_skill[.@i];
+	}
+	if(getarraysize(.@lheal_skill2) == 0){
+		clear;
+		mes .@menu$;
+		mes "ขออภัย คุณไม่มีสกิลรักษาที่ได้รับอนุญาต";
+		next;
+		goto(regeneration_menu);
+	}
+	for (.@i = 0; .@i < getarraysize(.@lheal_skill2); .@i++)
+		.@healskill_menu1$ = .@healskill_menu1$ + (.@i > 0 ? ":" : "") + aa_getautoattackstring(0,.@lheal_skill2[.@i],1);
+	.@i = select(.@healskill_menu1$) -1;
+	if(.@skill_menu_state[.@lheal_skill2[.@i]]){
+		.@heal_menu = select("แก้ไข","ปิด","[ยกเลิก]");
+		switch(.@heal_menu){
+			case 1 :
+				clear;
+				mes .@menu$;
+				mes "เลือกเลเวลสกิลที่จะใช้";
+				mes "เลเวลสูงสุด: " + getskilllv(.@lheal_skill2[.@i]);
+				mes "";
+				mes "การตั้งค่าปัจจุบัน:";
+				mes aa_getautoattackstring(0,.@lheal_skill2[.@i],0);
+				
+				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				.@max_lv = getskilllv(.@lheal_skill2[.@i]);
+				.@skill_lv_menu$ = "";
+				for(.@k = 1; .@k <= .@max_lv; .@k++){
+					.@skill_lv_menu$ += "Level " + .@k;
+					if(.@k < .@max_lv)
+						.@skill_lv_menu$ += ":";
+				}
+				.@heal_skilllv = select(.@skill_lv_menu$);
+				
+				clear;
+				mes .@menu$;
+				mes "เลือกค่า HP % ที่จะใช้สกิล";
+				.@hp_select = select("30%:50%:70%:90%");
+				switch(.@hp_select){
+					case 1: .@heal_minhpvalue = 30; break;
+					case 2: .@heal_minhpvalue = 50; break;
+					case 3: .@heal_minhpvalue = 70; break;
+					case 4: .@heal_minhpvalue = 90; break;
+				}
+				
+				aa_setautoattack("0;1;"+ .@lheal_skill2[.@i] + ";" + .@heal_skilllv + ";" + .@heal_minhpvalue);
+				goto(heal_menu);
+				break;
+			case 2:
+				aa_setautoattack("0;0;"+ .@lheal_skill[.@i] + ";0;0");
+				goto(heal_menu);
+				break;
+			case 3:
+				goto(heal_menu);
+				break;
+		}
+	} else {
+		.@heal_menu = select("เปิด","[ยกเลิก]");
+		switch(.@heal_menu){
+			case 1 :
+				clear;
+				mes .@menu$;
+				mes "เลือกเลเวลสกิลที่จะใช้";
+				mes "เลเวลสูงสุด: " + getskilllv(.@lheal_skill2[.@i]);
+				mes "";
+				mes "การตั้งค่าปัจจุบัน:";
+				mes aa_getautoattackstring(0,.@lheal_skill2[.@i],0);
+				
+				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				.@max_lv = getskilllv(.@lheal_skill2[.@i]);
+				.@skill_lv_menu$ = "";
+				for(.@k = 1; .@k <= .@max_lv; .@k++){
+					.@skill_lv_menu$ += "Level " + .@k;
+					if(.@k < .@max_lv)
+						.@skill_lv_menu$ += ":";
+				}
+				.@heal_skilllv = select(.@skill_lv_menu$);
+				
+				clear;
+				mes .@menu$;
+				mes "เลือกค่า HP % ที่จะใช้สกิล";
+				.@hp_select = select("30%:50%:70%:90%");
+				switch(.@hp_select){
+					case 1: .@heal_minhpvalue = 30; break;
+					case 2: .@heal_minhpvalue = 50; break;
+					case 3: .@heal_minhpvalue = 70; break;
+					case 4: .@heal_minhpvalue = 90; break;
+				}
+				
+				aa_setautoattack("0;1;"+ .@lheal_skill2[.@i] + ";" + .@heal_skilllv + ";" + .@heal_minhpvalue);
+				goto(heal_menu);
+				break;
+			case 2:
+				goto(heal_menu);
+				break;
+		}
+	}
+	goto(heal_menu);
+	end;
+	
+	
+potion_menu:
+	clear;
+	.@menu$ = "[ยา HP / SP]";
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบยาต่อไปนี้";
+	
+	setarray .@lpotion_disable_list[0],14875,14876;
+	mes aa_getautoattackstring(1,0);
+	
+	if(getarraysize(.@potion_menu_ids) == 0){
+		clear;
+		mes .@menu$;
+		mes "ขออภัย คุณไม่มียารักษา";
+		next;
+		goto(regeneration_menu);
+	}
+	
+	.@potion_menu_list$ = "[ยกเลิก]:" + .@potion_menu_list$;
+	.@i = select( .@potion_menu_list$ );
+	if(.@i == 1)
+		goto(regeneration_menu);
+	else
+		.@i--;
+	
+	if(.@potion_menu_state[.@potion_menu_ids[.@i]]){
+		// ตรวจสอบว่าเลือกยาที่ถูกปิดการใช้งาน
+		for (.@j = 0; .@j < getarraysize(.@lpotion_disable_list); .@j++){
+			if(.@potion_menu_ids[.@i] == .@lpotion_disable_list[.@j]){
+				mes "คุณไม่สามารถเลือกไอเทมนี้ได้ ถูกปิดการใช้งานโดย GM";
+				next;
+				goto(potion_menu);
+			}
+		}
+	
+		.@potion_menu2 = select("แก้ไข","ปิด","[ยกเลิก]");
+		switch(.@potion_menu2){
+			case 1:
+				clear;
+				mes .@menu$;
+				mes "เลือกค่า HP % ที่จะใช้ยา";
+				.@hp_select = select("ปิด (0%):30%:50%:70%:90%");
+				switch(.@hp_select){
+					case 1: .@potion_minhpvalue = 0; break;
+					case 2: .@potion_minhpvalue = 30; break;
+					case 3: .@potion_minhpvalue = 50; break;
+					case 4: .@potion_minhpvalue = 70; break;
+					case 5: .@potion_minhpvalue = 90; break;
+				}
+				
+				clear;
+				mes .@menu$;
+				mes "เลือกค่า SP % ที่จะใช้ยา";
+				.@sp_select = select("ปิด (0%):30%:50%:70%:90%");
+				switch(.@sp_select){
+					case 1: .@potion_minspvalue = 0; break;
+					case 2: .@potion_minspvalue = 30; break;
+					case 3: .@potion_minspvalue = 50; break;
+					case 4: .@potion_minspvalue = 70; break;
+					case 5: .@potion_minspvalue = 90; break;
+				}
+				
+				aa_setautoattack("1;1;"+ .@potion_menu_ids[.@i] + ";" + .@potion_minhpvalue + ";" + .@potion_minspvalue);
+				goto(potion_menu);
+				break;
+			case 2:
+				aa_setautoattack("1;0;"+ .@potion_menu_ids[.@i] + ";0;0");
+				goto(potion_menu);
+				break;
+			case 3:
+				goto(potion_menu);
+				break;
+		}
+	}
+	else{
+		.@potion_menu2 = select("เพิ่ม","[ยกเลิก]");
+		switch(.@potion_menu2){
+			case 1:
+				clear;
+				mes .@menu$;
+				mes "เลือกค่า HP % ที่จะใช้ยา";
+				.@hp_select = select("ปิด (0%):30%:50%:70%:90%");
+				switch(.@hp_select){
+					case 1: .@potion_minhpvalue = 0; break;
+					case 2: .@potion_minhpvalue = 30; break;
+					case 3: .@potion_minhpvalue = 50; break;
+					case 4: .@potion_minhpvalue = 70; break;
+					case 5: .@potion_minhpvalue = 90; break;
+				}
+				
+				clear;
+				mes .@menu$;
+				mes "เลือกค่า SP % ที่จะใช้ยา";
+				.@sp_select = select("ปิด (0%):30%:50%:70%:90%");
+				switch(.@sp_select){
+					case 1: .@potion_minspvalue = 0; break;
+					case 2: .@potion_minspvalue = 30; break;
+					case 3: .@potion_minspvalue = 50; break;
+					case 4: .@potion_minspvalue = 70; break;
+					case 5: .@potion_minspvalue = 90; break;
+				}
+				
+				aa_setautoattack("1;1;"+ .@potion_menu_ids[.@i] + ";" + .@potion_minhpvalue + ";" + .@potion_minspvalue);
+				goto(potion_menu);
+				break;
+			case 2:
+				goto(potion_menu);
+				break;
+		}
+	}
+	
+	goto(regeneration_menu);
+	end;
+
+attackskills_menu:
+	clear;
+	.@menu$ = "[สกิลโจมตี]";
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบสกิลต่อไปนี้";
+	mes aa_getautoattackstring(2,0);
+	
+	if(getarraysize(.@skill_menu_ids) == 0){
+		clear;
+		mes .@menu$;
+		mes "ขออภัย คุณไม่มีสกิลโจมตี";
+		next;
+		goto(main_menu);
+	}
+	
+	.@skill_menu_list$ = "[ยกเลิก]:" + .@skill_menu_list$;
+	.@i = select( .@skill_menu_list$ );
+	if(.@i == 1)
+		goto(config_menu);
+	else
+		.@i--;
+	if(.@skill_menu_state[.@skill_menu_ids[.@i]]){
+		.@skill_menu2 = select("แก้ไข","ปิด","[ยกเลิก]");
+		switch(.@skill_menu2){
+			case 1:
+				clear;
+				mes .@menu$;
+				mes "เลือกเลเวลสกิลที่จะใช้";
+				mes "เลเวลสูงสุด: " + getskilllv(.@skill_menu_ids[.@i]);
+				mes "";
+				mes "การตั้งค่าปัจจุบัน:";
+				mes aa_getautoattackstring(2,.@skill_menu_ids[.@i],1);
+				
+				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				.@max_lv = getskilllv(.@skill_menu_ids[.@i]);
+				.@skill_lv_menu$ = "";
+				for(.@k = 1; .@k <= .@max_lv; .@k++){
+					.@skill_lv_menu$ += "Level " + .@k;
+					if(.@k < .@max_lv)
+						.@skill_lv_menu$ += ":";
+				}
+				.@attack_skilllv = select(.@skill_lv_menu$);
+				
+				clear;
+				mes .@menu$;
+				mes "เลือกการตั้งค่าสกิล";
+				aa_setautoattack("2;1;"+ .@skill_menu_ids[.@i] + ";" + .@attack_skilllv);
+				goto(attackskills_menu);
+				break;
+			case 2:
+				aa_setautoattack("2;0;"+ .@skill_menu_ids[.@i] + ";0");
+				goto(attackskills_menu);
+				break;
+			case 3:
+				goto(config_menu);
+				break;
+		}
+	}
+	else{
+		.@skill_menu2 = select("เพิ่ม","[ยกเลิก]");
+		switch(.@skill_menu2){
+			case 1:
+				clear;
+				mes .@menu$;
+				mes "เลือกเลเวลสกิลที่จะใช้";
+				mes "เลเวลสูงสุด: " + getskilllv(.@skill_menu_ids[.@i]);
+				mes "";
+				mes "การตั้งค่าปัจจุบัน:";
+				mes aa_getautoattackstring(2,.@skill_menu_ids[.@i],1);
+				
+				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				.@max_lv = getskilllv(.@skill_menu_ids[.@i]);
+				.@skill_lv_menu$ = "";
+				for(.@k = 1; .@k <= .@max_lv; .@k++){
+					.@skill_lv_menu$ += "Level " + .@k;
+					if(.@k < .@max_lv)
+						.@skill_lv_menu$ += ":";
+				}
+				.@attack_skilllv = select(.@skill_lv_menu$);
+				
+				clear;
+				mes .@menu$;
+				mes "เลือกการตั้งค่าสกิล";
+				
+				aa_setautoattack("2;1;"+ .@skill_menu_ids[.@i] + ";" + .@attack_skilllv);
+				
+				goto(attackskills_menu);
+				break;
+			case 2:
+				goto(config_menu);
+				break;
+		}
+	}
+	goto(config_menu);
+	end;
+
+buffskills_menu:
+	clear;
+	.@menu$ = "[สกิลบัฟ]";
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบสกิลต่อไปนี้";
+	mes aa_getautoattackstring(3,0);
+	
+	if(getarraysize(.@skill_menu_ids) == 0){
+		clear;
+		mes .@menu$;
+		mes "ขออภัย คุณไม่มีสกิลบัฟ";
+		next;
+		goto(main_menu);
+	}
+	.@skill_menu_list$ = "[ยกเลิก]:" + .@skill_menu_list$;
+	.@i = select( .@skill_menu_list$ );
+	if(.@i == 1)
+		goto(config_menu);
+	else
+		.@i--;
+	if(.@skill_menu_state[.@skill_menu_ids[.@i]]){
+		.@skill_menu2 = select("แก้ไข","ปิด","[ยกเลิก]");
+		switch(.@skill_menu2){
+			case 1:
+				clear;
+				mes .@menu$;
+				mes "เลือกเลเวลสกิลที่จะใช้";
+				mes "เลเวลสูงสุด: " + getskilllv(.@skill_menu_ids[.@i]);
+				mes "";
+				mes "การตั้งค่าปัจจุบัน:";
+				mes aa_getautoattackstring(3,.@skill_menu_ids[.@i],1);
+				
+				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				.@max_lv = getskilllv(.@skill_menu_ids[.@i]);
+				.@skill_lv_menu$ = "";
+				for(.@k = 1; .@k <= .@max_lv; .@k++){
+					.@skill_lv_menu$ += "Level " + .@k;
+					if(.@k < .@max_lv)
+						.@skill_lv_menu$ += ":";
+				}
+				.@buff_skilllv = select(.@skill_lv_menu$);
+				
+				clear;
+				mes .@menu$;
+				mes "เลือกการตั้งค่าบัฟ";
+				aa_setautoattack("3;1;"+ .@skill_menu_ids[.@i] + ";" + .@buff_skilllv);
+				goto(buffskills_menu);
+				break;
+			case 2:
+				aa_setautoattack("3;0;"+ .@skill_menu_ids[.@i] + ";0");
+				goto(buffskills_menu);
+				break;
+			case 3:
+				goto(config_menu);
+				break;
+		}
+	}
+	else{
+		.@skill_menu2 = select("เพิ่ม","[ยกเลิก]");
+		switch(.@skill_menu2){
+			case 1:
+				clear;
+				mes .@menu$;
+				mes "เลือกเลเวลสกิลที่จะใช้";
+				mes "เลเวลสูงสุด: " + getskilllv(.@skill_menu_ids[.@i]);
+				mes "";
+				mes "การตั้งค่าปัจจุบัน:";
+				mes aa_getautoattackstring(3,.@skill_menu_ids[.@i],1);
+				
+				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				.@max_lv = getskilllv(.@skill_menu_ids[.@i]);
+				.@skill_lv_menu$ = "";
+				for(.@k = 1; .@k <= .@max_lv; .@k++){
+					.@skill_lv_menu$ += "Level " + .@k;
+					if(.@k < .@max_lv)
+						.@skill_lv_menu$ += ":";
+				}
+				.@buff_skilllv = select(.@skill_lv_menu$);
+				
+				clear;
+				mes .@menu$;
+				mes "เลือกการตั้งค่าบัฟ";
+				
+				aa_setautoattack("3;1;"+ .@skill_menu_ids[.@i] + ";" + .@buff_skilllv);
+				
+				goto(buffskills_menu);
+				break;
+			case 2:
+				goto(config_menu);
+				break;
+		}
+	}
+	goto(config_menu);
+	end;
+
+buffitems_menu:
+	clear;
+	.@menu$ = "[ไอเทมบัฟ]";
+
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	setarray .@lbuff_item[0],645,656,657,12208,12210;
+	setarray .@lbuff_sc[0],SC_ASPDPOTION0,SC_ASPDPOTION1,SC_ASPDPOTION2,SC_EXPBOOST,SC_ITEMBOOST;
+	.@buffitems_menu1$ = "";
+	
+	for (.@i = 0; .@i < getarraysize(.@lbuff_item); .@i++)
+		.@buffitems_menu1$ = .@buffitems_menu1$ + (.@i > 0 ? ":" : "") + aa_getautoattackstring(5,.@lbuff_item[.@i]);
+
+
+	.@buffitems_menu1$ = "[ยกเลิก]:" + .@buffitems_menu1$;
+	.@i = select(.@buffitems_menu1$) -1;
+
+	if(.@i == 0)
+		goto(config_menu);
+	else
+		.@i--;
+	
+	.@buffitems_menu = select(.@buffitem_menu_state[.@lbuff_item[.@i]] ? "ปิด" : "เปิด","[ยกเลิก]");
+	if( .@buffitems_menu == 1 ){
+		if(.@buffitem_menu_state[.@lbuff_item[.@i]])
+			aa_setautoattack("5;0;"+ .@lbuff_item[.@i] + ";" + .@lbuff_sc[.@i]);
+		else
+			aa_setautoattack("5;1;"+ .@lbuff_item[.@i] + ";" + .@lbuff_sc[.@i]);
+		goto(buffitems_menu);
+	}
+	else if( .@buffitems_menu == 2 ){
+		aa_setautoattack("5;0;"+ .@lbuff_item[.@i] + ";0");
+		goto(buffitems_menu);
+	}
+	
+	goto(config_menu);
+	end;
+
+sit_regen_menu:
+	clear;
+	.@menu$ = "[นั่งพัก]";
+
+	mes .@menu$;
+	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes aa_getautoattackstring(4,0);
+
+	.@sit_regen_menu = select(
+	aa_getautoattackint(14,0) == 1?"^008000(เปิด)^000000 นั่งถ้า HP < 75%":"^FF0000(ปิด)^000000 นั่งถ้า HP < 75%"
+	,aa_getautoattackint(14,0) == 2?"^008000(เปิด)^000000 นั่งถ้า HP < 50%":"^FF0000(ปิด)^000000 นั่งถ้า HP < 50%"
+	,aa_getautoattackint(14,0) == 3?"^008000(เปิด)^000000 นั่งถ้า HP < 25%":"^FF0000(ปิด)^000000 นั่งถ้า HP < 25%"
+	,aa_getautoattackint(15,0) == 1?"^008000(เปิด)^000000 นั่งถ้า SP < 75%":"^FF0000(ปิด)^000000 นั่งถ้า SP < 75%"
+	,aa_getautoattackint(15,0) == 2?"^008000(เปิด)^000000 นั่งถ้า SP < 50%":"^FF0000(ปิด)^000000 นั่งถ้า SP < 50%"
+	,aa_getautoattackint(15,0) == 3?"^008000(เปิด)^000000 นั่งถ้า SP < 25%":"^FF0000(ปิด)^000000 นั่งถ้า SP < 25%"
+	,"[ยกเลิก]"
+	);
+
+	switch(.@sit_regen_menu){
+		case 1:
+			if(aa_getautoattackint(14,0) == 1)
+				aa_setautoattack("14;0;0");
+			else
+				aa_setautoattack("14;75;100");
+			break;
+		case 2:
+			if(aa_getautoattackint(14,0) == 2)
+				aa_setautoattack("14;0;0");
+			else
+				aa_setautoattack("14;50;100");
+			break;
+		case 3:
+			if(aa_getautoattackint(14,0) == 3)
+				aa_setautoattack("14;0;0");
+			else
+				aa_setautoattack("14;25;100");
+			break;
+		case 4:
+			if(aa_getautoattackint(15,0) == 1)
+				aa_setautoattack("15;0;0");
+			else
+				aa_setautoattack("15;75;100");
+			break;
+		case 5:
+			if(aa_getautoattackint(15,0) == 2)
+				aa_setautoattack("15;0;0");
+			else
+				aa_setautoattack("15;50;100");
+			break;
+		case 6:
+			if(aa_getautoattackint(15,0) == 3)
+				aa_setautoattack("15;0;0");
+			else
+				aa_setautoattack("15;25;100");
+			break;
+		case 7:
+			clear;
+			goto(regeneration_menu);
+			break;
+	}
+
+	clear;
+	goto(sit_regen_menu);
+	end;
+}

@@ -1,0 +1,279 @@
+/*
+
+special_cash = Replace All
+
+*/
+
+-	shop	shop_special_cash_01	-1,909:-1
+-	shop	shop_special_cash_02	-1,909:-1
+-	shop	shop_special_cash_03	-1,909:-1
+-	shop	shop_special_cash_04	-1,909:-1
+-	shop	shop_special_cash_05	-1,909:-1
+
+morocc,196,57,4	script	Cash Shop	11007,{
+OnStart:
+	
+	mes .mes$;
+	mes "กรุณาเลือกรายการที่ต้องการ";
+	mes "Cash ของท่าน : "+callfunc("F_InsertComma",#CASHPOINTS)+" pt.";
+	
+	.@menu = select(
+		"- ซื้อสินค้าภายในร้านค้า",
+		"- ไม่มีอะไร ข้าแวะผ่านมาเฉย ๆ",
+		(getgmlevel()>=99)?"- Menu Admin":""
+	);
+	
+	if(.@menu == 1){
+		.@menu2 = select(
+			"- Item ^FF0000ใช้งาน^000000",
+			"- Item ^FF0000เช่า^000000",
+			"- Cash ^FF0000ส่วนหัว^000000",
+			"- Cash ^FF0000ส่วนหู^000000",
+			"- Cash ^FF0000ส่วนปาก^000000"
+		);
+		
+		mes "^FF9900** กรุณาปิดหน้าต่างสนทนา **^000000";
+		close2;
+		
+		if(.@menu2 == 1){
+			callshop "shop_special_cash_01",1;
+			npcshopattach "shop_special_cash_01";
+		}
+		if(.@menu2 == 2){
+			callshop "shop_special_cash_02",1;
+			npcshopattach "shop_special_cash_02";
+		}
+		if(.@menu2 == 3){
+			callshop "shop_special_cash_03",1;
+			npcshopattach "shop_special_cash_03";
+		}
+		if(.@menu2 == 4){
+			callshop "shop_special_cash_04",1;
+			npcshopattach "shop_special_cash_04";
+		}
+		if(.@menu2 == 5){
+			callshop "shop_special_cash_05",1;
+			npcshopattach "shop_special_cash_05";
+		}
+		
+		dispbottom "=========================",0x00FFFF;
+		dispbottom "        [ Stock คงเหลือ ณ ปัจจุบัน ]",0x00FFFF;
+		dispbottom "=========================",0x00FFFF;
+		for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+4 ){
+			if(.sale[.@i] == 0){
+				dispbottom "• "+getitemname(.sale[.@i+1])+" ไม่จำกัด",0xFFFF00;
+			}
+			else {
+				dispbottom "• "+getitemname(.sale[.@i+1])+" จำกัดสินค้าที่ ("+getd("$special_cash"+.sale[.@i+1])+"/"+.sale[.@i]+") ea",0xFFFF00;
+			}
+		}
+	}
+	if(.@menu == 2){
+		clear;
+		mes .mes$;
+		mes "โอเคร !! ไว้เจอกันครั้งถัดไปนะ ...";
+	}
+	if(.@menu == 3){
+		.@menu3 = select(
+			"- ตรวจสอบรายการซื้อขายร้านค้า",
+			"- รีเซ็ตสต๊อกร้านค้า"
+		);
+		if(.@menu3 == 1){
+			.@menu3_1 = select(
+				"- ระบุรายการ",
+				"- ทุกรายการ"
+			);
+			if(.@menu3_1 == 1){
+				freeloop(1);
+				mes "กรุณาเลือกรายการ";
+				for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+4 ){
+					.@menu$ = .@menu$ + "- รายการ ^0000FF"+getitemname(.sale[.@i+1])+"^000000";
+					.@menu$ = .@menu$ + ":";
+				}
+				.@part		= select(.@menu$) -1;
+				.@item_id	= .sale[(.@part*3)+1];
+				query_sql("SELECT item_am,prize FROM `shop_special_cash_01_logs` WHERE item_id = "+.@item_id+"",.@chk_item_am,.@chk_prize);
+				for ( .@i=0; .@i<getarraysize(.@chk_prize); .@i++ ){
+					.@prize_all = .@prize_all +.@chk_prize[.@i];
+					.@item_am_all = .@item_am_all +.@chk_item_am[.@i];
+				}
+				if(!getarraysize(.@chk_prize)){
+					dispbottom "[ระบบ] : รายการ "+getitemname(.@item_id)+" ยังขายไม่ได้เลย";
+				}
+				else {
+					dispbottom "[ระบบ] : รายการ "+getitemname(.@item_id)+" ขายได้ทั้งหมด "+callfunc("F_InsertComma",.@item_am_all)+" ea คิดเป็นราคา "+callfunc("F_InsertComma",.@prize_all)+" Cash";
+				}
+			}
+			if(.@menu3_1 == 2){
+				freeloop(1);
+				dispbottom "==================================================";
+				dispbottom "                       อัพเดทปัจจุบัน ณ เวลา ("+gettimestr("%d-%m-%Y %H:%M:%S",21,gettimetick(2))+" น.)";
+				dispbottom "==================================================";
+				for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+4 ){
+					deletearray .@chk_item_am;
+					deletearray .@chk_prize;
+					.@prize_all = 0;
+					.@item_am_all = 0;
+					query_sql("SELECT item_am,prize FROM `shop_special_cash_01_logs` WHERE item_id = "+.sale[.@i+1]+"",.@chk_item_am,.@chk_prize);
+					for ( .@a=0; .@a<getarraysize(.@chk_prize); .@a++ ){
+						.@prize_all = .@prize_all +.@chk_prize[.@a];
+						.@item_am_all = .@item_am_all +.@chk_item_am[.@a];
+						.@prize_all_shop = .@prize_all_shop +.@chk_prize[.@a];
+					}
+					if(!getarraysize(.@chk_prize)){
+						dispbottom "[ระบบ] : รายการ "+getitemname(.sale[.@i+1])+" ยังขายไม่ได้เลย";
+					}
+					else {
+						dispbottom "[ระบบ] : รายการ "+getitemname(.sale[.@i+1])+" ขายได้ทั้งหมด "+callfunc("F_InsertComma",.@item_am_all)+" ea คิดเป็นราคา "+callfunc("F_InsertComma",.@prize_all)+" Cash";
+					}
+				}
+				dispbottom "[ระบบ] : ขายได้ รวมทั้งหมด "+callfunc("F_InsertComma",.@prize_all_shop)+" Cash",0xFFFF00;
+			}
+			
+		}
+		if(.@menu3 == 2){
+			for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+4 ){
+				setd "$special_cash"+.sale[.@i+1],0;
+			}
+			message strcharinfo(0),"ระบบ : รีเซ็ตสต๊อกร้านค้าพิเศษสำเร็จ";
+		}
+	}
+	
+	end;
+
+OnBuyItem:
+	
+	freeloop(1);
+	
+	for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+4 ){
+		if(@bought_nameid == .sale[.@i+1]){
+			
+			dispbottom "[ Cash Shop ]";
+			dispbottom "คุณมี : "+#CASHPOINTS+" Cash Points.";
+			dispbottom "[ Cash Shop ]";
+			dispbottom "> สินค้า : "+getitemname(@bought_nameid)+" ["+getiteminfo(@bought_nameid,ITEMINFO_SLOT)+"]";
+			dispbottom "> ต้องการ Point จำนวน : "+(.sale[.@i+2])*@bought_quantity+" Cash Points";
+			dispbottom "> คุณมี  Point จำนวน : "+#CASHPOINTS+" Cash Points";
+			
+			//@bought_quantity = 1;
+			mes .mes$;
+			mes "ต้องการซื้อ "+getitemname(@bought_nameid)+"";
+			mes "จำนวน "+callfunc("F_InsertComma",@bought_quantity)+" ea";
+			mes "ในราคา Cash "+callfunc("F_InsertComma",(.sale[.@i+2])*@bought_quantity)+" pt.";
+			if(.sale[.@i] == 0){
+				mes "สต๊อก : สามารถดึงได้ไม่จำกัด";
+			}
+			else {
+				mes "สต๊อก : ("+getd("$special_cash"+.sale[.@i+1])+"/"+.sale[.@i]+") ea";
+			}
+			mes "ยืนยันการซื้อขายหรือไม่ ?";
+			.@bought = select(
+				"- ตกลง ข้าซื้อเลย"
+			);
+			if(.@bought == 1){
+				if(.sale[.@i]){
+					if((getd("$special_cash"+.sale[.@i+1])+@bought_quantity) > .sale[.@i]){
+						clear;
+						mes .mes$;
+						mes "ข้าเสียใจด้วย แต่ว่า";
+						mes ""+getitemname(@bought_nameid)+" สต๊อกหมดแล้ว";
+						end;
+					}
+				}
+				if(#CASHPOINTS < (.sale[.@i+2]*@bought_quantity)){
+					clear;
+					mes .mes$;
+					mes "Cash ของท่านไม่เพียงพอ";
+					end;
+				}
+				if(.sale[.@i]){
+					setd "$special_cash"+@bought_nameid,getd("$special_cash"+@bought_nameid)+@bought_quantity;
+				}
+               #CASHPOINTS = #CASHPOINTS - (.sale[.@i+2] * @bought_quantity);
+               setarray .@CSC[1],
+                   SC_CASH_BUFF_LV1,SC_CASH_BUFF_LV2,SC_CASH_BUFF_LV3,SC_CASH_BUFF_LV4,
+                   SC_CASH_BUFF_LV5,SC_CASH_BUFF_LV6,SC_CASH_BUFF_LV7,SC_CASH_BUFF_LV8,
+                   SC_CASH_BUFF_LV9,SC_CASH_BUFF_LV10;
+               for (set .@k,1; .@k <= getarraysize(.@CSC); set .@k, .@k+1)
+                   if (.@CSC[.@k]) sc_end .@CSC[.@k];
+				getitem @bought_nameid,@bought_quantity;
+				query_sql("INSERT INTO `shop_special_cash_01_logs` (account_id,char_id,player_name,item_name,item_id,item_am,prize,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(@bought_nameid))+"',"+@bought_nameid+","+@bought_quantity+","+(.sale[.@i+2]*@bought_quantity)+",NOW())");
+			}
+		}
+	}
+	
+	end;
+	
+OnInit:
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `shop_special_cash_01_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`item_name` varchar(255) NOT NULL,"+
+		"`item_id` int(11) NOT NULL,"+
+		"`item_am` int(11) NOT NULL,"+
+		"`prize` int(255) NOT NULL,"+
+		"`time_record` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	//	กำหนด Waitingroom
+	waitingroom ">>"+strnpcinfo(0)+"<<",0;
+	
+	//	กำหนด Head Dialog
+	.mes$ = "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	deletearray .sale;
+	//	กำหนดร้านค้า		สต๊อก		รหัสไอเทม		ราคา		ตำแหน่ง
+	setarray .sale[0]	
+		,0,30001,10,1        // Cash Coin
+		,0,41015,590,1       // VIP Package 1 Day
+		,0,41016,1700,1      // VIP Package 3 Day
+		,0,41017,4000,1      // VIP Package 7 Day
+		,0,41021,200,1       // Vip Buff Farming 2hr
+		,0,41022,200,1       // VIP Buff Level 2hr
+		,0,41023,200,1       // VIP Guild War
+		,0,13721,990,1       // Dungeon Scroll Box (10 ชิ้น)
+		,0,12208,60,1        // Field Manual 50%
+		,0,14592,50,1        // Job Manual 50%
+		,0,410005,80,1       // Bubble Gum 50%
+		,0,12221,50,1        // Megaphone
+		,0,7776,1500,1       // Gym Card
+		,0,12959,1800,2      // Neo Rosary Box
+		,0,12958,1800,2      // Neo Brooch Box
+		,0,12957,1800,2      // Neo Glove Box
+		,0,12956,1800,2      // Neo Necklace Box
+		,0,12955,1800,2     // Neo Ring Box
+		,0,12954,1800,2      // Neo Earring Box
+		,0,14243,990,2      // Hallow Ring Box (ผีดิบ)
+		,0,14244,990,2       // Clamorous Ring Box (สัตว์)
+		,0,14245,990,2       // Chemical Ring Box (พืช)
+		,0,14246,990,2       // Insecticide Ring Box (แมลง)
+		,0,14247,990,2       // Fish Ring Box (ปลา)
+		,0,14248,990,2       // Decussate Ring Box (ปีศาจ)
+		,0,14249,990,2       // Bloody Ring Box (กึ่งมนุษย์)
+		,0,14251,990,2       // Dragon Ring Box (มังกร)
+		;
+	
+	npcshopdelitem "shop_special_cash_01",909;
+	npcshopdelitem "shop_special_cash_02",909;
+	npcshopdelitem "shop_special_cash_03",909;
+	npcshopdelitem "shop_special_cash_04",909;
+	npcshopdelitem "shop_special_cash_05",909;
+	
+	for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+4 ){
+		if(.sale[.@i+3] == 1){ npcshopadditem "shop_special_cash_01",.sale[.@i+1],.sale[.@i+2]; }
+		if(.sale[.@i+3] == 2){ npcshopadditem "shop_special_cash_02",.sale[.@i+1],.sale[.@i+2]; }
+		if(.sale[.@i+3] == 3){ npcshopadditem "shop_special_cash_03",.sale[.@i+1],.sale[.@i+2]; }
+		if(.sale[.@i+3] == 4){ npcshopadditem "shop_special_cash_04",.sale[.@i+1],.sale[.@i+2]; }
+		if(.sale[.@i+3] == 5){ npcshopadditem "shop_special_cash_05",.sale[.@i+1],.sale[.@i+2]; }
+	}
+	
+	end;
+	
+}
+

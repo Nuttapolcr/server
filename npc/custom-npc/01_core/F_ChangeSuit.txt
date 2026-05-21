@@ -1,0 +1,98 @@
+//===== rAthena Script =======================================
+//= Change Suit Functions
+//===== By: ==================================================
+//= Easycore
+//===== Last Updated: ========================================
+//= 20210906
+//===== Description: ========================================= 
+//= Function to change Job's sprite appearance
+//============================================================
+
+//callfunc("F_ChangeSuit",0) <-- Enable
+//callfunc("F_ChangeSuit",1) <-- Disable
+function	script	F_ChangeSuit	{
+	if (getarg(0)) {
+		changebase Class;
+		return;
+	}
+	switch(Class) {
+		case Job_Knight: changebase 4060; break;   //เปลี่ยนชุดจากไนท์ เป็นชุดคลาส 3 ของไนท์
+		case Job_Assassin_Cross: changebase 4065; break;
+		case Job_Paladin: changebase 4073; break;
+		case Job_Whitesmith: changebase 4064; break;
+		case Job_Creator: changebase 4078; break;
+		case Job_Stalker: changebase 4079; break;
+		case Job_Professor: changebase 4074; break;
+		case Job_Gypsy: changebase 4076; break;
+		case Job_Champion: changebase 4077; break;
+		case Job_Sniper: changebase 4062; break;
+		case Job_Clown: changebase 4075; break;
+		case Job_High_Wizard: changebase 4061; break;
+		case Job_High_Priest: changebase 4063; break;
+		case Job_Gunslinger: changebase 4215; break;
+		case Job_Taekwon:
+		case Job_Star_Gladiator: changebase 4239; break;
+		case Job_Soul_Linker: changebase 4240; break;
+		case Job_Ninja: changebase (Sex?4211:4212); break;
+		case Job_Baby_Knight: changebase 4096; break;
+		case Job_Baby_Priest: changebase 4099; break;
+		case Job_Baby_Wizard: changebase 4097; break;
+		case Job_Baby_Blacksmith: changebase 4100; break;
+		case Job_Baby_Hunter: changebase 4098; break;
+		case Job_Baby_Assassin: changebase 4101; break;
+		case Job_Baby_Crusader: changebase 4102; break;
+		case Job_Baby_Monk: changebase 4106; break;
+		case Job_Baby_Sage: changebase 4103; break;
+		case Job_Baby_Rogue: changebase 4108; break;
+		case Job_Baby_Alchemist: changebase 4107; break;
+		case Job_Baby_Bard: changebase 4104; break;
+		case Job_Baby_Dancer: changebase 4105; break;
+		default:
+			message(strcharinfo(0),"Your job doesn't have 3rd Job Suit.");
+			end;
+	}
+return;
+}
+
+//callfunc("F_ChangeSuitAlt",0) <-- Enable
+//callfunc("F_ChangeSuitAlt",1) <-- Disable
+function	script	F_ChangeSuitAlt	{
+	if (getarg(0)) {
+		setlook LOOK_BODY2,0;
+		changebase Class;
+		return;
+	}
+	switch(Class) {
+		case Job_Lord_Knight: changebase 4060; break;
+		case Job_Assassin_Cross: changebase 4065; break;
+		case Job_Paladin: changebase 4073; break;
+		case Job_Whitesmith: changebase 4064; break;
+		case Job_Creator: changebase 4078; break;
+		case Job_Stalker: changebase 4079; break;
+		case Job_Professor: changebase 4074; break;
+		case Job_Gypsy: changebase 4076; break;
+		case Job_Champion: changebase 4077; break;
+		case Job_Sniper: changebase 4062; break;
+		case Job_Clown: changebase 4075; break;
+		case Job_High_Wizard: changebase 4061; break;
+		case Job_High_Priest: changebase 4063; break;
+		case Job_Baby_Knight: changebase 4096; break;
+		case Job_Baby_Priest: changebase 4099; break;
+		case Job_Baby_Wizard: changebase 4097; break;
+		case Job_Baby_Blacksmith: changebase 4100; break;
+		case Job_Baby_Hunter: changebase 4098; break;
+		case Job_Baby_Assassin: changebase 4101; break;
+		case Job_Baby_Crusader: changebase 4102; break;
+		case Job_Baby_Monk: changebase 4106; break;
+		case Job_Baby_Sage: changebase 4103; break;
+		case Job_Baby_Rogue: changebase 4108; break;
+		case Job_Baby_Alchemist: changebase 4107; break;
+		case Job_Baby_Bard: changebase 4104; break;
+		case Job_Baby_Dancer: changebase 4105; break;
+		default:
+			message(strcharinfo(0),"Your job doesn't have 3rd Job Alternative Suit.");
+			end;
+	}
+	setlook LOOK_BODY2,1;
+return;
+}

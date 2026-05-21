@@ -1,0 +1,146 @@
+morocc,103,51,4	script	Apprentice Craftsman	1_F_MERCHANT_01,{
+	disable_items;
+	mes "[Apprentice Craftsman]";
+	if (Zeny >= 400000) {
+		mes "ฉันเคยได้ศึกษาวิธีที่สามารถจะเพิ่มความสามารถให้กับเหล่าอุปกรณ์ต่างๆ.";
+		next;
+		mes "[Apprentice Craftsman]";
+		mes "ทักษะการเสริมขีดจำกัดให้กับเหล่าอุปกรณ์จะถูกเพิ่มในส่วนของสล็อตที่ไม่ได้ใช้งาน.";
+		next;
+		mes "[Apprentice Craftsman]";
+		mes "อย่างไรก็ตาม, หากคุณมีอุปกรณ์ที่เหมือนกันมากกว่าหนึ่งรายการ อุปกรณ์ของคุณจะถูกเสริมความสามารถตามลำดับในช่องเก็บของของคุณ.";
+		next;
+		mes "[Apprentice Craftsman]";
+		mes "และ สิ่งที่สำคัญ, คุณจะต้องมีอุปกรณ์สำหรับการเพิ่มขีดความสามารถ. และ มันก็มีความเสี่ยงเช่นเดียวกัน...";
+		next;
+		mes "[Apprentice Craftsman]";
+		mes "ฉันจะไม่รับผิดชอบใดๆทั้งสิ้นถ้าหากการเพิ่มขีดความสามารถล้มเหลว.";
+		next;
+		switch(select("อุปกรณ์ที่ไม่มีสล็อต.", "อุปกรณ์ที่มีสล็อต.", "อุปกรณ์ระดับสูง.", "ไว้พบกันครั้งหน้า.")) {
+		case 1:
+			setarray .@items[0],2307,2309,2314,2316,2321,2325,2327,2328,2330,2332,2334,2335,2341,2344,2346,2348,2350,2337,2386,2394,2395,2396;
+			.@j = 50;
+			break;
+		case 2:
+			setarray .@items[0],2311,2318,2319,2320,2308,2310,2315,2317,2322,2324,2326,2331,2333,2336,2342,2345,2347,2349,2351;
+			.@j = 55;
+			.@k = 1;
+			break;
+		case 3:
+			setarray .@items[0],2364,2365,2391,2374,2375,2376,2377,2378,2379,2380,2381,2382,2387,2388,2389,2390;
+			.@j = 60;
+			break;
+		case 4:
+			mes "[Apprentice Craftsman]";
+			mes "โปรดกลับมาอีกครั้งถ้าหากคุณเปลี่ยนใจ.";
+			close;
+		}
+		.@menu$ = "";
+		for(.@i = 0; .@i<getarraysize(.@items); ++.@i)
+			.@menu$ += getitemname(.@items[.@i])+((.@k)?" [1]":"")+":";
+		callsub S_EnchantArmor, .@items[select(.@menu$)-1], .@j;
+		end;
+	}
+	mes "[Apprentice Craftsman]";
+	mes "ถ้าหากคุณต้องการใช้บริการ, คุณจะต้องนำเงินจำนวน 400,000 เซนี สำหรับค่าบริการ.";
+	close;
+
+S_EnchantArmor:
+	.@itemid = getarg(0);
+	.@failrate = getarg(1);
+	mes "[Apprentice Craftsman]";
+	if (countitem(.@itemid) == 1) {
+		mes "สำหรับการเพิ่มขีดความสามารถ ค่าบริการคือ 400,000 เซนี. และ คุณจะได้รับขีดความสามารถแบบสุ่ม. และ แน่นอน, อุปกรณ์ของคุณจะถูกทำลายหากมันล้มเหลว.";
+		next;
+		mes "[Apprentice Craftsman]";
+		mes "สิ่งแรกที่สำคัญที่สุด.";
+		mes "^ff5555หากอุปกรณ์ของคุณเคยผ่านการอัพเกรดมา";
+		mes "หรือ มีการ์ดอยู่ภายในนั้น โปรดจำไว้ว่ามันจะหายไปหลังจากการเพิ่มขีดความสามารถ.^000000";
+		mes "คุณแน่ใจหรือว่าต้องการที่จะดำเนินการต่อ ?";
+		next;
+		if(select("อืม... ฉันขอคิดดูอีกครั้ง.", "ดำเนินการต่อ.") == 1) {
+			mes "[Apprentice Craftsman]";
+			mes "ดี, ฉันไม่อยากทำร้ายจิตใจคุณสักเท่าไหร่. ความปลอดภัยเป็นที่หนึ่ง, เห็นด้วยมั้ยละ ?";
+			mes "ขอให้วันนี้เป็นวันที่ดีสำหรับคุณ.";
+			close;
+		}
+		mes "[Apprentice Craftsman]";
+		mes "คุณชอบการผจญภัยใช่มั้ย ?";
+		close2;
+		specialeffect EF_MAPPILLAR, AREA, playerattached();
+		if (Zeny < 400000) {
+			mes "[Apprentice Craftsman]";
+			mes "เสียใจด้วยนะ, แต่ดูเหมือนว่าจำนวนเงินของคุณไม่เพียงพอ.";
+			close;
+		}
+		progressbar "ffff00",7;
+		Zeny -= 400000;
+		delitem .@itemid,1;
+		switch (rand(1,.@failrate)) {
+			case 1: .@addpart = 4702;break;
+			case 2: .@addpart = 4712;break;
+			case 3: .@addpart = 4722;break;
+			case 4: .@addpart = 4732;break;
+			case 5: .@addpart = 4742;break;
+			case 6: .@addpart = 4752;break;
+			case 7:
+			case 8: .@addpart = 4701;break;
+			case 9:
+			case 10: .@addpart = 4711;break;
+			case 11:
+			case 12: .@addpart = 4721;break;
+			case 13:
+			case 14: .@addpart = 4731;break;
+			case 15:
+			case 16: .@addpart = 4741;break;
+			case 17:
+			case 18: .@addpart = 4751;break;
+			case 19:
+			case 20:
+			case 21: .@addpart = 4700;break;
+			case 22:
+			case 23:
+			case 24: .@addpart = 4710;break;
+			case 25:
+			case 26:
+			case 27: .@addpart = 4720;break;
+			case 28:
+			case 29:
+			case 30: .@addpart = 4730;break;
+			case 31:
+			case 32:
+			case 33: .@addpart = 4740;break;
+			case 34:
+			case 35:
+			case 36: .@addpart = 4750;break;
+			default:
+				specialeffect EF_PHARMACY_FAIL, AREA, playerattached();
+				mes "[Apprentice Craftsman]";
+				mes "โอ้ ไม่นะ.";
+				mes "อุปกรณ์ถูกทำลายระหว่างการเพิ่มขีดความสามารถ !!.";
+				close;
+		}
+		getitem2 .@itemid, 1, 1, 0, 0, 0, 0, 0, .@addpart;
+	}
+	else {
+		mes "หืม ? ดูเหมือนว่าคุณไม่ได้มีอุปกรณ์ที่ฉันสามารถเพิ่มขีดความสามารถได้ !";
+		mes "โปรดกลับมาใหม่อีกครั้งถ้าหากคุณมี.";
+		close;
+	}
+	
+OnInit:
+	setarray .messages$,"เ","พิ่","ม","ขี","ด","ค","ว","า","ม","ส","า","ม","า","ร","ถ";
+	while( 1 )
+	{
+		set .Display$,"";
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+	end;
+}

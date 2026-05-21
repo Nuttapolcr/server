@@ -1,0 +1,16 @@
+// Auto-Buy Item List
+// Format: ItemID
+// Only ETC, USABLE, and HEALING items are allowed
+
+// Potions
+//501	// Red Potion
+//502	// Orange Potion
+//503	// Yellow Potion
+//504	// White Potion
+//505	// Blue Potion
+//506	// Green Potion
+//507	// Red Herb
+//508	// Yellow Herb
+//509	// White Herb
+//510	// Blue Herb
+//511	// Green Herb

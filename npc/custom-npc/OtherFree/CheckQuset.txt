@@ -1,0 +1,48 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+oasis,155,133,4	script	ตรวจสอบไอเทม	811,{
+
+	mes "เลือกรายการที่ต้องการดูรายละเอียด";
+	next;
+	switch(select("ของที่ได้จากการขุดแร่:ของที่ได้จากการตกปลา:"))
+	{
+		
+			
+		case 1:
+			for ( set .@i, 0; .@i < getarraysize(.RandomGuildWarsEgg); set .@i, .@i+1 )
+				mes ""+ (.@i+1) +". <ITEM>"+ getitemname(.RandomGuildWarsEgg[.@i]) +"<INFO>"+ .RandomGuildWarsEgg[.@i] +"</INFO></ITEM>";
+			close;
+			
+		case 2:
+			for ( set .@i, 0; .@i < getarraysize(.RandomRefineTicketEgg); set .@i, .@i+1 )
+				mes ""+ (.@i+1) +". <ITEM>"+ getitemname(.RandomRefineTicketEgg[.@i]) +"<INFO>"+ .RandomRefineTicketEgg[.@i] +"</INFO></ITEM>";
+			close;
+		
+			
+		
+			
+		
+	}
+	end;
+	
+OnInit:
+	setarray .RandomCrimsonEgg[0],985,984,999,1010,1011,6470,7227,61001,61019;
+	setarray .RandomGodEgg[0],985,984,999,1010,1011,6608,7227,61001,61019;
+	setarray .RandomGuildWarsEgg[0],985,984,61507,61508,61509,61510,61511,61001,61019;
+	setarray .RandomNewBossCardEgg[0],985,984,999,1010,1011,7539,7227,61001,61019;
+	setarray .RandomRefineTicketEgg[0],61001,61019,579,908,909,963,956,6049,918,960,910,938,624,61707,61708,61709,61710,61711,61712,61713,991,717,713,962,943,514,512,61714;
+	
+	waitingroom "ตรวจสอบไอเทม",0;
+	end;
+}

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/usr/bin/mariadb -h 127.0.0.1 -u ccu_srv -p5wWBH5cUMLZ20E80 -D scarnyx_logs -e "INSERT INTO scarnyx_logs.cculog (date, ccu
+, zeny) SELECT now(), user, (select sum(zeny) from scarnyx_main.char) FROM scarnyx_main.useronline"

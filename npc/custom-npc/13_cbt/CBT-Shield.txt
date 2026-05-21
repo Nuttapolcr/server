@@ -1,0 +1,47 @@
+morocc,163,187,6	script	Shield::Sample_Shop5 	10032,{
+	mes "[CBT Shield]";
+	mes "ยินดีต้อนรับ! ต้องการซื้ออะไรหรือไม่?";
+	next;
+
+	switch(select("ซื้อไอเท็ม:ออก")) {
+	case 1:
+		callshop "SampleShop5",1;
+		npcshopattach "SampleShop5";
+		end;
+	case 2:
+	default:
+		mes "ขอบคุณที่แวะมา!";
+		close;
+	}
+
+OnBuyItem:
+	sleep2 100;
+	mes "[CBT Shield]";
+	mes "ท่านต้องการกี่ชิ้นต่อชนิด?";
+	input .@amount;
+	if (.@amount < 1) set .@amount,1;
+	if (.@amount > 5) set .@amount,5;
+
+	.@refine = 0;
+
+	for (.@i = 0; .@i < getarraysize(@bought_nameid); .@i++) {
+		if (@bought_nameid[.@i] <= 0) continue;
+		if (!checkweight(@bought_nameid[.@i], .@amount)) {
+			mes "^FF0000น้ำหนักเกิน กรุณาลดจำนวนหรือเคลียร์ช่องกระเป๋าก่อน^000000";
+			close;
+		}
+	}
+
+	for (.@i = 0; .@i < getarraysize(@bought_nameid); .@i++) {
+		if (@bought_nameid[.@i] <= 0) continue;
+		getitem2 @bought_nameid[.@i], .@amount, 1, .@refine, 0,0,0,0,0;
+	}
+
+	close;
+
+OnInit:
+	Waitingroom "     [Shield]",0;
+	end;
+}
+
+-	shop	SampleShop5	-1,2102:-1,2104:-1,2106:-1,2108:-1

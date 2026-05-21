@@ -1,0 +1,2 @@
+morocc,155,201,0,0	monster	Emperium	31016,1
+morocc,165,201,0,0	monster	Emperium#2	31016,1

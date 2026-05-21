@@ -1,0 +1,18 @@
+-	script	#refine_safe	FAKE_NPC,{
+	set .@ref_level, 10;
+	mes "[ Refine Safe]";
+	mes "ข้าสามารถอัพเกรดให้คุณได้ทั้งตัวภายในครั้งเดียว";
+	next;
+	for( .@part = 1; .@part <= 9; .@part++ ) {
+		if( getequipisenableref(.@part) ) {
+			for( .@refine = .@ref_level - getequiprefinerycnt(.@part); .@refine > 0; .@refine-- )
+				successrefitem .@part;
+		}
+	}
+	end;
+OnInit: 
+	waitingroom "# ตี +10 ทั้งตัว",0;
+	end;
+}
+
+oasis,131,78,4	duplicate(#refine_safe)	NPC ตี +10 ทั้งตัว	4_M_LGTMAN

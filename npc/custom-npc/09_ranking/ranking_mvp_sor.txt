@@ -1,0 +1,522 @@
+-	shop	shop_ranking_mvp	-1,501:-1
+
+morocc,146,36,4	script	Ranking MVP	11137,{
+Start:
+	
+	mes .mes$;
+	
+	if($day_of_rank_mvp == 0){ .@mes$ = "อาทิตย์"; }
+	if($day_of_rank_mvp == 1){ .@mes$ = "จันทร์"; }
+	if($day_of_rank_mvp == 2){ .@mes$ = "อังคาร"; }
+	if($day_of_rank_mvp == 3){ .@mes$ = "พุธ"; }
+	if($day_of_rank_mvp == 4){ .@mes$ = "พฤหัสบดี"; }
+	if($day_of_rank_mvp == 5){ .@mes$ = "ศุกร์"; }
+	if($day_of_rank_mvp == 6){ .@mes$ = "เสาร์"; }
+	
+	mes "ตัดอันดับทุกวัน "+.@mes$+" เวลา 21:00 น.";
+	
+	query_sql("SELECT score FROM `ranking_mvp_player_ranking` WHERE char_id = "+getcharid(0)+"",.@score_me);
+	
+	mes "MVP# : ^0000FF"+callfunc("F_InsertComma",.@score_me)+" คะแนน^000000";
+	
+	.@menu = select(
+		"- ตรวจสอบอันดับ ^0000FFปัจจุบัน^000000",
+		"- ตรวจสอบอันดับ ^0099FFสัปดาห์ที่แล้ว^000000",
+		"- เข้าร้านค้า ^FF9900["+callfunc("F_InsertComma",ranking_mvp_point)+" แต้ม]^000000",
+		"- ตรวจสอบบอสที่ได้รับคะแนน",
+		"- ^009900รับรางวัลจัดอันดับ^000000",
+		"- ตรวจสอบอันดับ ^FF3300อันดับรวมทั้งหมด^000000",
+		(getgmlevel()>=99)?"- Menu Admin":""
+	);
+	
+	if(.@menu == 1){ goto menu_01; }
+	if(.@menu == 2){ goto menu_02; }
+	if(.@menu == 3){
+		close2;
+		npcshopattach "shop_ranking_mvp";
+		callshop "shop_ranking_mvp",1;
+		dispbottom "=========================",0x00FFFF;
+		dispbottom "        [ Stock คงเหลือ ณ ปัจจุบัน ]",0x00FFFF;
+		dispbottom "=========================",0x00FFFF;
+		for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+3 ){
+			if(.sale[.@i+2] == 0){
+				dispbottom "• "+getitemname(.sale[.@i])+" ไม่จำกัด",0xFFFF00;
+			}
+			else {
+				dispbottom "• "+getitemname(.sale[.@i])+" จำกัดสินค้าที่ ("+getd("$ranking_mvp"+.sale[.@i])+"/"+.sale[.@i+2]+") ea",0xFFFF00;
+			}
+		}
+	}
+	if(.@menu == 4){
+		freeloop(1);
+		dispbottom "=========================";
+		dispbottom "          [ รายชื่อบอสที่ได้รับคะแนน ]";
+		dispbottom "=========================";
+		for ( .@i=0; .@i<getarraysize(.mob_boss); .@i=.@i+2 ){
+			if(.mob_boss[.@i+1] == 1){
+				dispbottom "• "+getmonsterinfo(.mob_boss[.@i],MOB_NAME)+" ได้รับ "+.mob_boss[.@i+1]+" คะแนน";
+			}
+			else {
+				dispbottom "• "+getmonsterinfo(.mob_boss[.@i],MOB_NAME)+" ได้รับ "+.mob_boss[.@i+1]+" คะแนน",0xFFFF00;
+			}
+		}
+	}
+	if(.@menu == 5){ goto menu_03; }
+	if(.@menu == 6){ goto menu_04; }
+	if(.@menu == 7){ goto OnMenu; }
+	
+	end;
+	
+	menu_01:
+		
+		clear;
+		
+		mes .mes$;
+		query_sql("SELECT player_name,score FROM `ranking_mvp_player_ranking` ORDER BY score DESC LIMIT 10",.@name$,.@score);
+		if (!getarraysize(.@score)) {
+			mes " ";
+			mes "^FF0000ยังไม่มีข้อมูลของสัปดาห์นี้^000000";
+			end;
+		}
+		for ( .@i=0; .@i<getarraysize(.@name$); .@i++ ) {
+			mes "อันดับ "+(.@i+1)+" = ^0099FF"+.@name$[.@i]+"^000000 (^FF0000"+.@score[.@i]+" pt.^000000)";
+		}
+		end;
+	
+	menu_02:
+		
+		clear;
+		mes .mes$;
+		query_sql("SELECT player_name,score FROM `ranking_mvp_player_winners` ORDER BY score DESC LIMIT 10",.@name$,.@score);
+		if (!getarraysize(.@score)) {
+			mes " ";
+			mes "^FF0000ยังไม่มีข้อมูลของสัปดาห์ที่แล่้ว^000000";
+			end;
+		}
+		for ( .@i=0; .@i<getarraysize(.@name$); .@i++ ) {
+			mes "อันดับ "+(.@i+1)+" = ^0099FF"+.@name$[.@i]+"^000000 (^FF0000"+.@score[.@i]+" pt.^000000)";
+		}
+		end;
+	
+	menu_03:
+		
+		menu	"- ^0000FFรับรางวัลอันดับ^000000",menu_check_01
+				,"- ตัวอย่างรางวัล",menu_check_02
+				;
+		end;
+		
+		menu_check_02:
+			
+			next;
+			mes .mes$;
+			mes "อันดับ 1";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_01); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_01[.@i])+" x"+.item_am_rw_01[.@i]+" ea";
+			}
+			next;
+			mes .mes$;
+			mes "อันดับ 2";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_02); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_02[.@i])+" x"+.item_am_rw_02[.@i]+" ea";
+			}
+			next;
+			mes .mes$;
+			mes "อันดับ 3";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_03); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_03[.@i])+" x"+.item_am_rw_03[.@i]+" ea";
+			}
+			next;
+			mes .mes$;
+			mes "อันดับ 4";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_04); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_04[.@i])+" x"+.item_am_rw_04[.@i]+" ea";
+			}
+			next;
+			mes .mes$;
+			mes "อันดับ 5";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_05); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_05[.@i])+" x"+.item_am_rw_05[.@i]+" ea";
+			}
+			next;
+			mes .mes$;
+			mes "อันดับ 6";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_06); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_06[.@i])+" x"+.item_am_rw_06[.@i]+" ea";
+			}
+			next;
+			mes .mes$;
+			mes "อันดับ 7";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_07); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_07[.@i])+" x"+.item_am_rw_07[.@i]+" ea";
+			}
+			next;
+			mes .mes$;
+			mes "อันดับ 8";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_08); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_08[.@i])+" x"+.item_am_rw_08[.@i]+" ea";
+			}
+			next;
+			mes .mes$;
+			mes "อันดับ 9";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_09); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_09[.@i])+" x"+.item_am_rw_09[.@i]+" ea";
+			}
+			next;
+			mes .mes$;
+			mes "อันดับ 10";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_10); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_10[.@i])+" x"+.item_am_rw_10[.@i]+" ea";
+			}
+			end;
+		
+		menu_check_01:
+		
+		clear;
+		mes .mes$;
+		query_sql("SELECT id FROM `ranking_mvp_player_winners` WHERE char_id = "+getcharid(0)+" && status = 0",.@id);
+		mes "สวัสดีท่าน "+strcharinfo(0)+"";
+		mes "รางวัลที่ยังไม่ได้รับ ^FF0000"+getarraysize(.@id)+"^000000 รางวัล";
+		next;
+		if(!.@id){
+			mes .mes$;
+			mes "ยังไม่มีรางวัลที่ท่านสามารถรับได้";
+			end;
+		}
+		if(select("รับรางวัล:ยกเลิก") == 1) {
+			goto OnReward;
+			end;
+		}
+		
+		mes .mes$;
+		mes "ไม่เป็นไร ไว้มารับทีหลังก็ได้นะ";
+		end;
+		
+		OnReward:
+		
+		query_sql("UPDATE `ranking_mvp_player_winners` SET status = 1 WHERE char_id = "+getcharid(0)+"");
+		dispbottom "ระบบ : คุณได้รับรางวัล ranking อันดับ "+.@id+"",0x0000FF;
+		if(.@id == 1){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_01); .@i++ ){
+				getitem .item_id_rw_01[.@i],.item_am_rw_01[.@i];
+			}
+		}
+		if(.@id == 2){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_02); .@i++ ){
+				getitem .item_id_rw_02[.@i],.item_am_rw_02[.@i];
+			}
+		}
+		if(.@id == 3){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_03); .@i++ ){
+				getitem .item_id_rw_03[.@i],.item_am_rw_03[.@i];
+			}
+		}
+		if(.@id == 4){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_04); .@i++ ){
+				getitem .item_id_rw_04[.@i],.item_am_rw_04[.@i];
+			}
+		}
+		if(.@id == 5){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_05); .@i++ ){
+				getitem .item_id_rw_05[.@i],.item_am_rw_05[.@i];
+			}
+		}
+		if(.@id == 6){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_06); .@i++ ){
+				getitem .item_id_rw_06[.@i],.item_am_rw_06[.@i];
+			}
+		}
+		if(.@id == 7){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_07); .@i++ ){
+				getitem .item_id_rw_07[.@i],.item_am_rw_07[.@i];
+			}
+		}
+		if(.@id == 8){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_08); .@i++ ){
+				getitem .item_id_rw_08[.@i],.item_am_rw_08[.@i];
+			}
+		}
+		if(.@id == 9){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_09); .@i++ ){
+				getitem .item_id_rw_09[.@i],.item_am_rw_09[.@i];
+			}
+		}
+		if(.@id == 10){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_010); .@i++ ){
+				getitem .item_id_rw_010[.@i],.item_am_rw_010[.@i];
+			}
+		}
+		
+		end;
+	
+	menu_04:
+		
+		next;
+		
+		mes .mes$;
+		query_sql("SELECT player_name,score FROM `ranking_mvp_player_logs` ORDER BY score DESC LIMIT 10",.@name$,.@score);
+		if (!getarraysize(.@score)) {
+			mes " ";
+			mes "^FF0000ยังไม่มีข้อมูลของสัปดาห์นี้^000000";
+			end;
+		}
+		for ( .@i=0; .@i<getarraysize(.@name$); .@i++ ) {
+			mes "อันดับ "+(.@i+1)+" = ^0099FF"+.@name$[.@i]+"^000000 (^FF0000"+.@score[.@i]+" pt.^000000)";
+		}
+		end;
+		
+	//	ตั้งเวลาตัดอันดับ
+	
+	OnClock2100:
+		
+		if(gettime(DT_DAYOFWEEK) != $day_of_rank_mvp){ end; }
+		
+		OnRanking:
+		query_sql("TRUNCATE TABLE `ranking_mvp_player_winners`");
+		query_sql("SELECT account_id,char_id,player_name,score FROM `ranking_mvp_player_ranking` ORDER BY score DESC LIMIT 10",.@account_id,.@char_id,.@player_name$,.@score);
+		for ( .@i=0; .@i<getarraysize(.@account_id); .@i++ ) {
+			announce strnpcinfo(0)+" : ผู้เล่น " +.@player_name$[.@i]+ " ได้อันดับ "+(.@i+1)+" จากการล่า MVP จำนวน "+.@score[.@i]+" คะแนน สัปดาห์นี้", bc_all, "0xFFFF00";
+			query_sql("INSERT INTO `ranking_mvp_player_winners` (account_id,char_id,player_name,score,status) VALUES ("+.@account_id[.@i]+","+.@char_id[.@i]+",'"+.@player_name$[.@i]+"',"+.@score[.@i]+",0)");
+		}
+		query_sql("TRUNCATE TABLE `ranking_mvp_player_ranking`");
+		announce strnpcinfo(0)+" : ทำการรีเซ็ตอันดับ "+strnpcinfo(0)+" เรียบร้อยแล้ว", bc_all, "0xFFFF00";
+		end;
+			
+OnMenu:
+	
+	.@menu2 = select(
+		"- ตัดยอดอันดับ + รับรางวัล",
+		"- รีเซ็ต Stock ร้านค้าพิเศษ"
+	);
+	
+	if(.@menu2 == 1){ donpcevent ""+strnpcinfo(3)+"::OnRanking"; }
+	if(.@menu2 == 2){
+		for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+3 ){
+			setd "$ranking_mvp"+.sale[.@i],0;
+		}
+		message strcharinfo(0),"ระบบ : รีเซ็ตสต๊อกร้านค้าพิเศษสำเร็จ";
+	}
+	
+	end;
+	
+end;
+
+
+OnNPCKillEvent:
+	
+	freeloop(1);
+	for ( .@i=0; .@i<getarraysize(.mob_boss); .@i=.@i+2 ){
+		if(killedrid == .mob_boss[.@i]){
+			.@point = .mob_boss[.@i+1];
+		}
+	}
+	if(.@point){
+		ranking_mvp_point = ranking_mvp_point +.@point;
+		query_sql("SELECT score FROM `ranking_mvp_player_logs` WHERE char_id = "+getcharid(0)+"",.@score);
+		if (!.@score) {
+			query_sql("INSERT INTO `ranking_mvp_player_logs` (account_id,char_id,player_name,score) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+strcharinfo(0)+"',"+.@point+")");
+		}
+		else {
+			query_sql("UPDATE `ranking_mvp_player_logs` SET `score` = `score`+"+.@point+" WHERE char_id = "+getcharid(0)+"");
+		}
+		
+		query_sql("SELECT score FROM `ranking_mvp_player_ranking` WHERE char_id = "+getcharid(0)+"",.@score2);
+		if (!.@score2) {
+			query_sql("INSERT INTO `ranking_mvp_player_ranking` (account_id,char_id,player_name,score) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+strcharinfo(0)+"',"+.@point+")");
+		}
+		else {
+			query_sql("UPDATE `ranking_mvp_player_ranking` SET `score` = `score`+"+.@point+" WHERE char_id = "+getcharid(0)+"");
+		}
+		announce "[ จัดอันดับ MVP ] : ผู้เล่น "+strcharinfo(0)+" ได้รับ "+.@point+" คะแนน จากการสังหาร "+getmonsterinfo(killedrid,MOB_NAME)+"",bc_all,0xFFFF00;
+	}
+	
+	end;
+
+OnBuyItem:
+	
+	freeloop(1);
+	
+	for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+3 ){
+		if(@bought_nameid == .sale[.@i]){
+			mes .mes$;
+			mes "Item : ^0000FF"+getitemname(@bought_nameid)+"^000000";
+			mes "จำนวน : ^FF9900"+@bought_quantity+" ea^000000";
+			if(.sale[.@i+2] == 0){
+				mes "สต๊อก : สามารถดึงได้ไม่จำกัด";
+			}
+			else {
+				mes "สต๊อก : ("+getd("$ranking_mvp"+.sale[.@i])+"/"+.sale[.@i+2]+") ea";
+			}
+			if(ranking_mvp_point < .sale[.@i+1]*@bought_quantity){
+				mes "ราคา : ^FF3300("+callfunc("F_InsertComma",ranking_mvp_point)+"/"+callfunc("F_InsertComma",.sale[.@i+1]*@bought_quantity)+") Point^000000";
+			}
+			if(ranking_mvp_point >= .sale[.@i+1]*@bought_quantity){
+				mes "ราคา : ^009900("+callfunc("F_InsertComma",ranking_mvp_point)+"/"+callfunc("F_InsertComma",.sale[.@i+1]*@bought_quantity)+") Point^000000";
+			}
+			
+			menu	"- ยืนยันการแลก ^0000FF"+getitemname(@bought_nameid)+"^000000",menu_buy;
+			end;
+			
+			menu_buy:
+				
+				if(.sale[.@i+2]){
+					if((getd("$ranking_mvp"+.sale[.@i])+@bought_quantity) > .sale[.@i+2]){
+						clear;
+						mes .mes$;
+						mes "ข้าเสียใจด้วย แต่ว่า";
+						mes ""+getitemname(@bought_nameid)+" สต๊อกหมดแล้ว";
+						end;
+					}
+				}
+				if(ranking_mvp_point < .sale[.@i+1]*@bought_quantity){
+					clear;
+					mes .mes$;
+					mes "จำนวนแต้มของท่านไม่เพียงพอ";
+					mes "ต้องการอีก "+callfunc("F_InsertComma",(.sale[.@i+1]*@bought_quantity-ranking_mvp_point))+" แต้ม";
+					end;					
+				}
+				
+				ranking_mvp_point = ranking_mvp_point -.sale[.@i+1]*@bought_quantity;
+				if(.sale[.@i+2]){
+					setd "$ranking_mvp"+@bought_nameid,getd("$ranking_mvp"+@bought_nameid)+@bought_quantity;
+				}
+				getitem @bought_nameid,@bought_quantity;
+				message strcharinfo(0),"[ระบบ] : ท่านได้แลกเปลี่ยน "+getitemname(@bought_nameid)+" x"+callfunc("F_InsertComma",@bought_quantity)+" ea";
+				message strcharinfo(0),"[ระบบ] : ท่านมีแต้มสะสมทั้งหมด "+callfunc("F_InsertComma",ranking_mvp_point)+" แต้ม";
+				
+				end;
+		}
+	}
+	
+	end;
+	
+OnInit:
+	
+	.mes$ = "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	deletearray .mob_boss;
+	//	กำหนดรหัสบอสที่ได้รับ		รหัสบอส	จำนวนแต้ม
+	setarray .mob_boss[0]	,1087	,1
+							,1147	,1
+							,1190	,1
+							,1418	,1
+							,1115	,1
+							,1038	,1
+							,1511	,1
+							,1159	,1
+							,1389	,1
+							,1046	,1
+							,1059	,1
+							,1150	,1
+							,1688	,1
+							,1157	,1
+							,1112	,1
+							,1251	,1
+							,2202	,10
+							,2249	,10
+							,2250	,10
+							,2251	,10
+							,2252	,10
+							,2253	,10
+							;
+													
+	//	===================================================================================================	//
+	//	0 = Sunday / 1 = Monday / 2 = Tuesday / 3 = Wednesday / 4 = Thursday / 5 = Friday / 6 = Saturday	//
+	//	===================================================================================================	//
+		$day_of_rank_mvp = 1;		//	ตั้งค่าสำหรับวันที่จะรีเซ็ตอันดับ+แจกรางวัล
+	//	===================================================================================================	//
+	
+	deletearray .item_id_rw_01;	deletearray .item_am_rw_01;
+	deletearray .item_id_rw_02;	deletearray .item_am_rw_02;
+	deletearray .item_id_rw_03;	deletearray .item_am_rw_03;
+	deletearray .item_id_rw_04;	deletearray .item_am_rw_04;
+	deletearray .item_id_rw_05;	deletearray .item_am_rw_05;
+	deletearray .item_id_rw_06;	deletearray .item_am_rw_06;
+	deletearray .item_id_rw_07;	deletearray .item_am_rw_07;
+	deletearray .item_id_rw_08;	deletearray .item_am_rw_08;
+	deletearray .item_id_rw_09;	deletearray .item_am_rw_09;
+	deletearray .item_id_rw_10;	deletearray .item_am_rw_10;
+	
+	setarray .item_id_rw_01[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 1
+	setarray .item_am_rw_01[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 1
+	
+	setarray .item_id_rw_02[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 2
+	setarray .item_am_rw_02[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 2
+	
+	setarray .item_id_rw_03[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 3
+	setarray .item_am_rw_03[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 3
+	
+	setarray .item_id_rw_04[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 4
+	setarray .item_am_rw_04[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 4
+	
+	setarray .item_id_rw_05[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 5
+	setarray .item_am_rw_05[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 5
+	
+	setarray .item_id_rw_06[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 6
+	setarray .item_am_rw_06[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 6
+	
+	setarray .item_id_rw_07[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 7
+	setarray .item_am_rw_07[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 7
+	
+	setarray .item_id_rw_08[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 8
+	setarray .item_am_rw_08[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 8
+	
+	setarray .item_id_rw_09[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 9
+	setarray .item_am_rw_09[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 9
+	
+	setarray .item_id_rw_10[0],501,502,503;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 10
+	setarray .item_am_rw_10[0],1,1,1;			//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 10
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `ranking_mvp_player_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`score` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `ranking_mvp_player_ranking` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`score` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `ranking_mvp_player_winners` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`score` int(7) NOT NULL,"+
+		"`status` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	waitingroom "[#] "+strnpcinfo(0)+"",0;
+	
+	freeloop(1);
+	
+	npcshopdelitem "shop_ranking_mvp",501;
+	
+	deletearray .sale;
+	
+	//								รหัสไอเทม		ราคา		สต๊อก
+	setarray .sale[0]				,501		,1		,100
+									,502		,1		,100
+									,503		,1		,100
+									,504		,1		,100
+									;
+									
+	for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+3 ){
+		npcshopadditem "shop_ranking_mvp",.sale[.@i],.sale[.@i+1];
+	}
+	
+	end;
+	
+}

@@ -1,0 +1,125 @@
+-	script	COSTUME_V1	FAKE_NPC,{
+	end;
+	
+OnInit:
+	set $@LS_req_itemV1,61001;
+	set $@LS_req_itemV1_amount,4000;
+
+	set $@COSTUME_V1_default_filename$,"cos_v1_01";
+	setarray $@COSTUME_V1_filename$[0],
+		"cos_v1_01", "cos_v1_02", "cos_v1_03", "cos_v1_04", "cos_v1_05", "cos_v1_06", 
+		"cos_v1_07", "cos_v1_08", "cos_v1_09", "cos_v1_10", "cos_v1_11", "cos_v1_12", 
+		"cos_v1_13", "cos_v1_14", "cos_v1_15", "cos_v1_16", "cos_v1_17", "cos_v1_18",
+		"cos_v1_19", "cos_v1_20", "cos_v1_21", "cos_v1_22", "cos_v1_23", "cos_v1_24";
+		
+	setarray $@COSTUME_V1_item[0],
+		31437, 19518, 19726, 59105, 31259, 19855,
+		59115, 19966, 20255, 19667, 31100, 50201,
+		19827, 31389, 59117, 20130, 20099, 31301,
+		19957, 31404, 59120, 59108, 31388, 59121;
+	
+	setarray $@COSTUME_V1_item_rate[0],
+		100,100,100,100,100,100,
+		100,100,100,100,100,100,
+		100,100,100,100,100,100,
+		100,100,100,100,100,100;
+
+	// system
+	setarray $@COSTUME_V1_size_db[0],
+		getarraysize($@COSTUME_V1_filename$);
+	end;
+}
+function	script	COSTUME_V1_NextSlot	{
+	set .@img,getarg(0) + 1;
+	
+	if (.@img >= $@COSTUME_V1_size_db[0])
+		set .@img,0;
+		
+	cutin $@COSTUME_V1_filename$[.@img], 4;
+	sleep2 getarg(1);
+	
+	return .@img;
+}
+
+morocc,132,104,4	script	กาชาปองคอสตูม 1#NPC	114,{
+goto OnPlay;
+end;
+
+OnPCLogoutEvent:
+	set CostumeBox_Playing,0;
+	end;
+
+OnPlay:
+	cutin $@COSTUME_V1_filename$[.@img], 4;
+	mes "ยินดีต้อนรับสู่ กาชาปองคอสตูม 1";
+	mes "ท่านต้องจำเป็นตต้องมีมี "+getitemname($@LS_req_itemV1)+" จำนวน "+$@LS_req_itemV1_amount;
+	mes "ต้องการจะเล่นไหม";
+	next;
+	if (select("^FF0000•^000000 ตกลง", "^FF0000•^000000 ยกเลิก") == 2) goto L_Cancel;
+	if (countitem($@LS_req_itemV1) < $@LS_req_itemV1_amount)
+	{
+		mes "ท่านมี "+getitemname($@LS_req_itemV1)+" ไม่พอ";
+		next;
+		goto L_Cancel;
+	}
+	delitem $@LS_req_itemV1, $@LS_req_itemV1_amount;
+	if(CostumeBox_Playing != 0){
+		end;
+	}
+
+	pcblockmove getcharid(3),1;
+	set CostumeBox_Playing,1;
+	set .@img,0;
+	set .@round,rand(10,15);
+	set .@speed,10;
+	for (set .@i,0; .@i < .@round; set .@i,.@i+1)
+	{
+		set .@mini_round,rand($@COSTUME_V1_size_db[0]/2, $@COSTUME_V1_size_db[0]);
+		for (set .@j,0; .@j < .@mini_round; set .@j,.@j+1)
+		set .@img,callfunc("COSTUME_V1_NextSlot", .@img, .@speed);
+		set .@speed,.@speed+10;
+	}
+	
+	set .@round,rand($@COSTUME_V1_size_db[0]/2, $@COSTUME_V1_size_db[0]);
+	
+	for (set .@i,0; .@i < .@round; set .@i,.@i+1)
+	{
+		set .@img,callfunc("COSTUME_V1_NextSlot", .@img, .@speed);
+		set .@speed,.@speed+50;
+	}
+	set .@min,($@COSTUME_V1_size_db[0]/2)/2;
+	set .@round,rand(.@min, $@COSTUME_V1_size_db[0]/2);
+	set .@round_per_50,.@round/2;
+	set .@round_per_25,.@round_per_50/2;
+
+	for (set .@i,0; .@i < .@round; set .@i,.@i+1)
+	{
+		set .@img,callfunc("COSTUME_V1_NextSlot", .@img, .@speed);
+
+		if (.@i < .@round_per_25)
+			set .@speed,.@speed+25;
+		else if (.@i < .@round_per_50)
+			set .@speed,.@speed+100;
+		else
+			set .@speed,.@speed+250;
+			
+		if(.@i == .@round-1 && $@COSTUME_V1_item_rate[.@img] < rand(100)){
+			set .@i,.@i-1;
+		}
+	}
+	
+	pcblockmove getcharid(3),0;
+	set .@prize,$@COSTUME_V1_item[.@img];
+	set CostumeBox_Playing,0;
+	
+	announce "[ Costume Vol.1 : คุณ "+strcharinfo(0)+" ได้รับไอเท็ม "+getitemname(.@prize)+" จำนวน 1 ea. ]",bc_all,0xfcff00;
+	getitem .@prize, 1;
+
+L_Cancel:
+	mes "โอกาสหน้าเชิญใหม่";
+	close2;
+	cutin "", 255;
+		OnInit:
+	waitingroom	"กาชาปองคอสตูม 1",0;
+	end;
+	}

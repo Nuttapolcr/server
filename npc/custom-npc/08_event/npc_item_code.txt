@@ -1,0 +1,285 @@
+maintown,143,164,6	script	Item Code	833,{
+Start:
+	
+	mes .mes$;
+	
+	.@menu = select(
+		"- กรอก Item Code",
+		"- รายละเอียด",
+		"- ไม่มีอะไร ไว้ครั้งหน้าเจอกันใหม่",
+		(getgmlevel()>=99)?"- Menu Admin":""
+	);
+	
+	if(.@menu == 1){
+		clear;
+		mes .mes$;
+		mes "กรุณากรอก Item Code";
+		input .@code2$;
+		query_sql("SELECT code,type,round,round_check,item_id,item_am FROM `item_code_data` WHERE code = '"+.@code2$+"'",.@code$,.@type,.@round,.@round_check,.@item_id,.@item_am);
+		if(!getarraysize(.@item_id)){
+			clear;
+			mes .mes$;
+			mes "ไม่พบข้อมูลที่ท่านกรอก Serial Code";
+			end;
+		}
+		else {
+			query_sql("SELECT time FROM `item_code_logs` WHERE code = '"+.@code2$+"' && account_id = "+getcharid(3)+"",.@time$);
+			if(.@time$ != ""){
+				clear;
+				mes .mes$;
+				mes "สวัสดีท่าน "+strcharinfo(0)+"";
+				mes "ID ของท่านรับ Serial Code นี้ไปแล้ว";
+				mes "(เวลา : "+.@time$+")";
+				end;
+			}
+			
+			if(.@type == 1){
+				query_sql("SELECT round,round_check FROM `item_code_data` WHERE code = '"+.@code2$+"'",.@round2,.@round_check2);
+				if(.@round2 >= .@round_check2){
+					clear;
+					mes .mes$;
+					mes "Serial Code นี้ หมดอายุ";
+					mes "หรือ จำนวนในการรับสิทธิ์ เต็มแล้ว";
+					end;
+				}
+			}
+			
+			clear;
+			mes .mes$;
+			mes "Serial Code :^0000FF "+.@code2$+"^000000";
+			if(.@type == 1){ .@mes$ = "ใช้ได้ 1 ครั้งแล้วหมดไป"; }
+			if(.@type == 2){ .@mes$ = "ใช้ได้ 1 ครั้ง/ID (ไม่จำกัดครั้ง)"; }
+			if(.@type == 3){ .@mes$ = "ใช้ได้ 1 ครั้ง/ID (จำกัด "+.@round+"/"+.@round_check+" ครั้ง)"; }
+			mes "ประเภท : ^0099FF"+.@mes$+"^000000";
+			
+			for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+				if(getiteminfo(.@item_id[.@i],ITEMINFO_TYPE) == 4 || getiteminfo(.@item_id[.@i],ITEMINFO_TYPE) == 5){
+					if(!.new_exe){
+						mes "• "+getitemname(.@item_id[.@i])+" ["+getiteminfo(.@item_id[.@i],ITEMINFO_SLOT)+"] x"+callfunc("F_InsertComma",.@item_am[.@i])+" ea";
+					}
+					else {
+						mes "• ^i["+.@item_id[.@i]+"] "+getitemname(.@item_id[.@i])+" ["+getiteminfo(.@item_id[.@i],ITEMINFO_SLOT)+"] x"+callfunc("F_InsertComma",.@item_am[.@i])+" ea";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "• "+getitemname(.@item_id[.@i])+" x"+callfunc("F_InsertComma",.@item_am[.@i])+" ea";
+					}
+					else {
+						mes "• ^i["+.@item_id[.@i]+"] "+getitemname(.@item_id[.@i])+" x"+callfunc("F_InsertComma",.@item_am[.@i])+" ea";
+					}
+				}
+			}
+			
+			.@menu1_1 = select(
+				"- ยืนยันการรับรางวัล"
+			);
+			
+			if(.@menu1_1 == 1){
+				if(.@type == 3){
+					query_sql("SELECT round,round_check FROM `item_code_data` WHERE code = '"+.@code2$+"'",.@round2,.@round_check2);
+					if(.@round2 >= .@round_check2){
+						clear;
+						mes .mes$;
+						mes "Serial Code นี้ หมดอายุ";
+						mes "หรือ จำนวนในการรับสิทธิ์ เต็มแล้ว";
+						end;
+					}
+				}
+				for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+					getitem .@item_id[.@i],.@item_am[.@i];
+				}
+				query_sql("INSERT INTO `item_code_logs` (account_id,char_id,player_name,code,time) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(.@code2$)+"',NOW())");
+				if(.@type == 1 || .@type == 3){
+					query_sql("UPDATE `item_code_data` SET `round` = `round`+1 WHERE code = '"+.@code2$+"'");
+				}
+				message strcharinfo(0),"[ระบบ] : คุณรับรางวัล Serial Code : "+.@code2$+" สำเร็จ";
+			}
+		}
+		
+		end;
+	}
+	if(.@menu == 2){
+		clear;
+		mes .mes$;
+		mes "ตรวจสอบได้ที่^0000FF Line : @ABCDEFG^000000";
+	}
+	if(.@menu == 3){
+		clear;
+		mes .mes$;
+		mes "ไว้เจอกันใหม่นะ";
+	}
+	if(.@menu == 4){
+		clear;
+		mes .mes$;
+		
+		.@menu4 = select(
+			"- เพิ่มรายการ",
+			"- ลบรายการ"
+		);
+		
+		if(.@menu4 == 1){
+			query_sql("SELECT code FROM `item_code_data`",.@check_code$);
+			clear;
+			mes .mes$;
+			mes "โปรดสร้าง Serial Code";
+			input .@coder$;
+			for ( .@i=0; .@i<getarraysize(.@check_code$); .@i++ ){
+				if(.@coder$ == .@check_code$[.@i]){
+					clear;
+					mes .mes$;
+					mes "Serial Code นี้ ถูกสร้างแล้ว";
+					end;
+				}
+			}
+			clear;
+			mes .mes$;
+			mes "กรุณาเลือกประเภท";
+			
+			.@menu4_1 = select(
+				"- ใช้ได้ 1 ครั้งแล้วหมดไป",
+				"- ใช้ได้ 1 ครั้ง/ID (ไม่จำกัดครั้ง)",
+				"- ใช้ได้ 1 ครั้ง/ID (จำกัดจำนวนครั้ง)"
+			);
+			
+			if(.@menu4_1 == 1){
+				.@round = 1;
+			}
+			
+			if(.@menu4_1 == 3){
+				clear;
+				mes .mes$;
+				mes "กรุณากำหนดจำนวนจำกัด";
+				input .@round;
+			}
+			
+			while(1){
+				clear;
+				mes .mes$;
+				mes "Serial Code : ^FF9900"+.@coder$+"^000000";
+				if(.@menu4_1 == 1){ .@mes$ = "- ใช้ได้ 1 ครั้งแล้วหมดไป"; }
+				if(.@menu4_1 == 2){ .@mes$ = "- ใช้ได้ 1 ครั้ง/ID (ไม่จำกัดครั้ง)"; }
+				if(.@menu4_1 == 3){ .@mes$ = "- ใช้ได้ 1 ครั้ง/ID (จำกัด "+.@round+" ครั้ง)"; }
+				mes "ประเภท : ^0099FF"+.@mes$+"^000000";
+				for ( .@i=0; .@i<getarraysize(.@set_item_id); .@i++ ){
+					if(getiteminfo(.@set_item_id[.@i],ITEMINFO_TYPE) == 4 || getiteminfo(.@set_item_id[.@i],ITEMINFO_TYPE) == 5){
+						if(!.new_exe){
+							mes "• "+getitemname(.@set_item_id[.@i])+" ["+getiteminfo(.@set_item_id[.@i],ITEMINFO_SLOT)+"] x"+callfunc("F_InsertComma",.@set_item_am[.@i])+" ea";
+						}
+						else {
+							mes "• ^i["+.@set_item_id[.@i]+"] "+getitemname(.@set_item_id[.@i])+" ["+getiteminfo(.@set_item_id[.@i],ITEMINFO_SLOT)+"] x"+callfunc("F_InsertComma",.@set_item_am[.@i])+" ea";
+						}
+					}
+					else {
+						if(!.new_exe){
+							mes "• "+getitemname(.@set_item_id[.@i])+" x"+callfunc("F_InsertComma",.@set_item_am[.@i])+" ea";
+						}
+						else {
+							mes "• ^i["+.@set_item_id[.@i]+"] "+getitemname(.@set_item_id[.@i])+" x"+callfunc("F_InsertComma",.@set_item_am[.@i])+" ea";
+						}
+					}
+				}
+				
+				.@menu4_2 = select(
+					"- เพิ่มรายการไอเทม",
+					"- สิ้นสุดรายการ"
+				);
+				
+				if(.@menu4_2 == 1){
+					clear;
+					mes .mes$;
+					mes "กรุณากรอก Item ID";
+					mes "ใส่ 0 = ยกเลิก";
+					input .@item_id_set;
+					if(.@item_id_set == 0){ end; }
+					
+					clear;
+					mes .mes$;
+					mes "กรุณากรอก Item AM";
+					mes "ใส่ 0 = ยกเลิก";
+					input .@item_am_set;
+					if(.@item_am_set == 0){ end; }
+					
+					clear;
+					mes .mes$;
+					
+					if(getiteminfo(.@item_id_set,ITEMINFO_TYPE) == 4 || getiteminfo(.@item_id_set,ITEMINFO_TYPE) == 5){
+						if(!.new_exe){
+							mes "• "+getitemname(.@item_id_set)+" ["+getiteminfo(.@item_id_set,ITEMINFO_SLOT)+"] x"+callfunc("F_InsertComma",.@item_am_set)+" ea";
+						}
+						else {
+							mes "• ^i["+.@item_id_set+"] "+getitemname(.@item_id_set)+" ["+getiteminfo(.@item_id_set,ITEMINFO_SLOT)+"] x"+callfunc("F_InsertComma",.@item_am_set)+" ea";
+						}
+					}
+					else {
+						if(!.new_exe){
+							mes "• "+getitemname(.@item_id_set)+" x"+callfunc("F_InsertComma",.@item_am_set)+" ea";
+						}
+						else {
+							mes "• ^i["+.@item_id_set+"] "+getitemname(.@item_id_set)+" x"+callfunc("F_InsertComma",.@item_am_set)+" ea";
+						}
+					}
+					
+					mes "ยืนยันทำรายการหรือไม่ ?";
+					
+					.@menu4_3 = select(
+						"- เพิ่มรายการถัดไป"
+					);
+					
+					if(.@menu4_3 == 1){
+						.@set_item_id[getarraysize(.@set_item_id)] = .@item_id_set;
+						.@set_item_am[getarraysize(.@set_item_am)] = .@item_am_set;
+					}
+				}
+				if(.@menu4_2 == 2){
+					for ( .@i=0; .@i<getarraysize(.@set_item_id); .@i++ ){
+						query_sql("INSERT INTO `item_code_data` (code,type,round,round_check,item_id,item_am) VALUES ('"+escape_sql(.@coder$)+"',"+.@menu4_1+",0,"+.@round+","+.@set_item_id[.@i]+","+.@set_item_am[.@i]+")");
+					}
+					message strcharinfo(0),"[ระบบ] : บันทึกรายการ Serial Code "+.@coder$+" สำเร็จ";
+					end;
+				}
+			}
+		}
+	}
+	
+	end;
+	
+OnInit:
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `item_code_data` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`code` varchar(255) NOT NULL,"+
+		"`type` int(11) NOT NULL,"+
+		"`round` int(11) NOT NULL,"+
+		"`round_check` int(11) NOT NULL,"+
+		"`item_id` int(11) NOT NULL,"+
+		"`item_am` int(11) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `item_code_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`code` varchar(255) NOT NULL,"+
+		"`time` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	//	กำหนด Head Dialog Npc
+	.mes$ = "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+//	waitingroom "[#] "+strnpcinfo(0)+"",0;
+	
+	//	ตั้งค่า Dialog โชว์ไอเทม เฉพาะรุ่นปี 2023+	ใส่ 1		หากต่้ำกว่า 2023+ ใส่ 0
+	.new_exe	= 1;
+	
+	
+	end;
+	
+}

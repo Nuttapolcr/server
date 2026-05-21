@@ -1,0 +1,267 @@
+//==============================================
+// - Script By : M-Ro Online
+// - Script City : Thailand 
+// - Script Support Server : Hercules & rAthena
+//==============================================
+-	script	PvP	-1,{
+
+mes "สวัสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
+mes "ต้องการเข้าสู่สนามประลอง";
+mes "เพื่อทดสอบฝีมือของคุณไหม";
+menu 
+//"- ["+getmapusers("m_pvp01")+"] คน - PvP สนามประลองทะเลทราย DM",Mm_pvp01,
+"- ["+getmapusers("m_pvp02")+"] คน - PvP Room DM",Mm_pvp02,
+//"- ["+getmapusers("pvp_y_3-2")+"] คน - PvP Champion ",Mm_pvp03,
+//"- ["+getmapusers("pvp_y_7-2")+"] คน - PvP Scholar/Champion ",Mm_pvp04,
+//"- ["+getmapusers("pvp_n_6-5")+"] คน - PvP Assassin Cross ",Mm_pvp05,
+"ออก ",Lcancel;
+
+Mm_pvp01:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+sc_end SC_APPLEIDUN;
+sc_end SC_DONTFORGETME;
+sc_end SC_ASSASSINCROSS;
+warp "m_pvp01",0,0;
+announce "ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้า PvP สนามประลองทะเลทราย ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("m_pvp01")+" ] คน",0,0x00FF00;
+close;
+
+Mm_pvp02:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+sc_end SC_APPLEIDUN;
+sc_end SC_DONTFORGETME;
+sc_end SC_ASSASSINCROSS;
+warp "m_pvp02",0,0;
+announce "ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้า PvP Room แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("m_pvp02")+" ] คน",0,0x00FF00;
+close;
+
+Mm_pvp03:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+sc_end SC_APPLEIDUN;
+sc_end SC_DONTFORGETME;
+sc_end SC_ASSASSINCROSS;
+sc_end SC_DEXFood;
+sc_end SC_FOOD_DEX_CASH;
+if (BaseJob == Job_Monk)
+warp "pvp_y_3-2",0,0;
+//announce "ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้า PvP Champion แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_3-2")+" ] คน",0;
+close;
+
+Mm_pvp04:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+sc_end SC_APPLEIDUN;
+sc_end SC_DONTFORGETME;
+sc_end SC_ASSASSINCROSS;
+sc_end SC_DEXFood;
+sc_end SC_FOOD_DEX_CASH;
+if (BaseJob == Job_Sage || BaseJob == Job_Monk)
+warp "pvp_y_7-2",0,0;
+//announce "ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้า PvP Room แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_7-2")+" ] คน",0;
+close;
+
+Mm_pvp05:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+sc_end SC_APPLEIDUN;
+sc_end SC_DONTFORGETME;
+sc_end SC_ASSASSINCROSS;
+if (BaseJob == Job_Assassin)
+warp "pvp_n_6-5",0,0;
+close;
+
+MaxPlayerRoom:
+mes "ขณะนี้สนามประลองเต็ม";
+close;
+
+Lcancel:
+close;
+OnInit:
+do {
+delwaitingroom;
+waitingroom "   PvP ["+(getmapusers("m_pvp02") + getmapusers("m_pvp01") + getmapusers("pvp_y_7-2") + getmapusers("pvp_n_6-5") + getmapusers("pvp_y_3-2"))+"] คน",0;
+sleep 1000; // Evites super infinity loop
+} while(1); // End Loop
+end;
+}
+
+
+
+//เมื่อผู้เล่นตายจะเกิดทันทีพร้อมได้รับบัพช่วยเหลือต่างๆเหมือนกดที่ NPC เอลฟ์แห่งเสียงดนตรี
+-	script	Death Match	-1,{
+OnInit:
+set .time, 10;
+setarray .map$, 
+//กำหนดแผนที่
+"m_pvp02",
+"m_pvp01";
+end;
+
+OnPCDieEvent:
+for ( set .@i, 0; .@i < getarraysize(.map$); set .@i, .@i+1 ) {
+	if ( strcharinfo(3) == .map$[.@i] ) {
+		sleep2 1000;
+		//เมื่อตายจะถูกชุบทันที
+		atcommand "@alive";
+		//เช็คไอเทมที่เสียหายถ้ามีซ่อมให้ทันที
+		if (getbrokenid(1) > 0) 
+		{ 
+			atcommand "@repairall";
+		}
+		
+		//แก้สถานะต่างๆ
+		sc_end SC_STAN;
+		sc_end SC_STUN;
+		sc_end SC_STONE;
+		sc_end SC_SLOWDOWN;
+		sc_end SC_FREEZE;
+		sc_end SC_SLEEP;
+		sc_end SC_CURSE;
+		sc_end SC_SILENCE;
+		sc_end SC_CONFUSION;
+		sc_end SC_BLIND;
+		sc_end SC_BLEEDING;
+		sc_end SC_DECREASEAGI;
+		sc_end SC_POISON;
+		sc_end SC_HALLUCINATION;
+		sc_end SC_STRIPWEAPON;
+		sc_end SC_STRIPARMOR;
+		sc_end SC_STRIPHELM;
+		sc_end SC_STRIPSHIELD;
+		sc_end SC_CHANGEUNDEAD;
+		sc_end SC_ORCISH;
+		sc_end SC_BERSERK;
+		sc_end SC_SKE;
+		sc_end SC_SWOO;
+		sc_end SC_SKA;
+		sc_end SC_BURNING;
+		sc_end SC_FREEZING;
+		sc_end SC_FEAR;
+
+
+		//บัพค่าอาหาร 30นาที Support rAthena
+		sc_start SC_STRFood, 1800000,5;
+		sc_start SC_AGIFood, 1800000,5;
+		sc_start SC_VITFood, 1800000,5;
+		sc_start SC_INTFood, 1800000,5;
+		sc_start SC_DEXFood, 1800000,5;
+		sc_start SC_LUKFood, 1800000,5;
+		
+		//บัพสกิลต่างๆ
+		sc_start SC_BLESSING,1800000,10;
+		sc_start SC_INCREASEAGI,1800000,10;
+		sc_start 41,1800000,10; //กอเรีย
+		sc_start 40,1800000,10; // MAGNIFICAT เร่ง
+
+		//เพิ่มHPและSP 100%
+		percentheal 100,100; 
+		
+		//เอฟเฟกเพิ่มความสวยงาม
+		specialeffect 509;
+		specialeffect 410;
+		specialeffect2 509;
+		specialeffect2 EF_HEAL2;
+		specialeffect2 EF_INCAGILITY;
+		specialeffect2 EF_BLESSING;
+		//==============================================
+		//==============================================
+		//==============================================
+		
+		//ส่องไอเทมปริศนาที่มีในตัวทั้งหมด
+		//atcommand "@identifyall";
+		//สุ่มเกิดในแผนที่
+		warp .map$[.@i], 0, 0;
+		end;
+	}
+	end;
+	}
+}
+
+
+//ข้อความเมื่อผู้เล่นตาย
+-	script	Die Message	-1,{
+OnPCDieEvent:
+//ข้อความที่จะแสดงว่าตายเหมือนผู้เล่นพิมเอง
+/*
+soundeffect "NaHEE.wav",0;
+message strcharinfo(0),"เดี๋ยวมรึงเจอตูแน่ T__T!!!";
+announce "[ระบบ] : ขณะนี้ ผู้เล่น [ "+strcharinfo(0)+" ] ได้ถูกสังหารลงแล้ว T__T หึหึ!!!",bc_all;
+*/
+emotion ET_HUK,0;
+}
+
+//ป้องกันปั้มแต้ม PVP
+-	script	Anti_FreeKill	-1,{
+
+OnPCKillEvent:
+
+	if(@last_kill == killedrid) {
+		if(++@last_killamt >= 50) {
+			atcommand "@jailfor 1h "+strcharinfo(0);
+			announce strcharinfo(0)+" ทำการปั้มคะแนนสนามประลอง "+rid2name(@last_kill)+".",bc_all;
+			@last_killamt = 0;
+			@last_kill = 0;
+			end;
+		}
+	} else {
+		@last_killamt = 0;
+	}
+	@last_kill = killedrid;
+	end;
+
+OnPCDieEvent:
+
+	@last_killamt = 0;
+	end;
+
+}
+
+
+
+
+//gonryun,165,121,4	duplicate(PvP)	PVP#pron_1	468
+oasis,167,107,4	duplicate(PvP)	PVP#pron_12	635
+
+
+
+m_pvp01	mapflag	pvp
+m_pvp01	mapflag	nomemo
+m_pvp01	mapflag	nosave	SavePoint
+m_pvp01	mapflag	noteleport
+m_pvp01	mapflag	nowarp
+m_pvp01	mapflag	noreturn
+m_pvp01	mapflag	nodrop
+m_pvp01	mapflag	nobranch
+
+m_pvp02	mapflag	pvp
+m_pvp02	mapflag	nomemo
+m_pvp02	mapflag	nosave	SavePoint
+m_pvp02	mapflag	noteleport
+m_pvp02	mapflag	nowarp
+m_pvp02	mapflag	noreturn
+m_pvp02	mapflag	nodrop
+m_pvp02	mapflag	nobranch
+
+pvp_y_3-2	mapflag	pvp
+pvp_y_3-2	mapflag	nocommand	40
+pvp_y_3-2	mapflag	nodrop
+pvp_y_3-2	mapflag	nobranch
+pvp_y_3-2	mapflag	noreturn
+
+pvp_y_7-2	mapflag	pvp
+pvp_y_7-2	mapflag	nocommand	40
+pvp_y_7-2	mapflag	nodrop
+pvp_y_7-2	mapflag	nobranch
+pvp_y_7-2	mapflag	noreturn
+
+pvp_y_5-2	mapflag	pvp
+pvp_y_5-2	mapflag	nocommand	40
+pvp_y_5-2	mapflag	nodrop
+pvp_y_5-2	mapflag	nobranch
+pvp_y_5-2	mapflag	noreturn
+
+pvp_n_6-5	mapflag	nobranch
+pvp_n_6-5	mapflag	nodrop
+pvp_n_6-5	mapflag	noreturn

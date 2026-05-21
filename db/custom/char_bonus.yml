@@ -1,0 +1,22 @@
+###########################################################################
+# Whispering Rain
+###########################################################################
+# Char Bonus DB
+###########################################################################
+
+Header:
+  Type: CHAR_BONUS_DB
+  Version: 1
+
+ #Body:
+   #- Job: Knight
+     #LevelNeed: 99
+     #Icon: EFST_PROVOKE
+     #Script: |
+     # bonus bStr,50;
+
+   #- Job: Archer
+     #LevelNeed: 99
+     #Icon: EFST_ENDURE
+     #BonusScript: |
+      # bonus bMaxSP,10000;

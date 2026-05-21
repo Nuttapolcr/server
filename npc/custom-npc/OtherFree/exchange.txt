@@ -1,0 +1,147 @@
+-	script	exchange_dealer	FAKE_NPC,{
+
+	mes "[ Exchange Dealer ]";
+	mes "อัตราการแลกเปลี่ยน "+ getitemname(.itemid) +"";
+	mes "1:"+ callfunc("F_InsertComma",.zeny) +" เซนี";
+	next;
+	switch(select("~ แลกเปลี่ยน "+ getitemname(.itemid) +" เป็น Zeny:~ แลกเปลี่ยน Zeny เป็น "+ getitemname(.itemid) +":~ ร้านค้า"))
+	{
+		case 1:
+			mes "[ Exchange Dealer ]";
+			mes "อัตราการแลกเปลี่ยน 1 "+ getitemname(.itemid) +" ต่อ "+ callfunc("F_InsertComma",.zeny) +" เซนี";
+			next;
+			input .@convertitem;
+			if ( .@convertitem < 1 )
+			{
+				mes "[ Exchange Dealer ]";
+				mes "ขั้นต่ำคือ 1";
+				close;
+			}
+			else if ( .@convertitem == 0 )
+			{
+				close;
+			}
+			else if ( countitem(.itemid) < .@convertitem )
+			{
+				mes "[ Exchange Dealer ]";
+				mes "คิดจะโกงกันหรือยังไง";
+				close;
+			}
+			delitem .itemid,.@convertitem;
+			Zeny += .zeny*.@convertitem;
+			end;
+			
+		case 2:
+			mes "[ Exchange Dealer ]";
+			mes "อัตราการแลกเปลี่ยน  "+ callfunc("F_InsertComma",.zeny) +" เซนี ต่อ "+ getitemname(.itemid) +" รายการ";
+			next;
+			input .@convertzeny;
+			set .@value,.@convertzeny;
+			if ( .@value < 1 )
+			{
+				mes "[ Exchange Dealer ]";
+				mes "ขั้นต่ำคือ 1";
+				close;
+			}
+			else if ( .@value == 0 )
+			{
+				close;
+			}
+			else if ( Zeny < .@value*.zeny )
+			{
+				mes "[ Exchange Dealer ]";
+				mes "คิดจะโกงกันหรือยังไง";
+				close;
+			}
+			Zeny -= .@value*.zeny;
+			getitem .itemid,.@value;
+			end;
+			
+		case 3:
+			callfunc "qshop",27;
+			end;
+	}
+	end;
+	
+OnInit:
+	.itemid = 32008;
+	.zeny = 10000;
+	waitingroom "Event Chip Coin",0;
+	end;
+}
+
+p_track01,73,22,1	duplicate(exchange_dealer)	Exchange Dealer#1	4_F_JPN
+
+
+-	script	exchange_dealer11	FAKE_NPC,{
+
+	mes "[ Exchange Dealer ]";
+	mes "อัตราการแลกเปลี่ยน "+ getitemname(.itemid) +"";
+	mes "1:"+ callfunc("F_InsertComma",.zeny) +" เซนี";
+	next;
+	switch(select("~ แลกเปลี่ยน "+ getitemname(.itemid) +" เป็น Zeny:~ แลกเปลี่ยน Zeny เป็น "+ getitemname(.itemid) +":~ ร้านค้า"))
+	{
+		case 1:
+			mes "[ Exchange Dealer ]";
+			mes "อัตราการแลกเปลี่ยน 1 "+ getitemname(.itemid) +" ต่อ "+ callfunc("F_InsertComma",.zeny) +" เซนี";
+			next;
+			input .@convertitem;
+			if ( .@convertitem < 1 )
+			{
+				mes "[ Exchange Dealer ]";
+				mes "ขั้นต่ำคือ 1";
+				close;
+			}
+			else if ( .@convertitem == 0 )
+			{
+				close;
+			}
+			else if ( countitem(.itemid) < .@convertitem )
+			{
+				mes "[ Exchange Dealer ]";
+				mes "คิดจะโกงกันหรือยังไง";
+				close;
+			}
+			delitem .itemid,.@convertitem;
+			Zeny += .zeny*.@convertitem;
+			end;
+			
+		case 2:
+			mes "[ Exchange Dealer ]";
+			mes "อัตราการแลกเปลี่ยน  "+ callfunc("F_InsertComma",.zeny) +" เซนี ต่อ "+ getitemname(.itemid) +" รายการ";
+			next;
+			input .@convertzeny;
+			set .@value,.@convertzeny;
+			if ( .@value < 1 )
+			{
+				mes "[ Exchange Dealer ]";
+				mes "ขั้นต่ำคือ 1";
+				close;
+			}
+			else if ( .@value == 0 )
+			{
+				close;
+			}
+			else if ( Zeny < .@value*.zeny )
+			{
+				mes "[ Exchange Dealer ]";
+				mes "คิดจะโกงกันหรือยังไง";
+				close;
+			}
+			Zeny -= .@value*.zeny;
+			getitem .itemid,.@value;
+			end;
+			
+		case 3:
+			callfunc "qshop",27;
+			end;
+	}
+	end;
+	
+OnInit:
+	.itemid = 7539;
+	.zeny = 10000;
+	waitingroom "Event Poring Coin",0;
+	end;
+}
+//morocc,194,42,6	duplicate(exchange_dealer11)	Exchange Dealer#2	4_F_JPN

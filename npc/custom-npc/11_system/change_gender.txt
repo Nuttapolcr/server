@@ -1,0 +1,35 @@
+maintown,176,116,4	script	Change Gender	10458,{
+
+	if ( Class == Job_Dancer && Class == Job_Bard && Class == Job_Gypsy && Class == Job_Clown && Class == Job_Wanderer &&Class == Job_Minstrel &&Class == Job_Baby_Dancer && Class == Job_Baby_Bard && Class == Job_Baby_Wanderer && Class == Job_Baby_Minstrel )
+	{
+		mes "[ Change Gender ]";
+		mes "อาชีพ Dancer หรือ Bard ไม่สามารถใช้งานในส่วนนี้ได้";
+		close;
+	}
+	
+	mes "[ Change Gender ]";
+	mes "หากคุณต้องการเปลี่ยนแปลงเพศของตัวเองคุณจำเป็นที่จะต้องมี "+ getitemname(.itemid) +" จำนวน 50 เหรียญ จึงจะสามารถใช้บริการได้";
+	next;
+	switch(select("~ ยืนยันการเปลี่ยนเพศ:~ ยกเลิกการสนทนา"))
+	{
+		case 1:
+			if ( countitem(.itemid) < 50 )
+			{
+				mes "[ Change Gender ]";
+				mes "ดูเหมือนว่าคุณไม่ได้มีไอเท็มตามที่ต้องการเลยนะ";
+				close;
+			}
+			delitem .itemid,50;
+			changecharsex();
+			close;
+			
+		default:
+			close;
+	}
+	end;
+	
+OnInit:
+	.itemid = 30001;
+//	waitingroom "เปลี่ยนเพศตัวละคร",0;
+	end;
+}

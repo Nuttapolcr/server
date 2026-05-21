@@ -1,0 +1,268 @@
+// =====================================================
+// Global CONFIG: วัน/เวลา PACK_WAR (แก้ได้ที่นี่)
+// =====================================================
+-	script	WarPackCfg	-1,{
+
+OnInit:
+	// เวลาเริ่ม-จบ (24 ชั่วโมง)
+	set $WAR_START_H, 20;   // เริ่ม 20:30
+	set $WAR_START_M, 30;
+	set $WAR_END_H,   23;   // จบ 23:30
+	set $WAR_END_M,   30;
+
+	// เลือก "วัน" ที่อนุญาต (0=อา,1=จ,2=อ,3=พ,4=พฤ,5=ศ,6=ส)
+	deletearray $@WAR_DAYS[0], getarraysize($@WAR_DAYS);
+	setarray $@WAR_DAYS[0], 0, 1, 2, 3, 4, 5, 6;
+
+	end;
+}
+
+// =====================================================
+// Global FUNCTIONS (อยู่นอกบล็อก NPC)
+// =====================================================
+
+function	script	F_war_is_active	{
+	set .@H,   atoi(gettimestr("%H",20));
+	set .@M,   atoi(gettimestr("%M",20));
+	set .@nowm, .@H*60 + .@M;
+	set .@dow, atoi(gettimestr("%w",20));
+	set .@start, $WAR_START_H*60 + $WAR_START_M;
+	set .@end,   $WAR_END_H*60   + $WAR_END_M;
+	set .@check_day, (.@start > .@end && .@nowm < .@end) ? ((.@dow+6)%7) : .@dow;
+	set .@in_day, 0;
+
+	if (getarraysize($@WAR_DAYS) > 0) {
+		for (set .@i,0; .@i<getarraysize($@WAR_DAYS); set .@i,.@i+1)
+			if ($@WAR_DAYS[.@i] == .@check_day) { set .@in_day,1; break; }
+	} else {
+		set .@in_day, 1;
+	}
+	if (!.@in_day) return 0;
+
+	if (.@start <= .@end)
+		return (.@nowm >= .@start && .@nowm < .@end);
+	else
+		return (.@nowm >= .@start || .@nowm < .@end);
+}
+
+function	script	F_war_days_text	{
+	setarray .@d$[0],"อา","จ","อ","พ","พฤ","ศ","ส";
+	set .@s$, "";
+	if (getarraysize($@WAR_DAYS) > 0) {
+		for (set .@i,0; .@i<getarraysize($@WAR_DAYS); set .@i,.@i+1)
+			set .@s$, .@s$ + ((.@i)?"/":"") + .@d$[$@WAR_DAYS[.@i]];
+	} else {
+		set .@s$, "อา/จ/อ/พ/พฤ/ศ/ส";
+	}
+	return .@s$;
+}
+
+// =====================================================
+// NPC: Buffer Service
+// =====================================================
+-	script	Buffer Service	-1,{
+
+	// ===== Main click (top-level) =====
+	set .@delay, 5;         // ดีเลย์ (วินาที)
+	set .@Price, 1000;       // ค่าบริการ Zeny
+
+	// เช็คดีเลย์ก่อน
+	if ( gettimetick(2)-@delay_heal < .@delay ) {
+		dispbottom "[Buffer Service] รออีก "+(.@delay-(gettimetick(2)-@delay_heal))+" วินาที ถึงจะทำการ Buff รอบต่อไปได้";
+		end;
+	}
+
+	// ----- 1) VIP WAR : ต้องมีเวลา PACK_WAR คงเหลือ + อยู่ในวัน/เวลาที่อนุญาต -----
+	if (sc_check(SC_PACK_WAR)) {
+		if (callfunc("F_war_is_active")) {
+			set @delay_heal, gettimetick(2);
+			
+			sc_end SC_INCREASEAGI;
+			sc_end SC_BLESSING;
+
+			sc_start SC_INCREASEAGI,900000,10;
+			sc_start SC_BLESSING,900000,10;
+
+			atcommand "@repairall";
+			percentheal 100,0;
+			specialeffect2 EF_BLESSING;
+			specialeffect2 EF_INCAGILITY;
+
+			// ล้างดีบัฟ
+			sc_end SC_POSION;
+			sc_end SC_FREEZE;
+			sc_end SC_SLEEP;
+			sc_end SC_Stan;
+			sc_end SC_STUN;
+			sc_end SC_STONE;
+			sc_end SC_SILENCE;
+			sc_end SC_BLIND;
+			sc_end SC_Bleeding;
+			sc_end SC_CONFUSION;
+			sc_end SC_CURSE;
+			sc_end SC_Hallucination;
+			sc_end SC_ORCISH;
+
+			dispbottom "[VIP WAR] คุณได้รับบัฟจาก VIP WAR";
+			end;
+		} else {
+			// นอกช่วง WAR -> ไม่แจก WAR, ไม่กินดีเลย์ (ให้ไปเช็ก VIP / ฟรี / เสียเงิน ต่อ)
+			dispbottom "[VIP WAR] ใช้งานได้เฉพาะวัน " + callfunc("F_war_days_text")
+			           + " เวลา " + $WAR_START_H + ":" + (($WAR_START_M<10)?"0":"") + $WAR_START_M
+			           + "–" + $WAR_END_H + ":" + (($WAR_END_M<10)?"0":"") + $WAR_END_M + " น.";
+		}
+	}
+
+	if ( vip_status(1) ) {
+		set @delay_heal, gettimetick(2);
+		set .@repair_cost, 1000;
+		if (getbrokenid(1) > 0) {
+			if (Zeny >= .@repair_cost) {
+				Zeny -= .@repair_cost;
+				atcommand "@repairall";
+				specialeffect2 101;
+				dispbottom "[VIP Card] ซ่อมอุปกรณ์เสียหายเรียบร้อย หัก " + .@repair_cost + " Zeny.";
+			} else {
+				dispbottom "[VIP Card] คุณมี Zeny ไม่พอ (" + .@repair_cost + "z) ไม่สามารถซ่อมอุปกรณ์ได้";
+				//end;
+			}
+		}
+		sc_end SC_INCREASEAGI;
+		sc_end SC_BLESSING;
+		sc_start SC_INCREASEAGI,300000,10;
+		sc_start SC_BLESSING,300000,10;
+		specialeffect2 EF_BLESSING;
+		specialeffect2 EF_INCAGILITY;
+		sc_end SC_POSION;
+		sc_end SC_FREEZE;
+		sc_end SC_SLEEP;
+		sc_end SC_Stan;
+		sc_end SC_STUN;
+		sc_end SC_STONE;
+		sc_end SC_SILENCE;
+		sc_end SC_BLIND;
+		sc_end SC_Bleeding;
+		sc_end SC_CONFUSION;
+		sc_end SC_CURSE;
+		sc_end SC_Hallucination;
+		sc_end SC_ORCISH;
+
+		dispbottom "[VIP Card] คุณได้รับบัฟจาก VIP Card";
+		end;
+	}
+
+	// ----- 3) ฟรีสำหรับเลเวล <= 70 -----
+	if (BaseLevel <= 70) {
+		set @delay_heal, gettimetick(2);
+		percentheal 100,0;
+
+		sc_end SC_INCREASEAGI;
+		sc_end SC_BLESSING;
+
+		sc_start SC_INCREASEAGI,300000,5;
+		sc_start SC_BLESSING,300000,5;
+
+		atcommand "@repairall";
+		specialeffect2 509;
+		specialeffect2 EF_BLESSING;
+		specialeffect2 EF_INCAGILITY;
+
+		sc_end SC_POSION;
+		sc_end SC_FREEZE;
+		sc_end SC_SLEEP;
+		sc_end SC_Stan;
+		sc_end SC_STUN;
+		sc_end SC_STONE;
+		sc_end SC_SILENCE;
+		sc_end SC_BLIND;
+		sc_end SC_Bleeding;
+		sc_end SC_CONFUSION;
+		sc_end SC_CURSE;
+		sc_end SC_Hallucination;
+		sc_end SC_ORCISH;
+
+		dispbottom "[Buff] คุณได้รับบัฟฟรี (เลเวลไม่ถึง 70)";
+		end;
+	}
+
+	// ----- 4) เสียเงิน -----
+	if (.@Price) {
+		message strcharinfo(0), "ค่าบริการ " + callfunc("F_InsertComma",.@Price) + " Zeny.";
+		if (Zeny < .@Price) end;
+		if (select("^0055FFค่าบริการ 1000z^000000:^777777ขอบคุณจ้า^000000") == 2) end;
+		Zeny -= .@Price;
+	}
+	
+	set .@repair_cost2, 2000;
+	if (getbrokenid(1) > 0) {
+		if (Zeny >= .@repair_cost2) {
+			Zeny -= .@repair_cost2;
+			atcommand "@repairall";
+			specialeffect2 101; // เอฟเฟกต์ซ่อมของ
+			dispbottom "[Buff] ซ่อมอุปกรณ์เสียหายเรียบร้อย หัก " + .@repair_cost2 + " Zeny.";
+		} else {
+			dispbottom "[Buff] คุณมี Zeny ไม่พอ (" + .@repair_cost2 + "z) ไม่สามารถซ่อมอุปกรณ์ได้";
+		}
+	}
+
+	set @delay_heal, gettimetick(2);
+	
+	sc_end SC_INCREASEAGI;
+	sc_end SC_BLESSING;
+
+	sc_start SC_INCREASEAGI,900000,5;
+	sc_start SC_BLESSING,900000,5;
+
+	specialeffect2 509;
+	specialeffect2 EF_BLESSING;
+	specialeffect2 EF_INCAGILITY;
+
+	sc_end SC_POSION;
+	sc_end SC_FREEZE;
+	sc_end SC_SLEEP;
+	sc_end SC_Stan;
+	sc_end SC_STUN;
+	sc_end SC_STONE;
+	sc_end SC_SILENCE;
+	sc_end SC_BLIND;
+	sc_end SC_Bleeding;
+	sc_end SC_CONFUSION;
+	sc_end SC_CURSE;
+	sc_end SC_Hallucination;
+	sc_end SC_ORCISH;
+
+	dispbottom "[Buff] คุณได้รับบัฟ (เลเวลตั้งแต่ 70) ชำระค่าบริการ 1000";
+	end;
+}
+
+// =====================================================
+// NPC duplicates (ตำแหน่งเดิมตามที่ให้มา)
+// =====================================================
+new_1-3,91,33,5	duplicate(Buffer Service)	Buffer Service#novice_1	4_F_SISTER
+morocc,160,97,4	duplicate(Buffer Service)	Buffer Service#moc_1	4_F_SISTER
+morocc,149,254,5	duplicate(Buffer Service)	Buffer Service#moc_2	4_F_SISTER
+morocc,288,214,4	duplicate(Buffer Service)	Buffer Service#moc_3	4_F_SISTER
+//morocc,35,174,4	duplicate(Buffer Service)	Buffer Service#moc_4	4_F_SISTER
+
+//prontera,149,29,7	duplicate(Buffer Service)	Buffer Service#Porn01	4_F_SISTER
+//prontera,146,92,5	duplicate(Buffer Service)	Buffer Service#Porn02	4_F_SISTER
+//prontera,29,210,6	duplicate(Buffer Service)	Buffer Service#Porn03	4_F_SISTER
+//prontera,282,198,2	duplicate(Buffer Service)	Buffer Service#Porn04	4_F_SISTER
+//prontera,159,326,4	duplicate(Buffer Service)	Buffer Service#Porn05	4_F_SISTER
+
+//alberta,24,229,0	duplicate(Buffer Service)	Buffer Service#alb11	4_F_SISTER
+//alberta,115,62,5	duplicate(Buffer Service)	Buffer Service#alb12	4_F_SISTER
+
+//aldebaran,145,117,3	duplicate(Buffer Service)	Buffer Service#ald13	4_F_SISTER
+
+//comodo,198,148,3	duplicate(Buffer Service)	Buffer Service#com14	4_F_SISTER
+
+//izlude,136,91,3	duplicate(Buffer Service)	Buffer Service#iz15	4_F_SISTER
+
+//geffen,123,73,3	duplicate(Buffer Service)	Buffer Service#gef16	4_F_SISTER
+//geffen,198,124,4	duplicate(Buffer Service)	Buffer Service#gef17	4_F_SISTER
+//geffen,124,203,3	duplicate(Buffer Service)	Buffer Service#gef21	4_F_SISTER
+
+//payon,97,121,3	duplicate(Buffer Service)	Buffer Service#pay19	4_F_SISTER
+
+//yuno,149,187,4	duplicate(Buffer Service)	Buffer Service#yu20	4_F_SISTER

@@ -1,0 +1,644 @@
+//  _____           _       _    __   ___                           
+// / ____|         (_)     | |   \ \ / / |                          
+//| (___   ___ _ __ _ _ __ | |_   \ V /| |_ _ __ ___ _ __ ___   ___ 
+// \___ \ / __| '__| | '_ \| __|   > < | __| '__/ _ \ '_ ` _ \ / _ \
+// ____) | (__| |  | | |_) | |_   / . \| |_| | |  __/ | | | | |  __/
+//|_____/ \___|_|  |_| .__/ \__| /_/ \_\\__|_|  \___|_| |_| |_|\___|
+//                   | |                                            
+//                   |_|                                            
+//------------------------------------------------------------------------
+//====== Eathena ============================================================
+//=Oracle thara
+//===== Author: ==============================================================
+//=HIME_meaw
+//===== Version: =============================================================
+//=1.18
+//===== Description: ==========================================================
+//=NPC ที่เอาไว้ให้ผู้เล่นเปลี่ยนชุดตัวเองเป็นชุดของอาชีพอื่นๆได้ชั่วคราวขณะที่อยู่ในเกม
+//===== Changelog: ===========================================================
+//= สารบัญ
+//=Info. Menu - [INFM]
+//=Class Zone - [CLZ]
+//=Select Panels - [SEMENU]
+//=Suit Panels - [SPMENU]
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//= Version 1.00
+//= เริ่มเขียนสคริปต์ เริ่มเทสและทดสอบบั๊กต่างๆ
+//= Version 1.02
+//= แก้คอมมานด์ที่พลาดในสคริปต์ใหม่ให้สคริปต์รันผ่าน
+//= Version 1.06
+//= แก้บั๊กเครื่องหมายผิด ทำให้สคริปบั๊กและรันไม่ผ่าน
+//= เปลี่ยนสีตัวอักษรเล็กน้อย
+//= Version 1.09
+//= แก้ปัญหาช่องว่างที่สังเกตุได้ยากอันเป้ต้นเหตุให้สคริปต์รันไม่ผ่านในเมนู Alchemist, Priest, Monk
+//= แต่งสีสคริปต์ใหม่ให้ดูดีขึ้น
+//= Version 1.10
+//= แก้ปัญหาช่องว่างที่สังเกตุได้ยากอันเป้ต้นเหตุให้สคริปต์รันไม่ผ่านในเมนู Acolyte
+//= Version 1.13
+//= แก้ปัญหาคำสั่งผิดพลาดที่ยังไม่ได้แก้ในรอบก่อน ทำให้สคริปต์รันไม่ผ่าน
+//= Version 1.16
+//= แก้ที่ยืน NPC ใหม่จากมุมเมืองเป็นกลางเมืองมอรอค
+//= เปลี่ยนเท็กซ์ที่มีผิดพลาดติดมานิดหน่อย
+//= เปลี่ยน Sprite NPC ใหม่ให้เป็นผู้หญิง
+//= Version 1.18
+//= แก้สีสคริปให้ดูดีขึ้น เพิ่มระบบใหม่ เปลี่ยนชุดกลับแบบเดิม
+//========================================================================
+morocc,149,83,5	script	Oracle Thara	951,{
+Main:
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "สวัสดีค่ะ คุณ ^00CCFF"+strcharinfo(0)+"^000000";
+mes "ฉันคือ ^FF00FFOracle Thara^000000";
+mes "ดีไซน์เนอร์ที่ทั่วทั้งมิดการ์ดให้การยอมรับ";
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "คุณต้องการจะทำอะไรล่ะ ?";
+menu
+"^ff0000•^000000 เปลี่ยนเสื้อผ้าใหม่",L_menu1,
+"^ff0000•^000000 สอบถามรายละเอียดเพิ่มเติม",L_menu2,
+"^ff0000•^000000 ยกเลิก",L_exit;
+
+////-=-=-=-=-=-=-=-=-=-=------Info. Menu - [INFM]------=-=-=-=-=-=-=-=-=-=-\\\\
+L_menu2:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "ฉันสามารถเปลี่ยนเสื้อผ้า";
+mes "ให้คุณในแบบที่ต้องการ ไม่ใช่";
+mes "แค่ทำสีเสื้อผ้าใหม่ แต่คุณ";
+mes "จะสามารถเปลี่ยนเสื้อผ้าเป็น";
+mes "ชุดไหนๆก็ได้ทั้งนั้นตามใจคุณ";
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "แต่จะเปลี่ยนได้เพียงชั่ว";
+mes "ชั่วคราวเท่านั้น เมื่อคุณออก";
+mes "จากเกมส์ เสื้อผ้าของคุณ";
+mes "จะกลับเป็นปกติเหมือนเดิม";
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "แต่ฉันจะรับบริการเฉพาะ";
+mes "ผู้ที่มี Class 2 ตรงขึ้นไปเท่านั้น";
+mes "ไม่สามารถเปลี่ยนชุดข้าม";
+mes "สายอาชีพได้ จะเปลี่ยนได้";
+mes "ภายในสายอาชีพของตนเท่านั้น";
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "คลาสพิเศษนอกเหนือปกติ";
+mes "และ Baby Class ไม่สามารถ";
+mes "ใช้บริการของฉันได้ด้วย";
+close;
+
+////-=-=-=-=-=-=-=-=-=-=------Class Zone - [CLZ]------=-=-=-=-=-=-=-=-=-=-\\\\
+L_menu1:
+next;
+if ((class == 0) || (class == 1) || (class == 2) || (class == 3) || (class == 4) || (class == 5) || (class == 6) || (class == 24) || (class == 25) || (class == 23) || (class == 4023) || (class == 4024) || (class == 4025) || (class == 4026) || (class == 4027) || (class == 4028) || (class == 4029) || (class == 4030) || (class == 4031) || (class == 4032) || (class == 4033) || (class == 4034) || (class == 4035) || (class == 4036) || (class == 4037) || (class == 4038) || (class == 4039) || (class == 4040) || (class == 4041) || (class == 4042) || (class == 4043) || (class == 4044) || (class == 4045) || (class == 4046) || (class == 4047) || (class == 4048) || (class == 4049) || (class == 4001)) goto CannotC;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "กรุณาเลือกชุดที่คุณต้องการเปลี่ยน";
+//Swordman - Rune Knight
+if((class == 7) || (class == 4002) || (class == 4008) || (class == 4014) || (class == 4054) || (class == 4060)) goto Lordknight_Menu;
+//Swordman - Royal Guard
+if((class == 14) || (class == 4002) || (class == 4015) || (class == 4066) || (class == 4073) || (class == 4022)) goto Paladin_Menu;
+//Mage - Warlock
+if((class == 9) || (class == 4003) || (class == 4010) || (class == 4061) || (class == 4055)) goto Hiwiz_Menu;
+//Mage - Sorcerer
+if((class == 16) || (class == 4003) || (class == 4017) || (class == 4067) || (class == 4074)) goto Prof_Menu;
+//Archer - Ranger
+if((class == 11) || (class == 4004) || (class == 4012) || (class == 4056) || (class == 4062)) goto Sniper_Menu;
+//Archer - Wanderer/Ministrel
+if((class == 19) || (class == 20) || (class == 4004) || (class == 4020) || (class == 4021) || (class == 4068) || (class == 4069) || (class == 4075) || (class == 4076)) goto GypClown_Menu;
+//Thief - Gullotine Cross
+if((class == 12) || (class == 4007) || (class == 4013) || (class == 4059) || (class == 4065)) goto Assassin_Menu;
+//Thief - Shadow Chaser
+if((class == 17) || (class == 4007) || (class == 4018) || (class == 4072) || (class == 4079)) goto Stalker_Menu;
+//Merchant - Mechanic
+if((class == 10) || (class == 4006) || (class == 4011) || (class == 4058) || (class == 4064)) goto BS_Menu;
+//Merchant - Genetic
+if((class == 18) || (class == 4006) || (class == 4019) || (class == 4071) || (class == 4078)) goto Bio_Menu;
+//Acolyte - Arch Bishop
+if((class == 8) || (class == 4005) || (class == 4009) || (class == 4057) || (class == 4063)) goto Hipriest_Menu;
+//Acolyte - Shura
+if((class == 15) || (class == 4005) || (class == 4016) || (class == 4070) || (class == 4077)) goto Champion_Menu;
+
+
+////-=-=-=-=-=-=-=-=-=-=------Select Panels - [SEMENU]------=-=-=-=-=-=-=-=-=-=-\\\\
+/// -- Swordman - Rune Knight Class --\\\
+Lordknight_Menu:
+if (class == 7) menu "^ff0000•^000000 ^CC6666Swordman",Suit_Swordman,"^ff0000•^000000 ^CC0033กลับชุดเดิม",Suit_Knight,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4002) menu "^ff0000•^000000 ^CC6666Swordman",Suit_Swordman,"^ff0000•^000000 ^CC0033Knight",Suit_Knight,"^ff0000•^000000 ^F4A460กลับชุดเดิม",Suit_Swordman_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4008) || (class == 4014)) menu "^ff0000•^000000 ^CC6666Swordman",Suit_Swordman,"^ff0000•^000000 ^CC0033Knight",Suit_Knight,"^ff0000•^000000 ^F4A460High Swordman",Suit_Swordman_High,"^ff0000•^000000 ^8B4513กลับชุดเดิม",Suit_Lordknight,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4054) || (class == 4060)) menu "^ff0000•^000000 ^CC6666Swordman",Suit_Swordman,"^ff0000•^000000 ^CC0033Knight",Suit_Knight,"^ff0000•^000000 ^F4A460High Swordman",Suit_Swordman_High,"^ff0000•^000000 ^8B4513Lord Knight",Suit_Lordknight,"^ff0000•^000000 ^FF4500กลับชุดเดิม",Suit_Runeknight,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Swordman - Royal Guard Class --\\\
+Paladin_Menu:
+if (class == 14) menu "^ff0000•^000000 ^CC6666SSwordman",Suit_Swordman,"^ff0000•^000000 ^CD5C5Cกลับชุดเดิม",Suit_Crusader,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4002) menu "^ff0000•^000000 ^CC6666Swordman",Suit_Swordman,"^ff0000•^000000 ^CD5C5CCrusader",Suit_Crusader,"^ff0000•^000000 ^F4A460กลับชุดเดิม",Suit_Swordman_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4015) || (class == 4022)) menu "^ff0000•^000000 ^CC6666Swordman",Suit_Swordman,"^ff0000•^000000 ^CD5C5CCrusader",Suit_Crusader,"^ff0000•^000000 ^F4A460High Swordman",Suit_Swordman_High,"^ff0000•^000000 ^473C8Bกลับชุดเดิม",Suit_Paladin,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4066) || (class == 4073)) menu "^ff0000•^000000 ^CC6666Swordman",Suit_Swordman,"^ff0000•^000000 ^CD5C5CCrusader",Suit_Crusader,"^ff0000•^000000 ^F4A460High Swordman",Suit_Swordman_High,"^ff0000•^000000 ^473C8BPaladin",Suit_Paladin,"^ff0000•^000000 ^FF7F00กลับชุดเดิม",Suit_RoyalGuard,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Mage - Warlock Class --\\\
+Hiwiz_Menu:
+if (class == 9) menu "^ff0000•^000000 ^FFA500Mage",Suit_Mage,"^ff0000•^000000 ^CD661Dกลับชุดเดิม",Suit_Wizard,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4003) menu "^ff0000•^000000 ^FFA500Mage",Suit_Mage,"^ff0000•^000000 ^CD661DWizard",Suit_Wizard,"^ff0000•^000000 ^FF6A6Aกลับชุดเดิม",Suit_Mage_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4010) menu "^ff0000•^000000 ^FFA500Mage",Suit_Mage,"^ff0000•^000000 ^CD661DWizard",Suit_Wizard,"^ff0000•^000000 ^FF6A6AHigh Mage",Suit_Mage_High,"^ff0000•^000000 ^8B4C39กลับชุดเดิม",Suit_Hiwizard,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4061) || (class == 4055)) menu "^ff0000•^000000 ^FFA500Mage",Suit_Mage,"^ff0000•^000000 ^CD661DWizard",Suit_Wizard,"^ff0000•^000000 ^FF6A6AHigh Mage",Suit_Mage_High,"^ff0000•^000000 ^8B4C39High-Wizard",Suit_Hiwizard,"^ff0000•^000000 ^CD7054กลับชุดเดิม",Suit_Warlock,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Mage - Sorcerer Class --\\\
+Prof_Menu:
+if (class == 16) menu "^ff0000•^000000 ^FFA500Mage",Suit_Mage,"^ff0000•^000000 ^B22222กลับชุดเดิม",Suit_Sage,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4003) menu "^ff0000•^000000 ^FFA500Mage",Suit_Mage,"^ff0000•^000000 ^B22222Sage",Suit_Sage,"^ff0000•^000000 ^FF6A6Aกลับชุดเดิม",Suit_Mage_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4017) menu "^ff0000•^000000 ^FFA500Mage",Suit_Mage,"^ff0000•^000000 ^B22222Sage",Suit_Sage,"^ff0000•^000000 ^FF6A6AHigh Mage",Suit_Mage_High,"^ff0000•^000000 ^CD0000กลับชุดเดิม",Suit_Scholar,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4067) || (class == 4074)) menu "^ff0000•^000000 ^FFA500Mage",Suit_Mage,"^ff0000•^000000 ^B22222Sage",Suit_Sage,"^ff0000•^000000 ^FF6A6AHigh Mage",Suit_Mage_High,"^ff0000•^000000 ^CD0000Scholar",Suit_Scholar,"^ff0000•^000000 ^CD4F39กลับชุดเดิม",Suit_Sorcerer,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Archer - Ranger Class --\\\
+Sniper_Menu:
+if (class == 11) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^FF7F24กลับชุดเดิม",Suit_Hunter,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4004) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^FF7F24Hunter",Suit_Hunter,"^ff0000•^000000 ^EE9A49กลับชุดเดิม",Suit_Archer_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4012) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^FF7F24Hunter",Suit_Hunter,"^ff0000•^000000 ^EE9A49High Archer",Suit_Archer_High,"^ff0000•^000000 ^EE7600กลับชุดเดิม",Suit_Sniper,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4056) || (class == 4062)) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^FF7F24Hunter",Suit_Hunter,"^ff0000•^000000 ^EE9A49High Archer",Suit_Archer_High,"^ff0000•^000000 ^EE7600Sniper",Suit_Sniper,"^ff0000•^000000 ^EE4000กลับชุดเดิม",Suit_Ranger,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Archer - Wanderer/Minstrel Class --\\\
+GypClown_Menu:
+if (class == 19) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^FF3E96กลับชุดเดิม",Suit_Dancer,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 20) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^9ACD32กลับชุดเดิม",Suit_Bard,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4004) && (sex == 0)) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^FF3E96Dancer",Suit_Dancer,"^ff0000•^000000 ^EE9A49กลับชุดเดิม",Suit_Archer_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4004) && (sex == 1)) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^9ACD32Bard",Suit_Bard,"^ff0000•^000000 ^EE9A49กลับชุดเดิม",Suit_Archer_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4020) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^9ACD32Bard",Suit_Bard,"^ff0000•^000000 ^EE9A49High Archer",Suit_Archer_High,"^ff0000•^000000 ^458B74กลับชุดเดิม",Suit_Clown,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4021) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^FF3E96Dancer",Suit_Dancer,"^ff0000•^000000 ^EE9A49High Archer",Suit_Archer_High,"^ff0000•^000000 ^FF3E96กลับชุดเดิม",Suit_Gypsy,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4068) || (class == 4075)) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^9ACD32Bard",Suit_Bard,"^ff0000•^000000 ^EE9A49High Archer",Suit_Archer_High,"^ff0000•^000000 ^458B74Clown",Suit_Clown,"^ff0000•^000000 ^00CD00กลับชุดเดิม",Suit_Minstrel,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4069) || (class == 4076)) menu "^ff0000•^000000 ^FFA500Archer",Suit_Archer,"^ff0000•^000000 ^FF3E96Dancer",Suit_Dancer,"^ff0000•^000000 ^EE9A49High Archer",Suit_Archer_High,"^ff0000•^000000 ^FF3E96Gypsy",Suit_Gypsy,"^ff0000•^000000 ^CD3278กลับชุดเดิม",Suit_Wanderer,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Thief - GLT. Cross Class --\\\
+Assassin_Menu:
+if (class == 12) menu "^ff0000•^000000 ^CD69C9Thief",Suit_Thief,"^ff0000•^000000 ^8B4789กลับชุดเดิม",Suit_Assassin,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4007) menu "^ff0000•^000000 ^CD69C9Thief",Suit_Thief,"^ff0000•^000000 ^8B4789Assassin",Suit_Assassin,"^ff0000•^000000 ^8968CDกลับชุดเดิม",Suit_Thief_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4013) menu "^ff0000•^000000 ^CD69C9Thief",Suit_Thief,"^ff0000•^000000 ^8B4789Assassin",Suit_Assassin,"^ff0000•^000000 ^8968CDHigh Thief",Suit_Thief_High,"^ff0000•^000000 ^CD00CDกลับชุดเดิม",Suit_ACross,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4059) || (class == 4065)) menu "^ff0000•^000000 ^CD69C9Thief",Suit_Thief,"^ff0000•^000000 ^8B4789Assassin",Suit_Assassin,"^ff0000•^000000 ^8968CDHigh Thief",Suit_Thief_High,"^ff0000•^000000 ^CD00CDAssassin Cross",Suit_ACross,"^ff0000•^000000 ^D15FEEกลับชุดเดิม",Suit_GLTCross,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Thief - Shadow Chaser Class --\\\
+Stalker_Menu:
+if (class == 17) menu "^ff0000•^000000 ^CD69C9Thief",Suit_Thief,"^ff0000•^000000 ^7D26CDกลับชุดเดิม",Suit_Rogue,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4007) menu "^ff0000•^000000 ^CD69C9Thief",Suit_Thief,"^ff0000•^000000 ^7D26CDRogue",Suit_Rogue,"^ff0000•^000000 ^8968CDกลับชุดเดิม",Suit_Thief_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4018) menu "^ff0000•^000000 ^CD69C9Thief",Suit_Thief,"^ff0000•^000000 ^7D26CDRogue",Suit_Rogue,"^ff0000•^000000 ^8968CDHigh Thief",Suit_Thief_High,"^ff0000•^000000 ^9A32CDกลับชุดเดิม",Suit_Stalker,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4072) || (class == 4079)) menu "^ff0000•^000000 ^CD69C9Thief",Suit_Thief,"^ff0000•^000000 ^7D26CDRogue",Suit_Rogue,"^ff0000•^000000 ^8968CDHigh Thief",Suit_Thief_High,"^ff0000•^000000 ^9A32CDStalker",Suit_Stalker,"^ff0000•^000000 ^9B30FFกลับชุดเดิม",Suit_ShadowChaser,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Merchant - Mechanics Class --\\\
+BS_Menu:
+if (class == 10) menu "^ff0000•^000000 ^43CD80Merchant",Suit_Merchant,"^ff0000•^000000 ^458B74กลับชุดเดิม",Suit_Blacksmith,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4006) menu "^ff0000•^000000 ^43CD80Merchant",Suit_Merchant,"^ff0000•^000000 ^458B74Blacksmith",Suit_Blacksmith,"^ff0000•^000000 ^00CD66กลับชุดเดิม",Suit_Merchant_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4011) menu "^ff0000•^000000 ^43CD80Merchant",Suit_Merchant,"^ff0000•^000000 ^458B74Blacksmith",Suit_Blacksmith,"^ff0000•^000000 ^00CD66High Merchant",Suit_Merchant_High,"^ff0000•^000000 ^43CD80กลับชุดเดิม",Suit_Whitesmith,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4058) || (class == 4064)) menu "^ff0000•^000000 ^43CD80Merchant",Suit_Merchant,"^ff0000•^000000 ^458B74Blacksmith",Suit_Blacksmith,"^ff0000•^000000 ^00CD66High Merchant",Suit_Merchant_High,"^ff0000•^000000 ^43CD80Whitesmith",Suit_Whitesmith,"^ff0000•^000000 ^7CCD7Cกลับชุดเดิม",Suit_Mechanics,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Merchant - Genetic Class --\\\
+Bio_Menu:
+if (class == 18) menu "^ff0000•^000000 ^43CD80Merchant",Suit_Merchant,"^ff0000•^000000 ^66CD00กลับชุดเดิม",Suit_Alchemist,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4006) menu "^ff0000•^000000 ^43CD80Merchant",Suit_Merchant,"^ff0000•^000000 ^66CD00Alchemist",Suit_Alchemist,"^ff0000•^000000 ^00CD66กลับชุดเดิม",Suit_Merchant_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4019) menu "^ff0000•^000000 ^43CD80Merchant",Suit_Merchant,"^ff0000•^000000 ^66CD00Alchemist",Suit_Alchemist,"^ff0000•^000000 ^00CD66High Merchant",Suit_Merchant_High,"^ff0000•^000000 ^BCEE68กลับชุดเดิม",Suit_Biochemist,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4071) || (class == 4078)) menu "^ff0000•^000000 ^43CD80Merchant",Suit_Merchant,"^ff0000•^000000 ^66CD00Alchemist",Suit_Alchemist,"^ff0000•^000000 ^00CD66High Merchant",Suit_Merchant_High,"^ff0000•^000000 ^BCEE68Biochemist",Suit_Biochemist,"^ff0000•^000000 ^00CD66กลับชุดเดิม",Suit_Genetics,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Acolyte - Arch Bishop Class --\\\
+Hipriest_Menu:
+if (class == 8) menu "^ff0000•^000000 ^EEDC82Acolyte",Suit_Acolyte,"^ff0000•^000000 ^8B658Bกลับชุดเดิม",Suit_Priest,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4005) menu "^ff0000•^000000 ^EEDC82Acolyte",Suit_Acolyte,"^ff0000•^000000 ^8B658BPriest",Suit_Priest,"^ff0000•^000000 ^FFA54Fกลับชุดเดิม",Suit_Acolyte_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4009) menu "^ff0000•^000000 ^EEDC82Acolyte",Suit_Acolyte,"^ff0000•^000000 ^8B658BPriest",Suit_Priest,"^ff0000•^000000 ^FFA54FHigh Acolyte",Suit_Acolyte_High,"^ff0000•^000000 ^FF6EB4กลับชุดเดิม",Suit_HiPriest,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4057) || (class == 4063)) menu "^ff0000•^000000 ^EEDC82Acolyte",Suit_Acolyte,"^ff0000•^000000 ^8B658BPriest",Suit_Priest,"^ff0000•^000000 ^FFA54FHigh Acolyte",Suit_Acolyte_High,"^ff0000•^000000 ^FF6EB4High-Priest",Suit_HiPriest,"^ff0000•^000000 ^8968CDกลับชุดเดิม",Suit_ArchBishop,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+/// -- Acolyte - Shura Class --\\\
+Champion_Menu:
+if (class == 15) menu "^ff0000•^000000 ^EEDC82Acolyte",Suit_Acolyte,"^ff0000•^000000 ^CD1076กลับชุดเดิม",Suit_Monk,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4005) menu "^ff0000•^000000 ^EEDC82Acolyte",Suit_Acolyte,"^ff0000•^000000 ^CD1076Monk",Suit_Monk,"^ff0000•^000000 ^FFA54Fกลับชุดเดิม",Suit_Acolyte_High,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if (class == 4016) menu "^ff0000•^000000 ^EEDC82Acolyte",Suit_Acolyte,"^ff0000•^000000 ^CD1076Monk",Suit_Monk,"^ff0000•^000000 ^FFA54FHigh Acolyte",Suit_Acolyte_High,"^ff0000•^000000 ^8B3A62กลับชุดเดิม",Suit_Champion,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+if ((class == 4070) || (class == 4077)) menu "^ff0000•^000000 ^EEDC82Acolyte",Suit_Acolyte,"^ff0000•^000000 ^CD1076Monk",Suit_Monk,"^ff0000•^000000 ^FFA54FHigh Acolyte",Suit_Acolyte_High,"^ff0000•^000000 ^8B3A62Champion",Suit_Champion,"^ff0000•^000000 ^8B0A50กลับชุดเดิม",Suit_Shura,"^ff0000•^000000 ^838B8Bยกเลิก",L_exit;
+
+
+
+
+////-=-=-=-=-=-=-=-=-=-=------Suit Panels - [SPMENU]------=-=-=-=-=-=-=-=-=-=-\\\\
+/// -- Swordman Class [Rune Knight + Royal Guard] --\\\
+Suit_Swordman:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 1;
+specialeffect2 699;
+close;
+
+Suit_Knight:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 7;
+specialeffect2 699;
+close;
+
+Suit_Crusader:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 14;
+specialeffect2 699;
+close;
+
+Suit_Swordman_High:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4002;
+specialeffect2 699;
+close;
+
+Suit_Lordknight:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4008;
+specialeffect2 699;
+close;
+
+Suit_Paladin:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4015;
+specialeffect2 699;
+close;
+
+Suit_Runeknight:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4054;
+specialeffect2 699;
+close;
+
+Suit_RoyalGuard:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4066;
+specialeffect2 699;
+close;
+
+/// -- Mage Class [Warlock + Sorcerer] --\\\
+Suit_Mage:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 2;
+specialeffect2 699;
+close;
+
+Suit_Wizard:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 9;
+specialeffect2 699;
+close;
+
+Suit_Sage:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 16;
+specialeffect2 699;
+close;
+
+Suit_Mage_High:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4003;
+specialeffect2 699;
+close;
+
+Suit_Hiwizard:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4010;
+specialeffect2 699;
+close;
+
+Suit_Scholar:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4017;
+specialeffect2 699;
+close;
+
+Suit_Warlock:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4055;
+specialeffect2 699;
+close;
+
+Suit_Sorcerer:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4067;
+specialeffect2 699;
+close;
+
+/// -- Archer Class [Ranger + Wanderer/Ministrel] --\\\
+Suit_Archer:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 3;
+specialeffect2 699;
+close;
+
+Suit_Hunter:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 11;
+specialeffect2 699;
+close;
+
+Suit_Dancer:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 20;
+specialeffect2 699;
+close;
+
+Suit_Bard:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 19;
+specialeffect2 699;
+close;
+
+Suit_Archer_High:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4004;
+specialeffect2 699;
+close;
+
+Suit_Sniper:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4012;
+specialeffect2 699;
+close;
+
+Suit_Clown:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4020;
+specialeffect2 699;
+close;
+
+Suit_Gypsy:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4021;
+specialeffect2 699;
+close;
+
+Suit_Ranger:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4056;
+specialeffect2 699;
+close;
+
+Suit_Minstrel:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4068;
+specialeffect2 699;
+close;
+
+Suit_Wanderer:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4069;
+specialeffect2 699;
+close;
+
+/// -- Thief Class [GLT. Cross + Shadow Chaser] --\\\
+Suit_Thief:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 6;
+specialeffect2 699;
+close;
+
+Suit_Assassin:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 12;
+specialeffect2 699;
+close;
+
+Suit_Rogue:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 17;
+specialeffect2 699;
+close;
+
+Suit_Thief_High:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4007;
+specialeffect2 699;
+close;
+
+Suit_ACross:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4013;
+specialeffect2 699;
+close;
+
+Suit_Stalker:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4018;
+specialeffect2 699;
+close;
+
+Suit_GLTCross:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4059;
+specialeffect2 699;
+close;
+
+Suit_ShadowChaser:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4072;
+specialeffect2 699;
+close;
+
+/// -- Merchant Class [Mechanic + Genetic] --\\\
+Suit_Merchant:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 5;
+specialeffect2 699;
+close;
+
+Suit_Blacksmith:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 10;
+specialeffect2 699;
+close;
+
+Suit_Alchemist:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 18;
+specialeffect2 699;
+close;
+
+Suit_Merchant_High:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4006;
+specialeffect2 699;
+close;
+
+Suit_Whitesmith:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4011;
+specialeffect2 699;
+close;
+
+Suit_Biochemist:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4019;
+specialeffect2 699;
+close;
+
+Suit_Mechanics:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4058;
+specialeffect2 699;
+close;
+
+Suit_Genetics:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4071;
+specialeffect2 699;
+close;
+
+/// -- Acolyte Class [Arch Bishop + Shura] --\\\
+Suit_Acolyte:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4;
+specialeffect2 699;
+close;
+
+Suit_Priest:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 8;
+specialeffect2 699;
+close;
+
+Suit_Monk:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 15;
+specialeffect2 699;
+close;
+
+Suit_Acolyte_High:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4005;
+specialeffect2 699;
+close;
+
+Suit_HiPriest:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4009;
+specialeffect2 699;
+close;
+
+Suit_Champion:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4016;
+specialeffect2 699;
+close;
+
+Suit_ArchBishop:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4057;
+specialeffect2 699;
+close;
+
+Suit_Shura:
+next;
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เปลี่ยนชุดเรียบร้อยแล้ว";
+changebase 4070;
+specialeffect2 699;
+close;
+
+
+
+L_exit:
+close;
+
+CannotC:
+mes "[ ^E6009FOracle Thara^000000 ]";
+mes "เสียใจด้วย แต่ Novice, Class 1";
+mes "และอาชีพพิเศษไม่สามารถ";
+mes "ใช้บริการของฉันได้นะ";
+close;
+
+OnInit:
+waitingroom "เปลี่ยนชุดตามคลาส",0;
+end;
+
+}

@@ -1,0 +1,17 @@
+morocc,53,42,4	script	Enchant Researcher	10357,{
+	if (select( "Sahdow Enchant", "Quit" ) == 2) {
+		mes "[Enchant]";
+		mes "โชคดี.";
+		close;
+	}
+	mes "[Enchant]";
+	mes "อย่างน้อย +5...";
+	close2;
+	item_enchant(1);
+	end;
+
+OnInit:
+	setunittitle( getnpcid(0), "Team Atnad" );
+	waitingroom "ออฟหิน Shadow",0;
+	end;
+}

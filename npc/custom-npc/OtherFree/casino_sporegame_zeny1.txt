@@ -1,0 +1,381 @@
+morocc,199,91,4	script	Spore Game#300K	828,{	//ตำแหน่ง npc หลักที่กดแทง *ย้ายตำแหน่ง
+
+function int_to_str;
+	mes .name$;
+	mes "กิจกรรมเสี่ยงโชค หรรษา";
+	mes "เพียงคุณต้องใช้เงินในการลงเดิมพัน";
+	if(.req_zeny)
+		mes "จำนวน ^FF0000"+int_to_str(.req_zeny)+"^000000 Zeny";
+	if(.req_item && .req_amount)
+		mes getitemname(.req_item)+" ^FF0000"+.req_amount+"^000000 ea";
+	if(.vat)	mes "และค่าธรรมเนียม ^FF0000"+int_to_str(.vat)+"^000000 Zeny";
+	if(.max_each_side != .maximum){
+		mes "จะเริ่มกิจกรรมเมื่อลงเดิมพัน";
+		mes "ฝั่งล่ะ ^FF0000"+.max_each_side+"^000000 คน สูงสุดฝั่งละ ^FF0000"+.maximum+"^000000 คน";
+	}else{
+		mes "ฉันรับฝั่งละ ^FF0000"+.maximum+"^000000 คนเท่านั้น";
+	}
+	next;
+	switch(select("~ ลงเดิมพัน","~ รับเงินรางวัล","~ ยกเลิก")){
+		case 1:
+			if(!.random_pick)
+				set .@choice,select("^FF0000~ เห็ดแดง^000000","^9900FF~ เห็ดม่วง^000000");
+			else
+				set .@choice,select("^FF0000~ เห็ดแดง^000000","^9900FF~ เห็ดม่วง^000000","^006600~ เลือกอัตโนมัติ^000000");
+			
+			STARTPICK:
+			if(.spining){
+				mes .name$;
+				mes "กรุณารอเล่นรอบต่อไปเนอะ...";
+				goto THEEND;
+			}
+			if(Zeny < .req_zeny+.vat){
+				mes .name$;
+				mes "^FF0000คุณมีเงินไม่เพียงพอ^000000";
+				goto THEEND;
+			}
+			if(.req_item && .req_amount){
+				if(countitem(.req_item) < .req_amount){
+					mes .name$;
+					mes "^FF0000คุณมีไอเท็มไม่เพียงพอ^000000";
+					goto THEEND;
+				}
+			}
+			
+			if(getarraysize(.one_cid) >= .maximum && getarraysize(.two_cid) >= .maximum){
+				mes .name$;
+				mes "^FF0000กำหนดสูงสุด^000000";
+				mes "ฝั่งละ "+.maximum+" คนแล้ว";
+				goto THEEND;
+			}
+			
+			//Checking of Previous BET
+			for(set .@i,0 ; .@i < getarraysize(.one_aid) ; set .@i,.@i+1){
+				if(getcharid(3) == .one_aid[.@i]){
+					mes .name$;
+					mes "คุณได้ลงเดิมพัน ^0000FF"+.pos_name$[1]+"^000000 ไว้แล้ว";
+					mes "ไม่สามารถแทงอีกได้ เสียใจด้วยนะ !";
+					close;
+				}
+			}
+			for(set .@i,0 ; .@i < getarraysize(.two_aid) ; set .@i,.@i+1){
+				if(getcharid(3) == .two_aid[.@i]){
+					mes .name$;
+					mes "คุณได้ลงเดิมพัน ^FF0000"+.pos_name$[2]+"^000000 ไว้แล้ว";
+					mes "ไม่สามารถแทงอีกได้ เสียใจด้วยนะ !";
+					close;
+				}
+			}
+			
+		
+			switch(.@choice){
+				case 1:
+					if(getarraysize(.one_cid) >= .maximum){
+						mes .name$;
+						mes "ไม่สามารถลงเดิมพัน ^0000FFเห็ดแดง^000000 ได้";
+						mes "เพราะครบจำนวน "+.maximum+" คนแล้ว";
+						close;
+					}
+					set .one_cid[getarraysize(.one_cid)],getcharid(0);
+					set .one_aid[getarraysize(.one_aid)],getcharid(3);
+					donpcevent "Spore Game300K#1::OnIncrease";
+					mes .name$;
+					mes "คุณได้ลงเดิมพัน ^0000FF"+.pos_name$[1]+"^000000";
+					npctalk "[ Spore Game 300,000Zeny : คุณ "+strcharinfo(0)+" ได้ลงเดิมพัน "+.pos_name$[1]+" ]";
+					break;
+				case 2:
+					if(getarraysize(.two_cid) >= .maximum){
+						mes .name$;
+						mes "ไม่สามารถเสี่ยงทาย ^FF0000เห็ดม่วง^000000";
+						mes "เพราะครบจำนวน "+.maximum+" คนแล้ว";
+						close;
+					}
+					set .two_cid[getarraysize(.two_cid)],getcharid(0);
+					set .two_aid[getarraysize(.two_aid)],getcharid(3);
+					mes .name$;
+					mes "คุณได้ลงเดิมพัน ^FF0000"+.pos_name$[2]+"^000000";
+					npctalk "[ Spore Game 300,000Zeny : คุณ "+strcharinfo(0)+" ได้ลงเดิมพัน "+.pos_name$[2]+" ]";
+					donpcevent "Spore Game300K#2::OnIncrease";
+					break;
+				default:
+					if(.random_pick){
+						if(getarraysize(.one_cid) > getarraysize(.two_cid)){
+							set .@choice,2;
+						}else{
+							set .@choice,1;
+						}
+						goto STARTPICK;
+					}
+					close;
+					break;				
+			}
+			
+			if(.req_item && .req_amount){
+				delitem .req_item,.req_amount;
+			}			
+			set Zeny,Zeny-(.req_zeny+.vat);
+			mes "โชคดีสําลีแปะหัว !!";
+			if(getarraysize(.one_cid) >= .max_each_side && getarraysize(.two_cid) >= .max_each_side){
+				if(getarraysize(.one_cid) >= .maximum && getarraysize(.two_cid) >= .maximum){
+					stopnpctimer;
+					if(.countdown_maximum)	donpcevent strnpcinfo(0)+"::OnCountdown";
+					else	donpcevent strnpcinfo(0)+"::OnSpin";
+				}else{
+					if(getarraysize(.one_cid) == getarraysize(.two_cid)){
+						donpcevent strnpcinfo(0)+"::OnCountdown";
+					}else{
+						npctalk "[ Spore Game 300,000Zeny : หยุดการนับชั่วคราว เนื่องจากผู้เล่นลงเดิมพันไม่เท่ากัน ]";
+						stopnpctimer;
+					}
+					
+				}
+			}
+
+			break;
+		case 2:
+			next;
+			mes .name$;
+			deletearray .@id[0],getarraysize(.@id);
+			query_sql("SELECT `id`,`item`,`amount`,`zeny` FROM `"+.table$+"` WHERE `aid` = '"+getcharid(3)+"' AND `cid` = '"+getcharid(0)+"'"), .@id,.@item,.@amount,.@zeny;
+			if(getarraysize(.@id)){
+				while(.@item[0] > 0 || .@zeny[0]){
+					if(.@zeny[0] > 0){
+						message strcharinfo(0), "คุณได้รับรางวัล จำนวน "+int_to_str(.@zeny[0]*2)+" Zeny ขอแสดงความยินดีด้วย !";
+						set Zeny,Zeny+(.@zeny[0]*2);
+						mes "ว้าวๆ ๆ ๆ ๆ";
+						mes "คุณได้รับรางวัล "+int_to_str(.@zeny[0]*2)+" Zeny";
+						mes " ";
+						mes " ";
+						mes " ";
+						mes "ขอแสดงความยินดีด้วย !";
+					}
+					if(.@item[0] > 0 && .@amount[0] > 0){
+						if(countitem(.@item[0]) + (.@amount[0]*2) > 30000){
+							mes "กรุณาเคลียร์ไอเท็ม "+getitemname(.@item[0]);
+							mes "แล้วมารับรางวัลใหม่";
+							goto THEEND;
+						}
+						message strcharinfo(0), "คุณได้รับ "+getitemname(.@item[0])+" "+(.@amount[0]*2)+" ea";
+						getitem .@item[0],.@amount[0]*2;
+						mes "ว้าวๆ ๆ ๆ ๆ";
+						mes "คุณได้รับของรางวัล "+getitemname(.@item[0])+" "+(.@amount[0]*2)+" ea";
+						mes " ";
+						mes " ";
+						mes " ";
+						mes "ขอแสดงความยินดีด้วย !";
+						specialeffect2 377;
+					}
+					
+					query_sql ("DELETE FROM `"+.table$+"` WHERE `id` = "+.@id[0]);
+					deletearray .@id[0],1;
+					deletearray .@item[0],1;
+					deletearray .@amount[0],1;
+					deletearray .@zeny[0],1;
+					next;
+					mes .name$;
+				}
+				mes "คุณได้รับของรางวัลเรียบร้อยแล้ว";
+			}else{
+				mes "ไม่พบรายการของรางวัล ?";
+			}
+			break;
+		default:
+			
+			break;
+	}
+	
+THEEND:
+	mes "แล้วเจอกันใหม่ บ๊ะบาย"; 
+	close;
+
+	
+OnTimer1000:
+	if(.count < .countdown){
+		if(.count > .countdown-10 || .count%5 == 0)
+			npctalk "[ Spore Game 300,000Zeny : จะเริ่มในอีก "+(.countdown-.count)+" วินาที ]";
+	}else{
+		if(getarraysize(.one_aid) == getarraysize(.two_aid)){
+			donpcevent strnpcinfo(0)+"::OnSpin";
+			stopnpctimer;
+			end;
+		}else{
+		npctalk "[ Spore Game 300,000Zeny : ยังไม่สามารถเริ่มกิจกรรมได้ จำนวนคนเดิมพันไม่เท่ากัน ]";
+		}
+		stopnpctimer;
+	}
+	set .count,.count+1;
+	initnpctimer;
+end;
+
+OnCountdown:
+	npctalk "[ Spore Game 300,000Zeny : เริ่มนับถอยหลัง อีก "+.countdown+" วินาที ]";
+	set .count,1;
+	initnpctimer;
+end;
+
+OnSpin:
+	stopnpctimer;
+	npctalk "[ Spore Game 300,000Zeny : เริ่มเสี่ยงทาย ณ บัดนี้ ]";
+	set .@rate,10;
+	set .spining,1;
+	set .@extra,1;
+	sleep 1000;
+	while(.@rate < 1500){
+		if(.position == 1)
+			set .position,2;
+		else
+			set .position,1;
+		sleep .@rate;
+		movenpc "SporePoint300K",.x[.position],.y[.position];
+		set .@rate,.@rate+.@extra+rand(15,30);
+		set .@extra,.@extra+rand(1,8);
+	}
+	sleep .@rate;
+	npctalk "[ Spore Game 300,000Zeny :  ฝั่ง "+.pos_name$[.position]+" ชนะ ขอแสดงความยินดีด้วย !";
+	donpcevent "Spore Game300K#"+.position+"::OnEffect";
+	if(.position == 1){
+		for(set .@i,0; .@i < getarraysize(.one_cid) ; set .@i,.@i+1){
+			query_sql("INSERT INTO `"+.table$+"` (`id`,`aid`,`cid`,`item`,`amount`,`zeny`) VALUES (''," + .one_aid[.@i] + ","+.one_cid[.@i]+",'"+.req_item+"','"+(.req_amount)+"','"+(.req_zeny)+"')");
+			if(attachrid(.one_aid[.@i])){
+				if(getcharid(0) == .one_cid[.@i])
+					message strcharinfo(0),"คุณได้รับเงินรางวัล จากการลงเดิมพัน "+.pos_name$[.position]+" 300,000 Zeny รีบๆมารับรางวัลด้วยนะ !";
+				detachrid;
+			}
+		}
+	}else if(.position == 2){
+		for(set .@i,0; .@i < getarraysize(.two_cid) ; set .@i,.@i+1){
+			query_sql("INSERT INTO `"+.table$+"` (`id`,`aid`,`cid`,`item`,`amount`,`zeny`) VALUES (''," + .two_aid[.@i] + ","+.two_cid[.@i]+",'"+.req_item+"','"+(.req_amount)+"','"+(.req_zeny)+"')");
+			if(attachrid(.two_aid[.@i])){
+				if(getcharid(0) == .two_cid[.@i])
+					message strcharinfo(0),"คุณได้รับเงินรางวัล จากการลงเดิมพัน "+.pos_name$[.position]+" 300,000 Zeny รีบๆมารับรางวัลด้วยนะ !";
+				detachrid;
+			}
+		}
+	}else{
+		//error
+	}
+	deletearray .one_cid[0], getarraysize(.one_cid);
+	deletearray .one_aid[0], getarraysize(.one_aid);
+	deletearray .two_cid[0], getarraysize(.two_cid);
+	deletearray .two_aid[0], getarraysize(.two_aid);
+	donpcevent "Spore Game300K#1::OnReset";
+	donpcevent "Spore Game300K#2::OnReset";
+	sleep 1500;
+	npctalk "[ Spore Game 300,000Zeny : ผู้เล่นที่ลงเดิมพัน "+.pos_name$[.position]+" อย่าลืมมารับรางวัลนะ !";
+	set .spining,0;
+end;
+
+Oninit:
+	set .name$,"^0000FF[ Spore Game 300K ]^000000";
+	
+	//เล่นได้ 2 แบบ *เลือกอย่างใดอย่างหนึ่งเท่านั้น โดยอีกฝั่งให้ตั้งค่าเป็น 0
+	//1 ไอเทม ให้ใส่เลขไอเทมและจำนวน
+	set .req_item,0; //req item
+	set .req_amount,0; //req amount
+	// หรือ 2 แบบ zeny
+	set .req_zeny,300000; //req zeny 
+	//รางวัลจะได้สองเท่าตามที่แทง
+	
+	set .vat,30000; //ค่าน้ำในการแทง
+	
+	set .max_each_side,1; //เริ่มนับถอยหลัง เมื่อคนเท่ากันตามเลขที่ตั้ง
+	set .maximum,10; //รับได้สูงสุดฝั่งละ
+	
+	set .random_pick,1;	//เปิดเมนูสุ่มในการแทง อันนี้เปิด เมนูสุ่ม ถ้าปิดใส่ 0
+	
+	
+	setarray .pos_name$[1],"เห็ดแดง","เห็ดม่วง";	//ชื่อ ฝั่งในการแทง
+	
+	set .countdown,10; //นับถอยหลังกี่วินาที
+	set .countdown_maximum,1; //หากครบตามจำนวนสูงสุด ต้องนับถอยหลังไหม
+	
+	setarray .x[1],194,200;	//ตำแหน่ง x ของเห็ดทั้ง 2 แดงและม่วง *ย้ายตำแหน่ง
+	setarray .y[1],91,86; //ตำแหน่ง y ของเห็ดทั้ง 2 แดงและม่วง *ย้ายตำแหน่ง
+	
+	//***หลังนี้ไป ไม่ควรเปลี่ยน
+	set .position,1; //default warp position ***ห้ามเปลี่ยน
+	set .table$,"reward_casino_300K";
+	if(.req_zeny)
+		waitingroom ""+int_to_str(.req_zeny)+" Zeny",0;
+	else
+		waitingroom getitemname(.req_item)+" x "+.req_amount+"",0;
+	
+	query_sql "CREATE TABLE IF NOT EXISTS `"+.table$+"` (`id` int(11) NOT NULL AUTO_INCREMENT,`aid` int(11) NOT NULL DEFAULT '0',`cid` int(11) NOT NULL DEFAULT '0',`item` int(11) NOT NULL DEFAULT '0',`amount` int(11) NOT NULL DEFAULT '0',`zeny` int(15) NOT NULL DEFAULT '0',PRIMARY KEY (`id`)) ENGINE=MyISAM AUTO_INCREMENT=1;";
+	
+end;
+//local functions
+function int_to_str {
+	if (!getarg(0)) return 0;
+	set .@tmp,getarg(0);
+	set .@i,0;
+	while (.@tmp > 0)
+	{
+		setarray .@t[.@i],.@tmp%10;
+		set .@tmp,.@tmp/10;
+		set .@i,.@i+1;
+	}
+	set .@strzeny$,"";
+	for (set .@i,0;.@i<getarraysize(.@t);set .@i,.@i+1)
+	{
+		if ((.@i)%3 ==0 && .@i)set .@strzeny$,.@t[.@i]+","+.@strzeny$;
+		else set .@strzeny$,.@t[.@i]+.@strzeny$;
+	}
+	return .@strzeny$;
+}
+}
+
+-	script	picker1_300K	-1,{
+	end;
+
+OnIncrease:
+	set .amount,.amount+1;
+	delwaitingroom ""+strnpcinfo(0);
+	waitingroom "แดง "+.amount+" คน",0;
+end;	
+
+OnEffect:
+	for(set .@i,1; .@i < 5; set .@i,.@i+1){
+		specialeffect 183;
+		sleep 500;
+	}
+	specialeffect 68;
+end;
+	
+OnReset:
+	set .amount,0;
+	delwaitingroom ""+strnpcinfo(0);
+Oninit:
+	waitingroom "แดง "+.amount+" คน",0;
+end;
+}
+
+-	script	picker2_300K	-1,{
+	end;
+
+OnIncrease:
+	set .amount,.amount+1;
+	delwaitingroom ""+strnpcinfo(0);
+	waitingroom "ม่วง "+.amount+" คน",0;
+end;	
+
+OnEffect:
+	for(set .@i,1; .@i < 5; set .@i,.@i+1){
+		specialeffect 183;
+		sleep 500;
+	}
+	specialeffect 68;
+end;
+	
+OnReset:
+	set .amount,0;
+	delwaitingroom ""+strnpcinfo(0);
+Oninit:
+	waitingroom "ม่วง "+.amount+" คน",0;
+end;
+}
+
+morocc,194,91,5	duplicate(picker1_300K)	Spore Game300K#1	1014	//1014 = เห็ดแดง *ย้ายตำแหน่ง
+morocc,200,86,2	duplicate(picker2_300K)	Spore Game300K#2	1077	//1077 = เห็ดม่วง *ย้ายตำแหน่ง
+
+//warp npc
+morocc,194,91,0	script	SporePoint300K	45,1,1,{}	//warp npc ที่วิ่งสลับ x,y ให้ตั้งเริ่มเหมือน เห็ดแดง *ย้ายตำแหน่ง

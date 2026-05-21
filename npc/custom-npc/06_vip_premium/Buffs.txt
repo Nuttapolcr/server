@@ -1,0 +1,120 @@
+-	script	BuffsSupports	-1,{
+	set .@delay, 3;	// ดีเลย์ (วินาที)
+	set .@cast, 0;	// ระยะเวลาร่าย (วินาที)
+	set .@cost, 2500; // ค่าใช้จ่ายเมื่อถึงระดับเลเวล
+	set .@level, 70; // ระดับเลเวลที่ต้องการเริ่มเก็บเงิน
+
+	if (gettimetick(2) - @delay_heal < .@delay) {
+		dispbottom "[ระบบ] โปรดรออีก "+(.@delay-(gettimetick(2)-@delay_heal))+" วินาทีเพื่อใช้บริการอีกครั้ง";
+		end;
+	}
+
+	// เมนูตามเลเวล
+	if (BaseLevel < .@level) {
+		mes "[ Heal AB ]";
+		mes "ท่านเลเวลต่ำกว่า "+.@level+" รับบัฟและฮีลฟรีเลยค่ะ!";
+		next;
+		if (select("รับบัฟและฮีล:ยกเลิก") == 2) {
+			mes "[ Heal AB ]";
+			mes "ไว้มาบัฟใหม่นะคะ!";
+			close;
+		}
+		close2;
+		callsub BuffAndHeal;
+	} else {
+		mes "[ Heal AB ]";
+		mes "ค่าบริการ "+.@cost+" Zeny เพื่อรับบัฟและฮีลค่ะ";
+		next;
+		if (select("รับบัฟและฮีล:ยกเลิก") == 2) {
+			mes "[ Heal AB ]";
+			mes "ไว้มาบัฟใหม่นะคะ!";
+			close;
+		}
+		if (Zeny < .@cost) {
+			mes "[ Heal AB ]";
+			mes "ขอโทษค่ะ Zeny ของท่านไม่พอ ต้องการ "+.@cost+" Zeny ค่ะ";
+			close;
+		}
+		set Zeny, Zeny - .@cost;
+		close2;
+		callsub BuffAndHeal;
+	}
+
+BuffAndHeal:
+	progressbar "0x007000", .@cast;
+	set @delay_heal, gettimetick(2);
+
+	// ซ่อมไอเทมที่เสียหาย
+	if (getbrokenid(1) > 0) {
+		atcommand "@repairall";
+	}
+
+	// ลบสถานะผิดปกติ
+	sc_end SC_POISON;
+	sc_end SC_FREEZE;
+	sc_end SC_SLEEP;
+	sc_end SC_STAN;
+	sc_end SC_STUN;
+	sc_end SC_STONE;
+	sc_end SC_SILENCE;
+	sc_end SC_BLIND;
+	sc_end SC_BLEEDING;
+	sc_end SC_CONFUSION;
+	sc_end SC_CURSE;
+	sc_end SC_HALLUCINATION;
+	sc_end SC_ORCISH;
+
+	// บัฟสกิล
+	sc_start SC_BLESSING, 900000, 10;
+	sc_start SC_INCREASEAGI, 900000, 7;
+	sc_start 41, 180000, 5; // Gloria
+	sc_start 40, 180000, 5; // Magnificat
+	#AGI_LV7 = gettimetick(2) + 1*15*60;
+	#BLESSING = gettimetick(2) + 1*15*60;
+	#GLORIALV5 = gettimetick(2) + 1*15*60;
+	#MAGNIFICAT = gettimetick(2) + 1*15*60;
+
+	//เพิ่มบัฟสำหรับVIP Status //ใส่ ! เพราะว่า ถ้าไม่ใช่ VIP ใส่เพราะเทสกับตัวGM GMไม่สามารถเป็น VIP ได้พอเทสถูกแล้วก็เอา ! ออกเพื่อให้มันมีผลกับ VIP
+	if(vip_status(VIP_STATUS_ACTIVE)){
+	sc_start4 SC_POEMBRAGI,60000,5,70,90,10;
+	sc_start4 SC_SERVICE4U,60000,5,40,40,10;
+	}//เข้าไอดีVIP
+
+	// ฟื้นฟู HP และ SP
+	percentheal 100, 100;
+
+	// เอฟเฟกต์
+	specialeffect2 42;
+	specialeffect2 37;
+	specialeffect2 56;
+	specialeffect EF_SANCTUARY;
+	specialeffect2 509;
+	specialeffect 509;
+
+	// ตรวจสอบและระบุไอเทม
+	getinventorylist;
+	for (set .@i, 0; .@i < @inventorylist_count; set .@i, .@i + 1) {
+		if (@inventorylist_identify[.@i] == 1)
+			continue;
+		delitem2 @inventorylist_id[.@i], 1, 0, 0, 0, 0, 0, 0, 0;
+		getitem @inventorylist_id[.@i], 1;
+	}
+	end;
+}
+
+// NPC Duplicates (ไม่เปลี่ยนแปลง)
+maintown,54,248,4	duplicate(BuffsSupports)	Heal AB#01	435
+maintown,239,248,4	duplicate(BuffsSupports)	Heal AB#100	435
+maintown,54,196,4	duplicate(BuffsSupports)	Heal AB#101	435
+maintown,239,196,4	duplicate(BuffsSupports)	Heal AB#102	435
+maintown,239,105,4	duplicate(BuffsSupports)	Heal AB#103	435
+maintown,54,105,4	duplicate(BuffsSupports)	Heal AB#104	435
+maintown,239,62,4	duplicate(BuffsSupports)	Heal AB#105	435
+maintown,170,248,4	duplicate(BuffsSupports)	Heal AB#106	435
+maintown,125,248,4	duplicate(BuffsSupports)	Heal AB#107	435
+maintown,146,106,4	duplicate(BuffsSupports)	Heal AB#108	435
+maintown,170,62,4	duplicate(BuffsSupports)	Heal AB#109	435
+maintown,54,62,4	duplicate(BuffsSupports)	Heal AB#110	435
+maintown,125,62,4	duplicate(BuffsSupports)	Heal AB#120	435
+maintown,146,193,4	duplicate(BuffsSupports)	Heal AB#121	435
+new_1-3,90,35,5	duplicate(BuffsSupports)	Heal AB#38	696

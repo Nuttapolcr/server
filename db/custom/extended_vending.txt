@@ -1,0 +1,9 @@
+// Structure of Database:
+// itemid,is_zeny
+// item,option
+// 1:zeny
+// 2:cash
+// 0:item
+//= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+81001,1
+81002,2

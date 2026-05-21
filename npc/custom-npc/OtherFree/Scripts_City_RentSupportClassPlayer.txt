@@ -1,0 +1,46 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+//= 1.0a
+//==============================================
+oasis,165,111,4	script	เช่านก รถเข็น ปิโกะ	98,{
+soundeffect "monster.wav",0;
+	if (ismounting()) {
+		message strcharinfo(0),"[ระบบ] ก่อนอื่นคุณต้องนำสิ่งที่คุณใช้อยู่แล้วออกเสียก่อนนะ.";
+		end;
+	} else if (((eaclass()&EAJ_THIRDMASK)==EAJ_RANGER) && !countitem(6124)) {
+		if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) {
+			if(select(" ^FF0000•^000000 Falcon: ^FF0000•^000000 Warg")==1) setfalcon;
+			else getitem 6124,1; //Wolf's_Flute
+		} else getitem 6124,1; //Wolf's_Flute
+	} else if (((eaclass()&EAJ_THIRDMASK)==EAJ_MECHANIC) && !checkcart() && getskilllv("MC_PUSHCART")) {
+		if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) {
+			if(select(" ^FF0000•^000000 Cart: ^FF0000•^000000 Mado")==1) setcart;
+			else setmadogear;
+		} else setcart;
+	} else if (!checkcart() && getskilllv("MC_PUSHCART")) setcart;
+	else if (!checkfalcon() && getskilllv("HT_FALCON") && !checkwug()) setfalcon;
+	else if (!checkriding() && !checkdragon() && getskilllv("KN_RIDING")) {
+		if ((eaclass()&EAJ_THIRDMASK)==EAJ_RUNE_KNIGHT) setdragon;
+		else setriding;
+	} else if (!checkmadogear() && getskilllv("NC_MADOLICENCE")) setmadogear;
+	else {
+		message strcharinfo(0),"[ระบบ] ขออภัย คุณไม่ใช่คลาสที่สามารถใช้งานได้.";
+		end;
+	}
+	specialeffect2 EF_TEIHIT3;
+end;
+oninit:
+waitingroom "เช่านก รถเข็น ปิโกะ",0;
+end;
+}

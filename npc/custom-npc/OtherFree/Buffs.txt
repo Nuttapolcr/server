@@ -1,0 +1,168 @@
+-	script	BuffsSupports	-1,{
+
+goto MAINBUFF;
+//OnPCBaseLvUpEvent:
+//	if(strnpcinfo(2) != "01")	end;
+OnTouch:
+MAINBUFF:
+	set .@delay, 3;	// ดีเลย์การใช้งาน (วินาที)
+	set .@cast, 1;	// ระยะเวลาร่าย (วินาที)
+	
+	if ( gettimetick(2)-@delay_heal < .@delay )
+		dispbottom "[ระบบ] โปรดรออีก "+(.@delay-(gettimetick(2)-@delay_heal))+" วินาทีถึงจะใช้งานได้อีกครั้งนะค่ะ";
+	else
+	{
+		progressbar "0x007000", .@cast;
+		soundeffect "buff.wav",0;
+		
+		set @delay_heal, gettimetick(2);
+
+		//ข้อความที่ต้องการให้NPCพูด
+		npctalk "[เอลฟ์แห่งเสียงดนตรี] ท่านได้รับพลังพิเศษจากเทพอาธีน่าแล้ว";
+		//เช็คไอเทมที่เสียหายถ้ามีซ่อมให้ทันที
+		if (getbrokenid(1) > 0) 
+		{ 
+			atcommand "@repairall";
+		}
+		
+		//แก้สถานะต่างๆ
+		sc_end SC_STAN;
+		sc_end SC_STUN;
+		sc_end SC_STONE;
+		sc_end SC_SLOWDOWN;
+		sc_end SC_FREEZE;
+		sc_end SC_SLEEP;
+		sc_end SC_CURSE;
+		sc_end SC_SILENCE;
+		sc_end SC_CONFUSION;
+		sc_end SC_BLIND;
+		sc_end SC_BLEEDING;
+		sc_end SC_DECREASEAGI;
+		sc_end SC_POISON;
+		sc_end SC_HALLUCINATION;
+		sc_end SC_STRIPWEAPON;
+		sc_end SC_STRIPARMOR;
+		sc_end SC_STRIPHELM;
+		sc_end SC_STRIPSHIELD;
+		sc_end SC_CHANGEUNDEAD;
+		sc_end SC_ORCISH;
+		sc_end SC_BERSERK;
+		sc_end SC_SKE;
+		sc_end SC_SWOO;
+		sc_end SC_SKA;
+		sc_end SC_BURNING;
+		sc_end SC_FREEZING;
+		sc_end SC_FEAR;
+
+		//บัพค่าอาหาร 30นาที Support rAthena
+		sc_start SC_STRFood, 1800000,5;
+		sc_start SC_AGIFood, 1800000,5;
+		sc_start SC_VITFood, 1800000,5;
+		sc_start SC_INTFood, 1800000,5;
+		sc_start SC_DEXFood, 1800000,5;
+		sc_start SC_LUKFood, 1800000,5;
+		
+		//บัพสกิลต่างๆ
+		sc_start SC_BLESSING,1800000,10;
+		sc_start SC_INCREASEAGI,1800000,10;
+		sc_start 41,1800000,10; //กอเรีย
+		sc_start 40,1800000,10; // MAGNIFICAT เร่ง
+		if(agitcheck()){
+				sc_end SC_POEMBRAGI;
+				sc_end SC_SERVICE4U;
+				sc_end SC_ASSNCROS;
+				sc_end SC_APPLEIDUN;
+			dispbottom "[เอลฟ์แห่งเสียงดนตรี] คุณ เป็นผู้เล่น ระดับ ทั่วไป  ยกเลิกสถานะ ( บากิ & เซอร์วิส ) เนื่องจากอยู่ในช่วงเวลา สงครามชิงปราสาท)";
+		}else{
+			sc_start4 SC_POEMBRAGI,1000*60*5,5,70,90,10;
+			sc_start4 SC_SERVICE4U,1000*60*5,5,40,40,1;
+			dispbottom "[เอลฟ์แห่งเสียงดนตรี] คุณ เป็นผู้เล่น ระดับ ทั่วไป ในขณะคุณได้อยู่ในสถานะ ( บากิ & เซอร์วิส ) เป็นเวลา 5 นาที (ไม่สามารถใช้ได้ใน สนามประลอง & สงครามชิงปราสาท ได้)";
+		}
+
+		//เพิ่มHPและSP 100%
+		percentheal 100,100; 
+		
+		//เอฟเฟกเพิ่มความสวยงาม
+		specialeffect 509;
+		specialeffect 410;
+		specialeffect2 509;
+		specialeffect2 EF_HEAL2;
+		specialeffect2 EF_INCAGILITY;
+		specialeffect2 EF_BLESSING;
+		//==============================================
+		//==============================================
+		//==============================================
+		
+		//ส่องไอเทมปริศนาที่มีในตัวทั้งหมด
+			atcommand "@identifyall";
+
+		
+		
+		// VIP บัพ
+		if(vip_status(VIP_STATUS_ACTIVE) || getgmlevel() >= 99){
+			sc_start 72,1800000,5; // WEAPON เคลือบอาวุธ
+			sc_start 73,1800000,5; // SHIELD เคลือบโล่
+			sc_start 74,1800000,5; // ARMOR เคลือบชุดเกราะ
+			sc_start 75,1800000,5; // HELM เคลือบส่วนหัว
+			sc_start SC_SpeedUp1,1800000,1; //วิ่งเร็ว
+			sc_start SC_ATKPOTION,1800000,50; //+atk
+			sc_start SC_MATKPOTION,1800000,50; //+matk
+			sc_start SC_ENDURE,1800000,10;
+			sc_start 29,1800000,10; //แอง
+			sc_start SC_IMPOSITIO,1800000,5;
+			sc_start 41,1800000,5; //กอเรีย
+			sc_start 34,1800000,1; //พิษ
+			sc_start 121,1800000,10; //วินวอค
+			sc_start 39,1800000,10; //ไครี่
+			sc_start 120,1800000,10; // Falconeye
+			sc_start 36,1800000,10; // SUFFRAGIUM ร่ายไว
+			//sc_start 115,1800000,5; // ASSUMPTIO ถึก
+			sc_start 40,1800000,5; // MAGNIFICAT เร่ง
+			sc_start 44,1800000,5; // WEAPONPERFECTION เพิ่มโจมตี 100% อาวุธ
+			sc_start 46,1800000,5; //MAXIMIZEPOWER โจมตีแรงที่สุด
+			sc_start SC_HitFood,1800000,10;
+			sc_start SC_FleeFood,1800000,10;
+			sc_start SC_BATKFood,1800000,10;
+			sc_start SC_MATKFood,1800000,10;
+			
+			if(agitcheck()){
+				sc_end SC_POEMBRAGI;
+				sc_end SC_SERVICE4U;
+				sc_end SC_ASSNCROS;
+				sc_end SC_APPLEIDUN;
+				dispbottom "[เอลฟ์แห่งเสียงดนตรี] คุณ เป็นผู้เล่น ระดับ VIP ได้รับ บัพช่วยเหลือพิเศษ & ยกเลิกสถานะ ( บากิ & เซอร์วิส ) เนื่องจากอยู่ในช่วงเวลา สงครามชิงปราสาท)";
+			}else{
+				sc_start4 SC_POEMBRAGI,1000*60*15,5,70,90,10;
+				sc_start4 SC_SERVICE4U,1000*60*15,5,40,40,1;
+				dispbottom "[เอลฟ์แห่งเสียงดนตรี] คุณ เป็นผู้เล่น ระดับ VIP ได้รับ บัพช่วยเหลือพิเศษ & ในขณะคุณได้อยู่ในสถานะ ( บากิ & เซอร์วิส ) เป็นเวลา 15 นาที (ไม่สามารถใช้ได้ใน สนามประลอง & สงครามชิงปราสาท ได้)";
+			}
+			
+			//เพิ่มHPและSP 100%
+			percentheal 100,100; 
+			
+			//เอฟเฟกเพิ่มความสวยงาม
+			specialeffect 509;
+			specialeffect 410;
+			specialeffect2 509;
+			specialeffect2 EF_HEAL2;
+			specialeffect2 EF_INCAGILITY;
+			specialeffect2 EF_BLESSING;
+			//==============================================
+			//==============================================
+			//==============================================
+		}
+		end;
+	}
+}
+
+//==============================================
+oasis,164,97,4	duplicate(BuffsSupports)	Heal AB#01	569
+//oasis,214,70,4	duplicate(BuffsSupports)	Heal AB#02	569
+oasis,163,34,4	duplicate(BuffsSupports)	Heal AB#03	569
+oasis,163,144,4	duplicate(BuffsSupports)	Heal AB#04	569
+oasis,154,244,4	duplicate(BuffsSupports)	Heal AB#05	569
+oasis,165,280,4	duplicate(BuffsSupports)	Heal AB#06	569
+oasis,51,173,4	duplicate(BuffsSupports)	Heal AB#07	569
+oasis,279,198,4	duplicate(BuffsSupports)	Heal AB#08	569
+oasis,224,144,6	duplicate(BuffsSupports)	Heal AB#09	569
+

@@ -1,0 +1,77 @@
+function	script	F_CS2_Open	{
+	if ($@CS2_cnt <= 0) {
+		dispbottom "[WoE Warp] ยังไม่ได้ตั้งค่าปราสาทหรือคอนฟิกไม่พร้อม.";
+		return;
+	}
+
+	mes "[ Warper Castles ]";
+	mes "รายการ : ^FF0000" + $@CS2_event_name$ + "^000000";
+	mes "วัน/เวลา: ^FF0000" + $@CS2_event_date$ + "^000000  เวลา: ^FF0000" + $@CS2_event_time$ + "^000000";
+
+	if (lastwarp$ != "")
+		.@pick = select("~ วาร์ปล่าสุด ^777777[" + lastwarp$ + "]^000000","^FF0000~ "+$@CS2_event_menu_title$+"^000000");
+	else
+		.@pick = select("^FF0000~ "+$@CS2_event_menu_title$+"^000000");
+
+	if (lastwarp$ != "" && .@pick == 1) {
+		warp lastwarp$, lastwarpx, lastwarpy;
+		close;
+	}
+
+	if ((lastwarp$ != "" && .@pick == 3) || (lastwarp$ == "" && .@pick == 2)) {
+		sc_end SC_POEMBRAGI; sc_end SC_SERVICE4U; sc_end SC_ENCHANTARMS;
+		warp "morocc",142,163;
+		close;
+	}
+
+	sc_end SC_POEMBRAGI; sc_end SC_SERVICE4U; sc_end SC_ENCHANTARMS; sc_end SC_ASSUMPTIO;
+	sc_end SC_AURABLADE; sc_end SC_MAGICPOWER; sc_end SC_CARTBOOST; sc_end SC_TRUESIGHT;
+	sc_end SC_FLEEFOOD;  sc_end SC_HITFOOD;
+
+	.@ver = $@CS2_ver;
+
+	.@menu$ = "";
+	for (.@i = 0; .@i < $@CS2_cnt; ++.@i) {
+		explode(.@p$, $@CS2_castle_cfg$[.@i], "|"); // [0]=ชื่อ [1]=เปิด(0/1) [2]=ท้าย
+		.@is_open  = atoi(.@p$[1]);
+		.@status$  = ( .@is_open ? "^00AA00[เปิด]^000000" : "^777777[ปิด]^000000" );
+		.@tail$    = ( .@p$[2] == "0" ? "" : .@p$[2] );
+		.@suffix$  = ( getstrlen(.@tail$) > 0 ) ? " (" + ( .@is_open ? "^FF0000"+.@tail$+"^000000" : "^777777"+.@tail$+"^000000" ) + ")" : "";
+		.@menu$    = .@menu$ + ( .@i ? ":" : "" ) + "~" + .@p$[0] + " " + .@status$ + .@suffix$;
+	}
+
+	.@sel = select(.@menu$) - 1;
+
+	if ($@CS2_ver != .@ver) {
+		message strcharinfo(0), "[แจ้งเตือน] มีการอัพเดทตั้งค่า โปรดลองใหม่อีกครั้ง.";
+		close;
+	}
+
+	if (.@sel < 0 || .@sel >= $@CS2_cnt) {
+		dispbottom "[WoE Warp] เลือกไม่ถูกต้อง.";
+		close;
+	}
+
+	explode(.@p$, $@CS2_castle_cfg$[.@sel], "|");
+	if (!atoi(.@p$[1])) {
+		message strcharinfo(0), "[แจ้งเตือน] ปราสาทนี้ยังไม่เปิดค่ะ";
+		close;
+	}
+
+	.@map$ = $@CS2_maps$[.@sel];
+	.@x    = $@CS2_xy[.@sel*2];
+	.@y    = $@CS2_xy[.@sel*2+1];
+
+	set lastwarp$, .@map$;
+	set lastwarpx, .@x;
+	set lastwarpy, .@y;
+
+	warp .@map$, .@x, .@y;
+	close;
+}
+
+-	script	CS2#UI	-1,{
+OnStart:
+	callfunc "F_CS2_Open";
+	end;
+}

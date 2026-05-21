@@ -1,0 +1,154 @@
+morocc,126,87,4	script	ResetOption	637,{
+	mes "[ResetOption]";
+	mes "โปรดเลือกอุปกรณ์ที่ท่านต้องการสุ่มออฟชั่นใหม่";
+	next;
+
+	setarray .@indices[1], EQI_SHOES, EQI_GARMENT, EQI_HEAD_LOW, EQI_HEAD_MID, EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R;
+	for(set .@i, 1; .@i < getarraysize(.@indices); set .@i, .@i + 1) {
+		if(getequipisequiped(.@indices[.@i])) {
+			.@menu$ = .@menu$ + F_getpositionname(.@indices[.@i]) + " - [" + getequipname(.@indices[.@i]) + "]";
+			.@equipped = 1;
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+
+	if (.@equipped == 0) {
+		mes "[ResetOption]";
+		mes "เจ้าไม่ได้สวมใส่ไอเท็ม";
+		close;
+	}
+
+	set .@part, .@indices[select(.@menu$)];
+	set .@refine, getequiprefinerycnt(.@part);
+	if (.@refine == 0) {
+		mes "[ResetOption]";
+		mes "อุปกรณ์ชิ้นนี้ยังไม่ได้ทำการอัพเกรด";
+		close;
+	}
+
+	.@equip_id = getequipid(.@part);
+	.@type = getiteminfo(.@equip_id, ITEMINFO_TYPE);
+
+	.@is_head = 0;
+	if (.@part == EQI_HEAD_LOW || .@part == EQI_HEAD_MID || .@part == EQI_HEAD_TOP)
+		.@is_head = 1;
+
+	.@cat = 0;
+	if (.@type == IT_WEAPON) .@cat = 1;
+	else if (.@is_head) .@cat = 3;
+	else .@cat = 2;
+
+	.@soul_id = 1001519;
+
+	.@need_base_ref = 0;
+	.@need_base_amt = 0;
+	.@need_soul_amt = 0;
+	.@need_refresher = 0;
+	.@zeny = 0;
+
+	if (.@cat == 1) {
+		if (.@refine == 7) { .@need_base_ref = 5; .@need_base_amt = 1; .@need_soul_amt = 10; .@need_refresher = 1001526; .@zeny = 1000000; }
+		else if (.@refine == 8) { .@need_base_ref = 5; .@need_base_amt = 2; .@need_soul_amt = 10; .@need_refresher = 1001527; .@zeny = 1000000; }
+		else if (.@refine == 9) { .@need_base_ref = 6; .@need_base_amt = 1; .@need_soul_amt = 10; .@need_refresher = 1001528; .@zeny = 1500000; }
+		else if (.@refine == 10) { .@need_base_ref = 6; .@need_base_amt = 2; .@need_soul_amt = 10; .@need_refresher = 1001529; .@zeny = 2000000; }
+		else {
+			mes "[ResetOption]";
+			mes "อาวุธรองรับเฉพาะ +7 ถึง +10";
+			close;
+		}
+	}
+	else if (.@cat == 2) {
+		if (.@refine == 5 || .@refine == 6) { .@need_base_ref = 0; .@need_base_amt = 3; .@need_soul_amt = 5; .@need_refresher = 1001530; .@zeny = 500000; }
+		else if (.@refine == 7 || .@refine == 8) { .@need_base_ref = 5; .@need_base_amt = 1; .@need_soul_amt = 10; .@need_refresher = 1001531; .@zeny = 1000000; }
+		else if (.@refine == 9) { .@need_base_ref = 6; .@need_base_amt = 1; .@need_soul_amt = 10; .@need_refresher = 1001532; .@zeny = 1500000; }
+		else if (.@refine == 10) { .@need_base_ref = 6; .@need_base_amt = 2; .@need_soul_amt = 10; .@need_refresher = 1001533; .@zeny = 2000000; }
+		else {
+			mes "[ResetOption]";
+			mes "อุปกรณ์รองรับเฉพาะ +5 ถึง +10";
+			close;
+		}
+	}
+	else {
+		if (.@refine == 5 || .@refine == 6) { .@need_base_ref = 0; .@need_base_amt = 1; .@need_soul_amt = 5; .@need_refresher = 1001530; .@zeny = 500000; }
+		else if (.@refine == 7 || .@refine == 8) { .@need_base_ref = 5; .@need_base_amt = 1; .@need_soul_amt = 10; .@need_refresher = 1001531; .@zeny = 1000000; }
+		else if (.@refine == 9) { .@need_base_ref = 6; .@need_base_amt = 1; .@need_soul_amt = 10; .@need_refresher = 1001532; .@zeny = 1500000; }
+		else if (.@refine == 10) { .@need_base_ref = 6; .@need_base_amt = 2; .@need_soul_amt = 10; .@need_refresher = 1001533; .@zeny = 2000000; }
+		else {
+			mes "[ResetOption]";
+			mes "หมวกรองรับเฉพาะ +5 ถึง +10";
+			close;
+		}
+	}
+
+	getinventorylist;
+	deletearray .@delidx[0], 128;
+	.@match = 0;
+
+	for (set .@i, 0; .@i < @inventorylist_count; set .@i, .@i + 1) {
+		if (@inventorylist_id[.@i] != .@equip_id) continue;
+		if (@inventorylist_equip[.@i] != 0) continue;
+		if (@inventorylist_refine[.@i] != .@need_base_ref) continue;
+		.@delidx[.@match] = .@i;
+		.@match++;
+	}
+
+	mes "[ResetOption]";
+	mes "การรีเซตออฟชั่นอุปกรณ์จำเป็นต้องใช้";
+	mes "^00c03e•^000000 ^i["+.@equip_id+"] " + getitemname(.@equip_id) + " ^0000FF+" + .@need_base_ref + "^000000 x" + .@need_base_amt;
+	mes "^00c03e•^000000 ^i["+.@soul_id+"] " + getitemname(.@soul_id) + " x" + .@need_soul_amt;
+	mes "^00c03e•^000000 ^i["+.@need_refresher+"] " + getitemname(.@need_refresher) + " x1";
+	mes "^00c03e•^000000 " + .@zeny + " Zeny";
+	next;
+
+	if (select("ยืนยัน:ยกเลิก") == 2)
+		close;
+
+	if (Zeny < .@zeny) {
+		mes "[ResetOption]";
+		mes "เจ้ามีเงินไม่เพียงพอ";
+		close;
+	}
+
+	if (.@match < .@need_base_amt) {
+		mes "[ResetOption]";
+		mes "เจ้ามี ^i["+.@equip_id+"] " + getitemname(.@equip_id) + " ^0000FF+" + .@need_base_ref + "^000000 ไม่เพียงพอ";
+		close;
+	}
+
+	if (countitem(.@soul_id) < .@need_soul_amt) {
+		mes "[ResetOption]";
+		mes "เจ้ามี ^i["+.@soul_id+"] " + getitemname(.@soul_id) + " ไม่เพียงพอ";
+		close;
+	}
+
+	if (countitem(.@need_refresher) < 1) {
+		mes "[ResetOption]";
+		mes "เจ้ามี ^i["+.@need_refresher+"] " + getitemname(.@need_refresher) + " ไม่เพียงพอ";
+		close;
+	}
+
+	for (set .@i, 0; .@i < .@need_base_amt; set .@i, .@i + 1) {
+		delitem2 .@equip_id, 1,
+			@inventorylist_identify[.@delidx[.@i]],
+			.@need_base_ref,
+			@inventorylist_attribute[.@delidx[.@i]],
+			@inventorylist_card1[.@delidx[.@i]],
+			@inventorylist_card2[.@delidx[.@i]],
+			@inventorylist_card3[.@delidx[.@i]],
+			@inventorylist_card4[.@delidx[.@i]];
+	}
+
+	delitem .@soul_id, .@need_soul_amt;
+	delitem .@need_refresher, 1;
+	set Zeny, Zeny - .@zeny;
+
+	reset_refine_option .@part;
+
+	mes "[ResetOption]";
+	mes "เสร็จสมบูรณ์";
+	close;
+
+OnInit:
+	waitingroom "Reset Option", 0;
+	end;
+}

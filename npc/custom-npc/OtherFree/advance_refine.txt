@@ -1,0 +1,193 @@
+function	script	advance_refine	{
+	disable_items;
+	mes "[Suhnbi]";
+	mes "ฉันคือ Armsmith.";
+	mes "^FF0000โปรดอ่าน ก่อนอื่นขอเตื่อนท่านก่อนหากมี *ใบกันแตก* ค่อยๆกดเมนูดีๆน๊ะ^000000";
+	mes "ฉันสามารถที่จะปรับแต่งอาวุธ, ชุดเกราะ และ เครื่องนุ่งห่ม, ดังนั้น";
+	mes "บอกฉันว่าคุณต้องการที่จะปรับแต่งอุปกรณ์ชนิดใด.";
+	next;
+
+	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+	for(set .@i,1; .@i<=10; set .@i,.@i+1) {
+		if (getequipisequiped(.@indices[.@i])) {
+			set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+			set .@equipped,1;
+		}
+		set .@menu$, .@menu$ + ":";
+	}
+	if (.@equipped == 0) {
+		mes "[Suhnbi]";
+		mes "ฉันคิดว่าฉันไม่สามารถที่จะปรับแต่งอุปกรณ์ใดๆที่คุณไม่ได้สวมใส่มันเลย...";
+		close;
+	}
+	set .@part, .@indices[ select(.@menu$) ];
+
+	if (!getequipisequiped(.@part))
+		close;
+	if (!getequipisenableref(.@part)) {
+		mes "[Suhnbi]";
+		mes "กลับไปหาช่างตีเหล็กคนอื่น. คุณไม่สามารถที่จะปรับแต่งอุปกรณ์นี้ได้.";
+		close;
+	}
+	if (getequiprefinerycnt(.@part) >= 10) {
+		mes "[Suhnbi]";
+		mes "อืมม... มันสมบูรณ์แบบอยู่แล้ว. ฉันไม่คิดว่าฉันสามารถที่จะปรับแต่งมันได้อีก.";
+		close;
+	}
+
+	.@price = getequiprefinecost(.@part, REFINE_COST_ENRICHED, REFINE_ZENY_COST);
+	.@material = getequiprefinecost(.@part, REFINE_COST_ENRICHED, REFINE_MATERIAL_ID);
+
+	if ( countitem(32009) > 0 )
+	{
+		mes "[Suhnbi]";
+		mes "คุณมีไอเท็ม "+ getitemname(32009) +"";
+		mes "ที่มีไว้สำหรับป้องกันอาวุธ และ อุปกรณ์สวมใส่เสียหายหากเกิดความผิดพลาดระหว่างอัพเกรด";
+		mes "คุณต้องการที่จะใช้มันเลยหรือไม่ ?";
+		next;
+		if(select("ใช้ทันที:ยังก่อน") == 1)
+		{
+			delitem 32009,1;
+			set .@protect,1;
+		}
+	}
+	
+	callsub S_RefineValidate,getequipweaponlv(.@part),.@material,.@price,.@part;
+	
+	mes "[Suhnbi]";
+	mes "คร๊อง ! แคร๊ง ! คร๊อง ! แคร๊ง !";
+	if (getequippercentrefinery(.@part, true) > rand(100)) {
+		successrefitem .@part;
+		next;
+		emotion ET_BEST;
+		mes "[Suhnbi]";
+		mes "คุณไปได้แล้ว ! มันสำเร็จแล้ว.";
+		mes "คุณได้รับการปรับแต่ง "+((getequipweaponlv(.@part))?"อาวุธ":"ชุดเกราะ")+". คุณจะต้องมีความสุขแน่ๆ เพราะมันได้เป็นสิ่งที่แข็งแกร่งแล้วแน่ๆ.";
+		close;
+	}
+	else if ( .@protect != 0 )
+	{
+		specialeffect2 155;
+		next;
+		emotion (!rand(5))?ET_MONEY:ET_HUK;
+		mes "[Suhnbi]";
+		mes "ฮุ้วววววววววว!!!";
+		next;
+		mes "[Suhnbi]";
+		mes "...";
+		mes ".....";
+		mes ".......ฮุฮุฮุฮุ~";
+		mes "........มันเป็นทางเลือกของคุณ,ฉันเสียใจ.";
+		close;
+	}
+	else
+	{
+		failedrefitem .@part;
+		next;
+		emotion (!rand(5))?ET_MONEY:ET_HUK;
+		mes "[Suhnbi]";
+		mes "ฮุ้วววววววววว!!!";
+		next;
+		mes "[Suhnbi]";
+		mes "...";
+		mes ".....";
+		mes ".......ฮุฮุฮุฮุ~";
+		mes "........มันเป็นทางเลือกของคุณ,ฉันเสียใจ.";
+		close;
+	}
+
+S_RefineValidate:
+	.@weapon_lvl = getarg(0);
+	.@item_req = getarg(1);
+	set .@price, getarg(2);
+
+	if (VIP_SCRIPT && !vip_status(VIP_STATUS_ACTIVE)) {
+		switch(.@weapon_lvl){
+			case 0: set .@price, .@price * 10; break;
+			case 1: set .@price, .@price * 40; break;
+			case 2: set .@price, .@price * 50; break;
+			case 3: set .@price, .@price * 2; break;
+			case 4: set .@price, .@price * 2; break;
+		}
+	}
+
+	mes "[Suhnbi]";
+	if (.@weapon_lvl)
+		mes "คุณต้องการปรับแต่งอาวุธเลเวล "+ .@weapon_lvl +" งั้นหรือ ?";
+	mes "เพื่อปรับแต่งอุปกรณ์คุณจะต้องมี ^ff9999"+ getitemname(.@item_req) +"^000000 และ "+ .@price +" zeny.";
+	mes "คุณต้องการที่จะดำเนินการต่อหรือไม่ ?";
+	next;
+	if(select("ดำเนินการต่อ:ยกเลิก") == 1) {
+		if (getequippercentrefinery(getarg(3)) < 100) {
+			if (.@weapon_lvl) {
+				mes "[Suhnbi]";
+				mes "ว้าว!!";
+				mes "อาวุธนี้ดูเหมือนว่า";
+				mes "จะได้รับการปรับแต่งมาก่อนแล้ว...";
+				mes "หลายครั้ง...";
+				mes "มันอาจจะถูกทำลาย";
+				mes "ถ้าหากคุณปรับแต่งมันอีกครั้ง.";
+				next;
+				mes "[Suhnbi]";
+				mes "และ ถ้าหากล้มเหลว,";
+				mes "คุณจะไม่สามารถใช้งานมันได้อีกต่อไป !";
+				mes "การ์ดทั้งหมดในนั้นและคุณสมบัติ ^ff0000จะหายไป^000000!";
+				mes "^ff0000นอกจากนี้, อุปกรณ์ก็ยังถูกทำลาย !^000000";
+				mes "คุณแน่ใจนะว่าคุณยังต้องการที่จะดำเนินการต่อไป ?";
+				next;
+				if(select("ใช่:ไม่") == 2) {
+					mes "[Suhnbi]";
+					mes "ดี.";
+					mes "เพราะถ้าอาวุธถูกทำลายละหว่างการปรับแต่ง, ฉันก็คงรู้สึกไม่ดีไปด้วย.";
+					close;
+				}
+			} else {
+				mes "[Suhnbi]";
+				mes "ฮาฮา. ฮาฮา. โอ้, คุณมีความกล้า, กล้าที่จะรับการปรับแต่งอุปกรณ์เพิ่มเติม.";
+				mes "คุณก็รู้ว่ามันมีผลต่อความเสี่ยงด้วย, หรือว่าคุณไม่ ?";
+				next;
+				mes "หากอุปกรณ์ของคุณถูกทำลาย, คุณจะไม่สามารถที่จะกลับไปใช้มันได้อีกครั้ง.";
+				mes "แม้แต่การ์ดหรือคุณสมบัติของคุณจะ ^ff0000ถูกทำลายไปด้วย^000000.";
+				mes "ทุกอย่างจะหายไป. ในขณะที่... หายไป!";
+				mes "คุณแน่ใจหรือว่ายังต้องการที่จะดำเนินการต่อไป ?";
+				next;
+				if(select("ใช่:ไม่") == 2) {
+					mes "[Suhnbi]";
+					mes "อะไรคือสิ่งที่ว่าไร้สาระ. คุณกำลังทำให้เวลาอันมีค่าของฉัน.";
+					mes "ได้หายไป.";
+					close;
+				}
+			}
+		}
+		
+		if (countitem(.@item_req) > 0 && Zeny > .@price) {
+			delitem .@item_req,1;
+			set Zeny, Zeny - .@price;
+			return;
+		}
+		mes "[Suhnbi]";
+		mes "นี่คือสิ่งที่คุณต้องการทั้งหมด ?";
+		mes "ฉันเสียใจจริงๆ, แต่ฉันไม่สามารถที่จะดำเนินการใดๆได้หากไม่มีวัตถุดิบทั้งหมด. นอกจากนี้, ฉันควรได้รับเงินบางส่วนจากการทำงานของฉัน.";
+		close;
+	}
+	mes "[Suhnbi]";
+	mes "ฉันไม่สามารถช่วยอะไรได้ แม้ว่าคุณจะไม่ได้มีความสุขกับมันสักเท่าไหร่...";
+	close;
+	
+OnInit:
+	setarray .messages$,"ต","ี","บ","ว","ก","ข","ั","้","น","ส","ู","ง";
+	while( 1 )
+	{
+		set .Display$,"";
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+	end;
+	
+}

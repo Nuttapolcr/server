@@ -1,0 +1,56 @@
+pvp_n_8-5.gat,100,113,4	script	AllMvp	811,{
+mes "[ ^FF0000Mvp^000000 ] ";
+mes " คุณต้องการล่า Mvp ทุกตัวเลยใช่ไหม (ยกเว้น ตัวใหม่) ";
+mes " Mvp Version เก่า ไม่โหดมากหลอกนะ ";
+menu "^CC0000[ ออกล่า–Mvp ] จำนวน ["+getmapusers("xmas_fild01.gat")+"] คนแล้ว^000000",mvp,"ดูอัตตราการดอป และ อื่นๆ",Others,"ออก",Lcancel;
+
+mvp:
+warp "xmas_fild01.gat",0,0;
+close;
+
+Others:
+mes " [ ผู้รอบรู้ ] ";
+mes " อัตตราการดอป ";
+mes " 1.ปรับอัตตราการดอป Item ยกเว้นการ์ด 10% - 20% ";
+mes " 2.ปรับอัตตราการดอป Card 5% บอสทุกตัว ยกเว้น Ghostring / Tao Gunka / Moonlight / Golden BuG / Thanatos ";
+mes " 3.ปรับให้ล่า Mvp ง่ายขึ้น ดอป TCG ทุกตัว ";
+mes " 4.ดอปทุกอย่างนะครับ ตาม TRO เพียงปรับให้ง่ายข้น ";
+mes " 5.มอนสเตอร์ทุกตัว ตายแล้วเกิดทันที ภายใน 1 วินาที - 1นาที ถ้าไม่เกิด กรุณาแจ้ง ";
+close;
+
+Lcancel:
+close;
+OnInit:
+Waitingroom "ล่า Mvp ทุกตัว",0;
+end;
+}
+
+xmas_fild01.gat,0,0,0,0	monster	Maya	1147,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Ghostring	1120,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Phreeoni	1159,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Turtle Generial	1312,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Golden Bug	1086,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Drake	1112,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Angeling	1096,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Stormy Knight	1251,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Eddga 	1115,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Orc hero	1087,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Orc lord	1190,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	MISTRESS	1059,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Dark lord	1272,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Lord of Death	1373,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Dark Snake Lord	1418,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Osiris	1038,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Doppelganger	1046,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Incantation Samurai	1492,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Dracula	1389,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	MOONLIGHT	1150,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Baphomet	1039,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	PHARAOH	1157,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	GARM	1252,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Wind Crystal	1395,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Earth Crystal	1396,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Fire Crystal	1397,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Water Crystal	1398,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	Tao Gunka	1583,1,0,0,0
+xmas_fild01.gat,0,0,0,0	monster	RSX-0806	1623,1,0,0,0

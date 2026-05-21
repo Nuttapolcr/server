@@ -1,0 +1,27 @@
+morocc,99,48,4	script	Upgrade Equipment	813,{
+	switch(select("~ µ’∫«°·√Ë∏√√¡¥“:~ µ’∫«°·√Ë¢—Èπ Ÿß"))
+	{
+		case 1:
+			callfunc "refinemain","Upgrade Equipment",0;
+			end;
+		case 2:
+			callfunc "advance_refine","Upgrade Equipment",0;
+			end;
+	}
+
+OnInit:
+	setarray(.messages$,"™Ë","“","ß","µ’","∫","«","°");
+	while( 1 )
+	{
+		set(.Display$,"");
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set(.Display$,.Display$ + .messages$[.i]);
+			delwaitingroom();
+			waitingroom(.Display$,0);
+			sleep(100);
+		}
+	sleep(1000);
+	}
+	end;
+}

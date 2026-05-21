@@ -1,0 +1,142 @@
+//===== eAthena Script =======================================
+//= Disabled Warps
+//===== By: ==================================================
+//= Nana (1.0)
+//===== Current Version: =====================================
+//= 1.2
+//===== Description: =========================================
+//= Disabled Warp's for entire Athena
+//===== Additional Comments: =================================
+//= No comment!
+//============================================================
+
+
+//= Morroc City ==============================================
+morocc,160,17,0	warp	moc001	2,2,moc_fild12,159,378
+morocc,24,164,0	warp	moc004	1,2,moc_fild19,164,107
+morocc,302,207,0	warp	moc005	2,2,moc_fild10,22,207
+
+//= Morroc Ruins ============================================
+
+moc_ruins,71,16,0	warp	moc007	8,2,moc_fild19,71,167
+
+
+
+
+
+//= Sograt Dessert ==============moc_fild=============================
+
+moc_fild06,207,18,0	warp	mocf14	11,2,moc_fild10,208,295
+moc_fild05,82,16,0	warp	mocf12	5,2,moc_fild09,80,366
+moc_fild05,268,18,0	warp	mocf11	4,2,moc_fild09,267,368
+moc_fild05,144,375,0	warp	mocf009	11,2,prt_fild10,263,23
+moc_fild05,325,382,0	warp	mocf010	6,2,prt_fild09,95,19
+moc_fild04,175,18,0	warp	mocf08	3,2,moc_fild08,170,380
+moc_fild04,92,381,0	warp	mocf008	9,2,prt_fild09,246,19
+moc_fild01,22,242,0	warp	mocf005	2,2,prt_fild09,380,237
+moc_fild01,379,162,0	warp	mocf011	2,12,pay_fild04,20,165
+moc_fild02,350,339,0	warp	mocf012	6,2,pay_fild04,194,20
+moc_fild02,228,29,0	warp	mocf03	4,2,moc_fild13,298,367
+moc_fild02,71,18,0	warp	mocf05	4,2,moc_fild13,146,365
+moc_fild03,17,37,0	warp	mocf06	2,4,moc_fild13,305,49
+
+//Payon Guild Castles Map Connection
+//moc_fild02,378,272,0	warp	payg002	1,1,pay_gld,20,276
+//payon,17,151,0	warp	payg001	1,1,pay_gld,370,149
+
+
+//= Ant Hell =====================chang warp============================
+
+anthell01,35,267,0	warp	moc_ant1-2	1,1,moc_fild15,250,250
+
+//anthell01,35,267,0	warp	moc_ant1-2	1,1,moc_fild04,212,327
+
+
+//= Payon Field's ============================================
+
+pay_fild01,379,201,0	warp	payf03	2,6,pay_fild07,23,207
+
+pay_fild03,172,281,0	warp	payf08	5,2,pay_fild07,167,20			
+
+
+
+//= Prontera Fields ==========================================
+
+prt_fild07,206,12,0	warp	prtf13	4,2,prt_fild09,224,377
+prt_fild07,84,13,0	warp	prtf16	4,2,prt_fild09,87,377
+prt_fild05,105,381,0	warp	prtf013	5,2,mjolnir_09,106,34
+prt_fild05,292,385,0	warp	prtf014	4,2,mjolnir_09,305,33
+prt_fild01,261,373,0	warp	prtf010	6,2,mjolnir_10,265,16
+prt_fild01,66,373,0	warp	prtf011	2,2,mjolnir_10,66,18
+prt_fild01,20,292,0	warp	prtf009	2,3,mjolnir_09,370,288
+prt_fild00,159,383,0	warp	prtf007	4,2,mjolnir_07,156,19
+prt_fild00,383,249,0	warp	prtf008	2,4,mjolnir_09,33,248
+
+//Geffen City==========================================
+geffen,119,213,0	warp	gef001	3,2,gef_fild04,187,42
+geffen,26,119,0	warp	gef004	2,3,gef_fild07,336,187
+
+//= Geffen Field Warps =======================================
+
+gef_fild02,266,18,0	warp	gef026	5,2,prt_fild10,227,296
+gef_fild02,14,78,0	warp	geff03	2,4,gef_fild03,379,77
+gef_fild02,16,275,0	warp	geff04	2,4,gef_fild03,379,277
+gef_fild01,16,102,0	warp	geff01	2,4,gef_fild09,368,92
+gef_fild01,69,17,0	warp	geff02	4,2,gef_fild03,66,379
+gef_fild00,267,382,0	warp	gef007	4,2,mjolnir_06,265,32
+
+
+
+
+//= Hidden Temple ============================================
+
+//prt_maze01,14,45,0	warp	mazewarp5137	1,1,mjolnir_12,44,21
+
+
+
+
+
+
+//= world map ep2.0 =======================================
+
+//= Mt. Mjolnir ==============================================
+
+mjolnir_05,220,382,0	warp	mjol08	4,2,mjolnir_12,220,29
+
+
+//= Geffen Field Warps =======================================
+
+//Glastheim
+
+
+
+//= Payon Field's ============================================
+//pay_fild02,134,16,0	warp	payf04	5,2,pay_fild05,127,375	
+
+
+//= Morroc Sphinx ============================================
+//in_sphinx3,12,69,0	warp	sphx05	4,1,in_sphinx4,10,222
+
+
+//= Morroc Pyramid ===========================================
+//moc_prydb1,100,55,0	warp	mocp09-1	2,1,moc_pryd05,94,96
+
+
+//= Bibilyn Island ===========================================
+//iz_dun03,264,245,0	warp	izd06	1,2,iz_dun04,26,27
+
+
+
+
+
+//= world map ep3.0 =======================================
+
+//= Geffen Field Warps =======================================
+
+//gef_fild13,25,202,0	warp	geff15-1	1,1,gef_fild12,364,180
+//gef_fild13,26,59,0	warp	geff16-1	1,1,gef_fild12,370,50
+pay_fild03,313,16,0	warp	payf09	4,2,pay_fild06,305,372
+
+
+//= world map ep4.0 =======================================
+gef_fild06,20,304,0	warp	gef027	3,3,glast_01,370,304

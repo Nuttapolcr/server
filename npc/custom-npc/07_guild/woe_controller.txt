@@ -1,0 +1,508 @@
+///=============================================================
+/// - WOE Controller Script : -:-'rAthena'-:-
+/// - Translator English - Thai : -:-'rAthena'-:-
+/// - Hercules Server
+/// - WOE Controller
+/// - Disable Agit Controller 
+///   > npc\guild\agit_controller.txt
+///   > npc\guild2\agit_start_se.txt
+///=============================================================
+
+/// Information NPC
+///============================================================
+sec_pri,23,37,4	script	WOE Information	852,{
+	doevent "WOE_CONTROL::OnMenu";
+	end;
+OnAgitStart:
+	while(agitcheck()) {
+		misceffect EF_BEGINSPELL6;
+		sleep 425;
+	}
+	end;
+}
+
+/// Script Core
+///============================================================
+-	script	WOE_CONTROL	-1,{
+function Disp_Owner; function Add_Zero;
+
+OnInit:
+
+// -----------------------------------------------------------
+//  Configuration settings.
+// -----------------------------------------------------------
+
+	set .CastleWarp,0;		// 1: Always enable all castle warps. | 0: Warp only to active castles.
+	set .AutoKick,1;		// Automatically kick players from inactive castles during WOE? (1:yes / 0:no)
+	set .NoOwner,0; 		// Automatically kick players from unconquered castles outside of WOE? (1:yes / 0:no)
+	set .ExitWarp,0;		// Warp all players from castles when WOE ends? (1:yes / 0:no)
+	set .GMAccess,99;		// GM level required to access Session Manager.
+
+// -----------------------------------------------------------
+//  Reward options.
+// -----------------------------------------------------------
+//  [1] Enable rewards. 
+//  [2] Mail all rewards.
+//      - If not set, players receive items in their inventory.
+//      - Only ONE item can be sent via mail, plus Zeny.
+//      - Note that offline players do NOT receive rewards.
+//  [4] Only reward Guild Masters.
+//      - If not set, all guild members are rewarded.
+//      - If mailing is enabled (option 2), offline Guild Masters WILL receive rewards.
+//  [8] Duplicate IP check.
+//      - Members in a guild with the same IP address are not rewarded.
+//      - If Guild Masters is enabled (option 4), this feature is not used.
+// -----------------------------------------------------------
+
+	// Combine values as needed (e.g. 1|8 = 1+8 = 9).
+	set .Options, 1|8;
+
+	// Rewards per castle.
+	// -- when given directly: <itemID>,<amount>{,<itemID>,<amount>,...}
+	// -- via mail (option 2): <itemID>,<amount>,<Zeny>
+	//setarray .Reward[0],14001,1;
+
+// -----------------------------------------------------------
+//  Constants (leave this section alone).
+//  (ตัดเฉพาะ Morocc ออก เหลือ 4 ภูมิภาค x 5 ปราสาท = 20 ปราสาท)
+// -----------------------------------------------------------
+
+	setarray .Castles$[0],
+		"prtg_cas01","prtg_cas02","prtg_cas03","prtg_cas04","prtg_cas05",
+		"payg_cas01","payg_cas02","payg_cas03","payg_cas04","payg_cas05",
+		"gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05",
+		"aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05";
+	setarray .EndLabel$[0],"ar01","ar02","ar03","ar04","ar05","sc01","sc02","sc03","sc04","sc05";
+	setarray .Days$[0],"อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์";
+	setarray .Regions$[0],"Prontera","Payon","Geffen","Aldebaran";
+	setarray .Map$[0],"prt_gld","pay_gld","gef_fild13","alde_gld";
+	setarray .MapX[0], 0,0,0,0,0,   0,0,0,0,0,   0,0,0,0,0,   0,0,0,0,0;
+	setarray .MapY[0], 0,0,0,0,0,   0,0,0,0,0,   0,0,0,0,0,   0,0,0,0,0;
+
+	set .CastleCount, getarraysize(.Castles$);     // = 20
+	set .RegionCount, getarraysize(.Regions$);     // = 4
+
+// -----------------------------------------------------------
+
+	set .Size, getarraysize($WOE_CONTROL);
+	if (.AutoKick || .NoOwner)
+		for(set .@i,0; .@i<.CastleCount; set .@i,.@i+1) {
+			setmapflag .Castles$[.@i], mf_loadevent;
+			setd "."+.Castles$[.@i], .@i;
+		}
+	if (!agitcheck() && !agitcheck2()) sleep 4000;
+	set .Init,1;
+
+OnMinute00:
+OnMinute30:
+	freeloop(1);
+	set .@now_slot, (gettime(3) * 2) + ((gettime(2) >= 30) ? 1 : 0);
+	if (agitcheck() || agitcheck2()) {
+		for(set .@i,0; .@i<.Size; set .@i,.@i+4)
+			if (gettime(4) == $WOE_CONTROL[.@i] && .@now_slot == $WOE_CONTROL[.@i+2]) {
+			OnWOEEnd:
+				announce "สงคราม กิลวอร์ ได้จบลงแล้ว!",bc_all|bc_woe;
+				agitend; agitend2;
+				sleep 1000;
+				for(set .@j,0; .@j<.CastleCount; set .@j,.@j+1) {
+					if (.Active[0]&(1<<.@j)) Disp_Owner(.Castles$[.@j],1);
+					if (.ExitWarp) maprespawnguildid .Castles$[.@j],0,3;
+				}
+				if (.Options&1 && .Active[0] && .ForceEnd != 2) callsub OnReward, .Active[0];
+				deletearray .Active[0],2;
+				if (.ForceEnd) { set .ForceEnd,0; end; }
+				break;
+			}
+	}
+	if ((!agitcheck() && !agitcheck2()) || .Init) {
+		if (!agitcheck() && !agitcheck2()) set .Init,0;
+		for(set .@i,0; .@i<.Size; set .@i,.@i+4)
+			if (gettime(4) == $WOE_CONTROL[.@i] && .@now_slot >= $WOE_CONTROL[.@i+1] && .@now_slot < $WOE_CONTROL[.@i+2]) {
+				deletearray .Active[0],2;
+				set .Active[0], $WOE_CONTROL[.@i+3];
+				if (.Init) { agitend; agitend2; }
+				else announce "สงคราม กิลวอร์ ได้เริ่มขึ้นแล้ว!",bc_all|bc_woe;
+				sleep 1000;
+				agitstart; agitstart2;
+				for(set .@j,0; .@j<.CastleCount; set .@j,.@j+1) {
+					if (.Active[0]&(1<<.@j)) {
+						if (!.Init) Disp_Owner(.Castles$[.@j],0);
+						set .Active[1], .Active[1] | (1<<((.@j/5)+1)); // บิตภูมิภาค
+					} else {
+						donpcevent "Agit#"+.Castles$[.@j]+"::OnAgitEnd";
+						killmonster .Castles$[.@j], "Agit#"+.Castles$[.@j]+"::OnAgitBreak";
+					}
+				}
+				break;
+			}
+	}
+	set .Init,0;
+	end;
+
+function Disp_Owner {
+	set .@o, getcastledata(getarg(0),1);
+	if (.@o) announce "The ["+getcastlename(getarg(0))+"] castle "+((getarg(1))?" ได้ถูกยึดแล้ว ":"is currently held")+" โดย the ["+getguildname(.@o)+"] guild.",bc_all|bc_woe;
+	else announce "The ["+getcastlename(getarg(0))+"] castle is currently unoccupied.",bc_all|bc_woe;
+	return;
+}
+function TimeLabel; function SlotNow;
+function Add_Zero {
+	return ((getarg(0)<10)?"0":"")+getarg(0)+(getarg(1,0)?".":":")+"00";
+}
+
+function TimeLabel {
+	set .@s, getarg(0);
+	if (.@s < 0) set .@s, 0;
+	if (.@s > 48) set .@s, 48;
+	set .@h, .@s/2;
+	set .@m, (.@s%2)?30:0;
+	return ((.@h<10)?"0":"")+.@h+((getarg(1,0))?".":":")+((.@m==0)?"00":"30");
+}
+function SlotNow {
+	return (gettime(3)*2) + ((gettime(2) >= 30) ? 1 : 0);
+}
+OnReward:
+	set .@sql$, ((.Options&4)?"position = 0":"online = 1");
+	if (.Options&2) set .@str$,gettimestr("%B %d, %Y",25);
+	freeloop(1);
+	for(set .@i,0; .@i<.CastleCount; set .@i,.@i+1)
+		if (getarg(0)&(1<<.@i)) {
+			set .@GID, getcastledata(.Castles$[.@i],1);
+			if (!.@GID) continue;
+			set .@size, query_sql("SELECT account_id,char_id FROM `guild_member` WHERE guild_id = '"+.@GID+"' AND "+.@sql$,.@aid,.@cid);
+			for(set .@j,0; .@j<.@size; set .@j,.@j+1) {
+				if (.Options&8 && !(.Options&4)) {
+					set .@ip$, replacestr(getcharip(.@aid[.@j]),".","a");
+					if (getd(".@ip_"+.@i+"_"+.@ip$)) continue;
+					setd ".@ip_"+.@i+"_"+.@ip$,1;
+				}
+				if (.Options&2) {
+					query_sql("INSERT INTO `mail` (send_name,dest_id,title,message,nameid,amount,identify,zeny,time) VALUES ("+
+					          "'no-reply',"+.@cid[.@j]+",'** Siege Reward: "+getcastlename(.Castles$[.@i])+" **',"+
+					          "'Brave one,% % Congratulations!% Your guild has successfully occupied% territory in the War of Emperium on% "+.@str$+".% % % % % [ Your reward is attached. ]',"+
+					          .Reward[0]+","+.Reward[1]+",0,"+.Reward[2]+",UNIX_TIMESTAMP(NOW()))");
+					if (!getd(".@str_"+.@cid[.@j]) && isloggedin(.@aid[.@j],.@cid[.@j])) {
+						setd ".@str_"+.@cid[.@j],1;
+						message rid2name(.@aid[.@j]),"You've got mail! Please re-login to update your mailing list.";
+					}
+				} else if (isloggedin(.@aid[.@j])) {
+					for(set .@k,0; .@k<getarraysize(.Reward); set .@k,.@k+2)
+						getitem .Reward[.@k], .Reward[.@k+1], .@aid[.@j];
+					message rid2name(.@aid[.@j]),"You have been rewarded for conquering "+getcastlename(.Castles$[.@i])+".";
+				}
+			}
+		}
+	if (.Options&2) query_sql("UPDATE `mail` SET message = REPLACE(message,'%',CHAR(13)) WHERE send_name = 'no-reply'");
+	return;
+
+OnPCLoadMapEvent:
+	for (.@i = 0; .@i < getarraysize(.Castles$); .@i++) {
+		if (strcharinfo(3) == .Castles$[.@i]) {
+			sc_end SC_FOOD_STR_CASH;
+			sc_end SC_FOOD_AGI_CASH;
+			sc_end SC_FOOD_VIT_CASH;
+			sc_end SC_FOOD_INT_CASH;
+			sc_end SC_FOOD_DEX_CASH;
+			sc_end SC_FOOD_LUK_CASH;
+			sc_end SC_ATKPOTION;
+			sc_end SC_MATKPOTION;
+			sc_end SC_FLEEFOOD;
+			sc_end SC_HITFOOD;
+			sc_end SC_EXTRACT_SALAMINE_JUICE;
+		}
+	}
+	if (!compare(strcharinfo(3),"g_cas")) end;
+	if (((.AutoKick && .Active[0]) || (.NoOwner && !getcastledata(strcharinfo(3),1))) && !(.Active[0]&(1<<getd("."+strcharinfo(3))))) {
+		if (getcharid(2) && getcastledata(strcharinfo(3),1) == getcharid(2)) end;
+		sleep2 1000;
+		message strcharinfo(0), getcastlename(strcharinfo(3))+" is currently inactive.";
+		sleep2 5000;
+		if (compare(strcharinfo(3),"g_cas")) warp "SavePoint",0,0;
+	}
+	end;
+
+OnMenu:
+while(1) {
+	mes "[รายละเอียด กิลวอร์]";
+	if (agitcheck() || agitcheck2()) {
+		set .@now_slot, (gettime(3) * 2) + ((gettime(2) >= 30) ? 1 : 0);
+		if (.Active[0]) {
+			set .@end_slot, -1;
+			for(set .@idx,0; .@idx<.Size; set .@idx, .@idx+4) {
+				if (gettime(4) == $WOE_CONTROL[.@idx] &&
+				    .@now_slot >= $WOE_CONTROL[.@idx+1] &&
+				    .@now_slot <  $WOE_CONTROL[.@idx+2]) {
+					set .@end_slot, $WOE_CONTROL[.@idx+2];
+					break;
+				}
+			}
+			if (.@end_slot >= 0)
+				mes "สงคราม กิลวอร์ ได้ ^0055FFเริ่มขึ้น^000000 แล้ว และจะจบในเวลา ^FF0000"+TimeLabel(.@end_slot,1)+"^000000 รายละเอียด ปราสาท ที่ถูกเปิดขึ้น:";
+			else
+				mes "สงคราม กิลวอร์ ได้ ^0055FFเริ่มขึ้น^000000 แล้ว.";
+			mes " ";
+			for(set .@i,0; .@i<.RegionCount; set .@i,.@i+1)
+				if (.Active[1]&(1<<(.@i+1))) mes " > ^777777"+.Regions$[.@i]+"^000000";
+		} else
+			mes "สงคราม กิลวอร์ ได้ ^0055FFเริ่มขึ้น^000000 แล้ว.";
+	} else {
+		for(set .@i,0; .@i<.Size; set .@i,.@i+4)
+			if ((gettime(4) == $WOE_CONTROL[.@i] && gettime(3) <= $WOE_CONTROL[.@i+1]) || gettime(4) < $WOE_CONTROL[.@i]) {
+				setarray .@time[0], $WOE_CONTROL[.@i], $WOE_CONTROL[.@i+1];
+				break;
+			}
+		if (!getarraysize(.@time))
+			setarray .@time[0],$WOE_CONTROL[0],$WOE_CONTROL[1];
+		mes "สงครามกิลวอร์ได้ ^777777จบลง^000000 แล้ว.";
+		if (.Size) {
+			mes " ";
+			mes "สงคราม กิลวอร์ ในครั้งถัดไป";
+			mes "วัน ^0055FF"+.Days$[.@time[0]]+"^000000 เวลา "+TimeLabel(.@time[1],1)+"^000000.";
+		}
+	}
+	next;
+	switch(select(""+((.CastleWarp || .Active[1])?" ~ วาร์ป ไปยัง ปราสาท...":"")+": ~ เช๊ค ตารางเวลา...: ~ ตรวจสอบ เจ้าของปราสาท...:"+((getgmlevel()<.GMAccess || !getgmlevel())?"":" ~ จัดการ ระบบกิลวอร์...")+": ~ ^777777ยกเลิก^000000")) {
+	case 1:
+		if (.CastleWarp) set .@clr$,"^0055FF";
+		set .@menu$,"";
+		for(set .@i,0; .@i<.RegionCount; set .@i,.@i+1) {
+			if (.CastleWarp || .Active[1]&(1<<(.@i+1)))
+				set .@menu$, .@menu$+" ~ "+((.Active[1]&(1<<(.@i+1)))?.@clr$:"^777777")+.Regions$[.@i]+" Castles^000000";
+			set .@menu$, .@menu$+":";
+		}
+		set .@i, select(.@menu$)-1;
+
+		set .@menu$,"";
+		set .@start, .@i*5;
+		set .@end,   .@start+5;
+		if (.@end > .CastleCount) set .@end, .CastleCount;
+
+		for(set .@j,.@start; .@j<.@end; set .@j,.@j+1) {
+			if (.CastleWarp || .Active[0]&(1<<.@j))
+				set .@menu$, .@menu$+" ~ "+((.Active[0]&(1<<.@j))?.@clr$:"^777777")+getcastlename(.Castles$[.@j])+"^000000";
+			set .@menu$, .@menu$+":";
+		}
+		set .@j, select(.@menu$)-1 + .@start;
+		warp .Map$[.@i], .MapX[.@j], .MapY[.@j];
+		close;
+
+	case 2:
+		mes "[ตารางเวลา]";
+		if (.Size) {
+			freeloop(1);
+			for(set .@i,0; .@i<.Size; set .@i,.@i+4) {
+				mes "> ^FF0000"+.Days$[$WOE_CONTROL[.@i]]+" ("+TimeLabel($WOE_CONTROL[.@i+1],1)+"-"+TimeLabel($WOE_CONTROL[.@i+2],1)+")^000000";
+				for(set .@j,0; .@j<.CastleCount; set .@j,.@j+1)
+					if ($WOE_CONTROL[.@i+3]&(1<<.@j)) mes "  ~ "+getcastlename(.Castles$[.@j])+" ^777777("+.Castles$[.@j]+")^000000";
+				if (.@i+4 < .Size) mes " ";
+			}
+			freeloop(0);
+		} else
+			mes "ยัง ไม่กำหนด วันเวลา.";
+		next;
+		break;
+
+	case 3:
+		mes "[ผู้ครอบครองปราสาท]";
+		for(set .@i,0; .@i<.RegionCount; set .@i,.@i+1) {
+			set .@k, .@i*5;
+			mes "> ^FF0000"+.Regions$[.@i]+"^000000";
+			set .@end, .@k+5;
+			if (.@end > .CastleCount) set .@end, .CastleCount;
+			for(set .@j,.@k; .@j<.@end; set .@j,.@j+1) { 
+				set .@t, getcastledata(.Castles$[.@j],1);
+				mes "  ~ "+getcastlename(.Castles$[.@j])+": "+((.@t)?"^0055FF"+getguildname(.@t):"^777777unoccupied")+"^000000";
+			}
+			if (.@i < (.RegionCount-1)) mes " ";
+		}
+		next;
+		break;
+
+	case 4:
+	while(1) {
+		mes "[จัดการ ระบบกิลวอร์]";
+		mes "ตอนนี้คุณได้กำหนดวันไปแล้ว ";
+		mes "^0055FF"+(.Size/4)+" ครั้ง^000000.";
+		mes " ";
+		mes "กรุณาเลือก สิ่งที่ท่านต้องการจะจัดการ?";
+		next;
+		switch(select(" ~ เพิ่ม วันเวลา...: ~ ลบ วันเวลา...: ~ Reload settings...:"+((agitcheck() || agitcheck2())?" ~ สิ้นสุดกิลวอร์...":"")+": ~ ^777777กลับ ไปหน้าแรก^000000")) {
+		case 1:
+			mes "[เพิ่ม วันเวลา กิลวอร์]";
+			if (.Size > 127) {
+				mes "You have already reached the maximum of 32 sessions.";
+				next;
+				break;
+			}
+			mes "กรุณาเลือก วัน ที่จะกำหนด.";
+			next;
+			set .@day, select(" ~ "+implode(.Days$,": ~ "))-1;
+			mes "[เพิ่ม วันเวลา กิลวอร์]";
+			mes "คุณได้เลือก วัน ^0055FF"+.Days$[.@day]+"^000000.";
+			next;
+			set .@menu$,"";
+			for(set .@i,0; .@i<48; set .@i,.@i+1)
+				set .@menu$, .@menu$+" ~ "+TimeLabel(.@i,1)+":";
+			set .@start, select(.@menu$)-1;
+			mes "[เพิ่ม วันเวลากิลวอร์]";
+			mes "คุณต้องการจบเวลากิลวอร์ ^0055FF"+.Days$[.@day]+"^000000.";
+			next;
+			set .@menu$,"";
+			for(set .@i,.@start+1; .@i<=48; set .@i,.@i+1)
+				set .@menu$, .@menu$+" ~ "+TimeLabel(.@i,1)+":";
+			set .@end, select(.@menu$)+.@start;
+			for(set .@i,0; .@i<.Size; set .@i,.@i+4)
+				if (.@day == $WOE_CONTROL[.@i] &&
+				((.@start >= $WOE_CONTROL[.@i+1] && .@start < $WOE_CONTROL[.@i+2]) ||
+					(.@end   >  $WOE_CONTROL[.@i+1] && .@end   <= $WOE_CONTROL[.@i+2]) ||
+					(.@start <= $WOE_CONTROL[.@i+1] && .@end   >= $WOE_CONTROL[.@i+2]))) {
+					mes "[เพิ่ม วันเวลากิลวอร์]";
+					mes "ไม่สามารถทำรายการได้ เนื่องจาก";
+					mes "มี วัน และ เวลา ซ้ำ อยู่แล้ว";
+					mes "กรุณาทำรายการใหม่";
+					next;
+					set .@d,1;
+					break;
+				}
+			if (.@d) { set .@d,0; break; }
+			set .@castle,0;
+			while(1) {
+				mes "[เพิ่ม วันเวลากิลวอร์]";
+				mes "^0055FF"+.Days$[.@day]+" ("+TimeLabel(.@start,1)+"-"+TimeLabel(.@end,1)+")^000000";
+				mes " > ปราสาท:";
+				if (!.@castle)
+					mes "   ~ ^777777(ยัง ไม่ได้กำหนด)^000000";
+				else for(set .@i,0; .@i<.CastleCount; set .@i,.@i+1)
+					if (.@castle&(1<<.@i)) mes "   ~ "+getcastlename(.Castles$[.@i])+" ("+.Castles$[.@i]+")";
+				next;
+				set .@menu$,((.@castle)?" ~ ^FF0000สิ้นสุด...^000000":"")+":";
+				for(set .@i,0; .@i<.CastleCount; set .@i,.@i+1)
+					set .@menu$, .@menu$+" ~ "+((.@castle&(1<<.@i))?"^0055FF":"")+getcastlename(.Castles$[.@i])+" ("+.Castles$[.@i]+")^000000:";
+				set .@i, select(.@menu$)-1;
+				if (.@i)
+					set .@castle, .@castle^(1<<(.@i-1));
+				else {
+					mes "[เพิ่ม วันเวลากิลวอร์]";
+					mes "คุณแน่ใจที่จะทำรายการต่อหรือไม่?";
+					next;
+					switch(select(" ~ ^0055FFแน่ใจ...^000000: ~ กลับ ไปเลือกปราสาท...: ~ ^777777ยกเลิก^000000")) {
+					case 1:
+						for(set .@i,0; .@i<.Size; set .@i,.@i+4)
+							if ((.@day == $WOE_CONTROL[.@i] && .@end <= $WOE_CONTROL[.@i+1]) || .@day < $WOE_CONTROL[.@i]) {
+								set .@d,1;
+								break;
+							}
+						if (!.@d) { set .@d,1; set .@i,.Size; }
+						copyarray $WOE_CONTROL[.@i+4], $WOE_CONTROL[.@i], .Size-.@i;
+						setarray $WOE_CONTROL[.@i], .@day, .@start, .@end, .@castle;
+						set .Size, getarraysize($WOE_CONTROL);
+					case 3:
+						mes "[เพิ่ม วันเวลากิลวอร์]";
+						mes ((.@d)?"ได้เพิ่ม วันเวลา เรียบร้อยแล้วค่ะ.":"Cancelled.");
+						next;
+						set .@d,1;
+					case 2:
+						break;
+					}
+					if (.@d) { set .@d,0; break; }
+				}
+			}
+			break;
+		case 2:
+			mes "[ลบ วันเวลากิลวอร์]";
+			if (!.Size) {
+				mes "คุณยังไม่ได้กำหนดวันเวลากิลวอร์.";
+				next;
+				break;
+			}
+			mes "กรุณาเลือก ^FF0000รายการ^000000 ที่จะทำการลบ.";
+			next;
+			set .@menu$,"";
+			for (set .@i,0; .@i<.Size; set .@i, .@i+4) {
+				set .@day,  $WOE_CONTROL[.@i];
+				set .@start,$WOE_CONTROL[.@i+1];
+				set .@end,  $WOE_CONTROL[.@i+2];
+				set .@menu$, .@menu$+" ~ "+.Days$[.@day]+" ("+TimeLabel(.@start,1)+"-"+TimeLabel(.@end,1)+"):";
+			}
+			set .@menu$, .@menu$+" ~ ^777777Cancel^000000";
+			set .@i, select(.@menu$)-1;
+			if (.@i == (.Size/4)) break;
+			mes "[ลบ วันเวลากิลวอร์]";
+			mes "คุณต้องการที่จะลบรายการ ^0055FF"+.Days$[$WOE_CONTROL[.@i*4]]+"^000000 ออกจากระบบ?";
+			mes "ถ้าหากทำรายการแล้วจะไม่สามารถยกเลิกได้.";
+			next;
+			set .@j, select(" ~ ^FF0000ลบ รายการที่เลือก...^000000: ~ ^777777ยกเลิก^000000");
+			mes "[Remove Session]";
+			if (.@j == 2)
+				mes "ยกเลิกการทำรายการแล้วค่ะ.";
+			else {
+				deletearray $WOE_CONTROL[.@i*4],4;
+				set .Size, getarraysize($WOE_CONTROL);
+				mes "รายการได้ถูกลบออกจากระบบแล้วค่ะ.";
+			}
+			next;
+			break;
+		case 3:
+			mes "[Reload Settings]";
+			mes "การทำรายการนี้จะทำให้เริ่มระบบใหม่";
+			mes "ทั้งหมด.";
+			if (agitcheck() || agitcheck2()) {
+				mes " ";
+				mes "โปรดทราบว่าถ้าหากทำรายการนี้แล้วจะส่งผลกระทบต่อการใช้งานปัจจุบัน.";
+			}
+			next;
+			set .@i, select(" ~ ^0055FFReload settings...^000000: ~ ^777777ยกเลิก^000000");
+			mes "[Reload Settings]";
+			if (.@i == 2) mes "ยกเลิกรายการเรียบร้อยแล้วค่ะ.";
+			else {
+				set .Init,1;
+				donpcevent "WOE_CONTROL::OnMinute00";
+				mes "ทำการ Reload เรียบร้อยแล้วค่ะ.";
+			}
+			next;
+			break;
+		case 4:
+			mes "[หยุดระบบกิลวอร์]";
+			if (!agitcheck() && !agitcheck2())  {
+				mes "กิลวอร์ ได้สิ้นสุดลงแล้ว.";
+				next;
+				break;
+			}
+			mes "คำสั่งนี้จะดำเนินการได้อย่างปลอดภัยหากกิลวอร์ได้เริ่มอยู่.";
+			mes " ";
+			mes "คุณต้องการที่จะสิ้นสุดกิลวอร์หรือไม่?";
+			next;
+			set .@i, select(" ~ ^FF0000สิ้นสุดรายการ...^000000:"+((.Options&1)?" ~ ^FF0000สิ้นสุดรายการและไม่ได้รางวัล...^000000":"")+": ~ ^777777ยกเลิก^000000");
+			mes "[หยุดระบบกิลวอร์]";
+			if (.@i == 3)
+				mes "ยกเลิกรายการเรียบร้อยแล้วค่ะ.";
+			else {
+				set .ForceEnd, .@i;
+				donpcevent "WOE_CONTROL::OnWOEEnd";
+				mes "กิลวอร์ ได้ถูกปิดลงแล้ว.";
+			}
+			next;
+			break;
+		case 5:
+			set .@d,1; break;
+		}
+		if (.@d) { set .@d,0; break; }
+		} break;
+	case 5:
+		close;
+	} }
+}
+
+-	script	WOE_MIGRATE_SLOTS	-1,{
+OnInit:
+	if (!$WOE_MIGRATED && getarraysize($WOE_CONTROL)) {
+		for (set .@i, 0; .@i < getarraysize($WOE_CONTROL); set .@i, .@i + 4) {
+			if ($WOE_CONTROL[.@i+1] <= 24 && $WOE_CONTROL[.@i+2] <= 24) {
+				set $WOE_CONTROL[.@i+1], $WOE_CONTROL[.@i+1] * 2;
+				set $WOE_CONTROL[.@i+2], $WOE_CONTROL[.@i+2] * 2;
+			}
+		}
+		set $WOE_MIGRATED, 1;
+	}
+	end;
+}

@@ -1,0 +1,19 @@
+###########################################################################
+# Whispering Rain
+###########################################################################
+
+Header:
+  Type: REFINE_RANDOMOPT_DB
+  Version: 1
+
+Body:
+# - RefineLevel: 1
+#   Groups:
+#     - GroupName: Suit
+#       Option: Group_1
+#       ItemsList:
+#         - Item: Valkyrie_Armor
+#         - Item: Valkyrie_Manteau
+#         - Item: Valkyrie_Shoes
+#         - Item: Valkyrie_Helm
+#         - Item: Valkyrja's_Shield

@@ -1,0 +1,49 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+function	script	RandomSealedCardEgg	{
+setarray .OTH_ITEMLIST[0],12912,14198,12913,12914,12919,12922,61502,61001,16682,12412,7776,13571,12915,6665,12103,12900,12901,12909;
+setarray .COSN_ITEMLIST[0],16666,16770;
+setarray .RARE_ITEMLIST[0],4540,4541,4542,4543,4544,4480,4481,4482,4483,4484,4485,4486,4487,4488,4489,4490,4491,4492,4493,4494,4495,4496,4497,4498,4499,4500,4501,4502,4503,4504,4535,4536,4537,4538,4539,22875,22846;
+setarray .min_amount,1;
+setarray .max_amount,1;
+ 
+    set .rand, rand(0,100);
+    switch(.rand){
+        case 1:
+            set .Random, rand( getarraysize( .RARE_ITEMLIST ) );
+            getitem .RARE_ITEMLIST[ .Random ], 1;
+            announce "ผู้เล่น ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random Sealed Card Egg ได้รับ "+getitemname(.RARE_ITEMLIST[ .Random ])+" ea.!!!",bc_all,0xCC00CC;
+        break;
+       
+       
+        case 2:
+            set .Random, rand( getarraysize( .COSN_ITEMLIST ) );
+            getitem .COSN_ITEMLIST[ .Random ], 1;
+            announce "ผู้เล่น ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random Sealed Card Egg ได้รับ "+getitemname(.COSN_ITEMLIST[ .Random ])+" ea.!!",bc_all,0x0000FF;
+        break;
+       
+        default:
+            set .@amount,rand( .min_amount[.@random],.max_amount[.@random] );
+            set .Random, rand( getarraysize( .OTH_ITEMLIST ) );
+        if ( .OTH_ITEMLIST[ .Random ] == 0 || .OTH_ITEMLIST[ .Random ] == 0 ) {
+            getitem .OTH_ITEMLIST[ .Random ], 1;
+			dispbottom "คุณ ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random Sealed Card Egg ได้รับ "+getitemname(.OTH_ITEMLIST[ .Random ])+" ea.";
+            } else {
+            getitem .OTH_ITEMLIST[ .Random ], .@amount;
+			dispbottom "คุณ ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random Sealed Card Egg ได้รับ "+getitemname(.OTH_ITEMLIST[ .Random ])+" จำนวน "+.@amount+" ea.";
+        }
+        break;
+    }
+ 
+}

@@ -1,0 +1,18 @@
+oasis,128,71,5	script	Socket Enchant	798,{
+	callfunc "socket_enchant",1,2;
+OnInit:
+	setarray .messages$,"เ","จ","า","ะ","รู","อุ","ป","ก","ร","ณ์";
+	while( 1 )
+	{
+		set(.Display$,"");
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+	end;
+}

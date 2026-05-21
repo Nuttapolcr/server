@@ -1,0 +1,73 @@
+
+-	script	gbreeder	726,{
+	
+
+	mes "สวัสดี ฉันคือผู้ดูแลสัตว์ขี่และเครื่องจักรในมอร็อค!";
+	mes "เลือกเช่าได้เลยแต่ต้องมี Zeny 10,000 และสกิลที่เหมาะสมนะ!";
+	next;
+
+	switch(select("บริการให้เช่า:ยกเลิก")) {
+		case 1:
+			mes "^FF0000NPC ให้เช่าทั่วไป^000000";
+			mes "เลือกสัตว์ขี่หรือคู่หูที่ต้องการ!";
+			switch(select("ปิโกะปิโกะ:รถเข็น:นกฟอลคอน")) {
+				case 1: // PecoPeco
+					if(BaseClass == Job_Swordman && checkriding() == 0 && getskilllv("KN_RIDING") > 0) {
+						if(Zeny < 10000) {
+							mes "Zeny ไม่พอ! ต้องมี 10,000 Zeny";
+							close;
+						}
+						set Zeny, Zeny - 10000;
+						setriding;
+						mes "ได้ PecoPeco แล้ว! ขี่ให้สนุก!";
+						close;
+					} else {
+						mes "ต้องเป็น Swordman มีสกิล KN_RIDING";
+						close;
+					}
+				case 2: // Cart
+					if((BaseClass == Job_Merchant || Base_Job == Job_SuperNovice) && checkcart() == 0 && getskilllv("MC_PUSHCART") > 0) {
+						if(Zeny < 10000) {
+							mes "Zeny ไม่พอ! ต้องมี 10,000 Zeny";
+							close;
+						}
+						set Zeny, Zeny - 10000;
+						setcart;
+						mes "รถเข็นพร้อม! ไปค้าขายให้รวย!";
+						close;
+					} else {
+						mes "ต้องเป็น Merchant หรือ SuperNovice มีสกิล MC_PUSHCART";
+						close;
+					}
+				case 3: // Falcon
+					if(BaseJob != Job_Archer && BaseClass == Job_Archer && checkfalcon() == 0 && getskilllv("HT_FALCON") > 0) {
+						if(checkriding()) {
+							mes "มี Warg อยู่ ไม่เช่า Falcon ได้!";
+							close;
+						}
+						if(Zeny < 10000) {
+							mes "Zeny ไม่พอ! ต้องมี 10,000 Zeny";
+							close;
+						}
+						set Zeny, Zeny - 10000;
+						setfalcon;
+						mes "Falcon พร้อมบิน! ดูแลมันดี ๆ นะ!";
+						close;
+					} else {
+						mes "ต้องเป็น Archer มีสกิล HT_FALCON";
+						close;
+					}
+
+			}
+		case 2:
+			mes "^FF0000NPC ให้เช่าทั่วไป^000000";
+			mes "ไว้เจอกันใหม่นะ!";
+			close;
+	}
+	Oninit:
+	waitingroom "เช่า Peco Cart Falcon",0;
+	end;
+	
+}
+
+morocc,169,105,4	duplicate(gbreeder)	Peco Cart Falcon NPC#1	732

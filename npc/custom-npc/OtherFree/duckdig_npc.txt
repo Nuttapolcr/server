@@ -1,0 +1,210 @@
+-	shop	dig_shop1	-1,501:-1
+
+morocc,140,102,4	script	App Vote Server::duckdig_shop	848,{
+
+	function showmsg;
+	function check_pos;
+	function show_requirement;
+	function check_requirement;
+	function make_trade;
+
+	set .@accid, getcharid(3);
+
+	cleararray @katoo$[0] , 0, getarraysize(@katoo$);
+	cleararray .@point[0] , 0, getarraysize(.@point);
+	set .@player_vtpoint, 0;
+	query_sql "SELECT `point` FROM `duckdig` WHERE `account_id` = " + .@accid + " LIMIT 1", .@point;
+	if( .@point[0] > 0 )
+  {
+  	set .@player_vtpoint, .@point;
+  }
+
+	cleararray @quest[ 0 ] , 0 , getarraysize(  @quest ) ;
+
+	mes "[ ^0000ffVote Shop^000000 ]";
+	mes "มีอะไรให้ข้าช่วยหรือไม่ ?";
+	mes "คุณมีแต้มทั้งหมด : ^FF0000"+ .@player_vtpoint +" Point^000000";
+	mes "ไอเท็มในร้านค้านี้ไม่มีผล";
+	mes "หากคุณใช้สกิล DC ซื้อของ..!";
+	next;
+	mes "[ ^0000ffVote Shop^000000 ]";
+	mes "^FF0000สำคัญ ควรอ่านก่อน !^000000";
+	mes "ผู้เล่นสามารถแลกของรางวัลได้";
+	mes "จะต้องมีเงิน(Zeny) ในตัวละคร";
+	mes "ถึงแลกไอเท็มนั้นได้ งงมัยเอ๋ย!";
+	close2;
+	
+	callshop "dig_shop1", 1;
+	npcshopattach "dig_shop1";
+	end;
+
+
+OnBuyItem:
+	for( set @i, 0; @i < getarraysize(@bought_nameid); set @i, @i + 1 )
+	{
+		if( @bought_quantity[@i] <= 0 )
+		{
+			dispbottom "แจ้งเตือน : เกิดข้อผิดพลาด โปรดลองอีกครั้ง...!";
+			break;
+		}
+
+		set @j, check_pos( @bought_nameid[ @i ], .shop_id );
+		if( @j == 0 )
+		{
+			dispbottom "แจ้งเตือน : ไม่พบของที่ท่านต้องการ โปรดลองใหม่อีกครั้ง!!";
+			break;
+		}
+		cleararray @quest[ 0 ], 0, getarraysize(@quest);
+		copyarray @quest[ 0 ] , getd( ".quest" + .shop_id + "_" + @j + "[ 0 ]" ) , getarraysize( getd( ".quest" + .shop_id + "_" + @j ) ) ;
+		if( !check_requirement(@bought_quantity[@i]) )
+		{
+			make_trade(@bought_quantity[@i]) ;
+		}
+		else
+		{
+			//showmsg("=====================================");
+			//showmsg("แต้มที่ใช้ในการแลกเปลี่ยน " + getitemname(@bought_nameid[ @i ]) + "");
+			show_requirement();
+		}
+	}
+
+	deletearray @bought_quantity, getarraysize(@bought_quantity);
+	deletearray @bought_nameid, getarraysize(@bought_nameid);
+	end;
+
+
+/* -------------------------------------------------------------------------------------
+ ----- FUNCTIONS ! ---------------------------------------------------------------------
+ ----- Edit at your own risk -----------------------------------------------------------
+ -------------------------------------------------------------------------------------- */
+
+	function	showmsg
+	{
+		dispbottom getarg(0);
+	}
+
+	function	check_pos
+	{
+		// arg 0: item_id
+		// arg 1: shop_id
+		if( getarg(1) < 1 || getarg(1) > 9 )
+			return 0;
+
+		for( set .@i, 1; .@i <= 100; set .@i, .@i+1 )
+			if( getd(".quest" + getarg(1) + "_" + .@i + "[ 0 ]") == getarg(0) )
+				return .@i;
+		return 0;
+	}
+
+	//-- Function who show the requirement
+	function	show_requirement	{
+		// show needed point
+		//showmsg(" FB Point :  " + @quest[ 1 ] + " แต้ม");
+		dispbottom "แจ้งเตือน :  คุณมีแต้ม Vote Point ไม่เพียงพอ";
+		return ;
+	}
+
+	//-- Check if the player has all requirement.
+	function	check_requirement	{
+		// arg 0: bought quantity
+
+		set .@accid, getcharid(3);
+		set @l , 0 ;
+		// Look if player has enough point
+		set .@requiredpoint, @quest[ 1 ] * getarg(0);
+		query_sql "SELECT `point` FROM `duckdig` WHERE `account_id` = " + .@accid + " LIMIT 1", .@point;
+		if( .@point < .@requiredpoint )
+		{
+			// point is not enough
+			set @l , 1 ;
+		}
+		return @l ;
+	}
+
+	//-- Make The trade (delete requirements/give item)
+	function	make_trade	{
+		// arg 0: bought quantity
+
+		set .@accid, getcharid(3);
+		// deduct point
+		set .@requiredpoint, @quest[ 1 ] * getarg(0);
+		query_sql "SELECT `point` FROM `duckdig` WHERE `account_id` = " + .@accid + " LIMIT 1", .@point;
+		if( .@point < .@requiredpoint )
+		{
+			// point is not enough, not giving item
+		}
+		else
+		{
+			query_sql "UPDATE `duckdig` SET `point` = `point` - " + .@requiredpoint + " WHERE `account_id` = " + .@accid + " LIMIT 1";
+			// Give item.
+			getitem @quest[ 0 ] , getarg(0);
+			npctalk "Vote Server : คุณ "+strcharinfo(0)+" ได้แลกของรางวัล " + getitemname(@bought_nameid[ @i ]) + " จำนวน "+getarg(0)+"ea.";
+			//showmsg("คุณเหลือ FB Point : " + (.@point - .@requiredpoint));
+			dispbottom "แจ้งเตือน : คุณเหลือแต้ม Vote Point ทั้งหมด : " + (.@point - .@requiredpoint) +" Point";
+		}
+
+		return ;
+	}
+
+	function	digadditem	{
+		// arg 0: shop_id
+		// arg 1: item_code
+		// arg 2: point
+
+		set .lastpos[getarg(0)], .lastpos[getarg(0)] + 1;
+		set .@i, 1;
+		while( getarg(.@i,-1) != -1 )
+		{
+			// 0 : shop_id
+			// 1 : item_code
+			// 2 : point
+			// ex .quest0_1[0], item_code
+			// ex .quest0_1[1], point
+			setd ".quest" + getarg(0) + "_" + .lastpos[getarg(0)] + "[" + (.@i-1) + "]", getarg(.@i);
+			set .@i, .@i + 1;
+		}
+		npcshopadditem( "dig_shop" + getarg(0), getd(".quest" + getarg(0) + "_" + .lastpos[getarg(0)] + "[ 0 ]"), getd(".quest" + getarg(0) + "_" + .lastpos[getarg(0)] + "[ 1 ]")  );
+
+		return;
+		end;
+	}
+
+/* -------------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------------- */
+
+OnInit:
+	setarray .lastpos[1],0,0,0,0;
+
+	npcshopdelitem( "dig_shop1", 501 );
+	waitingroom "[ โหวตแลกของที่นี้ ]", 0;
+
+	if( .inited != 1 )
+		set .inited, 1;
+	else
+		end;
+		
+	// shop id
+	set .shop_id, 1;
+
+	//digadditem(.shop_id, 501, 5); // Redpotion ใช้ 5p
+	// item list start
+	digadditem( .shop_id, 12208, 100);
+	digadditem( .shop_id, 12210, 300);	
+	digadditem( .shop_id, 5135, 5000);
+	digadditem( .shop_id, 5389, 8000);
+	digadditem( .shop_id, 5359, 8000);
+	digadditem( .shop_id, 5325, 18000);	
+	digadditem( .shop_id, 5155, 35000);
+	digadditem( .shop_id, 5463, 5000);
+	digadditem( .shop_id, 5506, 22000);
+	digadditem( .shop_id, 5507, 22000);
+	digadditem( .shop_id, 5809, 18000);
+	digadditem( .shop_id, 5800, 18000);	
+	digadditem( .shop_id, 5206, 12000);
+	digadditem( .shop_id, 5137, 9000);
+	digadditem( .shop_id, 5132, 8000);
+	digadditem( .shop_id, 5377, 18000);
+	// item list end
+
+	end;
+}

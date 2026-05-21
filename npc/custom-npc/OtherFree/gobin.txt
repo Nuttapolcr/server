@@ -1,0 +1,568 @@
+///////////////////////////////////////////////
+//                                          //
+//                                          //
+//Tharakan Khumtong                         //
+//////////////////////////////////////////////
+-	script	KoboldvGobin_seting#1	-1,{
+OnInit:
+//////////////อัตราแลกเปลี่ยน//////////////
+set $KoboldvGobinlow,500;  //ราคาเดิมพัน
+set $KoboldvGobin_Cash,20;  //ค่าบริการ
+set $Bonus_time_plus,3; //ตีบวกติดต่อกันกี่ครั้งจะได้ Bonus Time
+set $KoboldvGobin_Cash_super,2; //อัตราคูณรางวัลปกติ ( 2 = ผู้เล่นจะได้เสียกันเองไม่เกียวกับเงินระบบ )
+set $KoboldvGobin_max,10;  //คนเต็มฝั่งละเท่าไหร่เริ่มเกมส์
+
+
+//////////////////////////	
+set $@KoboldvGobin$,"[ พนันตีบวก ]"; ///ชื่อ NPC	
+/////////////////////////////////////
+if(getd("$Koboldplayernum") == getd("$Gobinplayernum")	&&	getd("$Koboldplayernum") > 0	&& getd("$Gobinplayernum") > 0){donpcevent "KoboldvGobin_Run::OnKoboldvGobinOn";}
+////////////////////////////////////////
+
+}
+-	script	KoboldvGobin_reset#1	-1,{
+	OnClock2400:  setd "$winss",0;   setd "$wins",0; end;
+}
+
+oasis,216,57,4	script	Kobold Vs Gobin	813,{
+	if(getgmlevel()){
+		mes "^FF0000---GM MODE---^000000";
+		menu "รีเซ็ตค่าทั้งหมด",gm01,"เมนูปกติ",gm02;
+		
+		gm01:
+mes "^FF0000รีเซ็ตค่าทั้งหมดแล้ว....^000000";
+setd "$resetplayerre",1;
+	 setd "$over_bonus1",0;
+  setd "$over_bonus2",0;
+ setd "$Gobin_plus",0;
+ setd "$Kobold_plus",0;
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+  setd "$plus_num",0;
+  setd "$OnKoboldvGobinOn_on",0;
+   setd "$OnKoboldvGobinOn",0;
+     setd "$Player_max",0;	
+	   setd "$Kobold_player_num",0;	
+  setd "$Gobin_player_num",0;
+	 	 	setd "$Koboldplayernum",0;
+	setd "$Gobinplayernum",0;
+	 set dunpog,0;
+	donpcevent "nnop#1::Ongmgop";
+	
+	end;
+
+
+
+		gm02:
+		next;
+	}
+	
+mes $@KoboldvGobin$;
+mes "-----------------------------";
+mes "^FF0000ผลแพ้ชนะวันนี้^000000";
+mes "-----------------------------";	
+mes "- Kobold ชนะ : ^FF0000"+getd("$winss") +"^000000 ครั้ง";	
+mes "- Gobin ชนะ : ^FF0000"+getd("$wins")+"^000000 ครั้ง";	
+mes "-----------------------------";	
+next;
+menu "Kobold",Kobold,"Gobin",Gobin,"^FF0000วิธีเล่น^000000",Games;
+
+Kobold:
+if(getd("$OnKoboldvGobinOn_on") ==1){mes "^FF0000เกมเริ่มไปแล้วกรุณารอ....^000000 ";end;}
+if(dunpog == 1){ mes "คุณได้เลือก ^FF0000Kobold^000000 ไว้แล้ว";end;}
+if(dunpog == 2){ mes "คุณได้เลือก ^FF0000Gobin^000000 ไว้แล้ว";end;}
+if(#CASHPOINTS < ($KoboldvGobinlow+$KoboldvGobin_Cash)){mes "ท่านมีเงินไม่พอ ต้องใช้เงิน ^FF0000"+$KoboldvGobinlow+"^000000 Cash";end;}		
+	mes $@KoboldvGobin$;
+	mes "คุณได้เลือก ^FF0000Kobold^000000 ";
+	mes "วางเดิมพันที่ : ^FF0000"+$KoboldvGobinlow+"^000000 Cash";
+	mes "ค่าบริการ : ^FF0000"+$KoboldvGobin_Cash+"^000000 Cash";
+	next;
+
+menu "ถูกต้อง",ok01,"ยกเลิก",no;
+	ok01:
+	mes $@KoboldvGobin$;
+	mes "วางเดิมพันเรียร้อย.... ";
+	set playerongoninnib,1;
+	setd "$Koboldplayernum",getd("$Koboldplayernum")+1;
+	setd "$Player_max",getd("$Player_max")+1;
+setd "$Kobold_player_num",getd("$Kobold_player_num")+1;	
+		set #CASHPOINTS,#CASHPOINTS - ($KoboldvGobinlow+$KoboldvGobin_Cash);
+dispbottom "-----------------------โพย----------------------";
+dispbottom "คุณเดิมพัน : Kobold";
+dispbottom "ราคา : "+$KoboldvGobinlow+" Cash";
+dispbottom "ค่าบริการ : "+$KoboldvGobin_Cash+" Cash";
+dispbottom "---------------------------------------------";	
+set dunpog,1;
+		setd "$OnKoboldvGobinOn",getd("$OnKoboldvGobinOn")+$KoboldvGobinlow;
+query_sql( "INSERT INTO `tharakan_plus` SET `char_id`='"+getcharid(0)+"',`name`='"+strcharinfo(0)+"',`monster`='1' ON DUPLICATE KEY UPDATE `monster`='1'" );
+query_sql( "INSERT INTO `tharakan_plus` SET `char_id`='"+getcharid(0)+"',`name`='"+strcharinfo(0)+"',`zeny`='1' ON DUPLICATE KEY UPDATE `zeny`='"+$KoboldvGobinlow+"'" );
+donpcevent "KoboldvGobin_Run::OnKoboldvGobinOn";
+	end;
+
+
+end;
+Gobin:
+if(getd("$OnKoboldvGobinOn_on") ==1){mes "^FF0000เกมเริ่มไปแล้วกรุณารอ....^000000 ";end;}
+if(dunpog == 1){ mes "คุณได้เลือก ^FF0000Kobold^000000 ไว้แล้ว";end;}
+if(dunpog == 2){ mes "คุณได้เลือก ^FF0000Gobin^000000 ไว้แล้ว";end;}
+if(#CASHPOINTS < ($KoboldvGobinlow+$KoboldvGobin_Cash)){mes "ท่านมีเงินไม่พอ ต้องใช้เงิน ^FF0000"+$KoboldvGobinlow+"^000000 Cash";end;}		
+	mes $@KoboldvGobin$;
+	mes "คุณได้เลือก ^FF0000Gobin^000000";
+	mes "วางเดิมพันที่ : ^FF0000"+$KoboldvGobinlow+"^000000 Cash";
+	mes "ค่าบริการ : ^FF0000"+$KoboldvGobin_Cash+"^000000 Cash";
+	next;
+		mes "^FF0000คำเตือน^000000  หากคุณเคยลงเดิมพันไปแล้ว และลงซ้ำอีกรอบ ข้าไม่คืนเงินให้นะ ถือเป็นค่าอีลู แล้วกัน......";
+	next;
+menu "ถูกต้อง",ok02,"ยกเลิก",no;
+	ok02:
+	mes $@KoboldvGobin$;
+	mes "วางเดิมพันเรียร้อย....";
+	set playerongoninnib,1;
+	setd "$Gobinplayernum",getd("$Gobinplayernum")+1;
+	setd "$Player_max",getd("$Player_max")+1;	
+	setd "$Gobin_player_num",getd("$Gobin_player_num")+1;
+		set #CASHPOINTS,#CASHPOINTS - ($KoboldvGobinlow+$KoboldvGobin_Cash);
+dispbottom "-----------------------โพย----------------------";
+dispbottom "คุณเดิมพัน : Gobin";
+dispbottom "ราคา : "+$KoboldvGobinlow+" Cash";
+dispbottom "ค่าบริการ : "+$KoboldvGobin_Cash+" Cash";
+dispbottom "---------------------------------------------";	
+set dunpog,2;
+		setd "$OnKoboldvGobinOn",getd("$OnKoboldvGobinOn")+$KoboldvGobinlow;
+		setd "$OnKoboldvGobinOn_bonus",getd("$OnKoboldvGobinOn_bonus")+$KoboldvGobinlow;
+query_sql( "INSERT INTO `tharakan_plus` SET `char_id`='"+getcharid(0)+"',`name`='"+strcharinfo(0)+"',`monster`='2' ON DUPLICATE KEY UPDATE `monster`='2'" );
+query_sql( "INSERT INTO `tharakan_plus` SET `char_id`='"+getcharid(0)+"',`name`='"+strcharinfo(0)+"',`zeny`='2' ON DUPLICATE KEY UPDATE `zeny`='"+$KoboldvGobinlow+"'" );
+donpcevent "KoboldvGobin_Run::OnKoboldvGobinOn";
+	end;
+
+end;
+Games:
+mes $@KoboldvGobin$;
+	mes "ง่ายมาก เพียงแค่คุณเลือกว่า ^FF0000Kobold^000000 และ ^FF0000Gobin^000000 ที่ข้าฝึกมา";
+	mes "ตัวไหนจะตีบวกได้เยอะกว่ากันภายใน ^FF000010^000000 ครั้ง";
+	mes "ทายถูกรับเงินเดิมพัน ^FF0000"+$KoboldvGobin_Cash_super+"^000000 เท่า จากยอดเดิมพัน";
+	mes "หากตัวไหนตีบวกไม่แตกเลยติดต่อกัน ^FF0000"+$Bonus_time_plus+"^000000 ครั้ง";
+	mes "จะเป็น Bonus Time ท่านจะไม่เสียค่าบริการ "+$KoboldvGobin_Cash+"";
+	mes "เกมส์จะเริ่มทันทีเมื่อทั้งสองฝั่งมีจำนวนเดิมพันเท่ากัน หรือเต็มจำวนฝั่งละ  "+$KoboldvGobin_max+" คน";
+end;
+
+no:
+	mes $@KoboldvGobin$;
+	mes "แล้วพบกันใหม่";
+end;
+
+OnInit:
+waitingroom ""+$@KoboldvGobin$+"",0;
+}
+	
+oasis,0,0,4	script	KoboldvGobin_Run	-1,{
+	Loopon:
+			announce ""+$@KoboldvGobin$+" : จะเริ่มดวนกันในอีก 5 วินาที",bc_map|bc_npc;
+			sleep 5000;
+			if(getd("$Koboldplayernum") != getd("$Gobinplayernum")){announce ""+$@KoboldvGobin$+" : เกมส์ถูกหยุด........",bc_map|bc_npc;end;}
+	sleep 1000;announce ""+$@KoboldvGobin$+" : 5",bc_map|bc_npc;
+			if(getd("$Koboldplayernum") != getd("$Gobinplayernum")){announce ""+$@KoboldvGobin$+" : เกมส์ถูกหยุด........",bc_map|bc_npc;end;}
+	sleep 1000;announce ""+$@KoboldvGobin$+" : 4",bc_map|bc_npc;
+			if(getd("$Koboldplayernum") != getd("$Gobinplayernum")){announce ""+$@KoboldvGobin$+" : เกมส์ถูกหยุด........",bc_map|bc_npc;end;}
+	sleep 1000;announce ""+$@KoboldvGobin$+" : 3",bc_map|bc_npc;
+			if(getd("$Koboldplayernum") != getd("$Gobinplayernum")){announce ""+$@KoboldvGobin$+" : เกมส์ถูกหยุด........",bc_map|bc_npc;end;}
+		sleep 1000;announce ""+$@KoboldvGobin$+" : 2",bc_map|bc_npc;
+			if(getd("$Koboldplayernum") != getd("$Gobinplayernum")){announce ""+$@KoboldvGobin$+" : เกมส์ถูกหยุด........",bc_map|bc_npc;end;}
+	sleep 1000;announce ""+$@KoboldvGobin$+" : 1",bc_map|bc_npc;
+			if(getd("$Koboldplayernum") != getd("$Gobinplayernum")){announce ""+$@KoboldvGobin$+" : เกมส์ถูกหยุด........",bc_map|bc_npc;end;}
+		announce ""+$@KoboldvGobin$+" : มาลุ้นกัน........",bc_map|bc_npc;
+	 setd "$Gobin_plus",0;
+ setd "$Kobold_plus",0;	
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+  setd "$plus_num",0;
+  goto OnLoop;
+  end;
+OnKoboldvGobinOn:
+if(getd("$Koboldplayernum") == getd("$Gobinplayernum")	&&	getd("$Gobinplayernum") > 0	&& getd("$Koboldplayernum") > 0)+
+(getd("$Gobinplayernum") == $KoboldvGobin_max	&& getd("$Gobinplayernum") == $KoboldvGobin_max)goto Loopon;
+end;
+
+			
+OnLoop:
+if(getd("$Koboldplayernum") != getd("$Gobinplayernum")){
+announce ""+$@KoboldvGobin$+" : เกมส์ถูกหยุด........",bc_map|bc_npc;
+setd "$OnKoboldvGobinOn_on",0;
+setd "$Gobin_plus",0;
+ setd "$Kobold_plus",0;
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+ donpcevent "Kobold::OnEffect0";
+end;}
+setd "$OnKoboldvGobinOn_on",1;
+	setd "$plus_num",getd("$plus_num")+1;	
+set	$Kobold_random,rand(100);
+if($Kobold_random > 25){
+	sleep 1500;
+	if(getd("$Kobold_plus")== $Bonus_time_plus){setd "$over_bonus1",1; donpcevent "Kobold::OnEffect3"; }
+donpcevent "Kobold::OnEffect1";	
+ end;
+	}else{
+		 sleep 1500;
+		 if(getd("$over_bonus1") == 1){announce "Bonus Time : Kobold ถูกยกเลิก เริ่มใหม่...!!",bc_map|bc_npc; setd "$over_bonus1",0;}
+donpcevent "Kobold::OnEffect2";	
+	}
+end;
+OnLoop2:
+if(getd("$Koboldplayernum") != getd("$Gobinplayernum")){
+announce ""+$@KoboldvGobin$+" : เกมส์ถูกหยุด........",bc_map|bc_npc;
+setd "$OnKoboldvGobinOn_on",0;
+setd "$Gobin_plus",0;
+ setd "$Kobold_plus",0;
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+  donpcevent "Gobin::OnEffect0";
+end;}
+setd "$plus_num",getd("$plus_num")+1;
+set	$Gobin_random,rand(100);		
+if($Gobin_random > 25){
+	sleep 1500;
+if(getd("$Gobin_plus")== $Bonus_time_plus){setd "$over_bonus2",1; donpcevent "Gobin::OnEffect3"; }
+donpcevent "Gobin::OnEffect1";
+ end;		
+}else{
+	 sleep 1500;
+	 if(getd("$over_bonus2") == 1){announce "Bonus Time : Gobin ถูกยกเลิก เริ่มใหม่...!!",bc_map|bc_npc; setd "$over_bonus2",0;}
+donpcevent "Gobin::OnEffect2";	
+}
+ end;
+ 
+ OnReset:
+ announce "ผลการแขงขัน : Gobin [+"+getd("$Gobin_plus")+"] - Kobold [+"+getd("$Kobold_plus")+"]",bc_map|bc_npc;
+ if(getd("$Gobin_plus") > getd("$Kobold_plus")){ donpcevent "Gobin::OnEffect5";	  setd "$wins",getd("$wins")+1;announce "Gobin เป็นฝ่ายชนะ!!",bc_map|bc_npc; goto win2;}
+  if(getd("$Gobin_plus") < getd("$Kobold_plus")){donpcevent "Kobold::OnEffect5";	 setd "$winss",getd("$winss")+1; announce "Kobold เป็นฝ่ายชนะ!!",bc_map|bc_npc; goto win1;}
+    if(getd("$Gobin_plus") == getd("$Kobold_plus")){announce "Kobold ผลออกมาเสมอกับ Gobin!!",bc_map|bc_npc; goto win3;}
+end;
+
+ 
+ win1:
+ 	query_sql("SELECT name,zeny FROM `tharakan_plus` WHERE monster = '1'", .@name$,.@zeny$);
+if( getarraysize( .@name$ ) ){
+	for( set .@b,0; .@b < getarraysize( .@name$ ); set .@b,.@b + 1 ){
+	attachrid(getcharid(3,.@name$[.@b])); callfunc("lucky_KoboldvGobin",1,3);}
+
+
+}else{
+	query_sql( "TRUNCATE TABLE `tharakan_plus` " );
+	announce "ไม่มีคนทายถุก",bc_map|bc_npc;
+ setd "$Gobin_plus",0;
+ setd "$Kobold_plus",0;
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+  setd "$plus_num",0;
+  setd "$OnKoboldvGobinOn_on",0;
+   setd "$OnKoboldvGobinOn",0;
+     setd "$Player_max",0;	
+	 setd "$Kobold_player_num",0;
+	 setd "$Gobin_player_num",0;
+	 	 	setd "$Koboldplayernum",0;
+	setd "$Gobinplayernum",0;
+	donpcevent "nnop#2::Ongmgop";
+}
+ end;
+
+ win2:
+ 	query_sql("SELECT name,zeny FROM `tharakan_plus` WHERE monster = '2'", .@name2$,.@zeny2$);
+if( getarraysize( .@name2$ ) ){
+	for( set .@b,0; .@b < getarraysize( .@name2$ ); set .@b,.@b + 1 ){
+	attachrid(getcharid(3,.@name2$[.@b])); callfunc("lucky_KoboldvGobin",1,3);}
+
+
+}else{
+	query_sql( "TRUNCATE TABLE `tharakan_plus` " );
+	announce "ไม่มีคนทายถุก",bc_map|bc_npc;
+	 setd "$over_bonus1",0;
+  setd "$over_bonus2",0;
+ setd "$Gobin_plus",0;
+ setd "$Kobold_plus",0;
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+  setd "$plus_num",0;
+  setd "$OnKoboldvGobinOn_on",0;
+   setd "$OnKoboldvGobinOn",0;
+     setd "$Player_max",0;
+	 setd "$Kobold_player_num",0;
+setd "$Gobin_player_num",0;	 
+	 	 	setd "$Koboldplayernum",0;
+	setd "$Gobinplayernum",0;
+	donpcevent "nnop#2::Ongmgop";
+}
+end;
+
+ win3:
+ 	announce "ไม่มีคนทายถุก จะเริ่มสุ่มผู้ชนะ....",bc_map|bc_npc;
+	donpcevent "Gobin::OnEffect4";
+sleep 1000;	
+	donpcevent "Kobold::OnEffect4";
+sleep 1000;
+	donpcevent "Gobin::OnEffect4";
+sleep 1000;	
+	donpcevent "Kobold::OnEffect4";
+sleep 1000;
+	donpcevent "Gobin::OnEffect4";
+sleep 1000;	
+	donpcevent "Kobold::OnEffect4";
+sleep 1000;
+	donpcevent "Gobin::OnEffect4";
+sleep 1000;	
+	donpcevent "Kobold::OnEffect4";
+sleep 1000;
+	donpcevent "Gobin::OnEffect4";
+sleep 1000;	
+	donpcevent "Kobold::OnEffect4";
+sleep 1000;
+	donpcevent "Gobin::OnEffect4";
+sleep 1000;	
+	donpcevent "Kobold::OnEffect4";
+sleep 1000;
+set	$win_random,rand(1,2);
+if($win_random == 2){
+announce "Kobold เป็นฝ่ายชนะ!!",bc_map|bc_npc;
+donpcevent "Kobold::OnEffect5";
+goto win1;
+}else{
+announce "Gobin เป็นฝ่ายชนะ!!",bc_map|bc_npc;
+donpcevent "Gobin::OnEffect5";
+goto win2;
+	
+}
+
+
+	 
+end;
+
+}
+function	script	lucky_KoboldvGobin3	{sleep2 1000;set dunpog,0;set playerongoninnib,0;query_sql("DELETE FROM `tharakan_plus` WHERE `char_id` = '"+getcharid(0)+"'");return;	}
+function	script	lucky_KoboldvGobin2	{
+	if(getd("$resetplayerre") == 1){
+query_sql("SELECT zeny FROM `tharakan_plus` ", .@gobinzenyre2$);
+set $gobinzenyre1,.@gobinzenyre2$;
+set #CASHPOINTS,#CASHPOINTS + ($gobinzenyre1+$KoboldvGobin_Cash);
+dispbottom "-----------------------คืนเงิน----------------------";
+dispbottom "ได้รับรางวัล : "+($gobinzenyre1+$KoboldvGobin_Cash)+" Cash";
+dispbottom "---------------------------------------------";	
+specialeffect2 10;
+set dunpog,0;
+set playerongoninnib,0;
+query_sql("DELETE FROM `tharakan_plus` WHERE `char_id` = '"+getcharid(0)+"'");
+query_sql("SELECT name,zeny FROM `tharakan_plus`", .@name$,.@zeny$);
+if( getarraysize( .@name$ ) ){
+
+}else{
+setd "$resetplayerre",0;
+
+}
+	}
+return;	
+}
+
+function	script	lucky_KoboldvGobin	{
+
+	if(getd("$over_bonus1") == 1){
+	dispbottom "-----------------Bonus Time-----------------------";	
+	dispbottom "คุณได้รับ : "+($KoboldvGobinlow*$KoboldvGobin_Cash_super+$KoboldvGobin_Cash)+" Cash";
+set #CASHPOINTS,#CASHPOINTS + ($KoboldvGobinlow*$KoboldvGobin_Cash_super)+$KoboldvGobin_Cash;
+query_sql("DELETE FROM `tharakan_plus` WHERE `char_id` = '"+getcharid(0)+"'");
+	   setd "$over_bonus2",0;
+	 setd "$over_bonus1",0;
+	 set dunpog,0;
+	 set playerongoninnib,0;
+specialeffect2 10;
+dispbottom "---------------------------------------------";	
+query_sql("SELECT name,zeny FROM `tharakan_plus`", .@name$,.@zeny$);
+if( getarraysize( .@name$ ) ){
+
+}else{
+			   setd "$over_bonus2",0;
+	 setd "$over_bonus1",0;
+announce ""+$@KoboldvGobin$+" : Bonus Time สิ้นสุดลงแล้ว",bc_map|bc_npc;
+}
+	}else
+		if(getd("$over_bonus2") == 1){
+	dispbottom "-----------------Bonus Time-----------------------";	
+	dispbottom "คุณได้รับ : "+($KoboldvGobinlow*$KoboldvGobin_Cash_super+$KoboldvGobin_Cash)+" z";
+set #CASHPOINTS,#CASHPOINTS + ($KoboldvGobinlow*$KoboldvGobin_Cash_super)+$KoboldvGobin_Cash;
+query_sql("DELETE FROM `tharakan_plus` WHERE `char_id` = '"+getcharid(0)+"'");
+
+	 set dunpog,0;
+	 set playerongoninnib,0;
+specialeffect2 10;
+dispbottom "---------------------------------------------";
+query_sql("SELECT name,zeny FROM `tharakan_plus`", .@name$,.@zeny$);
+if( getarraysize( .@name$ ) ){
+
+}else{
+			   setd "$over_bonus2",0;
+	 setd "$over_bonus1",0;
+announce ""+$@KoboldvGobin$+" : Bonus Time สิ้นสุดลงแล้ว",bc_map|bc_npc;
+}	
+
+	}else{
+dispbottom "---------------------------------------------";
+dispbottom "คุณได้รับ : "+($KoboldvGobinlow*$KoboldvGobin_Cash_super)+" Cash";
+set #CASHPOINTS,#CASHPOINTS + ($KoboldvGobinlow*$KoboldvGobin_Cash_super);
+specialeffect2 10;
+query_sql("DELETE FROM `tharakan_plus` WHERE `char_id` = '"+getcharid(0)+"'");
+set playerongoninnib,0;
+set dunpog,0;
+dispbottom "---------------------------------------------";
+
+}
+return;
+}
+
+/////////////////////////////////////////////////
+
+oasis,213,55,5	script	Kobold	1134,{
+	goto sta;
+	OnEffect0: npctalk "Gobin : โห้!! กำลังเข้ามือ เซ็ง!"; end;
+OnEffect1:if(getd("$plus_num") == 21){donpcevent "KoboldvGobin_Run::OnReset";end;} specialeffect 154;setd "$Kobold_plus",getd("$Kobold_plus")+1; setd "$Kobold_plusto",getd("$Kobold_plusto")+1; donpcevent "KoboldvGobin_Run::OnLoop2"; end;
+	OnEffect2:if(getd("$plus_num") == 21){donpcevent "KoboldvGobin_Run::OnReset";end;}  specialeffect 155;setd "$Kobold_plus",0;setd "$Kobold_plusto",getd("$Kobold_plusto")+1;  donpcevent "KoboldvGobin_Run::OnLoop2"; end;
+	OnEffect3: specialeffect 220;  announce "Bonus Time : ถ้า Kobold ชนะ คุณจะไม่เสียค่าบริการ!",bc_map|bc_npc; end;
+	OnEffect4: specialeffect 60; end;
+OnEffect5:  
+setd "$Gobin_plus",0;
+ setd "$Kobold_plus",0;
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+   setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+  setd "$plus_num",0;
+  setd "$OnKoboldvGobinOn_on",0;
+   setd "$OnKoboldvGobinOn",0;
+     setd "$Player_max",0;	
+	 setd "$Kobold_player_num",0;
+	 setd "$Gobin_player_num",0;
+	 	setd "$Koboldplayernum",0;
+	setd "$Gobinplayernum",0;
+	donpcevent "nnop#2::Ongmgop";
+	specialeffect 68; end;	
+
+	sta:
+	mes "[ ^FF0000ผู้เดิมพัน^000000 ]";
+query_sql("SELECT name,zeny FROM `tharakan_plus` WHERE monster = '1'", .@name$,.@zeny$);
+if( getarraysize( .@name$ ) ){
+	for( set .@b,0; .@b < getarraysize( .@name$ ); set .@b,.@b + 1 )
+		mes "^FF0000" +(.@b + 1) +"^000000 : "+.@name$[.@b]+" ^FF0000เดิมพัน^000000 : "+.@zeny$[.@b]+"";
+
+}else{
+		mes "ไม่มีคนเดิมพัน.";
+
+}
+OnInit:
+OnTimer1000:
+    delwaitingroom;
+   if(getd("$OnKoboldvGobinOn_on") ==1){waitingroom "ครั้งที่ "+getd("$Kobold_plusto")+" : +"+getd("$Kobold_plus")+"",0;}else{ waitingroom "คนแทง ["+getd("$Kobold_player_num")+"]",0;}
+	initnpctimer;
+end;
+}
+
+oasis,218,55,4	script	Gobin	1125,{
+		goto sta;
+		OnEffect0: npctalk "Gobin : โห้!! กำลังเข้ามือ เซ็ง!"; end;
+	OnEffect1:specialeffect 154;setd "$Gobin_plus",getd("$Gobin_plus")+1;setd "$Gobin_plusto",getd("$Gobin_plusto")+1;  donpcevent "KoboldvGobin_Run::OnLoop"; end;
+	OnEffect2:specialeffect 155;setd "$Gobin_plus",0;setd "$Gobin_plusto",getd("$Gobin_plusto")+1;  donpcevent "KoboldvGobin_Run::OnLoop"; end;
+	OnEffect3: specialeffect 220; announce "Bonus Time : ถ้า Gobin ชนะ คุณจะไม่เสียค่าบริการ!",bc_map|bc_npc; end;
+OnEffect4: specialeffect 60; end;	
+OnEffect5: 
+ setd "$Gobin_plus",0;
+ setd "$Kobold_plus",0;
+  setd "$Gobin_plusto",0;
+ setd "$Kobold_plusto",0;
+  setd "$plus_num",0;
+  setd "$OnKoboldvGobinOn_on",0;
+   setd "$OnKoboldvGobinOn",0;
+     setd "$Player_max",0;	
+	 setd "$Kobold_player_num",0;
+	 setd "$Gobin_player_num",0;
+	 	setd "$Koboldplayernum",0;
+	setd "$Gobinplayernum",0;
+	donpcevent "nnop#2::Ongmgop";
+specialeffect 68; end;	
+	sta:
+	mes "[ ^FF0000ผู้เดิมพัน^000000  ]";
+query_sql("SELECT name,zeny FROM `tharakan_plus` WHERE monster = '2'", .@name2$,.@zeny2$);
+if( getarraysize( .@name2$ ) ){
+	for( set .@b,0; .@b < getarraysize( .@name2$ ); set .@b,.@b + 1 )
+		mes "^FF0000" +(.@b + 1) +"^000000 : "+.@name2$[.@b]+" ^FF0000เดิมพัน^000000 : "+.@zeny2$[.@b]+"";
+
+}else{
+	mes "ไม่มีคนเดิมพัน.";
+	
+}
+OnInit:
+OnTimer1000:
+    delwaitingroom;
+	if(getd("$OnKoboldvGobinOn_on") ==1){waitingroom "ครั้งที่ "+getd("$Gobin_plusto")+" : +"+getd("$Gobin_plus")+"",0;}else{ waitingroom "คนแทง ["+getd("$Gobin_player_num")+"]",0;}
+	initnpctimer;
+end;
+	
+}
+		
+-	script	gobin2012#2	-1,{
+OnPCLogoutEvent:
+  	if(playerongoninnib == 1){
+query_sql("SELECT zeny FROM `tharakan_plus` WHERE `char_id` = '"+getcharid(0)+"'", .@gobinzenyre2$);
+set $gobinzenyre1,.@gobinzenyre2$;
+set #CASHPOINTS,#CASHPOINTS + ($gobinzenyre1+$KoboldvGobin_Cash);
+dispbottom "-----------------------คืนเงิน----------------------";
+dispbottom "ได้รับรางวัล : "+($gobinzenyre1+$KoboldvGobin_Cash)+" Cash";
+dispbottom "---------------------------------------------";	
+query_sql("DELETE FROM `tharakan_plus` WHERE `char_id` = '"+getcharid(0)+"'");
+	
+if(dunpog == 1){setd "$Koboldplayernum",getd("$Koboldplayernum")-1;
+if(getd("$Kobold_player_num") > 0){setd "$Kobold_player_num",getd("$Kobold_player_num")-1;}
+
+}else{setd "$Gobinplayernum",getd("$Gobinplayernum")-1;
+if(getd("$Gobin_player_num") > 0){setd "$Gobin_player_num",getd("$Gobin_player_num")-1;}
+}
+set dunpog,0;
+set playerongoninnib,0;
+donpcevent "KoboldvGobin_Run::OnKoboldvGobinOn";
+}
+end;
+
+  OnPCLoginEvent:
+  	if(playerongoninnib == 1){
+query_sql("SELECT zeny FROM `tharakan_plus` WHERE `char_id` = '"+getcharid(0)+"'", .@gobinzenyre2$);
+set $gobinzenyre1,.@gobinzenyre2$;
+set #CASHPOINTS,#CASHPOINTS + ($gobinzenyre1+$KoboldvGobin_Cash);
+dispbottom "-----------------------คืนเงิน----------------------";
+dispbottom "ได้รับรางวัล : "+($gobinzenyre1+$KoboldvGobin_Cash)+" Cash";
+dispbottom "---------------------------------------------";	
+query_sql("DELETE FROM `tharakan_plus` WHERE `char_id` = '"+getcharid(0)+"'");
+set dunpog,0;
+set playerongoninnib,0;
+	}
+	end;
+}
+
+x_prt,0,0,0	script	nnop#1	-1,{
+Ongmgop:
+	 	query_sql("SELECT name,zeny FROM `tharakan_plus` ", .@name$,.@zeny$);
+if( getarraysize( .@name$ ) ){
+	for( set .@b,0; .@b < getarraysize( .@name$ ); set .@b,.@b + 1 ){
+	attachrid(getcharid(3,.@name$[.@b])); callfunc("lucky_KoboldvGobin2",1,3);}
+
+
+}
+}
+x_prt,0,0,0	script	nnop#2	-1,{
+Ongmgop:
+	 	query_sql("SELECT name,zeny FROM `tharakan_plus` ", .@name$,.@zeny$);
+if( getarraysize( .@name$ ) ){
+	for( set .@b,0; .@b < getarraysize( .@name$ ); set .@b,.@b + 1 ){
+	attachrid(getcharid(3,.@name$[.@b])); callfunc("lucky_KoboldvGobin3",1,3);}
+
+
+}
+}

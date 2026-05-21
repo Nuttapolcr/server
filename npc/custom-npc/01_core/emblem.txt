@@ -1,0 +1,7 @@
+morocc,150,87,4  script  [PvP Ladder ]  742,{
+end;
+OnInit:
+    setunitdata (getnpcid(0), UNPC_GROUP_ID, 2); // รูปกิลด์ ใส่เพิ่มเติมที่ data/texture/À¯ÀúÀÎÅÍÆäÀÌ½º/group บอกโดย @- - - ♕  𝓐𝓔𝓘𝓞𝓤  ♕ - - -#7251
+    setunittitle(getnpcid(0), "Custom title");  //คลาย ๆ ชื่อกิลด์
+        end;
+}

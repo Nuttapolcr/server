@@ -1,0 +1,44 @@
+/*
+oasis,170,105,4	script	รีเซ็ตตัวละคร	833,{
+
+	set .@ResetStat,500000;	// จำนวนเงินที่ใช้ Re Status
+	set .@ResetSkill,500000;	// จำนวนเงินที่ใช้ Re Skill
+
+	mes "[ จอมเวท์คําภีร์ฟ้า ]";
+	mes "ค่ารีเซ็ต Stats : "+ callfunc("F_InsertComma",.@ResetStat) +"Zeny";
+	mes "ค่ารีเซ็ต Skills: "+ callfunc("F_InsertComma",.@ResetSkill) +"Zeny";
+	mes "โปรดเลือกสิ่งทีท่านต้องการ";
+	next;
+	switch(select("~ รีเซ็ต Skills:~ รีเซ็ต Stats:~ ไม่ล่ะ,ยกเลิก")) {
+	case 1:
+		mes "[ จอมเวท์คําภีร์ฟ้า ]";
+		if (Zeny < .@ResetSkill) {
+			mes "คุณมีจำนวนเงินไม่เพียงพอ";
+			close;
+		}
+		Zeny -= .@ResetSkill;
+		sc_end SC_ALL;
+		resetskill;
+		mes "เรียบร้อย !";
+		mes "สกิลของท่านถูกรีเซ็ตแล้ว...";
+		close;
+	case 2:
+		mes "[ จอมเวท์คําภีร์ฟ้า ]";
+		if (Zeny < .@ResetStat) {
+			mes "คุณมีจำนวนเงินไม่เพียงพอ";
+			close;
+		}
+		Zeny -= .@ResetStat;
+		resetstatus;
+		mes "เรียบร้อย !";
+		mes "สเตตัสของท่านถูกรีเซ็ตแล้ว...";
+		close;
+	case 3:
+		close;
+	}
+	
+OnInit:
+	waitingroom "รีเซ็ตตัวละคร", 0;
+end;
+}
+*/

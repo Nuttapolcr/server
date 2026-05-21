@@ -1,0 +1,97 @@
+//!rathena
+-	script	IG_Exclusive_Event	-1,{
+
+OnInit:
+	.shard_item = 1001557;
+	.need_kill  = 50;
+
+	setarray .map$[0],
+		"c_tower3",
+		"alde_dun04",
+		"gl_cas01",
+		"mag_dun01",
+		"gl_church",
+		"gef_fild11",
+		"yuno_fild02",
+		"yuno_fild03",
+		"gl_prison",
+		"gl_prison1",
+		"in_sphinx3",
+		"iz_dun04",
+		"moc_pryd05",
+		"alde_dun03",
+		"mjo_dun03",
+		"beach_dun2",
+		"gl_dun01",
+		"iz_dun02",
+		"gl_cas02";
+
+	setarray .mobid[0],
+		31501,
+		31518,
+		31502,
+		31504,
+		31503,
+		31505,
+		31506,
+		31507,
+		31508,
+		31508,
+		31509,
+		31510,
+		31511,
+		31512,
+		31513,
+		31514,
+		31515,
+		31516,
+		31517;
+
+	setarray .want[0],
+		3,3,3,3,3,3,3,3,3,3,
+		3,3,3,3,3,3,3,3,3;
+
+	callsub S_SpawnAll;
+	initnpctimer;
+	end;
+
+OnTimer180000:
+	callsub S_ReFillAll;
+	initnpctimer;
+	end;
+
+S_SpawnAll:
+	for (.@i=0; .@i<getarraysize(.map$); .@i++) {
+		callsub S_SpawnNeed, .@i;
+	}
+	return;
+
+S_ReFillAll:
+	for (.@i=0; .@i<getarraysize(.map$); .@i++) {
+		callsub S_SpawnNeed, .@i;
+	}
+	return;
+
+S_SpawnNeed:
+	.@idx = getarg(0);
+	.@cur = mobcount(.map$[.@idx], strnpcinfo(3) + "::OnExDead");
+	.@need = .want[.@idx] - .@cur;
+	if (.@need > 0)
+		monster .map$[.@idx],0,0,"",.mobid[.@idx],.@need, strnpcinfo(3) + "::OnExDead";
+	return;
+
+OnExDead:
+	#EXCLUSIVE_KILL_TOTAL++;
+	#EXCLUSIVE_KILL_ROUND++;
+
+	//announce "[Exclusive] " + strcharinfo(0) + " กำจัดมอนสเตอร์ +1 คะแนน (รอบนี้ " + #EXCLUSIVE_KILL_ROUND + " / " + .need_kill + " | รวม " + #EXCLUSIVE_KILL_TOTAL + ")", bc_all|bc_name;
+	dispbottom "[Exclusive] รอบนี้: " + #EXCLUSIVE_KILL_ROUND + " / " + .need_kill;
+
+	if (#EXCLUSIVE_KILL_ROUND >= .need_kill) {
+		getitem .shard_item, 1;
+		//announce "[Exclusive] " + strcharinfo(0) + " ครบ " + .need_kill + " ตัว ได้รับ Monster's Shard 1 ea!", bc_all|bc_name;
+		#EXCLUSIVE_KILL_ROUND = 0;
+		dispbottom "[Exclusive] รีเซ็ตรอบใหม่: 0 / " + .need_kill;
+	}
+	end;
+}

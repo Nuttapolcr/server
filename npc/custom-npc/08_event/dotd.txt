@@ -1,0 +1,172 @@
+//===== cook1e's Dungeon of the Day ==================================
+//= Dungeon of the Day
+//===== By: ==================================================
+//= cook1e
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: =========================================
+//= A random dungeon will be choosen at 00:00 server time, all the dungeons of this choosen dungeon will grant extra EXP, Items and Zeny
+//===== Additional Comments: =================================
+//= 1.0 Initial release
+//= 1.1 Select all dungeons for example if thor volcano is picked all thor volcano dungeons will be selected as dungeon of the day
+//= 1.2 Npc to show dungeon of the day current map, exp bonus and rewards, removed party members reward since this is TOO EXPLOITABLE and script cleanup.
+//===== Contact Ifo: =========================================
+//= Discord: Cookie#9338
+//============================================================
+morocc,166,108,4	script	Dungeon of the Day#cook1e	612,{
+	mes "ดันเจี้ยนพิเศษรายวัน";
+	mes "เพียงฆ่ามอนเตอร์จาก ^8B008Bดันเจี้ยนพิเศษรายวัน^000000 จะได้รับ EXPเพิ่ม 50-100% และ ดรอปไอเทมพิเศษ ^FF0000Random Box I^000000 ^FF0000Rough Oridecon^000000 และ ^FF0000Rough Elunium^000000";
+	next;
+	mes "ดันเจี้ยนพิเศษรายวัน";
+	mes "ดันเจี้ยนพิเศษวันนี้: [ ^8B008B"+callfunc("GetDungeonName",.cases)+"^000000 ]";
+	mes "เพิ่ม EXP: [ ^FF0000"+.exp_bonus+"%^000000 ]";
+	if(.GiveZeny)
+		mes "[ ^0000FF"+.ItemRate+"^000000% ] to get ^FF0000"+.GiveZeny+"^000000 Zeny.";
+	if(.ItemReward) {
+		mes "ดรอปไอเทมพิเศษ:";
+		for(.@i = 0; .@i < getarraysize(.ItemReward); .@i += 2)
+			mes "- ^0000FF"+getitemname(.ItemReward[.@i])+"^000000  จำนวน: ^FF0000"+.ItemReward[.@i+1]+" ชิ้น^000000 อัตราดรอป ^FF00001%^000000";
+	}
+	if(.PartyMembersEXP == true) {
+		next;
+		mes "คูณดันเจี้ยนพิเศษรายวัน";
+		mes "สำหรับปาร์ตี้ สามาชิกสามารถได้รับ exp เพิ่มขึ้นเมื่ออยู่ในแผนที่เดียวกัน";
+		mes "ความต่างของเลเวลในปาร์ตี้ที่สามารถได้รับ EXP เพิ่มคือ: [ ^FF0000"+.PartyExpLvRange+"^000000 ] เลเวล.";
+	}
+	close;
+OnInit:
+	.PartyMembersEXP = true; // should Party Members get EXP
+	.PartyExpLvRange = 15; // difference beetwen party members to allow getting exp
+	.ItemRate = 100; // percentage of getting rewards from array .ItemReward and Zeny
+	.GiveZeny = 0; // set desired zeny amount or 0 to disable
+	setarray .ItemReward,30008,1; // rewards
+OnClock0000:
+	.exp_bonus = rand(50,100);
+	.cases = rand(1,16);	
+	delwaitingroom;
+	waitingroom "ดันเจี้ยนพิเศษวันนี้คือ "+callfunc("GetDungeonName",.cases),0;
+	switch(.cases) { // number of cases should match the ones in .cases, also there may be better ways to do this, but im still learning :)
+		//case 1:  setarray .r_maps$,/*"abyss_01","abyss_02","abyss03"; break;*/
+		//case 2:  setarray .r_maps$,"ama_dun01","ama_dun02","ama_dun03"; break;
+		case 1:  setarray .r_maps$,"anthell01","anthell02"; break;
+		//case 4:  setarray .r_maps$,"ayo_dun01","ayo_dun02"; break;
+		//case 5:  setarray .r_maps$,"beach_dun1","beach_dun2","beach_dun3"; break;
+		//case 6:  setarray .r_maps$,"lhz_dun1","lhz_dun02","lhz_dun03","lhz_dun04"; break;
+		//case 7:  setarray .r_maps$,"bra_dun01","bra_dun02"; break;
+		case 2:  setarray .r_maps$,"iz_dun00","iz_dun01","iz_dun02","iz_dun03","iz_dun04","iz_dun05","iz_dun06"; break;
+		case 3:  setarray .r_maps$,"c_tower1","c_tower2","c_tower3","c_tower4","alde_dun01","alde_dun02","alde_dun03","alde_dun04"; break;
+		case 4: setarray .r_maps$,"mjo_dun01","mjo_dun02","mjo_dun03"; break;
+		case 5: setarray .r_maps$,"prt_sewb1","prt_sewb2","prt_sewb3","prt_sewb4"; break;
+		//case 12: setarray .r_maps$,"abbey01","abbey02","abbey03"; break;
+		//case 13: setarray .r_maps$,"ein_dun01","ein_dun02"; break;
+		//case 14: setarray .r_maps$,"gefenia01","gefenia02","gefenia03","gefenia04"; break;
+		case 6: setarray .r_maps$,"gef_dun00","gef_dun01","gef_dun02","gef_dun03"; break;
+		case 7: setarray .r_maps$,"glast_01","gl_cas01","gl_cas02","gl_knt01","gl_knt02","gl_chyard","gl_sew01","gl_sew02","gl_sew03","gl_sew04","gl_church","gl_step","gl_dun01","gl_dun02","gl_prison","gl_prison1"; break;
+		//case 17: setarray .r_maps$,"gon_dun01","gon_dun02","gon_dun03"; break;
+		case 8: setarray .r_maps$,"prt_maze01","prt_maze02","prt_maze03"; break;
+		//case 19: setarray .r_maps$,"ice_dun01","ice_dun02","ice_dun03","ice_dun04"; break;
+		//case 20: setarray .r_maps$,"juperos_01","juperos_02","jupe_core"; break;
+		//case 21: setarray .r_maps$,"kh_dun01","kh_dun02"; break;
+		//case 22: setarray .r_maps$,"lou_dun01","lou_dun02","lou_dun03"; break;
+		case 9: setarray .r_maps$,"mag_dun01","mag_dun02"; break;
+		//case 24: setarray .r_maps$,"mosk_dun01","mosk_dun02","mosk_dun03"; break;
+		//case 25: setarray .r_maps$,"nyd_dun01","nyd_dun02","1@nyd","2@nyd"; break;
+		//case 26: setarray .r_maps$,"odin_tem01","odin_tem02","odin_tem03"; break;
+		case 10: setarray .r_maps$,"orcsdun01","orcsdun02"; break;
+		case 11: setarray .r_maps$,"pay_dun00","pay_dun01","pay_dun02","pay_dun03","pay_dun04"; break;
+		case 12: setarray .r_maps$,"moc_pryd01","moc_pryd02","moc_pryd03","moc_pryd04","moc_pryd05","moc_pryd05"; break;
+		//case 30: setarray .r_maps$,"ra_san01","ra_san02","ra_san03","ra_san04","ra_san05"; break;
+		//case 31: setarray .r_maps$,"dic_dun01","dic_dun02"; break;
+		case 13: setarray .r_maps$,"in_sphinx1","in_sphinx2","in_sphinx3","in_sphinx4","in_sphinx5"; break;
+		case 14: setarray .r_maps$,"treasure01","treasure02"; break;
+		//case 34: setarray .r_maps$,"tha_t01","tha_t02","tha_t03","tha_t04","tha_t05","tha_t06","tha_t07","tha_t08","tha_t09","tha_t10","tha_t11","tha_t12";
+		//case 35: setarray .r_maps$,"thor_v01","thor_v02","thor_v03"; break;
+		case 15: setarray .r_maps$,"xmas_dun01","xmas_dun02"; break;
+		case 16: setarray .r_maps$,"tur_dun01","tur_dun02","tur_dun03","tur_dun04"; break;
+		//case 38: setarray .r_maps$,"um_dun01","um_dun02","um_dun03"; break;
+	}
+	announce "[ดันเจี้ยนพิเศษวันนี้]: '"+callfunc("GetDungeonName",.cases)+"' ได้รับ EXP เพิ่ม ["+.exp_bonus+"%]",bc_all;
+	end;
+	
+OnNPCKillEvent:
+	for(.@i = 0; .@i < getarraysize(.r_maps$); .@i++) {
+		if(strcharinfo(3) == .r_maps$[.@i]) {
+			.@roll = rand(100);
+			if(!getcharid(1)) {
+				getexp2(getmonsterinfo(killedrid,3) * .exp_bonus / 100),(getmonsterinfo(killedrid,4) * .exp_bonus / 100);
+					if(.@roll <= .ItemRate && .ItemReward) {
+						if(.GiveZeny)
+							Zeny += .GiveZeny;
+						for(.@j = 0; .@j < getarraysize(.ItemReward); .@j += 2)
+							getitem .ItemReward[.@j],.ItemReward[.@j+1];
+					}
+			} else {
+				getmapxy(.@map1$,.@x1,.@y1);
+				getpartymember getcharid(1),1;
+				getpartymember getcharid(1),2;
+				set .@char_id, getcharid(0);
+				set .@baselevel,BaseLevel;
+				for (.@j = 0; .@j < $@partymembercount; .@j++) {
+					if (isloggedin($@partymemberaid[.@j], $@partymembercid[.@j])) {
+						attachrid($@partymemberaid[.@j]);
+							getmapxy(.@map2$,.@x2,.@y2,BL_PC,rid2name($@partymemberaid[.@j]));
+							if(.@map1$ == .@map2$ && ( BaseLevel - .@baselevel ) <= .PartyExpLvRange && .PartyMembersEXP == true)
+								getexp2(getmonsterinfo(killedrid,3) * .exp_bonus / 100),(getmonsterinfo(killedrid,4) * .exp_bonus / 100);
+							}
+						}
+					}
+			}
+		}
+	end;
+	
+OnPCLoginEvent:
+	dispbottom "[ดันเจี้ยนพิเศษวันนี้]: '"+callfunc("GetDungeonName",.cases)+"' ได้รับ EXP เพิ่ม ["+.exp_bonus+"%]",0x00FFFF;
+	end;
+}
+
+	
+function	script	GetDungeonName	{
+	switch(getarg(0)) {
+		//case 1:  return "Abyss Lake Dungeon"; 
+		//case 2:  return "Amatsu Dungeonu"; 
+		case 1:  return "Ant Hell Dungeon"; 
+		//case 4:  return "Ayothaya Dungeon"; 
+		//case 2:  return "Beach Dungeon"; 
+		//case 6:  return "Bio Laboratory Dungeon"; 
+		//case 7:  return "Brasilis Dungeon"; 
+		case 2:  return "Byalan Dungeon"; 
+		case 3:  return "Clock Tower Dungeon"; 
+		case 4: return "Coal Mines Dungeon"; 
+		case 5: return "Culvert Dungeon"; 
+		//case 12: return "Cursed Abbey Dungeon"; 
+		//case 13: return "Einbroch Dungeon"; 
+		//case 14: return "Gefenia Dungeon"; 
+		case 6: return "Geffen Dungeon"; 
+		case 7: return "Glast Heim Dungeon"; 
+		//case 17: return "Gonryun Dungeon"; 
+		case 8: return "Hidden Dungeon"; 
+		//case 19: return "Ice Dungeon"; 
+		//case 20: return "Juperos Dungeon"; 
+		//case 21: return "Kiel Dungeon"; 
+		//case 22: return "Louyang Dungeon"; 
+		case 9: return "Magma Dungeon"; 
+		//case 24: return "Moscovia Dungeon";
+		//case 25: return "Nydhogg's Dungeon";
+		//case 26: return "Odin Temple Dungeon";
+		case 10: return "Orc Dungeon";
+		case 11: return "Payon Dungeon";
+		case 12: return "Pyramids Dungeon";
+		//case 30: return "Rachel Santuary Dungeon";
+		//case 31: return "Dicastes Dungeon";
+		case 13: return "Sphinx Dungeon";
+		case 14: return "Sunken Ship Dungeon";
+		//case 34: return "Thanatos Tower Dungeon";
+		//case 35: return "Thor Volcano Dungoen";
+		case 15: return "Toy Factory Dungeon";
+		case 16: return "Turtle Dungeon";
+		//case 38: return "Umbala Dungeon";
+		//default: return "Unknown Dungeon Name";
+	}
+}

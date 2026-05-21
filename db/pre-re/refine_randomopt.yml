@@ -1,0 +1,1608 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Refine Random Option Database
+###########################################################################
+#
+# Refine Random Option Settings
+#
+###########################################################################
+# - Group                               Refine item type.
+#   Types:                              Refinement settings per refine per type.
+#     - Type                            Item type.
+#        Levels:                        Refinement settings per item level. (Default: null)
+#          - Level                      Item level.
+#            RefineLevels:              Refinement settings per refine level. (Default: null)
+#              - Level                  Refine level.
+#                OptionSlots:           Refinement settings per item option slot. (Default: null)
+#                  - Slot               Item option slot.
+#                    Options:           Option based on item random option. (Default: null)
+#                      - ID             Item random option type base on item random option
+#                        Value          Item random option's value.
+#                        Param      Item random option's param.
+###########################################################################
+
+Header:
+  Type: REFINE_RANDOMOPT_DB
+  Version: 1
+
+#Body:
+#  - Group: Armor
+#    Types:
+#      - Type: ARMOR
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Armor_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Armor_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Armor_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Armor_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Armor_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Armor_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Armor_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Armor_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Armor_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Armor_Group_10
+#      - Type: SHIELD
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Shield_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Shield_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Shield_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Shield_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Shield_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Shield_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Shield_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Shield_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Shield_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Shield_Group_10
+#      - Type: GARMENT
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Garment_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Garment_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Garment_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Garment_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Garment_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Garment_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Garment_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Garment_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Garment_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Garment_Group_10
+#      - Type: SHOES
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Footgear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Footgear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Footgear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Footgear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Footgear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Footgear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Footgear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Footgear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Footgear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Footgear_Group_10
+#      - Type: HEADGEAR
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Headgear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Headgear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Headgear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Headgear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Headgear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Headgear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Headgear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Headgear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Headgear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Headgear_Group_10
+#  - Group: Weapon
+#    Types:
+#      - Type: DAGGER
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Dagger_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Dagger_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Dagger_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Dagger_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Dagger_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Dagger_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Dagger_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Dagger_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Dagger_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Dagger_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Dagger_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Dagger_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Dagger_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Dagger_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Dagger_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Dagger_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Dagger_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Dagger_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Dagger_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Dagger_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Dagger_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Dagger_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Dagger_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Dagger_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Dagger_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Dagger_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Dagger_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Dagger_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Dagger_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Dagger_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Dagger_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Dagger_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Dagger_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Dagger_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Dagger_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Dagger_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Dagger_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Dagger_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Dagger_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Dagger_Group_10
+#      - Type: 1HSWORD
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Sword_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Sword_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Sword_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Sword_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Sword_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Sword_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Sword_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Sword_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Sword_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Sword_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Sword_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Sword_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Sword_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Sword_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Sword_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Sword_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Sword_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Sword_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Sword_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Sword_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Sword_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Sword_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Sword_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Sword_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Sword_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Sword_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Sword_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Sword_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Sword_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Sword_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Sword_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Sword_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Sword_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Sword_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Sword_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Sword_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Sword_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Sword_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Sword_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Sword_Group_10
+#      - Type: 2HSWORD
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Sword_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Sword_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Sword_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Sword_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Sword_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Sword_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Sword_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Sword_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Sword_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Sword_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Sword_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Sword_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Sword_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Sword_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Sword_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Sword_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Sword_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Sword_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Sword_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Sword_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Sword_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Sword_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Sword_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Sword_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Sword_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Sword_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Sword_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Sword_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Sword_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Sword_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Sword_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Sword_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Sword_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Sword_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Sword_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Sword_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Sword_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Sword_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Sword_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Sword_Group_10
+#      - Type: 1HSPEAR
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Spear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Spear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Spear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Spear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Spear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Spear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Spear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Spear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Spear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Spear_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Spear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Spear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Spear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Spear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Spear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Spear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Spear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Spear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Spear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Spear_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Spear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Spear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Spear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Spear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Spear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Spear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Spear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Spear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Spear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Spear_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Spear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Spear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Spear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Spear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Spear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Spear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Spear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Spear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Spear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Spear_Group_10
+#      - Type: 2HSPEAR
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Spear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Spear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Spear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Spear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Spear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Spear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Spear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Spear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Spear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Spear_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Spear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Spear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Spear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Spear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Spear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Spear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Spear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Spear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Spear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Spear_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Spear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Spear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Spear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Spear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Spear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Spear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Spear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Spear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Spear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Spear_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Spear_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Spear_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Spear_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Spear_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Spear_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Spear_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Spear_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Spear_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Spear_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Spear_Group_10
+#      - Type: 1HSTAFF
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Staff_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Staff_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Staff_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Staff_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Staff_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Staff_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Staff_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Staff_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Staff_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Staff_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Staff_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Staff_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Staff_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Staff_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Staff_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Staff_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Staff_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Staff_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Staff_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Staff_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Staff_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Staff_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Staff_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Staff_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Staff_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Staff_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Staff_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Staff_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Staff_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Staff_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Staff_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Staff_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Staff_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Staff_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Staff_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Staff_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Staff_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Staff_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Staff_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Staff_Group_10
+#      - Type: 2HSTAFF
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Staff_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Staff_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Staff_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Staff_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Staff_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Staff_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Staff_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Staff_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Staff_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Staff_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Staff_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Staff_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Staff_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Staff_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Staff_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Staff_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Staff_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Staff_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Staff_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Staff_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Staff_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Staff_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Staff_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Staff_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Staff_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Staff_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Staff_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Staff_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Staff_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Staff_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Staff_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Staff_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Staff_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Staff_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Staff_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Staff_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Staff_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Staff_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Staff_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Staff_Group_10
+#      - Type: BOW
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Bow_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Bow_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Bow_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Bow_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Bow_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Bow_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Bow_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Bow_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Bow_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Bow_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Bow_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Bow_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Bow_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Bow_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Bow_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Bow_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Bow_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Bow_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Bow_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Bow_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Bow_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Bow_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Bow_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Bow_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Bow_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Bow_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Bow_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Bow_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Bow_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Bow_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Bow_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Bow_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Bow_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Bow_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Bow_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Bow_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Bow_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Bow_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Bow_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Bow_Group_10
+#      - Type: KATAR
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Katar_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Katar_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Katar_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Katar_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Katar_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Katar_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Katar_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Katar_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Katar_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Katar_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Katar_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Katar_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Katar_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Katar_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Katar_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Katar_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Katar_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Katar_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Katar_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Katar_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Katar_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Katar_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Katar_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Katar_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Katar_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Katar_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Katar_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Katar_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Katar_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Katar_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Katar_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Katar_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Katar_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Katar_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Katar_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Katar_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Katar_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Katar_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Katar_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Katar_Group_10
+#      - Type: 1HAXE
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Axe_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Axe_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Axe_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Axe_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Axe_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Axe_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Axe_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Axe_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Axe_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Axe_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Axe_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Axe_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Axe_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Axe_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Axe_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Axe_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Axe_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Axe_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Axe_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Axe_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Axe_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Axe_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Axe_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Axe_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Axe_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Axe_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Axe_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Axe_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Axe_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Axe_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: One_Hand_Axe_Group_1
+#              - Level: 2
+#                RandomOptionGroup: One_Hand_Axe_Group_2
+#              - Level: 3
+#                RandomOptionGroup: One_Hand_Axe_Group_3
+#              - Level: 4
+#                RandomOptionGroup: One_Hand_Axe_Group_4
+#              - Level: 5
+#                RandomOptionGroup: One_Hand_Axe_Group_5
+#              - Level: 6
+#                RandomOptionGroup: One_Hand_Axe_Group_6
+#              - Level: 7
+#                RandomOptionGroup: One_Hand_Axe_Group_7
+#              - Level: 8
+#                RandomOptionGroup: One_Hand_Axe_Group_8
+#              - Level: 9
+#                RandomOptionGroup: One_Hand_Axe_Group_9
+#              - Level: 10
+#                RandomOptionGroup: One_Hand_Axe_Group_10
+#      - Type: 2HAXE
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Axe_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Axe_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Axe_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Axe_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Axe_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Axe_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Axe_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Axe_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Axe_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Axe_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Axe_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Axe_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Axe_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Axe_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Axe_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Axe_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Axe_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Axe_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Axe_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Axe_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Axe_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Axe_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Axe_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Axe_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Axe_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Axe_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Axe_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Axe_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Axe_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Axe_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Two_Hand_Axe_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Two_Hand_Axe_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Two_Hand_Axe_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Two_Hand_Axe_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Two_Hand_Axe_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Two_Hand_Axe_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Two_Hand_Axe_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Two_Hand_Axe_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Two_Hand_Axe_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Two_Hand_Axe_Group_10
+#      - Type: MACE
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Mace_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Mace_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Mace_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Mace_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Mace_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Mace_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Mace_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Mace_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Mace_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Mace_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Mace_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Mace_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Mace_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Mace_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Mace_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Mace_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Mace_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Mace_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Mace_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Mace_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Mace_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Mace_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Mace_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Mace_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Mace_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Mace_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Mace_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Mace_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Mace_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Mace_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Mace_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Mace_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Mace_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Mace_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Mace_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Mace_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Mace_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Mace_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Mace_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Mace_Group_10
+#      - Type: KNUCKLE
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Knuckle_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Knuckle_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Knuckle_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Knuckle_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Knuckle_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Knuckle_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Knuckle_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Knuckle_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Knuckle_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Knuckle_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Knuckle_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Knuckle_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Knuckle_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Knuckle_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Knuckle_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Knuckle_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Knuckle_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Knuckle_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Knuckle_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Knuckle_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Knuckle_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Knuckle_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Knuckle_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Knuckle_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Knuckle_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Knuckle_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Knuckle_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Knuckle_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Knuckle_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Knuckle_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Knuckle_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Knuckle_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Knuckle_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Knuckle_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Knuckle_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Knuckle_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Knuckle_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Knuckle_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Knuckle_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Knuckle_Group_10
+#      - Type: MUSICAL
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Musical_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Musical_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Musical_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Musical_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Musical_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Musical_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Musical_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Musical_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Musical_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Musical_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Musical_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Musical_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Musical_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Musical_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Musical_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Musical_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Musical_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Musical_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Musical_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Musical_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Musical_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Musical_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Musical_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Musical_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Musical_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Musical_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Musical_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Musical_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Musical_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Musical_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Musical_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Musical_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Musical_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Musical_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Musical_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Musical_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Musical_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Musical_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Musical_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Musical_Group_10
+#      - Type: WHIP
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Whip_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Whip_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Whip_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Whip_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Whip_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Whip_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Whip_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Whip_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Whip_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Whip_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Whip_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Whip_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Whip_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Whip_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Whip_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Whip_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Whip_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Whip_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Whip_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Whip_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Whip_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Whip_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Whip_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Whip_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Whip_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Whip_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Whip_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Whip_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Whip_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Whip_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Whip_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Whip_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Whip_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Whip_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Whip_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Whip_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Whip_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Whip_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Whip_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Whip_Group_10
+#      - Type: BOOK
+#        Levels:
+#          - Level: 1
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Book_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Book_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Book_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Book_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Book_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Book_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Book_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Book_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Book_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Book_Group_10
+#          - Level: 2
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Book_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Book_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Book_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Book_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Book_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Book_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Book_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Book_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Book_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Book_Group_10
+#          - Level: 3
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Book_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Book_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Book_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Book_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Book_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Book_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Book_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Book_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Book_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Book_Group_10
+#          - Level: 4
+#            RefineLevels:
+#              - Level: 1
+#                RandomOptionGroup: Book_Group_1
+#              - Level: 2
+#                RandomOptionGroup: Book_Group_2
+#              - Level: 3
+#                RandomOptionGroup: Book_Group_3
+#              - Level: 4
+#                RandomOptionGroup: Book_Group_4
+#              - Level: 5
+#                RandomOptionGroup: Book_Group_5
+#              - Level: 6
+#                RandomOptionGroup: Book_Group_6
+#              - Level: 7
+#                RandomOptionGroup: Book_Group_7
+#              - Level: 8
+#                RandomOptionGroup: Book_Group_8
+#              - Level: 9
+#                RandomOptionGroup: Book_Group_9
+#              - Level: 10
+#                RandomOptionGroup: Book_Group_10

@@ -1,0 +1,302 @@
+
+oasis,210,72,4	script	PecoPeco Game	893,{
+	
+	switch(select("~ เริ่มกิจกรรม:~ ยกเลิกการสนทนา"))
+	{
+		case 1:
+			if ( Zeny < $@Fee2 ) { mes "[ Peco Peco Game ]"; mes "นี่... ฉันต้องการค่าธรรมเนียม 2000000 Zeny"; close; }
+			if ( $@Running != 0 ) { mes "[ Peco Peco Game ]"; mes "กิจกรรมกำลังจะเตรียม โปรดรอสักครู่..."; close; }
+			if ( .Start != 0 ) { mes "[ Peco Peco Game ]"; mes "กิจกรรมกำลังจะเริ่มต้นขึ้น โปรดลงพนันมอนสเตอร์ก่อนที่มอนสเตอร์จะเข้าสู่สนาม..."; close; }
+				mes "[ Peco Peco Game ]";	mes "อย่าลืมลงพนันก่อนเวลาหมดซะก่อนล่ะ...";	close2;
+			.Start = 1;
+			set Zeny,Zeny - $@Fee2;
+			set .Mobs,2;
+			set $@redteam, .RndMonster1[rand(getarraysize(.RndMonster1))];
+			set $@blueteam, .RndMonster2[rand(getarraysize(.RndMonster2))];
+			setnpcdisplay "Monster Game",$@redteam;
+			setnpcdisplay "Monster Game",$@blueteam;
+			//mapannounce "oasis",""+ strnpcinfo(0) +" ได้เริ่มต้นขึ้นแล้ว มีเวลาลงพนัน เพียง 1 นาที ก่อนที่จะจัดเตรียมมอนสเตอร์เข้าสู่การประลอง",bc_map,"0xFFCE00";
+			npctalk "[ Peco Peco Game ] : ท่านมีเวลาลงเดิมพัน เพียง 1นาที";
+			sleep 6000;
+			npctalk "[ Peco Peco Game ] : พบกับการประลอง ระหว่าง "+ getmonsterinfo($@redteam,MOB_NAME) +" (ทีมฝั่งซ้าย) vs "+ getmonsterinfo($@blueteam,MOB_NAME) +" (ทีมฝั่งขวา)";
+			//mapannounce "oasis",""+ strnpcinfo(0) +" การต่อสู้ระหว่าง "+ getmonsterinfo($@redteam,MOB_NAME) +" vs "+ getmonsterinfo($@blueteam,MOB_NAME) +"",bc_map,"0xFFCE00";
+			sleep 6000;
+			donpcevent strnpcinfo(0) +"::OnPlayed";
+			end;
+			
+		case 2:
+			close;
+
+	}
+	end;
+	
+OnPlayed:
+	npctalk "[ Peco Peco Game ] : จะเริ่มในอีก 1นาที ใครที่ยังไม่มารับรางวัล โปรดรีบมารับด้วย !";
+	sleep 30000;
+	npctalk "[ Peco Peco Game ] : จะเริ่มในอีก 30 วินาที ใครที่ยังไม่มารับรางวัล โปรดรีบมารับด้วย !";
+	sleep 25000;
+	npctalk "[ Peco Peco Game ] : จะเริ่มในอีก 5 วินาที ใครที่ยังไม่มารับรางวัล โปรดรีบมารับด้วย !";
+	sleep 1000;
+	npctalk "[ Peco Peco Game ] : จะเริ่มในอีก 4 วินาที ใครที่ยังไม่มารับรางวัล โปรดรีบมารับด้วย !";
+	sleep 1000;
+	npctalk "[ Peco Peco Game ] : จะเริ่มในอีก 3 วินาที ใครที่ยังไม่มารับรางวัล โปรดรีบมารับด้วย !";
+	sleep 1000;
+	npctalk "[ Peco Peco Game ] : จะเริ่มในอีก 2 วินาที ใครที่ยังไม่มารับรางวัล โปรดรีบมารับด้วย !";
+	sleep 1000;
+	npctalk "[ Peco Peco Game ] : จะเริ่มในอีก 1 วินาที ใครที่ยังไม่มารับรางวัล โปรดรีบมารับด้วย !";
+	sleep 1000;
+	npctalk "[ Peco Peco Game ] : ศึกการประลอง ได้เริ่มขึ้นแล้ว ฝ่ายใดจะเป็นฝ่ายชนะ" ;
+	set $@Running,1;
+	set $@Check,0;
+	set $Round,$Round+1;
+	monster "oasis",207,65,getmonsterinfo($@redteam,MOB_NAME) +"",$@redteam,1,strnpcinfo(0) +"::Onreddie",0,1;
+	monster "oasis",212,65,getmonsterinfo($@blueteam,MOB_NAME) +"",$@blueteam,1,strnpcinfo(0) +"::Onbluedie",0,0;
+	setmapflag "oasis", mf_monster_noteleport;
+	setmapflag "oasis", mf_nomobloot;
+	end;
+	
+Onreddie:
+	set .Mobs,.Mobs-1;
+	if ( .Mobs == 1 )
+	{
+		set $@Check,2;
+		//mapannounce "oasis",""+ strnpcinfo(0) +" การต่อสู้ระหว่าง "+ getmonsterinfo($@redteam,MOB_NAME) +" vs "+ getmonsterinfo($@blueteam,MOB_NAME) +" ฝ่าย "+ getmonsterinfo($@blueteam,MOB_NAME) +" เป็นฝ่ายชนะ",bc_map,"0x00FF00";
+		npctalk "[ Peco Peco Game ] : การต่อสู้ระหว่าง "+ getmonsterinfo($@redteam,MOB_NAME) +" vs "+ getmonsterinfo($@blueteam,MOB_NAME) +" เป็น [ "+ getmonsterinfo($@blueteam,MOB_NAME) +" ] ฝ่ายชนะ";
+		sleep 2000;
+		donpcevent "Monster Game#0"+$@Check+"::OnEffect";
+		donpcevent strnpcinfo(0) +"::OnEnd";
+		end;
+	}
+	end;
+
+Onbluedie:
+	set .Mobs,.Mobs-1;
+	if ( .Mobs == 1 )
+	{
+		set $@Check,1;
+		//mapannounce "oasis",""+ strnpcinfo(0) +" การต่อสู้ระหว่าง "+ getmonsterinfo($@redteam,MOB_NAME) +" vs "+ getmonsterinfo($@blueteam,MOB_NAME) +" ฝ่าย "+ getmonsterinfo($@redteam,MOB_NAME) +" เป็นฝ่ายชนะ",bc_map,"0x00FF00";
+		npctalk "[ Peco Peco Game ] : การต่อสู้ระหว่าง "+ getmonsterinfo($@redteam,MOB_NAME) +" vs "+ getmonsterinfo($@blueteam,MOB_NAME) +" เป็น [ "+ getmonsterinfo($@redteam,MOB_NAME) +" ] ฝ่ายชนะ";
+		sleep 2000;
+		donpcevent "Monster Game#0"+$@Check+"::OnEffect";
+		donpcevent strnpcinfo(0) +"::OnEnd";
+		end;
+	}
+	end;
+
+OnEnd:
+	set $@Running,0;
+	.Start = 0;
+	killmonsterall "oasis";
+	donpcevent "Monster Game#01::OnReset";
+	donpcevent "Monster Game#02::OnReset";
+	end;
+
+OnInit:
+	set $@Fee2,2000000;
+	set $@Fee,10000000;
+	set $@Running,0;
+	set $@Check,0;
+	set $Counter1,0;
+	set $Counter2,0;
+	set $Played1,0;
+	set $Played2,0;
+	setarray .RndMonster1[0],3577,3577;
+	setarray .RndMonster2[0],3578,3578;
+	setarray .messages$,"P","e","c","o"," ","P","e","c","o"," " ,"G","a","m","e";
+	while( 1 )
+	{
+		set .Display$,"";
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+	end;
+}
+
+function	script	BetMonster	{
+	
+	if ( $@Running != 0 ) { mes "[ Peco Peco Game ]"; mes "กิจกรรมกำลังจะเตรียม โปรดรอสักครู่..."; close; }
+	
+	set .@bet,getarg(0);
+	set .@recieve,getarg(1);
+	
+	if ( getd("Cost"+.@bet) > 0 )
+	{
+		if ( getd("Round"+.@bet) == $Round -1 && .@bet == $@Check )
+		{
+			set .@i,(getd("Cost"+.@bet)*.@recieve)-100000;
+			set Zeny,Zeny + .@i;
+			setd "Cost"+.@bet,0;
+			mes "[ Peco Peco Game ]";
+			mes "นี่คือยอดเงินรวมหักภาษี";
+			mes ""+ callfunc("F_InsertComma",.@i) +" Zeny";
+			close;
+		}
+	}
+	
+	if ( getd("Cost"+.@bet) != 0 && getd("Round"+.@bet) == $Round )
+	{
+		mes "[ Peco Peco Game ]";
+		mes "ไม่สามารถลงเดิมพันได้";
+		mes	"คุณได้ลงเดิมพันมอนสเตอร์ตัวนี้";
+		mes "เรียบร้อยแล้ว";
+		close;
+	}
+	
+	mes "[ Peco Peco Game ]";
+	mes "ค่าธรรมเนียมต่อรอบ";
+	mes ""+ callfunc("F_InsertComma",$@Fee ) +" Zeny";
+	mes "หากมอนสเตอร์ที่ท่านลงชนะ";
+	mes "ท่านจะได้รับค่าตอบแทนเป็น^FF0000สองเท่า^000000";
+	mes "แต่... ท่านจะต้องเสียภาษีค่าใช้จ่าย 5%";
+	next;
+	
+	if(select("~ ยืนยันการลงพนัน:~ ยกเลิก") == 2 ) close;
+	
+	if ( Zeny < $@Fee ) { mes "[ Peco Peco Game ]"; mes "นี่... คิดจะโกงหรือยังไง !"; close; }
+	
+	set Zeny,Zeny - $@Fee;
+	setd "Cost"+.@bet,$@Fee;
+	delwaitingroom "Monster Game#0"+.@bet;
+	setd "$Counter"+.@bet,getd("$Counter"+.@bet)+$@Fee;
+	setd "$Played"+.@bet,getd("$Played"+.@bet)+1;
+	waitingroom "ลงเดิมพัน [ "+ getd("$Played"+.@bet) +" ] คน",0;
+	setd "Round"+.@bet,$Round;
+	
+	mes "[ Peco Peco Game ]";
+	mes "คุณได้ลงเดิมพัน";
+	mes "มอนสเตอร์หมายเลข "+.@bet+" เรียบร้อยแล้ว";
+	close;
+	
+	return;
+}
+
+oasis,205,70,5	script	Monster Game#01	3577,{
+	callfunc ("BetMonster",1,2);
+end;
+OnEffect:
+	for(set .@i,1; .@i < 5; set .@i,.@i+1){
+		specialeffect 183;
+		sleep 500;
+	}
+	specialeffect 68;
+end;
+OnReset:
+	delwaitingroom "Monster Game#01";
+	set $Counter1,0;
+	set $Played1,0;
+	setnpcdisplay "Monster Game",$@redteam;
+	waitingroom "ลงเดิมพัน  [ 0 ] คน",0;
+	end;
+	
+OnInit:
+	waitingroom "ลงเดิมพัน 10M  [ 0 ] คน",0;
+	end;
+}
+
+oasis,215,70,3	script	Monster Game#02	3578,{
+	callfunc ("BetMonster",2,2);
+end;
+OnEffect:
+	for(set .@i,1; .@i < 5; set .@i,.@i+1){
+		specialeffect 183;
+		sleep 500;
+	}
+	specialeffect 68;
+end;
+OnReset:
+	delwaitingroom "Monster Game#02";
+	set $Counter2,0;
+	set $Played2,0;
+	setnpcdisplay "Monster Game",$@blueteam;
+	waitingroom "ลงเดิมพัน [ 0 ] คน",0;
+	end;
+
+OnInit:
+	waitingroom "ลงเดิมพัน 10M [ 0 ] คน",0;
+	end;
+}
+
+-	script	Waller	FAKE_NPC,{
+	end;
+	
+OnInit:
+	setwall "oasis",204,68,1,1,0,"WaLL#1";
+	setwall "oasis",205,68,1,1,0,"WaLL#2";
+	setwall "oasis",206,68,1,1,0,"WaLL#3";
+	setwall "oasis",207,68,1,1,0,"WaLL#4";
+	setwall "oasis",208,68,1,1,0,"WaLL#5";
+	setwall "oasis",209,68,1,1,0,"WaLL#6";
+	setwall "oasis",210,68,1,1,0,"WaLL#7";
+	setwall "oasis",211,68,1,1,0,"WaLL#8";
+	setwall "oasis",212,68,1,1,0,"WaLL#9";
+	setwall "oasis",213,68,1,1,0,"WaLL#10";
+	setwall "oasis",214,68,1,1,0,"WaLL#11";
+	setwall "oasis",215,68,1,1,0,"WaLL#12";
+	setwall "oasis",204,67,1,1,0,"WaLL#13";
+	setwall "oasis",204,66,1,1,0,"WaLL#14";
+	setwall "oasis",204,65,1,1,0,"WaLL#15";
+	setwall "oasis",204,64,1,1,0,"WaLL#16";
+	setwall "oasis",204,63,1,1,0,"WaLL#17";
+	setwall "oasis",204,62,1,1,0,"WaLL#18";
+	setwall "oasis",205,62,1,1,0,"WaLL#19";
+	setwall "oasis",206,62,1,1,0,"WaLL#20";
+	setwall "oasis",207,62,1,1,0,"WaLL#21";
+	setwall "oasis",208,62,1,1,0,"WaLL#22";
+	setwall "oasis",209,62,1,1,0,"WaLL#23";
+	setwall "oasis",210,62,1,1,0,"WaLL#24";
+	setwall "oasis",211,62,1,1,0,"WaLL#25";
+	setwall "oasis",212,62,1,1,0,"WaLL#26";
+	setwall "oasis",213,62,1,1,0,"WaLL#27";
+	setwall "oasis",214,62,1,1,0,"WaLL#28";
+	setwall "oasis",215,62,1,1,0,"WaLL#29";
+	setwall "oasis",215,63,1,1,0,"WaLL#30";
+	setwall "oasis",215,64,1,1,0,"WaLL#31";
+	setwall "oasis",215,65,1,1,0,"WaLL#32";
+	setwall "oasis",215,66,1,1,0,"WaLL#33";
+	setwall "oasis",215,67,1,1,0,"WaLL#34";
+	setcell "oasis",204,69,215,61,cell_landprotector,1;
+	setcell "oasis",204,69,215,61,cell_basilica,1;
+	end;
+	
+}
+
+oasis,204,68,3	script	WaLL#1	858,{}
+oasis,205,68,3	script	WaLL#2	858,{}
+oasis,206,68,3	script	WaLL#3	858,{}
+oasis,207,68,3	script	WaLL#4	858,{}
+oasis,208,68,3	script	WaLL#5	858,{}
+oasis,209,68,3	script	WaLL#6	858,{}
+oasis,210,68,3	script	WaLL#7	858,{}
+oasis,211,68,3	script	WaLL#8	858,{}
+oasis,212,68,3	script	WaLL#9	858,{}
+oasis,213,68,3	script	WaLL#10	858,{}
+oasis,214,68,3	script	WaLL#11	858,{}
+oasis,215,68,3	script	WaLL#12	858,{}
+oasis,204,67,3	script	WaLL#13	858,{}
+oasis,204,66,3	script	WaLL#14	858,{}
+oasis,204,65,3	script	WaLL#15	858,{}
+oasis,204,64,3	script	WaLL#16	858,{}
+oasis,204,63,3	script	WaLL#17	858,{}
+oasis,204,62,3	script	WaLL#18	858,{}
+oasis,205,62,3	script	WaLL#19	858,{}
+oasis,206,62,3	script	WaLL#20	858,{}
+oasis,207,62,3	script	WaLL#21	858,{}
+oasis,208,62,3	script	WaLL#22	858,{}
+oasis,209,62,3	script	WaLL#23	858,{}
+oasis,210,62,3	script	WaLL#24	858,{}
+oasis,211,62,3	script	WaLL#25	858,{}
+oasis,212,62,3	script	WaLL#26	858,{}
+oasis,213,62,3	script	WaLL#27	858,{}
+oasis,214,62,3	script	WaLL#28	858,{}
+oasis,215,62,3	script	WaLL#29	858,{}
+oasis,215,63,3	script	WaLL#30	858,{}
+oasis,215,64,3	script	WaLL#31	858,{}
+oasis,215,65,3	script	WaLL#32	858,{}
+oasis,215,66,3	script	WaLL#33	858,{}
+oasis,215,67,3	script	WaLL#34	858,{}

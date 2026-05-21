@@ -1,0 +1,44 @@
+//===== AI Ammo Item List Configulation Files =======================================
+//  Whispering Rain
+//= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Structure of Database:
+// Type,itemid,element,atk power, quiver (auto using)
+// arrow,1750,ELE_NEUTRAL,25,
+//= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// arrow
+arrow,1750,ELE_NEUTRAL,25,
+arrow,1751,ELE_HOLY,30,
+arrow,1752,ELE_FIRE,30,
+arrow,1753,ELE_NEUTRAL,40,
+arrow,1754,ELE_WATER,30,
+arrow,1755,ELE_WIND,30,
+arrow,1756,ELE_EARTH,30,
+arrow,1757,ELE_GHOST,30,
+arrow,1762,ELE_NEUTRAL,30,
+arrow,1765,ELE_POISON,50,
+arrow,1766,ELE_HOLY,50,
+arrow,1767,ELE_DARK,30,
+arrow,1770,ELE_NEUTRAL,30,
+arrow,1772,ELE_HOLY,50,
+
+
+// bullet
+bullet,13200,ELE_NEUTRAL,25,
+bullet,13201,ELE_HOLY,15,
+
+// syuriken
+syuriken,13250,ELE_NEUTRAL,10,
+syuriken,13251,ELE_NEUTRAL,30,
+syuriken,13252,ELE_NEUTRAL,45,
+syuriken,13253,ELE_NEUTRAL,70,
+syuriken,13254,ELE_NEUTRAL,100,
+
+// kunai
+kunai,13255,ELE_WATER,30,
+kunai,13256,ELE_EARTH,30,
+kunai,13257,ELE_WIND,30,
+kunai,13258,ELE_FIRE,30,
+kunai,13259,ELE_POISON,30,
+kunai,13294,ELE_NEUTRAL,50,
+

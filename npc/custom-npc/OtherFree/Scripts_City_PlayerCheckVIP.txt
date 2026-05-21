@@ -1,0 +1,49 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+-	script	Example_VIP	FAKE_NPC,{
+/*
+ฟังก์ชั่นการตรวจสอบสถานะ vip มี 3 ฟังก์ชั่นหลัก
+1. VIP_STATUS_ACTIVE			เงื่อนใขการตรวจสอบว่าเป็น จริง หรือ เท็จ
+2. VIP_STATUS_EXPIRE			เงื่อนใขการตรวจสอบเวลาการหมดอายุ
+3. VIP_STATUS_REMAINING			เงื่อนใขการตรวจสอบระยะเวลา
+*/
+
+	switch(select("ตรวจสอบระยะเวลาคงเหลือ:ยกเลิกการสนทนา"))
+	{
+		case 1:
+			/* ตรวจสอบระยะเวลาคงเหลือ */
+			if ( !vip_status(VIP_STATUS_ACTIVE) )
+			{
+				mes "[ Expire ]";
+				mes "คุณไม่ใช่บัญชี VIP";
+				close;
+			}
+			else
+			{
+				mes "[ Expire ]";
+				mes "เวลาคงเหลือ : "+ gettimestr("%H:%M:%S",21,vip_status(VIP_STATUS_REMAINING));
+				mes "เวลาหมดอายุ : "+ gettimestr("%Y-%m-%d %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE));
+				close;
+			}
+		
+		default: end;
+	}
+	end;
+	
+OnInit:
+	waitingroom "ตรวจสอบระยะเวลา VIP",0;
+	end;
+}
+
+oasis,150,81,5	duplicate(Example_VIP)	ตรวจสอบระยะเวลา VIP	762

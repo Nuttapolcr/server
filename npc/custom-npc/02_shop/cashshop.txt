@@ -1,0 +1,22 @@
+-	cashshop	Kafra CashShop	115,930101:590,30001:10,40000:300,40001:200,1001004:1290,1001002:490,12208:60,14592:60,410005:60,12221:30,7776:1500,33001:300,33002:200,6046:1490,6290:890,7622:1490,14243:990,14244:990,14245:990,14246:990,14247:990,14248:990,14249:990,14251:990,12959:990,12958:990,12957:990,12956:990,12955:990,12954:990
+
+//-	cashshop	Kafra CashShop2	115,30001:10
+
+
+morocc,134,79,4	script	Cash Shop#cash	115,{
+	callshop "Kafra CashShop", 1;
+	end;
+
+OnInit:
+	waitingroom " Cash Shop", 0;
+	end;
+}
+
+new_1-1,142,120,4	script	Cash Shop#cash2	115,{
+	callshop "Kafra CashShop2", 1;
+	end;
+
+OnInit:
+	waitingroom " Cash Shop", 0;
+	end;
+}

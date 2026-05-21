@@ -1,0 +1,49 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Refine Random Option Database
+###########################################################################
+#
+# Refine Random Option Settings
+#
+###########################################################################
+# - Group                               Refine item type.
+#   Types:                              Refinement settings per refine per type.
+#     - Type                            Item type.
+#        Levels:                        Refinement settings per item level. (Default: null)
+#          - Level                      Item level.
+#            RefineLevels:              Refinement settings per refine level. (Default: null)
+#              - Level                  Refine level.
+#                OptionSlots:           Refinement settings per item option slot. (Default: null)
+#                  - Slot               Item option slot.
+#                    Options:           Option based on item random option. (Default: null)
+#                      - ID             Item random option type base on item random option
+#                        Value          Item random option's value.
+#                        Param      Item random option's param.
+###########################################################################
+
+Header:
+  Type: REFINE_RANDOMOPT_DB
+  Version: 1
+
+Footer:
+  Imports:
+  - Path: db/pre-re/refine_randomopt.yml
+    Mode: Prerenewal
+  - Path: db/re/refine_randomopt.yml
+    Mode: Renewal

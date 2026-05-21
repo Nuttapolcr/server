@@ -1,0 +1,573 @@
+/*
+	Script : Monster_Mission
+	Support : rAthena
+	Editor by : Durexz-Studio by Dui2exz 	
+	Commit Version :
+		Ver.1.0 - ดีเลย์เมื่อกดยกเลิกเควส set @Hunter_CD,gettimetick(2) + 60; // 60 = 1 นาที
+		Ver.1.1 - แก้ไขเพิ่มจำนวนมอนเตอร์แต่ละ ระดับ
+		Ver.2.0	- เพิ่มการแจ้งเตือนจำนวนมอนเตอร์เควสที่เราฆ่าไป
+*/
+
+oasis,166,77,4	script	Mission Monster	950,{
+set .@b,rand(0,24); /*จำนวนประเภทมอนสเตอร์ในภารกิจระดับ Beginner*/
+set .@r,rand(0,45); /*จำนวนประเภทมอนสเตอร์ในภารกิจระดับ Rookie*/
+set .@m,rand(0,34); /*จำนวนประเภทมอนสเตอร์ในภารกิจระดับ Advance*/
+set .@i,rand(0,36); /*จำนวนประเภทมอนสเตอร์ในภารกิจระดับ Legendary*/
+set .MName$,"[ ^FF6666ล่ามอนเตอร์^000000 ]"; /*ชื่อของ NPC*/
+
+	mes .MName$;
+	if (WhileMission > 0) {
+	mes "สวัสดี, "+strcharinfo(0)+"";
+	mes " ";
+	mes "^FF0000คุณอยู่ระหว่างทำภารกิจ:^000000";
+	if (Beginner_Mission > 0) mes "กำจัด ^6666CC"+getmonsterinfo(Beginner_Mobhunt_ID,0)+"("+Beginner_Mobhunt_ID+")^000000";
+	if (Beginner_Mission > 0) mes "จำนวน ^9ACD32"+Beginner_Forcount+"^000000/^990000"+Beginner_Mobhunt_Amt+"^000000 ตัว";
+	if (Rookie_Mission > 0) mes "กำจัด ^6666CC"+getmonsterinfo(Rookie_Mobhunt_ID,0)+"("+Rookie_Mobhunt_ID+")^000000";
+	if (Rookie_Mission > 0) mes "จำนวน ^9ACD32"+Rookie_Forcount+"^000000/^990000"+Rookie_Mobhunt_Amt+"^000000 ตัว";
+	if (Advance_Mission > 0) mes "กำจัด ^6666CC"+getmonsterinfo(Advance_Mobhunt_ID,0)+"("+Advance_Mobhunt_ID+")^000000";
+	if (Advance_Mission > 0) mes "จำนวน ^9ACD32"+Advance_Forcount+"^000000/^990000"+Advance_Mobhunt_Amt+"^000000 ตัว";
+	if (Legendary_Mission > 0) mes "กำจัด ^6666CC"+getmonsterinfo(Legendary_Mobhunt_ID,0)+"("+Legendary_Mobhunt_ID+")^000000";
+	if (Legendary_Mission > 0) mes "จำนวน ^9ACD32"+Legendary_Forcount+"^000000/^990000"+Legendary_Mobhunt_Amt+"^000000 ตัว";
+	if (DoMission_Complete == 0) mes "สถานะ: ^FF0000ยังไม่สำเร็จ^000000";
+	if (DoMission_Complete > 0) mes "สถานะ: ^9ACD32สำเร็จแล้ว^000000";
+	} else {
+	mes "สวัสดี, "+strcharinfo(0)+"";
+	mes " ";
+	mes "^339900Beginner^000000 > ^0066CC"+Beginner_Mission_Round+"^000000 รอบ";
+	mes "^FFCC00Rookie^000000 > ^0066CC"+Rookie_Mission_Round+"^000000 รอบ";
+	mes "^FF9900Advance^000000 > ^0066CC"+Advance_Mission_Round+"^000000 รอบ";
+	mes "^FF0033Legendary^000000 > ^0066CC"+Legendary_Mission_Round+"^000000 รอบ";
+	mes "^20B2AAMission Piont^000000 > ^32CD32"+#Mission_Point+"^000000 แต้ม";
+	}
+	if (DoMission_Complete > 0) menu "^FF0000•^000000 ^434951ประมวลผลภารกิจ^000000",L_SPC,
+		"^FF0000•^000000 ^434951รับภารกิจ^000000",L_01,
+		"^FF0000•^000000 ^434951ตรวจสอบสถิติของฉัน^000000",L_03,
+		"^FF0000•^000000 ^434951แลกของรางวัล^000000",L_04,
+		"^FF0000•^000000 ^434951ขอข้อมูลเพิ่มเติม^000000",L_05,
+		"^FF0000•^000000 ยกเลิก",L_06;
+	
+	if (DoMission_Complete == 0 ) menu "^FF0000•^000000 ^434951รับภารกิจ^000000",L_01,
+		"^FF0000• ยกเลิกภารกิจที่กำลังทำอยู่^000000",L_02,
+		"^FF0000•^000000 ^434951ตรวจสอบสถิติของฉัน^000000",L_03,
+		"^FF0000•^000000 ^434951แลกของรางวัล^000000",L_04,
+		"^FF0000•^000000 ^434951ขอข้อมูลเพิ่มเติม^000000",L_05,
+		"^FF0000•^000000 ยกเลิก",L_06;
+
+/*Accept Mission Menu*/
+	L_01:
+	next;
+	mes .MName$;
+	if( gettimetick(2)-@Hunter_CD < .@delay ){
+		dispbottom "[ระบบ] โปรดรออีก "+(.@delay-(gettimetick(2)-@Hunter_CD))+" วินาทีถึงจะรับเควสได้อีกครั้ง";
+		mes "โปรดรออีก "+(.@delay-(gettimetick(2)-@Hunter_CD))+" วินาทีถึงจะรับเควสได้อีกครั้ง";
+		end;
+	}
+	if (WhileMission > 0) {
+		mes "เสียใจด้วย, คุณไม่สามารถรับ";
+		mes "ภารกิจใหม่ได้ตอนนี้";
+		mes "กรุณาทำภารกิจเก่าให้เสร็จหรือ";
+		mes "ยกเลิกภารกิจเก่าทิ้งเสียก่อน";
+		close;
+		}
+			mes "กรุณาเลือกระดับภารกิจ";
+			mes "ที่คุณต้องการทำด้วย";
+			mes "^FF0000( กรณียกเลิกการล่า ) ";
+			mes "ต้องรอ 5 นาทีถึงจะรับภารกิจใหม่ได้ ^000000";
+			menu "^FF0000•^000000 ^339900Beginner^000000",L_M_01,
+				"^FF0000•^000000 ^FFCC00Rookie^000000",L_M_02,
+				"^FF0000•^000000 ^FF9900Advance^000000",L_M_03,
+				"^FF0000•^000000 ^FF0033Legendary^000000",L_M_04,
+				"^FF0000•^000000 ยกเลิก",L_06;
+
+/*Beginner Mission Accept Menu*/
+			L_M_01:
+			next;
+			set .@a,rand(60,80);
+			set .@Beginner_ID,.Beginner_Hunting[.@b];
+			mes .MName$;
+			mes "ภารกิจของคุณคือ:";
+			mes "ตามล่ามอนเตอร์ คุณมั่นใจมั้ย?";
+			//mes "กำจัด ^6666CC"+getmonsterinfo(.@Beginner_ID,0)+"^000000 ตัว";
+			//mes "จำนวน ^660066"+.@a+"^000000 ตัว";
+			mes " ";
+			mes "กรุณายืนยันด้วย";
+			menu "^FF0000•^000000 ^9ACD32ตกลง^000000",-,
+				"^FF0000•^000000 ยกเลิก",L_06;
+			next;
+			mes .MName$;
+			mes "รับภารกิจเรียบร้อย";
+			mes "คุณมีเวลาไม่จำกัดในการทำภารกิจ";
+			mes "เมื่อทำภารกิจสำเร็จ กรุณามารับ";
+			mes "รางวัลและประมวลผลภารกิจที่ฉัน";
+			set Beginner_Mobhunt_ID,.@Beginner_ID;
+			set Beginner_Mobhunt_Amt,.@a;
+			set Beginner_Mission,1;
+			set WhileMission,1;
+			close;
+
+
+/*Rookie Mission Accept Menu*/
+			L_M_02:
+			next;
+			if (Beginner_Mission_Round < $Min_Beginner) {
+				mes .MName$;
+				mes "เสียใจด้วย,คุณต้องทำภารกิจ";
+				mes "ระดับ Beginner อย่างน้อย";
+				mes "^00008B"+Beginner_Mission_Round+"^000000/^CD0000"+$Min_Beginner+"^000000 รอบ";
+				close;
+				}	
+			set .@f,rand(50,70);
+			set .@Rookie_ID,.Rookie_Hunting[.@r];
+			mes .MName$;
+			mes "ภารกิจของคุณคือ:";
+			mes "ตามล่ามอนเตอร์ คุณมั่นใจมั้ย?";
+			//mes "กำจัด ^6666CC"+getmonsterinfo(.@Rookie_ID,0)+"^000000 ตัว";
+			//mes "จำนวน ^660066"+.@f+"^000000 ตัว";
+			mes " ";
+			mes "กรุณายืนยันด้วย";
+			menu "^FF0000•^000000 ^9ACD32ตกลง^000000",-,
+				"^FF0000•^000000 ยกเลิก",L_06;
+			next;
+			mes .MName$;
+			mes "รับภารกิจเรียบร้อย";
+			mes "คุณมีเวลาไม่จำกัดในการทำภารกิจ";
+			mes "เมื่อทำภารกิจสำเร็จ กรุณามารับ";
+			mes "รางวัลและประมวลผลภารกิจที่ฉัน";
+			set Rookie_Mobhunt_ID,.@Rookie_ID;
+			set Rookie_Mobhunt_Amt,.@f;
+			set Rookie_Mission,1;
+			set WhileMission,1;
+			close;
+
+
+/*Advance Mission Accept Menu*/
+			L_M_03:
+			next;
+			if ((Beginner_Mission_Round < $Min_Beginner) || (Rookie_Mission_Round < $Min_Rookie)) {
+				mes .MName$;
+				mes "เสียใจด้วย,คุณต้องทำภารกิจ";
+				mes "ระดับ Beginner อย่างน้อย";
+				mes "^00008B"+Beginner_Mission_Round+"^000000/^CD0000"+$Min_Beginner+"^000000 รอบ";
+				mes "ระดับ Rookie อย่างน้อย";
+				mes "^00008B"+Rookie_Mission_Round+"^000000/^CD0000"+$Min_Rookie+"^000000 รอบ";
+				close;
+				}	
+			set .@k,rand(50,60);
+			set .@Advance_ID,.MiniBoss_Hunting[.@m];
+			mes .MName$;
+			mes "ภารกิจของคุณคือ:";
+			mes "ตามล่ามอนเตอร์ คุณมั่นใจมั้ย?";
+			//mes "กำจัด ^6666CC"+getmonsterinfo(.@Advance_ID,0)+"^000000 ตัว";
+			//mes "จำนวน ^660066"+.@k+"^000000 ตัว";
+			mes " ";
+			mes "กรุณายืนยันด้วย";
+			menu "^FF0000•^000000 ^9ACD32ตกลง^000000",-,
+				"^FF0000•^000000 ยกเลิก",L_06;
+			next;
+			mes .MName$;
+			mes "รับภารกิจเรียบร้อย";
+			mes "คุณมีเวลาไม่จำกัดในการทำภารกิจ";
+			mes "เมื่อทำภารกิจสำเร็จ กรุณามารับ";
+			mes "รางวัลและประมวลผลภารกิจที่ฉัน";
+			set Advance_Mobhunt_ID,.@Advance_ID;
+			set Advance_Mobhunt_Amt,.@k;
+			set Advance_Mission,1;
+			set WhileMission,1;
+			close;
+
+
+/*Legendary Mission Accept Menu*/
+			L_M_04:
+			next;
+			if ((Beginner_Mission_Round < $Min_Beginner) || (Rookie_Mission_Round < $Min_Rookie) || (Advance_Mission_Round < $Min_Advance)) {
+				mes .MName$;
+				mes "เสียใจด้วย,คุณต้องทำภารกิจ";
+				mes "ระดับ Beginner อย่างน้อย";
+				mes "^00008B"+Beginner_Mission_Round+"^000000/^CD0000"+$Min_Beginner+"^000000 รอบ";
+				mes "ระดับ Rookie อย่างน้อย";
+				mes "^00008B"+Rookie_Mission_Round+"^000000/^CD0000"+$Min_Rookie+"^000000 รอบ";
+				mes "ระดับ Advance อย่างน้อย";
+				mes "^00008B"+Advance_Mission_Round+"^000000/^CD0000"+$Min_Advance+"^000000 รอบ";
+				close;
+				}	
+			set .@j,rand(1,2);
+			set .@Legendary_ID,.MvP_Hunting[.@i];
+			mes .MName$;
+			mes "ภารกิจของคุณคือ:";
+			mes "ตามล่ามอนเตอร์ คุณมั่นใจมั้ย?";
+			//mes "กำจัด ^6666CC"+getmonsterinfo(.@Legendary_ID,0)+"^000000 ตัว";
+			//mes "จำนวน ^660066"+.@j+"^000000 ตัว";
+			mes " ";
+			mes "กรุณายืนยันด้วย";
+			menu "^FF0000•^000000 ^9ACD32ตกลง^000000",-,
+				"^FF0000•^000000 ยกเลิก",L_06;
+			next;
+			mes .MName$;
+			mes "รับภารกิจเรียบร้อย";
+			mes "คุณมีเวลาไม่จำกัดในการทำภารกิจ";
+			mes "เมื่อทำภารกิจสำเร็จ กรุณามารับ";
+			mes "รางวัลและประมวลผลภารกิจที่ฉัน";
+			set Legendary_Mobhunt_ID,.@Legendary_ID;
+			set Legendary_Mobhunt_Amt,.@j;
+			set Legendary_Mission,1;
+			set WhileMission,1;
+			close;
+
+
+/*Cancle Mission Menu*/
+	L_02:
+	next;
+	mes .MName$;
+	if (WhileMission == 0) {
+		mes "เสียใจด้วย, ฉันไม่สามารถ";
+		mes "ยกเลิกภารกิจได้ เนื่องจาก";
+		mes "คุณไม่ได้รับภารกิจใดไว้ก่อน";
+		close;
+		}
+			mes "^FF0000คุณแน่ใจไหมว่าต้องการ";
+			mes "ยกเลิกภารกิจปัจจุบันทิ้ง";
+			mes "คุณต้องรอ 5 นาที ถึงจะสามารถรับเควสใหม่ได้^000000";
+			menu "^FF0000•^000000 ^FF3399ตกลง [รับได้อีกครั้งหลัง 5นาที]^000000",-,
+				 "^FF0000•^000000 ยกเลิก",L_06;
+			progressbar "FF1493",1;
+			next;
+			mes .MName$;
+			mes "ภารกิจของคุณถูกยกเลิกแล้ว";
+			set Legendary_Mission,0;
+			set Advance_Mission,0;
+			set Rookie_Mission,0;
+			set Beginner_Mission,0;
+			set Beginner_Forcount,0;
+			set Rookie_Forcount,0;
+			set Advance_Forcount,0;
+			set Legendary_Forcount,0;
+			set WhileMission,0;
+			set .@delay, 5;
+			set @Hunter_CD,gettimetick(2) + 300; // 60 = 1 นาที
+			close;
+
+/*Player's Mission Data Menu*/
+	L_03:
+	next;
+	mes .MName$;
+	mes "^339900Beginner^000000 > ^0066CC"+Beginner_Mission_Round+"^000000 รอบ";
+	mes "^FFCC00Rookie^000000 > ^0066CC"+Rookie_Mission_Round+"^000000 รอบ";
+	mes "^FF9900Advance^000000 > ^0066CC"+Advance_Mission_Round+"^000000 รอบ";
+	mes "^FF0033Legendary^000000 > ^0066CC"+Legendary_Mission_Round+"^000000 รอบ";
+	mes "^20B2AAMission Piont^000000 > ^32CD32"+#Mission_Point+"^000000 แต้ม";
+	close;
+
+/*Reward Exchanged*/
+	L_04:
+	next;
+	mes .MName$;
+	mes "^20B2AAMission Piont^000000 > ^32CD32"+#Mission_Point+"^000000 แต้ม";
+	mes "กรุณาใช้อย่างชาญฉลาด";
+	close2;
+	mes "ยินดีต้อนรับ "+strcharinfo(0);
+	mes "คุณมี ^20B2AAMission Piont ^000000"+#Mission_Point+"^000000 แต้ม";
+	mes "ในการแลกซื้อสินค้าภายในร้าน";
+	callshop "mission_shop",1;
+	npcshopattach "mission_shop";
+	end;
+
+/*More informations*/
+	L_05:
+	next;
+	mes .MName$;
+	mes "ในระบบ Monster Mission นี้";
+	mes "จะมีภารกิจให้กับผู้เล่นที่ทำการ";
+	mes "รับภารกิจคนละ 1 ภารกิจ";
+	mes "โดยที่ผู้เล่นสามารถเลือก";
+	mes "ความยากง่ายของภารกิจเองได้";
+	next;
+	mes .MName$;
+	mes "ความยากง่ายของภารกิจ จะมี";
+	mes "อยู่ทั้งหมด 4 ระดับ โดยผู้เล่น";
+	mes "ต้องทำไล่ระดับไปเรื่อยๆฃ";
+	mes "ไม่สามารถข้ามขั้นความยากง่ายได้";
+	next;
+	mes .MName$;
+	mes "โดยมีเงื่อนไขดังนี้";
+	next;
+	mes .MName$;
+	mes "Beginner: ^FF3030สามารถทำได้เลย^000000";
+	next;
+	mes .MName$;
+	mes "Rookie:";
+	mes "^FF3030สำเร็จภารกิจ Beginner";
+	mes "อย่างน้อย "+$Min_Beginner+" รอบ^000000";
+	next;
+	mes .MName$;
+	mes "Advance:";
+	mes "^FF3030สำเร็จภารกิจ Beginner";
+	mes "อย่างน้อย "+$Min_Beginner+" รอบ";
+	mes "สำเร็จภารกิจ Rookie";
+	mes "อย่างน้อย "+$Min_Rookie+" รอบ^000000";
+	next;
+	mes .MName$;
+	mes "Legendary:";
+	mes "^FF3030สำเร็จภารกิจ Beginner";
+	mes "อย่างน้อย "+$Min_Beginner+" รอบ";
+	mes "สำเร็จภารกิจ Rookie";
+	mes "อย่างน้อย "+$Min_Rookie+" รอบ";
+	mes "สำเร็จภารกิจ Advance";
+	mes "อย่างน้อย "+$Min_Advance+" รอบ^000000";
+	next;
+	mes .MName$;
+	mes "ผู้เล่นสามารถยกเลิกภารกิจได้";
+	mes "หากทำไม่ไหว หรือต้องการ";
+	mes "ภารกิจใหม่ และสามารถ";
+	mes "ยกเลิกได้ตลอดเวลา";
+	mes "^FF0000( กรณียกเลิกการล่า ) ";
+	mes "ต้องรอ 5 นาทีถึงจะรับภารกิจใหม่ได้ ^000000";
+	next;
+	mes .MName$;
+	mes "ทุกครั้งที่เสร็จภารกิจ ผู้เล่นต้อง";
+	mes "มารายงานผลและประมวลผล";
+	mes "การทำภารกิจเพื่อรับ Mission Point";
+	mes "ไว้แลกของรางวัล";
+	close;
+
+	L_06:
+	close;
+
+/*Mission Complete Calculate*/
+	L_SPC:
+	next;
+	if (Beginner_Mission > 0) set Beginner_Mission_Round,Beginner_Mission_Round+1;
+	if (Rookie_Mission > 0) set Rookie_Mission_Round,Rookie_Mission_Round+1;
+	if (Advance_Mission > 0) set Advance_Mission_Round,Advance_Mission_Round+1;
+	if (Legendary_Mission > 0) set Legendary_Mission_Round,Legendary_Mission_Round+1;
+	set #Mission_Point,#Mission_Point+Get_Mission_Point;
+	mes .MName$;
+	mes "ภารกิจของคุณคือ:";
+	if (Beginner_Mission > 0) mes "กำจัด ^6666CC"+getmonsterinfo(Beginner_Mobhunt_ID,0)+"^000000 ตัว";
+	if (Beginner_Mission > 0) mes "จำนวน ^660066"+Beginner_Mobhunt_Amt+"^000000 ตัว";
+	if (Rookie_Mission > 0) mes "กำจัด ^6666CC"+getmonsterinfo(Rookie_Mobhunt_ID,0)+"^000000 ตัว";
+	if (Rookie_Mission > 0) mes "จำนวน ^660066"+Rookie_Mobhunt_Amt+"^000000 ตัว";
+	if (Advance_Mission > 0) mes "กำจัด ^6666CC"+getmonsterinfo(Advance_Mobhunt_ID,0)+"^000000 ตัว";
+	if (Advance_Mission > 0) mes "จำนวน ^660066"+Advance_Mobhunt_Amt+"^000000 ตัว";
+	if (Legendary_Mission > 0) mes "กำจัด ^6666CC"+getmonsterinfo(Legendary_Mobhunt_ID,0)+"^000000 ตัว";
+	if (Legendary_Mission > 0) mes "จำนวน ^660066"+Legendary_Mobhunt_Amt+"^000000 ตัว";
+	if (DoMission_Complete == 0) mes "สถานะ: ^FF0000ยังไม่สำเร็จ^000000";
+	if (DoMission_Complete > 0) mes "สถานะ: ^9ACD32สำเร็จแล้ว^000000";
+	mes "Mission Point ที่ได้รับ: ^6959CD"+Get_Mission_Point+"^000000 แต้ม";
+	mes "Mission Point ทั้งหมด: ^6959CD"+#Mission_Point+"^000000 แต้ม";
+	next;
+	/*ส่วนของการเช็คว่ารับภารกิจระดับใด*/
+	set Legendary_Mission,0;
+	set Advance_Mission,0;
+	set Rookie_Mission,0;
+	set Beginner_Mission,0;
+	/*ส่วนของการเช็คว่ารับและอยู่ในระหว่างภารกิจหรือไม่*/
+	set WhileMission,0;
+	set DoMission_Complete,0;
+	/*ส่วนของการเช็คจำนวนมอนสเตอร์ที่ฆ่าจากภารกิจ*/
+	set Beginner_Forcount,0;
+	set Rookie_Forcount,0;
+	set Advance_Forcount,0;
+	set Legendary_Forcount,0;
+	mes .MName$;
+	mes "การประมวลผลเรียบร้อย";
+	mes "คุณสามารถรับภารกิจใหม่ได้ทันที";
+	mes " ";
+	if (Beginner_Mission_Round == $Min_Beginner) {
+		mes "และตอนนี้คุณสามาระเลื่อนระดับ";
+		mes "ไปทำภารกิจระดับ Rookie ได้แล้ว";
+		}
+	if ((Beginner_Mission_Round >= $Min_Beginner) && (Rookie_Mission_Round == $Min_Rookie)) {
+		mes "และตอนนี้คุณสามาระเลื่อนระดับ";
+		mes "ไปทำภารกิจระดับ Advance ได้แล้ว";
+		}
+	if ((Beginner_Mission_Round >= $Min_Beginner) && (Rookie_Mission_Round >= $Min_Rookie) && (Advance_Mission_Round == $Min_Advance)) {
+		mes "และตอนนี้คุณสามาระเลื่อนระดับ";
+		mes "ไปทำภารกิจระดับ Legendary ได้แล้ว";
+		}
+	close;
+
+/*Counting while killing monster*/
+OnNPCKillEvent:
+if(Beginner_Mission > 0 || Rookie_Mission > 0 || Advance_Mission > 0 || Legendary_Mission > 0 ){
+	if (killedrid == Beginner_Mobhunt_ID) dispbottom "[Monster Mission] :: คุณได้กำจัด "+getmonsterinfo(Beginner_Mobhunt_ID,0)+"("+Beginner_Mobhunt_ID+") "+
+	"จำนวน "+(Beginner_Forcount+1)+"/"+Beginner_Mobhunt_Amt+" ตัว";
+	if (killedrid == Rookie_Mobhunt_ID) dispbottom "[Monster Mission] :: คุณได้กำจัด "+getmonsterinfo(Rookie_Mobhunt_ID,0)+"("+Rookie_Mobhunt_ID+") "+
+	"จำนวน "+(Rookie_Forcount+1)+"/"+Rookie_Mobhunt_Amt+" ตัว";
+	if (killedrid == Advance_Mobhunt_ID) dispbottom "[Monster Mission] :: คุณได้กำจัด "+getmonsterinfo(Advance_Mobhunt_ID,0)+"("+Advance_Mobhunt_ID+") "+
+	"จำนวน "+(Advance_Forcount+1)+"/"+Advance_Mobhunt_Amt+" ตัว";
+	if (killedrid == Legendary_Mobhunt_ID) dispbottom "[Monster Mission] :: คุณได้กำจัด "+getmonsterinfo(Legendary_Mobhunt_ID,0)+"("+Legendary_Mobhunt_ID+") "+
+	"จำนวน "+(Legendary_Forcount+1)+"/"+Legendary_Mobhunt_Amt+" ตัว";
+}
+	
+/*Beginner Counter*/
+	if (Beginner_Mission > 0) {
+		if (killedrid == Beginner_Mobhunt_ID) { 
+			set Beginner_Forcount,Beginner_Forcount+1;
+			if (Beginner_Forcount == Beginner_Mobhunt_Amt) {
+				message strcharinfo(0), "ภารกิจของคุณสำเร็จแล้ว กรุณากลับไปรับรางวัลที่ Mission Board";
+				set DoMission_Complete,1;
+				set .@Point,rand(10,15);
+				set Get_Mission_Point,.@Point;
+				end;
+				}
+			end;
+			}
+	}
+
+/*Rookie Counter*/
+	if (Rookie_Mission > 0) {
+		if (killedrid == Rookie_Mobhunt_ID) { 
+			set Rookie_Forcount,Rookie_Forcount+1;
+			if (Rookie_Forcount == Rookie_Mobhunt_Amt) {
+				message strcharinfo(0), "ภารกิจของคุณสำเร็จแล้ว กรุณากลับไปรับรางวัลที่ Mission Board";
+				set DoMission_Complete,1;
+				set .@Point,rand(15,30);
+				set Get_Mission_Point,.@Point;
+				end;
+				}
+			end;
+			}
+	}
+
+/*Advance Counter*/
+	if (Advance_Mission > 0) {
+		if (killedrid == Advance_Mobhunt_ID) { 
+			set Advance_Forcount,Advance_Forcount+1;
+			if (Advance_Forcount == Advance_Mobhunt_Amt) {
+				message strcharinfo(0), "ภารกิจของคุณสำเร็จแล้ว กรุณากลับไปรับรางวัลที่ Mission Board";
+				set DoMission_Complete,1;
+				set .@Point,rand(30,40);
+				set Get_Mission_Point,.@Point;
+				end;
+				}
+			end;
+			}
+	}
+
+/*Legendary Counter*/
+	if (Legendary_Mission > 0) {
+		if (killedrid == Legendary_Mobhunt_ID) { 
+			set Legendary_Forcount,Legendary_Forcount+1;
+			if (Legendary_Forcount == Legendary_Mobhunt_Amt) {
+				message strcharinfo(0), "ภารกิจของคุณสำเร็จแล้ว กรุณากลับไปรับรางวัลที่ Mission Board";
+				set DoMission_Complete,1;
+				set .@Point,rand(80,100);
+				set Get_Mission_Point,.@Point;
+				end;
+				}
+			end;
+			}
+	}
+end;
+
+/*OnbuyItem*/
+OnBuyItem:
+	set @cost,0;
+	for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1)
+		for(set .@j,0; .@j<getarraysize(.Shop); set .@j,.@j+2)
+			if (@bought_nameid[.@i] == .Shop[.@j]) {
+				set @cost, @cost+(.Shop[.@j+1]*@bought_quantity[.@i]);
+				break;
+			}
+	mes .MName$;
+	if (@cost > #Mission_Point) mes "คุณมี Mission Point ไม่พอ";
+	else {
+		for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1) {
+			mes "กรุณายืนยันการแลกอีกครั้ง";
+			menu "^FF0000•^000000 ^9ACD32ตกลง^000000",-,
+				"^FF0000•^000000 ยกเลิก",L_06;
+			getitem @bought_nameid[.@i], @bought_quantity[.@i];
+			dispbottom "แลกไอเทม "+@bought_quantity[.@i]+"ea "+getitemname(@bought_nameid[.@i])+" เรียบร้อยแล้ว";
+		}
+		set #Mission_Point,#Mission_Point-@cost;
+		mes "แลกเปลี่ยนเรียบร้อย";
+		mes "Mission Point ทั้งหมด: ^6959CD"+#Mission_Point+"^000000 แต้ม";
+	}
+	set @cost,0;
+	deletearray @bought_nameid[0], getarraysize(@bought_nameid);
+	deletearray @bought_quantity[0], getarraysize(@bought_quantity);
+	close;
+
+/*OnInit Panel*/
+OnInit:
+set .MName$,"[ ^FF6666Monster Missions^000000 ]"; /*ชื่อ NPC*/
+set $Min_Beginner,15; /*จำนวน Beginner Mission ขั้นต่ำในการเลื่อนไปทำภารกิจระดับต่อไป*/
+set $Min_Rookie,10; /*จำนวน Rookie Mission ขั้นต่ำในการเลื่อนไปทำภารกิจระดับต่อไป*/
+set $Min_Advance,5; /*จำนวน Legendary Mission ขั้นต่ำในการเลื่อนไปทำภารกิจระดับต่อไป*/
+waitingroom "Mission Monster",0; /*ชื่อห้องบนหัว NPC*/
+
+/*จำนวน MvP ที่มีในเควสทั้งหมด ในที่นี้มี 37 ตัว*/
+setarray .MvP_Hunting[0],1039,1038,1115,1159,1688,1708,1087,1112,1147,1046,
+			1059,1086,1150,1157,1190,1251,1252,1272,1312,
+			1389,1418,1492,1511,1583,1623,1630,1685,1719,1734,
+			1751,1768,1779,1785,1832,1871,1874,1917;
+
+/*จำนวน Mini Boss ที่มีในเควสทั้งหมด ในที่นี้มี 35 ตัว*/
+setarray .MiniBoss_Hunting[0],1831,1671,1870,1370,1833,1974,2016,1673,1979,2013,
+			1754,1867,1677,1701,1713,1995,1148,1668,1702,1379,
+			1678,1366,1864,1098,1295,1320,1374,1390,1735,1988,
+			1208,1315,1376,1714,1401;
+
+/*จำนวน Rookie Monster ที่มีในเควสทั้งหมด ในที่นี้มี 46 ตัว*/
+setarray .Rookie_Hunting[0],1029,1035,1036,1037,1061,1065,1072,1099,1101,1102,
+			1108,1109,1117,1131,1140,1143,1149,1155,1156,1163,
+			1180,1189,1191,1192,1193,1194,1195,1196,1197,1199,
+			1209,1211,1213,1214,1215,1216,1250,1253,1255,1256,
+			1257,1260,1263,1264,1267,1269;
+		
+/*จำนวน Beginner Monster ที่มีในเควสทั้งหมด ในที่นี้มี 25 ตัว*/
+setarray .Beginner_Hunting[0],1001,1013,1023,1026,1028,1033,1034,1040,1057,1060,
+			1067,1069,1106,1139,1141,1142,1152,1153,1158,1166,
+			1169,1178,1258,1265,1619;
+
+setarray .Shop[0],	/*ไอเทมไว้สำหรับใช้ Mission Point แลก สามารถเพิ่มได้โดย -> Item ID,Points Used ต่อหลังไปเรื่อยๆ*/
+	    11507,50,
+		11506,100,
+		// KVM
+		1187,5000,
+		1281,5000,
+		1282,5000,
+		1310,5000,
+		1382,5000,
+		1426,5000,
+		1486,5000,
+		1546,5000,
+		1576,5000,
+		1577,5000,
+		1640,5000,
+		1641,5000,
+		1743,5000,
+		1826,5000,
+		1827,5000,
+		1927,5000,
+		1981,5000,
+		2002,5000,
+		13042,5000,
+		13110,5000,
+		13176,5000,
+		13178,5000,
+		13179,5000,
+		13416,5000,
+		13417,5000,
+		13418,5000,
+		2381,5000,
+		2377,5000,
+		2382,5000,
+		2376,5000,
+		2378,5000,
+		2379,5000,
+		2538,5000,
+		2539,5000,
+		2540,5000,
+		2435,5000,
+		2436,5000,
+		2437,5000;
+	npcshopdelitem "mission_shop",512;
+	for(set .@i,0; .@i<getarraysize(.Shop); set .@i,.@i+2)
+		npcshopadditem "mission_shop", .Shop[.@i], .Shop[.@i+1];
+	end;
+
+}
+
+	
+-	shop	mission_shop	-1,512:-1

@@ -1,0 +1,49 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+function	script	RandomMiniBossCardEgg	{
+setarray .OTH_ITEMLIST[0],12912,14198,12913,12914,12919,12922,61502,61001,16682,12412,7776,13571,12915,6665,12103,12900,12901,12909,7227,16770,14536,12221,14515,6438,6439,6380,6225,6226,12710,6607,6608,6484,16666;
+setarray .COSN_ITEMLIST[0],61001;
+setarray .RARE_ITEMLIST[0],4306,4197,4179,4183,4266,4054,4047,4171,4207,4254,4250,4163,4203,4300,4198,4238,4169,4290,4237,4241,4174,4354,4392,4393,4391,4394,4396,4397,4395,4398,4384,4406,4423,4427,4428,4429,4431,4426,4440;
+setarray .min_amount,1;
+setarray .max_amount,1;
+ 
+    set .rand, rand(0,100);
+    switch(.rand){
+        case 1:
+            set .Random, rand( getarraysize( .RARE_ITEMLIST ) );
+            getitem .RARE_ITEMLIST[ .Random ], 1;
+            announce "ผู้เล่น ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random Mini Boss Card Egg ได้รับ "+getitemname(.RARE_ITEMLIST[ .Random ])+" ea.!!!",bc_all,0xCC00CC;
+        break;
+       
+       
+        case 2:
+            set .Random, rand( getarraysize( .COSN_ITEMLIST ) );
+            getitem .COSN_ITEMLIST[ .Random ], 1;
+            announce "ผู้เล่น ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random Mini Boss Card Egg ได้รับ "+getitemname(.COSN_ITEMLIST[ .Random ])+" ea.!!",bc_all,0x0000FF;
+        break;
+       
+        default:
+            set .@amount,rand( .min_amount[.@random],.max_amount[.@random] );
+            set .Random, rand( getarraysize( .OTH_ITEMLIST ) );
+        if ( .OTH_ITEMLIST[ .Random ] == 0 || .OTH_ITEMLIST[ .Random ] == 0 ) {
+            getitem .OTH_ITEMLIST[ .Random ], 1;
+			dispbottom "คุณ ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random Mini Boss Card Egg ได้รับ "+getitemname(.OTH_ITEMLIST[ .Random ])+" ea.";
+            } else {
+            getitem .OTH_ITEMLIST[ .Random ], .@amount;
+			dispbottom "คุณ ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random Mini Boss Card Egg ได้รับ "+getitemname(.OTH_ITEMLIST[ .Random ])+" จำนวน "+.@amount+" ea.";
+        }
+        break;
+    }
+ 
+}

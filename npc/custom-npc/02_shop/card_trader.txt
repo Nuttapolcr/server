@@ -1,0 +1,149 @@
+/*
+=================== TERMS OF SERVICES. ===================
+1. ALL RIGHT RESERVED RE-SELLER OR SHARE SCRIPT TO PUBLISH.
+2. BUT YOU RE-SELLER OR SHARE SCRIPT WITH OUT UNAUTHORIZRD
+   I WILL ALL CANCEL MY SUPPORT FOR YOU.
+3. MAINTENANCE SCRIPTS WILL BE FREE SERVICES.
+4. I WILL NOT KEEP ANY INFORMATIONS FROMS YOU SERVER THAT
+   YOU SEND FOR ME.
+5. I HOPE YOU WILL ALL ACCEPT TERMS OF SERVICES.
+==========================================================
+Script. Card Trader																					 
+Create By. [Eddga-Studio]
+Translator By. Eddga Studio
+Bug Report. Dollaporn Naraphan [ FB ]																					 
+Contact Us. Dollaporn Naraphan [ FB ]																					 																				 
+==========================================================
+*/
+//ชื่อเมือง,พิกัดX,พิกัดY,มุมมองNPC
+maintown,128,116,4	script	แลกการ์ดขยะ	640,{
+	mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+	mes "สวัสดีคุณ,"+strcharinfo(0)+"";
+	mes "คุณมีแต้มทั้งหมด : ^0055FF"+getd(.Points$)+" Points^000000";
+	mes "ต้องการแลกของรางวัลหรือไม่?";
+	next;
+	switch(select("^FF6633~^000000 รายละเอียด:^FF6633~^000000 ^0000FFฉันต้องการขายการ์ด^000000:^FF6633~^000000 ^FF6633แลกของรางวัล^000000:^FF6633~^000000 ไม่สนใจ")) {
+	case 1:
+		mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+		mes "ท่านสามารถนำการ์ดที่ไม่ได้ใช้";
+		mes "นำมาแลกการ์ดเป็นไอเท็ม";
+		mes "กับฉันได้ตลอด ทุกเวลาที่ต้องการ";
+		mes "แต่ละใบจะได้แต้มไม่เท่า ดูแต้มดีๆนะ";
+		next;
+		mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+		mes "การ์ดทุกใบที่ท่านนำมาแลก";
+		mes "ท่านจะได้ ^FF3366"+.Points[0]+" Point"+((.Points[0] == 1)?"":"s")+"^000000 ต่อการ์ด";
+		mes "ยกเว้นการ์ดดังต่อไปนี้";
+		mes "^FF3366"+.Points[1]+" Points^000000 ต่อ ^FF33661 ใบ^000000";
+		mes "คือ ^6666FFCard Boss^000000 ทุกใบ";
+		mes "ท่านสามารถเอาพ้อยจากแลกการ์ด";
+		mes "มาซื้อสินค้าใน Shop ของฉันได้";
+		mes "อย่าลืมรีบมาแลกล่ะ ?";
+		emotion ET_MONEY;
+		close;
+		
+	case 2:
+		deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+		close2;
+		callshop "card_shop",2;
+		npcshopattach "card_shop";
+		end;
+	case 3:
+		mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+		mes "คุณมีแต้มทั้งหมด : ^0055FF"+getd(.Points$)+"^000000 Point"+((getd(.Points$) == 1)?".":"s.");
+		close2;
+		callshop "card_shop",1;
+		npcshopattach "card_shop";
+		end;
+	case 4:
+		mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+		mes "ฮืมๆ แย่จัง";
+		mes "ไว้เจอกันใหม่ ๆ นะ!";
+		emotion ET_SLEEPY;
+		close;
+	}
+
+OnSellItem:
+	mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+	mes "รายการไอเท็ม :";
+	for(set .@i,0; .@i<getarraysize(@sold_nameid); set .@i,.@i+1)
+		if (@sold_nameid[.@i] > 4000 && @sold_nameid[.@i] < 4700) {
+			set .@card_id[getarraysize(.@card_id)], @sold_nameid[.@i];
+			set .@card_amt[getarraysize(.@card_amt)], @sold_quantity[.@i];
+			set .@mvp, compare(.MVP$,""+@sold_nameid[.@i]);
+			mes ((.@mvp)?"^FF0000":"^0000FF")+@sold_quantity[.@i]+"x "+getitemname(@sold_nameid[.@i])+"^000000";
+			set .@card_total, .@card_total+(@sold_quantity[.@i]*((.@mvp)?.Points[1]:.Points[0]));
+		}
+	deletearray @sold_nameid[0], getarraysize(@sold_nameid);
+	deletearray @sold_quantity[0], getarraysize(@sold_quantity);
+	if (!.@card_id) {
+		mes "^0000ffไม่พบไอเท็มการ์ดของคุณ !^000000";
+		emotion ET_SWEAT;
+		close;
+	}
+	mes " ";
+	mes "จำนวนแต้มที่ได้รับ :";
+	mes "     ^399e00"+.@card_total+" Point^000000";
+	mes "คุณที่ต้องการแลกการ์ดหรือไม่ ?";
+	next;
+	if(select("^FF6633~^000000 แน่นอน ฉันต้องการขายการ์ด :^FF6633~^000000 ไม่ล่ะขอบคุณ") == 2) {
+		mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+		mes "Oh, okay...";
+		emotion ET_SCRATCH;
+		close;
+	}
+	for(set .@i,0; .@i<getarraysize(.@card_id); set .@i,.@i+1)
+		delitem .@card_id[.@i],.@card_amt[.@i];
+	setd .Points$, getd(.Points$)+.@card_total;
+	mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+	mes "ยินดีด้วยนะค่ะ ฉันส่งไอเท็มแล้ว !";
+	mes "คุณสามารถซื้อของใน Shop ได้แล้ว";
+	emotion ET_DELIGHT;
+	close;
+
+OnBuyItem:
+	for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1)
+		for(set .@j,0; .@j<getarraysize(.Shop); set .@j,.@j+2)
+			if (@bought_nameid[.@i] == .Shop[.@j]) {
+				set .@cost, .@cost+(.Shop[.@j+1]*@bought_quantity[.@i]);
+				break;
+			}
+	if (.@cost > getd(.Points$)) {
+		mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+		mes "คุณมีแต้มไม่มากพอที่จะแลก";
+		mes "จึงไม่สามารถทำรายการได้ !";
+		emotion ET_HUK;
+	}
+	else {
+		mes "^ff0000[ แลกการ์ดขยะ ]^000000";
+		mes "รายการแลกไอเท็ม :";
+		for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1) {
+			getitem @bought_nameid[.@i], @bought_quantity[.@i];
+			mes "  ^0000FF"+@bought_quantity[.@i]+"x "+getitemname(@bought_nameid[.@i])+"^000000";
+		}
+		mes "จำนวนพ้อย : ";
+		mes "  ^3e9b00"+.@cost+" Points^000000";
+		mes "ขอบคุณที่ใช้บริการค่ะ !";
+		setd .Points$, getd(.Points$)-.@cost;
+		emotion ET_MONEY;
+	}
+	deletearray @bought_nameid[0], getarraysize(@bought_nameid);
+	deletearray @bought_quantity[0], getarraysize(@bought_quantity);
+	close;
+
+OnInit:
+//	waitingroom "[#] การ์ดแลกแต้ม", 0;
+	set .Points$,"#Card_Points";	// ตัวแปรพอยท์.
+	setarray .Shop[0],		// ร้านขายของ: <รหัสไอเท็ม>,<ราคาพอยท์>
+	1000322,10,984,1,985,1;
+	setarray .Points[0],3,100;	// แต้มพอยท์ต่อ <การ์ดทั่วไป>,<การ์ดบอส>
+	set .MVP$,			// รหัสการ์ดบอส.
+	  "4121,4123,4128,4131,4132,4134,4135,4137,4143,4144,4145,4146,4147,4148,4168,4236,"+
+	  "4425,4372,4386,4142,4441,4408,4430,4419,4376,4456,4367,4374,4352,";
+	
+	npcshopdelitem "card_shop",909;
+	for(set .@i,0; .@i<getarraysize(.Shop); set .@i,.@i+2)
+		npcshopadditem "card_shop",.Shop[.@i],.Shop[.@i+1];
+	end;
+}
+-	shop	card_shop	-1,909:-1

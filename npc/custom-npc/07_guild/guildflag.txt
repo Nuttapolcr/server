@@ -1,0 +1,33 @@
+// Warzone Castle
+guild_vs2,42,51,4	duplicate(OutsideFlagsAR5)	Bandis Castle#1	722
+guild_vs2,57,51,4	duplicate(OutsideFlagsAR5)	Bandis Castle#2	722
+
+// Top left prtg1
+guild_vs2,30,57,5	duplicate(OutsideFlagsPR1)	Kriemhild#44	722
+guild_vs2,33,60,5	duplicate(OutsideFlagsPR2)	Swanhild#44	722
+guild_vs2,36,63,5	duplicate(OutsideFlagsPR3)	Fadhgridh#44	722
+guild_vs2,39,66,5	duplicate(OutsideFlagsPR4)	Skoegul#44	722
+guild_vs2,42,69,5	duplicate(OutsideFlagsPR5)	Gondul#44	722
+
+// Bottom left payg1
+guild_vs2,30,42,7	duplicate(OutsideFlagsPA1)	Bright Arbor#44	722
+guild_vs2,33,39,7	duplicate(OutsideFlagsPA2)	Sacred Palace#44	722
+guild_vs2,36,36,7	duplicate(OutsideFlagsPA3)	Holy Shadow#44	722
+guild_vs2,39,33,7	duplicate(OutsideFlagsPA4)	Scarlet Palace#44	722
+guild_vs2,42,30,7	duplicate(OutsideFlagsPA5)	Bamboo Groove Hill#44	722
+
+// Top right gefg1
+guild_vs2,57,69,3	duplicate(OutsideFlagsG1)	Repherion#44	722
+guild_vs2,60,66,3	duplicate(OutsideFlagsG2)	Eeyorbriggar#44	722
+guild_vs2,63,63,3	duplicate(OutsideFlagsG3)	Yesnelph#44	722
+guild_vs2,66,60,3	duplicate(OutsideFlagsG4)	Bergel#44	722
+guild_vs2,69,57,3	duplicate(OutsideFlagsG5)	Mersetzdeitz#44	722
+
+// Bottom right aldeg1
+guild_vs2,69,42,1	duplicate(OutsideFlagsA1)	Neuschwanstein#44	722
+guild_vs2,66,39,1	duplicate(OutsideFlagsA2)	Hohenschwangau#44	722
+guild_vs2,63,36,1	duplicate(OutsideFlagsA3)	Nuernberg#44	722
+guild_vs2,60,33,1	duplicate(OutsideFlagsA4)	Wuerzburg#44	722
+guild_vs2,57,30,1	duplicate(OutsideFlagsA5)	Rothenburg#44	722
+
+

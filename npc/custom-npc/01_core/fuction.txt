@@ -1,0 +1,399 @@
+function	script	IG_STORM_CBT_PROMO_3K	{
+	.@item_id = getarg(0);
+	getinventorylist;
+	disable_items;
+	.@weight = 100 * Weight / MaxWeight;
+
+	if (@inventorylist_count >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีไอเท็มมากกว่า '90' ชิ้น";
+	} else if (90 <= .@weight) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีน้ำหนักมากเกินไป";
+	} else if (countitem(.@item_id) == 0) {
+		message strcharinfo(0), "มีข้อผิดพลาดบางอย่างเกิดขึ้น!";
+	} else if (getmapflag(strcharinfo(3), MF_PVP) || getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) {
+		message strcharinfo(0), "ไม่สามารถใช้งานในแผนที่ดังกล่าว!";
+	} else {
+
+		//mes "[ CBT PROMOTION 3K ]";
+		//mes "รายการไอเท็มที่จะได้รับจากกล่องนี้:";
+		//mes "^00c03e1.^000000 ^i[30001] "   + getitemname(30001)   + " x3000";
+		//mes "^00c03e2.^000000 ^i[5286] "    + getitemname(5286)    + " x1";
+		//mes "^00c03e3.^000000 ^i[1001004] "+ getitemname(1001004) + " x3";
+		//mes "^00c03e4.^000000 ^i[1001001] "+ getitemname(1001001) + " x30";
+		//mes "^00c03e5.^000000 ^i[905026] " + getitemname(905026)  + " x3";
+		//mes "^FF9900หมายเหตุ:^000000 ^i[905026] " + getitemname(905026) + " x3 จะใช้งานได้ตอน OBT";
+		//next;
+		//
+		//if(select("ยืนยันรับของรางวัล:ยกเลิก") == 2){
+		//	close;
+		//}
+
+		delitem .@item_id, 1;
+
+		getitem 30001, 3000;			// Cash Coin
+		getitem 5286, 1;				// Pecopeco Hairband
+		getitem 1001004, 3;				// Costume Egg V.1
+		getitem 1001001, 30;			// Donate Box CBT
+
+		// Rank Donate Book (รับตอน OBT)
+		getitem 905026, 3;
+		message strcharinfo(0), "Rank Donate Book x3 จะได้รับตอน OBT";
+
+		message strcharinfo(0), "ได้รับไอเท็มจาก "+getitemname(.@item_id)+" เรียบร้อยแล้ว";
+		announce "ขอแสดงความยินดี! ผู้เล่น "+strcharinfo(0)+" ได้เปิด "+getitemname(.@item_id)+" และได้รับของรางวัลเรียบร้อยแล้ว", BC_NAME;
+	}
+	end;
+}
+
+function	script	IG_STORM_DONATE_BOX_CBT	{
+	.@item_id = getarg(0);
+	getinventorylist;
+	.@weight = 100 * Weight / MaxWeight;
+
+	if (@inventorylist_count >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีไอเท็มมากกว่า '90' ชิ้น";
+	} else if (90 <= .@weight) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีน้ำหนักมากเกินไป";
+	} else if (countitem(.@item_id) == 0) {
+		message strcharinfo(0), "มีข้อผิดพลาดบางอย่างเกิดขึ้น!";
+	} else if (getmapflag(strcharinfo(3), MF_PVP) || getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) {
+		message strcharinfo(0), "ไม่สามารถใช้งานในแผนที่ดังกล่าว!";
+	} else {
+
+		//mes "[ Donate Box CBT ]";
+		//mes "รายการของรางวัลที่สุ่มได้รับ:";
+		//mes "^00c03e1.^000000 ^i[1001003] " + getitemname(1001003) + " x1";
+		//mes "^00c03e2.^000000 ^i[12221] "   + getitemname(12221)   + " x1";
+		//mes "^00c03e3.^000000 ^i[30001] "   + getitemname(30001)   + " x20~300";
+		//mes "^00c03e4.^000000 ^i[12208] "   + getitemname(12208)   + " x1";
+		//mes "^00c03e5.^000000 ^i[14592] "   + getitemname(14592)   + " x1";
+		//mes "^00c03e6.^000000 ^i[14534] "   + getitemname(14534)   + " x1";
+		//mes "^00c03e7.^000000 ^i[12425] "   + getitemname(12425)   + " x1";
+		//mes "^00c03e8.^000000 ^i[14536] "   + getitemname(14536)   + " x1";
+		//mes "^00c03e9.^000000 ^i[12667] "   + getitemname(12667)   + " x1";
+		//mes "^00c03e10.^000000 ^i[12666] "  + getitemname(12666)  + " x1";
+		//mes "^00c03e11.^000000 ^i[12209] "  + getitemname(12209)  + " x1";
+		//mes "^00c03e12.^000000 ^i[11503] "  + getitemname(11503)  + " x2";
+		//mes "^00c03e13.^000000 ^i[11504] "  + getitemname(11504)  + " x1";
+		//next;
+		//
+		//if(select("ยืนยันเปิดกล่องสุ่ม:ยกเลิก") == 2){
+		//	close;
+		//}
+
+		delitem .@item_id, 1;
+		.@rnd = rand(1, 10000);
+
+		// ---- scaled by weight into 1..10000 ----
+		if (.@rnd <= 5) {
+			setarray .@id[0], 1001003;		// Collection Special of Storm
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 421) {
+			setarray .@id[0], 12221;		// Megaphone
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 837) {
+			setarray .@id[0], 30001;		// Cash Coin
+			setarray .@amt[0], rand(20,300);
+		}
+		else if (.@rnd <= 1337) {
+			setarray .@id[0], 12208;		// Field Manual 50%
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 1837) {
+			setarray .@id[0], 14592;		// Job Manual 50%
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 2753) {
+			setarray .@id[0], 14534;		// Small Life Potion
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 3669) {
+			setarray .@id[0], 12425;		// SP Increase Potion (Small)
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 4585) {
+			setarray .@id[0], 14536;		// Abrasive
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 5501) {
+			setarray .@id[0], 12667;		// Thai Perfume (ATK)
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 6417) {
+			setarray .@id[0], 12666;		// Thai Perfume (MATK)
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 7333) {
+			setarray .@id[0], 12209;		// Life Insurance
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 8666) {
+			setarray .@id[0], 11503;		// Siege White Potion
+			setarray .@amt[0], 2;
+		}
+		else {
+			setarray .@id[0], 11504;		// Siege Blue Potion
+			setarray .@amt[0], 1;
+		}
+
+		if (getarraysize(.@id) > 1)
+			.@r = rand(getarraysize(.@id));
+
+		getitem .@id[.@r], .@amt[.@r];
+		announce "ขอแสดงความยินดีกับผู้เล่น "+ strcharinfo(0) +" ที่ได้รับ x"+ .@amt[.@r] +" "+ getitemname(.@id[.@r]) +" จาก "+ getitemname(.@item_id) +"", BC_NAME;
+	}
+	end;
+}
+
+function	script	IG_STORM_LUCKY_BOX_V1	{
+	.@item_id = getarg(0);
+	getinventorylist;
+	.@weight = 100 * Weight / MaxWeight;
+
+	if (@inventorylist_count >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีไอเท็มมากกว่า '90' ชิ้น";
+	} else if (90 <= .@weight) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีน้ำหนักมากเกินไป";
+	} else if (countitem(.@item_id) == 0) {
+		message strcharinfo(0), "มีข้อผิดพลาดบางอย่างเกิดขึ้น!";
+	} else if (getmapflag(strcharinfo(3), MF_PVP) || getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) {
+		message strcharinfo(0), "ไม่สามารถใช้งานในแผนที่ดังกล่าว!";
+	} else {
+
+		//mes "[ Lucky Box V.1 ]";
+		//mes "รายการของรางวัลที่สุ่มได้รับ:";
+		//mes "^00c03e1.^000000 ^i[1001005] " + getitemname(1001005) + " x1";
+		//mes "^00c03e2.^000000 ^i[1001006] " + getitemname(1001006) + " x1";
+		//mes "^00c03e3.^000000 ^i[1001016] " + getitemname(1001016) + " x1";
+		//mes "^00c03e4.^000000 ^i[12213] "   + getitemname(12213)   + " x1";
+		//mes "^00c03e5.^000000 ^i[6320] "    + getitemname(6320)    + " x1";
+		//mes "^00c03e6.^000000 ^i[7776] "    + getitemname(7776)    + " x1";
+		//mes "^00c03e7.^000000 ^i[13721] "   + getitemname(13721)   + " x2";
+		//mes "^00c03e8.^000000 ^i[12208] "   + getitemname(12208)   + " x1";
+		//mes "^00c03e9.^000000 ^i[14592] "   + getitemname(14592)   + " x1";
+		//mes "^00c03e10.^000000 ^i[14536] "  + getitemname(14536)  + " x1";
+		//mes "^00c03e11.^000000 ^i[12667] "  + getitemname(12667)  + " x1";
+		//mes "^00c03e12.^000000 ^i[12666] "  + getitemname(12666)  + " x1";
+		//mes "^00c03e13.^000000 ^i[11503] "  + getitemname(11503)  + " x2";
+		//mes "^00c03e14.^000000 ^i[11504] "  + getitemname(11504)  + " x1";
+		//next;
+		//
+		//if(select("ยืนยันเปิดกล่องสุ่ม:ยกเลิก") == 2){
+		//	close;
+		//}
+
+		delitem .@item_id, 1;
+		.@rnd = rand(1, 10000);
+
+		// ---- scaled by weight into 1..10000 ----
+		if (.@rnd <= 11) {
+			setarray .@id[0], 1001005;		// Costume Pink Valkyrie Wing
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 22) {
+			setarray .@id[0], 1001006;		// Costume Rudra Wing
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 244) {
+			setarray .@id[0], 1001016;		// SP Recovery Capsule
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 466) {
+			setarray .@id[0], 12213;		// Neuralizer
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 688) {
+			setarray .@id[0], 6320;			// Reset Stone
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 1021) {
+			setarray .@id[0], 7776;			// Gym Membership Card
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 1464) {
+			setarray .@id[0], 13721;		// Dungeon Scroll
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 2129) {
+			setarray .@id[0], 12208;		// Field Manual 50%
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 2794) {
+			setarray .@id[0], 14592;		// Job Manual 50%
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 4014) {
+			setarray .@id[0], 14536;		// Abrasive
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 5234) {
+			setarray .@id[0], 12667;		// Thai Perfume (ATK)
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 6454) {
+			setarray .@id[0], 12666;		// Thai Perfume (MATK)
+			setarray .@amt[0], 1;
+		}
+		else if (.@rnd <= 8228) {
+			setarray .@id[0], 11503;		// Siege White Potion
+			setarray .@amt[0], 2;
+		}
+		else if (.@rnd <= 9228) {
+			setarray .@id[0], 1001517;		// Tools Research
+			setarray .@amt[0], 1;
+		}
+		else {
+			setarray .@id[0], 11504;		// Siege Blue Potion
+			setarray .@amt[0], 1;
+		}
+
+		if (getarraysize(.@id) > 1)
+			.@r = rand(getarraysize(.@id));
+
+		getitem .@id[.@r], .@amt[.@r];
+		announce "ขอแสดงความยินดีกับผู้เล่น "+ strcharinfo(0) +" ที่ได้รับ x"+ .@amt[.@r] +" "+ getitemname(.@id[.@r]) +" จาก "+ getitemname(.@item_id) +"", BC_NAME;
+	}
+	end;
+}
+
+
+function	script	IG_STORM_COSTUME_WINGS_BOX	{
+	.@item_id = getarg(0);
+
+	getinventorylist;
+	disable_items;
+	.@weight = 100 * Weight / MaxWeight;
+
+	if (@inventorylist_count >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีไอเท็มมากกว่า '90' ชิ้น";
+		end;
+	}
+	if (.@weight >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีน้ำหนักมากเกินไป";
+		end;
+	}
+	if (countitem(.@item_id) == 0) {
+		message strcharinfo(0), "มีข้อผิดพลาดบางอย่างเกิดขึ้น!";
+		end;
+	}
+	if (getmapflag(strcharinfo(3), MF_PVP)
+	 || getmapflag(strcharinfo(3), MF_GVG)
+	 || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) {
+		message strcharinfo(0), "ไม่สามารถใช้งานในแผนที่ดังกล่าว!";
+		end;
+	}
+
+	mes "[ Costume Wings Box ]";
+	mes "เลือกรับไอเท็ม 1 ชิ้น";
+	mes "^00c03e1.^000000 ^i[1001509] " + getitemname(1001509);
+	mes "^00c03e2.^000000 ^i[1001501] " + getitemname(1001501);
+	mes "^00c03e3.^000000 ^i[1001510] " + getitemname(1001510);
+	mes "^00c03e4.^000000 ^i[1001502] " + getitemname(1001502);
+	mes "^00c03e5.^000000 ^i[1001503] " + getitemname(1001503);
+	mes "^00c03e6.^000000 ^i[1001504] " + getitemname(1001504);
+	mes "^00c03e7.^000000 ^i[1001505] " + getitemname(1001505);
+	mes "^00c03e8.^000000 ^i[1001506] " + getitemname(1001506);
+	mes "^00c03e9.^000000 ^i[1001507] " + getitemname(1001507);
+	mes "^00c03e10.^000000 ^i[1001508] " + getitemname(1001508);
+	next;
+
+	switch(select(
+		"C Sword of Thanatos",
+		"C Evil Scythe",
+		"C Skyblue Angel Wings",
+		"C Black Angel Wings",
+		"C Pink Angel Wings",
+		"C Gold Angel Wings",
+		"C GreenForest Angel Wings",
+		"C RoyalPurple Angel Wings",
+		"C DarkBlue Angel Wings",
+		"C BrickRed Angel Wings"
+	)) {
+		case 1: .@get = 1001509; break;
+		case 2: .@get = 1001501; break;
+		case 3: .@get = 1001510; break;
+		case 4: .@get = 1001502; break;
+		case 5: .@get = 1001503; break;
+		case 6: .@get = 1001504; break;
+		case 7: .@get = 1001505; break;
+		case 8: .@get = 1001506; break;
+		case 9: .@get = 1001507; break;
+		case 10: .@get = 1001508; break;
+	}
+
+	mes "[ Costume Wings Box ]";
+	mes "ท่านจะรับไอเท็มนี้:";
+	mes "^i["+.@get+"] " + getitemname(.@get) + " x1";
+	next;
+
+	if(select("ยืนยันรับไอเท็ม:ยกเลิก") == 2){
+		close;
+	}
+
+	delitem .@item_id, 1;
+	getitem .@get, 1;
+	specialeffect2 EF_BLESSING;
+
+	mes "[ Costume Wings Box ]";
+	mes "ได้รับไอเท็มเรียบร้อยแล้ว:";
+	mes "^i["+.@get+"] " + getitemname(.@get) + " x1";
+	close;
+}
+
+function	script	IG_STORM_CHARM_LEVELUP_BOX	{
+	.@item_id = getarg(0);
+
+	getinventorylist;
+	.@weight = 100 * Weight / MaxWeight;
+
+	if (@inventorylist_count >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีไอเท็มมากกว่า '90' ชิ้น";
+		end;
+	}
+	if (.@weight >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีน้ำหนักมากเกินไป";
+		end;
+	}
+	if (countitem(.@item_id) == 0) {
+		message strcharinfo(0), "มีข้อผิดพลาดบางอย่างเกิดขึ้น!";
+		end;
+	}
+	if (getmapflag(strcharinfo(3), MF_PVP)
+	 || getmapflag(strcharinfo(3), MF_GVG)
+	 || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) {
+		message strcharinfo(0), "ไม่สามารถใช้งานในแผนที่ดังกล่าว!";
+		end;
+	}
+
+	mes "[ Charm LevelUp Box ]";
+	mes "สุ่มรับไอเท็มเช่า 7 วัน จำนวน 1 ชิ้น";
+	mes "รายการไอเท็มที่สามารถสุ่มได้รับ:";
+	mes "^00c03e1.^000000 ^i[1001521] " + getitemname(1001521) + " (เช่า 7 วัน)";
+	mes "^00c03e2.^000000 ^i[1001522] " + getitemname(1001522) + " (เช่า 7 วัน)";
+	mes "^00c03e3.^000000 ^i[1001523] " + getitemname(1001523) + " (เช่า 7 วัน)";
+	mes "^00c03e4.^000000 ^i[1001524] " + getitemname(1001524) + " (เช่า 7 วัน)";
+	mes "^00c03e5.^000000 ^i[1001525] " + getitemname(1001525) + " (เช่า 7 วัน)";
+	next;
+
+	if(select("ยืนยันเปิดกล่องสุ่ม:ยกเลิก") == 2){
+		close;
+	}
+
+	delitem .@item_id, 1;
+
+	setarray .@id[0], 1001521,1001522,1001523,1001524,1001525;
+	.@reward = .@id[rand(getarraysize(.@id))];
+
+	rentitem .@reward, 604800;
+
+	mes "[ Charm LevelUp Box ]";
+	mes "ท่านได้รับ:";
+	mes "^i["+.@reward+"] " + getitemname(.@reward) + " (เช่า 7 วัน)";
+	close;
+
+	announce "ขอแสดงความยินดีกับผู้เล่น "+strcharinfo(0)+" ที่ได้รับ "+getitemname(.@reward)+" (เช่า 7 วัน) จาก "+getitemname(.@item_id)+"", BC_NAME;
+	end;
+}
+

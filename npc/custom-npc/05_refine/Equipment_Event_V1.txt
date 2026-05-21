@@ -1,0 +1,164 @@
+//===============================================================
+// Refine Challenge Event (สะสมแต้ม + จัดอันดับ + เมนู GM99)
+//===============================================================
+morocc,134,92,5	script	Refine Challenge Event	798,{
+
+	mes "[Refine Challenge]";
+	mes "Event Refine Hat CBT";
+	mes "ไอเทมที่แลกแต้มได้: Event Refine Hat CBT";
+	mes "สามารถนำไปตีบวกได้ที่ NPC ตีบวกปกติได้เลย";
+	next;
+
+	.@isgm = (getgroupid() >= 99);
+
+	if (.@isgm) {
+		.@sel = select(
+			"แลกแต้มจากหมวก (930101):" +
+			"ดูแต้มสะสม:" +
+			"ดูอันดับ (Top 10 ล่าสุด):" +
+			"ดูรางวัลกิจกรรม:" +
+			"^FF0000เมนู GM99^000000:ออก"
+		);
+	} else {
+		.@sel = select(
+			"แลกแต้มจากหมวก (930101):" +
+			"ดูแต้มสะสม:" +
+			"ดูอันดับ (Top 10 ล่าสุด):" +
+			"ดูรางวัลกิจกรรม:ออก"
+		);
+	}
+
+	switch(.@sel){
+
+	case 1:
+		mes "[Refine Challenge]";
+		mes "กรุณาสวมหมวก Event Refine Hat CBT";
+		next;
+
+		if (getequipid(EQI_HEAD_TOP) != 930101) {
+			mes "[Refine Challenge]";
+			mes "ตรวจไม่พบ Event Refine Hat CBT (930101) ที่สวมอยู่";
+			close;
+		}
+
+		.@ref = getequiprefinerycnt(EQI_HEAD_TOP);
+
+		if (.@ref < 5) {
+			mes "[Refine Challenge]";
+			mes "ต้องมีการอัพเกรดอย่างน้อย +5 ขึ้นไปจึงจะแลกแต้มได้";
+			mes "ตอนนี้ของคุณคือ: +" + .@ref;
+			close;
+		}
+
+		if      (.@ref == 5)  .@pt = 10;
+		else if (.@ref == 6)  .@pt = 20;
+		else if (.@ref == 7)  .@pt = 40;
+		else if (.@ref == 8)  .@pt = 80;
+		else if (.@ref == 9)  .@pt = 130;
+		else                   .@pt = 200;
+
+		mes "[Refine Challenge]";
+		mes "หมวก: " + getitemname(930101);
+		mes "ระดับการอัพเกรด: +" + .@ref;
+		mes "แต้มที่จะได้รับ: " + .@pt + " คะแนน";
+		next;
+
+		if (select("ยืนยันแลกแต้มและลบหมวก:ยกเลิก") == 2) close;
+
+		unequip EQI_HEAD_TOP;
+		delitem2 930101, 1, 1, .@ref, 0, 0, 0, 0, 0;
+
+		#RefinePoint += .@pt;
+
+		query_sql(
+			"INSERT INTO refine_event_log (char_id,item_id,refine,points,action,logtime) " +
+			"VALUES (" + getcharid(0) + ",930101," + .@ref + "," + .@pt + ",'EXCHANGE',NOW())"
+		);
+
+		mes "[Refine Challenge]";
+		mes "แลกแต้มสำเร็จ ได้รับ " + .@pt + " คะแนน";
+		mes "แต้มสะสมปัจจุบัน: " + #RefinePoint;
+		close;
+
+	case 2:
+		mes "[Refine Challenge]";
+		mes "แต้มสะสม Refine Point: " + #RefinePoint;
+		close;
+
+	case 3:
+		mes "[Refine Challenge]";
+		.@r = query_sql(
+			"SELECT c.name, SUM(l.points) AS pts " +
+			"FROM refine_event_log l " +
+			"LEFT JOIN `char` c ON c.char_id = l.char_id " +
+			"WHERE l.action = 'EXCHANGE' AND DATE(l.logtime) = CURDATE() " +
+			"GROUP BY l.char_id " +
+			"ORDER BY pts DESC, MIN(l.id) ASC " +
+			"LIMIT 10",
+			.@name$, .@pts
+		);
+		if (!.@r) { mes "ยังไม่มีข้อมูลอันดับวันนี้"; close; }
+
+		mes "อันดับวันนี้ ("+gettimestr("%Y-%m-%d",21)+")";
+		for(.@i=0;.@i<getarraysize(.@name$);.@i++){
+			mes (.@i+1)+". "+.@name$[.@i]+"  ("+.@pts[.@i]+" คะแนน)";
+		}
+		close;
+
+	case 4:
+		mes "[Refine Challenge]";
+		mes "รางวัลกิจกรรม";
+		mes "อันดับ 1: เงินสด 3,000 บาท + "+getitemname(1001513)+" x1";
+		mes "อันดับ 2: เงินสด 2,000 บาท + "+getitemname(1001514)+" x1";
+		mes "อันดับ 3: เงินสด 1,000 บาท";
+		close;
+
+	case 5:
+		if (!.@isgm) close;
+
+		mes "[Refine Challenge]";
+		next;
+
+		switch(select("^FF0000รีเซ็ตแต้มผู้เล่น (RefinePoint)^000000:^FF0000ล้าง Log วันนี้ทั้งหมด^000000:กลับ")) {
+		case 1:
+			mes "[Refine Challenge]";
+			mes "พิมพ์ CharID ที่ต้องการรีเซ็ตแต้ม (ใส่ 0 = รีเซ็ตตัวเอง)";
+			next;
+			input .@cid;
+			if (.@cid <= 0) .@cid = getcharid(0);
+
+			query_sql "SELECT COUNT(*) FROM `char` WHERE char_id="+.@cid, .@ok;
+			if (!.@ok) { mes "[Refine Challenge]"; mes "ไม่พบ CharID"; close; }
+
+			query_sql "UPDATE `char_reg_num` SET value=0 WHERE char_id="+.@cid+" AND `key`='#RefinePoint'";
+			mes "[Refine Challenge]";
+			mes "รีเซ็ตแต้มของ CharID "+.@cid+" เรียบร้อย";
+			close;
+
+		case 2:
+			mes "[Refine Challenge]";
+			mes "ยืนยันล้าง Log วันนี้ทั้งหมด? (มีผลต่ออันดับวันนี้)";
+			next;
+			if (select("ยืนยัน:ยกเลิก") == 2) close;
+
+			query_sql "DELETE FROM refine_event_log WHERE action='EXCHANGE' AND DATE(logtime)=CURDATE()";
+			mes "[Refine Challenge]";
+			mes "ล้าง Log วันนี้เรียบร้อย";
+			close;
+
+		default:
+			close;
+		}
+
+	default:
+		close;
+	}
+
+	end;
+
+OnInit:
+	query_sql "CREATE TABLE IF NOT EXISTS `refine_event_log` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT,`char_id` INT UNSIGNED NOT NULL,`item_id` INT UNSIGNED NOT NULL,`refine` TINYINT UNSIGNED NOT NULL DEFAULT 0,`points` INT NOT NULL DEFAULT 0,`action` VARCHAR(16) NOT NULL,`logtime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,PRIMARY KEY (`id`),KEY `idx_char_id` (`char_id`),KEY `idx_logtime` (`logtime`)) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+
+	waitingroom "Refine Challenge Event", 0;
+	end;
+}

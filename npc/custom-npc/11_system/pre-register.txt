@@ -1,0 +1,70 @@
+
+//รอเปิด [ ลงทะเบียน pre-register ]
+
+
+morocc,174,88,4	script	Pre Register	11050,{
+Start:
+
+	query_sql "SELECT account_id FROM `pre_register_data` WHERE account_id = " + getcharid(3), .@already;
+
+	mes .mes$;
+	mes "^0055FF[ Pre-Register Event ]^000000";
+	mes "ลงทะเบียนล่วงหน้า รับไอเท็มฟรี!";
+	mes " ";
+	mes "^FF3300รางวัลที่จะได้รับ^000000";
+	mes "- Costume หมวก (Upper) ^00CC00All Stat+1, EXP+5%^000000 30 วัน";
+	mes "  (เมื่อครบ 30 วัน ออฟชั่นจะหายไป แต่หมวกจะคงอยู่)";
+	mes "- ไข่ x50";
+	mes " ";
+	mes "^FF3300เงื่อนไขไอเท็ม^000000";
+	mes "- ดีลไม่ได้ / โยนไม่ได้ / ซื้อขายไม่ได้ / ตั้งร้านไม่ได้";
+	mes "- ใส่คลังได้";
+	mes " ";
+	mes "^FF3300ระยะเวลากิจกรรม^000000";
+	mes "วันนี้ - จนถึงวันปิด CBT วันสุดท้าย เวลา 23:59 น.";
+	mes " ";
+	mes "^FF3300หมายเหตุ: ลงทะเบียนได้ 1 ครั้งต่อ 1 Account เท่านั้น^000000";
+	mes " ";
+
+	if (.@already) {
+		mes "^009900ท่านลงทะเบียนไปแล้ว ไม่สามารถลงทะเบียนซ้ำได้^000000";
+		close;
+	}
+
+	if (select("- ลงทะเบียนรับรางวัล:- ยกเลิก") == 2)
+		close;
+
+	deletearray .@already;
+	query_sql "SELECT account_id FROM `pre_register_data` WHERE account_id = " + getcharid(3), .@already;
+	if (.@already) {
+		clear;
+		mes .mes$;
+		mes "ID ของท่านลงทะเบียนไปแล้ว";
+		mes "โปรดทำรายการใหม่อีกครั้ง ...";
+		end;
+	}
+
+	getitem 63276, 1;
+	getitem 1001004, 50;
+
+	query_sql "INSERT INTO `pre_register_data` (account_id, char_name, register_time) VALUES (" + getcharid(3) + ", '" + strcharinfo(0) + "', NOW())";
+	announce "[Pre-Register] " + strcharinfo(0) + " ลงทะเบียน Pre-Register สำเร็จ!", bc_all | bc_name;
+
+	clear;
+	mes .mes$;
+	mes "^00CC00ลงทะเบียนสำเร็จ!^000000";
+	mes "ท่านได้รับ:";
+	mes "- Costume หมวก (Upper) x1";
+	mes "- ไข่ x50";
+	mes " ";
+	mes "ขอบคุณที่ร่วมกิจกรรม Pre-Register!";
+	close;
+
+OnInit:
+	.mes$ = "^0055FF[ Pre-Register ]^000000";
+	waitingroom "Pre-Register รับของฟรี!", 0;
+
+	query_sql "CREATE TABLE IF NOT EXISTS `pre_register_data` (`id` int(7) NOT NULL AUTO_INCREMENT, `account_id` int(11) NOT NULL, `char_name` varchar(25) NOT NULL, `register_time` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
+
+	end;
+}

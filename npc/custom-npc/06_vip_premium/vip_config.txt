@@ -1,0 +1,323 @@
+/*
+=================== TERMS OF SERVICES. ===================
+1. ALL RIGHT RESERVED RE-SELLER OR SHARE SCRIPT TO PUBLISH.
+2. BUT YOU RE-SELLER OR SHARE SCRIPT WITH OUT UNAUTHORIZRD
+   I WILL ALL CANCEL MY SUPPORT FOR YOU.
+3. MAINTENANCE SCRIPTS WILL BE FREE SERVICES.
+4. I WILL NOT KEEP ANY INFORMATIONS FROMS YOU SERVER THAT
+   YOU SEND FOR ME.
+5. I HOPE YOU WILL ALL ACCEPT TERMS OF SERVICES.
+==========================================================
+Script. Buffer VIP System																					 
+Create By. [Eddga-Studio]
+Translator By. Eddga Studio
+Bug Report. Dollaporn Naraphan [ FB ]																					 
+Contact Us. Dollaporn Naraphan [ FB ]																					 																				 
+==========================================================
+*/
+
+// callfunc("F_GetBuffetTime", <account_id>);
+function	script	F_GetBuffetTime	{
+	.@rst = query_sql("SELECT UNIX_TIMESTAMP(expire) FROM `buffet_time` WHERE account_id = " + getarg(0) + " LIMIT 1", .@expire);
+	if(.@rst == -1)
+		return false;
+	return .@expire;
+}
+
+// callfunc("F_AddBuffetTime", <account_id>, <second>);
+function	script	F_AddBuffetTime	{
+	.@aid = getarg(0);
+	.@sec = getarg(1);
+	.@time = callfunc("F_GetBuffetTime", .@aid);
+	if(.@time >= gettimetick(2))
+		.@rst = query_sql("REPLACE INTO `buffet_time` VALUES (" + .@aid + ", FROM_UNIXTIME(" + (.@time + .@sec) + "), 0)");
+	else
+		.@rst = query_sql("REPLACE INTO `buffet_time` VALUES (" + .@aid + ", FROM_UNIXTIME(" + (gettimetick(2) + .@sec) + "), 0)");
+	return (.@rst != -1);
+}
+
+
+-	script	buffetsql	-1,{
+end;
+
+
+OnInit:
+	query_sql("CREATE TABLE IF NOT EXISTS `buffet_time` (" +
+	"`account_id` INT(10) NOT NULL," +
+	"`expire` TIMESTAMP NULL DEFAULT NULL," +
+	"`type` TINYINT NOT NULL DEFAULT '0'," +
+	"UNIQUE INDEX `account_id` (`account_id`)" +
+	")");
+	end;
+}
+
+-	script	buffetgmcmds	-1,{
+end;
+
+
+
+OnCommand:
+	switch(select("~ เพิ่มเวลา VIP ด้วยชื่อตัวละคร","~ เพิ่มเวลา VIP ด้วย Account ID")) {
+		case 1:
+			mes "[ Buffer System ]";
+			mes "ระบุชื่อตัวละครที่ต้องการ";
+			mes "เพิ่มเวลา VIP ตัวละครจะต้องออนไลน์เท่านั้น";
+			mes "^FF0000*ยกเลิก ให้ใส่เลข 0*^000000";
+			input(.@name$);
+			.@aid = getcharid(3, .@name$);
+			next;
+			if(.@aid == 0) {
+				mes "[ Buffer System ]";
+				mes "ไม่พบชื่อตัวละครดังกล่าว";
+				mes "ชื่อตัวละครผิดหรือตัวละครออฟไลน์";
+				close;
+			} else {
+				mes "[ Buffer System ]";
+				mes "ตรวจสอบข้อมูลเพิ่มเวลา";
+				mes "ชื่อตัวละคร : " + .@name$;
+				mes "Account ID : " + .@aid;
+				next;
+			}
+			break;
+		case 2:
+			mes "[ Buffer System ]";
+			mes "ระบุ Account ID ของตัวละครผู้เล่น";
+			mes "- ตัวอย่าง : 2000000";
+			input(.@aid);
+			next;
+			break;
+	}
+	mes "[ Buffer System ]";
+	mes "Account ID : " + .@aid;
+	mes "โปรดระบุเวลาเป็นวินาที";
+	mes "- ตัวอย่าง : 10นาที = 600วินาที";
+	input(.@time);
+	next;
+	if(!.@time) {
+		mes "[ Buffer System ]";
+		mes "E r r o r ! ! !";
+		mes "คุณระบุข้อมูลไม่ถูกต้อง";
+		mes "กรุณาตรวจสอบแล้วทำรายการใหม่";
+		close;
+	}
+	mes "[ Buffer System ]";
+	mes "คุณต้องการเพิ่มเวลา VIP ให้กับ";
+	mes "Account ID : " + .@aid;
+	mes "เวลา VIP : "+ .@time+" วินาที";
+	mes "ต้องการเพิ่มข้อมูลใช่หรือไม่ ?";
+	next;
+	switch(select("~ ใช่,ฉันต้องการ","~ ยกเลิก")) {
+		case 1:
+			.@rst = callfunc("F_AddBuffetTime", .@aid, .@time);
+			if(.@rst) {
+				mes "[ Buffer System ]";
+				mes "^0000FFทำรายการสำเร็จ !^000000";
+			} else {
+				mes "[ Buffer System ]";
+				mes "^FF0000พบข้อผิดพลาด ?^000000";
+			}
+			close;
+		end;
+		
+		case 2:
+		end;
+	}
+
+Ontestvipicon2:
+bonus_script "{}",.@a,8,0,EFST_VIPSTATUS;
+dispbottom "test";
+end;
+
+OnInit:
+	bindatcmd "addbuffet","#buffetgmcmds::OnCommand",99; // คำสั่งสำหรับ GM เพิ่มเวลา VIP
+	bindatcmd "testvipicon","#buffetgmcmds::Ontestvipicon2",99; // คำสั่งสำหรับ GM เพิ่มเวลา VIP
+	end;
+}
+
+//-	script	shop#template	-1,{
+//OnCommand:
+//	if(strnpcinfo(2) == "template")
+//		end;
+//
+//	if (checkweight(1201,3) == 0) {
+//		mes "รอสักครู่..!!";
+//		mes "คุณมีไอเท็มมากเกินไป";
+//		mes "โปรดนำไปฝากที่คลังสินค้า";
+//		mes "แล้วกลับมาใหม่อีกครั้ง ขอบคุณ";
+//		close;
+//	}
+//
+//	.@rst = query_sql("SELECT UNIX_TIMESTAMP(expire),expire FROM `buffet_time` WHERE account_id = " + getcharid(3) + " LIMIT 1", .@expire, .@exp$);
+//	if(.@rst == -1) {
+//		mes "^0000FF[ VIP Shop ]^000000";
+//		mes "คุณต้องมีบัตร VIP สามารถซื้อได้ที่ ร้านค้า Cash Shop หรือ คลิกที่ Icon Cash Shop (บนขวาหน้าจอเกมส์)";
+//		mes "ถึงจะใช้งานระบบนี้ได้";
+//		mes "เมื่อใช้งานแล้ว จะสามารถซื้อไอเท็ม VIP Shop ได้ไม่จำกัด สามารถใช้งานได้ทั้งไอดี";
+//		close;
+//	} else if(.@rst == 0) {
+//		mes "^0000FF[ VIP Shop ]^000000";
+//		mes "^FF0000คุณต้องเป็นสมาชิก VIP ก่อน^000000";
+//		mes "^FF0000จึงไม่สามารถใช้งานในส่วนนี้ได้^000000";
+//		close;
+//	}
+//	.@diff = .@expire - gettimetick(2);
+//	if(.@diff <= 0) {
+//		mes "^0000FF[ VIP Shop ]^000000";
+//		mes "ขอโทษด้วยค่ะ !!";
+//		mes "ขณะนี้เวลา VIP ของท่านหมดอายุแล้ว";
+//		mes " ";
+//		mes " ";
+//		mes "เวลาหมดอายุ";
+//		mes "( ^FF0000" + .@exp$ + "^000000 )";
+//		close;
+//	}
+//	dispbottom "[ VIP SYSTEM ] : เวลา VIP ของคุณจะหมดเมื่อ : " + .@exp$+"";
+//	callshop "VIP_ITEM_SHOW_" + strnpcinfo(2),1;
+//	npcshopattach "VIP_ITEM_SHOW_" + strnpcinfo(2);
+//	end;
+//	
+//OnBuyItem:
+//	.@rst = query_sql("SELECT UNIX_TIMESTAMP(expire) FROM `buffet_time` WHERE account_id = " + getcharid(3) + " LIMIT 1", .@expire);
+//	if(.@rst == -1) {
+//		mes "^0000FF[ VIP Shop ]^000000";
+//		mes "^FF0000พบข้อผิดพลาด^000000";
+//		close;
+//	} else if(.@rst == 0) {
+//		mes "^0000FF[ VIP Shop ]^000000";
+//		mes "^FF0000คุณไม่สามารถใช้ระบบ VIP ได้^000000";
+//		close;
+//	}
+//	.@diff = .@expire - gettimetick(2);
+//	if(.@diff <= 0) {
+//		mes "^0000FF[ VIP Shop ]^000000";
+//		mes "^FF0000เวลา VIP ของคุณได้หมดอายุแล้ว !^000000";
+//		close;
+//	}
+//	.@sz = getarraysize(@bought_nameid);
+//	for(.@i = 0; .@i < .@sz; .@i++) {
+//		rentitem @bought_nameid[.@i],.@diff;
+//	}
+//	end;
+//
+//OnInit:
+//	if (strnpcinfo(2) == "template")
+//		end;
+//	//waitingroom "VIP Shop", 0;
+//	bindatcmd "buffet","VIP Shop#1::OnCommand",0,99;
+//	end;
+//}
+//
+//morocc,144,76,3	duplicate(shop#template)	VIP Shop#1	748
+
+
+// ================== VIP Tickets ==================
+
+// ใช้ตั๋ว VIP 1 วัน
+function	script	1d_vip_ticket	{
+	// ถ้ายังไม่มี VIP อยู่ ให้เพิ่ม VIP 1 วัน
+	if (!vip_status(VIP_STATUS_EXPIRE)) {
+		atcommand "@vip +1d "+strcharinfo(0)+"";
+		#CASH_VIP_TIME = gettimetick(2) + 86400;
+		sc_start SC_VIPSTATUS, 86400 * 1000, 1;
+		delitem "VIP_Ticket_1_Day",1;
+		end;
+	}
+	// มี VIP อยู่แล้ว: ไม่อนุญาตซ้อน ให้แจ้งหมดอายุ
+	if (#CASH_VIP_TIME > gettimetick(2)) {
+		message strcharinfo(0),"VIP ของคุณจะหมดอายุใน: "+ gettimestr("%d-%m-%Y %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE)) +"";
+		dispbottom "จนกว่าจะหมดเวลาจะไม่สามารถใช้อันใหม่ได้!";
+		end;
+	}
+}
+
+// ใช้ตั๋ว VIP 3 วัน
+function	script	3d_vip_ticket	{
+	// ถ้ายังไม่มี VIP อยู่ ให้เพิ่ม VIP 3 วัน
+	if (!vip_status(VIP_STATUS_EXPIRE)) {
+		atcommand "@vip +3d "+strcharinfo(0)+"";
+		#CASH_VIP_TIME = gettimetick(2) + 259200; // 3 วัน
+		sc_start SC_VIPSTATUS, 259200 * 1000, 1;
+		delitem "VIP_Ticket_3_Day",1;
+		end;
+	}
+	// มี VIP อยู่แล้ว: ไม่อนุญาตซ้อน ให้แจ้งหมดอายุ
+	if (#CASH_VIP_TIME > gettimetick(2)) {
+		message strcharinfo(0),"VIP ของคุณจะหมดอายุใน: "+ gettimestr("%d-%m-%Y %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE)) +"";
+		dispbottom "จนกว่าจะหมดเวลาจะไม่สามารถใช้อันใหม่ได้!";
+		end;
+	}
+}
+
+// ใช้ตั๋ว VIP 7 วัน
+function	script	7d_vip_ticket	{
+	// ถ้ายังไม่มี VIP อยู่ ให้เพิ่ม VIP 7 วัน
+	if (!vip_status(VIP_STATUS_EXPIRE)) {
+		atcommand "@vip +7d "+strcharinfo(0)+"";
+		#CASH_VIP_TIME = gettimetick(2) + 604800; // 7 วัน
+		sc_start SC_VIPSTATUS, 604800 * 1000, 1;
+		delitem "VIP_Ticket_7_Day",1;
+		end;
+	}
+	// มี VIP อยู่แล้ว: ไม่อนุญาตซ้อน ให้แจ้งหมดอายุ
+	if (#CASH_VIP_TIME > gettimetick(2)) {
+		message strcharinfo(0),"VIP ของคุณจะหมดอายุใน: "+ gettimestr("%d-%m-%Y %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE)) +"";
+		dispbottom "จนกว่าจะหมดเวลาจะไม่สามารถใช้อันใหม่ได้!";
+		end;
+	}
+}
+
+// ================== NT VIP Tickets ==================
+
+// ใช้ตั๋ว VIP 1 วัน
+function	script	NT_1d_vip_ticket	{
+	// ถ้ายังไม่มี VIP อยู่ ให้เพิ่ม VIP 1 วัน
+	if (!vip_status(VIP_STATUS_EXPIRE)) {
+		atcommand "@vip +1d "+strcharinfo(0)+"";
+		#CASH_VIP_TIME = gettimetick(2) + 86400;
+		sc_start SC_VIPSTATUS, 86400 * 1000, 1;
+		delitem "NT_VIP_Ticket_1_Day",1;
+		end;
+	}
+	// มี VIP อยู่แล้ว: ไม่อนุญาตซ้อน ให้แจ้งหมดอายุ
+	if (#CASH_VIP_TIME > gettimetick(2)) {
+		message strcharinfo(0),"VIP ของคุณจะหมดอายุใน: "+ gettimestr("%d-%m-%Y %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE)) +"";
+		dispbottom "จนกว่าจะหมดเวลาจะไม่สามารถใช้อันใหม่ได้!";
+		end;
+	}
+}
+
+// ใช้ตั๋ว VIP 3 วัน
+function	script	NT_3d_vip_ticket	{
+	// ถ้ายังไม่มี VIP อยู่ ให้เพิ่ม VIP 3 วัน
+	if (!vip_status(VIP_STATUS_EXPIRE)) {
+		atcommand "@vip +3d "+strcharinfo(0)+"";
+		#CASH_VIP_TIME = gettimetick(2) + 259200; // 3 วัน
+		sc_start SC_VIPSTATUS, 259200 * 1000, 1;
+		delitem "NT_VIP_Ticket_3_Day",1;
+		end;
+	}
+	// มี VIP อยู่แล้ว: ไม่อนุญาตซ้อน ให้แจ้งหมดอายุ
+	if (#CASH_VIP_TIME > gettimetick(2)) {
+		message strcharinfo(0),"VIP ของคุณจะหมดอายุใน: "+ gettimestr("%d-%m-%Y %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE)) +"";
+		dispbottom "จนกว่าจะหมดเวลาจะไม่สามารถใช้อันใหม่ได้!";
+		end;
+	}
+}
+
+// ใช้ตั๋ว VIP 7 วัน
+function	script	NT_7d_vip_ticket	{
+	// ถ้ายังไม่มี VIP อยู่ ให้เพิ่ม VIP 7 วัน
+	if (!vip_status(VIP_STATUS_EXPIRE)) {
+		atcommand "@vip +7d "+strcharinfo(0)+"";
+		#CASH_VIP_TIME = gettimetick(2) + 604800; // 7 วัน
+		sc_start SC_VIPSTATUS, 604800 * 1000, 1;
+		delitem "NT_VIP_Ticket_7_Day",1;
+		end;
+	}
+	// มี VIP อยู่แล้ว: ไม่อนุญาตซ้อน ให้แจ้งหมดอายุ
+	if (#CASH_VIP_TIME > gettimetick(2)) {
+		message strcharinfo(0),"VIP ของคุณจะหมดอายุใน: "+ gettimestr("%d-%m-%Y %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE)) +"";
+		dispbottom "จนกว่าจะหมดเวลาจะไม่สามารถใช้อันใหม่ได้!";
+		end;
+	}
+}

@@ -1,0 +1,443 @@
+//===== Warp Visibility Checker NPC ========================
+-	script	WarpChecker	-1,{
+OnInit:
+	// Start the timer to check every 5 seconds
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	// Check and update warp visibility every 5 seconds
+	callsub CheckWarps;
+	initnpctimer; // Restart timer
+	end;
+
+CheckWarps:
+	// Get current WOE settings
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	
+	// Castle index to NPC name mapping
+	setarray .@npc_names$[0], 
+		"prtg1","prtg2","prtg3","prtg4","prtg5",
+		"payg1","payg2","payg3","payg4","payg5",
+		"gefg1","gefg2","gefg3","gefg4","gefg5",
+		"aldeg1","aldeg2","aldeg3","aldeg4","aldeg5";
+	
+	// Update regular castle warps (0-19)
+	for(set .@i,0; .@i<20; set .@i,.@i+1) {
+		if (.@castle_warp || (.@active&(1<<.@i))) {
+			hideoffnpc .@npc_names$[.@i];
+		} else {
+			hideonnpc .@npc_names$[.@i];
+		}
+	}
+	
+	// Handle main castle warps (index 20)
+	if (.@castle_warp || (.@active&(1<<20))) {
+		hideoffnpc "maincastlewarp#1";
+		hideoffnpc "maincastlewarp#2";
+	} else {
+		hideonnpc "maincastlewarp#1";
+		hideonnpc "maincastlewarp#2";
+	}
+	return;
+}
+
+guild_vs2,42,49,0	script	maincastlewarp#1	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<20))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "arug_cas05",131,90;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<20))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,57,49,0	script	maincastlewarp#2	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<20))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "arug_cas05",152,90;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<20))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+// Prontera Castles (top left)
+guild_vs2,32,55,0	script	prtg1	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<0))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "prtg_cas01",99,32;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<0))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,35,58,0	script	prtg2	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<1))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "prtg_cas02",43,229;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<1))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,38,61,0	script	prtg3	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<2))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "prtg_cas03",168,12;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<2))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,41,64,0	script	prtg4	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<3))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "prtg_cas04",86,13;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<3))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,44,67,0	script	prtg5	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<4))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "prtg_cas05",17,235;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<4))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+// Payon Castles (bottom left)
+guild_vs2,32,44,0	script	payg1	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<5))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "payg_cas01",214,48;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<5))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,35,41,0	script	payg2	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<6))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "payg_cas02",272,57;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<6))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,38,38,0	script	payg3	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<7))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "payg_cas03",226,26;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<7))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,41,35,0	script	payg4	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<8))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "payg_cas04",252,271;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<8))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,44,32,0	script	payg5	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<9))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "payg_cas05",62,227;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<9))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+// Geffen Castles (top right)
+guild_vs2,55,67,0	script	gefg1	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<10))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "gefg_cas01",34,140;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<10))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,58,64,0	script	gefg2	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<11))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "gefg_cas02",70,143;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<11))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,61,61,0	script	gefg3	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<12))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "gefg_cas03",60,286;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<12))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,64,58,0	script	gefg4	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<13))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "gefg_cas04",24,149;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<13))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,67,55,0	script	gefg5	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<14))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "gefg_cas05",11,134;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<14))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+// Aldebaran Castles (bottom right)
+guild_vs2,67,44,0	script	aldeg1	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<15))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "aldeg_cas01",34,248;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<15))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,64,41,0	script	aldeg2	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<16))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "aldeg_cas02",88,163;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<16))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,61,38,0	script	aldeg3	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<17))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "aldeg_cas03",114,286;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<17))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,58,35,0	script	aldeg4	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<18))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "aldeg_cas04",149,17;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<18))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}
+
+guild_vs2,55,32,0	script	aldeg5	WARPNPC,1,1,{
+OnTouch:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<19))) {
+		message strcharinfo(0), "ปราสาทนี้ไม่ได้เปิดในรอบนี้";
+		end;
+	}
+	warp "aldeg_cas05",216,103;
+	end;
+OnInit:
+	set .@castle_warp, getvariableofnpc(.CastleWarp,"WOE_CONTROL");
+	set .@active, getvariableofnpc(.Active,"WOE_CONTROL");
+	if (!.@castle_warp && !(.@active&(1<<19))) 
+		hideonnpc strnpcinfo(0);
+	end;
+}

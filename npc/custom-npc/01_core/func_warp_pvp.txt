@@ -1,0 +1,114 @@
+-	script	Warp-PVP	-1,{
+	mes "[ ^FF0000ลานประลอง^000000 ]";
+	mes "ระบบการต่อสู้ระหว่างผู้เล่น";
+	mes "ไว้สำหรับทดสอบดาเมจต่างๆ";
+	switch(select("~ ลานประลอง Izlude ^FF0000["+getmapusers("pvp_y_8-2")+"]^000000 คน:~ Death Match ^FF0000["+getmapusers("guild_vs3")+"]^000000 คน:~ ไม่ล่ะ,ฉันยังละอ่อนอ่อนเกินไป")){
+	case 1:
+		warp "pvp_y_8-2",0,0;
+		announce "[ PvP ROOM : คุณ "+strcharinfo(0)+" ได้เข้าลานประลอง เมือง Izlude ! ]",bc_all;
+		end;
+	case 2:
+		warp "guild_vs3",0,0;
+		announce "[ PvP ROOM : คุณ "+strcharinfo(0)+" ได้เข้าลานประลอง Death Match ]",bc_all;
+		percentheal 100,100;
+		sc_start SC_BLESSING,1000*60*15,10;
+		sc_start SC_INCREASEAGI,1000*60*15,10;
+		sc_start SC_GLORIA,1000*60*30,5;
+		sc_start SC_STRFood, 1000*60*30,10;
+		sc_start SC_AGIFood, 1000*60*30,10;
+		sc_start SC_INTFood, 1000*60*30,10;
+		sc_start SC_DEXFood, 1000*60*30,10;
+		sc_start SC_LUKFood, 1000*60*30,10;
+		end;
+	case 3:
+	end;
+	}
+
+OnInit:
+	while (1) {
+		delwaitingroom;
+		set .@count, getmapusers("pvp_y_8-2");
+		waitingroom "ลานประลอง "+ .@count + ((.@count==1) ? " คน" : " คน") +"",0;
+		sleep 1000;
+	}
+end;
+}
+
+-	script	SystemDeathMap1	-1,{
+	end;
+
+OnPCDieEvent:
+	if (strcharinfo(3) != "guild_vs3") 
+	end;
+	
+	sleep2 1000;
+	atcommand "@alive";
+	atcommand "@repairall";
+	percentheal 100,100;
+	sc_start SC_BLESSING,1000*60*15,10;
+	sc_start SC_INCREASEAGI,1000*60*15,10;
+	sc_start SC_GLORIA,1000*60*30,5;
+	sc_start SC_STRFood, 1000*60*30,10;
+	sc_start SC_AGIFood, 1000*60*30,10;
+	sc_start SC_INTFood, 1000*60*30,10;
+	sc_start SC_DEXFood, 1000*60*30,10;
+	sc_start SC_LUKFood, 1000*60*30,10;
+	sc_end SC_Poison;
+	sc_end SC_Freeze;
+	sc_end SC_Sleep;
+	sc_end SC_Stan;
+	sc_end SC_Stone;
+	sc_end SC_Silence;
+	sc_end SC_Blind;
+	sc_end SC_Bleeding;
+	sc_end SC_Confusion;
+	sc_end SC_Curse;
+	sc_end SC_Hallucination;
+	warp "guild_vs3",0,0;
+	end;
+}
+
+
+-	script	message	-1,{
+OnPCDieEvent:
+if (strcharinfo(3) != "guild_vs3") 
+end;
+message strcharinfo(0),"เศร้าจัง ทำไมข้ากากแบบนี้!";
+emotion ET_HUK, 0;
+}
+
+-	script	LogoutEvent_Death	-1,{
+OnPCLogoutEvent:
+if (strcharinfo(3) != "guild_vs3") 
+end;
+sc_end SC_BLESSING;
+sc_end SC_INCREASEAGI;
+sc_end SC_GLORIA;
+sc_end SC_STRFood;
+sc_end SC_AGIFood;
+sc_end SC_INTFood;
+sc_end SC_DEXFood;
+sc_end SC_LUKFood;
+percentheal -100,-100;
+}
+
+// PVP
+pvp_y_8-2	mapflag	noteleport
+pvp_y_8-2	mapflag	nomemo
+pvp_y_8-2	mapflag	noicewall
+pvp_y_8-2	mapflag	nobranch
+pvp_y_8-2	mapflag	noreturn
+pvp_y_8-2	mapflag	nowarp
+pvp_y_8-2	mapflag	nowarpto
+// Death Match
+guild_vs3	mapflag	pvp
+guild_vs3	mapflag	noteleport
+guild_vs3	mapflag	nomemo
+guild_vs3	mapflag	noicewall
+guild_vs3	mapflag	nobranch
+guild_vs3	mapflag	noreturn
+guild_vs3	mapflag	nowarp
+guild_vs3	mapflag	nowarpto
+
+//====================================================
+

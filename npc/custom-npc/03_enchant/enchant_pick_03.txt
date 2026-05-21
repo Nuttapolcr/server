@@ -1,0 +1,695 @@
+-	script	Enchant_Pick_03	-1,{
+OnStart:
+	
+	freeloop(1);
+	
+	disable_items;
+	
+	setarray .@EQI[0],EQI_HEAD_TOP,EQI_HEAD_MID,EQI_HEAD_LOW,EQI_ARMOR,EQI_HAND_L,EQI_HAND_R,EQI_GARMENT,EQI_SHOES,EQI_ACC_L,EQI_ACC_R,EQI_COSTUME_HEAD_TOP, EQI_COSTUME_HEAD_MID, EQI_COSTUME_HEAD_LOW, EQI_COSTUME_GARMENT, EQI_SHADOW_ARMOR, EQI_SHADOW_WEAPON, EQI_SHADOW_SHIELD, EQI_SHADOW_SHOES, EQI_SHADOW_ACC_R, EQI_SHADOW_ACC_L;;
+	setarray .@EQI$[0], "หมวก", "หู", "ปาก", "ชุดเกาะ", "โล่", "อาวุธ", "ผ้าคลุม", "รองเท้า", "ประดับ ซ้าย", "ประดับ ขวา","คอสหมวก", "คอสหู", "คอสปาก", "คอสผ้าคลุม", "คอสชุดเกาะ", "คอสอาวุธ", "คอสโล่", "คอสรองเท้า", "คอสประดับ 1", "คอสประดับ 2";
+	
+	//	หากต้องการให้ออฟได้ใส่ 1 ไม่ต้องการใส่ 0
+	setarray .@open[0]	,0	//	หมวก
+						,0	//	หู
+						,0	//	ปาก
+						,0	//	เกราะ
+						,0	//	โล่
+						,0	//	อาวุธ
+						,0	//	ผ้าคลุม
+						,0	//	รองเท้า
+						,0	//	ประดับ ซ้าย
+						,0	//	ประดับ ขวา
+						,1	//	คอสหมวก
+						,1	//	คอสหู
+						,1	//	คอสปาก
+						,1	//	คอสผ้าคลุม
+						,1	//	คอสชุดเกาะ
+						,1	//	คอสอาวุธ
+						,1	//	คอสโล่
+						,1	//	คอสรองเท้า
+						,1	//	คอสประดับ ขวา
+						,1	//	คอสประดับ ซ้าย
+						;
+	
+	mes .mes$;
+	
+	mes "ข้าสามารถเพิ่มความแข็งแกร่งให้แก่เจ้า";
+	mes "โดยเลือกอัญมณีเข้าไปในอุปกรณ์";
+	mes "กรุณาเลือกอุปกรณ์ของเจ้า";
+	mes "^FF9900ทำรายการใน Slot ที่ "+.use_slot+"^000000";
+	
+	for ( .@i=0; .@i<getarraysize(.@EQI); .@i++ ) {	
+		if(.@open[.@i] == 1){ 
+			if(getequipisequiped(.@EQI[.@i])){
+				.@menu$ = .@menu$ + "["+.@EQI$[.@i]+"] - "+getequipname(.@EQI[.@i])+"";
+			}
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+	
+	.@part = select(.@menu$) -1;
+	
+	.@part2 = .@EQI[.@part];
+	
+	.@id_item = getequipid(.@part2);
+	
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Headgear
+	if(.@part2 == EQI_HEAD_TOP){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Mid
+	if(.@part2 == EQI_HEAD_MID){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Low
+	if(.@part2 == EQI_HEAD_LOW){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Armor
+	if(.@part2 == EQI_ARMOR){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Weapon
+	if(.@part2 == EQI_HAND_R){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Shield
+	if(.@part2 == EQI_HAND_L){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Garment
+	if(.@part2 == EQI_GARMENT){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน FootGear
+	if(.@part2 == EQI_SHOES){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Acc L
+	if(.@part2 == EQI_ACC_L){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Acc R
+	if(.@part2 == EQI_ACC_R){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Costume Headgear
+	if(.@part2 == EQI_COSTUME_HEAD_TOP){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Costume Mid
+	if(.@part2 == EQI_COSTUME_HEAD_MID){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Costume Low
+	if(.@part2 == EQI_COSTUME_HEAD_LOW){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Costume Garment
+	if(.@part2 == EQI_COSTUME_GARMENT){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Shadow Armor
+	if(.@part2 == EQI_SHADOW_ARMOR){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Shadow Weapon
+	if(.@part2 == EQI_SHADOW_WEAPON){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Shadow Shield
+	if(.@part2 == EQI_SHADOW_SHIELD){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Shadow Shoes
+	if(.@part2 == EQI_SHADOW_SHOES){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Shadow Acc R
+	if(.@part2 == EQI_SHADOW_ACC_R){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	//	ใส่เลขหินที่สามารถเสริมได้ ส่วน Shadow Acc L
+	if(.@part2 == EQI_SHADOW_ACC_L){
+		setarray .@enchant_stone[0],4700,4710,4720,4730,4740,4750,4760;
+	}
+	
+	if(!getequipisequiped(.@part2)){
+		next;
+		mes .mes$;
+		mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้.";
+		end;
+	}
+	
+	if(!getarraysize(.id_equip)){
+		goto menu_pass;
+		end;
+	}
+	else {
+		for ( .@i=0; .@i<getarraysize(.id_equip); .@i++ ){
+			if(.@id_item == .id_equip[.@i]){ goto menu_pass; end; }
+		}
+	}
+	
+	next;
+	mes .mes$;
+	mes "ไอเทม "+getitemname(.@id_item)+"";
+	mes "ไม่สามารถทำรายการได้";
+	end;
+	
+	menu_pass:
+	
+	menu	"- เสริมพลังหินออฟชั่น^0000FF ช่องที่ "+.use_slot+"^000000",menu_check;
+	end;
+	
+	menu_check:
+	
+	for ( .@i = 0; .@i < getarraysize(.@enchant_stone); .@i ++ ){
+		if(countitem(.@enchant_stone[.@i])){
+			.@menu_stone$ = .@menu_stone$ + "- เสริมพลัง "+getitemname(.@enchant_stone[.@i])+"";
+		}
+		.@menu_stone$ = .@menu_stone$ + ":";
+	}
+	
+	.@choose = select(.@menu_stone$)-1;
+	
+	.@stone = .@enchant_stone[.@choose];
+	
+	recheck_local:
+	
+	.@select = getiteminfo(.@id_item,10);
+	
+	.@refineuse = getequiprefinerycnt(.@part2);
+	.@opt01 = getequiprandomoption(.@part2,0,ROA_ID);
+	.@val01 = getequiprandomoption(.@part2,0,ROA_VALUE);
+	.@opt02 = getequiprandomoption(.@part2,1,ROA_ID);
+	.@val02 = getequiprandomoption(.@part2,1,ROA_VALUE);
+	.@opt03 = getequiprandomoption(.@part2,2,ROA_ID);
+	.@val03 = getequiprandomoption(.@part2,2,ROA_VALUE);
+	.@opt04 = getequiprandomoption(.@part2,3,ROA_ID);
+	.@val04 = getequiprandomoption(.@part2,3,ROA_VALUE);
+	.@opt05 = getequiprandomoption(.@part2,4,ROA_ID);
+	.@val05 = getequiprandomoption(.@part2,4,ROA_VALUE);
+	.@param01 = getequiprandomoption(.@part2,0,ROA_PARAM);
+	.@param02 = getequiprandomoption(.@part2,1,ROA_PARAM);
+	.@param03 = getequiprandomoption(.@part2,2,ROA_PARAM);
+	.@param04 = getequiprandomoption(.@part2,3,ROA_PARAM);
+	.@param05 = getequiprandomoption(.@part2,4,ROA_PARAM);
+	.@cardslot01 = getequipcardid(.@part2,0);
+	.@cardslot02 = getequipcardid(.@part2,1);
+	.@cardslot03 = getequipcardid(.@part2,2);
+	.@cardslot04 = getequipcardid(.@part2,3);
+	.@grade = getenchantgrade(.@part2);
+	
+	if(.refine_check){
+		if(.@refineuse < .refine_check){
+			clear;
+			mes .mes$;
+			mes "ไม่สามารถทำรายการได้";
+			mes "เนื่องจากอุปกรณ์ไม่ถึง +"+.refine_check+"";
+			end;
+		}
+	}
+	
+	if(.@cardslot01 > 0){	.@message_01$ = ""+getitemname(.@cardslot01)+""; }
+	if(.@cardslot01 <= 0){	.@message_01$ = "ว่าง"; }
+	if(.@cardslot02 > 0){	.@message_02$ = ""+getitemname(.@cardslot02)+""; }
+	if(.@cardslot02 <= 0){	.@message_02$ = "ว่าง"; }
+	if(.@cardslot03 > 0){	.@message_03$ = ""+getitemname(.@cardslot03)+""; }
+	if(.@cardslot03 <= 0){	.@message_03$ = "ว่าง"; }
+	if(.@cardslot04 > 0){	.@message_04$ = ""+getitemname(.@cardslot04)+""; }
+	if(.@cardslot04 <= 0){	.@message_04$ = "ว่าง"; }
+	
+	.@use_slot = .use_slot;
+	
+	if(.@use_slot == 1){ .@stone_check = .@cardslot01; }
+	if(.@use_slot == 2){ .@stone_check = .@cardslot02; }
+	if(.@use_slot == 3){ .@stone_check = .@cardslot03; }
+	if(.@use_slot == 4){ .@stone_check = .@cardslot04; }
+	
+	next_to_slot:
+	
+	if(.@use_slot <= .@select){
+		next;
+		mes .mes$;
+		mes "ไอเทม "+getitemname(.@id_item)+" ชิ้นนี้";
+		mes "ไม่สามารถออฟชั่นได้";
+		mes "เนื่องจากไม่สามารถออฟ";
+		mes "ทับช่องการ์ดได้";
+		end;
+	}
+	
+	if(.check_enchant){
+		if(.@stone_check){
+			next;
+			mes .mes$;
+			mes "อุปกรณ์ของท่านเสริมพลัง";
+			mes ""+getitemname(.@stone_check)+" ไว้แล้ว";
+			mes "ต้องรีเซ็ตหินออฟชั่นออกก่อน";
+			mes "ถึงจะสามารถทำรายการได้";
+			end;
+		}
+	}
+	
+	if(.pass_enchant){
+		if(.@use_slot == 1){
+			if(!.@cardslot04){
+				clear;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(.@id_item)+" ชิ้นนี้";
+				mes "ไม่สามารถออฟชั่นได้";
+				mes "เนื่องจากท่านยังไม่ผ่านเงื่อนไข";
+				mes "การฝังหินออฟชั่นที่^0099FF ช่อง 4^000000";
+				end;
+			}
+			if(!.@cardslot03){
+				clear;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(.@id_item)+" ชิ้นนี้";
+				mes "ไม่สามารถออฟชั่นได้";
+				mes "เนื่องจากท่านยังไม่ผ่านเงื่อนไข";
+				mes "การฝังหินออฟชั่นที่^0099FF ช่อง 3^000000";
+				end;
+			}
+			if(!.@cardslot02){
+				clear;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(.@id_item)+" ชิ้นนี้";
+				mes "ไม่สามารถออฟชั่นได้";
+				mes "เนื่องจากท่านยังไม่ผ่านเงื่อนไข";
+				mes "การฝังหินออฟชั่นที่^0099FF ช่อง 2^000000";
+				end;
+			}
+		}
+		if(.@use_slot == 2){
+			if(!.@cardslot04){
+				clear;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(.@id_item)+" ชิ้นนี้";
+				mes "ไม่สามารถออฟชั่นได้";
+				mes "เนื่องจากท่านยังไม่ผ่านเงื่อนไข";
+				mes "การฝังหินออฟชั่นที่^0099FF ช่อง 4^000000";
+				end;
+			}
+			if(!.@cardslot03){
+				clear;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(.@id_item)+" ชิ้นนี้";
+				mes "ไม่สามารถออฟชั่นได้";
+				mes "เนื่องจากท่านยังไม่ผ่านเงื่อนไข";
+				mes "การฝังหินออฟชั่นที่^0099FF ช่อง 3^000000";
+				end;
+			}
+		}
+		if(.@use_slot == 3){
+			if(!.@cardslot04){
+				clear;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(.@id_item)+" ชิ้นนี้";
+				mes "ไม่สามารถออฟชั่นได้";
+				mes "เนื่องจากท่านยังไม่ผ่านเงื่อนไข";
+				mes "การฝังหินออฟชั่นที่^0099FF ช่อง 4^000000";
+				end;
+			}
+		}
+	}
+	
+	recheck3:
+	
+	if(getarraysize(.percent)){
+		next;
+		mes .mes$;
+		for ( .@i=0; .@i<getarraysize(.percent); .@i=.@i+3 ){
+			if(!.new_exe){
+				if(.percent[.@i]){
+					mes "ท่านนำ <ITEM>"+getitemname(.percent[.@i])+" x"+.percent[.@i+1]+" ea<INFO>"+.percent[.@i]+"</INFO></ITEM>";
+				}
+			}
+			else {
+				if(.percent[.@i]){
+					mes "ท่านนำ ^i["+.percent[.@i]+"] "+getitemname(.percent[.@i])+" x"+.percent[.@i+1]+" ea";
+				}
+			}
+		}
+		mes "มาด้วยไหม ?";
+		mes "มันสามารถเพิ่มโอกาสสำเร็จได้นะ";
+		
+		for ( .@i=0; .@i<getarraysize(.percent); .@i=.@i+3 ){
+			if(.percent[.@i] == 0){
+				.@menu2$ = .@menu2$ + "-^FF3300 ไม่ใช้งานการเพิ่มโอกาส^000000";
+			}
+			else {
+				.@menu2$ = .@menu2$ + "- ใช้งาน "+getitemname(.percent[.@i])+" ^009900[+"+.percent[.@i+2]+"%]^000000";
+			}
+			.@menu2$ = .@menu2$ + ":";
+		}
+		
+		.@part = select(.@menu2$)-1;
+		
+		.@percent_id	= .percent[(.@part*3)];
+		.@percent_am	= .percent[(.@part*3)+1];
+		.@rate_plus		= .percent[(.@part*3)+2];
+		
+		if(.@percent_id){
+			if(countitem(.@percent_id) < .@percent_am){
+				next;
+				mes .mes$;
+				mes ""+getitemname(.@percent_id)+" ไม่เพียงพอ";
+				end;
+			}
+		}
+	}
+	if((.rate_win+.@rate_plus) < 100){
+		if(.broken_id){
+			next;
+			mes .mes$;
+			if(!.new_exe){
+				mes "ท่านนำ <ITEM>"+getitemname(.broken_id)+" x"+.broken_am+" ea<INFO>"+.broken_id+"</INFO></ITEM>";
+			}
+			else {
+				mes "ท่านนำ ^i["+.broken_id+"] "+getitemname(.broken_id)+" x"+.broken_am+" ea";
+			}
+			mes "มาด้วยไหม ?";
+			if(!.sys_broken){
+				mes "สามารถ ^FF9900ป้องกันอุปกรณ์หลักไว้ได้^000000";
+			}
+			else {
+				if(!.new_exe){
+					mes "สามารถ ^FF9900ป้องกัน "+getitemname(.@stone)+" ไว้ได้^000000";
+				}
+				else {
+					mes "สามารถ ^FF9900ป้องกัน ^i["+.@stone+"] . "+getitemname(.@stone)+" ไว้ได้^000000";
+				}
+			}
+			.@menu_broken = select(
+				"- ใช้งาน "+getitemname(.broken_id)+" x"+.broken_am+" ea",
+				"- ไม่ใช้งาน ข้ามั่นใจในดวงของข้า"
+			);
+			
+			if(.@menu_broken == 1){
+				if(countitem(.broken_id) < .broken_am){
+					next;
+					mes .mes$;
+					mes ""+getitemname(.broken_id)+" ไม่เพียงพอ";
+					end;
+				}
+				.@broken = 1;
+			}
+			if(.@menu_broken == 2){
+				.@broken = 0;
+			}
+		}
+	}
+	
+	next;
+	
+	mes .mes$;
+	if(!.new_exe){
+		mes "ITEM # "+getitemname(.@id_item)+" ^0000FF["+getiteminfo(.@id_item,ITEMINFO_SLOT)+"]^000000";
+		mes "STONE # "+getitemname(.@stone)+"";
+	}
+	else {
+		mes "ITEM # ^i["+.@id_item+"] . "+getitemname(.@id_item)+" ^0000FF["+getiteminfo(.@id_item,ITEMINFO_SLOT)+"]^000000";
+		mes "STONE # ^i["+.@stone+"] . "+getitemname(.@stone)+"";
+	}
+	mes "SLOT # ["+.@use_slot+"]";
+	if(!.@broken){ mes "ป้องกันอุปกรณ์หลัก :^FF3300 ไม่ทำงาน^000000"; }
+	if(.@broken){ mes "ป้องกันอุปกรณ์หลัก :^009900 ทำงาน^000000"; }
+	if(!.@rate_plus){ mes "โอกาสสำเร็จ : ^0000FF"+.rate_win+"%^000000"; }
+	if(.@rate_plus){ mes "โอกาสสำเร็จ : ^0000FF"+.rate_win+"%+"+.@rate_plus+"%=^009900"+(.rate_win+.@rate_plus)+"%^000000"; }
+	if(.zeny_use > 0){ mes "ค่าบริการ : "+callfunc("F_InsertComma",.zeny_use)+" Zeny"; }
+	if(.cash_use > 0){ mes "ค่าบริการ : "+callfunc("F_InsertComma",.cash_use)+" Cash"; }
+	for ( .@i=0; .@i<getarraysize(.item_id); .@i=.@i+2 ){
+		if(countitem(.item_id[.@i]) < .item_id[.@i+1]){
+			if(!.new_exe){
+				mes "<ITEM>- ^FF3300"+getitemname(.item_id[.@i])+" ("+callfunc("F_InsertComma",countitem(.item_id[.@i]))+"/"+callfunc("F_InsertComma",.item_id[.@i+1])+") ea<INFO>"+.item_id[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.item_id[.@i]+"]  "+getitemname(.item_id[.@i])+" ^FF3300("+callfunc("F_InsertComma",countitem(.item_id[.@i]))+"/"+callfunc("F_InsertComma",.item_id[.@i+1])+") ea^000000";
+			}
+		}
+		if(countitem(.item_id[.@i]) >= .item_id[.@i+1]){
+			if(!.new_exe){
+				mes "<ITEM>- ^009900"+getitemname(.item_id[.@i])+" ("+callfunc("F_InsertComma",countitem(.item_id[.@i]))+"/"+callfunc("F_InsertComma",.item_id[.@i+1])+") ea<INFO>"+.item_id[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.item_id[.@i]+"]  "+getitemname(.item_id[.@i])+" ^009900("+callfunc("F_InsertComma",countitem(.item_id[.@i]))+"/"+callfunc("F_InsertComma",.item_id[.@i+1])+") ea^000000";
+			}
+		}
+	}
+	
+	Switch(Select("- ยืนยันการออฟชั่น")){
+		
+		case 1:
+			goto next_to_stone;
+			end;
+		
+	}
+	
+	next_to_stone:
+	
+	last_recheck:
+		
+		if(.zeny_use > 0){
+			if(Zeny < .zeny_use){
+				next;
+				mes .mes$;
+				mes "จำนวน Zeny ของท่านไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.cash_use > 0){
+			if(#CASHPOINTS < .cash_use){
+				next;
+				mes .mes$;
+				mes "จำนวน Cash ของท่านไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@broken){
+			if(countitem(.broken_id) < .broken_am){
+				next;
+				mes .mes$;
+				mes ""+getitemname(.broken_id)+" ไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@rate_plus){
+			if(countitem(.@percent_id) < .@percent_am){
+				next;
+				mes .mes$;
+				mes ""+getitemname(.@percent_id)+" ไม่เพียงพอ";
+				end;
+			}
+		}
+		for ( .@i=0; .@i<getarraysize(.item_id); .@i=.@i+2 ){
+			if(countitem(.item_id[.@i]) < .item_id[.@i+1]){
+				next;
+				mes .mes$;
+				mes "- "+getitemname(.item_id[.@i])+" ไม่เพียงพอ";
+				end;
+			}
+		}
+		
+		.@r = rand(1,100);
+				
+		if(.@r <= (.rate_win+.@rate_plus)){
+			if(.log){
+				query_sql("INSERT INTO `Enchant_Pick_03_logs` (account_id,char_id,player_name,item_id,item_stone,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(.@id_item))+"','"+escape_sql(getitemname(.@stone))+"','Succes',NOW())");
+			}
+			if(.zeny_use > 0){ Zeny = Zeny -.zeny_use; }
+			if(.cash_use > 0){ #CASHPOINTS = CASHPOINTS -.cash_use; }
+			if(.@rate_plus){
+				delitem .@percent_id,.@percent_am;
+			}
+			if(.@broken){
+				delitem .broken_id,.broken_am;
+			}
+			for ( .@i=0; .@i<getarraysize(.item_id); .@i=.@i+2 ){
+				delitem .item_id[.@i],.item_id[.@i+1];
+			}
+			delitem .@stone,1;
+			
+			clear;
+			mes .mes$;
+			
+			.@newslots = .@stone;
+			mes ""+getitemname(.@id_item)+" ช่องที่ "+.use_slot+" ได้รับ "+getitemname(.@newslots)+"";
+			specialeffect2 154;
+			
+			setarray .@OptID[0],.@opt01,.@opt02,.@opt03,.@opt04,.@opt05;
+			setarray .@OptVal[0],.@val01,.@val02,.@val03,.@val04,.@val05;
+			setarray .@param[0],.@param01,.@param02,.@param03,.@param04,.@param05;
+			
+			delitem4 .@id_item,1,1,.@refineuse,0,.@cardslot01,.@cardslot02,.@cardslot03,.@cardslot04,.@grade,.@OptID,.@OptVal,.@param;
+			
+			if(.@use_slot == 1){ getitem4 .@id_item,1,1,.@refineuse,0,.@newslots,.@cardslot02,.@cardslot03,.@cardslot04,.@grade,.@OptID,.@OptVal,.@param; }
+			if(.@use_slot == 2){ getitem4 .@id_item,1,1,.@refineuse,0,.@cardslot01,.@newslots,.@cardslot03,.@cardslot04,.@grade,.@OptID,.@OptVal,.@param; }
+			if(.@use_slot == 3){ getitem4 .@id_item,1,1,.@refineuse,0,.@cardslot01,.@cardslot02,.@newslots,.@cardslot04,.@grade,.@OptID,.@OptVal,.@param; }
+			if(.@use_slot == 4){ getitem4 .@id_item,1,1,.@refineuse,0,.@cardslot01,.@cardslot02,.@cardslot03,.@newslots,.@grade,.@OptID,.@OptVal,.@param; }
+			
+			equip .@id_item;
+			
+			announce "เสริมพลังหินออฟชั่น : ผู้เล่น "+strcharinfo(0)+" ได้เสริมพลัง "+getitemname(.@stone)+" ที่อุปกรณ์ "+getitemname(.@id_item)+" สำเร็จ",bc_all,0xFFFF00;
+		}
+		if(.@r > (.rate_win+.@rate_plus)){
+			specialeffect2 155;
+			announce "เสริมพลังหินออฟชั่น : ผู้เล่น "+strcharinfo(0)+" ได้เสริมพลัง "+getitemname(.@stone)+" ที่อุปกรณ์ "+getitemname(.@id_item)+" ไม่สำเร็จ",bc_all,0xFF0000;
+			
+			setarray .@OptID[0],.@opt01,.@opt02,.@opt03,.@opt04,.@opt05;
+			setarray .@OptVal[0],.@val01,.@val02,.@val03,.@val04,.@val05;
+			setarray .@param[0],.@param01,.@param02,.@param03,.@param04,.@param05;
+			
+			if(.zeny_use > 0){ Zeny = Zeny -.zeny_use; }
+			if(.cash_use > 0){ #CASHPOINTS = CASHPOINTS -.cash_use; }
+			if(.@rate_plus){
+				delitem .@percent_id,.@percent_am;
+			}
+			for ( .@i=0; .@i<getarraysize(.item_id); .@i=.@i+2 ){
+				delitem .item_id[.@i],.item_id[.@i+1];
+			}
+			if(!.sys_broken){
+				delitem .@stone,1;
+				if(.@broken){
+					delitem .broken_id,.broken_am;
+					if(.log){
+						query_sql("INSERT INTO `Enchant_Pick_03_logs` (account_id,char_id,player_name,item_id,item_stone,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(.@id_item))+"','"+escape_sql(getitemname(.@stone))+"','Unsucces Not Broken',NOW())");
+					}
+					clear;
+					mes .mes$;
+					mes "ข้าทำไม่สำเร็จ แต่ข้ารักษาอุปกรณ์หลักไม่ให้เสียหาย";
+					end;
+				}
+				
+				if(.log){
+					query_sql("INSERT INTO `Enchant_Pick_03_logs` (account_id,char_id,player_name,item_id,item_stone,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(.@id_item))+"','"+escape_sql(getitemname(.@stone))+"','Unsucces Broken',NOW())");
+				}
+				
+				delitem4 .@id_item,1,1,.@refineuse,0,.@cardslot01,.@cardslot02,.@cardslot03,.@cardslot04,.@grade,.@OptID,.@OptVal,.@param;
+				
+				clear;
+				mes .mes$;
+				mes "ข้าทำไม่สำเร็จ แถมอุปกรณ์หลักเสียหายอีก T_T";
+			}
+			else {
+				if(.@broken){
+					delitem .broken_id,.broken_am;
+					if(.log){
+						query_sql("INSERT INTO `Enchant_Pick_03_logs` (account_id,char_id,player_name,item_id,item_stone,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(.@id_item))+"','"+escape_sql(getitemname(.@stone))+"','Unsucces Not Broken',NOW())");
+					}
+					clear;
+					mes .mes$;
+					if(!.new_exe){
+						mes "ข้าทำไม่สำเร็จ แต่ข้ารักษา "+getitemname(.@stone)+" ไม่ให้เสียหาย";
+					}
+					else {
+						mes "ข้าทำไม่สำเร็จ แต่ข้ารักษา ^i["+.@stone+"] . "+getitemname(.@stone)+" ไม่ให้เสียหาย";
+					}
+					end;
+				}
+				
+				delitem .@stone,1;
+				
+				if(.log){
+					query_sql("INSERT INTO `Enchant_Pick_03_logs` (account_id,char_id,player_name,item_id,item_stone,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(.@id_item))+"','"+escape_sql(getitemname(.@stone))+"','Unsucces Broken',NOW())");
+				}
+				
+				clear;
+				mes .mes$;
+				if(!.new_exe){
+					mes "ข้าทำไม่สำเร็จ แถม "+getitemname(.@stone)+" เสียหายอีก T_T";
+				}
+				else {
+					mes "ข้าทำไม่สำเร็จ แถม ^i["+.@stone+"] . "+getitemname(.@stone)+" เสียหายอีก T_T";
+				}
+			}
+		}
+		
+		end;
+
+OnInit:
+	
+	//	กำหนด Waitingroom
+	waitingroom "[#] "+strnpcinfo(0)+"",0;
+	
+	//	กำหนด Head Dialog
+	.mes$ = "^FF3300[ เลือกอัญมณีออฟชั่น ]^000000";
+	
+	//	กำหนด Exe 2023+ ใส่ 1 หากต่ำกว่าใส่ 0
+	.new_exe = 1;
+	
+	//	กำหนดช่อง Slot ในการทำรายการ
+	.use_slot	= 3;
+	
+	//	กำหนดเช็คอุปกรณ์ตีบวก		หากไม่ต้องการใส่ 0
+	.refine_check = 7;
+	
+	//	กำหนดหากไม่สำเร็จ ใส่ 0 = อุปกรณ์หลักเสียหาย / ใส่ 1 = หินออฟชั่นเสียหาย
+	.sys_broken = 1;
+	
+	deletearray .id_equip;
+	//						กำหนดรหัสที่สามารถยัดหินได้
+	setarray .id_equip[0]	,5150,5388
+							,2201,2202
+							,2301
+							,2115
+							;
+							
+							
+	//	กำหนด โอกาส ใส่รูน
+	.rate_win	= 50;
+	
+	//	กำหนด Zeny ในการใส่รูน
+	.zeny_use	= 10000;
+	
+	//	กำหนด Cash ในการใส่รูน
+	.cash_use	= 0;
+	
+	deletearray .item_id;
+	//	กำหนด Item ในการใส่รูน	รหัสไอเทม	จำนวน
+	setarray .item_id[0]	,7539	,1
+							,7227	,3
+							;
+	
+	//	กำหนดการข้ามออฟชั่น	หากให้ข้ามได้ใส่ 0 / หากไม่ต้องการใส่ 1
+	.pass_enchant = 1;
+	
+	//	กำหนดให้เช็คหินออฟชั่นที่อยู่ในอุปกรณ์ หากให้เช็คใส่ 1 / (ทับได้เลย) หากไม่ให้เช็คใส่ 0
+	.check_enchant = 1;
+	
+	deletearray .percent;
+	//	กำหนด ไอเทมเพิ่มโอกาส		รหัสไอเทม	จำนวน	โอกาส
+	setarray .percent[0]		,0		,0		,0
+								,61008	,1		,10
+								;
+	//	กำหนด ไอเทมป้องกันวัตถุดิบ
+	.broken_id	= 61009;
+	//	กำหนด จำนวนป้องกันวัตถุดิบ
+	.broken_am	= 1;
+	
+	//	กำหนดเก็บ log ผู้เล่น ใส่ 1 หากต้องการ	ใส่ 0 หากไม่ต้องการ
+	.log = 1;
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `Enchant_Pick_03_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`item_id` varchar(255) NOT NULL,"+
+		"`item_stone` varchar(255) NOT NULL,"+
+		"`status` varchar(255) NOT NULL,"+
+		"`time_record` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	end;
+}
+
+
+
+
+
+
+

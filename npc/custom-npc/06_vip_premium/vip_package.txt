@@ -1,0 +1,117 @@
+function	script	F_package	{
+	// เติมเวลาฟาร์ม (ชั่วโมง)
+	if (getarg(0) == 2) {
+		.@time = 60*60*getarg(1);
+		if (PACK_FARMS <= gettimetick(2)) PACK_FARMS = gettimetick(2);
+		PACK_FARMS += .@time;
+		if (getargcount() >= 3) delitem getarg(2),1;
+	}
+
+	// เติมเวลาเลเวล (ชั่วโมง)
+	if (getarg(0) == 3) {
+		.@time = 60*60*getarg(1);
+		if (PACK_LEVEL <= gettimetick(2)) PACK_LEVEL = gettimetick(2);
+		PACK_LEVEL += .@time;
+		if (getargcount() >= 3) delitem getarg(2),1;
+	}
+
+	// เติมเวลา EXTRA FARM (ชั่วโมง)
+	if (getarg(0) == 5) {
+		.@time = 60*60*getarg(1);
+		if (PACK_FARMS_EXTRA <= gettimetick(2)) PACK_FARMS_EXTRA = gettimetick(2);
+		PACK_FARMS_EXTRA += .@time;
+		if (getargcount() >= 3) delitem getarg(2),1;
+	}
+
+	// ===== CONFIG วัน+เวลา PACK_WAR =====
+	set .WAR_START_H, 20;
+	set .WAR_START_M, 30;
+	set .WAR_END_H,   23;
+	set .WAR_END_M,   30;
+	setarray .WAR_DAYS[0], 0,1,2,3,4,5,6;
+
+	set .@H,  atoi(gettimestr("%H",20));
+	set .@M,  atoi(gettimestr("%M",20));
+	set .@nowm, .@H*60 + .@M;
+	set .@dow,  atoi(gettimestr("%w",20));
+	set .@start, .WAR_START_H*60 + .WAR_START_M;
+	set .@end,   .WAR_END_H*60   + .WAR_END_M;
+	set .@in_time, 0;
+	set .@dur_window, 0;
+
+	if (.@start <= .@end) {
+		if (.@nowm >= .@start && .@nowm < .@end) {
+			set .@in_time, 1;
+			set .@dur_window, (.@end - .@nowm) * 60;
+		}
+	} else {
+		if (.@nowm >= .@start || .@nowm < .@end) {
+			set .@in_time, 1;
+			if (.@nowm >= .@start)
+				set .@dur_window, ((24*60 - .@nowm) + .@end) * 60;
+			else
+				set .@dur_window, (.@end - .@nowm) * 60;
+		}
+	}
+
+	set .@check_day, (.@start > .@end && .@nowm < .@end) ? ((.@dow+6)%7) : .@dow;
+	set .@in_day, 0;
+	for (set .@i,0; .@i<getarraysize(.WAR_DAYS); set .@i,.@i+1)
+		if (.WAR_DAYS[.@i] == .@check_day) { set .@in_day,1; break; }
+
+	// เติมเวลา WAR (ชั่วโมง) — หักของเฉพาะช่วงที่อนุญาต
+	if (getarg(0) == 4) {
+		if (.@in_day && .@in_time) {
+			.@time = 60*60*getarg(1);
+			if (PACK_WAR <= gettimetick(2)) PACK_WAR = gettimetick(2);
+			PACK_WAR += .@time;
+			if (getargcount() >= 3) delitem getarg(2),1;
+		} else {
+			setarray .@day$[0],"อา","จ","อ","พ","พฤ","ศ","ส";
+			.@daytxt$ = "";
+			for (set .@j,0; .@j<getarraysize(.WAR_DAYS); set .@j,.@j+1)
+				.@daytxt$ = .@daytxt$ + ((.@j)?"/":"") + .@day$[.WAR_DAYS[.@j]];
+			dispbottom "[PACK-WAR] ใช้งานได้เฉพาะวัน " + .@daytxt$ + " เวลา "
+				+ .WAR_START_H + ":" + ((.WAR_START_M<10)?"0":"") + .WAR_START_M
+				+ "–" + .WAR_END_H + ":" + ((.WAR_END_M<10)?"0":"") + .WAR_END_M + " น.";
+		}
+	}
+
+	// ========== ไม่ใช้ bonus_script และไม่ sc_end ==========
+	// ปรับใหม่: สั่ง sc_start “ทุกครั้ง” ตามเวลาที่เหลือ เพื่อรีเฟรชไทม์บาร์ให้ตรงกับ PACK_*
+
+	// FARMS
+	if (PACK_FARMS > gettimetick(2)) {
+		.@dur_farm = PACK_FARMS - gettimetick(2);
+		if (.@dur_farm > 0)
+			sc_start SC_PACK_FARMS, .@dur_farm * 1000, 1;
+	}
+
+	// EXTRA FARMS
+	if (PACK_FARMS_EXTRA > gettimetick(2)) {
+		.@dur_ex = PACK_FARMS_EXTRA - gettimetick(2);
+		if (.@dur_ex > 0)
+			sc_start SC_PACK_FARMS_EXTRA, .@dur_ex * 1000, 1;
+	}
+
+	// LEVEL
+	if (PACK_LEVEL > gettimetick(2)) {
+		.@dur_lvl = PACK_LEVEL - gettimetick(2);
+		if (.@dur_lvl > 0)
+			sc_start SC_PACK_LEVEL, .@dur_lvl * 1000, 1;
+	}
+
+	// WAR — ทำงานเฉพาะในหน้าต่างวัน/เวลา
+	if (PACK_WAR > gettimetick(2) && .@in_day && .@in_time) {
+		.@dur_pack = PACK_WAR - gettimetick(2);
+		.@dur = (.@dur_pack < .@dur_window) ? .@dur_pack : .@dur_window;
+		if (.@dur > 0) {
+			sc_start SC_PACK_WAR, .@dur * 1000, 1;
+			dispbottom "[PACK-WAR] เปิดใช้งานถึง "
+				+ .WAR_END_H + ":" + ((.WAR_END_M<10)?"0":"") + .WAR_END_M
+				+ " น. (เหลือประมาณ " + ((.@dur+59)/60) + " นาที)";
+		}
+	}
+
+	end;
+}

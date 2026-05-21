@@ -1,0 +1,65 @@
+###########################################################################
+#
+# Whispering Rain
+#
+###########################################################################
+
+Header:
+  Type: REFINE_PASS_DB
+  Version: 1
+
+Body:
+  - RefineLevel: 5
+    Icon: EFST_REFINE_PASS_LVL_5
+    Script: |
+      bonus2 bDropAddClass,Class_All,1;
+      bonus2 bExpAddClass,Class_All,1;
+      bonus bAddMaxWeight,500;
+
+  - RefineLevel: 6
+    Icon: EFST_REFINE_PASS_LVL_6
+    Script: |
+      bonus2 bDropAddClass,Class_All,2;
+      bonus2 bExpAddClass,Class_All,2;
+      bonus bAddMaxWeight,1000;
+
+  - RefineLevel: 7
+    Icon: EFST_REFINE_PASS_LVL_7
+    Script: |
+      bonus2 bDropAddClass,Class_All,5;
+      bonus2 bExpAddClass,Class_All,5;
+      bonus2 bAddClass,Class_All,1;
+      bonus bMatkRate,1;
+      bonus bAddMaxWeight,2000;
+      bonus bSPrecovRate,5;
+
+  - RefineLevel: 8
+    Icon: EFST_REFINE_PASS_LVL_8
+    Script: |
+      bonus2 bDropAddClass,Class_All,7;
+      bonus2 bExpAddClass,Class_All,7;
+      bonus2 bAddClass,Class_All,2;
+      bonus bMatkRate,2;
+      bonus bAddMaxWeight,5000;
+      bonus bSPrecovRate,10;
+
+  - RefineLevel: 9
+    Icon: EFST_REFINE_PASS_LVL_9
+    Script: |
+      bonus2 bDropAddClass,Class_All,8;
+      bonus2 bExpAddClass,Class_All,8;
+      bonus2 bAddClass,Class_All,2;
+      bonus bMatkRate,2;
+      bonus bAddMaxWeight,6000;
+      bonus bSPrecovRate,15;
+      
+  - RefineLevel: 10
+    Icon: EFST_REFINE_PASS_LVL_10
+    Script: |
+      bonus2 bDropAddClass,Class_All,10;
+      bonus2 bExpAddClass,Class_All,10;
+      bonus2 bAddClass,Class_All,2;
+      bonus bMatkRate,2;
+      bonus bAddMaxWeight,7000;
+      bonus bSPrecovRate,15;
+      bonus2 bSubEle,Ele_Neutral,1;

@@ -1,0 +1,30 @@
+-	script	dotd#cook1e	-1,{
+OnInit:
+	.ItemRate = 100; // percentage of getting rewards from array .ItemReward and Zeny
+	.GiveZeny = 1000; // set desired zeny amount or 0 to disable
+	setarray .ItemReward,30008,5; // format to add items. itemid,amount,itemid,amount,itemid,amount,...
+OnClock0000:
+	.exp_bonus = rand(1,100);
+	setarray .random_maps$,"pay_dun00","in_sphinx1"; // add more maps here
+	.map = rand(getarraysize(.random_maps$));
+	announce "[Dungeon of the Day]: '"+.random_maps$[.map]+"' is giving ["+.exp_bonus+"%] more EXP.",bc_all;
+	end;
+	
+OnNPCKillEvent:
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	if(.@map$ == .random_maps$[.map]) {
+		set BaseExp, BaseExp + (getmonsterinfo(killedrid,3) * .exp_bonus / 100);
+		set JobExp, JobExp + (getmonsterinfo(killedrid,4) * .exp_bonus / 100);
+		if(rand(100) <= .ItemRate && .ItemReward) {
+			if(.GiveZeny)
+				Zeny += .GiveZeny;
+			for(.@i = 0; .@i < getarraysize(.ItemReward); .@i += 2)
+				getitem .ItemReward[.@i],.ItemReward[.@i+1];
+		}
+	}
+	end;
+	
+OnPCLoginEvent:
+	dispbottom "[Dungeon of the Day]: '"+.random_maps$[.map]+"' is giving ["+.exp_bonus+"%] more EXP.",0x00FFFF;
+	end;
+}

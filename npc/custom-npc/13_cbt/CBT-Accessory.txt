@@ -1,0 +1,48 @@
+morocc,151,180,6	script	Accessory::Sample_Shop2 	10032,{
+
+	mes "[CBT Accessory]";
+	mes "ยินดีต้อนรับ! ต้องการซื้ออะไรหรือไม่?";
+	next;
+
+	switch(select("ซื้อไอเท็ม:ออก")) {
+	case 1:
+		callshop "SampleShop2",1;
+		npcshopattach "SampleShop2";
+		end;
+	case 2:
+	default:
+		mes "ขอบคุณที่แวะมา!";
+		close;
+	}
+
+OnBuyItem:
+	sleep2 100;
+	mes "[CBT Accessory]";
+	mes "ท่านต้องการกี่ชิ้นต่อชนิด?";
+	input .@amount;
+	if (.@amount < 1) set .@amount,1;
+	if (.@amount > 5) set .@amount,5;
+
+	.@refine = 0;
+
+	for (.@i = 0; .@i < getarraysize(@bought_nameid); .@i++) {
+		if (@bought_nameid[.@i] <= 0) continue;
+		if (!checkweight(@bought_nameid[.@i], .@amount)) {
+			mes "^FF0000น้ำหนักเกิน กรุณาลดจำนวนหรือเคลียร์ช่องกระเป๋าก่อน^000000";
+			close;
+		}
+	}
+
+	for (.@i = 0; .@i < getarraysize(@bought_nameid); .@i++) {
+		if (@bought_nameid[.@i] <= 0) continue;
+		getitem2 @bought_nameid[.@i], .@amount, 1, .@refine, 0,0,0,0,0;
+	}
+
+	close;
+
+OnInit:
+	Waitingroom "    [Accessory]",0;
+	end;
+}
+
+-	shop	SampleShop2	-1,2621:-1,2622:-1,2626:-1,2623:-1,2624:-1,2625:-1

@@ -1,0 +1,497 @@
+/*
+=================================================================
+					Credit : Readparam(bStr);
+					Create : Time-Project
+=================================================================
+*/
+
+maintown,181,177,4	script	Grade Item	922,{
+
+
+Start:
+	
+	disable_items;
+	
+	setarray .@EQI[0],EQI_HEAD_TOP,EQI_HEAD_MID,EQI_HEAD_LOW,EQI_ARMOR,EQI_HAND_R,EQI_HAND_L,EQI_GARMENT,EQI_SHOES,EQI_ACC_L,EQI_ACC_R,EQI_COSTUME_HEAD_TOP, EQI_COSTUME_HEAD_MID, EQI_COSTUME_HEAD_LOW, EQI_COSTUME_GARMENT, EQI_SHADOW_ARMOR, EQI_SHADOW_WEAPON, EQI_SHADOW_SHIELD, EQI_SHADOW_SHOES, EQI_SHADOW_ACC_R, EQI_SHADOW_ACC_L;;
+	setarray .@EQI$[0], "หมวก", "หู", "ปาก", "ชุดเกาะ",  "อาวุธ", "โล่", "ผ้าคลุม", "รองเท้า", "ประดับ ซ้าย", "ประดับ ขวา","คอสหมวก", "คอสหู", "คอสปาก", "คอสผ้าคลุม", "คอสชุดเกาะ", "คอสอาวุธ", "คอสโล่", "คอสรองเท้า", "คอสประดับ ขวา", "คอสประดับ ซ้าย";
+	//						หากไม่ต้องการให้เกรดส่วนไหนได้ให้ใส่ 0 ที่ส่วนนั้น ๆ
+	setarray .@open[0]	,0	//	หมวก
+						,0	//	หู
+						,0	//	ปาก
+						,0	//	เกราะ
+						,0	//	อาวุธ
+						,0	//	โล่
+						,0	//	ผ้าคลุม
+						,0	//	รองเท้า
+						,0	//	ประดับ ซ้าย
+						,0	//	ประดับ ขวา
+						,1	//	คอสหมวก
+						,1	//	คอสหู
+						,1	//	คอสปาก
+						,1	//	คอสผ้าคลุม
+						,1	//	คอสชุดเกาะ
+						,1	//	คอสอาวุธ
+						,1	//	คอสโล่
+						,1	//	คอสรองเท้า
+						,1	//	คอสประดับ ขวา
+						,1	//	คอสประดับ ซ้าย
+						;
+	
+	mes .mes$;
+	
+	mes "โปรดเลือกอุปกรณ์ของท่าน";
+	
+	if(.check_refine){
+		mes "^FF9900< เงื่อนไขการ Grade >^000000";
+		mes "• อุปกรณ์ +"+.check_refine+" หรือมากกว่า";
+	}
+	
+	for ( .@i=0; .@i<getarraysize(.@EQI); .@i++ ) {	
+		if(.@open[.@i] == 1){ 
+			if(getequipisequiped(.@EQI[.@i])){
+				.@menu$ = .@menu$ + "["+.@EQI$[.@i]+"] - "+getequipname(.@EQI[.@i])+"";
+			}
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+	
+	.@part = select(.@menu$) -1;
+	
+	.@part2 = .@EQI[.@part];
+	
+	.@item_id = getequipid(.@part2);
+	
+	if(rentalcountitem(.@item_id) > 0){
+        clear;
+        mes .mes$;
+        mes "โปรดเก็บ "+getitemname(.@item_id)+" แบบเช่าก่อน";
+        end;
+    }
+	
+	if(getarraysize(.lock)){
+		freeloop(1);
+		for ( .@i=0; .@i<getarraysize(.lock); .@i++ ){
+			if(.@item_id == .lock[.@i]){
+				goto Menu_Pass;
+				end;
+			}
+		}
+		mes "ไอเทม "+getitemname(.@item_id)+"";
+		mes "ไม่สามารถเกรดได้ในตอนนี้";
+		end;
+	}
+	
+	
+	Menu_Pass:
+	
+	.@checkgrade = getenchantgrade(.@part2);
+	.@refineuse = getequiprefinerycnt(.@part2);
+	.@opt01 = getequiprandomoption(.@part2,0,ROA_ID);
+	.@val01 = getequiprandomoption(.@part2,0,ROA_VALUE);
+	.@opt02 = getequiprandomoption(.@part2,1,ROA_ID);
+	.@val02 = getequiprandomoption(.@part2,1,ROA_VALUE);
+	.@opt03 = getequiprandomoption(.@part2,2,ROA_ID);
+	.@val03 = getequiprandomoption(.@part2,2,ROA_VALUE);
+	.@opt04 = getequiprandomoption(.@part2,3,ROA_ID);
+	.@val04 = getequiprandomoption(.@part2,3,ROA_VALUE);
+	.@opt05 = getequiprandomoption(.@part2,4,ROA_ID);
+	.@val05 = getequiprandomoption(.@part2,4,ROA_VALUE);
+	.@param01 = getequiprandomoption(.@part2,0,ROA_PARAM);
+	.@param02 = getequiprandomoption(.@part2,1,ROA_PARAM);
+	.@param03 = getequiprandomoption(.@part2,2,ROA_PARAM);
+	.@param04 = getequiprandomoption(.@part2,3,ROA_PARAM);
+	.@param05 = getequiprandomoption(.@part2,4,ROA_PARAM);
+	.@cardslot01 = getequipcardid(.@part2,0);
+	.@cardslot02 = getequipcardid(.@part2,1);
+	.@cardslot03 = getequipcardid(.@part2,2);
+	.@cardslot04 = getequipcardid(.@part2,3);
+	
+	if(.@checkgrade == 0){ .@next_grade = 1; }
+	if(.@checkgrade == 1){ .@next_grade = 2; }
+	if(.@checkgrade == 2){ .@next_grade = 3; }
+	if(.@checkgrade == 3){ .@next_grade = 4; }
+	if(.@checkgrade == 4){ .@next_grade = 0; }
+	
+	if(.check_refine){
+		if(.@refineuse < .check_refine){
+			clear;
+			mes .mes$;
+			mes "อุปกรณ์ "+getitemname(.@item_id)+" ของท่าน";
+			mes "ต้องอัพเกรดระดับ +"+.check_refine+" หรือมากกว่า";
+			mes "ไปอัพเกรดมาก่อน แล้วค่อยมาคุยกัน !!";
+			end;
+		}
+	}
+	
+	.@menu = select(
+		(.@next_grade == 4)?"- Grade A":"",
+		(.@next_grade == 3)?"- Grade B":"",
+		(.@next_grade == 2)?"- Grade C":"",
+		(.@next_grade == 1)?"- Grade D":""
+	);
+	
+	if(.@menu == 1){
+		.@up_grade = 4;
+		//					รหัสวัตถุดิบ	จำนวน
+		setarray .@item[0]	,7619	,5
+							,7620	,5
+							,100003	,30
+							;
+		.@cash_use		= 100;			//	กำหนด Cash หากไม่ใช้ใส่ = 0
+		.@zeny_use		= 500000;		//	กำหนด Zeny หากไม่ใช้ใส่ = 0
+		.@broken_id		= 6635;         //	กำหนด อุปกรณ์ป้องกันวัตถุดิบ หากไม่ใช้ใส่ = 0
+		.@broken_am		= 5;            //	กำหนด จำนวนอุปกรณ์ป้องกันวัตถุดิบ หากไม่ใช้ใส่ = 0
+		.@percent_id	= 100002;        //	กำหนด อุปกรณ์เพิ่มโอกาส หากไม่ใช้ใส่ = 0
+		.@percent_am	= 1;            //	กำหนด จำนวนอุปกรณ์เพิ่มโอกาส หากไม่ใช้ใส่ = 0
+		.@percent_plus	= 20;           //	กำหนด โอกาสที่เพิ่มขึ้่นจากอุปกรณ์ หากไม่ใช้ใส่ = 0
+		.@rate_win = 20;                //	กำหนด โอกาสสำเร็จ
+	}
+	if(.@menu == 2){
+		.@up_grade = 3;
+		//					รหัสวัตถุดิบ	จำนวน
+		setarray .@item[0]	,984	,50
+							,985	,50
+							,100003	,50
+							;
+		.@cash_use		= 100;			//	กำหนด Cash หากไม่ใช้ใส่ = 0
+		.@zeny_use		= 500000;		//	กำหนด Zeny หากไม่ใช้ใส่ = 0
+		.@broken_id		= 6635;         //	กำหนด อุปกรณ์ป้องกันวัตถุดิบ หากไม่ใช้ใส่ = 0
+		.@broken_am		= 3;            //	กำหนด จำนวนอุปกรณ์ป้องกันวัตถุดิบ หากไม่ใช้ใส่ = 0
+		.@percent_id	= 100002;        //	กำหนด อุปกรณ์เพิ่มโอกาส หากไม่ใช้ใส่ = 0
+		.@percent_am	= 1;            //	กำหนด จำนวนอุปกรณ์เพิ่มโอกาส หากไม่ใช้ใส่ = 0
+		.@percent_plus	= 20;           //	กำหนด โอกาสที่เพิ่มขึ้่นจากอุปกรณ์ หากไม่ใช้ใส่ = 0
+		.@rate_win = 30;                //	กำหนด โอกาสสำเร็จ
+	}
+	if(.@menu == 3){
+		.@up_grade = 2;
+		//					รหัสวัตถุดิบ	จำนวน
+		setarray .@item[0]	,984	,50
+							,985	,50
+							,100003	,50
+							;
+		.@cash_use		= 100;			//	กำหนด Cash หากไม่ใช้ใส่ = 0
+		.@zeny_use		= 500000;		//	กำหนด Zeny หากไม่ใช้ใส่ = 0
+		.@broken_id		= 6635;         //	กำหนด อุปกรณ์ป้องกันวัตถุดิบ หากไม่ใช้ใส่ = 0
+		.@broken_am		= 2;            //	กำหนด จำนวนอุปกรณ์ป้องกันวัตถุดิบ หากไม่ใช้ใส่ = 0
+		.@percent_id	= 100002;        //	กำหนด อุปกรณ์เพิ่มโอกาส หากไม่ใช้ใส่ = 0
+		.@percent_am	= 1;            //	กำหนด จำนวนอุปกรณ์เพิ่มโอกาส หากไม่ใช้ใส่ = 0
+		.@percent_plus	= 20;           //	กำหนด โอกาสที่เพิ่มขึ้่นจากอุปกรณ์ หากไม่ใช้ใส่ = 0
+		.@rate_win = 40;                //	กำหนด โอกาสสำเร็จ
+	}
+	if(.@menu == 4){
+		.@up_grade = 1;
+		//					รหัสวัตถุดิบ	จำนวน
+		setarray .@item[0]	,984	,50
+							,985	,50
+							,100003	,50
+							;
+		.@cash_use		= 100;			//	กำหนด Cash หากไม่ใช้ใส่ = 0
+		.@zeny_use		= 500000;		//	กำหนด Zeny หากไม่ใช้ใส่ = 0
+		.@broken_id		= 6635;         //	กำหนด อุปกรณ์ป้องกันวัตถุดิบ หากไม่ใช้ใส่ = 0
+		.@broken_am		= 1;            //	กำหนด จำนวนอุปกรณ์ป้องกันวัตถุดิบ หากไม่ใช้ใส่ = 0
+		.@percent_id	= 100002;        //	กำหนด อุปกรณ์เพิ่มโอกาส หากไม่ใช้ใส่ = 0
+		.@percent_am	= 1;            //	กำหนด จำนวนอุปกรณ์เพิ่มโอกาส หากไม่ใช้ใส่ = 0
+		.@percent_plus	= 20;           //	กำหนด โอกาสที่เพิ่มขึ้่นจากอุปกรณ์ หากไม่ใช้ใส่ = 0
+		.@rate_win = 50;                //	กำหนด โอกาสสำเร็จ
+	}
+	if(.@menu == 0){
+		mes "ไม่สามารถอัพเกรดได้สูงกว่านี้แล้ว";
+		end;
+	}
+	
+	clear;
+	mes .mes$;
+	mes "เงื่อนไขการใช้งาน";
+	mes "โอกาสสำเร็จ : ^009900"+.@rate_win+"%^000000";
+	if(.@cash_use){
+		if(#CASHPOINTS < .@cash_use){
+			mes "• ค่าบริการ :^FF3300 Cash ("+callfunc("F_InsertComma",.@cash_use)+") pt.^000000";
+		}
+		if(#CASHPOINTS >= .@cash_use){
+			mes "• ค่าบริการ :^009900 Cash ("+callfunc("F_InsertComma",.@cash_use)+") pt.^000000";
+		}
+	}
+	if(.@zeny_use){
+		if(Zeny < .@zeny_use){
+			mes "• ค่าบริการ :^FF3300 Zeny ("+callfunc("F_InsertComma",.@zeny_use)+") z.^000000";
+		}
+		if(Zeny >= .@zeny_use){
+			mes "• ค่าบริการ :^009900 Zeny ("+callfunc("F_InsertComma",.@zeny_use)+") z.^000000";
+		}
+	}
+	for ( .@i=0; .@i<getarraysize(.@item); .@i=.@i+2 ){
+		if(countitem(.@item[.@i]) < .@item[.@i+1]){
+			if(!.new_exe){
+				mes "<ITEM>- ^FF3300"+getitemname(.@item[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item[.@i]))+"/"+callfunc("F_InsertComma",.@item[.@i+1])+") ea<INFO>"+.@item[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item[.@i]+"]  "+getitemname(.@item[.@i])+" ^FF3300("+callfunc("F_InsertComma",countitem(.@item[.@i]))+"/"+callfunc("F_InsertComma",.@item[.@i+1])+") ea^000000";
+			}
+		}
+		if(countitem(.@item[.@i]) >= .@item[.@i+1]){
+			if(!.new_exe){
+				mes "<ITEM>- ^009900"+getitemname(.@item[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item[.@i]))+"/"+callfunc("F_InsertComma",.@item[.@i+1])+") ea<INFO>"+.@item[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item[.@i]+"]  "+getitemname(.@item[.@i])+" ^009900("+callfunc("F_InsertComma",countitem(.@item[.@i]))+"/"+callfunc("F_InsertComma",.@item[.@i+1])+") ea^000000";
+			}
+		}
+	}
+	
+	.@menu2 = select(
+		"- ทำรายการต่อ"
+	);
+	
+	if(.@cash_use){
+		if(#CASHPOINTS < .@cash_use){
+			clear;
+			mes .mes$;
+			mes "Cash ของท่านไม่เพียงพอ";
+			end;
+		}
+	}
+	if(.@zeny_use){
+		if(Zeny < .@zeny_use){
+			clear;
+			mes .mes$;
+			mes "Zeny ของท่านไม่เพียงพอ";
+			end;
+		}
+	}
+	for ( .@i=0; .@i<getarraysize(.@item); .@i=.@i+2 ){
+		if(countitem(.@item[.@i]) < .@item[.@i+1]){
+			clear;
+			mes .mes$;
+			mes "ไอเทม "+getitemname(.@item[.@i])+"";
+			mes "ของท่านไม่เพียงพอ";
+			end;
+		}
+	}
+	if(.@rate_win < 100){
+		if(.@percent_id){
+			next;
+			mes .mes$;
+			if(!.new_exe){
+				mes "ท่านนำ "+getitemname(.@percent_id)+" x"+.@percent_am+" ea";
+			}
+			else {
+				mes "ท่านนำ ^i["+.@percent_id+"] "+getitemname(.@percent_id)+" x"+.@percent_am+" ea";
+			}
+			mes "มาด้วยไหม ?";
+			mes "สามารถเพิ่มโอกาสอีก ^009900"+.@percent_plus+"%^000000";
+			.@menu_percent = select(
+				"- ใช้งาน "+getitemname(.@percent_id)+" x"+.@percent_am+" ea",
+				"- ไม่ใช้งาน ข้ามั่นใจในดวงของข้า"
+			);
+			
+			if(.@menu_percent == 1){
+				if(countitem(.@percent_id) < .@percent_am){
+					next;
+					mes .mes$;
+					mes ""+getitemname(.@percent_id)+" ไม่เพียงพอ";
+					end;
+				}
+				.@rate_plus = .@percent_plus;
+			}
+			if(.@menu_percent == 2){
+				.@rate_plus = 0;
+			}
+		}
+	}
+	if((.@rate_win+.@rate_plus) < 100){
+		if(.@broken_id){
+			next;
+			mes .mes$;
+			if(!.new_exe){
+				mes "ท่านนำ "+getitemname(.@broken_id)+" x"+.@broken_am+" ea";
+			}
+			else {
+				mes "ท่านนำ ^i["+.@broken_id+"] "+getitemname(.@broken_id)+" x"+.@broken_am+" ea";
+			}
+			mes "มาด้วยไหม ?";
+			mes "สามารถ ^FF9900ป้องกันวัตถุดิบไว้ได้^000000";
+			mes "^009900วัตถุดิบที่ป้องกันไว้หากไม่สำเร็จ^000000";
+			for ( .@i=0; .@i<getarraysize(.@item); .@i=.@i+2 ){
+				if(!.new_exe){
+					mes "- ^FF3300"+getitemname(.@item[.@i])+" ("+.@item[.@i+1]+") ea^000000";
+				}
+				else {
+					mes "^i["+.@item[.@i]+"]  ^FF3300"+getitemname(.@item[.@i])+" ("+.@item[.@i+1]+") ea^000000";
+				}
+			}
+			.@menu_broken = select(
+				"- ใช้งาน "+getitemname(.@broken_id)+" x"+.@broken_am+" ea",
+				"- ไม่ใช้งาน ข้ามั่นใจในดวงของข้า"
+			);
+			
+			if(.@menu_broken == 1){
+				if(countitem(.@broken_id) < .@broken_am){
+					next;
+					mes .mes$;
+					mes ""+getitemname(.@broken_id)+" ไม่เพียงพอ";
+					end;
+				}
+				.@broken = 1;
+			}
+			if(.@menu_broken == 2){
+				.@broken = 0;
+			}
+		}
+	}
+	
+	next;
+	mes .mes$;
+	if(!.new_exe){
+		mes "ITEM # "+getitemname(.@item_id)+" ^0000FF["+getiteminfo(.@item_id,ITEMINFO_SLOT)+"]^000000";
+	}
+	else {
+		mes "ITEM # ^i["+.@item_id+"] "+getitemname(.@item_id)+" ^0000FF["+getiteminfo(.@item_id,ITEMINFO_SLOT)+"]^000000";
+	}
+	if(.@up_grade == 1){ .@mes$ = "None -> Grade D"; }
+	if(.@up_grade == 2){ .@mes$ = "Grade D -> Grade C"; }
+	if(.@up_grade == 3){ .@mes$ = "Grade C -> Grade B"; }
+	if(.@up_grade == 4){ .@mes$ = "Grade B -> Grade A"; }
+	mes "อัพเกรด : ^FF3300"+.@mes$+"^000000";
+	if(.@rate_plus){ mes "โอกาสสำเร็จ : ^0099FF"+.@rate_win+"%^000000+^0000FF"+.@rate_plus+"%^000000=^009900"+(.@rate_plus+.@rate_win)+"%^000000"; }
+	if(!.@rate_plus){ mes "โอกาสสำเร็จ : ^009900"+(.@rate_plus+.@rate_win)+"%^000000"; }
+	if(.@broken){ mes "สถานะป้องกันวัตถุดิบ :^009900 ใช้งาน^000000"; }
+	if(!.@broken){ mes "สถานะป้องกันวัตถุดิบ :^FF3300 ไม่ใช้งาน^000000"; }
+	if(.@rate_plus){ mes "สถานะเพิ่มโอกาส :^009900 ใช้งาน^000000"; }
+	if(!.@rate_plus){ mes "สถานะเพิ่มโอกาส :^FF3300 ไม่ใช้งาน^000000"; }
+	if(.@cash_use){
+		if(#CASHPOINTS < .@cash_use){
+			mes "• ค่าบริการ :^FF3300 Cash ("+callfunc("F_InsertComma",.@cash_use)+") pt.^000000";
+		}
+		if(#CASHPOINTS >= .@cash_use){
+			mes "• ค่าบริการ :^009900 Cash ("+callfunc("F_InsertComma",.@cash_use)+") pt.^000000";
+		}
+	}
+	if(.@zeny_use){
+		if(Zeny < .@zeny_use){
+			mes "• ค่าบริการ :^FF3300 Zeny ("+callfunc("F_InsertComma",.@zeny_use)+") z.^000000";
+		}
+		if(Zeny >= .@zeny_use){
+			mes "• ค่าบริการ :^009900 Zeny ("+callfunc("F_InsertComma",.@zeny_use)+") z.^000000";
+		}
+	}
+	for ( .@i=0; .@i<getarraysize(.@item); .@i=.@i+2 ){
+		if(countitem(.@item[.@i]) < .@item[.@i+1]){
+			if(!.new_exe){
+				mes "<ITEM>- ^FF3300"+getitemname(.@item[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item[.@i]))+"/"+callfunc("F_InsertComma",.@item[.@i+1])+") ea<INFO>"+.@item[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item[.@i]+"]  "+getitemname(.@item[.@i])+" ^FF3300("+callfunc("F_InsertComma",countitem(.@item[.@i]))+"/"+callfunc("F_InsertComma",.@item[.@i+1])+") ea^000000";
+			}
+		}
+		if(countitem(.@item[.@i]) >= .@item[.@i+1]){
+			if(!.new_exe){
+				mes "<ITEM>- ^009900"+getitemname(.@item[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item[.@i]))+"/"+callfunc("F_InsertComma",.@item[.@i+1])+") ea<INFO>"+.@item[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item[.@i]+"]  "+getitemname(.@item[.@i])+" ^009900("+callfunc("F_InsertComma",countitem(.@item[.@i]))+"/"+callfunc("F_InsertComma",.@item[.@i+1])+") ea^000000";
+			}
+		}
+	}
+	
+	.@menu_last = select(
+		"- ตกลง ข้าพร้อมแล้ว"
+	);
+	
+	if(.@menu_last == 1){
+		.@r = rand(1,100);
+		if(.@cash_use){
+			if(#CASHPOINTS < .@cash_use){
+				next;
+				mes .mes$;
+				mes "Cash ของท่านไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@zeny_use){
+			if(Zeny < .@zeny_use){
+				next;
+				mes .mes$;
+				mes "Zeny ของท่านไม่เพียงพอ";
+				end;
+			}
+		}
+		for ( .@i=0; .@i<getarraysize(.@item); .@i=.@i+2 ){
+			if(countitem(.@item[.@i]) < .@item[.@i+1]){
+				next;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(.@item[.@i])+"";
+				mes "ของท่านไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@rate_plus){
+			if(countitem(.@percent_id) < .@percent_am){
+				next;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(.@percent_id)+"";
+				mes "ไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@broken){
+			if(countitem(.@broken_id) < .@broken_am){
+				next;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(.@broken_id)+"";
+				mes "ไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@cash_use){ #CASHPOINTS = #CASHPOINTS -.@cash_use; }
+		if(.@zeny_use){ Zeny = Zeny -.@zeny_use; }
+		if(.@r <= (.@rate_win+.@rate_plus)){
+			for ( .@i=0; .@i<getarraysize(.@item); .@i=.@i+2 ){
+				delitem .@item[.@i],.@item[.@i+1];
+			}
+			if(.@rate_plus){ delitem .@percent_id,.@percent_am; }
+			if(.@broken){ delitem .@broken_id,.@broken_am; }
+			specialeffect2 154;
+			setarray .@OptID[0],.@opt01,.@opt02,.@opt03,.@opt04,.@opt05;
+			setarray .@OptVal[0],.@val01,.@val02,.@val03,.@val04,.@val05;
+			setarray .@param[0],.@param01,.@param02,.@param03,.@param04,.@param05;
+			delitem4 .@item_id,1,1,.@refineuse,0,.@cardslot01,.@cardslot02,.@cardslot03,.@cardslot04,.@checkgrade,.@OptID,.@OptVal,.@param;
+			getitem4 .@item_id,1,1,.@refineuse,0,.@cardslot01,.@cardslot02,.@cardslot03,.@cardslot04,.@up_grade,.@OptID,.@OptVal,.@param;
+			equip .@item_id;
+		}
+		if(.@r > (.@rate_win+.@rate_plus)){
+			specialeffect2 155;
+			if(.@rate_plus){ delitem .@percent_id,.@percent_am; }
+			if(.@broken){
+				delitem .@broken_id,.@broken_am; 
+				dispbottom "[System] : ข้าอัพเกรดไม่สำเร็จ แต่ข้ารักษาวัตถุดิบไว้ให้ท่านแล้ว";
+				end;
+			}
+			for ( .@i=0; .@i<getarraysize(.@item); .@i=.@i+2 ){
+				delitem .@item[.@i],.@item[.@i+1];
+			}
+		}
+	}
+	end;
+		
+OnInit:
+	
+//	waitingroom "[#] "+strnpcinfo(1)+"",0;
+	
+	//	ตั้งชื่อ Head Dialog
+	.mes$ = "^FF3300[ Grade Master ]^000000";
+	
+	//	ตั้งค่า Dialog โชว์ไอเทม เฉพาะรุ่นปี 2023+	ใส่ 1		หากต่้ำกว่า 2023+ ใส่ 0
+	.new_exe	= 1;
+	
+	//	กำหนดการเช็คตีบวก 0-10
+	.check_refine = 7;
+	
+	deletearray .lock;
+	//					กำหนดรหัสไอเทมที่สามารถเกรดได้	หากต้องการให้เกรดได้ทุกชิ้นใส่ 0
+	setarray .lock[0]	,0
+						//,1745,1734,70001,19506,1228
+						;
+	
+	end;
+}
+

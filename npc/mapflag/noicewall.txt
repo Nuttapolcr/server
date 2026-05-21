@@ -1,0 +1,129 @@
+//===== eAthena Script =======================================
+//= Map flags that disable icewall skill
+//===== By: ==================================================
+//= eAthena Dev Team
+//=============================================================
+//= noicewall: Disables Icewall skill.
+//= To disable Icewall on a specific map add the mapname here.
+//= 1.6a Re-enabled icewalls for cities [Lupus]
+//= 1.7 Officially icewall is allowed on interoirs. [L0ne_w0lf]
+//= 1.8 fixed aru castles mapnames
+//============================================================
+
+//--------------------Pillar 5.0 by New----------------------------
+morocc	mapflag	noicewall
+alde_dun02	mapflag	noicewall
+gl_dun02	mapflag	noicewall
+gl_prison	mapflag	noicewall
+gl_cas02	mapflag	noicewall
+gef_dun01	mapflag	noicewall
+gef_dun02	mapflag	noicewall
+c_tower3	mapflag	noicewall
+glast_01	mapflag	noicewall
+alde_dun04	mapflag	noicewall
+cmd_fild02	mapflag	noicewall
+cmd_fild04	mapflag	noicewall
+anthell01	mapflag	noicewall
+anthell02	mapflag	noicewall
+gl_chyard	mapflag	noicewall
+moc_pryd04	mapflag	noicewall
+orcsdun02	mapflag	noicewall
+pay_dun04	mapflag	noicewall
+prt_maze03	mapflag	noicewall
+prt_sewb4	mapflag	noicewall
+treasure02	mapflag	noicewall
+tur_dun04	mapflag	noicewall
+xmas_dun02	mapflag	noicewall
+xmas_fild01	mapflag	noicewall
+mjolnir_05	mapflag	noicewall
+pay_fild10	mapflag	noicewall
+beach_dun	mapflag	noicewall
+gl_sew04	mapflag	noicewall
+//beach_dun02	mapflag	noicewall
+moc_ruins	mapflag	noicewall
+pay_arche	mapflag	noicewall
+//==================เมืองหลวง==========================================
+prontera	mapflag	noicewall
+morocc	mapflag	noicewall
+geffen	mapflag	noicewall
+payon	mapflag	noicewall
+alberta	mapflag	noicewall
+izlude	mapflag	noicewall
+aldebaran	mapflag	noicewall
+xmas	mapflag	noicewall
+comodo	mapflag	noicewall
+yuno	mapflag	noicewall
+// Guild Castles ==========
+aldeg_cas01	mapflag	noicewall
+aldeg_cas02	mapflag	noicewall
+aldeg_cas03	mapflag	noicewall
+aldeg_cas04	mapflag	noicewall
+aldeg_cas05	mapflag	noicewall
+gefg_cas01	mapflag	noicewall
+gefg_cas02	mapflag	noicewall
+gefg_cas03	mapflag	noicewall
+gefg_cas04	mapflag	noicewall
+gefg_cas05	mapflag	noicewall
+payg_cas01	mapflag	noicewall
+payg_cas02	mapflag	noicewall
+payg_cas03	mapflag	noicewall
+payg_cas04	mapflag	noicewall
+payg_cas05	mapflag	noicewall
+prtg_cas01	mapflag	noicewall
+prtg_cas02	mapflag	noicewall
+prtg_cas03	mapflag	noicewall
+prtg_cas04	mapflag	noicewall
+prtg_cas05	mapflag	noicewall
+schg_cas01	mapflag	noicewall
+schg_cas02	mapflag	noicewall
+schg_cas03	mapflag	noicewall
+schg_cas04	mapflag	noicewall
+schg_cas05	mapflag	noicewall
+arug_cas01	mapflag	noicewall
+arug_cas02	mapflag	noicewall
+arug_cas03	mapflag	noicewall
+arug_cas04	mapflag	noicewall
+arug_cas05	mapflag	noicewall
+alde_gld	mapflag	noicewall
+gef_fild13	mapflag	noicewall
+pay_gld	mapflag	noicewall
+prt_gld	mapflag	noicewall
+// Novice Guild Castles ===
+nguild_alde	mapflag	noicewall
+nguild_gef	mapflag	noicewall
+nguild_pay	mapflag	noicewall
+nguild_prt	mapflag	noicewall
+//-------------------end-Pillar 5.0 by New----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+aldebaran	mapflag	noicewall
+
+lighthalzen	mapflag	noicewall
+einbroch	mapflag	noicewall
+einbech	mapflag	noicewall
+
+umbala	mapflag	noicewall
+amatsu	mapflag	noicewall
+gonryun	mapflag	noicewall
+ayothaya	mapflag	noicewall
+louyang	mapflag	noicewall
+hugel	mapflag	noicewall
+rachel	mapflag	noicewall
+veins	mapflag	noicewall
+
+
+// event  ==============

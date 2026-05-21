@@ -1,0 +1,61 @@
+//===== rAthena Script =======================================
+//= Equipment Provider
+//===== By: ==================================================
+//= DurexzOfficial
+//===== Current Version: =====================================
+//= Ver.1.0 รับไอเท็มเริ่มต้น +7 เมื่อคลาส 1
+//===== Compatible With: =====================================
+//= rAthena Project
+//============================================================
+
+morocc,149,108,6	script	Equipment Provider	123,{
+
+	if(#Equipment_Provider == 1){
+		mes "ท่านเคยรับไอเทมไปแล้ว";
+		end;
+	}
+	
+	if( Class < 1 ){	// check class @job
+		mes "อาชีพของท่านยังไม่เพียงพอ";
+		close;
+	}
+	
+	mes .NPCname$;
+	mes "ยินดีต้อนรับท่าน ^FF0000"+strcharinfo(0)+"^000000";
+	mes "ท่านต้องการรับไอเท็มเริ่มต้นใช่หรือไม่ ??";
+	mes "อาชีพของคุณคือ : ^0000FF"+jobname(Class)+"^000000";
+	
+	switch(select("Yes:No")){
+    Case 1:
+		switch(Class){
+		Case 1: // Swordman
+			getitem2 1109,1,1,7,0,0,0,0,0;	//item,amount,identify_flag,refine,attribute,card1,card2,card3,card4
+			break;
+		Case 2: // Magician
+			getitem2 1606,1,1,7,0,0,0,0,0;	//item,amount,identify_flag,refine,attribute,card1,card2,card3,card4
+			break;
+		Case 3: // Archer
+			getitem2 1704,1,1,7,0,0,0,0,0;	//item,amount,identify_flag,refine,attribute,card1,card2,card3,card4
+			break;
+		Case 4: // Acolyte
+			getitem2 1506,1,1,7,0,0,0,0,0;	//item,amount,identify_flag,refine,attribute,card1,card2,card3,card4
+			break;
+		Case 5: // Merchant
+			getitem2 1303,1,1,7,0,0,0,0,0;	//item,amount,identify_flag,refine,attribute,card1,card2,card3,card4
+			break;
+		Case 6: // Thief
+			getitem2 1215,1,1,7,0,0,0,0,0;	//item,amount,identify_flag,refine,attribute,card1,card2,card3,card4
+			break;
+		}
+		#Equipment_Provider = 1;
+	break;
+    Case 2:
+		mes "อ๊าา บะบาย แล้วพบกันใหม่ ....";
+    break;
+	}
+		
+OnInit:
+	.NPCname$ = "[^0000FF "+strnpcinfo(1)+" ^000000]";
+	waitingroom "  รับอาวุธเริ่มต้น",0;	
+	end;
+}

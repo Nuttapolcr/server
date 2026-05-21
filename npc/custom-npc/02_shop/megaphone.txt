@@ -1,0 +1,25 @@
+function	script	megaphone	{
+	switch(select("สีแดง", "สีเหลือง","สีเขียว", "สีส้ม","สีน้ำเงิน", "สีน้ำตาล", "สีเทา")){
+      case 1:input @megaphone$;
+		announce "[ "+strcharinfo(0) +" ] : " + @megaphone$,bc_all,0xFF0000;
+		break;
+      case 2:input @megaphone$;
+		announce "[ "+strcharinfo(0) +" ] : " + @megaphone$,bc_all,0xFFFF00;
+		break;
+      case 3:input @megaphone$;
+		announce "[ "+strcharinfo(0) +" ] : " + @megaphone$,bc_all,0x00FF00;
+		break;
+      case 4:input @megaphone$;
+		announce "[ "+strcharinfo(0) +" ] : " + @megaphone$,bc_all,0xFF8040;
+		break;
+      case 5:input @megaphone$;
+		announce "[ "+strcharinfo(0) +" ] : " + @megaphone$,bc_all,0x0000FF;
+		break;
+      case 6:input @megaphone$;
+		announce "[ "+strcharinfo(0) +" ] : " + @megaphone$,bc_all,0x804040;
+		break;
+      case 7:input @megaphone$;
+		announce "[ "+strcharinfo(0) +" ] : " + @megaphone$,bc_all,0xC0C0C0;
+		break;
+	}
+}

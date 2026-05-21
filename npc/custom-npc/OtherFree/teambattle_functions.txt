@@ -1,0 +1,38 @@
+function	script	CheckJobs	{
+	set .@pid, getarg(0,getcharid(1) );
+	if ( !.@pid ) { return -1; }
+	getpartymember .@pid,1;	getpartymember .@pid,2;
+	set .@attrid, playerattached();
+	for ( set .@i,0; .@i < $@partymembercount; set .@i, .@i+1 )
+	{
+		if ( isloggedin($@partymemberaid[.@i], $@partymembercid[.@i]) )
+		{
+			attachrid($@partymemberaid[.@i]);
+			if ( compare(.@ck_class$ +"|","|"+Class+"|") )
+			{
+				if ( .@attrid ) attachrid(.@attrid); else detachrid; return 1;
+			}
+			set .@ck_class$,.@ck_class$+"|"+ck_class;
+		}
+		else
+		{
+			set .@query_sql$,.@query_sql$ + ( .@j ?"OR " : "" ) +"`char_id` = '"+ $@partymembercid[.@i] +"'";
+			set .@j,.@j+1;
+		}
+	}
+	
+	if ( getstrlen(.@query_sql$) )
+	{
+		set .@c, query_sql("SELECT `class` FROM `char` WHERE " + .@query_sql$, .@class );
+		for ( set .@i, 0; .@i < .@c; set .@i, .@i+1 )
+		{
+			if ( compare(.@ck_class$ +"|","|"+ .@class[.@i] +"|") )
+			{
+                if ( .@attrid ) attachrid(.@attrid); else detachrid; return 1;
+			}
+			set .@ck_class$,.@ck_class$ +"|"+ .@class[.@i];
+		}
+	}
+	
+	if ( .@attrid ) attachrid(.@attrid); else detachrid; return 0;
+}

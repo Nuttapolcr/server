@@ -1,0 +1,40 @@
+morocc,179,166,4	script	Reset Skill&Status	10078,{
+	//	 	            Skills,	Stats,	Both,   Limit
+	setarray .@Reset,	1000000,	1000000,	1500000,	0;
+	mes "[บริการReset Skill&Status]";
+	if(.@Reset[3] && reset_limit > .@Reset[3]) {
+		mes "ขออภัยคุณสามารถรีเซ็ตได้เท่านั้น "+callfunc("F_InsertPlural",.@Reset[3],"time")+" ในชีวิตคุณ.";
+		close;
+	}
+	mes "สวัสดี คุณต้องการทำอะไร";
+	mes "ค่าบริการ รีเซ็ตค่าสเตตัส: "+ callfunc("F_InsertComma",.@Reset[1]) +"Zeny";
+	mes "ค่าบริการ รีเซ็ตค่าสกิล: "+ callfunc("F_InsertComma",.@Reset[0]) +"Zeny";
+	mes "ค่าบริการ รีเซ็ตทั้งหมด: "+ callfunc("F_InsertComma",.@Reset[2]) +"Zeny";
+	if(.@Reset[3]) mes "คุณสามารถรีเซ็ตได้เท่านั้น "+callfunc("F_InsertPlural",.@Reset[3],"time")+", ดังนั้นใช้ "+((.@Reset[3]>1)?"พวกเขา":"มัน")+" ชาญฉลาด.";
+	mes "กรุณาเลือกบริการที่คุณต้องการ:";
+	next;
+	set .@i,(select("^FF0000•^000000 รีเซ็ตค่าสกิล:^FF0000•^000000 รีเซ็ตค่าสเตตัส:^FF0000•^000000 รีเซ็ตทั้งหมด:^FF0000•^000000 ยกเลิก"));
+	if(.@i > 3) close;
+	mes "[บริการReset Skill&Status]";
+	if (Zeny < .@Reset[.@i-1]) {
+		mes "ขออภัยคุณ ไม่ได้มี Zeny เพียงพอสำหรับการใช้บริการ.";
+		close;
+	}
+	if(.@Reset[3]){
+		mes "คุณสามารถรีเซ็ตได้เท่านั้น "+callfunc("F_InsertPlural",.@Reset[3],"time")+" ในชีวิตของคุณคุณแน่ใจ?";
+		if(select("^FF0000•^000000 ขอคิดก่อนนะ:^FF0000•^000000 ไม่เป็นไร") == 1) close;
+	}
+	set Zeny, Zeny-.@Reset[.@i-1];
+	if(.@i&1){
+		sc_end_class;
+		ResetSkill;
+	}
+	if(.@i&2) ResetStatus;
+	mes "ขอบคุณที่ใช้บริการค่ะ!";
+	if(.@Reset[3]) set reset_limit,reset_limit + 1;
+	close;
+	end;
+OnInit:
+waitingroom "Reset Skill&Status",0;
+end;
+}

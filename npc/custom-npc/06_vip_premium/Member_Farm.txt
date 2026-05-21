@@ -1,0 +1,165 @@
+function	script	FRM_CalcLv	{
+	.@pt = getarg(0);
+
+	setarray .@th[1],
+		$Farm_Point_Lv1,$Farm_Point_Lv2,$Farm_Point_Lv3,$Farm_Point_Lv4,$Farm_Point_Lv5,$Farm_Point_Lv6,$Farm_Point_Lv7;
+
+	.@lv = 0;
+	for (.@i = getarraysize(.@th) - 1; .@i >= 1; --.@i) {
+		if (.@pt >= .@th[.@i]) { .@lv = .@i; break; }
+	}
+	return .@lv;
+}
+
+function	script	FRM_RecalcAndApply	{
+	.@acc = getarg(0);
+
+	.@id = .@lv = .@pt = 0;
+	query_sql("SELECT `id`,`farm_level`,`farm_point` FROM `farm_system` WHERE account_id = "+.@acc, .@id, .@lv, .@pt);
+
+	if (!.@id) {
+		query_sql("INSERT INTO `farm_system` (`account_id`,`userid`,`farm_level`,`farm_point`) VALUES ("+.@acc+",'',0,0)");
+		.@lv = 0;
+		.@pt = 0;
+	}
+
+	.@new = callfunc("FRM_CalcLv", .@pt);
+
+	if (.@new != .@lv)
+		query_sql("UPDATE `farm_system` SET `farm_level` = "+.@new+" WHERE account_id = "+.@acc);
+
+	setarray .@SC[1],
+		SC_FARMING_LV1,SC_FARMING_LV2,SC_FARMING_LV3,SC_FARMING_LV4,SC_FARMING_LV5,SC_FARMING_LV6,SC_FARMING_LV7;
+
+	for (.@i = 1; .@i < getarraysize(.@SC); ++.@i)
+		sc_end .@SC[.@i];
+
+	if (.@new > 0)
+		sc_start4 .@SC[.@new], INFINITE_TICK, 0,0,0,0;
+
+	return .@new;
+}
+
+
+function	script	FRM_ParseAmt	{
+	.@n = getarg(0);
+	if (.@n >= 1000000) {
+		.@w = .@n / 1000000;
+		.@t = (.@n % 1000000) / 100000;
+		if (.@t > 0) return ""+.@w+"."+.@t+"M";
+		return ""+.@w+"M";
+	} else if (.@n >= 1000) {
+		.@w = .@n / 1000;
+		.@t = (.@n % 1000) / 100;
+		if (.@t > 0) return ""+.@w+"."+.@t+"K";
+		return ""+.@w+"K";
+	}
+	return ""+.@n;
+}
+
+-	script	Farm_Bonus	-1,{
+
+OnPCLoginEvent:
+	.@acc = getcharid(3);
+	.@new = callfunc("FRM_RecalcAndApply", .@acc);
+
+	.@pt = 0;
+	query_sql("SELECT `farm_point` FROM `farm_system` WHERE account_id = "+.@acc, .@pt);
+	dispbottom "[Rank Farm] Rank "+.@new+" | Point "+callfunc("F_InsertComma", .@pt);
+	end;
+
+OnInit:
+	set $Farm_Point_Lv1, 500000;
+	set $Farm_Point_Lv2, 900000;
+	set $Farm_Point_Lv3, 1500000;
+	set $Farm_Point_Lv4, 3000000;
+	set $Farm_Point_Lv5, 5000000;
+	set $Farm_Point_Lv6, 8000000;
+	set $Farm_Point_Lv7, 10000000;
+
+	query_sql(
+		"CREATE TABLE IF NOT EXISTS `farm_system` ("+
+		"`id` int(11) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`userid` varchar(255) NOT NULL,"+
+		"`farm_level` int(2) NOT NULL,"+
+		"`farm_point` int(12) NOT NULL,"+
+		"PRIMARY KEY (`id`),"+
+		"KEY `account_id` (`account_id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	end;
+}
+
+morocc,140,148,6	script	Rank Farm Exchange	11059,{
+
+	.N$ = "[ Rank Farm Exchange ]";
+
+	.FARM_BOOK_ID      = 905027;
+	.FARM_BOOK_VALUE   = 1000;
+	.MIN_WITHDRAW_PT   = 1000;
+	.FEE_PERCENT       = 5;
+
+	.@acc = getcharid(3);
+
+	mes .N$;
+	.@pt = .@lv = 0;
+	query_sql("SELECT `farm_point`,`farm_level` FROM `farm_system` WHERE account_id = "+.@acc, .@pt, .@lv);
+	mes "Farm Point: "+callfunc("F_InsertComma", .@pt);
+	mes "Rank: "+.@lv;
+	next;
+
+	switch(select("ถอนแต้มเป็น Rank Farm Book","ยกเลิก")) {
+	case 1:
+		mes .N$;
+		mes "ขั้นต่ำถอน: "+callfunc("F_InsertComma", .MIN_WITHDRAW_PT)+" แต้ม";
+		mes "ค่าบริการ: "+.FEE_PERCENT+"%";
+		mes "1 เล่ม = "+callfunc("F_InsertComma", .FARM_BOOK_VALUE)+" แต้ม";
+		mes "ใส่จำนวนแต้มที่ต้องการแลกเป็นสมุด (ต้องหารด้วย "+.FARM_BOOK_VALUE+")";
+		mes "^FF0000ใส่ 0 เพื่อยกเลิก^000000";
+		next;
+
+		input .@amt;
+		if (.@amt <= 0) close;
+
+		.@pt = 0;
+		query_sql("SELECT `farm_point` FROM `farm_system` WHERE account_id = "+.@acc, .@pt);
+
+		if (.@amt < .MIN_WITHDRAW_PT) { mes .N$; mes "ต้องถอนอย่างน้อย "+callfunc("F_InsertComma", .MIN_WITHDRAW_PT)+" แต้ม"; close; }
+		if ((.@amt % .FARM_BOOK_VALUE) != 0) { mes .N$; mes "จำนวนแต้มต้องหารด้วย "+.FARM_BOOK_VALUE+" ลงตัว"; close; }
+
+		.@book = .@amt / .FARM_BOOK_VALUE;
+		if (.@book <= 0) { mes .N$; mes "จำนวนไม่ถูกต้อง"; close; }
+
+		.@fee = (.@amt * .FEE_PERCENT) / 100;
+		.@cost = .@amt + .@fee;
+
+		if (.@cost > .@pt) { mes .N$; mes "แต้มไม่พอ (ต้องใช้ "+callfunc("F_InsertComma", .@cost)+" แต้ม)"; close; }
+
+		mes .N$;
+		mes "แลกแต้ม: "+callfunc("F_InsertComma", .@amt)+" แต้ม";
+		mes "ภาษี "+.FEE_PERCENT+"%: "+callfunc("F_InsertComma", .@fee)+" แต้ม";
+		mes "รวมที่ต้องจ่าย: "+callfunc("F_InsertComma", .@cost)+" แต้ม";
+		mes "จะได้รับ: Rank Farm Book x"+callfunc("F_InsertComma", .@book);
+		next;
+		if (select("ยกเลิก","ยืนยัน") == 1) close;
+
+		query_sql("UPDATE `farm_system` SET `farm_point` = `farm_point` - "+.@cost+" WHERE account_id = "+.@acc);
+
+		getitem .FARM_BOOK_ID, .@book;
+
+		callfunc("FRM_RecalcAndApply", .@acc);
+
+		.@newpt = 0;
+		query_sql("SELECT `farm_point` FROM `farm_system` WHERE account_id = "+.@acc, .@newpt);
+		dispbottom "[Rank Farm] ถอนสำเร็จ ได้หนังสือ x"+callfunc("F_InsertComma",.@book)+" | คงเหลือ "+callfunc("F_InsertComma", .@newpt);
+		close;
+
+	default:
+		close;
+	}
+
+OnInit:
+	waitingroom "  [ Rank Farm ]",0;
+	end;
+}

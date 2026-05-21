@@ -1,0 +1,347 @@
+//===== rAthena Script ======================================= 
+//= GM Service.
+//===== By: ================================================== 
+//= Mr.TAURUS
+//===== Current Version: ===================================== 
+//= v1.2
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//============================================================ 
+
+maintown,167,155,3	script	ผู้ช่วย GM	4_F_KAFRA3,{
+	disable_items;
+	cutin "kafra_03",2;
+	if (getgmlevel() == 99) {
+		mes .NPCname$;
+		mes "สวัสดีค่ะ, ท่าน ^1E90FF"+ strcharinfo(0) +"^000000.";
+		mes "ต้องการให้ดิฉันช่วยเหลืออะไรดีค่ะ?";
+		next;
+		switch(select(
+			""+.symbol$+" แจกเงิน Zeny",
+			""+.symbol$+" แจกไอเท็ม",
+			""+.symbol$+" คูณ EXP",
+			""+.symbol$+" คูณ อัตราดรอปไอเท็ม "
+			))
+		{
+			case 1:
+				mes .NPCname$;
+				mes "ท่านเลือกเมนู แจกเงิน Zeny";
+				mes "โปรดเลือกรูปแบบการแจกค่ะ.";
+				next;
+				switch(select(
+					""+.symbol$+" แจกทุกคนในเมืองนี้",
+					""+.symbol$+" แจกทุกคนที่ออนไลน์อยู่ทั้งหมด"
+					))
+				{
+					case 1:
+						mes .NPCname$;
+						mes "โปรดกรอกจำนวน Zeny ที่ท่านต้องการแจก.";
+						next;
+						input $@zeny;
+						addrid(1);
+						Zeny += $@zeny;
+						set .@zReward,$@zeny;
+						mes .NPCname$;
+						mes "ทำการแจก ^009900"+.@zReward+"^000000 zeny"; 
+						mes "ให้แก่ผู้เล่นที่อยู่ในเมือง";
+						mes "เรียบร้อยแล้วค่ะ.";
+						announce "[ ระบบ ] : ขณะนี้ ท่าน GM : " + strcharinfo(0) + " ได้ทำการแจกเงิน "+.@zReward+" zeny แก่ผู้เล่นที่อยู่ในเมือง!",0;
+						message strcharinfo(0),"คุณได้รับเงิน "+.@zReward+" Zeny สนับสนุนจาก GM";
+						close2;
+						cutin "0",255;
+						end;	
+						
+					case 2:
+						mes .NPCname$;
+						mes "โปรดกรอกจำนวน Zeny ที่ท่านต้องการแจก.";
+						next;
+						input $@zeny;
+						addrid(0);
+						Zeny += $@zeny;
+						set .@zReward,$@zeny;
+						mes .NPCname$;
+						mes "ทำการแจก ^009900"+.@zReward+"^000000 zeny"; 
+						mes "ให้แก่ผู้เล่นที่ออนไลน์ทั้งเซิฟเวอร์";
+						mes "เรียบร้อยแล้วค่ะ.";
+						announce "[ ระบบ ] : ขณะนี้ ท่าน GM : " + strcharinfo(0) + " ได้ทำการแจก "+.@zReward+" zeny แก่ผู้เล่นที่ออนไลน์ทั้งเซิฟเวอร์!",0;
+						message strcharinfo(0),"คุณได้รับเงิน "+.@zReward+" Zeny สนับสนุนจาก GM";
+						close2;
+						cutin "0",255;
+						end;	
+				}
+			case 2:
+				mes .NPCname$;
+				mes "ท่านเลือกเมนู แจกไอเท็ม";
+				mes "โปรดเลือกรูปแบบการแจกค่ะ.";
+				next;
+				switch(select(
+					""+.symbol$+" แจกทุกคนในเมืองนี้",
+					""+.symbol$+" แจกทุกคนที่ออนไลน์อยู่ทั้งหมด"
+					))
+				{
+					case 1:
+						mes .NPCname$;
+						mes "โปรดกรอก Item ID ที่ท่านต้องการแจก.";
+						next;
+						input $@item;
+						mes .NPCname$;
+						mes "โปรดกรอกจำนวนที่ท่านต้องการแจก.";
+						next;
+						input $@amount;
+						addrid(1);
+						getitem $@item,$@amount;
+						set .@iReward,$@item;
+						set .@iAmount,$@amount;
+						mes .NPCname$;
+						mes "ทำการแจก ^0000FF"+getitemname(.@iReward)+"^000000 จำนวน ^009900"+.@iAmount+"^000000 ea."; 
+						mes "ให้แก่ผู้เล่นทุกคนในเมือง";
+						mes "เรียบร้อยแล้วค่ะ.";
+						announce "[ ระบบ ] : ขณะนี้ ท่าน GM : " + strcharinfo(0) + " ได้ทำการแจก "+getitemname(.@iReward)+" จำนวน "+.@iAmount+" ea. แก่ผู้เล่นที่อยู่ในเมือง!",0;
+						message strcharinfo(0),"คุณได้รับ "+getitemname(.@iReward)+" จำนวน "+.@iAmount+" ea. จาก GM";
+						close2;
+						cutin "0",255;
+						end;
+						
+					case 2:
+						mes .NPCname$;
+						mes "โปรดกรอก Item ID ที่ท่านต้องการแจก.";
+						next;
+						input $@item;
+						mes .NPCname$;
+						mes "โปรดกรอกจำนวนที่ท่านต้องการแจก.";
+						next;
+						input $@amount;
+						addrid(0);
+						getitem $@item,$@amount;
+						set .@iReward,$@item;
+						set .@iAmount,$@amount;
+						mes .NPCname$;
+						mes "ทำการแจก ^0000FF"+getitemname(.@iReward)+"^000000 จำนวน ^009900"+.@iAmount+"^000000 ea."; 
+						mes "ให้แก่ผู้เล่นที่ออนไลน์ทั้งเซิฟเวอร์";
+						mes "เรียบร้อยแล้วค่ะ.";
+						announce "[ ระบบ ] : ขณะนี้ ท่าน GM : " + strcharinfo(0) + " ได้ทำการแจก "+getitemname(.@iReward)+" จำนวน "+.@iAmount+" ea. แก่ผู้เล่นที่ออนไลน์ทั้งเซิฟเวอร์!",0;
+						message strcharinfo(0),"คุณได้รับ "+getitemname(.@iReward)+" จำนวน "+.@iAmount+" ea. จาก GM";
+						close2;
+						cutin "0",255;
+						end;	
+				}
+			case 3:
+				mes .NPCname$;
+				mes "ท่านเลือกเมนู คูณ EXP";
+				mes "ต้องการจะทำอะไรต่อดีคะ?";
+				next;
+				switch(select(
+					""+.symbol$+" เปิดคูณ EXP",
+					""+.symbol$+" ปิดคูณ EXP"
+					))
+				{	
+					case 1:
+						mes .NPCname$;
+						mes "โปรดกรอกอัตราคูณที่ท่านต้องการ";
+						mes "เช่น: 2 เท่ากับ x2 เท่าจากเดิม";
+						mes "ต้องเป็นเลขจำนวนเต็มเท่านั้น";
+						mes "^FF0000หากใส่ 0 จะเป็นการยกเลิก.^000000";
+						next;
+						input .@rate_up;
+						mes .NPCname$;
+						if (.@rate_up == 0) {
+							mes "ยกเลิกเรียบร้อยแล้วค่ะ";
+							close2;
+							cutin "0",255;
+							end;
+						}
+						else {
+							mes "ทำการเปิด EXP x^009900"+.@rate_up+"^000000 เท่า"; 
+							mes "เรียบร้อยแล้วค่ะ.";
+							setBattleFlag "base_exp_rate",.base_exp*.@rate_up;
+							setBattleFlag "job_exp_rate",.job_exp*.@rate_up;		
+							atcommand "@reloadmobdb";
+							announce "[ ระบบ ] : ขณะนี้ ท่าน GM : " + strcharinfo(0) + " ได้ทำการเปิด EXP x"+.@rate_up+" เท่า จากปกติแล้วค่ะ!",0;
+							close2;
+							cutin "0",255;
+							end;
+						}
+						end;
+
+					case 2:
+						mes .NPCname$;
+						mes "ทำการปิดการคูณ EXP"; 
+						mes "เรียบร้อยแล้วค่ะ.";
+						setBattleFlag "base_exp_rate",.base_exp;
+						setBattleFlag "job_exp_rate",.job_exp;		
+						atcommand "@reloadmobdb";
+						announce "[ ระบบ ] : ขณะนี้ ท่าน GM : " + strcharinfo(0) + " ได้ทำการปิดการคูณ EXP โบนัส แล้วค่ะ!",0;
+						close2;
+						cutin "0",255;
+						end;	
+				}
+			case 4:
+				mes .NPCname$;
+				mes "ท่านเลือกเมนู คูณ อัตราดรอปไอเท็ม";
+				mes "ต้องการจะทำอะไรต่อดีคะ?";
+				next;
+				switch(select(
+					""+.symbol$+" อัตราดรอปไอเท็ม [Normal]",
+					""+.symbol$+" อัตราดรอปไอเท็ม [MVP]",
+					""+.symbol$+" ปิดคูณ อัตราดรอปไอเท็ม"
+					))
+				{	
+					case 1:
+						mes .NPCname$;
+						mes "โปรดกรอกอัตราคูณที่ท่านต้องการ";
+						mes "เช่น: 2 เท่ากับ x2 เท่าจากเดิม";
+						mes "ต้องเป็นเลขจำนวนเต็มเท่านั้น";
+						mes "^FF0000หากใส่ 0 จะเป็นการยกเลิก.^000000";
+						next;
+						input .@rate_up;
+						mes .NPCname$;
+						if (.@rate_up == 0) {
+							mes "ยกเลิกเรียบร้อยแล้วค่ะ";
+							close2;
+							cutin "0",255;
+							end;
+						}
+						else {
+							mes "ทำการเปิด อัตราดรอปไอเท็ม x^009900"+.@rate_up+"^000000 เท่า";
+							mes "สำหรับ Normal Monster";
+							mes "เรียบร้อยแล้วค่ะ.";
+							setBattleFlag "item_rate_common",.item_rate_common*.@rate_up;
+							setBattleFlag "item_rate_heal",.item_rate_heal*.@rate_up;
+							setBattleFlag "item_rate_use",.item_rate_use*.@rate_up;
+							setBattleFlag "item_rate_equip",.item_rate_equip*.@rate_up;
+							setBattleFlag "item_rate_card",.item_rate_card*.@rate_up;			
+							setBattleFlag "item_rate_adddrop",.item_rate_adddrop*.@rate_up;
+							setBattleFlag "item_rate_treasure",.item_rate_treasure*.@rate_up;		
+							atcommand "@reloadmobdb";
+							announce "[ ระบบ ] : ขณะนี้ ท่าน GM : " + strcharinfo(0) + " ได้ทำการเปิด อัตราดรอปไอเท็ม x"+.@rate_up+"  เท่า [Normal Monster] จากปกติแล้วค่ะ!",0;
+							close2;
+							cutin "0",255;
+							end;
+						}
+						end;
+
+					case 2:
+						mes .NPCname$;
+						mes "โปรดกรอกอัตราคูณที่ท่านต้องการ";
+						mes "เช่น: 2 เท่ากับ x2 เท่าจากเดิม";
+						mes "ต้องเป็นเลขจำนวนเต็มเท่านั้น";
+						mes "^FF0000หากใส่ 0 จะเป็นการยกเลิก.^000000";
+						next;
+						input .@rate_up;
+						mes .NPCname$;
+						if (.@rate_up == 0) {
+							mes "ยกเลิกเรียบร้อยแล้วค่ะ";
+							close2;
+							cutin "0",255;
+							end;
+						}
+						else {
+							mes "ทำการเปิด อัตราดรอปไอเท็ม x^009900"+.@rate_up+"^000000 เท่า";
+							mes "สำหรับ Boss MVP Monster";
+							mes "เรียบร้อยแล้วค่ะ.";
+							setBattleFlag "item_rate_common_boss",.item_rate_common_boss*.@rate_up;
+							setBattleFlag "item_rate_heal_boss",.item_rate_heal_boss*.@rate_up;
+							setBattleFlag "item_rate_use_boss",.item_rate_use_boss*.@rate_up;
+							setBattleFlag "item_rate_equip_boss",.item_rate_equip_boss*.@rate_up;
+							setBattleFlag "item_rate_card_boss",.item_rate_card_boss*.@rate_up;	
+							setBattleFlag "item_rate_common_mvp",.item_rate_common_mvp*.@rate_up;
+							setBattleFlag "item_rate_heal_mvp",.item_rate_heal_mvp*.@rate_up;
+							setBattleFlag "item_rate_use_mvp",.item_rate_use_mvp*.@rate_up;
+							setBattleFlag "item_rate_equip_mvp",.item_rate_equip_mvp*.@rate_up;
+							setBattleFlag "item_rate_card_mvp",.item_rate_card_mvp*.@rate_up;			
+							setBattleFlag "item_rate_adddrop",.item_rate_adddrop*.@rate_up;
+							setBattleFlag "item_rate_treasure",.item_rate_treasure*.@rate_up;		
+							atcommand "@reloadmobdb";
+							announce "[ ระบบ ] : ขณะนี้ ท่าน GM : " + strcharinfo(0) + " ได้ทำการเปิด อัตราดรอปไอเท็ม x"+.@rate_up+" เท่า [Boss MVP Monster] จากปกติแล้วค่ะ!",0;
+							close2;
+							cutin "0",255;
+							end;
+						}
+						end;
+
+					case 3:
+						mes .NPCname$;
+						mes "ทำการปิดการคูณ อัตราดรอปไอเท็ม"; 
+						mes "เรียบร้อยแล้วค่ะ.";
+						setBattleFlag "item_rate_common",.item_rate_common;
+						setBattleFlag "item_rate_heal",.item_rate_heal;
+						setBattleFlag "item_rate_use",.item_rate_use;
+						setBattleFlag "item_rate_equip",.item_rate_equip;
+						setBattleFlag "item_rate_card",.item_rate_card;
+						setBattleFlag "item_rate_common_boss",.item_rate_common_boss;
+						setBattleFlag "item_rate_heal_boss",.item_rate_heal_boss;
+						setBattleFlag "item_rate_use_boss",.item_rate_use_boss;
+						setBattleFlag "item_rate_equip_boss",.item_rate_equip_boss;
+						setBattleFlag "item_rate_card_boss",.item_rate_card_boss;	
+						setBattleFlag "item_rate_common_mvp",.item_rate_common_mvp;
+						setBattleFlag "item_rate_heal_mvp",.item_rate_heal_mvp;
+						setBattleFlag "item_rate_use_mvp",.item_rate_use_mvp;
+						setBattleFlag "item_rate_equip_mvp",.item_rate_equip_mvp;
+						setBattleFlag "item_rate_card_mvp",.item_rate_card_mvp;			
+						setBattleFlag "item_rate_adddrop",.item_rate_adddrop;
+						setBattleFlag "item_rate_treasure",.item_rate_treasure;		
+						atcommand "@reloadmobdb";
+						announce "[ ระบบ ] : ขณะนี้ ท่าน GM : " + strcharinfo(0) + " ได้ทำการปิดการคูณ อัตราดรอปไอเท็ม โบนัส แล้วค่ะ!",0;
+						close2;
+						cutin "0",255;
+						end;	
+				}	
+		}
+	}
+	mes .NPCname$;
+	mes "ขออภัยค่ะ";
+	mes "ระบบนี้ใช้ได้เฉพาะ GM เท่านั้น.";
+	close2;
+	cutin "0",255;
+	end;
+
+OnInit:
+	.NPCname$ = "[^0000FF "+strnpcinfo(1)+" ^000000]";
+	.symbol$ = "~";
+	//waitingroom "ผู้ช่วย GM",0;
+	
+	// Rate at which exp. is given.
+	set .base_exp, getBattleFlag("base_exp_rate");
+	
+	// Rate at which job exp. is given.
+	set .job_exp, getBattleFlag("job_exp_rate");
+	
+	// The rate the common items are dropped (Items that are in the ETC tab, besides card).
+	set .item_rate_common, getBattleFlag("item_rate_common");
+	set .item_rate_common_boss, getBattleFlag("item_rate_common_boss");
+	set .item_rate_common_mvp, getBattleFlag("item_rate_common_mvp");
+	
+	// The rate healing items are dropped (items that restore HP or SP).
+	set .item_rate_heal, getBattleFlag("item_rate_heal");
+	set .item_rate_heal_boss, getBattleFlag("item_rate_heal_boss");
+	set .item_rate_heal_mvp, getBattleFlag("item_rate_heal_mvp");
+	
+	// The rate at which usable items (in the item tab) other then healing items are dropped.
+	set .item_rate_use, getBattleFlag("item_rate_use");
+	set .item_rate_use_boss, getBattleFlag("item_rate_use_boss");
+	set .item_rate_use_mvp, getBattleFlag("item_rate_use_mvp");
+	
+	// The rate at which equipment is dropped.
+	set .item_rate_equip, getBattleFlag("item_rate_equip");
+	set .item_rate_equip_boss, getBattleFlag("item_rate_equip_boss");
+	set .item_rate_equip_mvp, getBattleFlag("item_rate_equip_mvp");
+	
+	// The rate at which cards are dropped.
+	set .item_rate_card, getBattleFlag("item_rate_card");
+	set .item_rate_card_boss, getBattleFlag("item_rate_card_boss");
+	set .item_rate_card_mvp, getBattleFlag("item_rate_card_mvp");
+	
+	// The rate adjustment for card-granted item drops.
+	set .item_rate_adddrop, getBattleFlag("item_rate_adddrop");
+	
+	// Rate adjustment for Treasure Box drops.
+	set .item_rate_treasure, getBattleFlag("item_rate_treasure");
+	
+	// The rate adjustment for the MVP items that the MVP gets directly in their inventory.
+	set .item_rate_mvp, getBattleFlag("item_rate_mvp");
+	end;
+}
+
+
+
+

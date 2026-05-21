@@ -1,0 +1,164 @@
+maintown,144,113,6	script	Bonus Timer	4_EP19_HEALROCK,{
+Start:
+	
+	mes .mes$;
+	
+	mes "• EXP : "+.mes_exp$+"";
+	mes "• JOB : "+.mes_job$+"";
+	mes "• ETC : "+.mes_etc$+"";
+	mes "• Usable : "+.mes_usable$+"";
+	mes "• Equip : "+.mes_equip$+"";
+	mes "• Card : "+.mes_card$+"";
+	
+	if(getgmlevel() < 99){ end; }
+	
+	.@menu = select(
+		"- ปรับแต่งทุกส่วน",
+		"- ปรับแต่ง EXP",
+		"- ปรับแต่ง JOB",
+		"- ปรับแต่ง ETC",
+		"- ปรับแต่ง Usable",
+		"- ปรับแต่ง Equip",
+		"- ปรับแต่ง Card"
+	);
+	
+	if(.@menu == 1){
+		.@EXP		= 1;	.@text$[getarraysize(.@text$)] = "EXP";
+		.@JOB		= 1;	.@text$[getarraysize(.@text$)] = "JOB";
+		.@ETC		= 1;	.@text$[getarraysize(.@text$)] = "ETC";
+		.@Usable	= 1;	.@text$[getarraysize(.@text$)] = "Usable";
+		.@Equip		= 1;	.@text$[getarraysize(.@text$)] = "Equip";
+		.@Card		= 1;	.@text$[getarraysize(.@text$)] = "Card";
+	}
+	if(.@menu == 2){ .@EXP		= 1;	.@text$[getarraysize(.@text$)] = "EXP"; }
+	if(.@menu == 3){ .@JOB		= 1;	.@text$[getarraysize(.@text$)] = "JOB"; }
+	if(.@menu == 4){ .@ETC		= 1;	.@text$[getarraysize(.@text$)] = "ETC"; }
+	if(.@menu == 5){ .@Usable	= 1;	.@text$[getarraysize(.@text$)] = "Usable"; }
+	if(.@menu == 6){ .@Equip	= 1;	.@text$[getarraysize(.@text$)] = "Equip"; }
+	if(.@menu == 7){ .@Card		= 1;	.@text$[getarraysize(.@text$)] = "Card"; }
+	
+	deletearray .@menu$;
+	
+	for ( .@i=0; .@i<getarraysize(.rate); .@i=.@i+3 ){
+		.@menu$ = .@menu$ + "ใช้่งาน "+.rate[.@i]+" %";
+		.@menu$ = .@menu$ + ":";
+	}
+	
+	.@part = select(.@menu$)-1;
+	
+	.@rate1 = .rate[(.@part*3)+1];
+	.@rate2 = .rate[(.@part*3)+2];
+	
+	for ( .@i=0; .@i<getarraysize(.@text$); .@i++ ){
+		announce "Bonus Time : ขณะนี้ "+.@text$[.@i]+" ได้เปลี่ยนเป็น "+.rate[(.@part*3)]+"%",bc_all,0xFFFF00;
+	}
+	
+	/*
+	if(.@part == 0){
+		atcommand "@reloadbattleconf";
+		announce "Bonus Time : ขณะนี้ EXP & JOB & DROP กลับสู่สถานะปกติ",bc_all,0xFFFF00;
+		end;
+	}
+	*/
+	
+	if(.@EXP){
+		setbattleflag("base_exp_rate",.base_exp*.@rate1/.@rate2,true );
+		.mes_exp$ = ""+.rate[(.@part*3)]+"%";
+	}
+	if(.@JOB){
+		setbattleflag("job_exp_rate",.job_exp*.@rate1/.@rate2,true );
+		.mes_job$ = ""+.rate[(.@part*3)]+"%";
+	}
+	if(.@ETC){
+		setbattleflag("item_rate_common",.item_rate_common*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_common_boss",.item_rate_common_boss*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_common_mvp",.item_rate_common_mvp*.@rate1/.@rate2,true );
+		.mes_etc$ = ""+.rate[(.@part*3)]+"%";
+	}
+	if(.@Usable){
+		setbattleflag("item_rate_heal",.item_rate_heal*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_heal_boss",.item_rate_heal_boss*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_heal_mvp",.item_rate_heal_mvp*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_use",.item_rate_use*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_use_boss",.item_rate_use_boss*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_use_mvp",.item_rate_use_mvp*.@rate1/.@rate2,true );
+		.mes_usable$ = ""+.rate[(.@part*3)]+"%";
+	}
+	if(.@Equip){
+		setbattleflag("item_rate_equip",.item_rate_equip*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_equip_boss",.item_rate_equip_boss*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_equip_mvp",.item_rate_equip_mvp*.@rate1/.@rate2,true );
+		.mes_equip$ = ""+.rate[(.@part*3)]+"%";
+	}
+	if(.@Card){
+		setbattleflag("item_rate_card",.item_rate_card*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_card_boss",.item_rate_card_boss*.@rate1/.@rate2,true );
+		setbattleflag("item_rate_card_mvp",.item_rate_card_mvp*.@rate1/.@rate2,true );
+		.mes_card$ = ""+.rate[(.@part*3)]+"%";
+	}
+	
+	setbattleflag("item_rate_mvp",.item_rate_mvp*.@rate1/.@rate2,true );
+	
+	clear;
+	goto Start;
+	end;
+	
+OnInit:
+	
+//	waitingroom "[#] "+strnpcinfo(0)+"",0;
+	
+	.mes$ = "^FF3300[ Bonus ]^000000";		//	Head Dialog
+	
+	deletearray .rate;
+	setarray .rate[0]	,100	,1		,1
+						,125	,10		,8
+						,150	,3		,2
+						,175	,7		,4
+						,200	,2		,1
+						,225	,9		,4
+						,250	,5		,2
+						,275	,11		,4
+						,300	,3		,1
+						,325	,14		,4
+						,350	,7		,2
+						,375	,15		,4
+						,400	,4		,1
+						;
+						
+	.mes_exp$		= "100%";
+	.mes_job$		= "100%";
+	.mes_etc$		= "100%";
+	.mes_usable$	= "100%";
+	.mes_equip$		= "100%";
+	.mes_card$		= "100%";
+	
+	atcommand "@reloadbattleconf";
+	
+	.base_exp				= getbattleflag("base_exp_rate");
+	.job_exp				= getbattleflag("job_exp_rate");
+	.item_rate_common		= getbattleflag("item_rate_common");
+	.item_rate_heal			= getbattleflag("item_rate_heal");
+	.item_rate_use			= getbattleflag("item_rate_use");
+	.item_rate_equip		= getbattleflag("item_rate_equip");
+	.item_rate_card			= getbattleflag("item_rate_card");
+	
+	.item_rate_common_boss	= getbattleflag("item_rate_common_boss");
+	.item_rate_heal_boss	= getbattleflag("item_rate_heal_boss");
+	.item_rate_use_boss		= getbattleflag("item_rate_use_boss");
+	.item_rate_equip_boss	= getbattleflag("item_rate_equip_boss");
+	.item_rate_card_boss	= getbattleflag("item_rate_card_boss");
+	
+	.item_rate_common_mvp	= getbattleflag("item_rate_common_mvp");
+	.item_rate_heal_mvp		= getbattleflag("item_rate_heal_mvp");
+	.item_rate_use_mvp		= getbattleflag("item_rate_use_mvp");
+	.item_rate_equip_mvp	= getbattleflag("item_rate_equip_mvp");
+	.item_rate_card_mvp		= getbattleflag("item_rate_card_mvp");
+	
+	.item_rate_mvp			= getbattleflag("item_rate_mvp");
+	.item_rate_adddrop		= getbattleflag("item_rate_adddrop");
+	.item_rate_treasure		= getbattleflag("item_rate_treasure");
+	
+	end;
+	
+}
+

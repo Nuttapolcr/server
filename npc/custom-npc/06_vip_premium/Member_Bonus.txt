@@ -1,0 +1,163 @@
+//====================================================
+// Rank Member Donate (Account-based)
+//====================================================
+
+function	script	MS_CalcLv	{
+	.@top = getarg(0);
+
+	setarray .@th[1],
+		$Member_Topup_Lv1, $Member_Topup_Lv2, $Member_Topup_Lv3, $Member_Topup_Lv4, $Member_Topup_Lv5;
+
+	.@lv = 0;
+	for (.@i = getarraysize(.@th) - 1; .@i >= 1; --.@i) {
+		if (.@top >= .@th[.@i]) { .@lv = .@i; break; }
+	}
+	return .@lv;
+}
+
+function	script	MS_RecalcAndApply	{
+	.@acc = getarg(0);
+
+	.@id = .@ml = .@top = 0;
+	query_sql("SELECT `id`,`member_level`,`topup_amount` FROM `member_system` WHERE account_id = "+.@acc, .@id, .@ml, .@top);
+
+	if (!.@id) {
+		query_sql("INSERT INTO `member_system` (`account_id`,`userid`,`member_level`,`topup_amount`) VALUES ("+.@acc+",'',0,0)");
+		.@ml = 0;
+		.@top = 0;
+	}
+
+	.@new = callfunc("MS_CalcLv", .@top);
+
+	if (.@new != .@ml)
+		query_sql("UPDATE `member_system` SET `member_level` = "+.@new+" WHERE account_id = "+.@acc);
+
+	setarray .@SC[0], SC_MEMBER0,SC_MEMBER1,SC_MEMBER2,SC_MEMBER3,SC_MEMBER4,SC_MEMBER5;
+
+	for (.@i = 0; .@i < getarraysize(.@SC); ++.@i)
+		sc_end .@SC[.@i];
+
+	sc_start4 .@SC[.@new], INFINITE_TICK, 0,0,0,0;
+
+	return .@new;
+}
+
+function	script	MS_ParseAmt	{
+	.@n = getarg(0);
+	if (.@n >= 1000000) {
+		.@w = .@n / 1000000;
+		.@t = (.@n % 1000000) / 100000;
+		if (.@t > 0) return ""+.@w+"."+.@t+"M";
+		return ""+.@w+"M";
+	} else if (.@n >= 1000) {
+		.@w = .@n / 1000;
+		.@t = (.@n % 1000) / 100;
+		if (.@t > 0) return ""+.@w+"."+.@t+"K";
+		return ""+.@w+"K";
+	}
+	return ""+.@n;
+}
+
+-	script	Member_Bonus	-1,{
+
+OnPCLoginEvent:
+	.@acc = getcharid(3);
+	.@new = callfunc("MS_RecalcAndApply", .@acc);
+
+	.@top = 0;
+	query_sql("SELECT `topup_amount` FROM `member_system` WHERE account_id = "+.@acc, .@top);
+	dispbottom "[Member Donate] Rank "+.@new+" | Point "+callfunc("F_InsertComma", .@top);
+	end;
+
+OnInit:
+	set $Member_Topup_Lv1, 10000;
+	set $Member_Topup_Lv2, 50000;
+	set $Member_Topup_Lv3, 100000;
+	set $Member_Topup_Lv4, 150000;
+	set $Member_Topup_Lv5, 300000;
+
+	query_sql(
+		"CREATE TABLE IF NOT EXISTS `member_system` ("+
+		"`id` int(11) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`userid` varchar(255) NOT NULL,"+
+		"`member_level` int(2) NOT NULL,"+
+		"`topup_amount` int(12) NOT NULL,"+
+		"PRIMARY KEY (`id`),"+
+		"KEY `account_id` (`account_id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	end;
+}
+
+morocc,140,141,6	script	Rank Donate Exchange	11059,{
+
+	.N$ = "[ Rank Donate Exchange ]";
+
+	.DONATE_BOOK_ID      = 905026;
+	.DONATE_BOOK_VALUE   = 1000;
+	.MIN_WITHDRAW_PT     = 1000;
+	.FEE_PERCENT         = 5;
+
+	.@acc = getcharid(3);
+
+	mes .N$;
+	.@pt = .@lv = 0;
+	query_sql("SELECT `topup_amount`,`member_level` FROM `member_system` WHERE account_id = "+.@acc, .@pt, .@lv);
+	mes "Donate Point: "+callfunc("F_InsertComma", .@pt);
+	mes "Rank: "+.@lv;
+	next;
+
+	switch(select("ถอนแต้มเป็น Rank Donate Book","ยกเลิก")) {
+	case 1:
+		mes .N$;
+		mes "ขั้นต่ำถอน: "+callfunc("F_InsertComma", .MIN_WITHDRAW_PT)+" แต้ม";
+		mes "ค่าบริการ: "+.FEE_PERCENT+"%";
+		mes "1 เล่ม = "+callfunc("F_InsertComma", .DONATE_BOOK_VALUE)+" แต้ม";
+		mes "ใส่จำนวนแต้มที่ต้องการแลกเป็นสมุด (ต้องหารด้วย "+.DONATE_BOOK_VALUE+")";
+		mes "^FF0000ใส่ 0 เพื่อยกเลิก^000000";
+		next;
+
+		input .@amt;
+		if (.@amt <= 0) close;
+
+		.@pt = 0;
+		query_sql("SELECT `topup_amount` FROM `member_system` WHERE account_id = "+.@acc, .@pt);
+
+		if (.@amt < .MIN_WITHDRAW_PT) { mes .N$; mes "ต้องถอนอย่างน้อย "+callfunc("F_InsertComma", .MIN_WITHDRAW_PT)+" แต้ม"; close; }
+		if ((.@amt % .DONATE_BOOK_VALUE) != 0) { mes .N$; mes "จำนวนแต้มต้องหารด้วย "+.DONATE_BOOK_VALUE+" ลงตัว"; close; }
+
+		.@book = .@amt / .DONATE_BOOK_VALUE;
+		if (.@book <= 0) { mes .N$; mes "จำนวนไม่ถูกต้อง"; close; }
+
+		.@fee = (.@amt * .FEE_PERCENT) / 100;
+		.@cost = .@amt + .@fee;
+
+		if (.@cost > .@pt) { mes .N$; mes "แต้มไม่พอ (ต้องใช้ "+callfunc("F_InsertComma", .@cost)+" แต้ม)"; close; }
+
+		mes .N$;
+		mes "แลกแต้ม: "+callfunc("F_InsertComma", .@amt)+" แต้ม";
+		mes "ภาษี "+.FEE_PERCENT+"%: "+callfunc("F_InsertComma", .@fee)+" แต้ม";
+		mes "รวมที่ต้องจ่าย: "+callfunc("F_InsertComma", .@cost)+" แต้ม";
+		mes "จะได้รับ: Rank Donate Book x"+callfunc("F_InsertComma", .@book);
+		next;
+		if (select("ยกเลิก","ยืนยัน") == 1) close;
+
+		query_sql("UPDATE `member_system` SET `topup_amount` = `topup_amount` - "+.@cost+" WHERE account_id = "+.@acc);
+		getitem .DONATE_BOOK_ID, .@book;
+
+		callfunc("MS_RecalcAndApply", .@acc);
+
+		.@newpt = 0;
+		query_sql("SELECT `topup_amount` FROM `member_system` WHERE account_id = "+.@acc, .@newpt);
+		dispbottom "[Rank Donate] ถอนสำเร็จ ได้หนังสือ x"+callfunc("F_InsertComma",.@book)+" | คงเหลือ "+callfunc("F_InsertComma", .@newpt);
+		close;
+
+	default:
+		close;
+	}
+
+OnInit:
+	waitingroom "  [ Rank Donate ]",0;
+	end;
+}

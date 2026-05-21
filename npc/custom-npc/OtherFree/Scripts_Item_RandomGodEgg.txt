@@ -1,0 +1,49 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+function	script	RandomGodEgg	{
+setarray .OTH_ITEMLIST[0],909,713,512,705,61502,7227,705,914,511,949,12710,6380,985,984,7227,7642,607,608,515,534,603,617,7539,12596,6417,7776,6665;
+setarray .COSN_ITEMLIST[0],61001;
+setarray .RARE_ITEMLIST[0],61701,61702,61703,61704,61705,61706;
+setarray .min_amount,1;
+setarray .max_amount,1;
+ 
+    set .rand, rand(0,100);
+    switch(.rand){
+        case 1:
+            set .Random, rand( getarraysize( .RARE_ITEMLIST ) );
+            getitem .RARE_ITEMLIST[ .Random ], 1;
+            announce "ผู้เล่น ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random God Egg ได้รับ "+getitemname(.RARE_ITEMLIST[ .Random ])+" ea.!!!",bc_all,0xCC00CC;
+        break;
+       
+       
+        case 2:
+            set .Random, rand( getarraysize( .COSN_ITEMLIST ) );
+            getitem .COSN_ITEMLIST[ .Random ], 1;
+            announce "ผู้เล่น ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random God Egg ได้รับ "+getitemname(.COSN_ITEMLIST[ .Random ])+" ea.!!",bc_all,0x0000FF;
+        break;
+       
+        default:
+            set .@amount,rand( .min_amount[.@random],.max_amount[.@random] );
+            set .Random, rand( getarraysize( .OTH_ITEMLIST ) );
+        if ( .OTH_ITEMLIST[ .Random ] == 0 || .OTH_ITEMLIST[ .Random ] == 0 ) {
+            getitem .OTH_ITEMLIST[ .Random ], 1;
+			dispbottom "คุณ ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random God Egg ได้รับ "+getitemname(.OTH_ITEMLIST[ .Random ])+" ea.";
+            } else {
+            getitem .OTH_ITEMLIST[ .Random ], .@amount;
+			dispbottom "คุณ ["+strcharinfo(0)+"] ได้ทำการเปิด Random Egg : Random God Egg ได้รับ "+getitemname(.OTH_ITEMLIST[ .Random ])+" จำนวน "+.@amount+" ea.";
+        }
+        break;
+    }
+ 
+}

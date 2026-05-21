@@ -1,0 +1,197 @@
+/*
+morocc,168,104,3	script	Stylist Designer	769,{
+	setarray .@Styles[1],
+		getbattleflag("max_cloth_color"),
+		getbattleflag("max_hair_style"),
+		getbattleflag("max_hair_color");
+	setarray .@Look[1],
+		LOOK_CLOTHES_COLOR,
+		LOOK_HAIR,
+		LOOK_HAIR_COLOR;
+	set .@s, select(" ~ สีผ้าคลุม: ~ ทรงผม: ~ สีผม");
+	set .@Revert, getlook(.@Look[.@s]);
+	set .@Style,1;
+	while(1) {
+		setlook .@Look[.@s], .@Style;
+		message strcharinfo(0),"นี่คือหมายเลขที่ #"+.@Style+".";
+		set .@menu$, " ~ ต่อไป (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000): ~ ก่อนหน้า (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000): ~ ข้ามไปที่หมายเลข...: ~ คืนด่าเดิม (^0055FF"+.@Revert+"^000000)";
+		switch(select(.@menu$)) {
+		case 1:
+			set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);
+			break;
+		case 2:
+			set .@Style, ((.@Style != 1) ? .@Style-1 : .@Styles[.@s]);
+			break;
+		case 3:
+			message strcharinfo(0),"กรุณาเลือกหมายเลขระหว่าง 1 ถึง "+.@Styles[.@s]+".";
+			input .@Style,0,.@Styles[.@s];
+			if (!.@Style)
+				set .@Style, rand(1,.@Styles[.@s]);
+			break;
+		case 4:
+			set .@Style, .@Revert;
+			setlook .@Look[.@s], .@Revert;
+			break;
+		}
+	}
+	
+OnInit:
+	setarray .messages$,"นั","ก","เ","ส","ริ","ม","ส","ว","ย";
+	while( 1 )
+	{
+		set .Display$,"";
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+	end;
+}
+
+*/
+
+
+
+
+
+-	script	Designer::design5	-1,{
+
+	set .@name$,"[^0000FFStylist^000000]";
+	setarray .@max[1],699,127,28;		// Number of cloths, haircolors, hairstyles in client
+	setarray .@blacklist[0],0;	// NPC will skip any cloth colors in this array.
+					// Use for palettes that cause errors or just plain look bad.
+					// Leave first value at 0 to disable.
+	setarray .@type[1],7,6,1;			// DO NOT EDIT
+	set .@style,0;
+	
+	mes .@name$;
+	mes "สวัสดีค่ะ ยินดีให้บริการค่ะ";
+	mes "เชิญเสริมสวย แต่งหล่อค่ะ";
+	next;
+	set .@s,select("^009933•^000000 เปลี่ยนสีเสื้อ",
+				"^009933•^000000 เปลี่ยนสีผม",
+				"^009933•^000000 เปลี่ยนทรงผม");
+	
+	mes .@name$;
+	mes "เริ่มเลยนะค่ะ";
+	next;
+	menu "^ff0000•^000000 เริ่มกันเลย",L_start,
+		"^ff0000•^000000 เลือกตำแหน่งที่จะเริ่ม",-;
+	
+	// CHOOSE WHERE TO START =====================================================
+	mes .@name$;
+	mes "OK เริ่มระหว่าง ^0000FF0 และ " +.@max[.@s]+ "^000000";
+	next;
+	input .@style;
+	
+	if (.@style < 0 || .@style > .@max[.@s]) {
+		mes .@name$;
+		mes "เกินที่กำหนดค่ะ";
+		close;
+	}
+
+  L_start:
+	setarray @revert[1],getlook(.@type[.@s]),0,0;
+	mes .@name$;
+	mes "OK เริ่มระหว่าง ^007700" +.@style+ "^000000";
+	next;
+	
+  // BEGINNING OF STYLE MENU LOOP ================================================
+  L_menuloop:
+	if (.@blacklist[0]) {
+		for (set .@f,0; .@f < getarraysize(.@blacklist); set .@f,.@f+1) {
+			if (.@style == .@blacklist[.@f] && .@previous == 1 && .@s == 1) {
+				set .@style, .@style - 1;
+				goto L_menuloop;
+			} else if (.@style == .@blacklist[.@f] && .@s == 1) {
+				set .@style, .@style +1;
+				goto L_menuloop;
+			}
+		}
+	}
+	setlook .@type[.@s],.@style;
+	mes "นี่คือ Style ที่ ^007700" +.@style+ "^000000";
+	
+	set .@next, .@style + 1;
+	set .@prev, .@style - 1;
+	
+	// MAXIMUM MENU
+	if (.@style == .@max[.@s]) {
+		set .@next,0;
+	}
+	
+	// MINIMUM MENU ==============================================================
+	if (.@style == 0) {
+		set .@prev,.@max[.@s];
+	}
+	
+	// PREVIOUS MENU =============================================================
+	if (.@previous) {
+		menu "^FF0000<< ก่อนหน้า - " +.@prev+ "^000000",L_prev,
+			"^0000FFต่อไป >> - " +.@next+ "^000000",L_next,
+			"^ff0000•^000000 ใส่ Style เอง",L_jump,
+			"^ff0000•^000000 บันทึก Style",L_save,
+			"^ff0000•^000000 โหลด Style",L_load;
+	}
+	
+	// DEFAULT MENU ==============================================================
+	menu "^0000FFต่อไป >> - " +.@next+ "^000000",L_next,
+		"^FF0000<< ก่อนหน้า - " +.@prev+ "^000000",L_prev,
+		"^ff0000•^000000 ใส่ Style เอง",L_jump,
+		"^ff0000•^000000 บันทึก Style",L_save,
+		"^ff0000•^000000 โหลด Style",L_load;
+		
+  L_next:
+	set .@previous,0;
+	set .@style, .@next;
+	goto L_menuloop;
+
+  L_prev:
+	set .@previous,1;
+	set .@style, .@prev;
+	goto L_menuloop;
+	
+  L_jump:
+	next;
+	mes .@name$;
+	mes "ใส่ Style ตามที่ต้องการค่ะ";
+	next;
+	input .@style;
+	if (.@style < 0 || .@style > .@max[.@s]) {
+		mes .@name$;
+		mes "เกินที่กำหนดค่ะ";
+		close;
+	}
+	goto L_menuloop;
+	
+  L_save:
+	next;
+	mes .@name$;
+	mes "เลือกช่องจัดเก็บ Style ค่ะ";
+	set .@x, select("^ff0000•^000000 ช่อง 1 - [" +@revert[1]+ "]",
+					"^ff0000•^000000 ช่อง 2 - [" +@revert[2]+ "]",
+					"^ff0000•^000000 ช่อง 3 - [" +@revert[3]+ "]");
+					
+	setarray @revert[.@x], .@style;
+	goto L_menuloop;
+	
+  L_load:
+	next;
+	mes .@name$;
+	mes "เลือก Style ที่จะโหลดค่ะ";
+	set .@x, select("^ff0000•^000000 ช่อง 1 - [" +@revert[1]+ "]",
+					"^ff0000•^000000 ช่อง 2 - [" +@revert[2]+ "]",
+					"^ff0000•^000000 ช่อง 3 - [" +@revert[3]+ "]");
+					
+	set .@style, @revert[.@x];
+	goto L_menuloop;
+
+OnInit:
+waitingroom "เสริมสวย",0;
+	end;
+}
+oasis,179,99,4	duplicate(design5)	Stylist Designer	769,{

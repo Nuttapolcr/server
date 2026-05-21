@@ -1,0 +1,94 @@
+-	script	Wwar	-1,{
+mes "สงครามชิงปราสาท เปิดทุกวัน จันทร์ อังคาร พุธ วันพฤหัสบดี ศุกร์ เสาร์ อาทิตย์";
+mes "สวัสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
+mes "ต้องการเข้าร่วมสงครามชิงปราสาทไหม?.";
+menu 
+"^FF0000•^000000 เข้าร่วมบ้านพาย่อน ^000000",Mm_GVG1, //payg_cas03
+//"^FF0000•^000000 เข้าร่วมบ้านพรอนเทร่า ^000000",Mm_GVG2, //prtg_cas01
+//"^FF0000•^000000 เข้าร่วมบ้านกิฟเฟ่น ^000000",Mm_GVG3, //gefg_cas04
+//"^FF0000•^000000 เข้าร่วมบ้านนากา ^000000",Mm_GVG4, //aldeg_cas04
+//"^FF0000•^000000 ชมสงคราม ^000000",Mm_du01,
+"^FF0000•^000000 ยกเลิก ",Lcancel23;
+
+Mm_du01:
+mes "สวัสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
+mes "ต้องการเข้าร่วมชมสงครามชิงปราสาทไหม?.";
+menu 
+"^FF0000•^000000 เข้าชมสงครามบ้านพาย่อน ^000000",Mm_duGVG1, //payg_cas03
+"^FF0000•^000000 เข้าชมสงครามบ้านพรอนเทร่า ^000000",Mm_duGVG2, //prtg_cas01
+"^FF0000•^000000 เข้าชมสงครามบ้านกิฟเฟ่น ^000000",Mm_duGVG3, //aldeg_cas04
+"^FF0000•^000000 เข้าชมสงครามบ้านนากา ^000000",Mm_duGVG4, //aldeg_cas04
+"^FF0000•^000000 ยกเลิก ",Lcancel23;
+
+Mm_GVG1:
+warp "pay_gld",318,293;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าร่วมสงครามชิงปราสาท บ้านพาย่อน ขณะนี้มีผู้เล่นหน้าบ้าน  [ "+getmapusers("pay_gld")+" ] คน และในบ้าน   [ "+getmapusers("payg_cas03")+" ] คน ",0;
+close;
+
+Mm_GVG2:
+warp "prt_gld",134,65;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าร่วมสงครามชิงปราสาท บ้านพรอนเทร่า ขณะนี้มีผู้เล่นหน้าบ้าน  [ "+getmapusers("prt_gld")+" ] คน และในบ้าน   [ "+getmapusers("prtg_cas01")+" ] คน ",0;
+close;
+
+Mm_GVG3:
+warp "gef_fild13",193,278;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าร่วมสงครามชิงปราสาท บ้านกิฟเฟ่น ขณะนี้มีผู้เล่นหน้าบ้าน  [ "+getmapusers("gef_fild13")+" ] คน และในบ้าน   [ "+getmapusers("gefg_cas04")+" ] คน ",0;
+close;
+
+
+Mm_GVG4:
+warp "alde_gld",239,242;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าร่วมสงครามชิงปราสาท บ้านนากา ขณะนี้มีผู้เล่นหน้าบ้าน  [ "+getmapusers("alde_gld")+" ] คน และในบ้าน   [ "+getmapusers("aldeg_cas04")+" ] คน ",0;
+close;
+
+//==============================================
+
+Mm_duGVG1:
+setaudience 1,"payg_cas03";
+warp "pay_gld",140,160;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าชมสงครามชิงปราสาท บ้านพาย่อน ขณะนี้มีผู้เล่นหน้าบ้าน  [ "+getmapusers("pay_gld")+" ] คน และในบ้าน   [ "+getmapusers("payg_cas03")+" ] คน ",0;
+close;
+
+Mm_duGVG2:
+setaudience 1,"prtg_cas01";
+warp "prt_gld",134,65;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าชมสงครามชิงปราสาท บ้านพรอนเทร่า ขณะนี้มีผู้เล่นหน้าบ้าน  [ "+getmapusers("prt_gld")+" ] คน และในบ้าน   [ "+getmapusers("prtg_cas01")+" ] คน ",0;
+close;
+
+Mm_duGVG3:
+setaudience 1,"gefg_cas04";
+warp "gef_fild13",193,278;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าชมสงครามชิงปราสาท บ้านพรอนเทร่า ขณะนี้มีผู้เล่นหน้าบ้าน  [ "+getmapusers("gef_fild13")+" ] คน และในบ้าน   [ "+getmapusers("gefg_cas04")+" ] คน ",0;
+close;
+
+Mm_duGVG4:
+setaudience 1,"aldeg_cas04";
+warp "alde_gld",239,242;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าชมสงครามชิงปราสาท บ้านนากา ขณะนี้มีผู้เล่นหน้าบ้าน  [ "+getmapusers("alde_gld")+" ] คน และในบ้าน   [ "+getmapusers("gefg_cas04")+" ] คน ",0;
+close;
+
+Lcancel23:
+close;
+OnInit:
+do {
+set .gvgtotal, getmapusers("pay_gld") + getmapusers("prt_gld") + getmapusers("gef_fild13") + getmapusers("alde_gld") + getmapusers("payg_cas03") + getmapusers("prtg_cas01") + getmapusers("gefg_cas04") + getmapusers("aldeg_cas04");
+delwaitingroom;
+waitingroom "ผู้เล่นในห้อง " +.gvgtotal+" คน",0;
+sleep 1000; // Evites super infinity loop
+} while(1); // End Loop
+end;
+}
+//==============================================
+//ที่ตั้งNPC
+//==============================================
+//oasis,219,64,4	duplicate(Wwar)	สงครามชิงปราสาท#01	734
+oasis,169,39,4	duplicate(Wwar)	สงครามชิงปราสาท#02	734
+oasis,152,106,5	duplicate(Wwar)	สงครามชิงปราสาท#03	734
+oasis,171,144,4	duplicate(Wwar)	สงครามชิงปราสาท#04	734
+oasis,165,238,4	duplicate(Wwar)	สงครามชิงปราสาท#05	734
+oasis,152,284,4	duplicate(Wwar)	สงครามชิงปราสาท#06	734
+oasis,59,173,4	duplicate(Wwar)	สงครามชิงปราสาท#07	734
+oasis,273,198,4	duplicate(Wwar)	สงครามชิงปราสาท#08	734
+oasis,224,152,6	duplicate(Wwar)	สงครามชิงปราสาท#09	734
+
+//==============================================

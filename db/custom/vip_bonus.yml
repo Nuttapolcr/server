@@ -1,0 +1,10 @@
+Header:
+  Type: VIP_BONUS_DB
+  Version: 1
+
+Body:
+  - Id: 1
+    Script: |
+      bonus bAllStats,1;
+      bonus bMaxHPrate,1;
+      bonus bMaxSPrate,1;

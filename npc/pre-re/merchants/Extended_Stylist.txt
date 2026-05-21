@@ -1,0 +1,59 @@
+//===== rAthena Script ======================================= 
+//= Stylist Extension - (Style UI)
+//===== Changelogs: ==========================================
+//= 1.0 First Version. [JohnnyPlayy]
+//===== Description: ========================================= 
+// Texts from this script were translated according to KRO
+//============================================================
+//= Stylist of Alberta
+//===================================================
+
+//= Stylist of Morocc
+//===================================================
+//morocc,118,93,3	script	Stylist#morocc	4_F_02,{
+//	mes "[Lonza]";
+//	mes "ยินดีต้อนรับ. ฉันชื่อ Lonza สไตลิสต์ชื่อดังจาก Morocc ฉันจะช่วยคุณได้อย่างไร?";
+//	next;
+//	switch(select("เปลี่ยนสไตล์:จบการสนทนา")) {
+//	case 1:
+//		close2;
+//		openstylist();
+//		end;
+//	case 2:
+//		mes "[Lonza]";
+//		mes "โปรดกลับมาหาเราอีกครั้ง~";
+//		close;
+//	}
+//}
+
+prt_in,243,168,4	script	Stylist#porntera	4_F_02,{
+	mes "[Jovovich]";
+	mes "ยินดีต้อนรับ. ฉันชื่อ Jovovich สไตลิสต์ชื่อดังจาก Porntera ฉันจะช่วยคุณได้อย่างไร?";
+	next;
+	switch(select("เปลี่ยนสไตล์:จบการสนทนา")) {
+	case 1:
+		close2;
+		openstylist();
+		end;
+	case 2:
+		mes "[Jovovich]";
+		mes "โปรดกลับมาหาเราอีกครั้ง~";
+		close;
+	}
+}
+
+alberta_in,55,142,7	script	Stylist#alberta	4_F_02,{
+	mes "[Veronica]";
+	mes "ยินดีต้อนรับ. ฉันชื่อ Veronica สไตลิสต์ชื่อดังจาก Alberta ฉันจะช่วยคุณได้อย่างไร?";
+	next;
+	switch(select("เปลี่ยนสไตล์:จบการสนทนา")) {
+	case 1:
+		close2;
+		openstylist();
+		end;
+	case 2:
+		mes "[Veronica]";
+		mes "โปรดกลับมาหาเราอีกครั้ง~";
+		close;
+	}
+}

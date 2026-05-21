@@ -1,0 +1,28 @@
+morocc,242,44,1	script	ดัน 100 ชั้น	406,{
+	switch(select("~ Endless Tower:~ ยกเลิกการสนทนา"))
+	{
+		case 1: warp "e_tower",70,117; end;
+//		case 2: warp "gef_fild10",241,199; end;
+//		case 3: warp "monk_test",306,144; end;
+		case 4: close;
+	}
+	end;
+	
+OnInit:
+	.gmlevel = 99;
+	waitingroom "[&] EndlessTower",0;
+	//setarray .messages$,"E","n","d","l","e","s","s","T","o","w","e","r";
+	while( 1 )
+	{
+		set .Display$,"";
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+	end;
+}

@@ -1,0 +1,287 @@
+maintown,123,180,6	script	Flash Sale	661,{
+Start:
+	
+	if(!.status){
+		if(getgmlevel()>= 99){
+			goto OnPass;
+			end;
+		}
+		mes .mes$;
+		mes "ขณะนี้ยังไม่ถึงเวลากิจกรรม";
+		mes "กิจกรรมจะเริ่มวัน^FF9900 อังคาร^000000";
+		mes "เวลา 19:00 - 23:59 น.";
+		end;
+	}
+	else {
+		goto OnPass;
+		end;
+	}
+	
+	OnPass:
+	
+	mes .mes$;
+	mes "โปรดเลือกรายการที่ต้องการใช้งาน";
+	mes "กิจกรรมจะเริ่มวัน^FF9900 อังคาร^000000";
+	mes "เวลา 19:00 - 23:59 น.";
+	
+	.@menu = select(
+		"- เข้าสู่ร้านค้ากิจกรรม",
+		"- ไม่มีอะไร ข้าแวะผ่านมาเฉย ๆ",
+		(getgmlevel()>=99)?"- Menu Admin":""
+	);
+	
+	if(.@menu == 1){
+		
+		if(!.status){
+			if(getgmlevel()< 99){
+				clear;
+				mes .mes$;
+				mes "ขณะนี้ยังไม่ถึงเวลากิจกรรม";
+				end;
+			}
+		}
+		
+		clear;
+		
+		mes .mes$;
+		
+		mes "โปรดเลือกรายการที่ต้องการใช้งาน";
+		
+		query_sql("SELECT id,item_id,item_am,rate,stock_now,stock_limit,zeny_use,cash_use,item_id_use_01,item_id_use_02,item_id_use_03,item_id_use_04,item_id_use_05,item_am_use_01,item_am_use_02,item_am_use_03,item_am_use_04,item_am_use_05 FROM `flash_sale_data` WHERE stock_now < stock_limit",.@id,.@item_id,.@item_am,.@rate,.@stock_now,.@stock_limit,.@zeny_use,.@cash_use,.@item_id_use_01,.@item_id_use_02,.@item_id_use_03,.@item_id_use_04,.@item_id_use_05,.@item_am_use_01,.@item_am_use_02,.@item_am_use_03,.@item_am_use_04,.@item_am_use_05);
+		
+		for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+			.@menu$ = .@menu$ + "• "+getitemname(.@item_id[.@i])+" x"+callfunc("F_InsertComma",.@item_am[.@i])+" ea ["+callfunc("F_InsertComma",.@stock_now[.@i])+"/"+callfunc("F_InsertComma",.@stock_limit[.@i])+"]";
+			.@menu$ = .@menu$ + ":";
+		}
+		.@part = select(.@menu$)-1;
+		
+		.@item_use[getarraysize(.@item_use)] = .@item_id_use_01[.@part];
+		.@item_use[getarraysize(.@item_use)] = .@item_am_use_01[.@part];
+		.@item_use[getarraysize(.@item_use)] = .@item_id_use_02[.@part];
+		.@item_use[getarraysize(.@item_use)] = .@item_am_use_02[.@part];
+		.@item_use[getarraysize(.@item_use)] = .@item_id_use_03[.@part];
+		.@item_use[getarraysize(.@item_use)] = .@item_am_use_03[.@part];
+		.@item_use[getarraysize(.@item_use)] = .@item_id_use_04[.@part];
+		.@item_use[getarraysize(.@item_use)] = .@item_am_use_04[.@part];
+		.@item_use[getarraysize(.@item_use)] = .@item_id_use_05[.@part];
+		.@item_use[getarraysize(.@item_use)] = .@item_am_use_05[.@part];
+		
+		clear;
+		mes .mes$;
+		if(!.new_exe){
+			mes "รายการ : ^AA00FF"+getitemname(.@item_id[.@part])+" x"+callfunc("F_InsertComma",.@item_am[.@part])+" ea^000000";
+		}
+		else {
+			mes "รายการ : ^i["+.@item_id[.@part]+"] . ^AA00FF"+getitemname(.@item_id[.@part])+" x"+callfunc("F_InsertComma",.@item_am[.@part])+" ea^000000";
+		}
+		mes "เงื่อนไขการซื้อ";
+		mes "โอกาส : ^009900"+.@rate[.@part]+"%^000000";
+		if(.@zeny_use[.@part]){
+			mes "• ใช้^0000FF Zeny^000000 จำนวน "+callfunc("F_InsertComma",.@zeny_use[.@part])+" z";
+		}
+		if(.@cash_use[.@part]){
+			mes "• ใช้^FF9900 Cash^000000 จำนวน "+callfunc("F_InsertComma",.@cash_use[.@part])+" pt.";
+		}
+		for ( .@i=0; .@i<getarraysize(.@item_use); .@i=.@i+2 ){
+			if(!.new_exe){
+				mes "• ใช้^00CC99 "+getitemname(.@item_use[.@i])+"^000000 x"+callfunc("F_InsertComma",.@item_use[.@i+1])+" ea";
+			}
+			else {
+				mes "• ใช้^00CC99 ^i["+.@item_use[.@i]+"] . "+getitemname(.@item_use[.@i])+"^000000 x"+callfunc("F_InsertComma",.@item_use[.@i+1])+" ea";
+			}
+		}
+		
+		.@menu2 = select(
+			"- ยืนยันการซื้อ"
+		);
+		
+		if(.@menu2 == 1){
+			
+			if(!.status){
+				if(getgmlevel()< 99){
+					clear;
+					mes .mes$;
+					mes "ขณะนี้ยังไม่ถึงเวลากิจกรรม";
+					end;
+				}
+			}
+			
+			deletearray .@stock_now;
+			
+			query_sql("SELECT stock_now FROM `flash_sale_data` WHERE id = "+.@id[.@part]+"",.@stock_now);
+			
+			if(.@stock_now >= .@stock_limit[.@part]){
+				clear;
+				mes .mes$;
+				mes "รายการที่ท่่านซื้อ";
+				mes "สินค้าขายหมดแล้ว";
+				mes "ไว้ครั้งหน้า ให้ไวกว่านี้นะ";
+				end;
+			}
+			
+			if(.@zeny_use[.@part]){
+				if(Zeny < .@zeny_use[.@part]){
+					clear;
+					mes .mes$;
+					mes "จำนวน Zeny ของท่านไม่เพียงพอ";
+					end;
+				}
+			}
+			if(.@cash_use[.@part]){
+				if(#CASHPOINTS < .@cash_use[.@part]){
+					clear;
+					mes .mes$;
+					mes "จำนวน Cash ของท่านไม่เพียงพอ";
+					end;
+				}
+			}
+			for ( .@i=0; .@i<getarraysize(.@item_use); .@i=.@i+2 ){
+				if(countitem(.@item_use[.@i]) < .@item_use[.@i+1]){
+					clear;
+					mes .mes$;
+					mes "ไอเทม "+getitemname(.@item_use[.@i])+" ไม่เพียงพอ";
+					end;
+				}
+			}
+			
+			if(.@zeny_use[.@part]){ Zeny = Zeny -.@zeny_use[.@part]; }
+			if(.@cash_use[.@part]){ #CASHPOINTS = #CASHPOINTS -.@cash_use[.@part]; }
+			for ( .@i=0; .@i<getarraysize(.@item_use); .@i=.@i+2 ){
+				delitem .@item_use[.@i],.@item_use[.@i+1];
+			}
+			
+			.@r = rand(1,100);
+			
+			if(.@r <= .@rate[.@part]){
+				specialeffect2 154;
+				getitem .@item_id[.@part],.@item_am[.@part];
+				announce "ผู้เล่น "+strcharinfo(0)+" : ได้ซื้อ "+getitemname(.@item_id[.@part])+" x"+callfunc("F_InsertComma",.@item_am[.@part])+" ea สำเร็จ",bc_all,0xFFFF00;
+				npctalk "ผู้เล่น "+strcharinfo(0)+" : ได้ซื้อ "+getitemname(.@item_id[.@part])+" x"+callfunc("F_InsertComma",.@item_am[.@part])+" ea สำเร็จ";
+				query_sql("UPDATE `flash_sale_data` SET `stock_now` = `stock_now`+1 WHERE id = "+.@id[.@part]+"");
+				if(.log){
+					query_sql("INSERT INTO `flash_sale_logs` (account_id,char_id,player_name,item_id,item_am,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(.@item_id[.@part]))+"','"+.@item_am[.@part]+"','Succes',NOW())");
+				}
+			}
+			else {
+				specialeffect2 155;
+				announce "ผู้เล่น "+strcharinfo(0)+" : ได้ซื้อ "+getitemname(.@item_id[.@part])+" x"+callfunc("F_InsertComma",.@item_am[.@part])+" ea ไม่สำเร็จ",bc_all,0xFF0000;
+				npctalk "ผู้เล่น "+strcharinfo(0)+" : ได้ซื้อ "+getitemname(.@item_id[.@part])+" x"+callfunc("F_InsertComma",.@item_am[.@part])+" ea ไม่สำเร็จ";
+				if(.log){
+					query_sql("INSERT INTO `flash_sale_logs` (account_id,char_id,player_name,item_id,item_am,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(.@item_id[.@part]))+"','"+.@item_am[.@part]+"','UnSucces',NOW())");
+				}
+			}
+			
+		}
+	}
+	if(.@menu == 2){
+		clear;
+		mes .mes$;
+		mes "ไว้เจอกันใหม่ ครั้งหน้า";
+	}
+	if(.@menu == 3){
+		clear;
+		while(1){
+			mes .mes$;
+			if(!.status){
+				mes "สถานะ :^FF3300 ปิด^000000";
+			}
+			else {
+				mes "สถานะ :^009900 เปิด^000000";
+			}
+			
+			.@menu3 = select(
+				"- เปิด กิจกรรม",
+				"- ปิด กิจกรรม"
+			);
+			
+			if(.@menu3 == 1){ donpcevent ""+strnpcinfo(0)+"::OnStarting"; }
+			if(.@menu3 == 2){ donpcevent ""+strnpcinfo(0)+"::OnEnding"; }
+			clear;
+		}
+		
+	}
+	
+	end;
+	
+	//	เวลาเปิด
+	OnClock1900:
+		//	===================================================================================================	//
+		//	 0 = Sunday / 1 = Monday / 2 = Tuesday / 3 = Wednesday / 4 = Thursday / 5 = Friday / 6 = Saturday	//
+		//	===================================================================================================	//
+		if(gettime(DT_DAYOFWEEK) == 2){
+			OnStarting:
+				.status = 1;
+				announce ""+strnpcinfo(0)+" : ขณะนี้ ได้เวลาจับจ่ายใช้ส่อยแล้ว เรียบเลือกสินค้าเร็วเข้า มันมีจำนวนจำกัดนะ",bc_all,0xFFFF00;
+				end;
+		}
+		end;
+	
+	//	เวลาปิด
+	OnClock2359:
+		//	===================================================================================================	//
+		//	 0 = Sunday / 1 = Monday / 2 = Tuesday / 3 = Wednesday / 4 = Thursday / 5 = Friday / 6 = Saturday	//
+		//	===================================================================================================	//
+		if(gettime(DT_DAYOFWEEK) == 2){
+			OnEnding:
+				.status = 0;
+				announce ""+strnpcinfo(0)+" : ขณะนี้ หมดเวลาเลือกสินค้าแล้ว ไว้เจอกันใหม่ครั้งหน้านะ",bc_all,0xFFFF00;
+				end;
+		}
+		end;
+	
+OnInit:
+	
+	//	Head Dialog
+	.mes$ = "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	//	Waitingroom
+//	waitingroom "[#] "+strnpcinfo(0)+"",0;
+	
+	//	ตั้งค่า Dialog โชว์ไอเทม เฉพาะรุ่นปี 2023+	ใส่ 1		หากต่้ำกว่า 2023+ ใส่ 0
+	.new_exe = 1;
+	
+	//	กำหนดเก็บ log ผู้เล่น ใส่ 1 หากต้องการ	ใส่ 0 หากไม่ต้องการ
+	.log = 1;
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `flash_sale_data` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`item_id` int(11) NOT NULL,"+
+		"`item_am` int(11) NOT NULL,"+
+		"`rate` int(11) NOT NULL,"+
+		"`stock_now` int(11) NOT NULL,"+
+		"`stock_limit` int(11) NOT NULL,"+
+		"`zeny_use` int(11) NOT NULL,"+
+		"`cash_use` int(15) NOT NULL,"+
+		"`item_id_use_01` int(11) NOT NULL,"+
+		"`item_am_use_01` int(11) NOT NULL,"+
+		"`item_id_use_02` int(11) NOT NULL,"+
+		"`item_am_use_02` int(11) NOT NULL,"+
+		"`item_id_use_03` int(11) NOT NULL,"+
+		"`item_am_use_03` int(11) NOT NULL,"+
+		"`item_id_use_04` int(11) NOT NULL,"+
+		"`item_am_use_04` int(11) NOT NULL,"+
+		"`item_id_use_05` int(11) NOT NULL,"+
+		"`item_am_use_05` int(11) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `flash_sale_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`item_id` varchar(255) NOT NULL,"+
+		"`item_am` int(11) NOT NULL,"+
+		"`status` varchar(255) NOT NULL,"+
+		"`time_record` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	end;
+	
+}
+

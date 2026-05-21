@@ -1,0 +1,181 @@
+quiz_01,61,194,0	warp	warp_random1	1,1,quiz_01,52,182
+quiz_01,66,194,0	warp	warp_random2	1,1,quiz_01,75,182
+quiz_01,63,196,0	script	warp_random_finish	45,1,1,{
+for( set .@i,0; .@i < getarraysize($randomitem); set .@i,.@i+1 ) {
+getitem $randomitem[.@i],$randomitemamount[.@i];
+}
+warp "morocc",158,46;
+end;
+}
+new_4-2,184,172,3	script	รับของรางวัล	811,{
+	getitem 7539,10;
+	warp "morocc",158,46;
+	end;
+
+OnInit:
+	waitingroom "~ รับของรางวัล ที่นี้",0;
+	end;
+}
+
+-	script	oxgame	-1,{
+	
+	if ( $randomregister == 0 )
+	{
+	mes "[ OX Game ]";
+	mes "คุณต้องการที่จะเข้าสู่ห้องกิจกรรม OX Game หรือไม่ ?";
+	mes " ";
+	mes "ตารางเวลากิจกรรม";
+	mes "14:00น , 20:00น , 02:00น";
+	next;
+	mes "[ OX Game ]";
+	mes "^FF0000ขณะนี้ยังไม่ถึงเวลากิจกรรม";
+	close;
+	}
+	else if ( $randomregister == 1 )
+	{
+	mes "[ OX Game ]";
+	mes "คุณต้องการที่จะเข้าสู่ห้องกิจกรรม OX Game หรือไม่ ?";
+	mes " ";
+	mes "ตารางเวลากิจกรรม";
+	mes "14:00น , 20:00น , 02:00น";
+	next;
+	switch(select("~ เข้าร่วมกิจกรรม (^FF0000"+getmapusers("quiz_01")+"^000000 คน):~ รายละเอียด:~ ยกเลิก")) {
+	case 1:
+		if ( BaseLevel <= 50 ) { 
+			mes "[ OX Game ]";
+			mes "ฮืมๆๆๆๆ"; 
+			mes "Lv. 50 ขึ้นไปถึงสามารถเข้าร่วม";
+			mes "กิจกรรม OX Game ได้น่ะ";
+			close; 
+		}
+		warp "quiz_01",63,200;
+		announce "[ ผู้เล่น "+strcharinfo(0) +" ได้เข้าสู่ห้อง OX Game ]",bc_map;
+	end;
+	case 2:
+	mes "[ OX Game ]";
+	mes "วิธีเล่นง่ายๆ คือ เลือกห้อง";
+				mes "ตามดวงของท่าน";
+				mes "ถ้าดวงดีก็ชนะไป";
+				mes "เป็นกิจกรรมที่ง่ายมากๆ";
+				next;
+				mes "[ OX Game ]";
+				mes " ";
+				mes "ผู้ชนะ จะได้รับ ^FF0000Diary Token 30ea.^000000";
+				mes " ";
+				mes "ผู้แพ้ จะได้รับ ^FF0000Diary Token 20ea.^000000";
+				next;
+				mes "[ OX Game ]";
+				mes "ตารางเวลากิจกรรม";
+				mes "14:00น , 20:00น , 02:00น";
+	close;
+	case 3:
+	close;
+	}
+	}
+	
+OnInit:
+	waitingroom "[&] OX Game",0;
+end;
+}
+
+-	script	warp_hidden	-1,{
+OnClock1400:
+OnClock2000:
+OnClock0200:
+set $randomregister,1;
+disablenpc "warp_random_finish";
+	announce "[ กิจกรรม OX Game : ได้เริ่มต้นขึ้นแล้ว กรุณาเข้าไปยังห้องกิจกรรม และ เลือกฝั่งภายใน 5 นาที ]",bc_all;
+	sleep 60000;
+	announce "[ กิจกรรม OX Game : กำลังจะเริ่มในอีก 4 นาที. ]",bc_all;
+	sleep 60000;
+	announce "[ กิจกรรม OX Game : กำลังจะเริ่มในอีก 3 นาที. ]",bc_all;
+	sleep 60000;
+	announce "[ กิจกรรม OX Game : กำลังจะเริ่มในอีก 2 นาที. ]",bc_all;
+	sleep 60000;
+	announce "[ กิจกรรม OX Game : กำลังจะเริ่มในอีก 1 นาที. ]",bc_all;
+	sleep 60000;
+	announce $randomname$+"[ กิจกรรม OX Game : เริ่มขึ้นแล้ว!! ]",bc_all;
+	set $randomregister,0;
+	for( set .@i,0; .@i < 5; set .@i,.@i+1 ) {
+	if(getmapusers("quiz_01") == 0) break;
+	callfunc("warp_function",.@i+1);
+}
+sleep 90000;
+announce $randomname$+"[ กิจกรรม OX Game : ได้สิ้นสุดลงแล้ว แล้วพบกันใหม่รอบต่อไป ? ]",bc_all;
+end;
+
+OnInit:
+set $randomname$,"[ กิจกรรม OX Game ";
+set $randomregister,"0";
+disablenpc "warp_random_finish";
+setcell "quiz_01",62,185,66,181,cell_walkable,0;
+setcell "quiz_01",61,205,66,205,cell_walkable,0;
+set $randomreturnmap$,"new_4-2";
+set $randomreturnx,178;
+set $randomreturny,171;
+setarray $randomitem[0],7539,7539;
+setarray $randomitemamount[0],15,15;
+end;
+// หมายเหตุ. บรรทัดไหนไม่มี comment ห้ามปรับแต่งเด็ดขาด
+}
+
+function	script	warp_function	{
+
+mapannounce "quiz_01",$randomname$+": กติกา สุ่มทั้งหมด 5 ครั้ง ผู้เล่นท่านใด สามารถเอาตัวรอดได้ถึง 5ครั้ง รับทันที Diary Token 30ea ]",bc_map;
+sleep 10000;
+mapannounce "quiz_01",$randomname$+": รอบที่ "+getarg(0)+" / 5 ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 10 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 9 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 8 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 7 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 6 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 5 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 4 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 3 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 2 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+mapannounce "quiz_01",$randomname$+": คุณมีเวลาเลือกฝั่งที่ต้องการอีก 1 วินาที ]",bc_map,0xFFFFFF;
+sleep 1000;
+areawarp "quiz_01",61,204,66,194,$randomreturnmap$,$randomreturnx,$randomreturny;
+if(getarg(0) == 5) enablenpc "warp_random_finish";
+switch(rand(2)) {
+case 0:
+mapannounce "quiz_01",$randomname$+" : ผู้เล่น [ ฝั่งซ้าย ] ได้เข้ารอบ ขอแสดงความยินดีด้วย ]",bc_map,0xFFFFFF;
+areawarp "quiz_01",45,191,61,175,"quiz_01",63,196;
+sleep 1000;
+areawarp "quiz_01",45,191,83,175,$randomreturnmap$,$randomreturnx,$randomreturny;
+break;
+case 1:
+mapannounce "quiz_01",$randomname$+" : ผู้เล่น [ฝั่งขวา ] ได้เข้ารอบ ขอแสดงความยินดีด้วย ]",bc_map,0xFFFFFF;
+areawarp "quiz_01",67,191,83,175,"quiz_01",63,196;
+sleep 1000;
+areawarp "quiz_01",45,191,83,175,$randomreturnmap$,$randomreturnx,$randomreturny;
+break;
+}
+return;
+}
+//important mapflag
+quiz_01	mapflag	noskill
+quiz_01	mapflag	nosave
+quiz_01	mapflag	nomemo
+quiz_01	mapflag	noteleport
+quiz_01	mapflag	nobranch
+//==================
+new_4-2	mapflag	nowarpto
+new_4-2	mapflag	nowarp
+new_4-2	mapflag	noskill
+new_4-2	mapflag	nosave
+new_4-2	mapflag	nomemo
+new_4-2	mapflag	noteleport
+new_4-2	mapflag	nobranch
+// Map
+morocc,238,48,1	duplicate(oxgame)	OX Game	916

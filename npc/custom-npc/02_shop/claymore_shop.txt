@@ -1,0 +1,6 @@
+//!rathena
+
+prt_in,87,92,4	script	Sir Gray#claym	119,{
+	callshop "Claymore_Exchange#claym";
+	end;
+}

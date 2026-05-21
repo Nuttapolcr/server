@@ -1,0 +1,483 @@
+//บรรทัด 41 กำหนดจุดวาร์ปที่เข้าไปในแมพ
+//บรรทัด 216 config ที่ธงสูง
+//บรรทัด 265 กำหนดมอนสเตอร์ ควรมีจำนวนเท่ากัน
+//บรรทัด 275 mapflag ที่สำคัญ
+//flag npcid line 82 223
+morocc,234,44,1	script	Event Lucky Branch::DB_GATE	897,{
+
+	mes .nameT$;
+	mes	"สวัสดีคุณ,^FF0000"+strcharinfo(0)+"^000000";
+	mes	"มีกิจกรรมมาแนะนำ สนุก ลุ้น ขี้แตก";
+	mes	"กับกิจกรรมไม้ผีเสี่ยงโชค";
+	mes	"^0000FFเงื่อนไขร่วมกิจกรรม^000000";
+	mes	"^FF0000Lv.50^000000 ขึ้นไป และ ^FF00005 ID^000000 / ^FF00001 IP^000000";
+	mes	"คุณต้องการเข้าร่วมกิจกรรมหรือไม่?";
+	next;
+	if(!.gate_status && getgmlevel()<98)
+		goto ISCLOSE;
+	if( BaseLevel <= 50 )
+		goto LVCLOSE;
+	
+	if(select("~ เข้าร่วมกิจกรรม ("+getmapusers(.dest_map$)+" คน)","~ ยกเลิก")){
+		if(!.gate_status && getgmlevel()<98)
+			goto ISCLOSE;
+		if( BaseLevel <= 50 )
+			goto LVCLOSE;
+		warp .dest_map$,.dest_x,.dest_y;
+		end;
+	}
+
+LVCLOSE:
+mes	"^0000FF[ Event Lucky Branch ]^000000";	
+mes "พาม พ๊าม ! !"; 
+mes "Lv. 50 ขึ้นไปถึงสามารถเข้าร่วม";
+mes "กิจกรรมไม้ผีเสี่ยงโชคได้น่ะ";
+mes "พบกันใหม่โอกาสหน้าน่ะ..?";
+close; 
+ISCLOSE:
+mes	"^0000FF[ Event Lucky Branch ]^000000";
+mes "^FF0000ประตูกิจกรรมได้ถูกปิดลงแล้ว";
+close;
+
+OnOpenGate:
+	set .gate_status,1;
+	getmapxy .@map$,.@x,.@y,1;
+	mapannounce .@map$,.name$+" ประตูทางเข้าได้เปิดขึ้นแล้ว",0;
+	mapannounce .dest_map$,.name$+" ประตูทางเข้าได้เปิดขึ้นแล้ว",0;
+	end;
+	
+OnCloseGate:
+	set .gate_status,0;
+	getmapxy .@map$,.@x,.@y,1;
+	mapannounce .@map$,.name$+" ประตูทางเข้าได้ปิดลงแล้ว",0;
+	mapannounce .dest_map$,.name$+" ประตูทางเข้าได้ปิดลงแล้ว",0;
+	end;
+
+Oninit:
+	set .nameT$,"^0000FF[ Event Lucky Branch ]^000000";
+	set .name$,"[ Event ]";
+	waitingroom "[&] ไม้ผีหรรษา",0;
+	.BaseLevel = 50;
+	//ตำแหน่งที่เข้าไปในแมพกิจกรรม
+	set .dest_map$,"quiz_02";
+	set .dest_x,350;
+	set .dest_y,382;
+end;
+
+}
+
+-	script	DB_WALL	-1,{
+
+oninit:
+	//Permanant Walls
+	setwall "quiz_02",322,376,56,6,0,"DB_BOTTOM_WALL";	//6=east
+	setwall "quiz_02",343,377,3,0,0,"DB_BOTTOML_WALL";	//0
+	setwall "quiz_02",355,377,3,0,0,"DB_BOTTOMR_WALL";	//0
+	setwall "quiz_02",343,391,4,4,0,"DB_TOPL_WALL";	//0
+	setwall "quiz_02",356,391,4,4,0,"DB_TOPR_WALL";	//0
+	
+	setwall "quiz_02",344,388,4,6,0,"DB_GM_WALL_L";	//0
+	setwall "quiz_02",352,388,4,6,0,"DB_GM_WALL_R";	//0
+	
+	//Removeable walls = Left and Right Gate
+	setwall "quiz_02",343,387,8,4,0,"DB_LEFT_WALL";
+	setwall "quiz_02",356,387,8,4,0,"DB_RIGHT_WALL";
+	
+	sleep 2000;
+	hideonnpc "DB_MOB";
+	disablenpc "DB_MOB";
+	end;
+	
+OnOpen:
+	delwall "DB_LEFT_WALL";
+	delwall "DB_RIGHT_WALL";
+end;
+
+OnClose:
+	setwall "quiz_02",343,387,8,4,0,"DB_LEFT_WALL";
+	setwall "quiz_02",356,387,8,4,0,"DB_RIGHT_WALL";
+end;
+
+}
+//787 flag
+quiz_02,345,389,4	script	ฝั่งสูง::DB_FLAG_HIGH	729,{
+	if(getgmlevel()<98)	end;
+	getmapxy .@map$,.@x,.@y,1;
+	if(!.gate_status)	set .@gate$,"+ เปิด";	else	set .@gate$,"- ปิด";
+	if(!.wall_status)	set .@wall$,"+ เปิด";	else	set .@wall$,"- ปิด";
+	set .@warp_area$,"";
+	if($DB_RESULT > 0){
+		if($DB_RESULT == 1){
+			set .@warp_area$,"วาร์ปต่ำออก";
+		}else{
+			set .@warp_area$,"วาร์ปสูงออก";
+		}
+	}
+	switch(select(.@gate$+" ทางเข้ากิจกรรม",.@wall$+" ประตูห้อง","วาร์ปตรงกลางทิ้ง","GM วาร์ปเข้าออกเขต","เริ่มสุ่มมอน",""+.@warp_area$,"ยกเลิก")){
+		case 1:
+			if(select("โอเค "+.@gate$+" ทางเข้า","ยกเลิก")==2)
+				close;
+			if(!.gate_status){
+				set .gate_status,1;
+				donpcevent "DB_GATE::OnOpenGate";
+				hideonnpc "DB_MOB";
+				disablenpc "DB_MOB";
+			}else{
+				set .gate_status,0;
+				donpcevent "DB_GATE::OnCloseGate";
+			}
+			end;
+			break;
+		case 2:
+			if(select("โอเค "+.@wall$+" ประตูห้อง","ยกเลิก")==2)
+				close;
+			if(!.wall_status){
+				set .wall_status,1; //1=เปิด
+				donpcevent "DB_WALL::OnOpen";
+				mapannounce .@map$,.name$+" ประตูห้องได้เปิดขึ้นแล้ว",0;
+				for(set .@i,1; .@i <= 8 ; set .@i,.@i+1){
+					hideonnpc "DBWALL_L"+.@i;
+					disablenpc "DBWALL_L"+.@i;
+					hideonnpc "DBWALL_R"+.@i;
+					disablenpc "DBWALL_R"+.@i;
+				}
+				hideonnpc "DB_MOB";
+				disablenpc "DB_MOB";
+				set $DB_result,0;
+			}else{
+				set .wall_status,0;
+				donpcevent "DB_WALL::OnClose";
+				mapannounce .@map$,.name$+" ประตูห้องได้ปิดลงแล้ว",0;
+				for(set .@i,1; .@i <= 8 ; set .@i,.@i+1){
+					hideoffnpc "DBWALL_L"+.@i;
+					enablenpc "DBWALL_L"+.@i;
+					hideoffnpc "DBWALL_R"+.@i;
+					enablenpc "DBWALL_R"+.@i;
+				}
+			}
+			end;
+		case 3:
+			if(.wall_status){
+				mes "ปิดประตูห้องก่อน";
+				close;
+			}
+			if(select("โอเค วาร์ปทิ้ง","ยกเลิก")==2)
+				close;
+			getmapxy .@map$,.@x,.@y,0;
+			if(.@y < 389){
+				warp .@map$,350,389;
+			}
+			sleep2 1000;
+			areawarp .@map$,343,387,356,377,"morocc",181,51;
+			end;
+			break;
+		case 4:
+			//350 389
+			getmapxy .@map$,.@x,.@y,0;
+			if(.@y >= 389){
+				warp .@map$,350,384;
+			}else{
+				warp .@map$,350,389;
+			}
+			end;
+		case 5:
+			if(.gate_status){
+				mes "ปิดทางเข้าก่อน";
+				close;
+			}
+			if(.wall_status){
+				mes "ปิดประตูห้องก่อน";
+				close;
+			}
+			if(select("โอเค เริ่มเลย","ยกเลิก")==2)
+				close;
+			set .count,0;
+			set $DB_result,0;
+			mapannounce .@map$,.name$+" Monster จะถูกสุ่มใน "+(.count_down-.count)+" วินาที",0;
+			initnpctimer;
+			end;
+		case 6:
+			if(select("โอเค "+.@warp_area$,"ยกเลิก")==2)
+				close;
+			if($DB_RESULT == 1){ //high
+				mapannounce .@map$,.name$+" บ๊ะบายๆ เสียใจด้วยนะค่ะ ฝั่งต่ำ คุณไม่ได้ไปต่อ !",0;
+				areawarp .@map$,357,393,377,369,"morocc",181,51;
+			}else if($DB_RESULT == 2){ //low warp high out
+				mapannounce .@map$,.name$+" บ๊ะบายๆ เสียใจด้วยนะค่ะ ฝั่งสูง คุณไม่ได้ไปต่อ !",0;
+				areawarp .@map$,322,393,342,369,"morocc",181,51;
+			}else{
+				dispbottom "เหมือนยังไม่ได้สุ่มนะ";
+			}
+			end;
+			break;
+		default:
+			end;
+			break;
+	}
+	close;
+	
+OnTimer1000:
+	set .count,.count+1;
+	getmapxy .@map$,.@x,.@y,1;
+	if((.count_down-.count) > 0){
+		mapannounce .@map$,.name$+" Monster จะถูกสุ่มใน "+(.count_down-.count)+" วินาที",0;
+		initnpctimer;
+	}else{
+		mapannounce .@map$,.name$+" เริ่มสุ่ม Monster ณ บัดนี้",0;
+		setnpcdisplay "DB_MOB","...",1620;
+		hideoffnpc "DB_MOB";
+		enablenpc "DB_MOB";
+		donpcevent "DB_MOB::OnStart";
+		end;
+	}
+end;
+
+Oninit:
+	//setting ธงสูง
+	set .name$,"[ กิจกรรมไม้ผีหรรษา ]";	//ใช้เวลาประกาศ
+	waitingroom "A-M [ฝั่งสูง]",0;
+	set .count_down,5; //นับถอยหลังกี่วินาที แล้วจึงสุ่ม
+	end;
+}
+//787 flag
+quiz_02,354,389,4	script	ฝั่งต่ำ::DB_FLAG_LOW	729,{
+	if(getgmlevel()<98)	end;
+end;
+Oninit:
+	waitingroom "N-Z [ฝั่งต่ำ]",0;
+	end;
+}
+
+quiz_02,350,382,4	script	DB_MOB	1620,{
+	end;
+	
+OnStart:
+	sleep 800;
+	getmapxy .@map$,.@x,.@y,1;
+	set .@text$,".";
+	for( set .@i,0 ; .@i < rand(4,9) ; set .@i,.@i+1){
+		mapannounce .@map$,.@text$,0;
+		sleep 800;
+		set .@text$,.@text$+".";
+	}
+	
+	set .@index,rand(2);
+	if(!.@index){
+		set $DB_result,1; //high
+		set .@result$,"สูง";
+		set .@id,.h_mob[rand(getarraysize(.h_mob))];
+	}else{
+		set $DB_result,2;
+		set .@result$,"ต่ำ";
+		set .@id,.l_mob[rand(getarraysize(.l_mob))];
+	}
+	set .@mob_name$,getmonsterinfo(.@id,0);
+	hideonnpc "DB_MOB";
+	hideoffnpc "DB_MOB";
+	setnpcdisplay "DB_MOB",.@mob_name$,.@id;
+	sleep 800;
+	mapannounce .@map$,.name$+" รอบนี้ออก Monster : ( "+.@mob_name$+" ) ฝั่ง "+.@result$,0;
+end;
+
+Oninit:
+	set .name$,"[ กิจกรรมไม้ผีหรรษา ]";
+	
+	//MONSTER LIST
+	//HIGH A-M
+	setarray .h_mob[0],1193,1275,1039,1101,1267,1250,1106,1109,1093,1116,1371,1319,1391,1515,1318,1312,1837,1374,1130,1131,1406,1132,1586,1410,1138,1139;
+	
+	//LOW N-Z
+	setarray .l_mob[0],1061,1180,1044,1189,1154,1019,1508,1254,1163,1165,1243,1584,1622,1707,1034,1054,1883,1066,1092,1771,1032,1390,1088,1208,1057,1200;
+end;
+
+}
+
+//important mapflag
+quiz_02	mapflag	nowarpto
+quiz_02	mapflag	nowarp
+quiz_02	mapflag	noskill
+quiz_02	mapflag	nosave
+quiz_02	mapflag	nomemo
+quiz_02	mapflag	noteleport
+quiz_02	mapflag	nobranch
+
+//ป้ายประตูห้อง
+-	script	::db_sign	858,{
+end;
+}
+
+quiz_02,343,387,4	duplicate(db_sign)	DBWALL_L1	858
+quiz_02,343,386,4	duplicate(db_sign)	DBWALL_L2	858
+quiz_02,343,385,4	duplicate(db_sign)	DBWALL_L3	858
+quiz_02,343,384,4	duplicate(db_sign)	DBWALL_L4	858
+quiz_02,343,383,4	duplicate(db_sign)	DBWALL_L5	858
+quiz_02,343,382,4	duplicate(db_sign)	DBWALL_L6	858
+quiz_02,343,381,4	duplicate(db_sign)	DBWALL_L7	858
+quiz_02,343,380,4	duplicate(db_sign)	DBWALL_L8	858
+
+quiz_02,356,387,4	duplicate(db_sign)	DBWALL_R1	858
+quiz_02,356,386,4	duplicate(db_sign)	DBWALL_R2	858
+quiz_02,356,385,4	duplicate(db_sign)	DBWALL_R3	858
+quiz_02,356,384,4	duplicate(db_sign)	DBWALL_R4	858
+quiz_02,356,383,4	duplicate(db_sign)	DBWALL_R5	858
+quiz_02,356,382,4	duplicate(db_sign)	DBWALL_R6	858
+quiz_02,356,381,4	duplicate(db_sign)	DBWALL_R7	858
+quiz_02,356,380,4	duplicate(db_sign)	DBWALL_R8	858
+
+quiz_02,343,393,4	duplicate(db_sign)	DBWALL_PL1	858
+quiz_02,343,392,4	duplicate(db_sign)	DBWALL_PL2	858
+quiz_02,343,391,4	duplicate(db_sign)	DBWALL_PL3	858
+quiz_02,343,390,4	duplicate(db_sign)	DBWALL_PL4	858
+quiz_02,343,389,4	duplicate(db_sign)	DBWALL_PL5	858
+quiz_02,343,388,4	duplicate(db_sign)	DBWALL_PL6	858
+
+quiz_02,343,379,4	duplicate(db_sign)	DBWALL_PL7	858
+quiz_02,343,378,4	duplicate(db_sign)	DBWALL_PL8	858
+quiz_02,343,377,4	duplicate(db_sign)	DBWALL_PL9	858
+
+quiz_02,356,393,4	duplicate(db_sign)	DBWALL_PR1	858
+quiz_02,356,392,4	duplicate(db_sign)	DBWALL_PR2	858
+quiz_02,356,391,4	duplicate(db_sign)	DBWALL_PR3	858
+quiz_02,356,390,4	duplicate(db_sign)	DBWALL_PR4	858
+quiz_02,356,389,4	duplicate(db_sign)	DBWALL_PR5	858
+quiz_02,356,388,4	duplicate(db_sign)	DBWALL_PR6	858
+
+quiz_02,356,379,4	duplicate(db_sign)	DBWALL_PR7	858
+quiz_02,356,378,4	duplicate(db_sign)	DBWALL_PR8	858
+quiz_02,356,377,4	duplicate(db_sign)	DBWALL_PR9	858
+
+quiz_02,322,376,4	duplicate(db_sign)	DBWALL_B1	858
+quiz_02,323,376,4	duplicate(db_sign)	DBWALL_B2	858
+quiz_02,324,376,4	duplicate(db_sign)	DBWALL_B3	858
+quiz_02,325,376,4	duplicate(db_sign)	DBWALL_B4	858
+quiz_02,326,376,4	duplicate(db_sign)	DBWALL_B5	858
+quiz_02,327,376,4	duplicate(db_sign)	DBWALL_B6	858
+quiz_02,328,376,4	duplicate(db_sign)	DBWALL_B7	858
+quiz_02,329,376,4	duplicate(db_sign)	DBWALL_B8	858
+quiz_02,330,376,4	duplicate(db_sign)	DBWALL_B9	858
+quiz_02,331,376,4	duplicate(db_sign)	DBWALL_B10	858
+quiz_02,332,376,4	duplicate(db_sign)	DBWALL_B11	858
+quiz_02,333,376,4	duplicate(db_sign)	DBWALL_B12	858
+quiz_02,334,376,4	duplicate(db_sign)	DBWALL_B13	858
+quiz_02,335,376,4	duplicate(db_sign)	DBWALL_B14	858
+quiz_02,336,376,4	duplicate(db_sign)	DBWALL_B15	858
+quiz_02,337,376,4	duplicate(db_sign)	DBWALL_B16	858
+quiz_02,338,376,4	duplicate(db_sign)	DBWALL_B17	858
+quiz_02,339,376,4	duplicate(db_sign)	DBWALL_B18	858
+quiz_02,340,376,4	duplicate(db_sign)	DBWALL_B19	858
+quiz_02,341,376,4	duplicate(db_sign)	DBWALL_B20	858
+quiz_02,342,376,4	duplicate(db_sign)	DBWALL_B21	858
+quiz_02,343,376,4	duplicate(db_sign)	DBWALL_B22	858
+quiz_02,344,376,4	duplicate(db_sign)	DBWALL_B23	858
+quiz_02,345,376,4	duplicate(db_sign)	DBWALL_B24	858
+quiz_02,346,376,4	duplicate(db_sign)	DBWALL_B25	858
+quiz_02,347,376,4	duplicate(db_sign)	DBWALL_B26	858
+quiz_02,348,376,4	duplicate(db_sign)	DBWALL_B27	858
+quiz_02,349,376,4	duplicate(db_sign)	DBWALL_B28	858
+quiz_02,350,376,4	duplicate(db_sign)	DBWALL_B29	858
+quiz_02,351,376,4	duplicate(db_sign)	DBWALL_B30	858
+quiz_02,352,376,4	duplicate(db_sign)	DBWALL_B31	858
+quiz_02,353,376,4	duplicate(db_sign)	DBWALL_B32	858
+quiz_02,354,376,4	duplicate(db_sign)	DBWALL_B33	858
+quiz_02,355,376,4	duplicate(db_sign)	DBWALL_B34	858
+quiz_02,356,376,4	duplicate(db_sign)	DBWALL_B35	858
+quiz_02,357,376,4	duplicate(db_sign)	DBWALL_B36	858
+quiz_02,358,376,4	duplicate(db_sign)	DBWALL_B37	858
+quiz_02,359,376,4	duplicate(db_sign)	DBWALL_B38	858
+quiz_02,360,376,4	duplicate(db_sign)	DBWALL_B39	858
+quiz_02,361,376,4	duplicate(db_sign)	DBWALL_B40	858
+quiz_02,362,376,4	duplicate(db_sign)	DBWALL_B41	858
+quiz_02,363,376,4	duplicate(db_sign)	DBWALL_B42	858
+quiz_02,364,376,4	duplicate(db_sign)	DBWALL_B43	858
+quiz_02,365,376,4	duplicate(db_sign)	DBWALL_B44	858
+quiz_02,366,376,4	duplicate(db_sign)	DBWALL_B45	858
+quiz_02,367,376,4	duplicate(db_sign)	DBWALL_B46	858
+quiz_02,368,376,4	duplicate(db_sign)	DBWALL_B47	858
+quiz_02,369,376,4	duplicate(db_sign)	DBWALL_B48	858
+quiz_02,370,376,4	duplicate(db_sign)	DBWALL_B49	858
+quiz_02,371,376,4	duplicate(db_sign)	DBWALL_B50	858
+quiz_02,372,376,4	duplicate(db_sign)	DBWALL_B51	858
+quiz_02,373,376,4	duplicate(db_sign)	DBWALL_B52	858
+quiz_02,374,376,4	duplicate(db_sign)	DBWALL_B53	858
+quiz_02,375,376,4	duplicate(db_sign)	DBWALL_B54	858
+quiz_02,376,376,4	duplicate(db_sign)	DBWALL_B55	858
+quiz_02,377,376,4	duplicate(db_sign)	DBWALL_B56	858
+
+
+quiz_02,322,377,4	duplicate(db_sign)	DBWALL_B57	858
+quiz_02,322,378,4	duplicate(db_sign)	DBWALL_B58	858
+quiz_02,322,379,4	duplicate(db_sign)	DBWALL_B59	858
+quiz_02,322,380,4	duplicate(db_sign)	DBWALL_B60	858
+quiz_02,322,381,4	duplicate(db_sign)	DBWALL_B61	858
+quiz_02,322,382,4	duplicate(db_sign)	DBWALL_B62	858
+quiz_02,322,383,4	duplicate(db_sign)	DBWALL_B63	858
+quiz_02,322,384,4	duplicate(db_sign)	DBWALL_B64	858
+quiz_02,322,385,4	duplicate(db_sign)	DBWALL_B65	858
+quiz_02,322,386,4	duplicate(db_sign)	DBWALL_B66	858
+quiz_02,322,387,4	duplicate(db_sign)	DBWALL_B67	858
+quiz_02,322,388,4	duplicate(db_sign)	DBWALL_B68	858
+quiz_02,322,389,4	duplicate(db_sign)	DBWALL_B69	858
+quiz_02,322,390,4	duplicate(db_sign)	DBWALL_B70	858
+quiz_02,322,391,4	duplicate(db_sign)	DBWALL_B71	858
+quiz_02,322,392,4	duplicate(db_sign)	DBWALL_B72	858
+quiz_02,322,393,4	duplicate(db_sign)	DBWALL_B73	858
+
+quiz_02,323,393,4	duplicate(db_sign)	DBWALL_B74	858
+quiz_02,324,393,4	duplicate(db_sign)	DBWALL_B75	858
+quiz_02,325,393,4	duplicate(db_sign)	DBWALL_B76	858
+quiz_02,326,393,4	duplicate(db_sign)	DBWALL_B77	858
+quiz_02,327,393,4	duplicate(db_sign)	DBWALL_B78	858
+quiz_02,328,393,4	duplicate(db_sign)	DBWALL_B79	858
+quiz_02,329,393,4	duplicate(db_sign)	DBWALL_B80	858
+quiz_02,330,393,4	duplicate(db_sign)	DBWALL_B81	858
+quiz_02,331,393,4	duplicate(db_sign)	DBWALL_B82	858
+quiz_02,332,393,4	duplicate(db_sign)	DBWALL_B83	858
+quiz_02,333,393,4	duplicate(db_sign)	DBWALL_B84	858
+quiz_02,334,393,4	duplicate(db_sign)	DBWALL_B85	858
+quiz_02,335,393,4	duplicate(db_sign)	DBWALL_B86	858
+quiz_02,336,393,4	duplicate(db_sign)	DBWALL_B87	858
+quiz_02,337,393,4	duplicate(db_sign)	DBWALL_B88	858
+quiz_02,338,393,4	duplicate(db_sign)	DBWALL_B89	858
+quiz_02,339,393,4	duplicate(db_sign)	DBWALL_B90	858
+quiz_02,340,393,4	duplicate(db_sign)	DBWALL_B91	858
+quiz_02,341,393,4	duplicate(db_sign)	DBWALL_B92	858
+quiz_02,342,393,4	duplicate(db_sign)	DBWALL_B93	858
+
+quiz_02,357,393,4	duplicate(db_sign)	DBWALL_B94	858
+quiz_02,358,393,4	duplicate(db_sign)	DBWALL_B95	858
+quiz_02,359,393,4	duplicate(db_sign)	DBWALL_B96	858
+quiz_02,360,393,4	duplicate(db_sign)	DBWALL_B97	858
+quiz_02,361,393,4	duplicate(db_sign)	DBWALL_B98	858
+quiz_02,362,393,4	duplicate(db_sign)	DBWALL_B99	858
+quiz_02,363,393,4	duplicate(db_sign)	DBWALL_B100	858
+quiz_02,364,393,4	duplicate(db_sign)	DBWALL_B101	858
+quiz_02,365,393,4	duplicate(db_sign)	DBWALL_B102	858
+quiz_02,366,393,4	duplicate(db_sign)	DBWALL_B103	858
+quiz_02,367,393,4	duplicate(db_sign)	DBWALL_B104	858
+quiz_02,368,393,4	duplicate(db_sign)	DBWALL_B105	858
+quiz_02,369,393,4	duplicate(db_sign)	DBWALL_B106	858
+quiz_02,370,393,4	duplicate(db_sign)	DBWALL_B107	858
+quiz_02,371,393,4	duplicate(db_sign)	DBWALL_B108	858
+quiz_02,372,393,4	duplicate(db_sign)	DBWALL_B109	858
+quiz_02,373,393,4	duplicate(db_sign)	DBWALL_B110	858
+quiz_02,374,393,4	duplicate(db_sign)	DBWALL_B111	858
+quiz_02,375,393,4	duplicate(db_sign)	DBWALL_B112	858
+quiz_02,376,393,4	duplicate(db_sign)	DBWALL_B113	858
+quiz_02,377,393,4	duplicate(db_sign)	DBWALL_B114	858
+
+quiz_02,377,392,4	duplicate(db_sign)	DBWALL_B115	858
+quiz_02,377,391,4	duplicate(db_sign)	DBWALL_B116	858
+quiz_02,377,390,4	duplicate(db_sign)	DBWALL_B117	858
+quiz_02,377,389,4	duplicate(db_sign)	DBWALL_B118	858
+quiz_02,377,388,4	duplicate(db_sign)	DBWALL_B119	858
+quiz_02,377,387,4	duplicate(db_sign)	DBWALL_B120	858
+quiz_02,377,386,4	duplicate(db_sign)	DBWALL_B121	858
+quiz_02,377,385,4	duplicate(db_sign)	DBWALL_B122	858
+quiz_02,377,384,4	duplicate(db_sign)	DBWALL_B123	858
+quiz_02,377,383,4	duplicate(db_sign)	DBWALL_B124	858
+quiz_02,377,382,4	duplicate(db_sign)	DBWALL_B125	858
+quiz_02,377,381,4	duplicate(db_sign)	DBWALL_B126	858
+quiz_02,377,380,4	duplicate(db_sign)	DBWALL_B127	858
+quiz_02,377,379,4	duplicate(db_sign)	DBWALL_B128	858
+quiz_02,377,378,4	duplicate(db_sign)	DBWALL_B129	858
+quiz_02,377,377,4	duplicate(db_sign)	DBWALL_B130	858

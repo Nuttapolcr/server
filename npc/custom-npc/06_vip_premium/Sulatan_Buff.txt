@@ -1,0 +1,122 @@
+morocc,140,153,6	script	Sulatan Buff	11154,{
+
+	mes .NPCName$;
+	switch(select("รับบัฟ Zeny:รับบัฟ Cash:รายละเอียด:ยกเลิก")) {
+
+	case 1:
+		set .@bank, #BANKVAULT;
+		if (.@bank < 0) set .@bank, 0;
+
+		set .@lv, 0;
+		for (set .@i, 8; .@i >= 1; set .@i, .@i - 1)
+			if (.@bank >= .ReqZ[.@i]) { set .@lv, .@i; break; }
+
+		set .@price, .CostZ;
+		if ($ZENYBUFF_PRICE > 0) set .@price, $ZENYBUFF_PRICE;
+
+		mes "ยอดฝากปัจจุบัน: " + .@bank + " Zeny";
+		if (.@lv == 0) mes "ยังไม่ถึงขั้นต่ำ 3,000,000 Zeny";
+		else mes "สามารถรับบัฟระดับ " + .@lv;
+		mes "ค่าบริการต่อครั้ง: " + .@price + " Zeny";
+		next;
+
+		if (.@lv == 0) { mes .NPCName$; mes "เงื่อนไขไม่ถึงขั้นต่ำ"; close; }
+		if (Zeny < .@price) { mes .NPCName$; mes "Zeny ไม่พอ"; close; }
+
+		setarray .@SCZ[1],
+			SC_ZENY_BUFF_LV1,SC_ZENY_BUFF_LV2,SC_ZENY_BUFF_LV3,SC_ZENY_BUFF_LV4,
+			SC_ZENY_BUFF_LV5,SC_ZENY_BUFF_LV6,SC_ZENY_BUFF_LV7,SC_ZENY_BUFF_LV8;
+
+		set .@missing, 0;
+		for (set .@i,1; .@i <= 8; set .@i, .@i+1)
+			if (.@SCZ[.@i] == 0) { set .@missing, 1; break; }
+		if (.@missing) { mes .NPCName$; mes "ยังไม่ได้ติดตั้ง SC_ZENY_BUFF_LV1..LV8"; close; }
+
+		set Zeny, Zeny - .@price;
+		for (set .@i,1; .@i <= 8; set .@i, .@i+1) sc_end .@SCZ[.@i];
+		sc_start .@SCZ[.@lv], .Duration, .@lv;
+
+		mes .NPCName$; mes "รับบัฟ Zeny Lv." + .@lv + " ระยะเวลา 2 ชั่วโมง";
+		close;
+
+	case 2:
+		set .@cash, #CASHPOINTS;
+		if (.@cash < 0) set .@cash, 0;
+
+		set .@lv, 0;
+		for (set .@i, 8; .@i >= 1; set .@i, .@i - 1)
+			if (.@cash >= .ReqC[.@i]) { set .@lv, .@i; break; }
+
+		set .@priceCP, .CostCP;
+
+		mes "CASHPOINTS ปัจจุบัน: " + .@cash;
+		if (.@lv == 0) mes "ยังไม่ถึงขั้นต่ำ 5,000 CP";
+		else mes "สามารถรับบัฟระดับ " + .@lv;
+		mes "ค่าบริการต่อครั้ง: " + .@priceCP + " CP";
+		next;
+
+		if (.@lv == 0) { mes .NPCName$; mes "เงื่อนไขไม่ถึงขั้นต่ำ"; close; }
+		if (#CASHPOINTS < .@priceCP) { mes .NPCName$; mes "CASHPOINTS ไม่พอ"; close; }
+
+		setarray .@SCC[1],
+			SC_CASH_BUFF_LV1,SC_CASH_BUFF_LV2,SC_CASH_BUFF_LV3,SC_CASH_BUFF_LV4,
+			SC_CASH_BUFF_LV5,SC_CASH_BUFF_LV6,SC_CASH_BUFF_LV7,SC_CASH_BUFF_LV8;
+
+		set .@missing, 0;
+		for (set .@i,1; .@i <= 8; set .@i, .@i+1)
+			if (.@SCC[.@i] == 0) { set .@missing, 1; break; }
+		if (.@missing) { mes .NPCName$; mes "ยังไม่ได้ติดตั้ง SC_CASH_BUFF_LV1..LV8"; close; }
+
+		set #CASHPOINTS, #CASHPOINTS - .@priceCP;
+		for (set .@i,1; .@i <= 8; set .@i, .@i+1) sc_end .@SCC[.@i];
+		sc_start .@SCC[.@lv], .Duration, .@lv;
+
+		mes .NPCName$; mes "รับบัฟ Cash Lv." + .@lv + " ระยะเวลา 2 ชั่วโมง";
+		close;
+
+	case 3:
+		set .@priceZ, .CostZ;
+		if ($ZENYBUFF_PRICE > 0) set .@priceZ, $ZENYBUFF_PRICE;
+		set .@priceCP, .CostCP;
+		mes "รายละเอียดบัฟ";
+		mes "- บัฟ Zeny: ใช้ยอดเงินฝาก Bank";
+		mes "- บัฟ Cash: ใช้ยอดสะสม Cash Points";
+		next;
+
+		mes .NPCName$;
+		mes "ขั้นต่ำบัฟ Zeny";
+		mes "Lv1 " + .ReqZ[1] + "  Lv2 " + .ReqZ[2] + "  Lv3 " + .ReqZ[3] + "  Lv4 " + .ReqZ[4];
+		mes "Lv5 " + .ReqZ[5] + "  Lv6 " + .ReqZ[6] + "  Lv7 " + .ReqZ[7] + "  Lv8 " + .ReqZ[8];
+		mes "ค่าบริการบัฟ Zeny ต่อครั้ง: " + .@priceZ + " Zeny";
+		next;
+
+		mes .NPCName$;
+		mes "ขั้นต่ำบัฟ Cash";
+		mes "Lv1 " + .ReqC[1] + "  Lv2 " + .ReqC[2] + "  Lv3 " + .ReqC[3] + "  Lv4 " + .ReqC[4];
+		mes "Lv5 " + .ReqC[5] + "  Lv6 " + .ReqC[6] + "  Lv7 " + .ReqC[7] + "  Lv8 " + .ReqC[8];
+		mes "ค่าบริการบัฟ Cash ต่อครั้ง: " + .@priceCP + " CP";
+		next;
+
+		mes .NPCName$;
+		mes "^FF0000หมายเหตุ:^000000";
+		mes "^FF0000- หากมีการถอนเงินจาก Bank หรือใช้จ่ายใน Cash Shop บัฟจะถูกยกเลิกทันที และต้องมารับใหม่ทุกครั้ง^000000";
+		mes "^FF0000- จำนวนขั้นต่ำ ระดับเงินฝาก ราคาบัฟ และสเตตัส อาจปรับเปลี่ยนตามความเหมาะสมของตลาด^000000";
+		mes "ระยะเวลาบัฟ: 2 ชั่วโมง";
+		close;
+
+	default:
+		close;
+	}
+
+OnInit:
+	.NPCName$ = "[Sulatan Buff]";
+	.CostZ    = 20000; 
+	.CostCP   = 100;
+	.Duration = 7200000;
+
+	setarray .ReqZ[1], 3000000,5000000,7000000,10000000,20000000,30000000,40000000,50000000;
+	setarray .ReqC[1], 5000,10000,20000,40000,60000,70000,80000,100000;
+
+	//waitingroom ">> สุลต่าลบัฟ <<",0;
+	end;
+}

@@ -1,0 +1,22 @@
+//ปิดหน้าบ้าน
+//alde_gld,48,79,0	warp	aldg01	1,1,aldeg_cas01,34,248
+//alde_gld,95,253,0	warp	aldg02	1,1,aldeg_cas02,88,163
+//alde_gld,142,81,0	warp	aldg03	1,1,aldeg_cas03,114,286	//Nuernburg
+//alde_gld,243,242,0	warp	aldg04	1,1,aldeg_cas04,149,17	//Wurzburg
+//alde_gld,259,90,0	warp	aldg05	1,1,aldeg_cas05,216,103	//Rothenburg
+//gef_fild13,210,75,0	warp	gefg02	1,1,gefg_cas01,95,178	//Repherion
+//gef_fild13,196,281,0	warp	gefg08	1,1,gefg_cas04,24,149	//Bergel
+//gef_fild13,305,83,0	warp	gefg09-1	1,1,gefg_cas05,99,200	//Mersetzdeitz
+//pay_gld,121,238,0	warp	payg01	1,1,payg_cas01,214,48
+//pay_gld,291,116,0	warp	payg02	1,1,payg_cas02,272,57
+//pay_gld,321,293,0	warp	payg03	1,1,payg_cas03,226,26
+//pay_gld,140,156,0	warp	payg04	1,1,payg_cas04,252,271
+//pay_gld,204,269,0	warp	payg05	3,1,payg_cas05,62,225
+//prt_gld,129,65,0	warp	prtg01	1,1,prtg_cas01,99,32
+//prt_gld,240,124,0	warp	prtg02-1	1,1,prtg_cas02,43,229
+//prt_gld,107,240,0	warp	prtg04-1	1,1,prtg_cas04,86,13
+//prt_gld,212,240,0	warp	prtg05-1	1,1,prtg_cas05,17,235
+//gef_fild13,256,57,0	warp	gefg09	1,1,gefg_cas05,11,134
+//gefg_cas01,34,136,0	warp	gefg01-1	1,1,gef_fild13,150,50
+//gef_fild13,150,54,0	warp	gefg01	1,1,gefg_cas01,34,140
+//gef_fild13,308,244,0	warp	gefg03	1,1,gefg_cas02,70,143

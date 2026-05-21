@@ -1,0 +1,25 @@
+function	script	InsertComma	{
+	.@s$ = "" + getarg(0);
+	for (.@i = getstrlen(.@s$) - 3; .@i > 0; .@i -= 3)
+		.@s$ = insertchar(.@s$, ",", .@i);
+	return .@s$;
+}
+
+function	script	PickRefinedTicket	{
+	.@item = getarg(0);
+	.@th   = getarg(1);
+	getinventorylist;
+	.@best = -1;
+	for (.@i = 0; .@i < @inventorylist_count; .@i++) {
+		if (@inventorylist_id[.@i] != .@item) continue;
+		.@ref = @inventorylist_refine[.@i];
+		if (.@ref < .@th) continue;
+		if (.@best < 0 || .@ref < .@best) .@best = .@ref;
+	}
+	if (.@best < 0) {
+		mes "äÁè¾ºäÍà·çÁ " + getitemname(.@item) + " ·Õè¶Ö§ÃÐ´Ñº " + .@th;
+		return 0;
+	}
+	return .@best;
+}
+

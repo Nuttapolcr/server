@@ -1,0 +1,37 @@
+-	script	TRUEWALLET	 -1,{
+	OnInit:
+
+		// ========================== CONFIG ==========================
+		set .@multiple_cash, 5;	// cash point * จากจำนวนเงินที่โอนมา
+		set .@multiple_bonus, 1;	// wallet point * จากจำนวนเงินที่โอนมา
+		// ============================================================
+		
+		while (1)
+		{
+			query_sql "SELECT `card_id`,`amount`,`user_id` FROM `truewallet` WHERE `status` = 1 ORDER BY RAND()",.@card_id$,.@card_amount,.@card_account_id;
+			sleep 1000;
+			if (getarraysize(.@card_id$) > 0) {
+				for (set .@i,0; .@i < getarraysize(.@card_id$); set .@i,.@i+1) {
+					set .@cash_given[.@i], .@card_amount[.@i] * .@multiple_cash;
+					if(.@card_amount[.@i] > 0 && attachrid(.@card_account_id) == 1)
+					{
+						query_sql "SELECT `wallet_point` FROM `login` WHERE `account_id` = '" + .@card_account_id[.@i] + "'",.@wallet_point;
+						set .@bonus_given[.@i], .@card_amount[.@i] * .@multiple_bonus;
+						set .@bonus_inacc[.@i], .@bonus_given[.@i] + .@wallet_point[.@i];
+						set #CASHPOINTS,(#CASHPOINTS + .@cash_given[.@i]);
+						query_sql "UPDATE `login` SET `wallet_point` = '" + .@bonus_inacc[.@i] + "' WHERE `account_id` = '" + .@card_account_id[.@i] + "'";
+						query_sql "UPDATE `truewallet` SET status = 2 WHERE `card_id` = " + .@card_id$[.@i];
+						dispbottom "[True wallet System] คุณได้รับ " + .@cash_given[.@i] + " Cash point รวม [ " + #CASHPOINTS + " ]";
+						dispbottom "[True wallet System] คุณได้รับ " + .@bonus_given[.@i] + " Wallet Point รวม [ " + .@bonus_inacc[.@i] + " ]";
+						detachrid;
+					}
+				}
+				deletearray .@card_id$[0],getarraysize(.@card_id$);
+				deletearray .@card_amount[0],getarraysize(.@card_amount);
+				deletearray .@card_account_id[0],getarraysize(.@card_account_id);
+				deletearray .@wallet_point[0],getarraysize(.@wallet_point);
+			}
+			sleep 3000;
+		}
+		end;
+}

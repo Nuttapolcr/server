@@ -1,0 +1,154 @@
+morocc,140,156,5	script	Donate Adventure Hall	618,{
+
+	query_sql "SELECT 1 FROM `rank_title` WHERE char_id = '"+getcharid(0)+"'", .@exists;
+	if (.@exists == 0) {
+		mes "[Donate Adventure Hall]";
+		mes "^FF0000ไม่พบข้อมูลการลงทะเบียน^000000";
+		mes "ยังไม่สามารถใช้งานเมนูนี้ได้";
+		close;
+	}	
+
+GHallMenu:
+
+	mes "==>[^0000FFDonate Adventure Hall^000000]<==";
+	mes "รายการที่สามารถบริจากได้";
+	mes "Zeny";
+	mes "Elunium";
+	mes "Oridecon";
+	mes "Gold";
+	mes "เจ้าอยากจะ Donate สิ่งใด !!";
+	
+
+menu	"Zeny - Donate",tbzenydonate,
+		"Elunium - Donate",tbeludonate,
+		"Oridecon - Donate",tboridonate,
+		"Gold - Donate",tbempdonate;
+end;
+
+
+//======================= Menu Selection =================================
+tbzenydonate:
+	clear;
+	mes "==>[^0000FFDonate Adventure Hall^000000]<==";
+	mes "กรุณาใส่จำนวนเงิน";	
+	mes "ห้ามต่ำกว่า  ^FF0000100,000^000000";
+	mes "และไม่เกิน  ^FF000010,000,000^000000";
+//	mes "^FF0000ต้องใส่ให้ถึง หลักแสน ไม่งั้นจะไม่ได้รับ^FF0000";
+//	mes "^FF0000Item เช่น 150,000 จะได้ไอเทมแค่ 1 รายการ^FF0000";		
+//	mes "^FF0000*ดังนั้นควรใส่ 200,000 จะได้ไอเทมแค่ 2 รายการ^FF0000";	
+	next;
+	
+	input .@dzeny;
+	if(.@dzeny < 100000 || .@dzeny > $@tbmaxzeny) goto GHallMenu;  
+	mes "==>[^0000FFDonate Adventure Hall^000000]<==";
+	mes "เจ้าจะบริจากเงินเป็นจำนวน";
+	mes "Zeny : " + callfunc("F_InsertComma", .@dzeny) + " ";
+	mes "ใช่หรือไม่";
+	if(select("Yes","No") == 2) close;	
+
+	if(Zeny<.@dzeny){
+	mes "เจ้ามี Zeny ไม่พอนิ";
+	end;
+	}	
+	set Zeny,Zeny-.@dzeny; 
+	set .@fzeny,.@dzeny/100000;
+	set .@fpoint,.@fzeny;
+	query_sql "UPDATE `rank_title` SET `zeny` = `zeny` + '"+.@dzeny+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+//	getitem 88001,.@fpoint;
+	mes "^0000FFทำรายสำเร็จ^000000";
+	//dispbottom "[Adventure Hall Donate] คุณได้รับ Adventure Point : "+.@fpoint+" แต้ม";
+		
+end;
+
+
+tbeludonate:
+	clear;
+	mes "==>[^0000FFDonate Adventure Hall^000000]<==";
+	mes "กรุณาใส่จำนวน Elunium";	
+	mes "ห้ามต่ำกว่า  ^0000FF0^000000 และไม่เกิน ^0000FF 100 ea";
+	next;
+	
+	input .@delunium;
+	if(.@delunium == 0 || .@delunium > $@tbmaxelu) goto GHallMenu;  
+	mes "==>[^0000FFDonate Adventure Hall^000000]<==";
+	mes "เจ้าจะบริจาก Elunium เป็นจำนวน";
+	mes "Elunium : "+.@delunium+" ";
+	mes "ใช่หรือไม่";
+	if(select("Yes","No") == 2) close;	
+
+	if(countitem(985)<.@delunium){
+	mes "เจ้ามีไอเทม Elunium ไม่พอนิ";
+	end;
+	}
+	delitem 985,.@delunium; 
+	set .@fpoint,.@delunium;	
+	query_sql "UPDATE `rank_title` SET `elunium` = `elunium` + '"+.@delunium+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+//	getitem 88001,.@fpoint;
+	mes "^0000FFทำรายสำเร็จ^000000";
+	//dispbottom "[Adventure Hall Donate] คุณได้รับ Adventure Point : "+.@fpoint+" แต้ม";
+end;
+
+
+tboridonate:
+	clear;
+	mes "==>[^0000FFDonate Adventure Hall^000000]<==";
+	mes "กรุณาใส่จำนวน Oridecon";	
+	mes "ห้ามต่ำกว่า  ^0000FF0^000000 และไม่เกิน ^0000FF 100 ea";
+	next;
+	
+	input .@doridecon;
+	if(.@doridecon == 0 || .@doridecon > $@tbmaxori) goto GHallMenu;  
+	mes "==>[^0000FFDonate Adventure Hall^000000]<==";
+	mes "เจ้าจะบริจาก Oridecon เป็นจำนวน";
+	mes "Oridecon : "+.@doridecon+" ";
+	mes "ใช่หรือไม่";
+	if(select("Yes","No") == 2) close;	
+
+	if(countitem(984)<.@doridecon){
+	mes "เจ้ามีไอเทม Oridecon ไม่พอนิ";
+	end;
+	}	
+	delitem 984,.@doridecon; 
+	set .@fpoint,.@doridecon;	
+	query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` + '"+.@doridecon+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+//	getitem 88001,.@fpoint;
+	mes "^0000FFทำรายสำเร็จ^000000";
+	//dispbottom "[Adventure Hall Donate] คุณได้รับ Adventure Point : "+.@fpoint+" แต้ม";
+end;
+
+
+tbempdonate:
+	clear;
+	mes "==>[^0000FFDonate Adventure Hall^000000]<==";
+	mes "กรุณาใส่จำนวน Gold";	
+	mes "ห้ามต่ำกว่า  ^0000FF0^000000 และไม่เกิน ^0000FF 100 ea";
+	next;
+	
+	input .@demperium;
+	if(.@demperium == 0 || .@demperium > $@tbmaxemp) goto GHallMenu;  
+	mes "==>[^0000FFDonate Adventure Hall^000000]<==";
+	mes "เจ้าจะบริจาก Gold เป็นจำนวน";
+	mes "Gold : "+.@demperium+" ";
+	mes "ใช่หรือไม่";
+	if(select("Yes","No") == 2) close;	
+
+	if(countitem($@tbvybranium)<.@demperium){
+	mes "เจ้ามีไอเทม Gold ไม่พอนิ";
+	end;
+	}	
+	delitem $@tbvybranium,.@demperium; 
+	set .@fpoint,.@demperium;		
+	query_sql "UPDATE `rank_title` SET `emperium` = `emperium` + '"+.@demperium+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+//	getitem 88001,.@fpoint;
+	mes "^0000FFทำรายสำเร็จ^000000";
+	//dispbottom "[Adventure Hall Donate] คุณได้รับ Adventure Point : "+.@fpoint+" แต้ม";
+end;
+
+
+OnInit:
+waitingroom "บริจาค Adventure Hall",0;	
+end;
+
+
+}
+

@@ -1,0 +1,22 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+//oasis	mapflag	snow	// มีหิมะตก (ยกเลิกได้ด้วยคำสั่ง GM @clearweather)
+//oasis	mapflag	clouds	// มีเมฆ (ยกเลิกได้ด้วยคำสั่ง GM @clearweather)
+//oasis	mapflag	clouds2	// มีเมฆมาก (ยกเลิกได้ด้วยคำสั่ง GM @clearweather)
+//oasis	mapflag	fog	// มีฝุ่นหมอก (ฝุ่น PM 2.5) (ยกเลิกได้ด้วยคำสั่ง GM @clearweather)
+oasis	mapflag	fireworks	// มีงานเทศกาลดอกไม้ไฟ (ยกเลิกได้ด้วยคำสั่ง GM @clearweather)
+oasis	mapflag	sakura	// มีซากุระร่วง (ยกเลิกได้ด้วยคำสั่ง GM @clearweather)
+oasis	mapflag	leaves	// มีใบไม้ร่วง (ยกเลิกได้ด้วยคำสั่ง GM @clearweather)
+
+

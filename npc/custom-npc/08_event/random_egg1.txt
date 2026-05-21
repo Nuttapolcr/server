@@ -1,0 +1,100 @@
+-	script	RANDOM_EGG1	FAKE_NPC,{
+	end;
+	
+OnInit:
+	// ตั้งค่าไอเท็มสุ่ม ให้ตรงกับ Item DB ไข่สุ่ม
+	set .@RGItem,19960;
+	set $@RANDOM_EGG1_default_filename$,"random_egg_01";
+	setarray $@RANDOM_EGG1_filename$[0],
+		"random_egg_01", "random_egg_02", "random_egg_03", "random_egg_04", "random_egg_05", "random_egg_06", "random_egg_07","random_egg_08",
+		"random_egg_09", "random_egg_10", "random_egg_11", "random_egg_12", "random_egg_13", "random_egg_14", "random_egg_15","random_egg_16",
+		"random_egg_17", "random_egg_18", "random_egg_19", "random_egg_20", "random_egg_21", "random_egg_22", "random_egg_23","random_egg_24";
+		
+	setarray $@RANDOM_EGG1_item[0],
+		31001, 31015, 31039, 31058, 31054, 31030, 31032, 31034,
+		31121, 31092, 31388, 31090, 31345, 31151, 31249, 31252,
+		31035, 31036, 31025, 31042, 31043, 31050, 31289, 31293;
+	
+	// ตั้งค่าอัตราการสุ่ม 100 คือง่าย 1คือ ยาก 50 คือ กลางๆ
+	setarray $@RANDOM_EGG1_item_rate[0],
+		30,30,70,15,70,15,70,70,
+		10,70,20,70,20,70,10,70,
+		15,70,15,70,15,70,70,15;
+
+	// system
+	setarray $@RANDOM_EGG1_size_db[0],
+		getarraysize($@RANDOM_EGG1_filename$);
+	end;
+}
+function	script	RANDOM_EGG1_NextSlot	{
+	set .@img,getarg(0) + 1;
+	
+	if (.@img >= $@RANDOM_EGG1_size_db[0])
+		set .@img,0;
+		
+	cutin $@RANDOM_EGG1_filename$[.@img], 4;
+	sleep2 getarg(1);
+	
+	return .@img;
+}
+
+-	script	RANDOM_EGG1#NPC	FAKE_NPC,{
+OnPCLogoutEvent:
+	set CostumeBox_Playing,0;
+	end;
+	
+OnPlay:
+	if(CostumeBox_Playing != 0){
+		getitem .@RGItem,1;
+		end;
+	}
+	pcblockmove getcharid(3),1;
+	set CostumeBox_Playing,1;
+	set .@img,0;
+	set .@round,rand(5,10);
+	set .@speed,10;
+	for (set .@i,0; .@i < .@round; set .@i,.@i+1)
+	{
+		set .@mini_round,rand($@RANDOM_EGG1_size_db[0]/2, $@RANDOM_EGG1_size_db[0]);
+		for (set .@j,0; .@j < .@mini_round; set .@j,.@j+1)
+		set .@img,callfunc("RANDOM_EGG1_NextSlot", .@img, .@speed);
+		set .@speed,.@speed+10;
+	}
+	
+	set .@round,rand($@RANDOM_EGG1_size_db[0]/2, $@RANDOM_EGG1_size_db[0]);
+	
+	for (set .@i,0; .@i < .@round; set .@i,.@i+1)
+	{
+		set .@img,callfunc("RANDOM_EGG1_NextSlot", .@img, .@speed);
+		set .@speed,.@speed+50;
+	}
+	set .@min,($@RANDOM_EGG1_size_db[0]/2)/2;
+	set .@round,rand(.@min, $@RANDOM_EGG1_size_db[0]/2);
+	set .@round_per_50,.@round/2;
+	set .@round_per_25,.@round_per_50/2;
+
+	for (set .@i,0; .@i < .@round; set .@i,.@i+1)
+	{
+		set .@img,callfunc("RANDOM_EGG1_NextSlot", .@img, .@speed);
+
+		if (.@i < .@round_per_25)
+			set .@speed,.@speed+25;
+		else if (.@i < .@round_per_50)
+			set .@speed,.@speed+100;
+		else
+			set .@speed,.@speed+250;
+			
+		if(.@i == .@round-1 && $@RANDOM_EGG1_item_rate[.@img] < rand(100)){
+			set .@i,.@i-1;
+		}
+	}
+	
+	pcblockmove getcharid(3),0;
+	set .@prize,$@RANDOM_EGG1_item[.@img];
+	set CostumeBox_Playing,0;
+	
+	announce "[ ไข่สุ่ม Random Egg Vol.1 : คุณ "+strcharinfo(0)+" ได้รับไอเท็ม "+getitemname(.@prize)+" จำนวน 1 ea. ]",bc_all,0xfcff00;
+	getitem .@prize, 1;
+	
+end;
+}

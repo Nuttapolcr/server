@@ -1,0 +1,233 @@
+//===== rAthena Script =======================================
+//= Premium Service
+//===== By: ================================================== 
+//= mr.TAURUS
+//===== Current Version: =====================================
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//============================================================
+//==============================================
+// GM Command: "@PremiumService" Call NPC.
+//==============================================
+
+//==============================================
+// Check Premium Service.
+//==============================================
+-	script	TAURUS_CHK_PREMIUM	-1,{
+OnPCLoginEvent:
+	// Check & Update Premium Service Buff.
+	if (#PREMIUMSERVICE_TIME > gettimetick(2)) {
+		sc_end SC_PREMIUMSERVICE;
+		sc_end SC_PREMIUMSERVICE_EXPBOOST_A;
+		sc_end SC_PREMIUMSERVICE_JEXPBOOST_A;
+		sc_end SC_PREMIUMSERVICE_ITEMBOOST_A;
+		sc_start SC_PREMIUMSERVICE,((#PREMIUMSERVICE_TIME - gettimetick(2))*1000),1;
+		sc_start SC_PREMIUMSERVICE_EXPBOOST_A,((#PREMIUMSERVICE_TIME - gettimetick(2))*1000),20;
+		sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,((#PREMIUMSERVICE_TIME - gettimetick(2))*1000),20;
+		sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,((#PREMIUMSERVICE_TIME - gettimetick(2))*1000),30;
+	}
+	// Check & End Premium Service Buff.
+	if (#PREMIUMSERVICE_TIME <= gettimetick(2)) { 
+		sc_end SC_PREMIUMSERVICE;
+		sc_end SC_PREMIUMSERVICE_EXPBOOST_A;
+		sc_end SC_PREMIUMSERVICE_JEXPBOOST_A;
+		sc_end SC_PREMIUMSERVICE_ITEMBOOST_A; 
+	}
+	
+	//==============================================
+	// Check & Update Premi Buff.
+	//==============================================
+	if (#PREMIUMSERVICE_EXP_S > gettimetick(2)) {
+		sc_end SC_PREMIUMSERVICE_EXPBOOST_S;
+		sc_start SC_PREMIUMSERVICE_EXPBOOST_S,((#PREMIUMSERVICE_EXP_S - gettimetick(2))*1000),30;
+	}
+	if (#PREMIUMSERVICE_JEXP_S > gettimetick(2)) {
+		sc_end SC_PREMIUMSERVICE_JEXPBOOST_S;
+		sc_start SC_PREMIUMSERVICE_JEXPBOOST_S,((#PREMIUMSERVICE_JEXP_S - gettimetick(2))*1000),30;
+	}
+	if (#PREMIUMSERVICE_ITEM_S > gettimetick(2)) {
+		sc_end SC_PREMIUMSERVICE_ITEMBOOST_S;
+		sc_start SC_PREMIUMSERVICE_ITEMBOOST_S,((#PREMIUMSERVICE_ITEM_S - gettimetick(2))*1000),30;
+	}
+	if (#PREMIUMSERVICE_LIFE_S > gettimetick(2)) {
+		sc_end SC_PREMIUMSERVICE_LIFEINSURANCE;
+		sc_start SC_PREMIUMSERVICE_LIFEINSURANCE,((#PREMIUMSERVICE_LIFE_S - gettimetick(2))*1000),50;
+	}
+	
+	//==============================================
+	// Check & End Premi Buff.
+	//==============================================
+	if (#PREMIUMSERVICE_EXP_S <= gettimetick(2)) { 
+		sc_end SC_PREMIUMSERVICE_EXPBOOST_S;
+	}
+	if (#PREMIUMSERVICE_JEXP_S <= gettimetick(2)) { 
+		sc_end SC_PREMIUMSERVICE_JEXPBOOST_S;
+	}
+	if (#PREMIUMSERVICE_ITEM_S <= gettimetick(2)) { 
+		sc_end SC_PREMIUMSERVICE_ITEMBOOST_S;
+	}
+	if (#PREMIUMSERVICE_LIFE_S <= gettimetick(2)) { 
+		sc_end SC_PREMIUMSERVICE_LIFEINSURANCE;
+	}
+	end;
+}
+
+//==============================================
+// Script: NPC Premi.
+//==============================================
+new_zone01,0,0,4	script	premium_service	4_F_PREMI,{
+	cutin "prm_3",2;
+	mes .NPCname$;
+	mes "สวัสดี เมี้ยว~";
+	mes "ข้าคือ Premi เอง!";
+	mes "ยินดีที่ได้รู้จักนะ~";
+	next;
+	cutin "prm_2",2;
+	mes .NPCname$;
+	mes "วันนี้ให้ Premi ช่วยบริการอะไรดีเจ้าคะ?";
+	next;
+	setarray .@items[0],4,2,1,6,0;
+	setarray .@names$[0],
+		"เพิ่มค่าประสบการณ์","เพิ่มอัตราการดรอป",
+		"ลดบทลงโทษตอนตาย","รับบริการทั้งหมดครั้งเดียว",
+		"ไม่ทำสิ่งใด";
+	setarray .@names2$[0],
+		"เพิ่มค่าประสบการณ์","เพิ่มอัตราการดรอป",
+		"ลดบทลงโทษตอนตาย","ทั้งหมด";
+	for(.@i=0; .@i<5; .@i++) {
+		if (countitem(.isv) < .@items[.@i]) {
+			.@status[.@i] = 2;
+			.@menu$ = .@menu$+.@names$[.@i]+"^AAAAAA (วัตถุดิบไม่พอ)^000000:";
+		} else if (.@i == 4) {
+			.@menu$ = .@menu$+.@names$[.@i]+":";
+		} else {
+			.@status[.@i] = 1;
+			.@menu$ = .@menu$+.@names$[.@i]+" (1วัน):";
+		}
+	}
+	.@i = select(.@menu$)-1;
+	if (.@i == 4) {
+		cutin "prm_3",2;
+		mes .NPCname$;
+		mes "อ่าา!";
+		mes "วันนี้ช่างอากาศดี ไม่ต้องทำอะไร!";
+		next;
+		cutin "prm_2",2;
+		mes .NPCname$;
+		mes "สำหรับ Premi, วันแบบนี้ถ้าได้กิน";
+		mes "<ITEM>"+getitemname(.isv)+"<INFO>"+.isv+"</INFO></ITEM>","คงจะดีที่สุดเลย!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	switch(.@status[.@i]) {
+	case 0:
+	case 1:
+		break;
+	case 2:
+		cutin "prm_4",2;
+		mes .NPCname$;
+		mes "สำหรับ "+.@names$[.@i]+" (1วัน)";
+		mes "ต้องใช้: <ITEM>"+getitemname(.isv)+"<INFO>"+.isv+"</INFO></ITEM>","จำนวน: ^FF0000"+.@items[.@i]+"^000000 ชิ้น";
+		close2;
+		cutin "",255;
+		end;
+	}
+	cutin "prm_1",2;
+	mes .NPCname$;
+	mes "หากต้องการใช้เวทมนต์:";
+	if (.@i==3) {
+		mes "- ^0000FFเพิ่มค่าประสบการณ์";
+		mes "- ^0000FFเพิ่มอัตราการดรอป";
+		mes "- ^0000FFลดบทลงโทษตอนตาย";
+		mes "- ^0000FFพร้อมกัน ต้องให้";
+	} else {
+		mes "- ^0000FF"+.@names2$[.@i];
+	}
+	mes "ต้องใช้: <ITEM>"+getitemname(.isv)+"<INFO>"+.isv+"</INFO></ITEM>","จำนวน: ^FF0000"+.@items[.@i]+"^000000 ชิ้น";
+	mes "ในการเสกนะเจ้าคะ.";
+	next;
+	mes "[^CC0000 คำเตือน ^000000]";
+	mes "ต้องใช้: <ITEM>"+getitemname(.isv)+"<INFO>"+.isv+"</INFO></ITEM>","จำนวน: ^FF0000"+.@items[.@i]+"^000000 ชิ้น","จะได้รับ Buff:";
+	if (.@i==3) {
+		mes "- ^0000FFเพิ่มค่าประสบการณ์ (1วัน)";
+		mes "- ^0000FFเพิ่มอัตราการดรอป (1วัน)";
+		mes "- ^0000FFลดบทลงโทษตอนตาย (1วัน)";
+	} else {
+		mes "- ^0000FF"+.@names2$[.@i]+" (1วัน)";
+	}
+	mes "หมายเหตุ:";
+	mes "^CC0000Buff จะไม่สามารถถอดสิทธิ์ออกจากตัวได้^000000";
+	next;
+	if (select(""+sb$+" รับ Buff:"+sb$+" ยกเลิก") == 2) {
+		cutin "prm_3",2;
+		mes .NPCname$;
+		mes "อ่าา!";
+		mes "วันนี้ช่างอากาศดี ไม่ต้องทำอะไร!";
+		next;
+		cutin "prm_2",2;
+		mes .NPCname$;
+		mes "สำหรับ Premi, วันแบบนี้ถ้าได้กิน";
+		mes "<ITEM>"+getitemname(.isv)+"<INFO>"+.isv+"</INFO></ITEM>","คงจะดีที่สุดเลย!";
+		close2;
+		cutin "",255;
+		end;
+	}
+	delitem .isv,.@items[.@i];
+	cutin "prm_1",2;
+	mes .NPCname$;
+	mes "อาฮ่า!";
+	mes "เรามาลองดูความสามารถกันหน่อยไหม!!!";
+	next;
+	switch(.@i) {
+		case 0:
+			specialeffect2 83;
+			sc_start SC_PREMIUMSERVICE_EXPBOOST_S,24*60*60*1000,30;
+			sc_start SC_PREMIUMSERVICE_JEXPBOOST_S,24*60*60*1000,30;
+			#PREMIUMSERVICE_EXP_S = gettimetick(2)+24*60*60;
+			#PREMIUMSERVICE_JEXP_S = gettimetick(2)+24*60*60;
+			break;
+		case 1:
+			specialeffect2 83;
+			sc_start SC_PREMIUMSERVICE_ITEMBOOST_S,24*60*60*1000,30;
+			#PREMIUMSERVICE_ITEM_S = gettimetick(2)+24*60*60;
+			break;
+		case 2:
+			specialeffect2 83;
+			sc_start SC_PREMIUMSERVICE_LIFEINSURANCE,24*60*60*1000,50;
+			#PREMIUMSERVICE_LIFE_S = gettimetick(2)+24*60*60;
+			break;
+		case 3:
+			specialeffect2 83;
+			sc_start SC_PREMIUMSERVICE_EXPBOOST_S,24*60*60*1000,30;
+			sc_start SC_PREMIUMSERVICE_JEXPBOOST_S,24*60*60*1000,30;
+			sc_start SC_PREMIUMSERVICE_ITEMBOOST_S,24*60*60*1000,30;
+			sc_start SC_PREMIUMSERVICE_LIFEINSURANCE,24*60*60*1000,50;
+			#PREMIUMSERVICE_EXP_S = gettimetick(2)+24*60*60;
+			#PREMIUMSERVICE_JEXP_S = gettimetick(2)+24*60*60;
+			#PREMIUMSERVICE_ITEM_S = gettimetick(2)+24*60*60;
+			#PREMIUMSERVICE_LIFE_S = gettimetick(2)+24*60*60;
+			break;
+	}
+	mes .NPCname$;
+	mes "เป็นอย่างไรบ้างคะ คุณ "+strcharinfo(0)+"!";
+	mes "ยังไม่รู้สึกถึงเวทมนต์ "+.@name$+" หรือเจ้าคะ?";
+	mes "จะมาเป็นแบบนี้ไม่ได้นะ!";
+	mes "รีบออกไปลองต่อสู้ดูค่ะ!";
+	close2;
+	cutin "",255;
+	end;
+OnTimer6000:	// ตั้งค่าเวลาnpcที่เรียกมา หน่วย 1000 = 1วินาที
+	sscanf( strnpcinfo(0), "Premi#ps%d", .@num );
+	stopnpctimer;
+	unitwarp getnpcid(0,("Premi#ps"+.@num)),"new_zone01",0,0;
+	setd "$A_PREMIUM_SERVICE"+.@num , 0;
+	end;
+	
+OnInit:
+	.NPCname$  = "[^0000FF Premi ^000000]";
+	.sb$ = "~";
+	.isv = 6417;
+	end;
+}

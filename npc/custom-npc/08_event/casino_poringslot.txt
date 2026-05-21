@@ -1,0 +1,429 @@
+/*
+=================== TERMS OF SERVICES. ===================
+1. ALL RIGHT RESERVED RE-SELLER OR SHARE SCRIPT TO PUBLISH.
+2. BUT YOU RE-SELLER OR SHARE SCRIPT WITH OUT UNAUTHORIZRD
+   I WILL ALL CANCEL MY SUPPORT FOR YOU.
+3. MAINTENANCE SCRIPTS WILL BE FREE SERVICES.
+4. I WILL NOT KEEP ANY INFORMATIONS FROMS YOU SERVER THAT
+   YOU SEND FOR ME.
+5. I HOPE YOU WILL ALL ACCEPT TERMS OF SERVICES.
+==========================================================
+Script. Poring Slot																				 
+Create By. [Eddga-Studio]
+Translator By. Eddga Studio
+Bug Report. Dollaporn Naraphan [ FB ]																					 
+Contact Us. Dollaporn Naraphan [ FB ]																					 																				 
+==========================================================
+*/
+
+-	script	PoringSlotsCh	-1,{end;}
+
+morocc,198,45,4	duplicate(PoringSlotsCh)	PoringSlots#01	1002
+morocc,198,43,4	duplicate(PoringSlotsCh)	PoringSlots#02	1002
+morocc,198,41,4	duplicate(PoringSlotsCh)	PoringSlots#03	1031
+morocc,198,39,4	duplicate(PoringSlotsCh)	PoringSlots#04	1113
+morocc,198,37,4	duplicate(PoringSlotsCh)	PoringSlots#05	1002
+morocc,198,35,4	duplicate(PoringSlotsCh)	PoringSlots#06	1582
+morocc,200,35,5	duplicate(PoringSlotsCh)	PoringSlots#07	1002
+morocc,202,35,5	duplicate(PoringSlotsCh)	PoringSlots#08	1388
+morocc,204,35,5	duplicate(PoringSlotsCh)	PoringSlots#09	1002
+morocc,206,35,5	duplicate(PoringSlotsCh)	PoringSlots#10	1113
+morocc,208,35,5	duplicate(PoringSlotsCh)	PoringSlots#11	1031
+morocc,210,35,5	duplicate(PoringSlotsCh)	PoringSlots#12	1002
+morocc,212,35,5	duplicate(PoringSlotsCh)	PoringSlots#13	1002
+morocc,214,35,5	duplicate(PoringSlotsCh)	PoringSlots#14	1113
+morocc,216,35,5	duplicate(PoringSlotsCh)	PoringSlots#15	1002
+morocc,216,37,5	duplicate(PoringSlotsCh)	PoringSlots#16	1031
+morocc,216,39,5	duplicate(PoringSlotsCh)	PoringSlots#17	1002
+morocc,216,41,5	duplicate(PoringSlotsCh)	PoringSlots#18	1113
+morocc,216,43,5	duplicate(PoringSlotsCh)	PoringSlots#19	1002
+morocc,216,45,6	duplicate(PoringSlotsCh)	PoringSlots#20	1582
+morocc,214,45,4	duplicate(PoringSlotsCh)	PoringSlots#21	1002
+morocc,212,45,4	duplicate(PoringSlotsCh)	PoringSlots#22	1031
+morocc,210,45,4	duplicate(PoringSlotsCh)	PoringSlots#23	1113
+morocc,208,45,4	duplicate(PoringSlotsCh)	PoringSlots#24	1002
+morocc,206,45,4	duplicate(PoringSlotsCh)	PoringSlots#25	1096
+morocc,204,45,4	duplicate(PoringSlotsCh)	PoringSlots#26	1113
+morocc,202,45,4	duplicate(PoringSlotsCh)	PoringSlots#27	1002
+morocc,200,45,4	duplicate(PoringSlotsCh)	PoringSlots#28	1388
+
+morocc,200,45,0	script	PoringSlotsPoint	45,1,{}
+
+-	script	PoringSlotsSetter	-1,{
+OnInit:
+	setarray	$PoringSlotsX,198,198,198,198,198,198,200,202,204,206,208,210,212,214,216,216,216,216,216,216,214,212,210,208,206,204,202,200;
+	setarray	$PoringSlotsY,45,43,41,39,37,35,35,35,35,35,35,35,35,35,35,37,39,41,43,45,45,45,45,45,45,45,45,45;
+	set $@PoringSlotsPlaying,0;
+	set $@PoringSlotsRunning,0;
+	donpcevent "PoringSlotsChoose#01::OnResetRoom";
+	donpcevent "PoringSlotsChoose#02::OnResetRoom";
+	donpcevent "PoringSlotsChoose#03::OnResetRoom";
+	donpcevent "PoringSlotsChoose#04::OnResetRoom";
+	donpcevent "PoringSlotsChoose#05::OnResetRoom";
+end;
+}
+
+morocc,207,40,4	script	PoringSlotsPlay	10162,{
+	goto PLZ_Main;
+	PLZ_Main:
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		mes " ยินดีต้อนรับเซียนทุกๆท่าน";
+		mes " คุณจะให้ข้าหมุนแล้วหรือยัง";
+		mes " คุณต้องเสีย ^0000FF"+getitemname(30001)+"^000000";
+		mes " จำนวน  : ^0000FF 1 ^000000 ea. ให้แก่ข้า";
+		next;
+		if(getgmlevel()>90) {
+			
+		if(select("~ หมุนเลย","~ กำหนดตัว")==2) {
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		if ( $@PoringSlotsLock == 0 ) mes "ตัวที่ออก : ยังไม่ได้เลือก";
+		
+		if ( $@PoringSlotsLock > 0 ) mes "ตัวที่ออก : "+$@PoringSlotsLock+"";
+		
+		input .@num;
+		if (.@num == 0 ) {
+		close;
+		}
+		next;
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		mes "ตัวที่ออก : "+.@num+"";
+		menu "^0000FF-^000000 ตกลง", -;
+		set $@PoringSlotsLock, .@num;
+		close;
+		}
+		
+		} else if(select("^0000FF-^000000 เริ่มกิจกรรม","")==2)
+		close;
+		if($@PoringSlotsPlaying==1){
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		mes "กำลังหมุน PoringSlotsPlay ครับ";
+		close;
+		}
+		
+		if(countitem(30001)<1){
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		mes " คุณมี ^0000FF"+getitemname(30001)+"^000000 ไม่พอสำหรับค่าหมุน";
+		close;
+		}
+		
+		delitem 30001,1;
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		mes "ตอนนี้กิจกรรมกำลังเล่นอยู่ค่ะ";
+		set $@PoringSlotsPlaying,1;
+		announce "[ Poring Slots ] : อีก 1 นาทีจะเริ่มทำการหมุนวงล้อ",bc_all,0x00ff99;
+		donpcevent "PoringSlotsPlay::OnPoringSlotsAnnounce";
+		close;
+		
+	end;
+
+OnPoringSlotsAnnounce:
+	sleep 10000;
+	npctalk "คนไหนแทงถูกรีบมารับรางวัลด้วยนะครับ";
+	sleep 10000;
+	npctalk "คนไหนแทงถูกรีบมารับรางวัลด้วยนะครับ";
+	sleep 10000;
+	npctalk "เหลือเวลาอีก 30 วินาทีสุดท้าย";
+	sleep 10000;
+	npctalk "เหลือเวลาอีก 20 วินาทีสุดท้าย";
+	sleep 10000;
+	npctalk "เหลือเวลาอีก 10 วินาทีสุดท้าย";
+	sleep 1000;npctalk "9";
+	sleep 1000;npctalk "8";
+	sleep 1000;npctalk "7";
+	sleep 1000;npctalk "6";
+	sleep 1000;npctalk "5";
+	sleep 1000;npctalk "4";
+	sleep 1000;npctalk "3";
+	sleep 1000;npctalk "2";
+	sleep 1000;npctalk "1";
+	sleep 1000;npctalk "เริ่มหมุนได้แล้ว ณ บัดนี้";
+	donpcevent "PoringSlotsPlay::OnPoringSlotsPlaying";
+end;
+
+OnPoringSlotsPlaying:
+	set $@PoringSlotsRunning,1;
+	set $PoringSlotsRound,$PoringSlotsRound+1;
+	set $@PoringSlotsSpeed,10;
+	for(set $@PoringSlotsRound,0;$@PoringSlotsRound<8;set $@PoringSlotsRound,$@PoringSlotsRound+1){
+		set $@PoringSlotsTemp,rand(5,10);
+		for(set $@i,0;$@i<$@PoringSlotsTemp;set $@i,$@i+1){
+			movenpc "PoringSlotsPoint",$PoringSlotsX[$@PoringSlotsPoint],$PoringSlotsY[$@PoringSlotsPoint];
+			set $@PoringSlotsPoint,$@PoringSlotsPoint+1;
+			if($@PoringSlotsPoint>=28)
+				set $@PoringSlotsPoint,0;
+				sleep $@PoringSlotsSpeed;
+		}
+		set $@PoringSlotsSpeed,$@PoringSlotsSpeed+10;
+	}
+	set $@PoringSlotsTemp,rand(5,10);
+	for(set $@i,0;$@i<$@PoringSlotsTemp;set $@i,$@i+1){
+		movenpc "PoringSlotsPoint",$PoringSlotsX[$@PoringSlotsPoint],$PoringSlotsY[$@PoringSlotsPoint];
+		set $@PoringSlotsPoint,$@PoringSlotsPoint+1;
+		if($@PoringSlotsPoint>=28)
+			set $@PoringSlotsPoint,0;
+			set $@PoringSlotsSpeed,$@PoringSlotsSpeed+80;
+		sleep $@PoringSlotsSpeed;
+	}
+	set $@PoringSlotsTemp,rand(8,15);
+	for(set $@i,0;$@i<$@PoringSlotsTemp;set $@i,$@i+1){
+		movenpc "PoringSlotsPoint",$PoringSlotsX[$@PoringSlotsPoint],$PoringSlotsY[$@PoringSlotsPoint];
+		set $@PoringSlotsPoint,$@PoringSlotsPoint+1;
+		if($@PoringSlotsPoint>=28)
+			set $@PoringSlotsPoint,0;
+			set $@PoringSlotsSpeed,$@PoringSlotsSpeed+500;
+		sleep $@PoringSlotsSpeed;
+	}
+	if ( $@PoringSlotsLock ) {
+		while ( $@PoringSlotsPoint != $@PoringSlotsLock ) {
+			movenpc "PoringSlotsPoint",$PoringSlotsX[$@PoringSlotsPoint],$PoringSlotsY[$@PoringSlotsPoint];
+			set $@PoringSlotsPoint,$@PoringSlotsPoint+1;
+		if($@PoringSlotsPoint>=28)
+			set $@PoringSlotsPoint,0;
+		sleep $@PoringSlotsSpeed;
+	}
+		set $@PoringSlotsLock,0;
+	}
+	switch($@PoringSlotsPoint){
+		case 6:case 20:
+			set $FSC_Win,0;break;
+		case 1:case 2:case 5:case 7:case 9:case 12:case 13:case 15:case 17:case 19:case 21:case 24:case 27:
+			set $FSC_Win,1;break;
+		case 4:case 10:case 14:case 18:case 23:case 26:
+			set $FSC_Win,2;break;
+		case 3:case 11:case 16:case 22:
+			set $FSC_Win,3;break;
+		case 8:case 0:
+			set $FSC_Win,4;break;
+		case 25:
+			set $FSC_Win,5;break;
+	}
+	specialeffect 68;
+	if($FSC_Win==0) { npctalk "พังไปดิ 5555 แดกเรียบจ้า"; sleep 1000; npctalk "อย่าร้องไห้ แทงต่อๆ มาๆ!!!"; }
+	if($FSC_Win==1) { npctalk "Poring มาอีกแล้วววว"; sleep 1000; npctalk "ใครแทงรับเงินเลยจ้า"; }
+	if($FSC_Win==2) { npctalk "อ้าว Drops มารับไป 3 เท่า"; sleep 1000; npctalk "รอบนี้สบายๆ"; }
+	if($FSC_Win==3) { npctalk "Poporing เงิบบบบบบบ 5 เท่า"; sleep 1000; npctalk "รีบมารับตังไม่รับ โดนฮุบนะเว้ยเห้ย!!!"; }
+	if($FSC_Win==4) { npctalk "Arc Angle มีคนแทงปะว้าาา"; sleep 1000; npctalk "อย่ารับเงินเลย สงสารผมเถ๊อะะะ 5555!!!"; }
+	if($FSC_Win==5) { npctalk "Angeling หึหึอยากแจกตัง"; sleep 1000; npctalk "ใครแทงโดนก็ยิ้มไป 17 เท่า!!!"; }
+	
+	donpcevent "PoringSlotsChoose#01::OnResetRoom";
+	donpcevent "PoringSlotsChoose#02::OnResetRoom";
+	donpcevent "PoringSlotsChoose#03::OnResetRoom";
+	donpcevent "PoringSlotsChoose#04::OnResetRoom";
+	donpcevent "PoringSlotsChoose#05::OnResetRoom";
+	donpcevent "PoringSlotsChoose#0"+$FSC_Win+"::OnEffect";
+	set $@PoringSlotsPlaying,0;
+	set $@PoringSlotsRunning,0;
+end;
+}
+
+function	script	FuncPoringSlotsChoose	{
+	if($@PoringSlotsRunning==1){
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		mes "^00CD00~^000000 ตอนนี้กำลังดำเนินการหมุน";
+		mes "^00CD00~^000000 กรุณารอสักหน่อยนะ";
+		close;
+		end;
+	}
+	
+	set .@FSC_Poring,getarg(0);
+	set .@FSC_GetPoint,getarg(1);
+	if(getd("FSC_Coin"+.@FSC_Poring)>0){
+		if(getd("PoringSlotsRound"+.@FSC_Poring)==$PoringSlotsRound-1&&.@FSC_Poring==$FSC_Win){
+			set .@FSC_Temp,getd("FSC_Coin"+.@FSC_Poring)*.@FSC_GetPoint;
+			if (.@FSC_Temp + countitem(30001) > 30000){
+				delitem 30001,countitem(30001);
+				getitem 30001,30000;
+				//atcommand "@cleanmap";
+				cleanmap "morocc";
+			} else {
+				getitem 30001,.@FSC_Temp;
+				//atcommand "@cleanmap";
+				cleanmap "morocc";
+				}
+			setd "FSC_Coin"+.@FSC_Poring,0;
+			mes "[ ^0000FFPoring Slots Play^000000 ]";
+			mes "คุณได้รับ "+.@FSC_Temp+" ea ครับ";
+			next;
+		}
+	}
+	mes "[ ^0000FFPoring Slots Play^000000 ]";
+	mes "แทง 1 ได้ "+.@FSC_GetPoint+" ea ครับ";
+	if(getd("FSC_Coin"+.@FSC_Poring)!=0&&getd("PoringSlotsRound"+.@FSC_Poring)==$PoringSlotsRound){
+		mes " ";
+		mes " ";
+		mes " ";
+		mes " ";
+		mes " คุณแทงตัวนี้ไว้แล้ว ^0000FF"+getd("FSC_Coin"+.@FSC_Poring)+"^000000 ea. ค่ะ";
+		close;
+	}
+	mes" ";
+	mes" ";
+	mes" ";
+	mes" ";
+	mes " คุณยัง ^FF0000ไม่ได้แทง^000000 ตัวนี้ค่ะ";
+	next;
+	mes "[ ^0000FFPoring Slots Play^000000 ]";
+	mes " เลือกจำนวนที่ต้องการแทง";
+	switch(select( "~ ยกเลิก ","~ แทง 10","~ แทง 50","~ แทง 100","~ แทง 300","~ แทง 500","~ แทง 1000"))
+	{
+	case 1:
+	close;
+	case 2:
+		set .@FSC_Input,10;
+	break;
+	case 3:
+		set .@FSC_Input,50;
+	break;
+	case 4:
+		set .@FSC_Input,100;
+	break;
+	case 5:
+		set .@FSC_Input,300;
+	break;
+	case 6:
+		set .@FSC_Input,500;
+	break;
+	case 7:
+		set .@FSC_Input,1000;
+	break;
+	}
+	next;
+	//input .@FSC_Input;
+	//set .@FSC_Input,100;
+	mes "[ ^0000FFPoring Slots Play^000000 ]";
+	mes " คุณยืนยันจะแทงตัวนี้";
+	mes " จำนวน : ^0000FF"+.@FSC_Input+"^000000 ea. ใช่มั้ยค่ะ";
+	next;
+	if($@PoringSlotsRunning==1){
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		mes "^00CD00~^000000 ตอนนี้กำลังดำเนินการหมุน";
+		mes "^00CD00~^000000 กรุณารอสักหน่อยนะ";
+		close;
+		end;
+	}
+	if(select("^00CD00~^000000 ถูกต้อง","^FF0000~^000000 ยกเลิก")==2)
+		close;
+	if(countitem(30001)<.@FSC_Input){
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		mes " คุณมี  ^0000FF"+getitemname(30001)+"^000000 ไม่พอค่ะ";
+		close;
+		return;
+	}
+	if(.@FSC_Input==0){
+		mes "[ ^0000FFPoring Slots Play^000000 ]";
+		mes "คุณต้องแทงอย่างต่ำ 1 ea ครับ";
+		close;
+		return;
+	}
+	delitem 30001,.@FSC_Input;
+	setd "FSC_Coin"+.@FSC_Poring,.@FSC_Input;
+	delwaitingroom "PoringSlotsChoose#0"+.@FSC_Poring;
+	setd "$FSC_Coin"+.@FSC_Poring,getd("$FSC_Coin"+.@FSC_Poring)+.@FSC_Input;
+	setd "$FSC_Player"+.@FSC_Poring,getd("$FSC_Player"+.@FSC_Poring)+1;
+	waitingroom "ลงเดิมพัน "+getd("$FSC_Player"+.@FSC_Poring)+" คน",0;
+	setd "PoringSlotsRound"+.@FSC_Poring,$PoringSlotsRound;
+	
+	close;
+	return;
+
+}
+
+morocc,220,45,5	script	PoringSlotsChoose#01	1002,{
+	callfunc("FuncPoringSlotsChoose",1,2);
+end;
+OnEffect:
+	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
+		specialeffect 68;
+		sleep 500;
+	}
+end;
+OnResetRoom:
+	delwaitingroom "PoringSlotsChoose#01";
+	set $FSC_Coin1,0;
+	set $FSC_Player1,0;
+	waitingroom"เดิมพัน Poring",0;
+end;
+OnInit:
+	waitingroom"เดิมพัน Poring",0;
+end;
+}
+
+morocc,220,42,5	script	PoringSlotsChoose#02	1113,{
+	callfunc("FuncPoringSlotsChoose",2,5);
+end;
+OnEffect:
+	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
+		specialeffect 68;
+		sleep 500;
+	}
+end;
+OnResetRoom:
+	delwaitingroom "PoringSlotsChoose#02";
+	set $FSC_Coin2,0;
+	set $FSC_Player2,0;
+	waitingroom"เดิมพัน Drops",0;
+end;
+OnInit:
+	waitingroom"เดิมพัน Drops",0;
+end;
+}
+
+morocc,220,39,5	script	PoringSlotsChoose#03	1031,{
+	callfunc("FuncPoringSlotsChoose",3,8);
+end;
+OnEffect:
+	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
+		specialeffect 68;
+		sleep 500;
+	}
+end;
+OnResetRoom:
+	delwaitingroom "PoringSlotsChoose#03";
+	set $FSC_Coin3,0;
+	set $FSC_Player3,0;
+	waitingroom"เดิมพัน Poporing",0;
+end;
+/*OnInit:
+	waitingroom"คนแทง [ 0 ] รวม [ 0 ]",0;
+end;*/
+}
+
+morocc,220,36,5	script	PoringSlotsChoose#04	1388,{
+	callfunc("FuncPoringSlotsChoose",4,13);
+end;
+OnEffect:
+	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
+		specialeffect 68;
+		sleep 500;
+	}
+end;
+OnResetRoom:
+	delwaitingroom "PoringSlotsChoose#04";
+	set $FSC_Coin4,0;
+	set $FSC_Player4,0;
+	waitingroom"เดิมพัน Archangeling",0;
+end;
+OnInit:
+	waitingroom"เดิมพัน Archangeling",0;
+end;
+}
+
+morocc,220,33,5	script	PoringSlotsChoose#05	1096,{
+	callfunc("FuncPoringSlotsChoose",5,17);
+end;
+OnEffect:
+	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
+		specialeffect 68;
+		sleep 500;
+	}
+end;
+OnResetRoom:
+	delwaitingroom "PoringSlotsChoose#05";
+	set $FSC_Coin5,0;
+	set $FSC_Player5,0;
+	waitingroom"เดิมพัน Angeling",0;
+end;
+OnInit:
+	waitingroom"เดิมพัน Angeling",0;
+end;
+}

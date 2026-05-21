@@ -1,0 +1,165 @@
+oasis,173,86,4	script	ลดสเตตัส	10191,{
+
+mes .NPCName$;
+mes "สวัสดีผู้เล่น ^0000FF"+strcharinfo(0)+"^000000";
+mes "ข้าคือผู้เชี่ยวชำนาญด้านสเตตัสต่างๆ";
+mes "ถ้าเจ้าคิดว่าเจ้าแข็งแกร่งเกินไป";
+mes "ข้าสามารถลดสเตตัสเจ้าได้นะ";
+mes "ถ้าเจ้าต้องการ";
+mes "ค่าบริการข้าคิดเป็น ^FF0000"+getitemname(.feeitem)+"^000000";
+mes "จำนวน ^FF0000"+.feeamount+"^000000 ชิ้น";
+next;
+menu "~ ข้ามาเพื่อลดสเตตัส",-,"~ ไม่ดีกว่า",Cancel;
+
+if ( countitem(.feeitem) < .feeamount ) {
+	mes .NPCName$;
+	mes "เจ้ามี ^FF0000"+getitemname(.feeitem)+" ไม่พอ^000000";
+	close;
+}
+
+mes .NPCName$;
+mes "ทีนี้บอกข้ามาสิว่าเจ้ามาเพื่อลดสเตตัสอะไร";
+next;
+menu "~ Str",-,"~ Agi",AGI,"~ Vit",VIT,"~ Int",INT,"~ Dex",DEX,"~ Luk",LUK,"~ ยกเลิก",Cancel2;
+
+set .@StatusSelect$, "Str";
+goto Process;
+
+AGI:
+set .@StatusSelect$, "Agi";
+goto Process;
+
+VIT:
+set .@StatusSelect$, "Vit";
+goto Process;
+
+INT:
+set .@StatusSelect$, "Int";
+goto Process;
+
+DEX:
+set .@StatusSelect$, "Dex";
+goto Process;
+
+LUK:
+set .@StatusSelect$, "Luk";
+goto Process;
+
+Process:
+	mes .NPCName$;
+	mes "ที่นี้บอกข้าสิว่าเจ้าอยากลด ^FF0000"+.@StatusSelect$+"^000000 ลงซักเท่าไหร่";
+	mes "^FF0000ใส่ 0 เพื่อยกเลิก^000000";
+	next;
+	input .@delstats;
+	if ( .@delstats == 0 ) { end; }
+	
+	if ( .@StatusSelect$ == "Str" ) {
+		if ( .@delstats > readparam(bStr) ) {
+			mes .NPCName$;
+			mes "^FF0000เจ้านี้ก็ขี้โกงใช่เล่นเลยนะ!!^000000";
+			mes "ข้าบอกว่าข้าลดสเตตัสได้ไม่ใช่เพิ่ม";
+			close;
+		}
+	} else if ( .@StatusSelect$ == "Agi" ) {
+		if ( .@delstats > readparam(bAgi) ) {
+			mes .NPCName$;
+			mes "^FF0000เจ้านี้ก็ขี้โกงใช่เล่นเลยนะ!!^000000";
+			mes "ข้าบอกว่าข้าลดสเตตัสได้ไม่ใช่เพิ่ม";
+			close;
+		}
+	} else if ( .@StatusSelect$ == "Vit" ) {
+		if ( .@delstats > readparam(bVit) ) {
+			mes .NPCName$;
+			mes "^FF0000เจ้านี้ก็ขี้โกงใช่เล่นเลยนะ!!^000000";
+			mes "ข้าบอกว่าข้าลดสเตตัสได้ไม่ใช่เพิ่ม";
+			close;
+		}
+	} else if ( .@StatusSelect$ == "Int" ) {
+		if ( .@delstats > readparam(bInt) ) {
+			mes .NPCName$;
+			mes "^FF0000เจ้านี้ก็ขี้โกงใช่เล่นเลยนะ!!^000000";
+			mes "ข้าบอกว่าข้าลดสเตตัสได้ไม่ใช่เพิ่ม";
+			close;
+		}
+	} else if ( .@StatusSelect$ == "Dex" ) {
+		if ( .@delstats > readparam(bDex) ) {
+			mes .NPCName$;
+			mes "^FF0000เจ้านี้ก็ขี้โกงใช่เล่นเลยนะ!!^000000";
+			mes "ข้าบอกว่าข้าลดสเตตัสได้ไม่ใช่เพิ่ม";
+			close;
+		}
+	} else if ( .@StatusSelect$ == "Luk" ) {
+		if ( .@delstats > readparam(bLuk) ) {
+			mes .NPCName$;
+			mes "^FF0000เจ้านี้ก็ขี้โกงใช่เล่นเลยนะ!!^000000";
+			mes "ข้าบอกว่าข้าลดสเตตัสได้ไม่ใช่เพิ่ม";
+			close;
+		}
+	}
+	
+	mes .NPCName$;
+	mes "เจ้าอยากลด ^FF0000"+.@StatusSelect$+"^000000 ลง ^FF0000"+.@delstats+"^000000 หน่วย";
+	mes "ถูกต้องแล้วหรือไม่?";
+	next;
+	menu "~ ถูกต้องแล้ว",-,"~ ยกเลิก",Cancel2;
+	
+	if ( .@StatusSelect$ == "Str" ) {
+		set .@checkstatus, readparam(bStr) - .@delstats;
+	} else if ( .@StatusSelect$ == "Agi" ) {
+		set .@checkstatus, readparam(bAgi) - .@delstats;
+	} else if ( .@StatusSelect$ == "Vit" ) {
+		set .@checkstatus, readparam(bVit) - .@delstats;
+	} else if ( .@StatusSelect$ == "Int" ) {
+		set .@checkstatus, readparam(bInt) - .@delstats;
+	} else if ( .@StatusSelect$ == "Dex" ) {
+		set .@checkstatus, readparam(bDex) - .@delstats;
+	} else if ( .@StatusSelect$ == "Luk" ) {
+		set .@checkstatus, readparam(bLuk) - .@delstats;
+	}
+	
+	if ( .@checkstatus < 1 ) {
+		mes .NPCName$;
+		mes "ข้าไม่สามารถลบสเตตัสเจ้าให้เหลือน้อยกว่า ^FF00001^000000 ได้";
+		close;
+	}
+	
+	delitem .feeitem, .feeamount;
+	
+	if ( .@StatusSelect$ == "Str" ) {
+		atcommand "@str -" + .@delstats;
+	} else if ( .@StatusSelect$ == "Agi" ) {
+		atcommand "@Agi -" + .@delstats;
+	} else if ( .@StatusSelect$ == "Vit" ) {
+		atcommand "@Vit -" + .@delstats;
+	} else if ( .@StatusSelect$ == "Int" ) {
+		atcommand "@Int -" + .@delstats;
+	} else if ( .@StatusSelect$ == "Dex" ) {
+		atcommand "@Dex -" + .@delstats;
+	} else if ( .@StatusSelect$ == "Luk" ) {
+		atcommand "@Luk -" + .@delstats;
+	}
+	mes .NPCName$;
+	mes "อ่ะ!! เรียบร้อยแล้ว";
+	close;
+
+Cancel:
+	mes .NPCName$;
+	mes " ";
+	mes "จริงๆ ข้าว่าการมีความแข็งแกร่งแบบเจ้าก็ดีอยู่แล้วนะ";
+	close;
+	
+Cancel2:
+	mes .NPCName$;
+	mes " ";
+	mes "เจ้านี้มันหลายใจจริงๆ";
+	close;
+
+OnInit:
+	set .NPCName$, "[ รับไอเทมกิจกรรม ]";				// ตั้งค่าชื่อ NPC
+						// ตั้งค่าป้ายบนหัว NPC
+	set .feeitem, 61001;							// ตั้งค่า item_id ของๆ ที่ต้องนำมาจ่าย
+	set .feeamount, 100;		// ตั้งค่าจำนวนไอเทมที่ต้องนำมาจ่าย
+	waitingroom	"มาร - ลดค่า - สเตตัส",0;
+	end;
+
+}

@@ -1,0 +1,30 @@
+/*
+=================== TERMS OF SERVICES. ===================
+1. ALL RIGHT RESERVED RE-SELLER OR SHARE SCRIPT TO PUBLISH.
+2. BUT YOU RE-SELLER OR SHARE SCRIPT WITH OUT UNAUTHORIZRD
+   I WILL ALL CANCEL MY SUPPORT FOR YOU.
+3. MAINTENANCE SCRIPTS WILL BE FREE SERVICES.
+4. I WILL NOT KEEP ANY INFORMATIONS FROMS YOU SERVER THAT
+   YOU SEND FOR ME.
+5. I HOPE YOU WILL ALL ACCEPT TERMS OF SERVICES.
+==========================================================
+Script. Apprentice Craftsman																	 
+Create By. [Eddga-Studio]
+Translator By. Eddga Studio
+Bug Report. Dollaporn Naraphan [ FB ]																					 
+Contact Us. Dollaporn Naraphan [ FB ]																					 
+==========================================================
+*/
+
+morocc,157,173,4	script	Refine#cbt	826,{
+	if( getbattleflag( "feature.refineui" ) ){
+		refineui();
+		end;
+	}else{
+		callfunc "refinemain","  Refine TEST",0;
+		end;
+	}
+OnInit:
+	waitingroom "  [ตีบวกอุปกรณ์]",0;
+end; 
+}

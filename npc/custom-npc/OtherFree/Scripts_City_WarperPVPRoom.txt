@@ -1,0 +1,392 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+m_pvp01	mapflag	nocommand	90
+m_pvp02	mapflag	nocommand	90
+m_pvp03	mapflag	nocommand	90
+prt_pvp	mapflag	nocommand	90
+pvp_y_8-2	mapflag	nocommand	90
+pvp_y_8-1	mapflag	nocommand	90
+pvp_n_1-3	mapflag	nocommand	90
+pvp_n_1-5	mapflag	nocommand	90
+firstcity	mapflag	nocommand	90
+
+m_pvp01	mapflag	pvp
+m_pvp01	mapflag	nomemo
+m_pvp01	mapflag	nosave	SavePoint
+m_pvp01	mapflag	noteleport
+m_pvp01	mapflag	nowarp
+m_pvp01	mapflag	noreturn
+m_pvp01	mapflag	nodrop
+m_pvp01	mapflag	nobranch
+
+m_pvp02	mapflag	pvp
+m_pvp02	mapflag	nomemo
+m_pvp02	mapflag	nosave	SavePoint
+m_pvp02	mapflag	noteleport
+m_pvp02	mapflag	nowarp
+m_pvp02	mapflag	noreturn
+m_pvp02	mapflag	nodrop
+m_pvp02	mapflag	nobranch
+
+m_pvp03	mapflag	pvp
+m_pvp03	mapflag	nomemo
+m_pvp03	mapflag	nosave	SavePoint
+m_pvp03	mapflag	noteleport
+m_pvp03	mapflag	nowarp
+m_pvp03	mapflag	noreturn
+m_pvp03	mapflag	nodrop
+m_pvp03	mapflag	nobranch
+
+prt_pvp	mapflag	pvp
+prt_pvp	mapflag	nomemo
+prt_pvp	mapflag	nosave	SavePoint
+prt_pvp	mapflag	noteleport
+prt_pvp	mapflag	nowarp
+prt_pvp	mapflag	noreturn
+prt_pvp	mapflag	nodrop
+prt_pvp	mapflag	nobranch
+
+pvp_y_8-2	mapflag	pvp
+pvp_y_8-2	mapflag	nomemo
+pvp_y_8-2	mapflag	nosave	SavePoint
+pvp_y_8-2	mapflag	noteleport
+pvp_y_8-2	mapflag	nowarp
+pvp_y_8-2	mapflag	noreturn
+pvp_y_8-2	mapflag	nodrop
+pvp_y_8-2	mapflag	nobranch
+
+pvp_y_8-1	mapflag	pvp
+pvp_y_8-1	mapflag	nomemo
+pvp_y_8-1	mapflag	nosave	SavePoint
+pvp_y_8-1	mapflag	noteleport
+pvp_y_8-1	mapflag	nowarp
+pvp_y_8-1	mapflag	noreturn
+pvp_y_8-1	mapflag	nodrop
+pvp_y_8-1	mapflag	nobranch
+
+pvp_n_1-3	mapflag	pvp
+pvp_n_1-3	mapflag	nomemo
+pvp_n_1-3	mapflag	nosave	SavePoint
+pvp_n_1-3	mapflag	noteleport
+pvp_n_1-3	mapflag	nowarp
+pvp_n_1-3	mapflag	noreturn
+pvp_n_1-3	mapflag	nodrop
+pvp_n_1-3	mapflag	nobranch
+
+pvp_n_1-5	mapflag	pvp
+pvp_n_1-5	mapflag	nomemo
+pvp_n_1-5	mapflag	nosave	SavePoint
+pvp_n_1-5	mapflag	noteleport
+pvp_n_1-5	mapflag	nowarp
+pvp_n_1-5	mapflag	noreturn
+pvp_n_1-5	mapflag	nodrop
+pvp_n_1-5	mapflag	nobranch
+
+firstcity	mapflag	pvp
+firstcity	mapflag	nomemo
+firstcity	mapflag	nosave	SavePoint
+firstcity	mapflag	noteleport
+firstcity	mapflag	nowarp
+firstcity	mapflag	noreturn
+firstcity	mapflag	nodrop
+firstcity	mapflag	nobranch
+
+//เมื่อผู้เล่นตายจะเกิดทันทีพร้อมได้รับบัพช่วยเหลือต่างๆเหมือนกดที่ NPC เอลฟ์แห่งเสียงดนตรี
+-	script	Death Match	-1,{
+OnInit:
+set .time, 10;
+setarray .map$, 
+//กำหนดแผนที่
+"m_pvp01",
+"m_pvp02",
+"m_pvp03",
+"prt_pvp",
+"pvp_n_1-5",
+"pvp_y_8-2",
+"pvp_y_8-1",
+"pvp_n_1-3",
+"firstcity";
+end;
+
+OnPCDieEvent:
+for ( set .@i, 0; .@i < getarraysize(.map$); set .@i, .@i+1 ) {
+	if ( strcharinfo(3) == .map$[.@i] ) {
+		sleep2 1000;
+		//เมื่อตายจะถูกชุบทันที
+		atcommand "@alive";
+		//เช็คไอเทมที่เสียหายถ้ามีซ่อมให้ทันที
+		if (getbrokenid(1) > 0) 
+		{ 
+			atcommand "@repairall";
+		}
+		
+		//แก้สถานะต่างๆ
+		sc_end SC_STAN;
+		sc_end SC_STUN;
+		sc_end SC_STONE;
+		sc_end SC_SLOWDOWN;
+		sc_end SC_FREEZE;
+		sc_end SC_SLEEP;
+		sc_end SC_CURSE;
+		sc_end SC_SILENCE;
+		sc_end SC_CONFUSION;
+		sc_end SC_BLIND;
+		sc_end SC_BLEEDING;
+		sc_end SC_DECREASEAGI;
+		sc_end SC_POISON;
+		sc_end SC_HALLUCINATION;
+		sc_end SC_STRIPWEAPON;
+		sc_end SC_STRIPARMOR;
+		sc_end SC_STRIPHELM;
+		sc_end SC_STRIPSHIELD;
+		sc_end SC_CHANGEUNDEAD;
+		sc_end SC_ORCISH;
+		sc_end SC_BERSERK;
+		sc_end SC_SKE;
+		sc_end SC_SWOO;
+		sc_end SC_SKA;
+		sc_end SC_BURNING;
+		sc_end SC_FREEZING;
+		sc_end SC_FEAR;
+
+
+		//บัพค่าอาหาร 30นาที Support rAthena
+		sc_start SC_STRFood, 1800000,5;
+		sc_start SC_AGIFood, 1800000,5;
+		sc_start SC_VITFood, 1800000,5;
+		sc_start SC_INTFood, 1800000,5;
+		sc_start SC_DEXFood, 1800000,5;
+		sc_start SC_LUKFood, 1800000,5;
+		
+		//บัพสกิลต่างๆ
+		sc_start SC_BLESSING,1800000,10;
+		sc_start SC_INCREASEAGI,1800000,10;
+		sc_start 41,1800000,10; //กอเรีย
+		sc_start 40,1800000,10; // MAGNIFICAT เร่ง
+
+		//เพิ่มHPและSP 100%
+		percentheal 100,100; 
+		
+		//เอฟเฟกเพิ่มความสวยงาม
+		specialeffect 509;
+		specialeffect 410;
+		specialeffect2 509;
+		specialeffect2 EF_HEAL2;
+		specialeffect2 EF_INCAGILITY;
+		specialeffect2 EF_BLESSING;
+		//==============================================
+		//==============================================
+		//==============================================
+		
+		//ส่องไอเทมปริศนาที่มีในตัวทั้งหมด
+		//atcommand "@identifyall";
+		//สุ่มเกิดในแผนที่
+		warp .map$[.@i], 0, 0;
+		end;
+	}
+	end;
+	}
+}
+
+
+//ข้อความเมื่อผู้เล่นตาย
+-	script	Die Message	-1,{
+OnPCDieEvent:
+//ข้อความที่จะแสดงว่าตายเหมือนผู้เล่นพิมเอง
+/*
+soundeffect "NaHEE.wav",0;
+message strcharinfo(0),"เดี๋ยวมรึงเจอตูแน่ T__T!!!";
+announce "[ระบบ] : ขณะนี้ ผู้เล่น [ "+strcharinfo(0)+" ] ได้ถูกสังหารลงแล้ว T__T หึหึ!!!",bc_all;
+*/
+emotion ET_HUK,0;
+}
+
+//ป้องกันปั้มแต้ม PVP
+-	script	Anti_FreeKill	-1,{
+
+OnPCKillEvent:
+
+	if(@last_kill == killedrid) {
+		if(++@last_killamt >= 50) {
+			atcommand "@jailfor 1h "+strcharinfo(0);
+			announce strcharinfo(0)+" ทำการปั้มคะแนนสนามประลอง "+rid2name(@last_kill)+".",bc_all;
+			@last_killamt = 0;
+			@last_kill = 0;
+			end;
+		}
+	} else {
+		@last_killamt = 0;
+	}
+	@last_kill = killedrid;
+	end;
+
+OnPCDieEvent:
+
+	@last_killamt = 0;
+	end;
+
+}
+
+//เข้าห้อง PVP
+-	script	PvP	-1,{
+
+soundeffect "pvp.wav",0;
+mes "สวัสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
+mes "ต้องการเข้าสู่สนามประลอง";
+mes "เพื่อทดสอบฝีมือของคุณไหม";
+menu 
+"^FF0000•^000000 สนามประลองกลางทะเล [ "+getmapusers("m_pvp01")+"/500 ]",Mm_pvp01a,
+"^FF0000•^000000 สนามประลองโคคาโคล่า [ "+getmapusers("m_pvp02")+"/500 ]",Mm_pvp02a,
+"^FF0000•^000000 สนามประลองของนักฆ่า [ "+getmapusers("m_pvp03")+"/30 ]",Mm_pvp03a,
+//"^FF0000•^000000 สนามประลอง พรอนเทร่า [ "+getmapusers("prt_pvp")+"/30 ]",Mprt_pvpa,
+"^FF0000•^000000 Death Match [ "+getmapusers("pvp_n_1-5")+"/100 ]",Mm_pvp01,
+"^FF0000•^000000 Izlude [ "+getmapusers("pvp_y_8-2")+"/100 ]",Mm_pvp02,
+"^FF0000•^000000 Prontera [ "+getmapusers("pvp_y_8-1")+"/100 ]",Mm_pvp03,
+"^FF0000•^000000 1 VS 1 [ "+getmapusers("pvp_n_1-3")+"/2 ]",Mm_pvp04,
+"^FF0000•^000000 ยกเลิก ",Lcancel;
+
+
+Mm_pvp01a:
+if (getmapusers("m_pvp01")>= 500) goto MaxPlayerRoom;
+warp "m_pvp01",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่ สนามประลองกลางทะเล แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("m_pvp01")+"/500 ] คน",0;
+close;
+
+Mm_pvp02a:
+if (getmapusers("m_pvp02")>= 500) goto MaxPlayerRoom;
+warp "m_pvp02",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่ สนามประลองโคคาโคล่า แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("m_pvp02")+"/500 ] คน",0;
+close;
+
+Mm_pvp03a:
+if (getmapusers("m_pvp03")>= 30) goto MaxPlayerRoom;
+warp "m_pvp03",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่ สนามประลองของนักฆ่า แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("m_pvp03")+"/30 ] คน",0;
+close;
+
+Mprt_pvpa:
+if (getmapusers("prt_pvp")>= 30) goto MaxPlayerRoom;
+warp "prt_pvp",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่ สนามประลอง พรอนเทร่า แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("prt_pvp")+"/30 ] คน",0;
+close;
+
+Mm_pvp01:
+if (getmapusers("pvp_n_1-5")>= 100) goto MaxPlayerRoom;
+warp "pvp_n_1-5",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Death Match แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_n_1-5")+"/100 ] คน",0;
+close;
+
+Mm_pvp02:
+if (getmapusers("pvp_y_8-2")>= 100) goto MaxPlayerRoom;
+warp "pvp_y_8-2",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Izlude แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_8-2")+"/100 ] คน",0;
+close;
+
+Mm_pvp03:
+if (getmapusers("pvp_y_8-1")>= 100) goto MaxPlayerRoom;
+warp "pvp_y_8-1",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Prontera แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_8-1")+"/100 ] คน",0;
+close;
+
+Mm_pvp04:
+if (getmapusers("pvp_n_1-3")>= 2) goto MaxPlayerRoom;
+warp "pvp_n_1-3",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง 1 VS 1 แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_n_1-3")+"/100 ] คน",0;
+close;
+
+MaxPlayerRoom:
+mes "ขณะนี้สนามประลองเต็ม";
+close;
+
+Lcancel:
+close;
+OnInit:
+do {
+set .pvptotal, getmapusers("m_pvp01") + getmapusers("m_pvp02") + getmapusers("m_pvp03") + getmapusers("prt_pvp") + getmapusers("pvp_n_1-5") + getmapusers("pvp_y_8-2") + getmapusers("pvp_y_8-1") + getmapusers("pvp_n_1-3");
+delwaitingroom;
+waitingroom "ผู้เล่นในห้อง " +.pvptotal+" คน",0;
+sleep 1000; // Evites super infinity loop
+} while(1); // End Loop
+end;
+}
+
+x_prt,76,58,4	duplicate(PvP)	สนามประลอง#01	733
+x_prt,78,87,4	duplicate(PvP)	สนามประลอง#02	733
+x_prt,126,108,4	duplicate(PvP)	สนามประลอง#03	733
+x_prt,25,122,4	duplicate(PvP)	สนามประลอง#04	733
+
+
+
+
+firstcity,0,0,0,0	monster	สายแบ๊ว	22050,10,0,0,1
+firstcity,0,0,0,0	monster	ยัยตัวร้าย	22051,10,0,0,1
+firstcity,0,0,0,0	monster	เบาเบาค่ะพี่	22052,10,0,0,1
+//firstcity,0,0,0,0	monster	เมนจะมา	22053,10,0,0,1
+firstcity,0,0,0,0	monster	จิ๋มผจญภัย	22054,10,0,0,1
+firstcity,0,0,0,0	monster	กะเทยพร้อมรบ	22055,10,0,0,1
+firstcity,0,0,0,0	monster	เดี๋ยวแม่มา 	22056,10,0,0,1
+firstcity,0,0,0,0	monster	หอยเรืองแสง 	22057,10,0,0,1
+firstcity,0,0,0,0	monster	ผีขยี้หัว	22058,10,0,0,1
+firstcity,0,0,0,0	monster	ขมิบช่องคลอด	22059,10,0,0,1
+firstcity,0,0,0,0	monster	ตบดิ้นทั้งตี้	22060,10,0,0,1
+firstcity,0,0,0,0	monster	ยังซิงอยู่	22061,10,0,0,1
+
+firstcity,0,0,0,0	monster	ซอยไม่ยั้ง	22062,10,0,0,1
+firstcity,0,0,0,0	monster	ตบดิ้นทั้งตี้	22063,10,0,0,1
+firstcity,0,0,0,0	monster	กูเพื่อนโชค	22064,10,0,0,1
+//firstcity,0,0,0,0	monster	หมอโหดกระโดดฮีล	22065,10,0,0,1
+firstcity,0,0,0,0	monster	กราบรถกู	22066,10,0,0,1
+firstcity,0,0,0,0	monster	นักสู้ประตูหลัง	22067,10,0,0,1
+firstcity,0,0,0,0	monster	ผู้พิทักษ์จิ๋ม 	22068,10,0,0,1
+firstcity,0,0,0,0	monster	กล้วยหรือมะละกอ 	22069,10,0,0,1
+firstcity,0,0,0,0	monster	ลุงกลัวส้ม	22070,10,0,0,1
+firstcity,0,0,0,0	monster	ชื่อเต้ไงใครก็ได้	22071,10,0,0,1
+firstcity,0,0,0,0	monster	เสียเหงื่อเพื่อเธอ	22072,10,0,0,1
+firstcity,0,0,0,0	monster	หลอกให้หลงแล้วลงลิ้น	22073,10,0,0,1
+
+
+-	script	PvPBot	-1,{
+
+soundeffect "pvp.wav",0;
+mes "สวัสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
+mes "ต้องการเข้าสู่สนามประลองบอทเทพ";
+mes "เพื่อทดสอบฝีมือของคุณไหม";
+menu 
+"^FF0000•^000000 สนามประลองบอทเทพ [ "+getmapusers("firstcity")+"/100 ]",bot_pvp01a,
+"^FF0000•^000000 ออก ",Lcancelbot;
+
+
+bot_pvp01a:
+if (getmapusers("firstcity")>= 100) goto MaxPlayerRoomBot;
+warp "firstcity",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่ สนามประลองบอทเทพ แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("firstcity")+"/100 ] คน",0;
+close;
+
+MaxPlayerRoomBot:
+mes "ขณะนี้สนามประลองเต็ม";
+close;
+
+Lcancelbot:
+close;
+OnInit:
+do {
+set .pvptotal, getmapusers("firstcity");
+delwaitingroom;
+waitingroom "บอทเทพ " +.pvptotal+" คน",0;
+sleep 1000; // Evites super infinity loop
+} while(1); // End Loop
+end;
+}
+
+x_prt,60,87,4	duplicate(PvPBot)	สนามประลองบอทเทพ#01	512

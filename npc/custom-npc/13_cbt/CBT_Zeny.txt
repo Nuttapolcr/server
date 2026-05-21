@@ -1,0 +1,27 @@
+morocc,169,180,4	script	Zeny Free	10056,{
+Start:
+	
+	mes .mes$;
+	mes "ได้รับ Zeny สำหรับ CBT เรียบร้อย";
+	
+	//	กำหนด Zeny ที่ได้รับ
+	Zeny = 500000000;
+	
+	//	กำหนด Cash ที่ได้รับ
+	//#CASHPOINTS = 100000;
+	
+	end;
+	
+OnInit:
+	
+	//	กำหนด Waitingroom
+	waitingroom "   [Zeny Free]",0;
+	
+	//	กำหนด Head Dialog
+	.mes$ = "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	end;
+	
+}
+
+

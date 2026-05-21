@@ -1,0 +1,151 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+oasis,198,58,5	script	การพนันไพ่ป๊อกเด้ง	840,{
+
+mes "เล่นครั้งละ 500 Cash Coin";
+mes "เล่น นับแต้ม 2 ใบเลย ไม่มีจั่วไพ่เพิ่ม";
+switch(select("^FF0000•^000000 เริ่มเล่น:^FF0000•^000000 ข้าไม่เล่นการพนัน")) {
+case 1:
+next;
+if(countitem(61001) < 500){mes "เจ้ามี Cash Coin ไม่พอสำหรับการเล่น"; end;}
+set pokh1,0;
+set pokh2,0;
+set poka1,0;
+set poka2,0;
+mes "ไพ่เจ้า : ใบที่ 1["+pokh1+"] ใบที่ 2["+pokh2+"]";
+mes "ไพ่เรา : ใบที่ 1["+poka1+"] ใบที่ 2["+poka2+"]";
+switch(select("^FF0000•^000000 เริ่มจั่วไพ่:^FF0000•^000000 ไม่ล่ะ ขอบคุณ")) {
+case 1:
+next;
+delitem 61001,500;
+mes "ไพ่เจ้า : ใบที่ 1["+pokh1+"] ใบที่ 2["+pokh2+"]";
+mes "ไพ่เรา : ใบที่ 1["+poka1+"] ใบที่ 2["+poka2+"]";
+set winner,rand(1,100);
+if(winner <= 20){set pokh1,rand(1,10);}
+if(winner >= 21){set pokh1,rand(7,9);}
+if(pokh1 == 1){cutin "pokera",2;}
+if(pokh1 == 2){cutin "poker2",2;}
+if(pokh1 == 3){cutin "poker3",2;}
+if(pokh1 == 4){cutin "poker4",2;}
+if(pokh1 == 5){cutin "poker5",2;}
+if(pokh1 == 6){cutin "poker6",2;}
+if(pokh1 == 7){cutin "poker7",2;}
+if(pokh1 == 8){cutin "poker8",2;}
+if(pokh1 == 9){cutin "poker9",2;}
+if(pokh1 == 10){set pokhh1,rand(1,4); if(pokhh1 == 1){cutin "poker10",2;} if(pokhh1 == 2){cutin "pokerj",2;} if(pokhh1 == 3){cutin "pokerq",2;} if(pokhh1 == 4){cutin "pokerk",2;}}
+next;
+mes "...";
+next;
+mes "ไพ่เจ้า : ใบที่ 1["+pokh1+"] ใบที่ 2["+pokh2+"]";
+mes "ไพ่เรา : ใบที่ 1["+poka1+"] ใบที่ 2["+poka2+"]";
+if(winner <= 20){set poka1,rand(1,10);}
+if(winner >= 21){set poka1,rand(1,4);}
+if(poka1 == 1){cutin "pokera",2;}
+if(poka1 == 2){cutin "poker2",2;}
+if(poka1 == 3){cutin "poker3",2;}
+if(poka1 == 4){cutin "poker4",2;}
+if(poka1 == 5){cutin "poker5",2;}
+if(poka1 == 6){cutin "poker6",2;}
+if(poka1 == 7){cutin "poker7",2;}
+if(poka1 == 8){cutin "poker8",2;}
+if(poka1 == 9){cutin "poker9",2;}
+if(poka1 == 10){set pokaa1,rand(1,4); if(pokaa1 == 1){cutin "poker10",2;} if(pokaa1 == 2){cutin "pokerj",2;} if(pokaa1 == 3){cutin "pokerq",2;} if(pokaa1 == 4){cutin "pokerk",2;}}
+next;
+mes "...";
+next;
+mes "ไพ่เจ้า : ใบที่ 1["+pokh1+"] ใบที่ 2["+pokh2+"]";
+mes "ไพ่เรา : ใบที่ 1["+poka1+"] ใบที่ 2["+poka2+"]";
+next;
+if(winner <= 20){set pokh2,rand(1,10);}
+if(winner >= 21){set pokh2,10;}
+if(pokh2 == 1){cutin "pokera",2;}
+if(pokh2 == 2){cutin "poker2",2;}
+if(pokh2 == 3){cutin "poker3",2;}
+if(pokh2 == 4){cutin "poker4",2;}
+if(pokh2 == 5){cutin "poker5",2;}
+if(pokh2 == 6){cutin "poker6",2;}
+if(pokh2 == 7){cutin "poker7",2;}
+if(pokh2 == 8){cutin "poker8",2;}
+if(pokh2 == 9){cutin "poker9",2;}
+if(pokh2 == 10){set pokhh2,rand(1,4); if(pokhh2 == 1){cutin "poker10",2;} if(pokhh2 == 2){cutin "pokerj",2;} if(pokhh2 == 3){cutin "pokerq",2;} if(pokhh2 == 4){cutin "pokerk",2;}}
+mes "ไพ่เจ้า : ใบที่ 1["+pokh1+"] ใบที่ 2["+pokh2+"]";
+mes "ไพ่เรา : ใบที่ 1["+poka1+"] ใบที่ 2["+poka2+"]";
+next;
+mes "...";
+next;
+mes "ไพ่เจ้า : ใบที่ 1["+pokh1+"] ใบที่ 2["+pokh2+"]";
+mes "ไพ่เรา : ใบที่ 1["+poka1+"] ใบที่ 2["+poka2+"]";
+if(winner <= 20){set poka2,rand(1,10);}
+if(winner >= 21){set poka2,rand(1,4);}
+if(poka2 == 1){cutin "pokera",2;}
+if(poka2 == 2){cutin "poker2",2;}
+if(poka2 == 3){cutin "poker3",2;}
+if(poka2 == 4){cutin "poker4",2;}
+if(poka2 == 5){cutin "poker5",2;}
+if(poka2 == 6){cutin "poker6",2;}
+if(poka2 == 7){cutin "poker7",2;}
+if(poka2 == 8){cutin "poker8",2;}
+if(poka2 == 9){cutin "poker9",2;}
+if(poka2 == 10){set pokaa2,rand(1,4); if(pokaa2 == 1){cutin "poker10",2;} if(pokaa2 == 2){cutin "pokerj",2;} if(pokaa2 == 3){cutin "pokerq",2;} if(pokaa2 == 4){cutin "pokerk",2;}}
+next;
+mes "...";
+next;
+mes "...";
+next;
+mes "ไพ่เจ้า : ใบที่ 1["+pokh1+"] ใบที่ 2["+pokh2+"]";
+mes "ไพ่เรา : ใบที่ 1["+poka1+"] ใบที่ 2["+poka2+"]";
+next;
+set total11,0;
+set total22,0;
+set total1,pokh1+pokh2;
+set total2,poka1+poka2;
+if(total1 <= 9){set total11,pokh1+pokh2;}
+if(total2 <= 9){set total22,poka1+poka2;}
+if(total1 >= 10){set total11,pokh1+pokh2-10;}
+if(total2 >= 10){set total22,poka1+poka2-10;}
+mes "ไพ่เจ้า : รวม ["+total11+"] แต้ม";
+mes "ไพ่เรา : รวม ["+total22+"] แต้ม";
+mes "["+total11+"] vs ["+total22+"]";
+cutin "pokerjoker",4;
+if(total11 < total22){mes "^009900คุณลูกค้าชนะ ได้รับรางวัล Cash Coin 1000 ea.^000000"; getitem 61001,1000; end;}
+if(total11 > total22){mes "^FF0000คุณลูกค้าแพ้แล้ว เสียใจด้วยนะครับ^000000"; end;}
+if(total11 == total22){mes "คุณลูกค้าเสมอกับเจ้า คุณได้รับ Cash Coin คืน 500 ea."; getitem 61001,500; end;}
+
+end;
+
+
+case 2:
+end;
+}
+case 2:
+end;
+}
+OnInit:
+waitingroom "การพนันไพ่ป๊อกเด้ง",0;
+end;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

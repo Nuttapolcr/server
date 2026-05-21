@@ -1,0 +1,17 @@
+-	script	Only2perIP	-1,{
+OnPCLoginEvent:
+if (getgmlevel() >= 99) end;
+set .@myname$, strcharinfo(0);
+if (query_sql("SELECT `char`.`name` FROM `char` LEFT JOIN login ON `char`.account_id=login.account_id WHERE login.last_ip='"+getcharip()+"' AND `char`.online=1 AND `char`.char_id!="+getcharid(0), .@name$) >= 2) {
+	for (set .@i,0; .@i<getarraysize(.@name$); set .@i,.@i+2) {
+		if (checkvending(.@name$[.@i]) != 2)
+			set .@sameip, .@sameip +2;
+	}
+	if (.@sameip >= 3) {
+		announce "ขอโทษด้วย, คุณสามารถออนไลน์พร้อมกันได้เพียง 3 id ต่อ IP", bc_self;
+		sleep 2000;
+		atcommand "@kick " + .@myname$;
+	}
+}
+end;
+}

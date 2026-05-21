@@ -1,0 +1,927 @@
+-	shop	egg_water2_shop	-1,999:-1
+
+morocc,134,60,4	script	กิจกรรมตักไข่	580,{
+Start:
+	
+	mes "[ กิจกรรมตักไข่ ]";
+	mes "จะมีไข่ทั้งหมด "+.am_egg_water2+" ฟอง";
+	
+	.@menu = select(
+		"- ตรวจสอบรางวัลกิจกรรม",
+		($egg_water2_ranking_on)?"-^FF9900 จัดอันดับการเล่น^000000":"",
+		($egg_water2_ranking_on)?"-^009900 รับรางวัลอันดับ^000000":"",
+		(getgmlevel()>=99)?"- Menu Admin":""
+	);
+	
+	if(.@menu == 1){
+		callshop "egg_water2_shop",1;
+		npcshopattach "egg_water2_shop";
+	}
+	if(.@menu == 2){
+		.@menu_ranking = select(
+			"- ตรวจสอบอันดับปัจจุบัน",
+			"- ตรวจสอบรางวัลอันดับ"
+		);
+		if(.@menu_ranking == 1){
+			clear;
+			mes "[ กิจกรรมตักไข่ ]";
+			query_sql("SELECT player_name,score FROM `egg_water2_player_ranking` ORDER BY score DESC LIMIT "+.rank_player+"",.@name2$,.@score2);
+			if (!getarraysize(.@score2)) {
+				mes "^FF0000ยังไม่มีข้อมูลของสัปดาห์นี้^000000";
+				end;
+			}
+			for ( .@i=0; .@i<getarraysize(.@name2$); .@i++ ) {
+				mes "อันดับ "+(.@i+1)+" : ^0000FF"+.@name2$[.@i]+"^009900 ["+.@score2[.@i]+"]^000000 pt.";
+			}
+		}
+		if(.@menu_ranking == 2){
+			clear;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 1";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_01); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_01[.@i])+" x"+.item_am_rw_01[.@i]+" ea";
+			}
+			next;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 2";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_02); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_02[.@i])+" x"+.item_am_rw_02[.@i]+" ea";
+			}
+			next;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 3";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_03); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_03[.@i])+" x"+.item_am_rw_03[.@i]+" ea";
+			}
+			next;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 4";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_04); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_04[.@i])+" x"+.item_am_rw_04[.@i]+" ea";
+			}
+			next;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 5";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_05); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_05[.@i])+" x"+.item_am_rw_05[.@i]+" ea";
+			}
+			next;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 6";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_06); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_06[.@i])+" x"+.item_am_rw_06[.@i]+" ea";
+			}
+			next;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 7";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_07); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_07[.@i])+" x"+.item_am_rw_07[.@i]+" ea";
+			}
+			next;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 8";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_08); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_08[.@i])+" x"+.item_am_rw_08[.@i]+" ea";
+			}
+			next;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 9";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_09); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_09[.@i])+" x"+.item_am_rw_09[.@i]+" ea";
+			}
+			next;
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "อันดับ 10";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_10); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_10[.@i])+" x"+.item_am_rw_10[.@i]+" ea";
+			}
+		}
+	}
+	if(.@menu == 3){
+		clear;
+		query_sql("SELECT id FROM `egg_water2_player_winners` WHERE char_id = "+getcharid(0)+" && status = 0",.@id);
+		mes "[ กิจกรรมตักไข่ ]";
+		mes "รางวัลที่ยังไม่ได้รับ ^FF0000"+getarraysize(.@id)+"^000000 รางวัล";
+		next;
+		if(!.@id){
+			mes "[ กิจกรรมตักไข่ ]";
+			mes "ยังไม่มีรางวัลที่ท่านสามารถรับได้";
+			end;
+		}
+		if(select("รับรางวัล:ยกเลิก") == 1) {
+			goto OnReward;
+			end;
+		}
+		
+		mes "[ กิจกรรมตักไข่ ]";
+		mes "ไม่เป็นไร ไว้มารับทีหลังก็ได้นะ";
+		end;
+		
+		OnReward:
+		
+		query_sql("UPDATE `egg_water2_player_winners` SET status = 1 WHERE char_id = "+getcharid(0)+"");
+		dispbottom "ระบบ : คุณได้รับรางวัล ranking อันดับ "+.@id+"",0x0099FF;
+		if(.@id == 1){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_01); .@i++ ){
+				getitem .item_id_rw_01[.@i],.item_am_rw_01[.@i];
+			}
+		}
+		if(.@id == 2){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_02); .@i++ ){
+				getitem .item_id_rw_02[.@i],.item_am_rw_02[.@i];
+			}
+		}
+		if(.@id == 3){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_03); .@i++ ){
+				getitem .item_id_rw_03[.@i],.item_am_rw_03[.@i];
+			}
+		}
+		if(.@id == 4){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_04); .@i++ ){
+				getitem .item_id_rw_04[.@i],.item_am_rw_04[.@i];
+			}
+		}
+		if(.@id == 5){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_05); .@i++ ){
+				getitem .item_id_rw_05[.@i],.item_am_rw_05[.@i];
+			}
+		}
+		if(.@id == 6){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_06); .@i++ ){
+				getitem .item_id_rw_06[.@i],.item_am_rw_06[.@i];
+			}
+		}
+		if(.@id == 7){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_07); .@i++ ){
+				getitem .item_id_rw_07[.@i],.item_am_rw_07[.@i];
+			}
+		}
+		if(.@id == 8){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_08); .@i++ ){
+				getitem .item_id_rw_08[.@i],.item_am_rw_08[.@i];
+			}
+		}
+		if(.@id == 9){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_09); .@i++ ){
+				getitem .item_id_rw_09[.@i],.item_am_rw_09[.@i];
+			}
+		}
+		if(.@id == 10){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_10); .@i++ ){
+				getitem .item_id_rw_10[.@i],.item_am_rw_10[.@i];
+			}
+		}
+	}
+	if(.@menu == 4){
+		goto OnCmd;
+	}
+	end;
+
+OnCmd:
+	
+	if (getgmlevel() < 99) { end; }
+	
+	menu	"- ทดสอบ ^009900เปิด^000000 กิจกรรมด่วน",On_Open
+			,"- ทดสอบ ^FF3300ปิด^000000 กิจกรรมด่วน",On_Close
+			,"- ทดสอบ ^FF3300รีเซ็ตรางวัล^000000 กิจกรรมด่วน",On_Open2
+			,"- เซ็ตไอเทมลง sql",OnItem
+			;
+	end;
+	
+	//	ตั้งเวลาเปิดกิจกรรม
+	
+	OnMinute10:
+	//OnClock1800:
+	//OnClock2000:
+		
+		On_Open:
+		
+		announce "[ ตักไข่ ] : กิจกรรมได้เปิดให้เล่นแล้ว มีเวลาเล่น 59 นาที. หรือจนกว่ารางวัลจะหมด",bc_all,0xFFFF00;
+		
+		.@name$ = "egg_water2";
+		hideoffnpc "egg_water2";
+		setd "$storage"+.@name$,0;
+		
+		for( .@i=2; .@i<=.am_egg_water2; .@i++ ){
+			.@name$ = "egg_water2#"+.@i+"";
+			hideoffnpc "egg_water2#"+.@i+"";
+			setd "$storage"+.@name$,0;
+		}
+		
+		$count_egg_water2 = .am_egg_water2;
+		$cash_egg_water2_collect = 0;
+		$zeny_egg_water2_collect = 0;
+		query_sql("UPDATE `egg_water2_data` SET status = 0");
+		donpcevent "egg_water2::OnChecking";
+		
+		end;
+	
+		On_Open2:
+		
+		.@name$ = "egg_water2";
+		setd "$storage"+.@name$,0;
+		
+		for( .@i=2; .@i<=.am_egg_water2; .@i++ ){
+			.@name$ = "egg_water2#"+.@i+"";
+			setd "$storage"+.@name$,0;
+		}
+		
+		$count_egg_water2 = .am_egg_water2;
+		query_sql("UPDATE `egg_water2_data` SET status = 0");
+		donpcevent "egg_water2::OnChecking";
+		
+		end;
+	
+	//	ตั้งเวลาปิดกิจกรรม
+	
+	OnMinute01:
+	//OnClock1830:
+	//OnClock2030:
+		
+		On_Close:
+		
+		announce "[ ตักไข่ ] : กิจกรรมปิดตัวลงแล้ว ไว้เจอกันใหม่ครั้งหน้า",bc_all,0xFFFF00;
+		
+		query_sql("UPDATE `egg_water2_data` SET status = 1");
+		
+		hideonnpc "egg_water2";
+		
+		for( .@i=2; .@i<=.am_egg_water2; .@i++ ){
+			hideonnpc "egg_water2#"+.@i+"";
+		}
+		donpcevent "egg_water2::OnChecking";
+		end;
+
+	OnItem:
+	
+	freeloop(1);
+	//	ตั้งไอเทมประกาศชื่อสี ทอง/ส้ม/น้ำเงิน/ฟ้า : รหัสไอเทม, จำนวน, รหัสประกาศ
+	setarray .@item[0]
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+						,13717		,1		,0
+
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+						,14527		,1		,0
+
+						,23304		,1		,0
+						,23304		,1		,0
+						,23304		,1		,0
+						,23304		,1		,0
+						,23304		,1		,0
+						,23304		,1		,0
+						,23304		,1		,0
+						,23304		,1		,0
+						,23304		,1		,0
+						,23304		,1		,0
+
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+						,7776		,1		,1
+
+						,7619		,1		,1
+						,7619		,1		,1
+						,7619		,1		,1
+
+						,7620		,1		,1
+						,7620		,1		,1
+						,7620		,1		,1
+
+						,11503		,2		,2
+						,11503		,2		,2
+						,11503		,2		,2
+						,11503		,2		,2
+						,11503		,2		,2
+						,11503		,2		,2
+						,11503		,2		,2
+						,11503		,2		,2
+						,11503		,2		,2
+						,11503		,2		,2
+
+						,11504		,2		,2
+						,11504		,2		,2
+						,11504		,2		,2
+						,11504		,2		,2
+						,11504		,2		,2
+						,11504		,2		,2
+						,11504		,2		,2
+						,11504		,2		,2
+						,11504		,2		,2
+						,11504		,2		,2
+
+						,14001		,1		,2
+						,14001		,1		,2
+						,14001		,1		,2
+						,14001		,1		,2
+						,14001		,1		,2
+						,14001		,1		,2
+
+						,6635		,1		,2
+						,6635		,1		,2
+						,6635		,1		,2
+
+						,452001		,1		,2
+						,452001		,1		,2
+						,452001		,1		,2
+						,452001		,1		,2
+						,452001		,1		,2
+						,452001		,1		,2
+						,452001		,1		,2
+						,452001		,1		,2
+						,452001		,1		,2
+						,452001		,1		,2
+
+						,12210		,1		,3
+						,12210		,1		,3
+						,12210		,1		,3
+						,12210		,1		,3
+						,12210		,1		,3
+
+						,12411		,1		,3
+						,12411		,1		,3
+						,12411		,1		,3
+						,12411		,1		,3
+						,12411		,1		,3
+						;
+							
+	//	ตั้งไอเทมประกาศชื่อสี แดง หรือ ไอเทมขยะ ไว้วนให้เต็มไข่ทุกใบ
+	setarray .@item2[0]	,985,984,501,502,503,504,505;
+	
+	query_sql("TRUNCATE TABLE `egg_water2_data`");
+	
+	for ( .@i=0; .@i<(.am_egg_water2)*3; .@i=.@i+3 ){
+		if(.@item[.@i] > 0){
+			query_sql("INSERT INTO `egg_water2_data` (item_id,item_amount,rate,status) VALUES ("+.@item[.@i]+","+.@item[.@i+1]+","+.@item[.@i+2]+",1)");
+		}
+		if(.@item[.@i] == 0){
+			.@r = rand(getarraysize(.@item2));
+			.@item_or = .@item2[.@r];
+			query_sql("INSERT INTO `egg_water2_data` (item_id,item_amount,rate,status) VALUES ("+.@item_or+",1,0,1)");
+		}
+	}
+	
+	end;
+	
+	//	ตั้งเวลาตัดอันดับ
+	Onclock2100:
+	
+	if($egg_water2_ranking_on){
+		if(gettime(DT_DAYOFWEEK) == .day_rank){
+			OnRank:
+				query_sql("TRUNCATE TABLE `egg_water2_player_winners`");
+				query_sql("SELECT account_id,char_id,player_name,score FROM `egg_water2_player_ranking` ORDER BY score DESC LIMIT 10",.@account_id,.@char_id,.@player_name$,.@score);
+				for ( .@i=0; .@i<getarraysize(.@account_id); .@i++ ) {
+					announce ""+strnpcinfo(0)+" : ผู้เล่น " +.@player_name$[.@i]+ " ได้อันดับ "+(.@i+1)+" จากการเล่น "+strnpcinfo(0)+" "+.@score[.@i]+" คะแนน สัปดาห์นี้", bc_all, "0xFFFF00";
+					query_sql("INSERT INTO `egg_water2_player_winners` (account_id,char_id,player_name,score,status) VALUES ("+.@account_id[.@i]+","+.@char_id[.@i]+",'"+escape_sql(.@player_name$[.@i])+"',"+.@score[.@i]+",0)");
+				}
+				query_sql("TRUNCATE TABLE `egg_water2_player_ranking`");
+				announce strnpcinfo(0)+" : ทำการรีเซ็ตอันดับ "+strnpcinfo(0)+" เรียบร้อยแล้ว", bc_all, "0xFFFF00";
+				end;
+		}
+	}
+	end;
+	
+OnInit:
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `egg_water2_data` ("+
+		"`id` INT(12) NOT NULL AUTO_INCREMENT,"+
+		"`item_id` INT(10) NOT NULL,"+
+		"`item_amount` INT(10) NOT NULL,"+
+		"`rate` INT(10) NOT NULL,"+
+		"`status` INT(4) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `egg_water2_logs` ("+
+		"`id` INT(12) NOT NULL AUTO_INCREMENT,"+
+		"`char_id` INT(11) NOT NULL,"+
+		"`name` VARCHAR(30) NOT NULL,"+
+		"`mode` VARCHAR(30) NOT NULL,"+
+		"`item_id` INT(10) NOT NULL,"+
+		"`item_name` VARCHAR(255) NOT NULL,"+
+		"`item_amount` INT(4) NOT NULL,"+
+		"`play_time` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+                                            
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `egg_water2_player_ranking` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`score` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `egg_water2_player_winners` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`score` int(7) NOT NULL,"+
+		"`status` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	//	กำหนดป้าย Waitingroom
+	waitingroom "[#] ตักไข่หรรษา",0;
+	
+	//	ใส่ค่าจำนวนไข่ทั้่งหมด
+	.am_egg_water2 = 120;
+	
+	//	กำหนดจัดอันดับ	0 = ไม่จัดอันดับ / 1 = จัดอันดับ
+	$egg_water2_ranking_on = 0;
+	
+	deletearray .item_id_rw_01;	deletearray .item_am_rw_01;
+	deletearray .item_id_rw_02;	deletearray .item_am_rw_02;
+	deletearray .item_id_rw_03;	deletearray .item_am_rw_03;
+	deletearray .item_id_rw_04;	deletearray .item_am_rw_04;
+	deletearray .item_id_rw_05;	deletearray .item_am_rw_05;
+	deletearray .item_id_rw_06;	deletearray .item_am_rw_06;
+	deletearray .item_id_rw_07;	deletearray .item_am_rw_07;
+	deletearray .item_id_rw_08;	deletearray .item_am_rw_08;
+	deletearray .item_id_rw_09;	deletearray .item_am_rw_09;
+	deletearray .item_id_rw_10;	deletearray .item_am_rw_10;
+	
+	setarray .item_id_rw_01[0],65981,61004,12103,12109;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 1
+	setarray .item_am_rw_01[0],1,3,10,20;					//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 1
+	
+	setarray .item_id_rw_02[0],65981,61004,12103,12109;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 2
+	setarray .item_am_rw_02[0],1,2,9,15;					//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 2
+	
+	setarray .item_id_rw_03[0],65981,61004,12103,12109;		//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 3
+	setarray .item_am_rw_03[0],1,1,8,10;					//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 3
+	
+	setarray .item_id_rw_04[0],61001,12103,12109;			//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 4
+	setarray .item_am_rw_04[0],500,7,5;						//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 4
+	
+	setarray .item_id_rw_05[0],61001,12103,12109;			//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 5
+	setarray .item_am_rw_05[0],400,6,5;						//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 5
+	
+	setarray .item_id_rw_06[0],61001,12103,12109;			//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 6
+	setarray .item_am_rw_06[0],300,5,5;						//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 6
+	
+	setarray .item_id_rw_07[0],61001,12103,12109;			//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 7
+	setarray .item_am_rw_07[0],200,4,5;						//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 7
+	
+	setarray .item_id_rw_08[0],61001,12103,12109;			//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 8
+	setarray .item_am_rw_08[0],100,3,5;						//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 8
+		
+	setarray .item_id_rw_09[0],12103,12109;					//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 9
+	setarray .item_am_rw_09[0],2,5;							//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 9
+	
+	setarray .item_id_rw_10[0],12103,12109;					//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 10
+	setarray .item_am_rw_10[0],1,5;							//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 10
+	
+	//	กำหนดอันดับที่กำหนด
+	.rank_player = 10;
+	
+	//	===================================================================================================	//
+	//	 0 = Sunday / 1 = Monday / 2 = Tuesday / 3 = Wednesday / 4 = Thursday / 5 = Friday / 6 = Saturday	//
+	//	===================================================================================================	//
+	.day_rank		= 1;
+	//	===================================================================================================	//
+	
+	npcshopdelitem "egg_water2_shop",999;
+	
+	query_sql("SELECT item_id,item_amount FROM `egg_water2_data` WHERE `status` = 0",.@itemid,.@itemamt);
+	
+	for ( .@i=0; .@i<getarraysize(.@itemid); .@i++ ){
+		if(.@itemid[.@i] > 0){
+			npcshopadditem "egg_water2_shop",.@itemid[.@i],.@itemamt[.@i];
+		}
+	}
+	
+	end;
+	
+}
+
+morocc,134,52,4	script	egg_water2	1047,{
+Start:
+	
+	//.@code_random = rand(100); 
+	//
+	//mes "เพื่อป้องกันมาโคร กรุณาใส่ตัวเลขด้านล่าง";
+	//mes "Security code: [^FF0000" +.@code_random +"^000000]";
+	//
+	//input .@code;
+	
+	if(getd("$storage"+strnpcinfo(0)) > 0){
+		mes "[ระบบ]";                             
+		mes "ไข่เบอร์นี้มีผู้เล่นท่านอื่นเก็บไปแล้ว";
+		mes "อย่าช้าสิ เร็วเข้า ๆ ๆ";
+		end;
+	}
+	
+	if (.@code != .@code_random) {
+		mes "เจ้าตอบผิดนะ โปรดตอบใหม่อีกครั้ง";
+		end;
+	}
+	
+	for ( .@i=0; .@i<getarraysize(.choose$); .@i++ ){
+		if(.choose[.@i] > 0){
+			.@menu$ = .@menu$ + "ใช้ ^009900"+callfunc("F_InsertComma",.choose[.@i])+"^000000 ^0099FF"+.choose$[.@i]+"^000000 เล่นกิจกรรม";
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+	
+	.@part = select(.@menu$) -1;
+	
+	if(getd("$storage"+strnpcinfo(0)) > 0){
+		mes "[ระบบ]";                             
+		mes "ไข่เบอร์นี้มีผู้เล่นท่านอื่นเก็บไปแล้ว";
+		mes "อย่าช้าสิ เร็วเข้า ๆ ๆ";
+		end;
+	}
+	
+	if(.choose$[.@part] == .choose$[0]){
+		if(#CASHPOINTS < .choose[.@part]){
+			message strcharinfo(0),"Cash ของท่านไม่เพียงพอ ข้าต้องการ "+callfunc("F_InsertComma",.choose[.@part])+" Cash";
+			end;
+		}
+		#CASHPOINTS = #CASHPOINTS -.choose[.@part];
+		$cash_egg_water2_collect = $cash_egg_water2_collect +.choose[.@part];
+	}
+	if(.choose$[.@part] == .choose$[1]){
+	
+		mes "ยังไม่เปิดบริการส่วนนี้..";
+		end;
+	
+		if(Zeny < .choose[.@part]){
+			message strcharinfo(0),"Zeny ของท่านไม่เพียงพอ ข้าต้องการ "+callfunc("F_InsertComma",.choose[.@part])+" Zeny";
+			end;
+		}
+		Zeny = Zeny -.choose[.@part];
+		$zeny_egg_water2_collect = $zeny_egg_water2_collect +.choose[.@part];
+	}
+	if(.choose$[.@part] == .choose$[2]){
+	
+		mes "ยังไม่เปิดบริการส่วนนี้..";
+		end;
+	
+		if(countitem(.item_use) < .choose[.@part]){
+			message strcharinfo(0),""+getitemname(.item_use)+" ของท่านไม่เพียงพอ ข้าต้องการ "+callfunc("F_InsertComma",.choose[.@part])+" ea";
+			end;
+		}
+		delitem .item_use,.choose[.@part];
+	}
+	
+	recheck_again:
+	
+	query_sql("SELECT id,item_id,item_amount,rate FROM `egg_water2_data` WHERE `status` = 0",.@id,.@itemid,.@itemamt,.@rate);
+	
+	if(getarraysize(.@id) <= 1){
+		.@random = 0;
+	}
+	else {
+		.@random = rand(getarraysize(.@id));
+	}
+	
+	if($count_egg_water2 > .rare_egg_water2){
+		if(.@random <= .rare_item){ goto recheck_again; end; }
+	}
+	
+	query_sql("UPDATE `egg_water2_data` SET `status` = 1 WHERE item_id = "+.@itemid[.@random]+" && id = "+.@id[.@random]+"");
+	
+	$count_egg_water2 = $count_egg_water2 -1;
+	
+	if(.@itemid[.@random] == 0){
+		specialeffect2 155;
+		query_sql("INSERT INTO `egg_water2_logs` (char_id,name,mode,item_id,item_amount,item_name,play_time) VALUES ("+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+callfunc("F_InsertComma",.choose[.@part])+" "+.choose$[.@part]+"',0,0,'No Item',NOW())");
+		npctalk "ผู้เล่น "+strcharinfo(0)+" ไม่ได้รับไอเทม จากตักไข่";
+	}
+	if(.@itemid[.@random] > 0){
+		specialeffect2 682;
+		query_sql("INSERT INTO `egg_water2_logs` (char_id,name,mode,item_id,item_amount,item_name,play_time) VALUES ("+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+callfunc("F_InsertComma",.choose[.@part])+" "+.choose$[.@part]+"',"+.@itemid[.@random]+","+.@itemamt[.@random]+",'"+escape_sql(getitemname(.@itemid[.@random]))+"',NOW())");
+		getitem .@itemid[.@random], .@itemamt[.@random];
+		if(!.@rate[.@random]){
+			announce "ผู้เล่น "+strcharinfo(0)+" ได้รับ "+getitemname(.@itemid[.@random])+" จำนวน "+.@itemamt[.@random]+" ชิ้น จากตักไข่",bc_all,0xFF0000;
+		}
+		if(.@rate[.@random] == 1){
+			announce "ผู้เล่น "+strcharinfo(0)+" ได้รับ "+getitemname(.@itemid[.@random])+" จำนวน "+.@itemamt[.@random]+" ชิ้น จากตักไข่",bc_all,0xFFFF00;
+		}
+		if(.@rate[.@random] == 2){
+			announce "ผู้เล่น "+strcharinfo(0)+" ได้รับ "+getitemname(.@itemid[.@random])+" จำนวน "+.@itemamt[.@random]+" ชิ้น จากตักไข่",bc_all,0xFF9900;
+		}
+		if(.@rate[.@random] == 3){
+			announce "ผู้เล่น "+strcharinfo(0)+" ได้รับ "+getitemname(.@itemid[.@random])+" จำนวน "+.@itemamt[.@random]+" ชิ้น จากตักไข่",bc_all,0x0000FF;
+		}
+		if(.@rate[.@random] == 4){
+			announce "ผู้เล่น "+strcharinfo(0)+" ได้รับ "+getitemname(.@itemid[.@random])+" จำนวน "+.@itemamt[.@random]+" ชิ้น จากตักไข่",bc_all,0x0099FF;
+		}
+		donpcevent ""+strnpcinfo(3)+"::OnChecking";
+	}                                                            
+	
+	if($egg_water2_ranking_on){
+		query_sql("SELECT char_id FROM `egg_water2_player_ranking` WHERE char_id = "+getcharid(0)+"",.@check_char_id);
+		if (!.@check_char_id) {
+			query_sql("INSERT INTO `egg_water2_player_ranking` (account_id,char_id,player_name,score) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"',"+.point+")");
+		}
+		else {
+			query_sql("UPDATE `egg_water2_player_ranking` SET `score` = `score`+"+.point+" WHERE char_id = "+getcharid(0)+"");
+		}
+	}
+	
+	setd "$storage"+strnpcinfo(0),1;
+	hideonnpc ""+strnpcinfo(3)+"";
+	end;
+
+OnChecking:                                                                   
+	
+	freeloop(1);
+		
+		query_sql("SELECT item_id,item_amount FROM `egg_water2_data` WHERE `item_id` > 0",.@itemid2,.@itemamt2);
+		
+		for ( .@i=0; .@i<getarraysize(.@itemid2); .@i++ ){
+			if(.@itemid2[.@i] > 0){
+				npcshopdelitem "egg_water2_shop",.@itemid2[.@i];
+			}
+		}
+		
+		query_sql("SELECT item_id,item_amount FROM `egg_water2_data` WHERE `status` = 0",.@itemid3,.@itemamt3);
+		
+		for ( .@i=0; .@i<getarraysize(.@itemid3); .@i++ ){
+			if(.@itemid3[.@i] > 0){
+				npcshopadditem "egg_water2_shop",.@itemid3[.@i],.@itemamt3[.@i];
+			}
+		}
+		
+	end;
+	
+OnInit:
+	
+	//	กำหนดไอเทมใช้กิจกรรม
+	.item_use = 7539;
+	
+	deletearray .choose$;
+	setarray .choose$[0]	,"Cash Point"	,"Zeny"	,""+getitemname(.item_use)+"";
+	
+	deletearray .choose;
+	//						Cash	Zeny		Item
+	setarray .choose[0]		,50		,5000		,1;
+	
+	//	ห้ามแก้ไข
+	.rare_item = 0;
+	
+	//	ตั้งจำนวนไข่ที่จะออกเรทแรร์
+	.rare_egg_water2 = 10;	
+	
+	//	กำหนดแต้มที่ได้รับจากการจัดอันดับ
+	.point = 1;
+	
+	hideonnpc ""+strnpcinfo(3)+"";
+	
+while(1){
+	npcspeed rand(100,400);
+	.@rx = rand(0,10); // ความกว้างของพื้นที่ไข่ (10 ช่อง)
+	.@ry = rand(0,10); // ความสูงของพื้นที่ไข่ (10 ช่อง)
+	.@x = 129 + .@rx;
+	.@y = 47 + .@ry;
+	getfreecell("morocc",.@x,.@y,.@x,.@y,1,1);
+	npcwalkto .@x,.@y;
+	sleep 1000;
+}
+
+	
+	end;
+		
+}
+
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#1	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#2	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#3	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#4	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#5	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#6	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#7	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#8	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#9	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#10	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#11	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#12	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#13	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#14	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#15	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#16	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#17	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#18	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#19	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#20	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#21	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#22	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#23	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#24	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#25	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#26	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#27	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#28	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#29	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#30	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#31	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#32	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#33	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#34	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#35	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#36	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#37	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#38	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#39	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#40	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#41	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#42	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#43	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#44	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#45	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#46	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#47	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#48	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#49	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#50	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#51	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#52	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#53	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#54	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#55	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#56	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#57	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#58	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#59	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#60	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#61	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#62	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#63	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#64	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#65	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#66	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#67	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#68	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#69	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#70	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#71	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#72	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#73	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#74	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#75	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#76	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#77	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#78	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#79	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#80	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#81	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#82	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#83	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#84	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#85	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#86	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#87	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#88	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#89	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#90	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#91	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#92	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#93	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#94	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#95	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#96	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#97	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#98	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#99	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#100	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#101	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#102	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#103	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#104	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#105	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#106	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#107	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#108	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#109	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#110	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#111	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#112	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#113	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#114	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#115	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#116	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#117	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#118	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#119	1047
+morocc,134,49,4	duplicate(egg_water2)	egg_water2#120	1047
+
+
+-	script	wall_egg_water2	-1,{
+end;
+}
+
+morocc,128,57,4	duplicate(wall_egg_water2)	Wall_egg_water#01	858
+//morocc,129,57,4	duplicate(wall_egg_water2)	Wall_egg_water#02	858
+//morocc,130,57,4	duplicate(wall_egg_water2)	Wall_egg_water#03	858
+//morocc,131,57,4	duplicate(wall_egg_water2)	Wall_egg_water#04	858
+//morocc,132,57,4	duplicate(wall_egg_water2)	Wall_egg_water#05	858
+//morocc,133,57,4	duplicate(wall_egg_water2)	Wall_egg_water#06	858
+//morocc,134,57,4	duplicate(wall_egg_water2)	Wall_egg_water#07	858
+//morocc,135,57,4	duplicate(wall_egg_water2)	Wall_egg_water#08	858
+//morocc,136,57,4	duplicate(wall_egg_water2)	Wall_egg_water#09	858
+//morocc,137,57,4	duplicate(wall_egg_water2)	Wall_egg_water#10	858
+//morocc,138,57,4	duplicate(wall_egg_water2)	Wall_egg_water#11	858
+//morocc,139,57,4	duplicate(wall_egg_water2)	Wall_egg_water#12	858
+//morocc,140,57,4	duplicate(wall_egg_water2)	Wall_egg_water#13	858
+//
+morocc,128,46,4	duplicate(wall_egg_water2)	Wall_egg_water#14	858
+//morocc,129,46,4	duplicate(wall_egg_water2)	Wall_egg_water#15	858
+//morocc,130,46,4	duplicate(wall_egg_water2)	Wall_egg_water#16	858
+//morocc,131,46,4	duplicate(wall_egg_water2)	Wall_egg_water#17	858
+//morocc,132,46,4	duplicate(wall_egg_water2)	Wall_egg_water#18	858
+//morocc,133,46,4	duplicate(wall_egg_water2)	Wall_egg_water#19	858
+//morocc,134,46,4	duplicate(wall_egg_water2)	Wall_egg_water#20	858
+//morocc,135,46,4	duplicate(wall_egg_water2)	Wall_egg_water#21	858
+//morocc,136,46,4	duplicate(wall_egg_water2)	Wall_egg_water#22	858
+//morocc,137,46,4	duplicate(wall_egg_water2)	Wall_egg_water#23	858
+//morocc,138,46,4	duplicate(wall_egg_water2)	Wall_egg_water#24	858
+//morocc,139,46,4	duplicate(wall_egg_water2)	Wall_egg_water#25	858
+morocc,140,46,4	duplicate(wall_egg_water2)	Wall_egg_water#26	858
+//
+morocc,140,57,4	duplicate(wall_egg_water2)	Wall_egg_water#27	858
+//morocc,140,56,4	duplicate(wall_egg_water2)	Wall_egg_water#28	858
+//morocc,140,55,4	duplicate(wall_egg_water2)	Wall_egg_water#29	858
+//morocc,140,54,4	duplicate(wall_egg_water2)	Wall_egg_water#30	858
+//morocc,140,53,4	duplicate(wall_egg_water2)	Wall_egg_water#31	858
+//morocc,140,52,4	duplicate(wall_egg_water2)	Wall_egg_water#32	858
+//morocc,140,51,4	duplicate(wall_egg_water2)	Wall_egg_water#33	858
+//morocc,140,50,4	duplicate(wall_egg_water2)	Wall_egg_water#34	858
+//morocc,140,49,4	duplicate(wall_egg_water2)	Wall_egg_water#35	858
+//morocc,140,48,4	duplicate(wall_egg_water2)	Wall_egg_water#36	858
+//morocc,140,47,4	duplicate(wall_egg_water2)	Wall_egg_water#37	858
+//
+morocc,128,57,4	duplicate(wall_egg_water2)	Wall_egg_water#38	858
+//morocc,128,56,4	duplicate(wall_egg_water2)	Wall_egg_water#39	858
+//morocc,128,55,4	duplicate(wall_egg_water2)	Wall_egg_water#40	858
+//morocc,128,54,4	duplicate(wall_egg_water2)	Wall_egg_water#41	858
+//morocc,128,53,4	duplicate(wall_egg_water2)	Wall_egg_water#42	858
+//morocc,128,52,4	duplicate(wall_egg_water2)	Wall_egg_water#43	858
+//morocc,128,51,4	duplicate(wall_egg_water2)	Wall_egg_water#44	858
+//morocc,128,50,4	duplicate(wall_egg_water2)	Wall_egg_water#45	858
+//morocc,128,49,4	duplicate(wall_egg_water2)	Wall_egg_water#46	858
+//morocc,128,48,4	duplicate(wall_egg_water2)	Wall_egg_water#47	858
+//morocc,128,47,4	duplicate(wall_egg_water2)	Wall_egg_water#48	858
+
+
+//-	script	nowalk#nowalk	-1,{
+//end;
+//OnInit:
+//	setcell "morocc",128,57,140,46,cell_walkable,0;
+//end;
+//}

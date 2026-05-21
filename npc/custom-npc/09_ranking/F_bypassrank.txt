@@ -1,0 +1,109 @@
+//==============================================
+//==============================================
+
+function	script	F_BypassRank	{
+    .@rank = getarg(0);
+
+    // อัปเดต rank ของผู้เล่น
+    query_sql "UPDATE `char` SET `rank` = '"+.@rank+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+
+    // ให้รางวัลตาม rank ที่มีค่าอยู่
+    switch(.@rank) {
+        case 1: achievementcomplete(240021);  rewardtitleid(240021);      break; 
+        case 2: achievementcomplete(240022);  rewardtitleid(240022);      break; 
+        case 3: achievementcomplete(240023);  rewardtitleid(240023);      break; 
+        case 4: achievementcomplete(240024);  rewardtitleid(240024);      break; 
+        case 5: achievementcomplete(240025);  rewardtitleid(240025);      break; 
+        case 6: achievementcomplete(240026);  rewardtitleid(240026);      break; 
+        case 7: achievementcomplete(240027);  rewardtitleid(240027);      break; 
+        case 8: achievementcomplete(240028);  rewardtitleid(240028);      break; 
+        case 9: achievementcomplete(240029);  rewardtitleid(240029);      break; 
+        case 10: achievementcomplete(240030);  rewardtitleid(240030);      break;
+        case 11: achievementcomplete(240031);  rewardtitleid(240031);      break;
+        case 12: achievementcomplete(240032);  rewardtitleid(240032);      break;
+        case 13: achievementcomplete(240033);  rewardtitleid(240033);      break;
+        case 14: achievementcomplete(240034);  rewardtitleid(240034);      break;
+        case 15: achievementcomplete(240035);  rewardtitleid(240035);      break;
+        case 16: achievementcomplete(240036);  rewardtitleid(240036);      break;
+        case 17: achievementcomplete(240037);  rewardtitleid(240037);      break;
+        case 18: achievementcomplete(240038);  rewardtitleid(240038);      break;
+        case 19: achievementcomplete(240039);  rewardtitleid(240039);      break;
+        case 20: achievementcomplete(240040);  rewardtitleid(240040);      break;
+        case 21: achievementcomplete(240041);  rewardtitleid(240041);      break;
+        case 22: achievementcomplete(240042);  rewardtitleid(240042);      break;
+        case 23: achievementcomplete(240043);  rewardtitleid(240043);      break;
+        case 24: achievementcomplete(240044);  rewardtitleid(240044);      break;
+        case 25: achievementcomplete(240045);  rewardtitleid(240045);      break;
+        case 26: achievementcomplete(240046);  rewardtitleid(240046);      break;
+        case 27: achievementcomplete(240047);  rewardtitleid(240047);      break;
+        case 28: achievementcomplete(240048);  rewardtitleid(240048);      break;
+        case 29: achievementcomplete(240049);  rewardtitleid(240049);      break;
+        case 30: achievementcomplete(240050);  rewardtitleid(240050);      break;
+        case 31: achievementcomplete(240051);  rewardtitleid(240051);      break;
+        case 32: achievementcomplete(240052);  rewardtitleid(240052);      break;
+        case 33: achievementcomplete(240053);  rewardtitleid(240053);      break;
+        case 34: achievementcomplete(240054);  rewardtitleid(240054);      break;
+        case 35: achievementcomplete(240055);  rewardtitleid(240055);      break;
+        case 36: achievementcomplete(240056);  rewardtitleid(240056);      break;
+        case 37: achievementcomplete(240057);  rewardtitleid(240057);      break;
+        case 38: achievementcomplete(240058);  rewardtitleid(240058);      break;
+        case 39: achievementcomplete(240059);  rewardtitleid(240059);      break;
+        case 40: achievementcomplete(240060);  rewardtitleid(240060);      break;
+        case 41: achievementcomplete(240061);  rewardtitleid(240061);      break;
+        case 42: achievementcomplete(240062);  rewardtitleid(240062);      break;
+        case 43: achievementcomplete(240063);  rewardtitleid(240063);      break;
+        case 44: achievementcomplete(240064);  rewardtitleid(240064);      break;
+        case 45: achievementcomplete(240065);  rewardtitleid(240065);      break;
+        case 46: achievementcomplete(240066);  rewardtitleid(240066);      break;
+    }
+
+    // แสดงข้อความยศที่ได้รับ
+    if (.@rank == 1) dispbottom "ได้รับยศ: Noob";
+    if (.@rank == 2) dispbottom "ได้รับยศ: Baby";
+    if (.@rank == 3) dispbottom "ได้รับยศ: Rookie";
+    if (.@rank == 4) dispbottom "ได้รับยศ: Common";
+    if (.@rank == 5) dispbottom "ได้รับยศ: Soldier";
+    if (.@rank == 6) dispbottom "ได้รับยศ: Sergeant";
+    if (.@rank == 7) dispbottom "ได้รับยศ: Captain";
+    if (.@rank == 8) dispbottom "ได้รับยศ: Major";
+    if (.@rank == 9) dispbottom "ได้รับยศ: Colonel";
+    if (.@rank == 10) dispbottom "ได้รับยศ: General";
+    if (.@rank == 11) dispbottom "ได้รับยศ: Commander";
+    if (.@rank == 12) dispbottom "ได้รับยศ: Supreme";
+    if (.@rank == 13) dispbottom "ได้รับยศ: Sir";
+    if (.@rank == 14) dispbottom "ได้รับยศ: Baron";
+    if (.@rank == 15) dispbottom "ได้รับยศ: Viscount";
+    if (.@rank == 16) dispbottom "ได้รับยศ: Count";
+    if (.@rank == 17) dispbottom "ได้รับยศ: Marquis";
+    if (.@rank == 18) dispbottom "ได้รับยศ: Duke";
+    if (.@rank == 19) dispbottom "ได้รับยศ: King";
+    if (.@rank == 20) dispbottom "ได้รับยศ: Great King";
+    if (.@rank == 21) dispbottom "ได้รับยศ: Incredible";
+    if (.@rank == 22) dispbottom "ได้รับยศ: Invincible";
+    if (.@rank == 23) dispbottom "ได้รับยศ: Hero";
+    if (.@rank == 24) dispbottom "ได้รับยศ: Nobel";
+    if (.@rank == 25) dispbottom "ได้รับยศ: Berserker";
+    if (.@rank == 26) dispbottom "ได้รับยศ: Legend";
+    if (.@rank == 27) dispbottom "ได้รับยศ: Legendary";
+    if (.@rank == 28) dispbottom "ได้รับยศ: Mythical";
+    if (.@rank == 29) dispbottom "ได้รับยศ: Immortal";
+    if (.@rank == 30) dispbottom "ได้รับยศ: Immortal Spirit";
+    if (.@rank == 31) dispbottom "ได้รับยศ: Commander";
+    if (.@rank == 32) dispbottom "ได้รับยศ: Saint";
+    if (.@rank == 33) dispbottom "ได้รับยศ: Angel";
+    if (.@rank == 34) dispbottom "ได้รับยศ: Angel Of Death";
+    if (.@rank == 35) dispbottom "ได้รับยศ: Guardian";
+    if (.@rank == 36) dispbottom "ได้รับยศ: Master";
+    if (.@rank == 37) dispbottom "ได้รับยศ: Golden";
+    if (.@rank == 38) dispbottom "ได้รับยศ: Evil God";
+    if (.@rank == 39) dispbottom "ได้รับยศ: King Of Hell";
+    if (.@rank == 40) dispbottom "ได้รับยศ: King Of Heaven";
+    if (.@rank == 41) dispbottom "ได้รับยศ: God Of Prophesy";
+    if (.@rank == 42) dispbottom "ได้รับยศ: God Of Hunt";
+    if (.@rank == 43) dispbottom "ได้รับยศ: God Of War";
+    if (.@rank == 44) dispbottom "ได้รับยศ: God Of Death";
+    if (.@rank == 45) dispbottom "ได้รับยศ: Demi-God";
+    if (.@rank == 46) dispbottom "ได้รับยศ: God";
+
+    end;
+}

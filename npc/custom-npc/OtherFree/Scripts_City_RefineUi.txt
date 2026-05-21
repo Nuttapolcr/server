@@ -1,0 +1,28 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+-	script	refineui	-1,{
+callfunc "refineui";
+	end;
+OnInit:
+	waitingroom	"อัพเกรดระบบใหม่",0;
+	end;
+}
+
+function	script	refineui	{
+dispbottom "เปิดใช้งานระบบ อัพเกรด UI เรียบร้อยแล้ว ";
+atcommand "@refineui";
+end;
+}
+
+oasis,127,81,4	duplicate(refineui)	อัพเกรดระบบใหม่#01	63

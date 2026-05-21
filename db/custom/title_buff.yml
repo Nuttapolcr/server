@@ -1,0 +1,1035 @@
+#########################################################################################
+#  - Status: SC_TITLE1004                                                               #
+#    Script: |                                                                          #
+#      bonus bAllStats,100;                                                             #
+#    Description: "โบนัส All Stats +100"    สำหรับแสดงที่ chat box ผู้เล่น ของระบบ Title Bonus             #
+######################################################################################### 
+
+Header:
+  Type: TITLE_BUFF_DB
+  Version: 1
+
+Body:
+#  - Status: SC_TITLE1000
+#    Script: |
+#      bonus bMaxHP,100;
+#      bonus bMaxSP,10;
+#      bonus bLuk,1;
+#    Description: "เปิดใช้งานยศ  Noob"  
+#
+#  - Status: SC_TITLE1001
+#    Script: |
+#      bonus bMaxHP,150;
+#      bonus bMaxSP,30;
+#      bonus bAgi,1;
+#      bonus bHPrecovRate,1;
+#      bonus bSPrecovRate,1;
+#    Description: "เปิดใช้งานยศ  Baby"  
+#  
+#  - Status: SC_TITLE1002
+#    Script: |
+#      bonus bMaxHP,200;
+#      bonus bMaxSP,40;
+#      bonus bVit,1;
+#      bonus bDex,1;
+#      bonus bHPrecovRate,3;
+#      bonus bSPrecovRate,3;
+#    Description: "เปิดใช้งานยศ  Rookie"  
+#
+#  - Status: SC_TITLE1003
+#    Script: |
+#      bonus bMaxHP,250;
+#      bonus bMaxSP,50;
+#      bonus bStr,1;
+#      bonus bInt,1;
+#      bonus bHPrecovRate,5;
+#      bonus bSPrecovRate,5;
+#    Description: "เปิดใช้งานยศ  Common"  
+#
+#  - Status: SC_TITLE1004
+#    Script: |
+#      bonus bMaxHP,300;
+#      bonus bMaxSP,70;
+#      bonus bLuk,3;
+#      bonus bAtk,10;
+#      bonus bMatk,10;
+#      bonus2 bExpAddRace,RC_ALL,1;
+#      bonus2 bDropAddRace,RC_All,1;      
+#      bonus bHPrecovRate,5;
+#      bonus bSPrecovRate,5;
+#    Description: "เปิดใช้งานยศ  Soldier"  
+#
+#  - Status: SC_TITLE1005
+#    Script: |
+#      bonus bMaxHP,350;
+#      bonus bMaxSP,70;
+#      bonus bAgi,3;
+#      bonus bAtk,10;
+#      bonus bMatk,10;
+#      bonus2 bExpAddRace,RC_ALL,1;
+#      bonus2 bDropAddRace,RC_All,1;      
+#      bonus bHPrecovRate,5;
+#      bonus bSPrecovRate,5;
+#    Description: "เปิดใช้งานยศ  Sergeant"  
+#
+#  - Status: SC_TITLE1006
+#    Script: |
+#      bonus bMaxHP,400;
+#      bonus bMaxSP,70;
+#      bonus bVit,3;
+#      bonus bAtk,10;
+#      bonus bMatk,10;
+#      bonus2 bExpAddRace,RC_ALL,2;
+#      bonus2 bDropAddRace,RC_All,2;      
+#      bonus bHPrecovRate,5;
+#      bonus bSPrecovRate,5;
+#    Description: "เปิดใช้งานยศ  Captain"  
+#
+#  - Status: SC_TITLE1007
+#    Script: |
+#      bonus bMaxHP,450;
+#      bonus bMaxSP,100;
+#      bonus bInt,3;
+#      bonus bAtk,10;
+#      bonus bMatk,10;
+#      bonus2 bExpAddRace,RC_ALL,3;
+#      bonus2 bDropAddRace,RC_All,3;
+#      bonus bHPrecovRate,5;
+#      bonus bSPrecovRate,5;
+#    Description: "เปิดใช้งานยศ  Major"  
+#
+#  - Status: SC_TITLE1008
+#    Script: |
+#      bonus bMaxHP,500;
+#      bonus bMaxSP,100;
+#      bonus bDex,3;
+#      bonus bAtk,10;
+#      bonus bMatk,10;
+#      bonus2 bExpAddRace,RC_ALL,4;
+#      bonus2 bDropAddRace,RC_All,4;
+#      bonus bHPrecovRate,5;
+#      bonus bSPrecovRate,5;
+#    Description: "เปิดใช้งานยศ  Colonel"  
+#
+#  - Status: SC_TITLE1009
+#    Script: |
+#      bonus bMaxHP,600;
+#      bonus bMaxSP,100;
+#      bonus bStr,3;
+#      bonus bAtk,10;
+#      bonus bMatk,10;
+#      bonus2 bExpAddRace,RC_ALL,4;
+#      bonus2 bDropAddRace,RC_All,4;
+#      bonus bHPrecovRate,5;
+#      bonus bSPrecovRate,5;
+#    Description: "เปิดใช้งานยศ  General"  
+#
+#  - Status: SC_TITLE1010
+#    Script: |
+#      bonus bMaxHP,700;
+#      bonus bMaxSP,120;
+#      bonus bAllstats,1;
+#      bonus bAtk,15;
+#      bonus bMatk,15;
+#      bonus bDef,3;
+#      bonus2 bExpAddRace,RC_ALL,5;
+#      bonus2 bDropAddRace,RC_All,5;
+#      bonus bHPrecovRate,6;
+#      bonus bSPrecovRate,6;
+#    Description: "เปิดใช้งานยศ  Commander"  
+#
+#  - Status: SC_TITLE1011
+#    Script: |
+#      bonus bMaxHP,800;
+#      bonus bMaxSP,130;
+#      bonus bAllstats,1;
+#      bonus bAtk,20;
+#      bonus bMatk,20;
+#      bonus bDef,5;
+#      bonus bMdef,3;
+#      bonus2 bExpAddRace,RC_ALL,6;
+#      bonus2 bDropAddRace,RC_All,6;
+#      bonus bHPrecovRate,7;
+#      bonus bSPrecovRate,7;
+#      bonus2 bAddSize,Size_Large,1;
+#      bonus2 bMagicAddSize,Size_Large,1;
+#      bonus2 bAddSize,Size_Medium,1;
+#      bonus2 bMagicAddSize,Size_Medium,1;
+#      bonus2 bAddSize,Size_Small,1;
+#      bonus2 bMagicAddSize,Size_Small,1;
+#    Description: "เปิดใช้งานยศ  Supreme"  
+#
+#  - Status: SC_TITLE1012
+#    Script: |
+#      bonus bMaxHP,900;
+#      bonus bMaxSP,140;
+#      bonus bAllstats,1;
+#      bonus bAtk,20;
+#      bonus bMatk,20;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus2 bExpAddRace,RC_ALL,7;
+#      bonus2 bDropAddRace,RC_All,7;
+#      bonus bHPrecovRate,8;
+#      bonus bSPrecovRate,8;
+#      bonus2 bAddSize,Size_Large,1;
+#      bonus2 bMagicAddSize,Size_Large,1;
+#      bonus2 bAddSize,Size_Medium,1;
+#      bonus2 bMagicAddSize,Size_Medium,1;
+#      bonus2 bAddSize,Size_Small,1;
+#      bonus2 bMagicAddSize,Size_Small,1;
+#    Description: "เปิดใช้งานยศ  Sir"  
+#
+#  - Status: SC_TITLE1013
+#    Script: |
+#      bonus bMaxHP,1000;
+#      bonus bMaxSP,150;
+#      bonus bAllstats,1;
+#      bonus bAtk,20;
+#      bonus bMatk,20;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus2 bExpAddRace,RC_ALL,7;
+#      bonus2 bDropAddRace,RC_All,7;
+#      bonus bHPrecovRate,8;
+#      bonus bSPrecovRate,8;
+#      bonus2 bAddSize,Size_Large,1;
+#      bonus2 bMagicAddSize,Size_Large,1;
+#      bonus2 bAddSize,Size_Medium,1;
+#      bonus2 bMagicAddSize,Size_Medium,1;
+#      bonus2 bAddSize,Size_Small,1;
+#      bonus2 bMagicAddSize,Size_Small,1;
+#    Description: "เปิดใช้งานยศ  Baron"  
+#
+#  - Status: SC_TITLE1014
+#    Script: |
+#      bonus bMaxHP,1100;
+#      bonus bMaxSP,150;
+#      bonus bAllstats,1;
+#      bonus bAtk,20;
+#      bonus bMatk,20;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,500;      
+#      bonus2 bExpAddRace,RC_ALL,7;
+#      bonus2 bDropAddRace,RC_All,7;
+#      bonus bHPrecovRate,8;
+#      bonus bSPrecovRate,8;
+#      bonus2 bAddSize,Size_Large,2;
+#      bonus2 bMagicAddSize,Size_Large,2;
+#      bonus2 bAddSize,Size_Medium,2;
+#      bonus2 bMagicAddSize,Size_Medium,2;
+#      bonus2 bAddSize,Size_Small,2;
+#      bonus2 bMagicAddSize,Size_Small,2;
+#    Description: "เปิดใช้งานยศ  Viscount"  
+#
+#  - Status: SC_TITLE1015
+#    Script: |
+#      bonus bMaxHP,1200;
+#      bonus bMaxSP,150;
+#      bonus bAllstats,1;
+#      bonus bAtk,20;
+#      bonus bMatk,20;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,1000;
+#      bonus2 bExpAddRace,RC_ALL,7;
+#      bonus2 bDropAddRace,RC_All,7;
+#      bonus bHPrecovRate,8;
+#      bonus bSPrecovRate,8;
+#      bonus2 bAddSize,Size_Large,2;
+#      bonus2 bMagicAddSize,Size_Large,2;
+#      bonus2 bAddSize,Size_Medium,2;
+#      bonus2 bMagicAddSize,Size_Medium,2;
+#      bonus2 bAddSize,Size_Small,2;
+#      bonus2 bMagicAddSize,Size_Small,2;
+#    Description: "เปิดใช้งานยศ  Count"  
+#
+#  - Status: SC_TITLE1016
+#    Script: |
+#      bonus bMaxHP,1300;
+#      bonus bMaxSP,200;
+#      bonus bAllstats,1;
+#      bonus bAtk,20;
+#      bonus bMatk,20;
+#      bonus bCritical,3;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,1000;
+#      bonus2 bExpAddRace,RC_ALL,8;
+#      bonus2 bDropAddRace,RC_All,8;
+#      bonus bHPrecovRate,8;
+#      bonus bSPrecovRate,8;
+#      bonus2 bAddSize,Size_Large,2;
+#      bonus2 bMagicAddSize,Size_Large,2;
+#      bonus2 bAddSize,Size_Medium,2;
+#      bonus2 bMagicAddSize,Size_Medium,2;
+#      bonus2 bAddSize,Size_Small,3;
+#      bonus2 bMagicAddSize,Size_Small,3;
+#    Description: "เปิดใช้งานยศ  Marquis"  
+#
+#  - Status: SC_TITLE1017
+#    Script: |
+#      bonus bMaxHP,1400;
+#      bonus bMaxSP,200;
+#      bonus bAllstats,1;
+#      bonus bAtk,25;
+#      bonus bMatk,25;
+#      bonus bCritical,3;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,1500;
+#      bonus2 bExpAddRace,RC_ALL,8;
+#      bonus2 bDropAddRace,RC_All,8;
+#      bonus bHPrecovRate,9;
+#      bonus bSPrecovRate,9;
+#      bonus2 bAddSize,Size_Large,2;
+#      bonus2 bMagicAddSize,Size_Large,2;
+#      bonus2 bAddSize,Size_Medium,3;
+#      bonus2 bMagicAddSize,Size_Medium,3;
+#      bonus2 bAddSize,Size_Small,3;
+#      bonus2 bMagicAddSize,Size_Small,3;
+#    Description: "เปิดใช้งานยศ  Duke"  
+#
+#  - Status: SC_TITLE1018
+#    Script: |
+#      bonus bMaxHP,1500;
+#      bonus bMaxSP,200;
+#      bonus bAllstats,2;
+#      bonus bAtk,30;
+#      bonus bMatk,30;
+#      bonus bCritical,5;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,1500;
+#      bonus2 bExpAddRace,RC_ALL,8;
+#      bonus2 bDropAddRace,RC_All,8;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,3;
+#      bonus2 bMagicAddSize,Size_Large,3;
+#      bonus2 bAddSize,Size_Medium,3;
+#      bonus2 bMagicAddSize,Size_Medium,3;
+#      bonus2 bAddSize,Size_Small,3;
+#      bonus2 bMagicAddSize,Size_Small,3;
+#    Description: "เปิดใช้งานยศ  King"  
+#
+#  - Status: SC_TITLE1019
+#    Script: |
+#      bonus bMaxHP,1700;
+#      bonus bMaxSP,200;
+#      bonus bAllstats,2;
+#      bonus bAtk,35;
+#      bonus bMatk,35;
+#      bonus bCritical,5;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,2000;
+#      bonus2 bExpAddRace,RC_ALL,9;
+#      bonus2 bDropAddRace,RC_All,9;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,3;
+#      bonus2 bMagicAddSize,Size_Large,3;
+#      bonus2 bAddSize,Size_Medium,3;
+#      bonus2 bMagicAddSize,Size_Medium,3;
+#      bonus2 bAddSize,Size_Small,3;
+#      bonus2 bMagicAddSize,Size_Small,3;
+#    Description: "เปิดใช้งานยศ  Great King"  
+#
+#  - Status: SC_TITLE1020
+#    Script: |
+#      bonus bMaxHP,1900;
+#      bonus bMaxSP,220;
+#      bonus bAllstats,2;
+#      bonus bAtk,40;
+#      bonus bMatk,40;
+#      bonus bCritical,6;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,2000;
+#      bonus2 bExpAddRace,RC_ALL,9;
+#      bonus2 bDropAddRace,RC_All,9;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,3;
+#      bonus2 bMagicAddSize,Size_Large,3;
+#      bonus2 bAddSize,Size_Medium,3;
+#      bonus2 bMagicAddSize,Size_Medium,3;
+#      bonus2 bAddSize,Size_Small,4;
+#      bonus2 bMagicAddSize,Size_Small,4;
+#    Description: "เปิดใช้งานยศ  Incredible"  
+#
+#  - Status: SC_TITLE1021
+#    Script: |
+#      bonus bMaxHP,2200;
+#      bonus bMaxSP,250;
+#      bonus bAllstats,2;
+#      bonus bAtk,45;
+#      bonus bMatk,45;
+#      bonus bCritical,6;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,2500;
+#      bonus2 bExpAddRace,RC_ALL,9;
+#      bonus2 bDropAddRace,RC_All,9;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,3;
+#      bonus2 bMagicAddSize,Size_Large,3;
+#      bonus2 bAddSize,Size_Medium,4;
+#      bonus2 bMagicAddSize,Size_Medium,4;
+#      bonus2 bAddSize,Size_Small,4;
+#      bonus2 bMagicAddSize,Size_Small,4;
+#    Description: "เปิดใช้งานยศ  Invincible"  
+#
+#  - Status: SC_TITLE1022
+#    Script: |
+#      bonus bMaxHP,2400;
+#      bonus bMaxSP,270;
+#      bonus bAllstats,2;
+#      bonus bAtk,50;
+#      bonus bMatk,50;
+#      bonus bCritical,7;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,2500;
+#      bonus2 bExpAddRace,RC_ALL,9;
+#      bonus2 bDropAddRace,RC_All,9;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,4;
+#      bonus2 bMagicAddSize,Size_Large,4;
+#      bonus2 bAddSize,Size_Medium,4;
+#      bonus2 bMagicAddSize,Size_Medium,4;
+#      bonus2 bAddSize,Size_Small,4;
+#      bonus2 bMagicAddSize,Size_Small,4;
+#    Description: "เปิดใช้งานยศ  Hero"  
+#
+#  - Status: SC_TITLE1023
+#    Script: |
+#      bonus bMaxHP,2600;
+#      bonus bMaxSP,300;
+#      bonus bAllstats,3;
+#      bonus bAtk,50;
+#      bonus bMatk,50;
+#      bonus bCritical,8;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,2700;
+#      bonus2 bExpAddRace,RC_ALL,9;
+#      bonus2 bDropAddRace,RC_All,9;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,4;
+#      bonus2 bMagicAddSize,Size_Large,4;
+#      bonus2 bAddSize,Size_Medium,4;
+#      bonus2 bMagicAddSize,Size_Medium,4;
+#      bonus2 bAddSize,Size_Small,5;
+#      bonus2 bMagicAddSize,Size_Small,5;
+#    Description: "เปิดใช้งานยศ  Nobel"  
+#
+#  - Status: SC_TITLE1024
+#    Script: |
+#      bonus bMaxHP,2800;
+#      bonus bMaxSP,320;
+#      bonus bAllstats,3;
+#      bonus bAtk,55;
+#      bonus bMatk,55;
+#      bonus bCritical,8;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,3000;
+#      bonus2 bExpAddRace,RC_ALL,9;
+#      bonus2 bDropAddRace,RC_All,9;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,4;
+#      bonus2 bMagicAddSize,Size_Large,4;
+#      bonus2 bAddSize,Size_Medium,5;
+#      bonus2 bMagicAddSize,Size_Medium,5;
+#      bonus2 bAddSize,Size_Small,5;
+#      bonus2 bMagicAddSize,Size_Small,5;
+#    Description: "เปิดใช้งานยศ  Berserker"  
+#
+#  - Status: SC_TITLE1025
+#    Script: |
+#      bonus bMaxHP,3000;
+#      bonus bMaxSP,320;
+#      bonus bAllstats,3;
+#      bonus bAtk,60;
+#      bonus bMatk,60;
+#      bonus bCritical,9;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,3200;
+#      bonus2 bExpAddRace,RC_ALL,9;
+#      bonus2 bDropAddRace,RC_All,9;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,5;
+#      bonus2 bMagicAddSize,Size_Large,5;
+#      bonus2 bAddSize,Size_Medium,5;
+#      bonus2 bMagicAddSize,Size_Medium,5;
+#      bonus2 bAddSize,Size_Small,5;
+#      bonus2 bMagicAddSize,Size_Small,5;
+#    Description: "เปิดใช้งานยศ  Legend"  
+#
+#  - Status: SC_TITLE1026
+#    Script: |
+#      bonus bMaxHP,3300;
+#      bonus bMaxSP,340;
+#      bonus bAllstats,4;
+#      bonus bAtk,60;
+#      bonus bMatk,60;
+#      bonus bCritical,10;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAddMaxWeight,3400;
+#      bonus2 bExpAddRace,RC_ALL,9;
+#      bonus2 bDropAddRace,RC_All,9;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,5;
+#      bonus2 bMagicAddSize,Size_Large,5;
+#      bonus2 bAddSize,Size_Medium,5;
+#      bonus2 bMagicAddSize,Size_Medium,5;
+#      bonus2 bAddSize,Size_Small,5;
+#      bonus2 bMagicAddSize,Size_Small,5;
+#    Description: "เปิดใช้งานยศ  Legendary"  
+#
+#  - Status: SC_TITLE1027
+#    Script: |
+#      bonus bMaxHP,3500;
+#      bonus bMaxSP,360;
+#      bonus bAllstats,4;
+#      bonus bAtk,65;
+#      bonus bMatk,65;
+#      bonus bCritical,10;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus2 bAddRace,RC_DemiHuman,2;
+#      bonus2 bAddRace,RC_Player_Human,2;
+#      bonus bAddMaxWeight,3600;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,5;
+#      bonus2 bMagicAddSize,Size_Large,5;
+#      bonus2 bAddSize,Size_Medium,5;
+#      bonus2 bMagicAddSize,Size_Medium,5;
+#      bonus2 bAddSize,Size_Small,5;
+#      bonus2 bMagicAddSize,Size_Small,5;
+#    Description: "เปิดใช้งานยศ  Mythical"  
+#
+#  - Status: SC_TITLE1028
+#    Script: |
+#      bonus bMaxHP,4000;
+#      bonus bMaxSP,400;
+#      bonus bAllstats,4;
+#      bonus bAtk,70;
+#      bonus bMatk,70;
+#      bonus bCritical,10;
+#      bonus bAspdRate,3;
+#      bonus2 bAddRace,RC_DemiHuman,2;
+#      bonus2 bAddRace,RC_Player_Human,2;
+#      bonus bAddMaxWeight,3800;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,5;
+#      bonus2 bMagicAddSize,Size_Large,5;
+#      bonus2 bAddSize,Size_Medium,5;
+#      bonus2 bMagicAddSize,Size_Medium,5;
+#      bonus2 bAddSize,Size_Small,6;
+#      bonus2 bMagicAddSize,Size_Small,6;
+#    Description: "เปิดใช้งานยศ  Immortal"  
+#
+#  - Status: SC_TITLE1029
+#    Script: |
+#      bonus bMaxHP,4500;
+#      bonus bMaxSP,440;
+#      bonus bAllstats,4;
+#      bonus bAtk,70;
+#      bonus bMatk,70;
+#      bonus bCritical,10;
+#      bonus bAspdRate,3;
+#      bonus2 bAddRace,RC_DemiHuman,3;
+#      bonus2 bAddRace,RC_Player_Human,3;
+#      bonus bAddMaxWeight,4000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,5;
+#      bonus2 bMagicAddSize,Size_Large,5;
+#      bonus2 bAddSize,Size_Medium,6;
+#      bonus2 bMagicAddSize,Size_Medium,6;
+#      bonus2 bAddSize,Size_Small,6;
+#      bonus2 bMagicAddSize,Size_Small,6;
+#    Description: "เปิดใช้งานยศ  Immortal Spirit"  
+#
+#  - Status: SC_TITLE1030
+#    Script: |
+#      bonus bMaxHP,5000;
+#      bonus bMaxSP,460;
+#      bonus bAllstats,5;
+#      bonus bAtk,75;
+#      bonus bMatk,75;
+#      bonus bCritical,10;
+#      bonus bAspdRate,3;
+#      bonus2 bAddRace,RC_DemiHuman,3;
+#      bonus2 bAddRace,RC_Player_Human,3;
+#      bonus bAddMaxWeight,4200;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,6;
+#      bonus2 bMagicAddSize,Size_Large,6;
+#      bonus2 bAddSize,Size_Medium,6;
+#      bonus2 bMagicAddSize,Size_Medium,6;
+#      bonus2 bAddSize,Size_Small,6;
+#      bonus2 bMagicAddSize,Size_Small,6;
+#    Description: "เปิดใช้งานยศ  Commander"  
+#
+#  - Status: SC_TITLE1031
+#    Script: |
+#      bonus bMaxHP,5500;
+#      bonus bMaxSP,500;
+#      bonus bAllstats,5;
+#      bonus bAtk,80;
+#      bonus bMatk,80;
+#      bonus bCritical,10;
+#      bonus bAspdRate,3;
+#      bonus2 bAddRace,RC_DemiHuman,3;
+#      bonus2 bAddRace,RC_Player_Human,3;
+#      bonus2 bSubEle,Ele_Neutral,1;
+#      bonus bCastrate,-1;
+#      bonus bAddMaxWeight,4500;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,6;
+#      bonus2 bMagicAddSize,Size_Large,6;
+#      bonus2 bAddSize,Size_Medium,6;
+#      bonus2 bMagicAddSize,Size_Medium,6;
+#      bonus2 bAddSize,Size_Small,7;
+#      bonus2 bMagicAddSize,Size_Small,7;
+#    Description: "เปิดใช้งานยศ  Saint"  
+#
+#  - Status: SC_TITLE1032
+#    Script: |
+#      bonus bMaxHP,6000;
+#      bonus bMaxSP,530;
+#      bonus bAllstats,5;
+#      bonus bAtk,85;
+#      bonus bMatk,85;
+#      bonus bCritical,10;
+#      bonus bAspdRate,3;
+#      bonus2 bAddRace,RC_DemiHuman,3;
+#      bonus2 bAddRace,RC_Player_Human,3;
+#      bonus2 bSubEle,Ele_Neutral,2;
+#      bonus bCastrate,-2;
+#      bonus bAddMaxWeight,4700;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,6;
+#      bonus2 bMagicAddSize,Size_Large,6;
+#      bonus2 bAddSize,Size_Medium,7;
+#      bonus2 bMagicAddSize,Size_Medium,7;
+#      bonus2 bAddSize,Size_Small,7;
+#      bonus2 bMagicAddSize,Size_Small,7;
+#    Description: "เปิดใช้งานยศ  Angel"  
+#
+#  - Status: SC_TITLE1033
+#    Script: |
+#      bonus bMaxHP,6500;
+#      bonus bMaxSP,570;
+#      bonus bAllstats,5;
+#      bonus bAtk,90;
+#      bonus bMatk,90;
+#      bonus bCritical,10;
+#      bonus bAspdRate,4;
+#      bonus2 bAddRace,RC_DemiHuman,3;
+#      bonus2 bAddRace,RC_Player_Human,3;
+#      bonus2 bSubEle,Ele_Neutral,3;
+#      bonus bCastrate,-3;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,7;
+#      bonus2 bMagicAddSize,Size_Large,7;
+#      bonus2 bAddSize,Size_Medium,7;
+#      bonus2 bMagicAddSize,Size_Medium,7;
+#      bonus2 bAddSize,Size_Small,7;
+#      bonus2 bMagicAddSize,Size_Small,7;
+#    Description: "เปิดใช้งานยศ  Angel Of Death"  
+#
+#  - Status: SC_TITLE1034
+#    Script: |
+#      bonus bMaxHP,7000;
+#      bonus bMaxSP,600;
+#      bonus bAllstats,5;
+#      bonus bAtk,95;
+#      bonus bMatk,95;
+#      bonus bCritical,10;
+#      bonus bAspdRate,5;
+#      bonus2 bAddRace,RC_DemiHuman,3;
+#      bonus2 bAddRace,RC_Player_Human,3;
+#      bonus2 bSubEle,Ele_Neutral,4;
+#      bonus bCastrate,-4;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,7;
+#      bonus2 bMagicAddSize,Size_Large,7;
+#      bonus2 bAddSize,Size_Medium,7;
+#      bonus2 bMagicAddSize,Size_Medium,7;
+#      bonus2 bAddSize,Size_Small,8;
+#      bonus2 bMagicAddSize,Size_Small,8;
+#    Description: "เปิดใช้งานยศ  Guardain"  
+#
+#  - Status: SC_TITLE1035
+#    Script: |
+#      bonus bMaxHP,7500;
+#      bonus bMaxSP,630;
+#      bonus bAllstats,5;
+#      bonus bAtk,100;
+#      bonus bMatk,100;
+#      bonus bCritical,10;
+#      bonus bAspdRate,5;
+#      bonus2 bAddRace,RC_DemiHuman,4;
+#      bonus2 bAddRace,RC_Player_Human,4;
+#      bonus2 bSubEle,Ele_Neutral,4;
+#      bonus bCastrate,-4;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,7;
+#      bonus2 bMagicAddSize,Size_Large,7;
+#      bonus2 bAddSize,Size_Medium,8;
+#      bonus2 bMagicAddSize,Size_Medium,8;
+#      bonus2 bAddSize,Size_Small,8;
+#      bonus2 bMagicAddSize,Size_Small,8;
+#    Description: "เปิดใช้งานยศ  Master"  
+#
+#  - Status: SC_TITLE1036
+#    Script: |
+#      bonus bMaxHP,8000;
+#      bonus bMaxSP,650;
+#      bonus bAllstats,5;
+#      bonus bAtk,105;
+#      bonus bMatk,105;
+#      bonus bCritical,10;
+#      bonus bAspdRate,5;
+#      bonus2 bAddRace,RC_DemiHuman,4;
+#      bonus2 bAddRace,RC_Player_Human,4;
+#      bonus2 bSubEle,Ele_Neutral,5;
+#      bonus bCastrate,-5;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,8;
+#      bonus2 bMagicAddSize,Size_Large,8;
+#      bonus2 bAddSize,Size_Medium,8;
+#      bonus2 bMagicAddSize,Size_Medium,8;
+#      bonus2 bAddSize,Size_Small,8;
+#      bonus2 bMagicAddSize,Size_Small,8;
+#    Description: "เปิดใช้งานยศ  Golden"  
+#
+#  - Status: SC_TITLE1037
+#    Script: |
+#      bonus bMaxHP,8500;
+#      bonus bMaxSP,650;
+#      bonus bAllstats,5;
+#      bonus bAtk,110;
+#      bonus bMatk,110;
+#      bonus bCritical,10;
+#      bonus bFlee,4;
+#      bonus bDef,4;
+#      bonus bMdef,4;
+#      bonus bAspdRate,5;
+#      bonus2 bAddRace,RC_DemiHuman,4;
+#      bonus2 bAddRace,RC_Player_Human,4;
+#      bonus2 bAddClass,Class_Boss,5;
+#      bonus2 bSubEle,Ele_Neutral,5;
+#      bonus bCastrate,-5;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,8;
+#      bonus2 bMagicAddSize,Size_Large,8;
+#      bonus2 bAddSize,Size_Medium,8;
+#      bonus2 bMagicAddSize,Size_Medium,8;
+#      bonus2 bAddSize,Size_Small,9;
+#      bonus2 bMagicAddSize,Size_Small,9;
+#    Description: "เปิดใช้งานยศ  Evil God"  
+#
+#  - Status: SC_TITLE1038
+#    Script: |
+#      bonus bMaxHP,9000;
+#      bonus bMaxSP,650;
+#      bonus bAllstats,5;
+#      bonus bAtk,115;
+#      bonus bMatk,115;
+#      bonus bCritical,10;
+#      bonus bFlee,5;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAspd,1;
+#      bonus2 bAddRace,RC_DemiHuman,4;
+#      bonus2 bAddRace,RC_Player_Human,4;
+#      bonus2 bAddClass,Class_Boss,5;
+#      bonus2 bSubEle,Ele_Neutral,5;
+#      bonus bCastrate,-5;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,8;
+#      bonus2 bMagicAddSize,Size_Large,8;
+#      bonus2 bAddSize,Size_Medium,9;
+#      bonus2 bMagicAddSize,Size_Medium,9;
+#      bonus2 bAddSize,Size_Small,9;
+#      bonus2 bMagicAddSize,Size_Small,9;
+#    Description: "เปิดใช้งานยศ  King Of Hell"  
+#
+#  - Status: SC_TITLE1039
+#    Script: |
+#      bonus bMaxHP,9500;
+#      bonus bMaxSP,650;
+#      bonus bAllstats,5;
+#      bonus bAtk,120;
+#      bonus bMatk,120;
+#      bonus bCritical,10;
+#      bonus bFlee,5;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAspd,1;
+#      bonus2 bAddRace,RC_DemiHuman,5;
+#      bonus2 bAddRace,RC_Player_Human,5;
+#      bonus2 bAddClass,Class_Boss,5;
+#      bonus2 bSubEle,Ele_Neutral,5;
+#      bonus bCastrate,-5;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,9;
+#      bonus2 bMagicAddSize,Size_Large,9;
+#      bonus2 bAddSize,Size_Medium,9;
+#      bonus2 bMagicAddSize,Size_Medium,9;
+#      bonus2 bAddSize,Size_Small,9;
+#      bonus2 bMagicAddSize,Size_Small,9;
+#    Description: "เปิดใช้งานยศ  King Of Heaven"  
+#
+#  - Status: SC_TITLE1040
+#    Script: |
+#      bonus bMaxHP,10000;
+#      bonus bMaxSP,670;
+#      bonus bAllstats,5;
+#      bonus bAtk,125;
+#      bonus bMatk,125;
+#      bonus bCritical,12;
+#      bonus bFlee,5;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAspd,1;
+#      bonus2 bAddRace,RC_DemiHuman,5;
+#      bonus2 bAddRace,RC_Player_Human,5;
+#      bonus2 bAddClass,Class_Boss,7;
+#      bonus2 bSubEle,Ele_Neutral,5;
+#      bonus bCastrate,-5;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,10;
+#      bonus bSPrecovRate,10;
+#      bonus2 bAddSize,Size_Large,9;
+#      bonus2 bMagicAddSize,Size_Large,9;
+#      bonus2 bAddSize,Size_Medium,9;
+#      bonus2 bMagicAddSize,Size_Medium,9;
+#      bonus2 bAddSize,Size_Small,10;
+#      bonus2 bMagicAddSize,Size_Small,10;
+#      bonus2 bIgnoreDefClassRate,Class_All,1;
+#      bonus2 bIgnoreMDefClassRate,Class_All,1;
+#    Description: "เปิดใช้งานยศ  God Of Prophesy"  
+#
+#  - Status: SC_TITLE1041
+#    Script: |
+#      bonus bMaxHP,10500;
+#      bonus bMaxSP,670;
+#      bonus bAllstats,5;
+#      bonus bAtk,130;
+#      bonus bMatk,130;
+#      bonus bCritical,12;
+#      bonus bFlee,5;
+#      bonus bDef,5;
+#      bonus bMdef,5;
+#      bonus bAspd,1;
+#      bonus2 bAddRace,RC_DemiHuman,5;
+#      bonus2 bAddRace,RC_Player_Human,5;
+#      bonus2 bAddClass,Class_Boss,10;
+#      bonus2 bSubEle,Ele_Neutral,5;
+#      bonus bCastrate,-5;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,15;
+#      bonus bSPrecovRate,15;
+#      bonus2 bAddSize,Size_Large,9;
+#      bonus2 bMagicAddSize,Size_Large,9;
+#      bonus2 bAddSize,Size_Medium,10;
+#      bonus2 bMagicAddSize,Size_Medium,10;
+#      bonus2 bAddSize,Size_Small,10;
+#      bonus2 bMagicAddSize,Size_Small,10;
+#      bonus2 bIgnoreDefClassRate,Class_All,1;
+#      bonus2 bIgnoreMDefClassRate,Class_All,1;
+#    Description: "เปิดใช้งานยศ  God Of Hunt"  
+#
+#  - Status: SC_TITLE1042
+#    Script: |
+#      bonus bMaxHP,11000;
+#      bonus bMaxSP,700;
+#      bonus bAllstats,5;
+#      bonus bAtk,135;
+#      bonus bMatk,135;
+#      bonus bCritical,13;
+#      bonus bFlee,6;
+#      bonus bDef,6;
+#      bonus bMdef,6;
+#      bonus bAspd,2;
+#      bonus2 bAddRace,RC_DemiHuman,5;
+#      bonus2 bAddRace,RC_Player_Human,5;
+#      bonus2 bAddClass,Class_Boss,10;
+#      bonus2 bSubEle,Ele_Neutral,5;
+#      bonus bCastrate,-6;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,15;
+#      bonus bSPrecovRate,15;
+#      bonus2 bAddSize,Size_Large,10;
+#      bonus2 bMagicAddSize,Size_Large,10;
+#      bonus2 bAddSize,Size_Medium,10;
+#      bonus2 bMagicAddSize,Size_Medium,10;
+#      bonus2 bAddSize,Size_Small,10;
+#      bonus2 bMagicAddSize,Size_Small,10;
+#      bonus2 bIgnoreDefClassRate,Class_All,1;
+#      bonus2 bIgnoreMDefClassRate,Class_All,1;
+#    Description: "เปิดใช้งานยศ  God Of War"  
+#
+#  - Status: SC_TITLE1043
+#    Script: |
+#      bonus bMaxHP,11500;
+#      bonus bMaxSP,700;
+#      bonus bAllstats,5;
+#      bonus bAtk,140;
+#      bonus bMatk,140;
+#      bonus bCritical,13;
+#      bonus bFlee,6;
+#      bonus bDef,6;
+#      bonus bMdef,6;
+#      bonus bAspd,2;
+#      bonus2 bAddRace,RC_DemiHuman,6;
+#      bonus2 bAddRace,RC_Player_Human,6;
+#      bonus2 bAddClass,Class_Boss,12;
+#      bonus2 bSubEle,Ele_Neutral,5;
+#      bonus bCastrate,-7;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,10;
+#      bonus2 bDropAddRace,RC_All,10;
+#      bonus bHPrecovRate,15;
+#      bonus bSPrecovRate,15;
+#      bonus2 bAddSize,Size_Large,10;
+#      bonus2 bMagicAddSize,Size_Large,10;
+#      bonus2 bAddSize,Size_Medium,10;
+#      bonus2 bMagicAddSize,Size_Medium,10;
+#      bonus2 bAddSize,Size_Small,10;
+#      bonus2 bMagicAddSize,Size_Small,10;
+#      bonus2 bIgnoreDefClassRate,Class_All,2;
+#      bonus2 bIgnoreMDefClassRate,Class_All,2;
+#    Description: "เปิดใช้งานยศ God Of Death"  
+#
+#  - Status: SC_TITLE1044
+#    Script: |
+#      bonus bMaxHP,12000;
+#      bonus bMaxSP,700;
+#      bonus bAllstats,5;
+#      bonus bAtk,145;
+#      bonus bMatk,145;
+#      bonus bCritical,15;
+#      bonus bFlee,7;
+#      bonus bDef,7;
+#      bonus bMdef,7;
+#      bonus bAspd,2;
+#      bonus2 bAddRace,RC_DemiHuman,7;
+#      bonus2 bAddRace,RC_Player_Human,7;
+#      bonus2 bAddClass,Class_Boss,15;
+#      bonus2 bSubEle,Ele_Neutral,6;
+#      bonus bCastrate,-8;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,15;
+#      bonus2 bDropAddRace,RC_All,15;
+#      bonus bHPrecovRate,20;
+#      bonus bSPrecovRate,20;
+#      bonus2 bAddSize,Size_Large,10;
+#      bonus2 bMagicAddSize,Size_Large,10;
+#      bonus2 bAddSize,Size_Medium,10;
+#      bonus2 bMagicAddSize,Size_Medium,10;
+#      bonus2 bAddSize,Size_Small,10;
+#      bonus2 bMagicAddSize,Size_Small,10;
+#      bonus2 bIgnoreDefClassRate,Class_All,3;
+#      bonus2 bIgnoreMDefClassRate,Class_All,3;
+#    Description: "เปิดใช้งานยศ  Demi-God"  
+#
+#  - Status: SC_TITLE1045
+#    Script: |
+#      bonus bMaxHP,12500;
+#      bonus bMaxSP,750;
+#      bonus bAllstats,5;
+#      bonus bAtk,150;
+#      bonus bMatk,150;
+#      bonus bCritical,15;
+#      bonus bFlee,10;
+#      bonus bDef,7;
+#      bonus bMdef,7;
+#      bonus bAspd,3;
+#      bonus2 bAddRace,RC_DemiHuman,8;
+#      bonus2 bAddRace,RC_Player_Human,8;
+#      bonus2 bAddClass,Class_Boss,20;
+#      bonus2 bSubEle,Ele_Neutral,8;
+#      bonus bCastrate,-10;
+#      bonus bAddMaxWeight,5000;
+#      bonus2 bExpAddRace,RC_ALL,20;
+#      bonus2 bDropAddRace,RC_All,20;
+#      bonus bHPrecovRate,20;
+#      bonus bSPrecovRate,20;
+#      bonus2 bAddSize,Size_Large,10;
+#      bonus2 bMagicAddSize,Size_Large,10;
+#      bonus2 bAddSize,Size_Medium,10;
+#      bonus2 bMagicAddSize,Size_Medium,10;
+#      bonus2 bAddSize,Size_Small,10;
+#      bonus2 bMagicAddSize,Size_Small,10;
+#      bonus2 bIgnoreDefClassRate,Class_All,5;
+#      bonus2 bIgnoreMDefClassRate,Class_All,5;
+#    Description: "เปิดใช้งานยศ  God"  
+   

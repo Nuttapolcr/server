@@ -1,0 +1,347 @@
+//morocc,157,73,6	script	Craft Master#1	826,{ callfunc "craftshop"; }
+maintown,163,175,5	script	Craft Master#2	813,{ callfunc "craftshop";
+OnInit:
+	Waitingroom "[#] Craft Item",0;
+    end;
+}
+-	script	craft_shop	-1,{
+function Add; function Chk; function Slot;
+
+OnInit:
+	freeloop(1);	
+
+// -----------------------------------------------------------
+//  Basic shop settings.
+// -----------------------------------------------------------
+
+	set .Signer,0;		// สลักชื่อ 0 ไม่ - 1 ใช่
+	set .Announce,0;	// ประกาศหากคร้าฟสำเร็จ? (1: yes / 0: no)
+	set .ShowSlot,1;	// แสดง Slot ? (2: อุปกรณ์ทั้งหมด / 1: ถ้ามี [] > 0 / 0: ไม่โชว์)
+	set .ShowID,0;  	// แสดง Item ID? (1: yes / 0: no)
+	set .ShowZeny,0;	// แสดงค่าใช้จ่าย Zeny (1: yes / 0: no)
+	set .MaxStack,100;	// จำนวณมากสุดที่จะผลิตได้ในแต่ละรอบ
+
+// -----------------------------------------------------------
+//
+// -----------------------------------------------------------
+
+	setarray .Points$[0],
+		"#CASHPOINTS", "Cash Points";
+
+// -----------------------------------------------------------
+//
+// -----------------------------------------------------------
+
+	setarray .Shops$[1],
+		"~ Craft Charm [^FF000030%^000000]",	// Shop Named 1 (โอกาสสำเร็จ 20%)
+		"~ Craft item สำหรับเช่า  [^FF000050%^000000]",	// Shop Named 2 (โอกาสสำเร็จ 100%)
+		"~ Craft Collection [^FF000030%^000000]",	// Shop Named 2 (โอกาสสำเร็จ 100%)
+		"~ Craft ETC [^FF000050%^000000]", //4
+		"~ Upgrade Charm [^FF000050%^000000]", //5
+		"~ ^FF0000แลก Option Stone^000000 [^33FF00100%^000000]"; //5
+	/*	"~ Craft Costume Top [^FF000090%^000000]", //6
+		"~ Craft Costume Middle[^FF000090%^000000]", //7
+		"~ Craft Costume Lower [^FF000090%^000000]", //8
+		"~ Craft Costume Garment Class3 [^FF000050%^000000]", //9
+		"~ Craft Costume Garment Class4 [^FF000050%^000000]", //10
+		"~ Craft Shadow Armor [^FF000070%^000000]", //11
+		"~ Craft Shadow Weapon [^FF000070%^000000]", //12
+		"~ Craft Shadow Shield[^FF000070%^000000]", //13
+		"~ Craft Shadow Boot [^FF000070%^000000]", //14
+		"~ Craft Shadow Boot [^FF000070%^000000]", //15
+		"~ Craft ประดับอาชีพขั้น 1 [^FF000070%^000000]", //16
+		"~ Craft ประดับอาชีพขั้น 2 [^FF000070%^000000]"; //17 */
+		
+
+// -----------------------------------------------------------
+//
+// -----------------------------------------------------------
+
+
+// Shop 1 craft charm LV.1
+//	add(กลุ่ม,ไอเท็มทำยา,	จำนวน,	zeny,	โอกาสสำเร็จ,	 ไอเท็มวุตถุดิบ1,จำนวน1,ไอเท็มวุตถุดิบ2,จำนวน2,ไอเท็มวุตถุดิบ3,จำนวน3, ... );
+
+	Add(1,60001,		1,	1000000,		30,	30001,10,1000322,30);	//Charm allstat+1
+	Add(1,60002,		1,	2000000,		30,	30001,10,1000322,30);	//Charm Hp drain
+	Add(1,60015,		1,	2000000,		30,	30001,10,1000322,30);	//Charm SP drain
+	Add(1,60003,		1,	2000000,		30,	30001,10,1000322,30);	//Charm Magic Gain HP
+	Add(1,60004,		1,	2000000,		30,	30001,10,1000322,30);	//Charm Range Gain HP
+	Add(1,60005,		1,	2000000,		30,	30001,10,1000322,30);	//Charm normal Gain HP
+	Add(1,60011,		1,	2000000,		30,	30001,10,1000322,30);	// Charm SP gain
+	Add(1,60013,		1,	5000000,		30,	30001,10,1000322,30);	// Charm greed
+	Add(1,60010,		1,	2000000,		30,	30001,10,1000322,30);	// Charm Teleport
+
+	
+
+// Shop 2 Charm สำหรับเช่า 
+//	add(กลุ่ม,ไอเท็มทำยา,	จำนวน,	zeny,	โอกาสสำเร็จ,	 ไอเท็มวุตถุดิบ1,จำนวน1,ไอเท็มวุตถุดิบ2,จำนวน2,ไอเท็มวุตถุดิบ3,จำนวน3, ... );
+
+	Add(2,30002,		1,	1000000,		50,	1000322,10); //กล่อง 3 ชั่วโมง แคช
+	Add(2,30003,		1,	1000000,		50,	1000322,10); //กล่อง 3 ชั่วโมง คราฟดัส
+	Add(2,30004,		1,	300000,		50,	1000322,5); //กล่อง 3 ชั่วโมง กรีด
+//	Add(2,30007,		1,	300000,		50,	1000322,5); //ai 12 hr box
+//	Add(2,30006,		1,	500000,		50,	1000322,10); //ai 1day box
+
+
+// Shop 3 Craft Collection
+//	add(กลุ่ม,ไอเท็มทำยา,	จำนวน,	zeny,	โอกาสสำเร็จ,	 ไอเท็มวุตถุดิบ1,จำนวน1,ไอเท็มวุตถุดิบ2,จำนวน2,ไอเท็มวุตถุดิบ3,จำนวน3, ... );
+
+
+// Shop 4 Craft ETC
+//	add(กลุ่ม,ไอเท็มทำยา,	จำนวน,	zeny,	โอกาสสำเร็จ,	 ไอเท็มวุตถุดิบ1,จำนวน1,ไอเท็มวุตถุดิบ2,จำนวน2,ไอเท็มวุตถุดิบ3,จำนวน3, ... );
+	
+	Add(4,6635,		1,	50000,		50,	1000322,5); //กันแตก
+	//Add(4,100000,		1,	5000000,		50,	1000322,100); //ใบคอสตูม
+	Add(4,7620,		1,	1000000,		50,	1000322,10,984,50); //โอริเทพ
+	Add(4,7619,		1,	1000000,		50,	1000322,10,985,50); //อีลูเทพ
+	
+// Shop 5 Upgrade Charm LV.2
+//	add(กลุ่ม,ไอเท็มทำยา,	จำนวน,	zeny,	โอกาสสำเร็จ,	 ไอเท็มวุตถุดิบ1,จำนวน1,ไอเท็มวุตถุดิบ2,จำนวน2,ไอเท็มวุตถุดิบ3,จำนวน3, ... );	
+	Add(5,60012,		1,	2000000,		50,	1000322,30,60001,1); //Charm allstat LV2
+// Shop 6 แลกออฟชันสโตน
+	Add(6,100003,	2,	50000,		100,	984,1,985,1); //โอริ อีลู แลก ออฟชันสโตน	
+
+// Shop 8 Mid costume
+	Add(8,90004,		1,	1000000,		90,	100000,1); //Mid cos
+	Add(8,90005,		1,	1000000,		90,	100000,1); //Mid cos
+
+//Shop 9 Lower costume
+	Add(9,90001,		1,	1000000,		90,	100000,1); //c_lower
+	Add(9,90002,		1,	1000000,		90,	100000,1); //c_lower
+	Add(9,90003,		1,	1000000,		90,	100000,1); //c_lower
+	Add(9,90006,		1,	1000000,		90,	100000,1); //c_lower
+
+
+//Shop 10  costume Garment class 3
+	Add(10,90008,		1,	10000000,		50,	100000,1); //c_lower
+//Shop 11  costume Garment class 4	
+//	Add(11,90009,		1,	10000000,		50,	100000,1,90008,1); //c_lower
+
+
+	
+
+	
+// -----------------------------------------------------------
+
+//=====================================================================================
+// ------------------- YOUR SHOPS AND ITEMS SHOPS HAVE BEEN ADDED ---------------------
+//=====================================================================================
+
+	freeloop(0);
+	set .menu$,"";
+	for(set .@i,1; .@i<=getarraysize(.Shops$); set .@i,.@i+1) {
+		set .menu$, .menu$+.Shops$[.@i]+":";
+		npcshopdelitem "craftshop"+.@i,909;
+	}
+	end;
+
+OnMenu:
+	set .@size, getarraysize(@i);
+	if (!.@size) set @shop_index, select(.menu$);
+	else if (.@size == 1) set @shop_index, @i[0];
+	else {
+		for(set .@j,0; .@j<.@size; set .@j,.@j+1)
+			set .@menu$, .@menu$+.Shops$[@i[.@j]]+":";
+		set @shop_index, @i[select(.@menu$)-1];
+	}
+	deletearray @i[0],getarraysize(@i);
+	if (.Shops$[@shop_index] == "") {
+		message strcharinfo(0),"An error has occurred.";
+		end;
+	}
+	dispbottom "ทำรายการได้ครั้งละ 1 รายการ และไม่เกิน 100 ชิ้น เท่านั้น";
+	callshop "craftshop"+@shop_index,1;
+	npcshopattach "craftshop"+@shop_index;
+	end;
+
+OnBuyItem:
+	// .@q[] : RewardID, BoughtAmt, RewardAmt, BaseAmt, ReqZeny, ReqPts, { ReqItem, ReqAmt, ... }
+	setarray .@q[0],@bought_nameid[0],((@bought_quantity[0] > .MaxStack)?.MaxStack:@bought_quantity[0]);
+	copyarray .@q[3],getd(".q_"+@shop_index+"_"+.@q[0]+"[0]"),getarraysize(getd(".q_"+@shop_index+"_"+.@q[0]));
+	set .@q[2],.@q[1]*.@q[3];
+	if (!.@q[2] || .@q[2] > 30000) {
+		message strcharinfo(0),"ไม่สามารถซื้อ "+getitemname(.@q[0])+" ได้มากกว่านี้.";
+		end;
+	}
+	if (!.@q[5]) {
+		mes "[Craft Man]";
+		mes "วัตถุดิบของ :";
+		mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM> "+.@q[2]+" ชิ้น";
+		mes "ค่าวัตถุดิบ :";
+		disable_items;
+		if (.@q[4]) mes " > "+Chk(Zeny,.@q[4]*.@q[1])+F_InsertComma(.@q[4]*.@q[1])+" Zeny^000000";
+		//if (.@q[5]) mes " > "+Chk(getd(.Points$[0]),.@q[5]*.@q[1])+(.@q[5]*.@q[1])+" "+.Points$[1]+" ("+getd(.Points$[0])+"/"+(.@q[5]*.@q[1])+")^000000";
+		mes "ได้วัตถุดิบดังนี้ :";
+		if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2) {
+			mes " > <ITEM>"+((.ShowID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+"<INFO>"+.@q[.@i]+"</INFO></ITEM> ^000000( "+(.@q[.@i+1]*.@q[1])+" )";
+			.@boughtweight += getiteminfo(.@q[.@i],6)*.@q[.@i+1]*.@q[1];
+		}
+		next;
+		setarray @qe[1], getiteminfo(.@q[0],5), getiteminfo(.@q[0],11);
+		addtimer 1000, strnpcinfo(0)+"::OnEnd";
+		while(1) {
+			switch(select(" ~ ยืนยัน ^0055FF"+getitemname(.@q[0])+"^000000: ~ ^777777ยกเลิก^000000")) {
+			case 1:
+				if (@qe[0]) {
+					mes "[Craft Man]";
+					mes "Zeny ไม่พอ";
+					close;
+				}
+				if ( Weight+.@boughtweight > MaxWeight ) {
+					mes "[Craft Man]";
+					mes "วัตถุดิบที่ซื้อมีน้ำหนักมากเกินกว่าที่เจ้าจะแบกได้";
+					mes " ";
+					mes "เกินอยู่ ^FF0000"+((Weight +.@boughtweight) - MaxWeight) / 10+"^000000 หน่วย";
+					close;
+				}
+				if (!checkweight(.@q[0],.@q[2])) {
+					mes "[Craft Man]";
+					mes "^FF0000ต้องมีน้ำหนักอย่างน้อย "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" เพื่อจะแลกเปลี่ยน.^000000";
+					close;
+				}
+				if (.@q[4]) set Zeny, Zeny-(.@q[4]*.@q[1]);
+				//if (.@q[5]) setd .Points$[0], getd(.Points$[0])-(.@q[5]*.@q[1]);
+				if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2)
+					getitem .@q[.@i],.@q[.@i+1]*.@q[1];
+				//getitem .@q[0],.@q[2];
+				if (.Announce) announce strcharinfo(0)+" ได้สร้าง "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+"!",0;
+				specialeffect2 EF_FLOWERLEAF;
+				close;
+			case 2:
+				close;
+			}
+		}
+	} else {
+		mes "[Craft Man]";
+		mes "การสร้าง :";
+		mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM> "+.@q[2]+" ชิ้น";
+		disable_items;
+		if (.@q[4]) { mes "ค่าดำเนินการ :"; mes " > "+Chk(Zeny,.@q[4]*.@q[1])+F_InsertComma(.@q[4]*.@q[1])+" Zeny^000000"; }
+		if (.@q[5]) mes " > โอกาสสำเร็จ "+.@q[5]+" %";
+		mes "ใช้วัตถุดิบดังนี้ :";
+		if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2)
+			mes " > <ITEM>"+Chk(countitem(.@q[.@i]),.@q[.@i+1]*.@q[1])+((.ShowID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+"<INFO>"+.@q[.@i]+"</INFO></ITEM> ("+countitem(.@q[.@i])+"/"+(.@q[.@i+1]*.@q[1])+")^000000";
+		next;
+		setarray @qe[1], getiteminfo(.@q[0],5), getiteminfo(.@q[0],11);
+		addtimer 1000, strnpcinfo(0)+"::OnEnd";
+		while(1) {
+			switch(select(" ~ ยืนยัน ^0055FF"+getitemname(.@q[0])+"^000000: ~ ^777777ยกเลิก^000000")) {
+			case 1:
+				if (@qe[0]) {
+					mes "[Craft Man]";
+					mes "เงื่อนไขไม่ครบ";
+					close;
+				}
+				if (!checkweight(.@q[0],.@q[2])) {
+					mes "[Craft Man]";
+					mes "^FF0000ต้องมีน้ำหนักอย่างน้อย "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" เพื่อจะแลกเปลี่ยน.^000000";
+					close;
+				}
+				if (.@q[4]) set Zeny, Zeny-(.@q[4]*.@q[1]);
+				if (.@q[5]) {
+					for (.@i = 1; .@i <= .@q[2]; .@i++)
+						if (rand(1,100) <= .@q[5])
+							.@success += 1;
+				}
+				if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2)
+					delitem .@q[.@i],.@q[.@i+1]*.@q[1];
+				if (!.@success) {
+					mes "[Craft Man]";
+					mes "ขอโทษด้วย ข้าทำ :";
+					mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM>";
+					mes "ไม่สำเร็จเลย";
+					close;
+				}
+				if (.Signer)
+					getitem2 .@q[0],.@success,1,0,0,254,0,getcharid(0)&0xffff,(getcharid(0)>>16)&0xffff;
+				else
+					getitem .@q[0],.@success;
+				if (.Announce) announce strcharinfo(0)+" ได้สร้าง "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+"!",0;
+				specialeffect2 EF_FLOWERLEAF;
+				close;
+			case 2:
+				close;
+			}
+		}
+	}
+
+OnEnd:
+	if (@qe[7]) {
+		changelook LOOK_HEAD_BOTTOM, @qe[3];
+		changelook LOOK_HEAD_TOP, @qe[4];
+		changelook LOOK_HEAD_MID, @qe[5];
+		changelook LOOK_ROBE, @qe[6];
+	}
+	deletearray @qe[0],8;
+	end;
+
+function Add {
+	if (getitemname(getarg(1)) == "null") {
+		debugmes "Quest reward #"+getarg(1)+" invalid (skipped).";
+		return;
+	}
+	setarray .@j[0],getarg(2),getarg(3),getarg(4);
+	for(set .@i,5; .@i<getargcount(); set .@i,.@i+2) {
+		if (getitemname(getarg(.@i)) == "null") {
+			debugmes "Quest requirement #"+getarg(.@i)+" invalid (skipped).";
+			return;
+		} else
+			setarray .@j[.@i-2],getarg(.@i),getarg(.@i+1);
+	}
+	copyarray getd(".q_"+getarg(0)+"_"+getarg(1)+"[0]"),.@j[0],getarraysize(.@j);
+	npcshopadditem "craftshop"+getarg(0),getarg(1),((.ShowZeny)?getarg(3):1);
+	return;
+}
+
+function Chk {
+	if (getarg(0) < getarg(1)) {
+		set @qe[0],1;
+		return "^FF0000";
+	} else
+		return "^00FF00";
+}
+
+function Slot {
+	set .@s$,getitemname(getarg(0));
+	switch(.ShowSlot) {
+		case 1: if (!getitemslots(getarg(0))) return .@s$;
+		case 2: if (getiteminfo(getarg(0),2) == 4 || getiteminfo(getarg(0),2) == 5) return .@s$+" ["+getitemslots(getarg(0))+"]";
+		default: return .@s$;
+	}
+}
+}
+
+function	script	craftshop	{
+	deletearray @i[0],getarraysize(@i);
+	for(set .@i,0; .@i<getargcount(); set .@i,.@i+1)
+		set @i[.@i],getarg(.@i);
+	doevent "craft_shop::OnMenu";
+	end;
+}
+
+
+
+// Dummy shop data -- copy as needed.
+//============================================================
+-	shop	craftshop1	-1,909:-1
+-	shop	craftshop2	-1,909:-1
+-	shop	craftshop3	-1,909:-1
+-	shop	craftshop4	-1,909:-1
+-	shop	craftshop5	-1,909:-1
+-	shop	craftshop6	-1,909:-1
+-	shop	craftshop7	-1,909:-1
+-	shop	craftshop8	-1,909:-1
+-	shop	craftshop9	-1,909:-1
+-	shop	craftshop10	-1,909:-1
+-	shop	craftshop11	-1,909:-1
+-	shop	craftshop12	-1,909:-1
+-	shop	craftshop13	-1,909:-1
+-	shop	craftshop14	-1,909:-1
+-	shop	craftshop15	-1,909:-1
+-	shop	craftshop16	-1,909:-1
+-	shop	craftshop17	-1,909:-1
+-	shop	craftshop18	-1,909:-1
+
+
+
+

@@ -1,0 +1,103 @@
+-	script	Party_Pass_System#Main	-1,{
+	end;
+
+OnPCLoginEvent:
+OnPCLogoutEvent:
+OnPCDieEvent:
+OnPCReviveEvent:
+OnSec:
+	if (getcharid(1) == 0 || readparam(Hp) <= 0) {
+		sc_end SC_PARTY_SWORDMAN;
+		sc_end SC_PARTY_MAGICIAN;
+		sc_end SC_PARTY_ACHER;
+		sc_end SC_PARTY_ACOLYTE;
+		sc_end SC_PARTY_MERCHANT;
+		sc_end SC_PARTY_THIEF;
+		sc_end SC_PARTY_ALL;
+		addtimer 3000, strnpcinfo(3)+"::OnSec";
+		end;
+	}
+
+	.@pid = getcharid(1);
+	if (getpartyshare(.@pid) != 1) {
+		sc_end SC_PARTY_SWORDMAN;
+		sc_end SC_PARTY_MAGICIAN;
+		sc_end SC_PARTY_ACHER;
+		sc_end SC_PARTY_ACOLYTE;
+		sc_end SC_PARTY_MERCHANT;
+		sc_end SC_PARTY_THIEF;
+		sc_end SC_PARTY_ALL;
+		addtimer 3000, strnpcinfo(3)+"::OnSec";
+		end;
+	}
+
+	getpartymember .@pid, 1;
+	getpartymember .@pid, 2;
+
+	.@self_aid = getcharid(3);
+	.@self_map$ = strcharinfo(3);
+
+	.@online = 0;
+	.@has_novice = 0;
+	.@sword = 0;
+	.@magician = 0;
+	.@archer = 0;
+	.@acolyte = 0;
+	.@merchant = 0;
+	.@thief = 0;
+
+	for (.@p = 0; .@p < $@partymembercount; .@p++) {
+		if (!isloggedin($@partymemberaid[.@p], $@partymembercid[.@p])) continue;
+		if (!attachrid($@partymemberaid[.@p])) continue;
+
+		if (readparam(Hp) > 0 && strcharinfo(3) == .@self_map$) {
+			.@online++;
+			.@c = readparam(Class);
+			if (.@c == 0 || .@c == 4001 || .@c == 4023) .@has_novice = 1;
+			if (readparam(BaseLevel) >= 95) {
+				if (.@c == 1 || .@c == 7 || .@c == 14) .@sword = 1;
+				else if (.@c == 2 || .@c == 9 || .@c == 16) .@magician = 1;
+				else if (.@c == 3 || .@c == 11 || .@c == 19 || .@c == 20) .@archer = 1;
+				else if (.@c == 4 || .@c == 8 || .@c == 15) .@acolyte = 1;
+				else if (.@c == 5 || .@c == 10 || .@c == 18) .@merchant = 1;
+				else if (.@c == 6 || .@c == 12 || .@c == 17) .@thief = 1;
+			}
+		}
+		attachrid(.@self_aid);
+	}
+
+	if (.@online < 2 || .@has_novice) {
+		sc_end SC_PARTY_SWORDMAN;
+		sc_end SC_PARTY_MAGICIAN;
+		sc_end SC_PARTY_ACHER;
+		sc_end SC_PARTY_ACOLYTE;
+		sc_end SC_PARTY_MERCHANT;
+		sc_end SC_PARTY_THIEF;
+		sc_end SC_PARTY_ALL;
+		addtimer 3000, strnpcinfo(3)+"::OnSec";
+		end;
+	}
+
+	.@all = (.@sword && .@magician && .@archer && .@acolyte && .@merchant && .@thief);
+
+	if (.@all) {
+		sc_end SC_PARTY_SWORDMAN;
+		sc_end SC_PARTY_MAGICIAN;
+		sc_end SC_PARTY_ACHER;
+		sc_end SC_PARTY_ACOLYTE;
+		sc_end SC_PARTY_MERCHANT;
+		sc_end SC_PARTY_THIEF;
+		if (!getstatus(SC_PARTY_ALL, 0)) sc_start SC_PARTY_ALL, -1, 1;
+	} else {
+		sc_end SC_PARTY_ALL;
+		if (.@sword) { if (!getstatus(SC_PARTY_SWORDMAN, 0)) sc_start SC_PARTY_SWORDMAN, -1, 1; } else sc_end SC_PARTY_SWORDMAN;
+		if (.@magician) { if (!getstatus(SC_PARTY_MAGICIAN, 0)) sc_start SC_PARTY_MAGICIAN, -1, 1; } else sc_end SC_PARTY_MAGICIAN;
+		if (.@archer) { if (!getstatus(SC_PARTY_ACHER, 0)) sc_start SC_PARTY_ACHER, -1, 1; } else sc_end SC_PARTY_ACHER;
+		if (.@acolyte) { if (!getstatus(SC_PARTY_ACOLYTE, 0)) sc_start SC_PARTY_ACOLYTE, -1, 1; } else sc_end SC_PARTY_ACOLYTE;
+		if (.@merchant) { if (!getstatus(SC_PARTY_MERCHANT, 0)) sc_start SC_PARTY_MERCHANT, -1, 1; } else sc_end SC_PARTY_MERCHANT;
+		if (.@thief) { if (!getstatus(SC_PARTY_THIEF, 0)) sc_start SC_PARTY_THIEF, -1, 1; } else sc_end SC_PARTY_THIEF;
+	}
+
+	addtimer 3000, strnpcinfo(3)+"::OnSec";
+	end;
+}

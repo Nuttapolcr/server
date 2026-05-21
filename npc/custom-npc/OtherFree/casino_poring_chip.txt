@@ -1,0 +1,100 @@
+morocc,194,42,5	script	Poring Coin	11005,{
+	mes "[ Poring Coin ]";
+	mes "คุณสามารถแลกเปลี่ยน";
+	mes "Zeny เป็น Poring Coin หรือ";
+	mes "Poring Coin เป็น Zeny ได้";	
+//	mes "โดย 1 Coin ราคา ^FF000020,000^000000 Zeny";
+	next;
+	menu "^FF0000•^000000 แลก ^FF0000Zeny^000000 เป็น ^0000FFPoring Coin^000000",Zeny_Menu,
+	"^FF0000•^000000 แลก ^0000FFPoring Coin^000000 เป็น ^FF0000Zeny^000000",Chip_Menu,
+	"^FF0000•^000000 ^996600แลกของรางวัล^000000",Shop_Menu;
+	
+Shop_Menu:
+	callfunc "func_poring_shop"; 
+close;
+
+Zeny_Menu:
+	mes "[ Poring Coin ]";
+//	mes "คุณสามารถแลก Coin ได้ จากที่นี้";
+//	mes "แต่ฉันรับซื้อ เฉพาะ Coin ที่ได้มา";
+//	mes "จาก ตู้ Poring Slot เท่านั้น";
+	mes "คุณสามารถแลก Zeny เป็น Coin ได้ดังนี้";
+	mes "^FF000040,000 Zeny^000000แลกได้ 1 Coin";	
+	mes "คุณต้องการแลกทั้งหมดกี่ ea";
+	mes " ";
+	mes " ";
+	mes "คุณต้องการแลก Coin เท่าไร ?";
+	set @input,0;
+	input @input;
+	next;  
+	if(zeny < (40000 * @input)) goto O_have;
+	if(@input < 1 ) goto O_Menu;
+	if(@input > 1000 ) goto O_Max;
+	mes "[ Poring Coin ]";
+	mes "ตรวจสอบข้อมูล สักครู่...";
+	next;  
+	set Zeny, Zeny - (40000 * @input);
+	getitem 7539, @input;
+	mes "[ Poring Coin ]";
+	mes "ขอบคุณที่ใช้บริการ";
+	dispbottom "[ Poring Coin ] ระบบได้หักเงิน จำนวน : " + 40000 * @input + " zeny.";
+	dispbottom "[ Poring Coin ] คุณได้รับ Poring Coin จำนวน : " + @input + " ea.";
+	close;
+
+Chip_Menu:
+	mes "[ Poring Zeny ]";
+	mes "คุณสามารถแลก Coin เป็น Zeny";
+	mes "1 Coin เป็น Zeny ได้ ^FF0000 10,000 Zeny ^000000";	
+	mes "คุณต้องการแลกทั้งหมดกี่ ea";
+	set @input,0;
+	input @input;
+	next;  
+	if(countitem(7539)<1) goto O_have;
+	if(@input < 1 ) goto Z_Menu;
+	if(@input > 1000 ) goto Z_Max;
+	mes "[ Poring Coin ]";
+	mes "ตรวจสอบข้อมูล สักครู่...";
+	next;  
+	if(@input > countitem(7539)) goto Z_dis;
+	set Zeny, Zeny + (10000 * @input);
+	delitem 7539, @input;
+	mes "[ Poring Coin ]";
+	mes "ขอบคุณที่ใช้บริการ";
+	dispbottom "[ Poring Zeny ] คุณได้แลก Poring Coin ทั้งหมด : " + @input + " ea.";
+	dispbottom "[ Poring Zeny ] คุณได้รับเงิน จำนวน : " + 10000 * @input + " zeny.";
+	close;
+	
+O_Menu:
+	mes "[ Poring Coin ]";
+	mes "คุณมี Poring Coin ไม่เพียงพอ";
+	close;
+O_Max:
+	mes "[ Poring Coin ]";
+	mes "คุณสามารถแลกซื้อไอเท็มได้ไม่เกิน 1,000 ea ต่อ ครั้ง";
+	close;
+O_have:
+	mes "[ Poring Coin ]";
+	mes "คุณมี Zeny ไม่เพียงพอ";
+	mes "ฉันต้องการใช้ " + 40000 * @input + " Zeny";
+	close;
+Z_have:
+	mes "[ Poring Zeny ]";
+	mes "คุณมี Coin ไม่เพียงพอ";
+	close;
+Z_Max:
+	mes "[ Poring Zeny ]";
+	mes "ฉันรับซื้อไอเท็มได้ไม่เกิน 1,000 ea ต่อ ครั้ง";
+	close;
+Z_Menu:
+	mes "[ Poring Zeny ]";
+	mes "คุณมี Coin ไม่เพียงพอ";
+	close;
+Z_Dis:
+	mes "[ Poring Zeny ]";
+	mes "คุณมี Coin ไม่เพียงพอ";
+	close;
+	
+OnInit: 
+waitingroom "แลก Poring Coin",0; 
+end;
+}

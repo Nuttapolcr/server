@@ -1,0 +1,156 @@
+////////////////////COS RANKING////////////////////////////////////////
+function	script	IG_STORM_WING_BOX_SINGLE	{
+	.@item_id = getarg(0);
+
+	getinventorylist;
+	.@weight = 100 * Weight / MaxWeight;
+
+	if (@inventorylist_count >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีไอเท็มมากกว่า '90' ชิ้น";
+		end;
+	}
+	if (.@weight >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีน้ำหนักมากเกินไป";
+		end;
+	}
+	if (countitem(.@item_id) == 0) {
+		message strcharinfo(0), "มีข้อผิดพลาดบางอย่างเกิดขึ้น!";
+		end;
+	}
+	if (getmapflag(strcharinfo(3), MF_PVP)
+	 || getmapflag(strcharinfo(3), MF_GVG)
+	 || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) {
+		message strcharinfo(0), "ไม่สามารถใช้งานในแผนที่ดังกล่าว!";
+		end;
+	}
+
+	if      (.@item_id == 1001513) .@reward = 1001511;
+	else if (.@item_id == 1001514) .@reward = 1001512;
+	else end;
+
+	delitem .@item_id, 1;
+	
+	.@roll = rand(1,100);
+	if      (.@roll <= 40) .@expStone = 1001017;      // 1-40  = 40%
+	else if (.@roll <= 70) .@expStone = 1001018;      // 41-70 = 30%
+	else if (.@roll <= 85) .@expStone = 1001019;      // 71-85 = 15%
+	else if (.@roll <= 95) .@expStone = 1001020;      // 86-95 = 10%
+	else                   .@expStone = 1001021;      // 96-100= 5%
+	
+	.@roll = rand(1,100);
+	if      (.@roll <= 40) .@dropStone = 1001027;     // 1-40  = 40%
+	else if (.@roll <= 70) .@dropStone = 1001028;     // 41-70 = 30%
+	else if (.@roll <= 85) .@dropStone = 1001029;     // 71-85 = 15%
+	else if (.@roll <= 95) .@dropStone = 1001030;     // 86-95 = 10%
+	else                   .@dropStone = 1001031;     // 96-100= 5%
+	
+	.@roll = rand(1,100);
+	if      (.@roll <= 50) .@wStone = 1001037;        // 1-50  = 50%
+	else if (.@roll <= 75) .@wStone = 1001038;        // 51-75 = 25%
+	else if (.@roll <= 90) .@wStone = 1001039;        // 76-90 = 15%
+	else                   .@wStone = 1001040;        // 91-100= 10%
+
+	setarray .@OptID[0],0,0,0,0,0;
+	setarray .@OptVal[0],0,0,0,0,0;
+	setarray .@param[0],0,0,0,0,0;
+
+	.@refineuse = 0;
+	.@grade = 0;
+
+	.@cardslot01 = .@expStone;
+	.@cardslot02 = .@dropStone;
+	.@cardslot03 = .@wStone;
+	.@cardslot04 = 0;
+
+	getitem4 .@reward, 1, 1, .@refineuse, 0, .@cardslot01, .@cardslot02, .@cardslot03, .@cardslot04, .@grade, .@OptID, .@OptVal, .@param;
+
+	.@msg$ = strcharinfo(0) + " ได้รับ " + getitemname(.@reward) +
+	         " [" + getitemname(.@expStone) + " | " + getitemname(.@dropStone) + " | " + getitemname(.@wStone) + "] จาก " + getitemname(.@item_id);
+
+	if (.@expStone == 1001020 && .@dropStone == 1001029 && .@wStone == 1001040) {
+		announce "[RARE] " + .@msg$, bc_blue|bc_name;
+	} else {
+		announce .@msg$, bc_all|bc_name;
+	}
+	end;
+}
+
+/////////////////////////costume egg///////////////////////////////////////////
+function	script	IG_STORM_COSTUME_EGG_V1	{
+	.@item_id = getarg(0);
+
+	getinventorylist;
+	.@weight = 100 * Weight / MaxWeight;
+
+	if (@inventorylist_count >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีไอเท็มมากกว่า '90' ชิ้น";
+		end;
+	}
+	if (.@weight >= 90) {
+		message strcharinfo(0), "ไม่สามารถใช้งานได้ เนื่องจากคุณมีน้ำหนักมากเกินไป";
+		end;
+	}
+	if (countitem(.@item_id) == 0) {
+		message strcharinfo(0), "มีข้อผิดพลาดบางอย่างเกิดขึ้น!";
+		end;
+	}
+	if (getmapflag(strcharinfo(3), MF_PVP)
+	 || getmapflag(strcharinfo(3), MF_GVG)
+	 || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) {
+		message strcharinfo(0), "ไม่สามารถใช้งานในแผนที่ดังกล่าว!";
+		end;
+	}
+
+	delitem .@item_id, 1;
+
+	setarray .@id[0],
+		1001007,1001008,1001009,1001010,1001011,1001012,1001013,1001014,1001015;
+
+	.@reward = .@id[rand(getarraysize(.@id))];
+
+	.@roll = rand(1,100);
+	if      (.@roll <= 40) .@expStone = 1001017;      // 1-40  = 40%
+	else if (.@roll <= 70) .@expStone = 1001018;      // 41-70 = 30%
+	else if (.@roll <= 85) .@expStone = 1001019;      // 71-85 = 15%
+	else if (.@roll <= 95) .@expStone = 1001020;      // 86-95 = 10%
+	else                   .@expStone = 1001021;      // 96-100= 5%
+	
+	.@roll = rand(1,100);
+	if      (.@roll <= 40) .@dropStone = 1001027;     // 1-40  = 40%
+	else if (.@roll <= 70) .@dropStone = 1001028;     // 41-70 = 30%
+	else if (.@roll <= 85) .@dropStone = 1001029;     // 71-85 = 15%
+	else if (.@roll <= 95) .@dropStone = 1001030;     // 86-95 = 10%
+	else                   .@dropStone = 1001031;     // 96-100= 5%
+	
+	.@roll = rand(1,100);
+	if      (.@roll <= 50) .@wStone = 1001037;        // 1-50  = 50%
+	else if (.@roll <= 75) .@wStone = 1001038;        // 51-75 = 25%
+	else if (.@roll <= 90) .@wStone = 1001039;        // 76-90 = 15%
+	else                   .@wStone = 1001040;        // 91-100= 10%
+
+	setarray .@OptID[0],0,0,0,0,0;
+	setarray .@OptVal[0],0,0,0,0,0;
+	setarray .@param[0],0,0,0,0,0;
+
+	.@refineuse = 0;
+	.@grade = 0;
+
+	.@cardslot01 = .@expStone;
+	.@cardslot02 = .@dropStone;
+	.@cardslot03 = .@wStone;
+	.@cardslot04 = 0;
+
+	getitem4 .@reward, 1, 1, .@refineuse, 0,
+		.@cardslot01, .@cardslot02, .@cardslot03, .@cardslot04,
+		.@grade, .@OptID, .@OptVal, .@param;
+
+	.@msg$ = strcharinfo(0) + " ได้รับ " + getitemname(.@reward)
+	       + " [หิน: " + getitemname(.@expStone) + " | " + getitemname(.@dropStone) + " | " + getitemname(.@wStone) + "] จาก " + getitemname(.@item_id);
+
+	if (.@expStone >= 1001020 && .@dropStone >= 1001030 && .@wStone >= 1001039) {
+		announce "[RARE] " + .@msg$, bc_blue|bc_name;
+	} else {
+		announce .@msg$, bc_all|bc_name;
+	}
+	end;
+}

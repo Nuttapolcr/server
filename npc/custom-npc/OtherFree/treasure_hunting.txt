@@ -1,0 +1,83 @@
+// --------------------------------------------------------------
+// -                      RO - STORE                    -
+//	-					www.ro-store.in.th				-
+// --------------------------------------------------------------
+//= 1.2
+//===== Comment ===============================================
+//= 1.0	Default Script.
+//= 1.1	เพิ่มการสุ่ม Treasure Box ให้ครบทุกกล่อง (ใช้ Treasure Box จริงๆ)
+//= 1.2	เพิ่มการสุ่มเมืองเกิดของ Treasure Box
+//============================================================
+
+-	script	::TreasureEvent	111,{
+
+
+// กำหนดเวลาเริ่มกิจกรรม 
+
+OnClock2200:
+OnClock0000:
+OnClock0200:
+OnClock0400:
+OnClock0600:
+OnClock0800:
+OnClock1000:
+OnClock1200:
+OnClock1400:
+OnClock1600:
+OnClock1800:
+OnClock2000:
+	goto trevstart;
+	end;
+
+// กำหนดเวลาจบกิจกรรม 
+	
+OnClock2203:
+OnClock0003:
+OnClock0203:
+OnClock0403:
+OnClock0603:
+OnClock0803:
+OnClock1003:
+OnClock1203:
+OnClock1403:
+OnClock1603:
+OnClock1803:
+OnClock2003:
+	goto trevend;
+	end;
+
+OnTimeout:
+	end;
+
+OnTreasureDie:
+	set $@ftrevent,$@ftrevent+1;
+	if ($@ftrevent != $@trevent)
+		announce "ผู้เล่น " + strcharinfo(0) + " ได้ค้นพบ Treasure Box กล่องที่ "+$@ftrevent+"/"+$@trevent+".",0,0xFF5555;
+	else
+		announce "ผู้เล่น " + strcharinfo(0) + " ได้ค้นพบ Treasure Box กล่องสุดท้าย.",0,0xFF5555;
+	end;
+
+trevstart:
+	// กำหนดแผนที่ที่ต้องการให้กล่องเกิดขึ้น
+	setarray $treasuretown$[0],"ra_temple","ra_temple","ra_temple","ra_temple","ra_temple","ra_temple";
+	
+	// กำหนดมอนสเตอร์ที่เกิดขึ้น
+	setarray $@treasure1[0],1324,1326,1328,1330,1332,1334,1336,1338,1340,1342,1344,1346,1348,1350,1352,1354,1356,1358,1360,1362;
+	set $@trevent,rand(10,15);  // จำนวนที่จะ Random 10 - 15 กล่อง
+	set $@ftrevent,0;
+	set $randtown$,$treasuretown$[rand(0,5)];
+	announce "กล่องสมบัติ Treasure Box ปรากฏตัว ณ เมือง "+$randtown$+" จำนวน "+$@trevent+" กล่อง มีเวลาในการล่าสมบัติ 3 นาที",0,0xFF5555;
+		monster $randtown$,0,0,"Treasure Box",$@treasure1[rand(0,19)],$@trevent,"TreasureEvent::OnTreasureDie";
+	end;
+
+trevend:
+	if($@ftrevent != $@trevent) {
+		killmonster $randtown$,"All";
+		announce "หมดเวลาในการล่าสมบัติ Treasure Box ที่เหลืออยู่ "+($@trevent - $@ftrevent)+" กล่อง มันได้ถูกทำลายจนหมดแล้ว",0,0xFF5555;
+	} else
+		announce "กิจกรรมรอบนี้จบลงแล้ว Treasure Box ถูกทำลายจนหมดแล้ว",0,0xFF5555;
+	deletearray $treasuretown$[0],getarraysize($treasuretown$);
+	deletearray $@treasure1[0],getarraysize($@treasure1);
+	deletearray $@treasure2[0],getarraysize($@treasure2);
+	end;
+}

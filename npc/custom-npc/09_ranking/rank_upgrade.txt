@@ -1,0 +1,1203 @@
+morocc,140,147,5	script	Rank Upgrade	405,{
+
+	query_sql "SELECT 1 FROM `rank_title` WHERE char_id = '"+getcharid(0)+"'", .@exists;
+	if (.@exists == 0) end;		
+	
+	query_sql "SELECT `elunium`,`oridecon`,`emperium`,`zeny` FROM `rank_title` WHERE `char_id` = '"+ getcharid(0) +"'",.@sumelu,.@sumori,.@sumvybra,.@sumzeny;	
+	query_sql "SELECT `rank` FROM `char` WHERE `char_id` = '"+ getcharid(0) +"'",.@rank;
+
+OnUpgMenu:
+  
+	mes "==>[^0000FFAdventure Hall^000000]<==";
+	mes "Adventure Rank ปัจจุบันของท่านคือ ^0000FF"+.@rank+"^000000 ";
+	mes "สรุปรายการ Donate ของท่าน";
+	mes "Elunium : ^0000FF" + callfunc("F_InsertComma", .@sumelu) + "^000000 ";
+	mes "Oridecon : ^0000FF" + callfunc("F_InsertComma", .@sumori) + "^000000 ";
+	mes "Gold : ^0000FF" + callfunc("F_InsertComma", .@sumvybra) + "^000000 ";
+	mes "Zeny : ^0000FF" + callfunc("F_InsertComma", .@sumzeny) + "^000000 ";
+	mes ""+getitemname(88000)+" จำนวน : ^0000FF"+countitem(88000)+"^000000 ชิ้น";
+	mes "";
+
+		
+	
+menu	"^ff0000~^000000 Upgrade Rank Adventure",upgrankstatus,
+		"^ff0000~^000000 รายละเอียดการ Upgrade",upgrankdetail;
+end;
+
+upgrankdetail:
+	clear;
+	mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+	mes "Adventure Lv : ^FF00001^000000 (Requirement)";
+	mes "Elunium = ^0000FF" + callfunc("F_InsertComma", $@rqElu0) + "^000000 ";
+	mes "Oridecon = ^0000FF" + callfunc("F_InsertComma", $@rqOri0) + "^000000 ";
+	mes "Gold = ^0000FF" + callfunc("F_InsertComma", $@rqVybra0) + "^000000 ";
+	mes "Zeny = ^0000FF" + callfunc("F_InsertComma", $@rqZeny0) + "^000000 ";
+	mes ""+getitemname(88000)+" จำนวน : ^0000FF1^000000 ชิ้น";
+	next;
+	mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+	mes "Adventure Lv : ^FF00002^000000 (Requirement)";
+	mes "Elunium = ^0000FF" + callfunc("F_InsertComma", $@rqElu2) + "^000000 ";
+	mes "Oridecon = ^0000FF" + callfunc("F_InsertComma", $@rqOri2) + "^000000 ";
+	mes "Gold = ^0000FF" + callfunc("F_InsertComma", $@rqVybra2) + "^000000 ";
+	mes "Zeny = ^0000FF" + callfunc("F_InsertComma", $@rqZeny2) + "^000000 ";
+	mes ""+getitemname(88000)+" จำนวน : ^0000FF2^000000 ชิ้น";
+	next;
+	
+	mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+	mes "Adventure Lv : ^FF00003^000000 (Requirement)";
+	mes "Elunium = ^0000FF" + callfunc("F_InsertComma", $@rqElu3) + "^000000 ";
+	mes "Oridecon = ^0000FF" + callfunc("F_InsertComma", $@rqOri3) + "^000000 ";
+	mes "Gold = ^0000FF" + callfunc("F_InsertComma", $@rqVybra3) + "^000000 ";
+	mes "Zeny = ^0000FF" + callfunc("F_InsertComma", $@rqZeny3) + "^000000 ";
+	mes ""+getitemname(88000)+" จำนวน : ^0000FF3^000000 ชิ้น";
+	next;
+	
+	mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+	mes "Adventure Lv : ^FF00004^000000 (Requirement)";
+	mes "Elunium = ^0000FF" + callfunc("F_InsertComma", $@rqElu4) + "^000000 ";
+	mes "Oridecon = ^0000FF" + callfunc("F_InsertComma", $@rqOri4) + "^000000 ";
+	mes "Gold = ^0000FF" + callfunc("F_InsertComma", $@rqVybra4) + "^000000 ";
+	mes "Zeny = ^0000FF" + callfunc("F_InsertComma", $@rqZeny4) + "^000000 ";
+	mes ""+getitemname(88000)+" จำนวน : ^0000FF4^000000 ชิ้น";
+	next;
+	
+	mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+	mes "Adventure Lv : ^FF00005^000000 (Requirement)";
+	mes "Elunium = ^0000FF" + callfunc("F_InsertComma", $@rqElu5) + "^000000 ";
+	mes "Oridecon = ^0000FF" + callfunc("F_InsertComma", $@rqOri5) + "^000000 ";
+	mes "Gold = ^0000FF" + callfunc("F_InsertComma", $@rqVybra5) + "^000000 ";
+	mes "Zeny = ^0000FF" + callfunc("F_InsertComma", $@rqZeny5) + "^000000 ";
+	mes ""+getitemname(88000)+" จำนวน : ^0000FF5^000000 ชิ้น";
+	next;
+	
+	mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+	mes "จำนวนทรัพยากรจะถูกทบไปเรื่อยๆตาม Rank ของท่าน";
+	close;
+	
+
+end;
+
+
+upgrankstatus:
+	clear;
+	query_sql "SELECT `rank` FROM `char` WHERE `char_id` = '"+ getcharid(0) +"'",.@rank;
+	query_sql "SELECT `elunium`,`oridecon`,`emperium`,`zeny` FROM `rank_title` WHERE `char_id` = '"+ getcharid(0) +"'",.@sumelu,.@sumori,.@sumvybra,.@sumzeny;
+	
+	switch(.@rank){
+		case 0:
+			if(countitem(88000) >= $@rqAvcoin0 && .@sumelu >= $@rqElu0 && .@sumori >= $@rqOri0 && .@sumvybra >= $@rqVybra0 && .@sumzeny >= $@rqZeny0){
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ยอดเยี่ยมดูเหมือนท่านพร้อมแล้ว";
+				mes "ที่จะ Upgrade Adventure Rank ของท่าน";
+				mes "ไปสู่อักระดับ เพื่อรับสิทธิ์ประโยชน์ที่มากขึ้น";
+				mes "ถ้าเจ้าพร้อมแล้ว ข้าจะทำพิธี Upgrade ให้";
+				if(select("Yes","No") == 2) close;	
+				query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '"+$@rqElu0+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '"+$@rqOri0+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '"+$@rqVybra0+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '"+$@rqZeny0+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `char` SET `rank` = 1 WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				clear;
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "";
+				mes "Upgrade Adventure Rank สู่ Lv. ^FF00001^000000  ^00aa00สำเร็จแล้ว";
+				mes "แล้วพบกันใหม่ในอีกระดับ ข้าหวังอย่างยิ่งว่าจะพบเจ้าอีกเร็วๆนี้";
+				delitem 88000,$@rqAvcoin0;   achievementcomplete(240021); rewardtitleid(240021);
+			} else {
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ทรัพยากรที่ใช้ในการ Upgrade";
+				mes "ที่ต้องใช้ ยังไม่ครบ";
+				mes "โปรดกลับมาใหม่อีกครั้งเมื่อท่านพร้อม";
+			}
+		break;
+		
+		
+		case 1:
+			if(countitem(88000) >= $@rqAvcoin1 && .@sumelu >= $@rqElu1 && .@sumori >= $@rqOri1 && .@sumvybra >= $@rqVybra1 && .@sumzeny >= $@rqZeny1){
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ยอดเยี่ยมดูเหมือนท่านพร้อมแล้ว";
+				mes "ที่จะ Upgrade Adventure Rank ของท่าน";
+				mes "ไปสู่อักระดับ เพื่อรับสิทธิ์ประโยชน์ที่มากขึ้น";
+				mes "ถ้าเจ้าพร้อมแล้ว ข้าจะทำพิธี Upgrade ให้";
+				if(select("Yes","No") == 2) close;	
+				query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '"+$@rqElu1+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '"+$@rqOri1+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '"+$@rqVybra1+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '"+$@rqZeny1+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `char` SET `rank` = 2 WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				clear;
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "";
+				mes "Upgrade Adventure Rank สู่ Lv. ^FF00002^000000  ^00aa00สำเร็จแล้ว";
+				mes "แล้วพบกันใหม่ในอีกระดับ ข้าหวังอย่างยิ่งว่าจะพบเจ้าอีกเร็วๆนี้";
+				delitem 88000,$@rqAvcoin1;  achievementcomplete(240022);  rewardtitleid(240022);
+			} else {
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ทรัพยากรที่ใช้ในการ Upgrade";
+				mes "ที่ต้องใช้ ยังไม่ครบ";
+				mes "โปรดกลับมาใหม่อีกครั้งเมื่อท่านพร้อม";
+			}
+		break;		
+		
+		case 2:
+			if(countitem(88000) >= $@rqAvcoin2 && .@sumelu >= $@rqElu2 && .@sumori >= $@rqOri2 && .@sumvybra >= $@rqVybra2 && .@sumzeny >= $@rqZeny2){
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ยอดเยี่ยมดูเหมือนท่านพร้อมแล้ว";
+				mes "ที่จะ Upgrade Adventure Rank ของท่าน";
+				mes "ไปสู่อักระดับ เพื่อรับสิทธิ์ประโยชน์ที่มากขึ้น";
+				mes "ถ้าเจ้าพร้อมแล้ว ข้าจะทำพิธี Upgrade ให้";
+				if(select("Yes","No") == 2) close;	
+				query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '"+$@rqElu2+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '"+$@rqOri2+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '"+$@rqVybra2+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '"+$@rqZeny2+"' WHERE `char_id` = '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `char` SET `rank` = 3 WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				clear;
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "";
+				mes "Upgrade Adventure Rank สู่ Lv. ^FF00003^000000  ^00aa00สำเร็จแล้ว";
+				mes "แล้วพบกันใหม่ในอีกระดับ ข้าหวังอย่างยิ่งว่าจะพบเจ้าอีกเร็วๆนี้";
+				delitem 88000,$@rqAvcoin2;  achievementcomplete(240023);  rewardtitleid(240023); 
+			} else {
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ทรัพยากรที่ใช้ในการ Upgrade";
+				mes "ที่ต้องใช้ ยังไม่ครบ";
+				mes "โปรดกลับมาใหม่อีกครั้งเมื่อท่านพร้อม";
+			}
+		break;
+		
+		case 3:
+			if(countitem(88000) >= $@rqAvcoin3 && .@sumelu >= $@rqElu3 && .@sumori >= $@rqOri3 && .@sumvybra >= $@rqVybra3 && .@sumzeny >= $@rqZeny3){
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ยอดเยี่ยมดูเหมือนท่านพร้อมแล้ว";
+				mes "ที่จะ Upgrade Adventure Rank ของท่าน";
+				mes "ไปสู่อักระดับ เพื่อรับสิทธิ์ประโยชน์ที่มากขึ้น";
+				mes "ถ้าเจ้าพร้อมแล้ว ข้าจะทำพิธี Upgrade ให้";
+				if(select("Yes","No") == 2) close;	
+
+				query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '"+$@rqElu3+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '"+$@rqOri3+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '"+$@rqVybra3+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '"+$@rqZeny3+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `char` SET `rank` = 4 WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				clear;
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "";
+				mes "Upgrade Adventure Rank สู่ Lv. ^FF00004^000000  ^00aa00สำเร็จแล้ว";
+				mes "แล้วพบกันใหม่ในอีกระดับ ข้าหวังอย่างยิ่งว่าจะพบเจ้าอีกเร็วๆนี้";
+				delitem 88000,$@rqAvcoin3;   achievementcomplete(240024); rewardtitleid(240024);
+			} else {
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ทรัพยากรที่ใช้ในการ Upgrade";
+				mes "ที่ต้องใช้ ยังไม่ครบ";
+				mes "โปรดกลับมาใหม่อีกครั้งเมื่อท่านพร้อม";
+			}
+		break;
+		
+		case 4:
+			if(countitem(88000) >= $@rqAvcoin4 && .@sumelu >= $@rqElu4 && .@sumori >= $@rqOri4 && .@sumvybra >= $@rqVybra4 && .@sumzeny >= $@rqZeny4){
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ยอดเยี่ยมดูเหมือนท่านพร้อมแล้ว";
+				mes "ที่จะ Upgrade Adventure Rank ของท่าน";
+				mes "ไปสู่อักระดับ เพื่อรับสิทธิ์ประโยชน์ที่มากขึ้น";
+				mes "ถ้าเจ้าพร้อมแล้ว ข้าจะทำพิธี Upgrade ให้";
+				if(select("Yes","No") == 2) close;	
+
+				query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '"+$@rqElu4+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '"+$@rqOri4+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '"+$@rqVybra4+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '"+$@rqZeny4+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `char` SET `rank` = 5 WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				clear;
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "";
+				mes "Upgrade Adventure Rank สู่ Lv. ^FF00005^000000  ^00aa00สำเร็จแล้ว";
+				mes "แล้วพบกันใหม่ในอีกระดับ ข้าหวังอย่างยิ่งว่าจะพบเจ้าอีกเร็วๆนี้";
+				delitem 88000,$@rqAvcoin4;   achievementcomplete(240025); rewardtitleid(240025);
+			} else {
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ทรัพยากรที่ใช้ในการ Upgrade";
+				mes "ที่ต้องใช้ ยังไม่ครบ";
+				mes "โปรดกลับมาใหม่อีกครั้งเมื่อท่านพร้อม";
+			}
+		break;
+		
+		case 5:
+			if(countitem(88000) >= $@rqAvcoin5 && .@sumelu >= $@rqElu5 && .@sumori >= $@rqOri5 && .@sumvybra >= $@rqVybra5 && .@sumzeny >= $@rqZeny5){
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ยอดเยี่ยมดูเหมือนท่านพร้อมแล้ว";
+				mes "ที่จะ Upgrade Adventure Rank ของท่าน";
+				mes "ไปสู่อักระดับ เพื่อรับสิทธิ์ประโยชน์ที่มากขึ้น";
+				mes "ถ้าเจ้าพร้อมแล้ว ข้าจะทำพิธี Upgrade ให้";
+				if(select("Yes","No") == 2) close;	
+
+				query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '"+$@rqElu5+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '"+$@rqOri5+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '"+$@rqVybra5+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '"+$@rqZeny5+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `char` SET `rank` = 6 WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				clear;
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "";
+				mes "Upgrade Adventure Rank สู่ Lv. ^FF00006^000000  ^00aa00สำเร็จแล้ว";
+				mes "แล้วพบกันใหม่ในอีกระดับ ข้าหวังอย่างยิ่งว่าจะพบเจ้าอีกเร็วๆนี้";
+				delitem 88000,$@rqAvcoin5;   achievementcomplete(240026); rewardtitleid(240026);
+			} else {
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ทรัพยากรที่ใช้ในการ Upgrade";
+				mes "ที่ต้องใช้ ยังไม่ครบ";
+				mes "โปรดกลับมาใหม่อีกครั้งเมื่อท่านพร้อม";
+			}
+		break;
+		
+		case 6:
+			if(countitem(88000) >= $@rqAvcoin6 && .@sumelu >= $@rqElu6 && .@sumori >= $@rqOri6 && .@sumvybra >= $@rqVybra6 && .@sumzeny >= $@rqZeny6){
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ยอดเยี่ยมดูเหมือนท่านพร้อมแล้ว";
+				mes "ที่จะ Upgrade Adventure Rank ของท่าน";
+				mes "ไปสู่อักระดับ เพื่อรับสิทธิ์ประโยชน์ที่มากขึ้น";
+				mes "ถ้าเจ้าพร้อมแล้ว ข้าจะทำพิธี Upgrade ให้";
+				if(select("Yes","No") == 2) close;	
+
+				query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '"+$@rqElu5+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '"+$@rqOri5+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '"+$@rqVybra5+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '"+$@rqZeny5+"' WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				query_sql "UPDATE `char` SET `rank` = 7 WHERE `char_id`= '"+getcharid(0)+"' LIMIT 1";
+				clear;
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "";
+				mes "Upgrade Adventure Rank สู่ Lv. ^FF00007^000000  ^00aa00สำเร็จแล้ว";
+				mes "แล้วพบกันใหม่ในอีกระดับ ข้าหวังอย่างยิ่งว่าจะพบเจ้าอีกเร็วๆนี้";
+				delitem 88000,$@rqAvcoin6;   achievementcomplete(240027); rewardtitleid(240027);
+			} else {
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ทรัพยากรที่ใช้ในการ Upgrade";
+				mes "ที่ต้องใช้ ยังไม่ครบ";
+				mes "โปรดกลับมาใหม่อีกครั้งเมื่อท่านพร้อม";
+			}
+		break;
+		
+		case 7:
+			if (countitem(88000) >= $@rqAvcoin7 && .@sumelu >= $@rqElu7 && .@sumori >= $@rqOri7 && .@sumvybra >= $@rqVybra7 && .@sumzeny >= $@rqZeny7) {
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+				mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ";
+				mes "เพื่อรับสิทธิ์ประโยชน์ที่ยิ่งใหญ่กว่าเดิม!";
+				mes "ถ้าเจ้าพร้อมแล้ว ข้าจะทำพิธี Upgrade ให้!";
+				if (select("Yes", "No") == 2) close;
+		
+				// หักทรัพยากรจากตาราง rank_title ตาม Guild ID
+				query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu7 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri7 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra7 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+				query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny7 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+		
+				// อัปเดตรายละเอียด Adventure Rank ของตัวละคร
+				query_sql "UPDATE `char` SET `rank` = 8 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+				clear;
+		
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "";
+				mes "Upgrade Adventure Rank สู่ Lv. ^FF00008^000000 ^00aa00สำเร็จแล้ว!";
+				mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+				mes "ข้าหวังว่าจะได้พบเจ้าอีกในระดับถัดไป!";
+				delitem 88000,$@rqAvcoin7;   achievementcomplete(240028); rewardtitleid(240028);
+			} else {
+				mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+				mes "ทรัพยากรที่ต้องใช้ในการ Upgrade";
+				mes "ยังไม่ครบถ้วน!";
+				mes "โปรดกลับมาใหม่เมื่อท่านพร้อม!";
+			}
+			break;
+			
+			case 8:
+				if (countitem(88000) >= $@rqAvcoin8 && .@sumelu >= $@rqElu8 && .@sumori >= $@rqOri8 && .@sumvybra >= $@rqVybra8 && .@sumzeny >= $@rqZeny8) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu8 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri8 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra8 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny8 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 9 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF00009^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin8;   achievementcomplete(240029); rewardtitleid(240029);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 9:
+				if (countitem(88000) >= $@rqAvcoin9 && .@sumelu >= $@rqElu9 && .@sumori >= $@rqOri9 && .@sumvybra >= $@rqVybra9 && .@sumzeny >= $@rqZeny9) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu9 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri9 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra9 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny9 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 10 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000010^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin9;   achievementcomplete(240030); rewardtitleid(240030);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 10:
+				if (countitem(88000) >= $@rqAvcoin10 && .@sumelu >= $@rqElu10 && .@sumori >= $@rqOri10 && .@sumvybra >= $@rqVybra10 && .@sumzeny >= $@rqZeny10) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu10 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri10 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra10 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny10 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 11 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000011^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin10;   achievementcomplete(240031); rewardtitleid(240031);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+				
+			case 11:
+				if (countitem(88000) >= $@rqAvcoin11 && .@sumelu >= $@rqElu11 && .@sumori >= $@rqOri11 && .@sumvybra >= $@rqVybra11 && .@sumzeny >= $@rqZeny11) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu11 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri11 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra11 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny11 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 12 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000012^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin11;   achievementcomplete(240032); rewardtitleid(240032);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 12:
+				if (countitem(88000) >= $@rqAvcoin12 && .@sumelu >= $@rqElu12 && .@sumori >= $@rqOri12 && .@sumvybra >= $@rqVybra12 && .@sumzeny >= $@rqZeny12) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu12 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri12 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra12 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny12 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 13 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000013^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin12;  achievementcomplete(240033); rewardtitleid(240033);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+				
+			case 13:
+				if (countitem(88000) >= $@rqAvcoin13 && .@sumelu >= $@rqElu13 && .@sumori >= $@rqOri13 && .@sumvybra >= $@rqVybra13 && .@sumzeny >= $@rqZeny13) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu13 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri13 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra13 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny13 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 14 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000014^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin13;   achievementcomplete(240034); rewardtitleid(240034);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 14:
+				if (countitem(88000) >= $@rqAvcoin14 && .@sumelu >= $@rqElu14 && .@sumori >= $@rqOri14 && .@sumvybra >= $@rqVybra14 && .@sumzeny >= $@rqZeny14) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu14 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri14 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra14 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny14 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 15 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000015^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin14;  achievementcomplete(240035); rewardtitleid(240035);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+				
+			case 15:
+				if (countitem(88000) >= $@rqAvcoin15 && .@sumelu >= $@rqElu15 && .@sumori >= $@rqOri15 && .@sumvybra >= $@rqVybra15 && .@sumzeny >= $@rqZeny15) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu15 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri15 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra15 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny15 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 16 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000016^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin15;  achievementcomplete(240036);  rewardtitleid(240036);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 16:
+				if (countitem(88000) >= $@rqAvcoin16 && .@sumelu >= $@rqElu16 && .@sumori >= $@rqOri16 && .@sumvybra >= $@rqVybra16 && .@sumzeny >= $@rqZeny16) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu16 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri16 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra16 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny16 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 17 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000017^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin16;  achievementcomplete(240037); rewardtitleid(240037);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 17:
+				if (countitem(88000) >= $@rqAvcoin17 && .@sumelu >= $@rqElu17 && .@sumori >= $@rqOri17 && .@sumvybra >= $@rqVybra17 && .@sumzeny >= $@rqZeny17) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu17 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri17 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra17 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny17 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 18 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000018^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin17;  achievementcomplete(240038); rewardtitleid(240038);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 18:
+				if (countitem(88000) >= $@rqAvcoin18 && .@sumelu >= $@rqElu18 && .@sumori >= $@rqOri18 && .@sumvybra >= $@rqVybra18 && .@sumzeny >= $@rqZeny18) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu18 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri18 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra18 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny18 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 19 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000019^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin18;   achievementcomplete(240039); rewardtitleid(240039);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 19:
+				if (countitem(88000) >= $@rqAvcoin19 && .@sumelu >= $@rqElu19 && .@sumori >= $@rqOri19 && .@sumvybra >= $@rqVybra19 && .@sumzeny >= $@rqZeny19) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu19 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri19 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra19 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny19 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 20 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000020^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin19;   achievementcomplete(240040); rewardtitleid(240040);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;	
+				
+			case 20:
+				if (countitem(88000) >= $@rqAvcoin20 && .@sumelu >= $@rqElu20 && .@sumori >= $@rqOri20 && .@sumvybra >= $@rqVybra20 && .@sumzeny >= $@rqZeny20) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu20 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri20 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra20 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny20 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 21 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000021^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin20;   achievementcomplete(240041); rewardtitleid(240041);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 21:
+				if (countitem(88000) >= $@rqAvcoin21 && .@sumelu >= $@rqElu21 && .@sumori >= $@rqOri21 && .@sumvybra >= $@rqVybra21 && .@sumzeny >= $@rqZeny21) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu21 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri21 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra21 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny21 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 22 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000022^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin21;   achievementcomplete(240042); rewardtitleid(240042);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 22:
+				if (countitem(88000) >= $@rqAvcoin22 && .@sumelu >= $@rqElu22 && .@sumori >= $@rqOri22 && .@sumvybra >= $@rqVybra22 && .@sumzeny >= $@rqZeny22) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu22 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri22 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra22 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny22 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 23 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000023^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin22;   achievementcomplete(240043); rewardtitleid(240043);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 23:
+				if (countitem(88000) >= $@rqAvcoin23 && .@sumelu >= $@rqElu23 && .@sumori >= $@rqOri23 && .@sumvybra >= $@rqVybra23 && .@sumzeny >= $@rqZeny23) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu23 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri23 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra23 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny23 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 24 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000024^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin23;  achievementcomplete(240044);  rewardtitleid(240044);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 24:
+				if (countitem(88000) >= $@rqAvcoin24 && .@sumelu >= $@rqElu24 && .@sumori >= $@rqOri24 && .@sumvybra >= $@rqVybra24 && .@sumzeny >= $@rqZeny24) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu24 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri24 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra24 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny24 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 25 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000025^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin24;   achievementcomplete(240045); rewardtitleid(240045);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 25:
+				if (countitem(88000) >= $@rqAvcoin25 && .@sumelu >= $@rqElu25 && .@sumori >= $@rqOri25 && .@sumvybra >= $@rqVybra25 && .@sumzeny >= $@rqZeny25) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu25 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri25 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra25 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny25 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 26 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000026^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin25;   achievementcomplete(240046); rewardtitleid(240046);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+				
+			case 26:
+				if (countitem(88000) >= $@rqAvcoin26 && .@sumelu >= $@rqElu26 && .@sumori >= $@rqOri26 && .@sumvybra >= $@rqVybra26 && .@sumzeny >= $@rqZeny26) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu26 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri26 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra26 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny26 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 27 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000027^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin26;  achievementcomplete(240047);  rewardtitleid(240047);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 27:
+				if (countitem(88000) >= $@rqAvcoin27 && .@sumelu >= $@rqElu27 && .@sumori >= $@rqOri27 && .@sumvybra >= $@rqVybra27 && .@sumzeny >= $@rqZeny27) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu27 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri27 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra27 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny27 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 28 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000028^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin27;  achievementcomplete(240048);  rewardtitleid(240048);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 28:
+				if (countitem(88000) >= $@rqAvcoin28 && .@sumelu >= $@rqElu28 && .@sumori >= $@rqOri28 && .@sumvybra >= $@rqVybra28 && .@sumzeny >= $@rqZeny28) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu28 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri28 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra28 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny28 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 29 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000029^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin28;  achievementcomplete(240049);  rewardtitleid(240049);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 29:
+				if (countitem(88000) >= $@rqAvcoin29 && .@sumelu >= $@rqElu29 && .@sumori >= $@rqOri29 && .@sumvybra >= $@rqVybra29 && .@sumzeny >= $@rqZeny29) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu29 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri29 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra29 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny29 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 30 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000030^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin29;   achievementcomplete(240050); rewardtitleid(240050);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 30:
+				if (countitem(88000) >= $@rqAvcoin30 && .@sumelu >= $@rqElu30 && .@sumori >= $@rqOri30 && .@sumvybra >= $@rqVybra30 && .@sumzeny >= $@rqZeny30) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu30 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri30 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra30 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny30 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 31 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000031^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin30;   achievementcomplete(240051); rewardtitleid(240051);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 31:
+				if (countitem(88000) >= $@rqAvcoin31 && .@sumelu >= $@rqElu31 && .@sumori >= $@rqOri31 && .@sumvybra >= $@rqVybra31 && .@sumzeny >= $@rqZeny31) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu31 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri31 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra31 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny31 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 32 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000032^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin31;  achievementcomplete(240052); rewardtitleid(240052);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 32:
+				if (countitem(88000) >= $@rqAvcoin32 && .@sumelu >= $@rqElu32 && .@sumori >= $@rqOri32 && .@sumvybra >= $@rqVybra32 && .@sumzeny >= $@rqZeny32) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu32 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri32 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra32 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny32 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 33 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000033^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin32;   achievementcomplete(240053); rewardtitleid(240053);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 33:
+				if (countitem(88000) >= $@rqAvcoin33 && .@sumelu >= $@rqElu33 && .@sumori >= $@rqOri33 && .@sumvybra >= $@rqVybra33 && .@sumzeny >= $@rqZeny33) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu33 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri33 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra33 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny33 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 34 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000034^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin33;   achievementcomplete(240054); rewardtitleid(240054);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 34:
+				if (countitem(88000) >= $@rqAvcoin34 && .@sumelu >= $@rqElu34 && .@sumori >= $@rqOri34 && .@sumvybra >= $@rqVybra34 && .@sumzeny >= $@rqZeny34) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu34 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri34 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra34 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny34 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 35 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000035^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin34;   achievementcomplete(240055); rewardtitleid(240055);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 35:
+				if (countitem(88000) >= $@rqAvcoin35 && .@sumelu >= $@rqElu35 && .@sumori >= $@rqOri35 && .@sumvybra >= $@rqVybra35 && .@sumzeny >= $@rqZeny35) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu35 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri35 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra35 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny35 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 36 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000036^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin35;  achievementcomplete(240056);  rewardtitleid(240056);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 36:
+				if (countitem(88000) >= $@rqAvcoin36 && .@sumelu >= $@rqElu36 && .@sumori >= $@rqOri36 && .@sumvybra >= $@rqVybra36 && .@sumzeny >= $@rqZeny36) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ยอดเยี่ยม! ดูเหมือนท่านพร้อมแล้ว";
+					mes "ที่จะ Upgrade Adventure Rank ของท่านไปสู่อีกระดับ!";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu36 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri36 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra36 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny36 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 37 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000037^000000 ^00aa00สำเร็จแล้ว!";
+					mes "จงใช้พลังใหม่นี้อย่างชาญฉลาด!";
+					delitem 88000,$@rqAvcoin36;  achievementcomplete(240057); rewardtitleid(240057);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+				
+			case 37:
+				if (countitem(88000) >= $@rqAvcoin37 && .@sumelu >= $@rqElu37 && .@sumori >= $@rqOri37 && .@sumvybra >= $@rqVybra37 && .@sumzeny >= $@rqZeny37) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ท่านพร้อมแล้วที่จะอัพเกรด Adventure Rank ของท่าน!";
+					mes "ไปสู่อีกระดับ! ข้าจะช่วยท่านในพิธีนี้";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu37 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri37 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra37 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny37 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 38 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000038^000000 ^00aa00สำเร็จแล้ว!";
+					mes "ท่านจะได้รับพลังใหม่ๆ ในระดับนี้!";
+					delitem 88000,$@rqAvcoin37;  achievementcomplete(240058);  rewardtitleid(240058);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 38:
+				if (countitem(88000) >= $@rqAvcoin38 && .@sumelu >= $@rqElu38 && .@sumori >= $@rqOri38 && .@sumvybra >= $@rqVybra38 && .@sumzeny >= $@rqZeny38) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ท่านพร้อมแล้วที่จะอัพเกรด Adventure Rank ของท่าน!";
+					mes "ไปสู่อีกระดับ! ข้าจะช่วยท่านในพิธีนี้";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu38 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri38 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra38 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny38 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 39 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000039^000000 ^00aa00สำเร็จแล้ว!";
+					mes "ความแข็งแกร่งใหม่รอท่านอยู่!";
+					delitem 88000,$@rqAvcoin38;   achievementcomplete(240059); rewardtitleid(240059);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 39:
+				if (countitem(88000) >= $@rqAvcoin39 && .@sumelu >= $@rqElu39 && .@sumori >= $@rqOri39 && .@sumvybra >= $@rqVybra39 && .@sumzeny >= $@rqZeny39) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ท่านพร้อมแล้วที่จะอัพเกรด Adventure Rank ของท่าน!";
+					mes "ไปสู่อีกระดับ! ข้าจะช่วยท่านในพิธีนี้";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu39 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri39 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra39 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny39 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 40 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000040^000000 ^00aa00สำเร็จแล้ว!";
+					mes "ท่านเป็นผู้แข็งแกร่งที่สุด!";
+					delitem 88000,$@rqAvcoin39;   achievementcomplete(240060); rewardtitleid(240060);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 40:
+				if (countitem(88000) >= $@rqAvcoin40 && .@sumelu >= $@rqElu40 && .@sumori >= $@rqOri40 && .@sumvybra >= $@rqVybra40 && .@sumzeny >= $@rqZeny40) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ท่านพร้อมแล้วที่จะอัพเกรด Adventure Rank ของท่าน!";
+					mes "ไปสู่อีกระดับ! ข้าจะช่วยท่านในพิธีนี้";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu40 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri40 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra40 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny40 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 41 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000041^000000 ^00aa00สำเร็จแล้ว!";
+					mes "ระดับใหม่รอท่านอยู่!";
+					delitem 88000,$@rqAvcoin40;   achievementcomplete(240061); rewardtitleid(240061);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 41:
+				if (countitem(88000) >= $@rqAvcoin41 && .@sumelu >= $@rqElu41 && .@sumori >= $@rqOri41 && .@sumvybra >= $@rqVybra41 && .@sumzeny >= $@rqZeny41) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ท่านพร้อมแล้วที่จะอัพเกรด Adventure Rank ของท่าน!";
+					mes "ไปสู่อีกระดับ! ข้าจะช่วยท่านในพิธีนี้";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu41 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri41 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra41 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny41 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 42 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000042^000000 ^00aa00สำเร็จแล้ว!";
+					mes "ท่านเป็นผู้ทรงพลังที่สุด!";
+					delitem 88000,$@rqAvcoin41;   achievementcomplete(240062); rewardtitleid(240062);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 42:
+				if (countitem(88000) >= $@rqAvcoin42 && .@sumelu >= $@rqElu42 && .@sumori >= $@rqOri42 && .@sumvybra >= $@rqVybra42 && .@sumzeny >= $@rqZeny42) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ท่านพร้อมแล้วที่จะอัพเกรด Adventure Rank ของท่าน!";
+					mes "ไปสู่อีกระดับ! ข้าจะช่วยท่านในพิธีนี้";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu42 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri42 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra42 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny42 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 43 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000043^000000 ^00aa00สำเร็จแล้ว!";
+					mes "ท่านแข็งแกร่งที่สุดแล้ว!";
+					delitem 88000,$@rqAvcoin42;  achievementcomplete(240063);  rewardtitleid(240063);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+
+			case 43:
+				if (countitem(88000) >= $@rqAvcoin43 && .@sumelu >= $@rqElu43 && .@sumori >= $@rqOri43 && .@sumvybra >= $@rqVybra43 && .@sumzeny >= $@rqZeny43) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ท่านพร้อมแล้วที่จะอัพเกรด Adventure Rank ของท่าน!";
+					mes "ไปสู่อีกระดับ! ข้าจะช่วยท่านในพิธีนี้";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu43 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri43 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra43 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny43 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 44 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000044^000000 ^00aa00สำเร็จแล้ว!";
+					mes "ท่านได้บรรลุระดับสูงสุด!";
+					delitem 88000,$@rqAvcoin43;  achievementcomplete(240064);  rewardtitleid(240064);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 44:
+				if (countitem(88000) >= $@rqAvcoin44 && .@sumelu >= $@rqElu44 && .@sumori >= $@rqOri44 && .@sumvybra >= $@rqVybra44 && .@sumzeny >= $@rqZeny44) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ท่านพร้อมแล้วที่จะอัพเกรด Adventure Rank ของท่าน!";
+					mes "ไปสู่อีกระดับ! ข้าจะช่วยท่านในพิธีนี้";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu44 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri44 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra44 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny44 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 45 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000045^000000 ^00aa00สำเร็จแล้ว!";
+					mes "ท่านพร้อมที่จะพิชิตทุกความท้าทาย!";
+					delitem 88000,$@rqAvcoin44;  achievementcomplete(240065);  rewardtitleid(240065);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 45:
+				if (countitem(88000) >= $@rqAvcoin45 && .@sumelu >= $@rqElu45 && .@sumori >= $@rqOri45 && .@sumvybra >= $@rqVybra45 && .@sumzeny >= $@rqZeny45) {
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ท่านพร้อมแล้วที่จะอัพเกรด Adventure Rank ของท่าน!";
+					mes "ไปสู่อีกระดับ! ข้าจะช่วยท่านในพิธีนี้";
+					if (select("Yes", "No") == 2) close;
+			
+					query_sql "UPDATE `rank_title` SET `elunium` = `elunium` - '" + $@rqElu45 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `oridecon` = `oridecon` - '" + $@rqOri45 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `emperium` = `emperium` - '" + $@rqVybra45 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					query_sql "UPDATE `rank_title` SET `zeny` = `zeny` - '" + $@rqZeny45 + "' WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+			
+					query_sql "UPDATE `char` SET `rank` = 46 WHERE `char_id`= '" + getcharid(0) + "' LIMIT 1";
+					clear;
+			
+					mes "Upgrade Adventure Rank สู่ Lv. ^FF000046^000000 ^00aa00สำเร็จแล้ว!";
+					mes "ท่านได้รับพลังที่ไม่เคยมีมาก่อน!";
+					delitem 88000,$@rqAvcoin45;  achievementcomplete(240066);  rewardtitleid(240066);
+				} else {
+					mes "ทรัพยากรที่ต้องใช้ในการ Upgrade ยังไม่ครบ!";
+				}
+				break;
+			
+			case 46:
+					mes "==>[^0000FFUpgrade Adventure Rank^000000]<==";
+					mes "ไม่มี ระดับที่สูงกว่านี้แล้ว";
+					mes "ขอให้ท่านจงโชคดี";
+					
+				break;				
+	}
+	
+end;
+
+
+OnInit:
+	waitingroom "อัปเกรด Adventure Rank",0;	
+end;
+}
+

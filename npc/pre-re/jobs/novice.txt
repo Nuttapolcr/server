@@ -1,0 +1,204 @@
+// -- # Ragnarok Online BY Apple-ro
+// -- # Training Ground
+// -- # =============================================
+
+// Training Ground Mobs
+new_1-3,0,0,0,0	monster	Poring	1002,15
+new_1-3,0,0,0,0	monster	Drops	1113,15
+new_1-3,0,0,0,0	monster	Lunatic	1063,12
+new_1-3,0,0,0,0	monster	ChonChon	1011,8
+new_1-3,0,0,0,0	monster	Condor	1009,10
+new_1-3,0,0,0,0	monster	Picky	1050,10
+new_1-3,0,0,0,0	monster	Willow	1010,10
+new_1-3,0,0,0,0	monster	Roda Frog	1012,12
+new_1-3,0,0,0,0	monster	Rocker	1052,7
+new_1-3,0,0,0,0	monster	Thief Bug	1051,5
+new_1-3,0,0,0,0	monster	Spore	1014,11
+new_1-3,0,0,0,0	monster	Fabre	1184,7
+
+
+
+
+
+//// Bulletin Board
+//new_1-1,63,118,4	script	Board#nv	11003,{
+//	mes "[ยินดีต้อนรับ ^8C00FFJump-Hiclass Ragnarok^000000]";
+//	mes "โปรดเดินตรงไปที่ปราสาท^000000";
+//	mes "เพื่อไปยังจุดหมายต่อไป^000000";
+////OnInit:
+//	//waitingroom "     ผู้แนะนำ",0;	
+//	close;
+//	
+//}
+
+new_1-1,144,116,2	script	Guard#nv1	105,{
+	mes "[Training Grounds Guard]";
+	mes "ยินดีต้อนรับสู่ Training Grounds.";
+	mes "คุณน่าจะลองสำรวจสถานที่นี้ดูรอบๆนะ แต่ถ้าเบื่อแล้วอยากจะลองฝึกละก็เชิญเข้าไปในปราสาทได้เลย";
+	close;
+}
+
+new_1-1,144,107,2	script	Guard#nv2	105,{
+	mes "[Training Grounds Guard]";
+	if(rand(2)) {
+		mes "เข้ามาเลย";
+		mes "ข้าภูมิใจทุกๆครั้งที่ได้เห็นนักผจญภัยหน้าใหม่";
+		mes "ยินดีต้อนรับคุณเข้าสู่";
+		mes "the Training Grounds!";
+		next;
+		mes "[Training Grounds Guard]";
+		mes "ข้างในนี้ เป็นสถานที่ฝึกฝนของ Novice หน้าใหม่ อย่างดีเยี่ยมเลย";
+		mes "ที่นี่ มีความปลอดภัยมาก พร้อมที่จะให้เจ้าได้ฝึก";
+		mes "เพื่อรับมือกับความยากลำบากที่อาจพบได้ในอนาคตของ";
+	}
+	else {
+		mes "ที่นี่เป็นสถานที่ของ Novice เท่านั้น เจ้าควรจะไปที่ๆเจ้าควรอยู่";
+	}
+	close;
+}
+
+// Receptionist
+new_1-2,100,29,4	script	Receptionist#nv1	11145,{
+	
+/*	if(getskilllv("NV_BASIC") > 1)
+	{
+		mes "^0066FF[ Training Grounds Receptionist ]^000000";
+		mes "ท่านไม่ได้รับอนุญาติ";
+		mes "ให้เข้าสู่ Training Grounds";
+		//clearitem;
+		close;
+	}
+*/
+	mes "^0066FF[ Training Grounds Receptionist ]^000000";
+	mes "ยินดีต้อนรับ!";
+	mes "เข้าสู่ ^3355FFTraining Grounds^000000.";
+	mes "ท่านพร้อมที่จะผจญภัยหรือยัง ?";
+	next;
+	while (1) {
+		switch(select("^ff0000•^000000 แน่นอน! ข้าพร้อมแล้ว ~:^ff0000•^000000 ข้าขอคิดสักครู่..")) {
+		case 1:
+			mes "^0066FF[ Training Grounds Receptionist ]^000000";
+			mes "โอเค! เยี่ยมมาก";
+			mes "ขอให้คุณโชคดี";
+			
+			savepoint "morocc",213,56;
+			warp "morocc",213,56;
+			close;
+			
+			close2;
+			set nov_1st_cos,0;
+			set nov_2nd_cos,0;
+			set nov_3_swordman,0;
+			set nov_3_archer,0;
+			set nov_3_thief,0;
+			set nov_3_magician,0;
+			set nov_3_acolyte,0;
+			set nov_3_merchant,0;
+			switch(6) {
+			case 0:
+				savepoint "prontera",119,91;
+				warp "prontera",119,91;
+				break;
+			case 1:
+				savepoint "morocc",213,56;
+				warp "morocc",213,56;
+				break;
+			case 2:
+				savepoint "geffen",120,100;
+				warp "geffen",120,100;
+				break;
+			case 3:
+				savepoint "payon",70,100;
+				warp "payon",70,100;
+				break;
+			case 4:
+				savepoint "alberta",116,57;
+				warp "alberta",116,57;
+				break;
+			case 5:
+				savepoint "izlude",94,103;
+				warp "izlude",94,103;
+				break;
+			case 6:
+				//clearitem;
+				getitem 569,200;
+				getitem 12323,50;
+				getitem 12324,20;
+				getitem 2352,1;
+				getitem 5055,1;
+				getitem 2414,1;
+				getitem 2510,1;
+				getitem 2112,1;
+				getitem 1243,1;
+//5432			getitem 5390,1;
+//				getitem 5432,1;				
+				savepoint "new_1-3",96,21;
+				warp "new_1-3",96,21;
+				break;
+			}
+			end;
+
+		case 2:
+			mes "^0066FF[ Training Grounds Receptionist ]^000000";
+			mes "โอเค..ได้ !";
+			mes "ข้าให้เวลาเจ้าตัดสินใจ";
+			close;
+		}
+	}
+}	
+
+
+new_1-3,96,174,3	script	เข้าเมืองหลัก#nv1::NovKeyman	11005,{
+	mes "^0066FF[ Gate Keeper ]^000000";
+	mes "ข้าจะไม่อนุญาติให้ Novice";
+	mes "ที่ยังไม่พร้อมเผชิญโลกกว้างผ่าน";
+	mes "ไปเด็ดขาดเพื่อความปลอดภัยของเจ้าเอง";
+	next;
+	mes "^0066FF[ Gate Keeper ]^000000";
+	mes "เจ้าจะต้องมี Joblv 10 ขึ้นไป";
+	mes "และทำการอัพ Basic Skill Lv 9";
+	mes "และมีพื้นฐานในการใช้ชีวิตเสียก่อน!";
+	next;
+	mes "^0066FF[ Gate Keeper ]^000000";
+	mes "เมื่อก่อนผู้คนมากมาย";
+	mes "ได้ตายลงเพราะเราไม่มีการคัดกรอง";
+	mes "ไหนตอบมาสิ! เจ้าพร้อมหรือไม่!";
+	next;
+	switch(select("^ff0000•^000000 ข้าพร้อมเข้าเมืองหลักแล้ว!:^ff0000•^000000 ข้าขออยู่อีกซักพัก")) {
+	case 1:
+		
+		if(getskilllv("NV_BASIC")< 9)
+		{
+			mes "^0066FF[ Gate Keeper ]^000000";
+			mes "เจ้ายังไม่มีคุณสมบัติพอ!";
+			mes "Basic Skill เลเวล 9";
+			mes "นั่นคือสิ่งที่ข้าต้องการ!";
+			close2;
+			end;
+
+		}
+		else
+
+
+		{
+			mes "^0066FF[ Gate Keeper ]^000000";
+			mes "โชคดีนะ";
+			close2;
+			savepoint "morocc",150,98;
+			warp "morocc",150,98;
+			end;
+		}
+	case 2:
+		mes "^0066FF[ Gate Keeper ]^000000";
+		mes "หากเจ้าคิดว่าพร้อมเดิน";
+		mes "ที่จะเดินผ่านประตูนี้ไปจงมาหาข้า!";
+		close;
+
+	}
+OnInit:
+	waitingroom "[ เข้าเมืองหลัก ]",0;
+end;
+}
+
+
+new_1-3,91,38,5	duplicate(NovKeyman)	เข้าเมืองหลัก#nv2	11005

@@ -1,0 +1,165 @@
+function	script	refinemain	{
+
+	set .@item,61406;	// ไอเทมที่ใช้กันแตก
+	
+	disable_items;
+	mes "[บริการตีบวกหินเทพ]";
+	mes "^FF0000โปรดอ่าน เมนูดีๆ^000000";
+	mes "คุณมี ^FF0000"+getitemname(.@item)+"^000000 จำนวน ^FF0000"+countitem(.@item)+"^000000 อัน";
+	mes "เลือกไอเทมที่ต้องการตีบวก";
+	next;
+
+	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+	for(set .@i,1; .@i<=10; set .@i,.@i+1) {
+		if (getequipisequiped(.@indices[.@i])) {
+			set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+			set .@equipped,1;
+		}
+		set .@menu$, .@menu$ + ":";
+	}
+	if (.@equipped == 0) {
+		mes "[บริการตีบวกหินเทพ]";
+		mes "ฉันคิดว่าฉันไม่สามารถที่จะปรับแต่งอุปกรณ์ใดๆที่คุณไม่ได้สวมใส่มันเลย...";
+		close;
+	}
+	set .@part, .@indices[ select(.@menu$) ];
+
+	if (!getequipisequiped(.@part))
+		close;
+	if (!getequipisenableref(.@part)) {
+		mes "[บริการตีบวกหินเทพ]";
+		mes "กลับไปหาช่างตีเหล็กคนอื่น. คุณไม่สามารถที่จะปรับแต่งอุปกรณ์นี้ได้.";
+		close;
+	}
+	if (getequiprefinerycnt(.@part) >= 10) {
+		mes "[บริการตีบวกหินเทพ]";
+		mes "อืมม... มันสมบูรณ์แบบอยู่แล้ว. ฉันไม่คิดว่าฉันสามารถที่จะปรับแต่งมันได้อีก.";
+		close;
+	}
+
+	if ( countitem(.@item) > 0 )
+	{
+		mes "[บริการตีบวกหินเทพ]";
+		mes "คุณมีไอเท็ม ^FF0000"+ getitemname(.@item) +"^000000";
+		mes "ใช้สำหรับป้องกันไอเทมสูญหาย";
+		mes "คุณต้องการที่จะใช้มันเลยหรือไม่ ?";
+		next;
+		if(select("ใช้ทันที:ยังก่อน") == 1)
+		{
+			//delitem .@item,1;
+			set .@protect,1;
+		}
+	}
+	
+	.@price = getequiprefinecost(.@part, REFINE_COST_NORMAL, REFINE_ZENY_COST);
+	.@material = getequiprefinecost(.@part, REFINE_COST_NORMAL, REFINE_MATERIAL_ID);
+	
+	callsub S_RefineValidate,getequipweaponlv(.@part),.@material,.@price,.@part;
+	
+	mes "[บริการตีบวกหินเทพ]";
+	mes "คร๊อง ! แคร๊ง ! คร๊อง ! แคร๊ง !";
+	if (getequippercentrefinery(.@part, true) > rand(100)) {
+		successrefitem .@part;
+		if(getequiprefinerycnt(.@part) == 5) { announce "คุณ "+strcharinfo(0)+" ได้อัพเกรด +5 " + getequipname(.@part) + " สำเร็จ ขอแสดงความยินดีด้วยค่ะ",bc_all,0xFC04DC; }
+		if(getequiprefinerycnt(.@part) == 6) { announce "คุณ "+strcharinfo(0)+" ได้อัพเกรด +6 " + getequipname(.@part) + " สำเร็จ ขอแสดงความยินดีด้วยค่ะ",bc_all,0xFC04DC; }
+		if(getequiprefinerycnt(.@part) == 7) { announce "คุณ "+strcharinfo(0)+" ได้อัพเกรด +7 " + getequipname(.@part) + " สำเร็จ ขอแสดงความยินดีด้วยค่ะ",bc_all,0xFC04DC; }
+		if(getequiprefinerycnt(.@part) == 8) { announce "คุณ "+strcharinfo(0)+" ได้อัพเกรด +8 " + getequipname(.@part) + " สำเร็จ ขอแสดงความยินดีด้วยค่ะ",bc_all,0xFC04DC; }
+		if(getequiprefinerycnt(.@part) == 9) { announce "คุณ "+strcharinfo(0)+" ได้อัพเกรด +9 " + getequipname(.@part) + " สำเร็จ ขอแสดงความยินดีด้วยค่ะ",bc_all,0xFC04DC; }
+		if(getequiprefinerycnt(.@part) == 10) { announce "คุณ "+strcharinfo(0)+" ได้อัพเกรด +10 " + getequipname(.@part) + " สำเร็จ ขอแสดงความยินดีด้วยค่ะ",bc_all,0xFC04DC; }
+		emotion ET_BEST;
+		close;
+	}
+	else if ( .@protect != 0 )
+	{
+		delitem .@item,1;
+		downrefitem .@part;
+		specialeffect2 155;
+		next;
+		emotion (!rand(5))?ET_MONEY:ET_HUK;
+		next;
+		mes "[บริการตีบวกหินเทพ]";
+		mes "^FF0000แสดงความเสียใจด้วย T-T^000000";
+		mes "แต่ยังดีที่ท่านใช้ ไอเทมป้องกันแตก";
+		close;
+	}
+	else
+	{
+		//downrefitem .@part;
+		failedrefitem .@part;
+		next;
+		emotion (!rand(5))?ET_MONEY:ET_HUK;
+		mes "[บริการตีบวกหินเทพ]";
+		mes "^FF0000แสดงความเสียใจด้วย T-T^000000";
+		close;
+	}
+
+S_RefineValidate:
+	.@weapon_lvl = getarg(0);
+	.@item_req = getarg(1);
+	set .@price, getarg(2);
+
+/*	if (VIP_SCRIPT && !vip_status(VIP_STATUS_ACTIVE)) {
+		switch(.@weapon_lvl){
+			case 0: set .@price, .@price * 10; break;
+			case 1: set .@price, .@price * 40; break;
+			case 2: set .@price, .@price * 50; break;
+			case 3: set .@price, .@price * 2; break;
+			case 4: set .@price, .@price * 2; break;
+		}
+	}
+*/
+	mes "[บริการตีบวกหินเทพ]";
+	if (.@weapon_lvl)
+//	mes "คุณต้องการปรับแต่งอาวุธเลเวล "+ .@weapon_lvl +" งั้นหรือ ?";
+	mes "เพื่อปรับแต่งอุปกรณ์คุณจะต้องมี ^ff9999"+ getitemname(.@item_req) +"^000000 และ "+ .@price +" zeny.";
+	mes "คุณต้องการที่จะดำเนินการต่อหรือไม่ ?";
+	next;
+	if(select("ดำเนินการต่อ:ยกเลิก") == 1) {
+		if (getequippercentrefinery(getarg(3)) < 100) {
+			if (.@weapon_lvl) {
+				mes "[บริการตีบวกหินเทพ]";
+				mes "ถ้าหากล้มเหลว,";
+				mes "การ์ดทั้งหมดในนั้นและคุณสมบัติ ^ff0000จะหายไป^000000!";
+				mes "^ff0000นอกจากนี้, อุปกรณ์ก็ยังถูกทำลาย !^000000";
+				mes "คุณแน่ใจนะว่าคุณยังต้องการที่จะดำเนินการต่อไป ?";
+				next;
+				if(select("ใช่:ไม่") == 2) {
+					mes "[บริการตีบวกหินเทพ]";
+					mes "ดี.";
+					mes "เพราะถ้าอาวุธถูกทำลายละหว่างการปรับแต่ง, ฉันก็คงรู้สึกไม่ดีไปด้วย.";
+					close;
+				}
+			} else {
+				mes "[บริการตีบวกหินเทพ]";
+				mes "ฮาฮา. ฮาฮา. โอ้, คุณมีความกล้า, กล้าที่จะรับการปรับแต่งอุปกรณ์เพิ่มเติม.";
+				mes "คุณก็รู้ว่ามันมีผลต่อความเสี่ยงด้วย, หรือว่าคุณไม่ ?";
+				next;
+				mes "หากอุปกรณ์ของคุณถูกทำลาย, คุณจะไม่สามารถที่จะกลับไปใช้มันได้อีกครั้ง.";
+				mes "แม้แต่การ์ดหรือคุณสมบัติของคุณจะ ^ff0000ถูกทำลายไปด้วย^000000.";
+				mes "ทุกอย่างจะหายไป. ในขณะที่... หายไป!";
+				mes "คุณแน่ใจหรือว่ายังต้องการที่จะดำเนินการต่อไป ?";
+				next;
+				if(select("ใช่:ไม่") == 2) {
+					mes "[บริการตีบวกหินเทพ]";
+					mes "อะไรคือสิ่งที่ว่าไร้สาระ. คุณกำลังทำให้เวลาอันมีค่าของฉัน.";
+					mes "ได้หายไป.";
+					close;
+				}
+			}
+		}
+		
+		if (countitem(.@item_req) > 0 && Zeny > .@price) {
+			delitem .@item_req,1;
+			set Zeny, Zeny - .@price;
+			return;
+		}
+		mes "[บริการตีบวกหินเทพ]";
+		mes "นี่คือสิ่งที่คุณต้องการทั้งหมด ?";
+		mes "ฉันเสียใจจริงๆ, หากไม่มีวัตถุดิบทั้งหมด.";
+		mes "ฉันไม่สามารถตีบวกให้ได้ ไว้มาใหม่";
+		close;
+	}
+	mes "[บริการตีบวกหินเทพ]";
+	mes "ฉันไม่สามารถช่วยอะไรได้ แม้ว่าคุณจะไม่ได้มีความสุขกับมันสักเท่าไหร่...";
+	close;
+}

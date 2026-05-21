@@ -1,0 +1,64 @@
+/*
+=================== TERMS OF SERVICES. ===================
+1. ALL RIGHT RESERVED RE-SELLER OR SHARE SCRIPT TO PUBLISH.
+2. BUT YOU RE-SELLER OR SHARE SCRIPT WITH OUT UNAUTHORIZRD
+   I WILL ALL CANCEL MY SUPPORT FOR YOU.
+3. MAINTENANCE SCRIPTS WILL BE FREE SERVICES.
+4. I WILL NOT KEEP ANY INFORMATIONS FROMS YOU SERVER THAT
+   YOU SEND FOR ME.
+5. I HOPE YOU WILL ALL ACCEPT TERMS OF SERVICES.
+==========================================================
+Script. Anti Bot						 
+Create By. Athena Studio
+Bug Report. Kittisak Sarounram [ FB ]																					 
+Contact Us. Kittisak Sarounram [ FB ]																					 
+TEL. 0909183008 [ TRUE MOVE H ]																					 
+==========================================================
+*/
+
+-	script	function_anti	FAKE_NPC,{
+OnNPCKillEvent:
+	set .@gained,1;
+	set count, count + .@gained;
+	if ( count >= rand(.monster_min,.monster_max) )
+		doevent .name$+"::OnBlock";
+	end;
+
+OnBlock:
+	mes "[ ^FF0000 คุณจะมีระยะเวลา 60 วินาที ในการซื้อของให้ถูกต้อง ห้ามวิง ห้ามออกเกมส์ โดยเด็ดขาด มิเฉ่นนั้น ตัวละครของคุณ จะไม่สามารถเลือกตอบคำถามได้ และ จะถูกส่งเข้าคุกในทันที เมื่อครบระยะเวลา ^000000 ]";
+	deltimer .name$+"::OnJail";
+	addtimer (.timer*1000),.name$+"::OnJail";
+	@rnd_item = .itemid[rand(.item)];
+	@rnd_amt = rand(1,100);
+	mes "กรุณาซื้อ "+ getitemname(@rnd_item) +" จำนวน "+ @rnd_amt +"";
+	npcshopattach "anti_bot",1;
+	callshop "anti_bot",1;
+	end;
+	
+OnBuyItem:
+	if ( @bought_nameid[0] != @rnd_item || @bought_quantity[0] != @rnd_amt )
+	{
+		mes "คุณได้ทำการเลือกซื้อผิด"; close2; doevent .name$+"::OnBlock";
+	}
+	set count,0;
+	deltimer .name$+"::OnJail";
+	end;
+	
+OnJail:
+	atcommand "@jail "+ strcharinfo(0);
+	end;
+
+OnInit:
+	.monster_min = 5000;
+	.monster_max = 10000;
+	.timer = 60;
+	.name$ = strnpcinfo(3);
+	setarray .itemid,501,502,503,504,505,506,507,508,509,510;
+	.item = getarraysize(.itemid);
+	npcshopdelitem "anti_bot",501;
+	for ( .@i = 0; .@i < .item; .@i++ )
+		npcshopadditem "anti_bot",.itemid[.@i],-1;
+	end;
+}
+
+-	shop	anti_bot	FAKE_NPC,501:-1

@@ -1,0 +1,128 @@
+maintown,171,155,3	script	อัพเกรดไอเท็ม#1	588,{
+	mes "[ อัพเกรดไอเท็ม ]";
+	mes "ท่านต้องการไอเทมประเภทไหน ?";
+	next;
+	switch(select("- อัพเกรดไอเท็ม ประดับ:- ยกเลิกการสนทนา")) {
+		case 1:
+			switch(select("- ประดับพิเศษ:- ยกเลิก")) {
+				case 1:
+					set .@shop$, "UPG_ACC";
+					break;
+			}
+			break;
+		case 2:
+			close;
+	}
+	close2;
+	callshop .@shop$, 1;
+	npcshopattach .@shop$;
+	end;
+
+	OnBuyItem:
+		set .@i, 0;
+		copyarray .@uitem[0], @bought_nameid[0], getarraysize(@bought_nameid);
+		deletearray @bought_nameid[0], getarraysize(@bought_nameid);
+		deletearray @bought_quantity[0], getarraysize(@bought_quantity);
+		deletearray .@itemuse[0], getarraysize(.@itemuse);
+		deletearray .@itemusemany[0], getarraysize(.@itemusemany);
+		set .@broken, 0;
+		set .@zenyuse, 0;
+		
+		if (.@uitem[.@i] == 2733) {
+			setarray .@itemuse[0], 2765, 985, 999;
+			setarray .@itemusemany[0], 1, 20, 50;
+			set .@broken, 50;
+			set .@zenyuse, 1000000;
+		}
+		else if (.@uitem[.@i] == 2720) {
+			setarray .@itemuse[0], 2766, 985, 999;
+			setarray .@itemusemany[0], 1, 20, 50;
+			set .@broken, 70;
+			set .@zenyuse, 1000000;
+		}
+		else if (.@uitem[.@i] == 2721) {
+			setarray .@itemuse[0], 2767, 985, 999;
+			setarray .@itemusemany[0], 1, 20, 50;
+			set .@broken, 70;
+			set .@zenyuse, 1000000;
+		}
+		else if (.@uitem[.@i] == 2722) {
+			setarray .@itemuse[0], 2768, 985, 999;
+			setarray .@itemusemany[0], 1, 20, 50;
+			set .@broken, 70;
+			set .@zenyuse, 1000000;
+		}
+		else if (.@uitem[.@i] == 2723) {
+			setarray .@itemuse[0], 2769, 985, 999;
+			setarray .@itemusemany[0], 1, 20, 50;
+			set .@broken, 70;
+			set .@zenyuse, 1000000;
+		}
+		else if (.@uitem[.@i] == 2724) {
+			setarray .@itemuse[0], 2770, 985, 999;
+			setarray .@itemusemany[0], 1, 20, 50;
+			set .@broken, 70;
+			set .@zenyuse, 1000000;
+		}
+		else if (.@uitem[.@i] == 2725) {
+			setarray .@itemuse[0], 2766, 985, 999;
+			setarray .@itemusemany[0], 1, 20, 50;
+			set .@broken, 70;
+			set .@zenyuse, 1000000;
+		}
+		else {
+			mes "[ อัพเกรดไอเท็ม ]";
+			mes "ไม่พบไอเท็ม รอสักครู่";
+			close;
+		}
+		mes "[ อัพเกรดไอเท็ม ]";
+		mes "คุณต้องการอัพเกรด :";
+		mes "- "+getitemname(.@uitem[.@i])+"["+getitemslots(.@uitem[.@i])+"]";
+		mes "กี่ครั้ง ?";
+		mes "ไอเทมที่จำเป็น '^FF0000ต่อครั้ง^000000' : ";
+		for (set .@k, 0; .@k < getarraysize(.@itemuse); set .@k, .@k + 1)
+			mes (.@k + 1) + ". "+getitemname(.@itemuse[.@k])+""+(getiteminfo(.@itemuse[.@k], 2) == 4 || getiteminfo(.@itemuse[.@k], 2) == 5?"["+getitemslots(.@itemuse[.@k])+"]":"")+" "+.@itemusemany[.@k]+" อัน";
+		mes "Zeny : "+callfunc("F_InsertComma",.@zenyuse)+"";
+		mes "โอกาสสำเร็จ : "+(100-.@broken)+"%";
+		next;
+		input .@count;
+		if (.@count == 0)
+			close;
+		mes "[ อัพเกรดไอเท็ม ]";
+		mes "คุณต้องการอัพเกรด :";
+		mes ""+getitemname(.@uitem[.@i])+"["+getitemslots(.@uitem[.@i])+"]";
+		set .@j, 0;
+		while (.@j != .@count) {
+			for (set .@k, 0; .@k < getarraysize(.@itemuse); set .@k, .@k + 1) {
+				if (countitem(.@itemuse[.@k]) < .@itemusemany[.@k]) {
+					next;
+					mes "[ อัพเกรดไอเท็ม ]";
+					mes "คุณมีไอเทมไม่เพียงพอ !";
+					close;
+				}
+			}
+			if (Zeny < .@zenyuse) {
+				next;
+				mes "[ อัพเกรดไอเท็ม ]";
+				mes "คุณมีเงินไม่เพียงพอ !";
+				close;
+			}
+			for (set .@k, 0; .@k < getarraysize(.@itemuse); set .@k, .@k + 1)
+				delitem .@itemuse[.@k], .@itemusemany[.@k];
+			set Zeny, Zeny - .@zenyuse;
+			if (.@broken >= rand(100)) {
+				specialeffect2 155;
+				mes "^FF0000อัพเกรดครั้งที่ "+(1+.@j)+" ล้มเหลว !^000000";
+			} else {
+				specialeffect2 154;
+				mes "^0000FFอัพเกรดครั้งที่ "+(1+.@j)+" สำเร็จ !^000000";
+				getitem .@uitem[.@i], 1;
+			}
+			set .@j, .@j + 1;
+		}
+		end;
+
+}
+
+// Armor
+-	shop	UPG_ACC	-1,2733:-1,2720:-1,2721:-1,2722:-1,2723:-1,2724:-1,2725:-1

@@ -1,0 +1,228 @@
+//--- Script by ArayaxL
+oasis,131,78,4	script	Tranfer Costume	509,{	
+	disable_items;
+	set .npcname$,"[ Tranfer Costume ]";
+	
+	if (checkweight(1201,1) == 0) {
+		mes .npcname$;
+		mes "ช่องเก็บของเต็ม";
+		close;
+	} 
+	if (MaxWeight - Weight < 10000) {
+		mes .npcname$;
+		mes "น้ำหนักเกิน";
+		close;
+	}
+	
+	mes .npcname$;
+	mes "  ";
+	mes "ข้าคือผู้ที่จะโอษ๋ฯญญฏญฏ";
+	mes "ความสาฒษณ๔๘ฮ. Cos..";
+	mes "โทษที หิวน้ำ กินน้ำก่อน";
+	next;
+	mes .npcname$;
+	mes "  ";
+	mes "ข้าคือผู้ที่จะโอนถ่ายคุณสมบัติของหินออฟ ช่องที่ 1-4 ไปยังไอเท็มชิ้นใหม่";
+	next;
+	mes .npcname$;
+	mes "  ";
+	mes "โดยมีเงื่อนไขว่า ท่านจะต้องนำไอเท็ม Costume ประเภทเดียวกันมาโอนถ่าย เช่น";
+	mes "- คอสส่วนหัว -> คอสส่วนหัว";
+	mes "- คอสส่วนตา -> คอสส่วนตา";
+	next;
+	mes .npcname$;
+	mes "ค่าบริการ";
+	mes "- x100 <ITEM>"+getitemname(7227)+"<INFO>7227</INFO></ITEM>";
+	mes "- x30 <ITEM>"+getitemname(985)+"<INFO>985</INFO></ITEM>";
+	mes "- x100 <ITEM>"+getitemname(61504)+"<INFO>61504</INFO></ITEM>";
+	mes "- x30 <ITEM>"+getitemname(61502)+"<INFO>61502</INFO></ITEM>";
+	mes "- 10M Zeny";
+	next;
+	mes .npcname$;
+	mes "^FF0000คำเตือน : ^000000";
+	mes "^FF0000- โอกาสสำเร็จ 100%^000000";
+	mes "^FF0000- หากไม่สำเร็จจะเสียแค่เพียงวัตถุดิบเท่านั้น Costume จะไม่หายไป^000000";
+	
+	setarray .@indices[1], EQI_COSTUME_HEAD_TOP,EQI_COSTUME_HEAD_MID,EQI_COSTUME_HEAD_LOW,EQI_COSTUME_GARMENT;
+	
+	//-- new 
+					set .@indices_num, select("คอสส่วนหัว - [" + getequipname(EQI_COSTUME_HEAD_TOP) + "]:" + "คอสส่วนหู - [" + getequipname(EQI_COSTUME_HEAD_MID) + "]:" + "คอสส่วนปาก - [" + getequipname(EQI_COSTUME_HEAD_LOW) + "]:" + "คอสส่วนผ้าคลุม - [" + getequipname(EQI_COSTUME_GARMENT) + "]");
+					set .@id, .@indices[ .@indices_num ];
+					set .@part, getequipid(.@id);
+					
+					if(getequipid(.@id) == -1){
+						next;
+						mes .npcname$;
+						mes " ";
+						mes "ท่านต้องสวมใส่คอสตูมก่อน";
+						close;
+					}
+					
+// anti-hack
+				if (callfunc("F_IsEquipIDHack", .@id, .@part))
+					end;
+					
+				if (countitem(.@part) > 1 ) {
+	next;
+					mes .npcname$;
+					mes "เจ้ามีคอสที่เหมือนกัน.";
+					mes "ข้าออฟได้ทีละอันเท่านั้น.";
+					mes "เอาไปเก็บในคลังก่อนแล้วค่อยมาใหม่.";
+					end;
+				}
+	next;
+					mes .npcname$;
+					mes "เจ้าได้เลือก ^000099<ITEM>" + getequipname(.@id) +"<INFO>"+getequipid(.@id)+"</INFO></ITEM>^000000 สำหรับย้ายออฟ";
+
+
+					//---- เก็บข้อมูลออฟ ไอเท็มชิ้นแรก
+					@item1 = getequipid(.@id); // รหัสไอเท็ม
+					@itemloc1 = getiteminfo(@item1,5); // รหัสตำแหน่ง //ดึงตำแหน่งไอเท็มจาก รหัสไอเท็ม
+					@item1card1 = getequipcardid(.@id,0); // ช่อง1
+					@item1card2 = getequipcardid(.@id,1); // ช่อง2
+					@item1card3 = getequipcardid(.@id,2); // ช่อง3
+					@item1card4 = getequipcardid(.@id,3); // ช่อง4 
+					//---------------
+					next;
+					mes .npcname$;
+					mes "เลือกไอเท็มที่จะย้าย";
+					mes "  ";
+					mes "^0000FFคำแนะนำ :^000000 ";
+					mes "ให้ลากไอเท็มที่ต้องการจะย้ายออฟ แล้วกด ^FF0000ขาย^000000";
+					deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+					callshop "costume_tran_shop",2;
+					npcshopattach "costume_tran_shop";
+					end;
+					
+					
+OnSellItem:
+	
+	mes .npcname$;
+	mes "  ";
+	mes "ไอเท็มที่นำมาย้าย คือ ";
+	
+	for(set .@i,0; .@i < getarraysize(@sold_nameid); set .@i,.@i+1) {	
+
+		mes  "-> <ITEM>" + getitemname(@sold_nameid[.@i]) + "<INFO>" + @sold_nameid[.@i] + "</INFO></ITEM>";
+		
+		
+		if(getiteminfo(@sold_nameid[.@i],5) == 1024 || getiteminfo(@sold_nameid[.@i],5) == 2048 || getiteminfo(@sold_nameid[.@i],5) == 4096 || getiteminfo(@sold_nameid[.@i],5) == 8192){
+		
+			
+			@getitem2 = @sold_nameid[.@i]; //เก็บรหัสไอเท็ม 2
+			.@sell_total++;
+		}
+	
+	}
+	
+	if(.@sell_total > 1){
+		next;
+		mes .npcname$;
+		mes " ";
+		mes "^FF0000ขออภัยโปรดเลือก Costume แค่ชิ้นเดียว^000000";
+		close;
+	}
+	
+	//--- เก็บข้อมูลไอเท็ม 2
+	@item2 = @getitem2; //รหัสไอเท็ม2
+	@itemloc2 = getiteminfo(@item2,5); // รหัสตำแหน่ง //ดึงตำแหน่งไอเท็มจาก รหัสไอเท็ม
+	@item2card1 = getequipcardid(@item2,0); // ช่อง1
+	@item2card2 = getequipcardid(@item2,1); // ช่อง2
+	@item2card3 = getequipcardid(@item2,2); // ช่อง3
+	@item2card4 = getequipcardid(@item2,3); // ช่อง4 
+	//-------
+	
+	//-- ตรวจสอบไอเท็มว่าช่องเดียวกันไหม
+	if( @itemloc2 != @itemloc1 ){
+		next;
+		mes .npcname$;
+		mes "  ";
+		mes "ขออภัยแต่ท่านต้องนำ ไอเท็มส่วนเดียวกันมาย้ายเท่านัน";
+		mes "เช่น ";
+		mes "- ส่วนหัว ย้าย ส่วนหัว";
+		mes "- ส่วนตา ย้าย ส่วนตา";
+		close;
+	}
+	//--------------
+	next;
+	if(select("- ย้ายเลย:- ยกเลิก") == 2){
+		close;
+	}
+	
+	if( countitem(7227) < 100 ||  //exe coin
+		countitem(985) < 30 || //exe ticket
+		countitem(61504) < 10 || //bc
+		countitem(61502) < 30 || //salt
+		zeny < 10000000){
+	
+		next;
+		mes .npcname$;
+		mes "^FF0000ขออภัย ท่านต้องมีไอเท็มดังนี้^000000";
+		mes "- x100 <ITEM>"+getitemname(7227)+"<INFO>7227</INFO></ITEM>";
+		mes "- x30 <ITEM>"+getitemname(985)+"<INFO>985</INFO></ITEM>";
+		mes "- x10 <ITEM>"+getitemname(61504)+"<INFO>61504</INFO></ITEM>";
+		mes "- x30 <ITEM>"+getitemname(61502)+"<INFO>61502</INFO></ITEM>";
+		mes "- 10M Zeny";
+		close;
+	}
+	specialeffect2 268;
+	//--- ลบไอเท็มเงื่อนไข
+	delitem 7227,100;
+	delitem 985,30;
+	delitem 61504,10;
+	delitem 61502,30;
+	zeny = zeny - 10000000;
+	//-----------------
+	
+	specialeffect2 408;
+	specialeffect2 501;
+	specialeffect2 626;
+	specialeffect2 670;
+	
+	progressbar "0x00ff00",1;
+	if(rand(100) <= 100){
+		specialeffect2 154;
+		specialeffect2 347;
+		specialeffect2 410;
+		
+		mes .npcname$;
+		mes "  ";
+		mes "^000099การโอนถ่ายสำเร็จ^000000.";
+		
+		//ลบไอเท็มต้นแบบ
+		delitem2 @item1, 1, 1, 0, 0, @item1card1, @item1card2, @item1card3, @item1card4;
+		
+		//ลบไอเท็มอันใหม่ที่นำมาออกจากกระเป๋า
+		delitem2 @item2, 1, 1, 0, 0, @item2card1, @item2card2, @item2card3, @item2card4;
+		
+		//-- รับไอเท็มที่โอนถ่ายแล้ว คือ ไอเท็ม 2 โดยใช้ ออฟไอเท็ม 1
+		getitem2 @item2, 1, 1, 0, 0, @item1card1, @item1card2, @item1card3, @item1card4;
+		
+		//-- รับไอเท็มต้นแบบ
+		getitem @item1,1;
+		
+		equip @item2;
+		close;
+	}else{
+		mes .npcname$;
+		mes "  ";
+		mes "^FF0000การโอนถ่ายไม่สำเร็จ^000000.";
+		specialeffect2 899;
+		specialeffect2 901;
+		specialeffect2 267;
+		close;
+	}
+	
+	close;
+					
+	
+	
+OnInit:	
+	sleep 500;
+	
+	waitingroom "[•] ย้ายออฟคอสตูม",0;
+end;
+	
+}
+
+-	shop	costume_tran_shop	-1,909:-1

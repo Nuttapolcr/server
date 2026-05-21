@@ -1,0 +1,307 @@
+//-	script	sample1	-1,{
+//OnInit:
+//    setarray .guild_id, 86,62,64; // allowed guild ID
+//    .guild_id_size = getarraysize(.guild_id);
+//    
+//    setarray .map$, "payg_cas01"; // restricted map
+//    .map_size = getarraysize(.map$);
+//    
+//    for ( .@i = 0; .@i < .map_size; .@i++ )
+//        setmapflag .map$[.@i], mf_loadevent;
+//    end;
+//    
+//OnPCLoadMapEvent:
+////    GMs should bypass this kind of things
+//    if ( getgmlevel() == 99 ) end;
+//
+//    .@map$ = strcharinfo(3);
+//    for ( .@i = 0; .@i < .map_size; .@i++ ) {
+//        if ( .@map$ == .map$[.@i] ) { // is on the map
+//            for ( .@j = 0; .@j < .guild_id_size; .@j++ ) {
+//                if ( getcharid(2) == .guild_id[.@j] )
+//                    end; // if the condition met, the player isn't warp away
+//            }
+//            warp "Save", 0,0;
+//            end;
+//        }
+//    }
+//    end;
+//
+//}
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+//-	script	sample2	-1,{
+//OnInit:
+//    setarray .guild_id, 86,69,85; // allowed guild ID
+//    .guild_id_size = getarraysize(.guild_id);
+//    
+//    setarray .map$, "gefg_cas02"; // restricted map
+//    .map_size = getarraysize(.map$);
+//    
+//    for ( .@i = 0; .@i < .map_size; .@i++ )
+//        setmapflag .map$[.@i], mf_loadevent;
+//    end;
+//    
+//OnPCLoadMapEvent:
+////    GMs should bypass this kind of things
+//    if ( getgmlevel() == 99 ) end;
+//
+//    .@map$ = strcharinfo(3);
+//    for ( .@i = 0; .@i < .map_size; .@i++ ) {
+//        if ( .@map$ == .map$[.@i] ) { // is on the map
+//            for ( .@j = 0; .@j < .guild_id_size; .@j++ ) {
+//                if ( getcharid(2) == .guild_id[.@j] )
+//                    end; // if the condition met, the player isn't warp away
+//            }
+//            warp "Save", 0,0;
+//            end;
+//        }
+//    }
+//    end;
+//
+//}
+//
+///////////////////////////////////////////////////////////////////////////////////////////////
+//-	script	sample3	-1,{
+//OnInit:
+//    setarray .guild_id, 86,103,64; // allowed guild ID
+//    .guild_id_size = getarraysize(.guild_id);
+//    
+//    setarray .map$, "prtg_cas02"; // restricted map
+//    .map_size = getarraysize(.map$);
+//    
+//    for ( .@i = 0; .@i < .map_size; .@i++ )
+//        setmapflag .map$[.@i], mf_loadevent;
+//    end;
+//    
+//OnPCLoadMapEvent:
+////    GMs should bypass this kind of things
+//    if ( getgmlevel() == 99 ) end;
+//
+//    .@map$ = strcharinfo(3);
+//    for ( .@i = 0; .@i < .map_size; .@i++ ) {
+//        if ( .@map$ == .map$[.@i] ) { // is on the map
+//            for ( .@j = 0; .@j < .guild_id_size; .@j++ ) {
+//                if ( getcharid(2) == .guild_id[.@j] )
+//                    end; // if the condition met, the player isn't warp away
+//            }
+//            warp "Save", 0,0;
+//            end;
+//        }
+//    }
+//    end;
+//}
+//
+///////////////////////////////////////////////////////////////////////////////////////////////
+//-	script	sample4	-1,{
+//OnInit:
+//    setarray .guild_id, 86,62,70; // allowed guild ID
+//    .guild_id_size = getarraysize(.guild_id);
+//    
+//    setarray .map$, "prtg_cas01"; // restricted map
+//    .map_size = getarraysize(.map$);
+//    
+//    for ( .@i = 0; .@i < .map_size; .@i++ )
+//        setmapflag .map$[.@i], mf_loadevent;
+//    end;
+//    
+//OnPCLoadMapEvent:
+////    GMs should bypass this kind of things
+//    if ( getgmlevel() == 99 ) end;
+//
+//    .@map$ = strcharinfo(3);
+//    for ( .@i = 0; .@i < .map_size; .@i++ ) {
+//        if ( .@map$ == .map$[.@i] ) { // is on the map
+//            for ( .@j = 0; .@j < .guild_id_size; .@j++ ) {
+//                if ( getcharid(2) == .guild_id[.@j] )
+//                    end; // if the condition met, the player isn't warp away
+//            }
+//            warp "Save", 0,0;
+//            end;
+//        }
+//    }
+//    end;
+//}
+//
+///////////////////////////////////////////////////////////////////////////////////////////////
+//-	script	sample5	-1,{
+//OnInit:
+//    setarray .guild_id, 86,40,71; // allowed guild ID
+//    .guild_id_size = getarraysize(.guild_id);
+//    
+//    setarray .map$, "gefg_cas01"; // restricted map
+//    .map_size = getarraysize(.map$);
+//    
+//    for ( .@i = 0; .@i < .map_size; .@i++ )
+//        setmapflag .map$[.@i], mf_loadevent;
+//    end;
+//    
+//OnPCLoadMapEvent:
+////    GMs should bypass this kind of things
+//    if ( getgmlevel() == 99 ) end;
+//
+//    .@map$ = strcharinfo(3);
+//    for ( .@i = 0; .@i < .map_size; .@i++ ) {
+//        if ( .@map$ == .map$[.@i] ) { // is on the map
+//            for ( .@j = 0; .@j < .guild_id_size; .@j++ ) {
+//                if ( getcharid(2) == .guild_id[.@j] )
+//                    end; // if the condition met, the player isn't warp away
+//            }
+//            warp "Save", 0,0;
+//            end;
+//        }
+//    }
+//    end;
+//
+//}
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+//-	script	sample6	-1,{
+//OnInit:
+//    setarray .guild_id, 15,125,89; // allowed guild ID
+//    .guild_id_size = getarraysize(.guild_id);
+//    
+//    setarray .map$, "payg_cas02"; // restricted map
+//    .map_size = getarraysize(.map$);
+//    
+//    for ( .@i = 0; .@i < .map_size; .@i++ )
+//        setmapflag .map$[.@i], mf_loadevent;
+//    end;
+//    
+//OnPCLoadMapEvent:
+////    GMs should bypass this kind of things
+//    if ( getgmlevel() == 99 ) end;
+//
+//    .@map$ = strcharinfo(3);
+//    for ( .@i = 0; .@i < .map_size; .@i++ ) {
+//        if ( .@map$ == .map$[.@i] ) { // is on the map
+//            for ( .@j = 0; .@j < .guild_id_size; .@j++ ) {
+//                if ( getcharid(2) == .guild_id[.@j] )
+//                    end; // if the condition met, the player isn't warp away
+//            }
+//            warp "Save", 0,0;
+//            end;
+//        }
+//    }
+//    end;
+//
+//}
+//
+///////////////////////////////////////////////////////////////////////////////////////////
+//-	script	sample7	-1,{
+//OnInit:
+//    setarray .guild_id, 15,34,139; // allowed guild ID
+//    .guild_id_size = getarraysize(.guild_id);
+//    
+//    setarray .map$, "gefg_cas01"; // restricted map
+//    .map_size = getarraysize(.map$);
+//    
+//    for ( .@i = 0; .@i < .map_size; .@i++ )
+//        setmapflag .map$[.@i], mf_loadevent;
+//    end;
+//    
+//OnPCLoadMapEvent:
+////    GMs should bypass this kind of things
+//    if ( getgmlevel() == 99 ) end;
+//
+//    .@map$ = strcharinfo(3);
+//    for ( .@i = 0; .@i < .map_size; .@i++ ) {
+//        if ( .@map$ == .map$[.@i] ) { // is on the map
+//            for ( .@j = 0; .@j < .guild_id_size; .@j++ ) {
+//                if ( getcharid(2) == .guild_id[.@j] )
+//                    end; // if the condition met, the player isn't warp away
+//            }
+//            warp "Save", 0,0;
+//            end;
+//        }
+//    }
+//    end;
+//}
+//
+///////////////////////////////////////////////////////////////////////////////////////////////
+//-	script	sample8	-1,{
+//OnInit:
+//    setarray .guild_id, 15,5,9; // allowed guild ID
+//    .guild_id_size = getarraysize(.guild_id);
+//    
+//    setarray .map$, "gefg_cas05"; // restricted map
+//    .map_size = getarraysize(.map$);
+//    
+//    for ( .@i = 0; .@i < .map_size; .@i++ )
+//        setmapflag .map$[.@i], mf_loadevent;
+//    end;
+//    
+//OnPCLoadMapEvent:
+////    GMs should bypass this kind of things
+//    if ( getgmlevel() == 99 ) end;
+//
+//    .@map$ = strcharinfo(3);
+//    for ( .@i = 0; .@i < .map_size; .@i++ ) {
+//        if ( .@map$ == .map$[.@i] ) { // is on the map
+//            for ( .@j = 0; .@j < .guild_id_size; .@j++ ) {
+//                if ( getcharid(2) == .guild_id[.@j] )
+//                    end; // if the condition met, the player isn't warp away
+//            }
+//            warp "Save", 0,0;
+//            end;
+//        }
+//    }
+//    end;
+//}
+///////////////////////////////////////////////////////////////////////////////////////////
+//-	script	sample9	-1,{
+//OnInit:
+//    setarray .guild_id, 37,35,9; // allowed guild ID
+//    .guild_id_size = getarraysize(.guild_id);
+//    
+//    setarray .map$, "payg_cas01"; // restricted map
+//    .map_size = getarraysize(.map$);
+//    
+//    for ( .@i = 0; .@i < .map_size; .@i++ )
+//        setmapflag .map$[.@i], mf_loadevent;
+//    end;
+//    
+//OnPCLoadMapEvent:
+////    GMs should bypass this kind of things
+//    if ( getgmlevel() == 99 ) end;
+//
+//    .@map$ = strcharinfo(3);
+//    for ( .@i = 0; .@i < .map_size; .@i++ ) {
+//        if ( .@map$ == .map$[.@i] ) { // is on the map
+//            for ( .@j = 0; .@j < .guild_id_size; .@j++ ) {
+//                if ( getcharid(2) == .guild_id[.@j] )
+//                    end; // if the condition met, the player isn't warp away
+//            }
+//            warp "Save", 0,0;
+//            end;
+//        }
+//    }
+//    end;
+//
+///////check member /////
+//
+//	setarray .@castle$, "payg_cas04";
+//	setarray .@c_limit, 28;
+//	
+//	.@castle_idx = inarray(.@castle$, .@map$);
+//	if(.@gid && .@castle_idx != -1) {
+//		.@c = getmapunits(BL_PC, .@map$, .@aid[0]);
+//		.@i = 0;
+//		freeloop(1);
+//		while(.@i < .@c) {
+//			if(getcharid(2, rid2name(.@aid[.@i])) == .@gid)
+//				.@count++;
+//			if(.@count > .@c_limit[.@castle_idx])
+//				break;
+//			.@i++;
+//		}
+//		freeloop(0);
+//		if(.@count > .@c_limit[.@castle_idx]) {
+//			sleep2 1000;
+//			message strcharinfo(0), "สมาชิกกิลสามารถอยู่ในสงครามได้ไม่เกิน "+.@c_limit[.@castle_idx]+" เท่านั้น.";
+//			sleep2 2000;
+//			if (compare(.@map$,"payg_cas04")) warp "SavePoint",0,0;
+//			end;
+//		}
+//	}
+//}

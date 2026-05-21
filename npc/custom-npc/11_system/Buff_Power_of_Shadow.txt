@@ -1,0 +1,317 @@
+//!rathena
+
+function	script	F_ClearPowerShadowSC	{
+	callfunc "F_ClearPowerShadowSC_Armor";
+	callfunc "F_ClearPowerShadowSC_Shield";
+	callfunc "F_ClearPowerShadowSC_Shoes";
+	callfunc "F_ClearPowerShadowSC_Weapon";
+	return;
+}
+
+function	script	F_ClearPowerShadowSC_Armor	{
+	sc_end SC_POWER_DROP;
+	sc_end SC_POWER_EXP;
+	sc_end SC_POWER_CAST;
+	sc_end SC_POWER_ATK;
+	sc_end SC_POWER_MATK;
+	#POWER_SHADOW_END_ARMOR = 0;
+	#POWER_SHADOW_LAST_ARMOR$ = "";
+	return;
+}
+
+function	script	F_ClearPowerShadowSC_Shield	{
+	sc_end SC_POWER_HIT;
+	sc_end SC_POWER_FLEE;
+	sc_end SC_POWER_ATK_FLAT;
+	sc_end SC_POWER_DEF_FLAT;
+	sc_end SC_POWER_SIZE_RES;
+	#POWER_SHADOW_END_SHIELD = 0;
+	#POWER_SHADOW_LAST_SHIELD$ = "";
+	return;
+}
+
+function	script	F_ClearPowerShadowSC_Shoes	{
+	sc_end SC_POWER_ASPD;
+	sc_end SC_POWER_IGNORE_MDEF;
+	sc_end SC_POWER_IGNORE_DEF;
+	sc_end SC_POWER_RANGED;
+	sc_end SC_POWER_CRI;
+	sc_end SC_POWER_CRIDMG;
+	#POWER_SHADOW_END_SHOES = 0;
+	#POWER_SHADOW_LAST_SHOES$ = "";
+	return;
+}
+
+function	script	F_PowerShadow_RemainTimePart$	{
+	.@part = getarg(0);
+	.@now = gettimetick(2);
+	.@end = 0;
+
+	if (.@part == 1) .@end = #POWER_SHADOW_END_ARMOR;
+	else if (.@part == 2) .@end = #POWER_SHADOW_END_SHIELD;
+	else if (.@part == 3) .@end = #POWER_SHADOW_END_SHOES;
+	else if (.@part == 4) .@end = #POWER_SHADOW_END_WEAPON;
+
+	.@sec = .@end - .@now;
+	if (.@sec <= 0) return "0 นาที";
+
+	.@hour = .@sec / 3600;
+	.@min  = (.@sec % 3600) / 60;
+
+	if (.@hour > 0 && .@min > 0) return .@hour + " ชม " + .@min + " นาที";
+	if (.@hour > 0) return .@hour + " ชม";
+	return .@min + " นาที";
+}
+
+function	script	F_ClearPowerShadowSC_Weapon	{
+	sc_end SC_POWER_SKILL_BB;
+	sc_end SC_POWER_SKILL_PIERCE;
+	sc_end SC_POWER_SKILL_HOLYCROSS;
+	sc_end SC_POWER_SKILL_MAMMONITE;
+	sc_end SC_POWER_SKILL_CARTREV;
+	sc_end SC_POWER_SKILL_DOUBLESTRAFE;
+	sc_end SC_POWER_SKILL_BLITZBEAT;
+	sc_end SC_POWER_SKILL_SONICBLOW;
+	sc_end SC_POWER_DELAY;
+	#POWER_SHADOW_END_WEAPON = 0;
+	#POWER_SHADOW_LAST_WEAPON$ = "";
+	return;
+}
+
+function	script	F_PowerShadow_RemainTime$	{
+	.@now = gettimetick(2);
+	.@end = 0;
+
+	if (#POWER_SHADOW_END_ARMOR  > .@end) .@end = #POWER_SHADOW_END_ARMOR;
+	if (#POWER_SHADOW_END_SHIELD > .@end) .@end = #POWER_SHADOW_END_SHIELD;
+	if (#POWER_SHADOW_END_SHOES  > .@end) .@end = #POWER_SHADOW_END_SHOES;
+	if (#POWER_SHADOW_END_WEAPON > .@end) .@end = #POWER_SHADOW_END_WEAPON;
+
+	.@sec = .@end - .@now;
+	if (.@sec <= 0) return "0 นาที";
+
+	.@hour = .@sec / 3600;
+	.@min  = (.@sec % 3600) / 60;
+
+	if (.@hour > 0 && .@min > 0) return .@hour + " ชม " + .@min + " นาที";
+	if (.@hour > 0) return .@hour + " ชม";
+	return .@min + " นาที";
+}
+
+function	script	F_PowerShadow_ActiveList	{
+	.@now = gettimetick(2);
+	.@cnt = 0;
+
+	if (#POWER_SHADOW_END_ARMOR > .@now && #POWER_SHADOW_LAST_ARMOR$ != "") {
+		.@line$[.@cnt++] = "Armor : " + #POWER_SHADOW_LAST_ARMOR$ + " (เหลือ " + callfunc("F_PowerShadow_RemainTimePart$",1) + ")";
+	}
+	if (#POWER_SHADOW_END_SHIELD > .@now && #POWER_SHADOW_LAST_SHIELD$ != "") {
+		.@line$[.@cnt++] = "Shield : " + #POWER_SHADOW_LAST_SHIELD$ + " (เหลือ " + callfunc("F_PowerShadow_RemainTimePart$",2) + ")";
+	}
+	if (#POWER_SHADOW_END_SHOES > .@now && #POWER_SHADOW_LAST_SHOES$ != "") {
+		.@line$[.@cnt++] = "Shoes : " + #POWER_SHADOW_LAST_SHOES$ + " (เหลือ " + callfunc("F_PowerShadow_RemainTimePart$",3) + ")";
+	}
+	if (#POWER_SHADOW_END_WEAPON > .@now && #POWER_SHADOW_LAST_WEAPON$ != "") {
+		.@line$[.@cnt++] = "Weapon : " + #POWER_SHADOW_LAST_WEAPON$ + " (เหลือ " + callfunc("F_PowerShadow_RemainTimePart$",4) + ")";
+	}
+
+	if (.@cnt == 0) return 0;
+
+	mes "บัฟที่กำลังมีอยู่:";
+	for (.@i = 0; .@i < .@cnt; .@i++) mes "- " + .@line$[.@i];
+	next;
+	return 1;
+}
+
+function	script	F_ClearPowerShadowSC_Part	{
+	.@part = getarg(0); // 1=Armor 2=Shield 3=Shoes 4=Weapon
+
+	if (.@part == 1) callfunc "F_ClearPowerShadowSC_Armor";
+	else if (.@part == 2) callfunc "F_ClearPowerShadowSC_Shield";
+	else if (.@part == 3) callfunc "F_ClearPowerShadowSC_Shoes";
+	else if (.@part == 4) callfunc "F_ClearPowerShadowSC_Weapon";
+
+	return;
+}
+
+
+morocc,171,51,4	script	Power of Shadow	615,{
+	.@dur = 7200000; // ms (2 ชั่วโมง)
+	.@cost = 30000;
+
+	if (getmapflag(strcharinfo(3), MF_PVP)
+	 || getmapflag(strcharinfo(3), MF_GVG)
+	 || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) {
+		mes "[Power of Shadow]";
+		mes "ไม่สามารถใช้งานในแผนที่ PVP/GVG ได้";
+		close;
+	}
+
+	mes "[Power of Shadow]";
+	callfunc "F_PowerShadow_ActiveList";
+	mes "สวม Shadow ชิ้นใดชิ้นหนึ่งก็สุ่มรับบัฟได้";
+	mes "เงื่อนไข: ชิ้นนั้นต้องตีบวก +5 ขึ้นไป";
+	mes "1 ชิ้น จะสุ่มได้ 1 ในรายการของชิ้นนั้นเท่านั้น";
+	mes "ระยะเวลา 2 ชั่วโมง";
+	mes "หมายเหตุ: หากถอด Shadow ที่ใช้สุ่มบัฟ บัฟจะหายทันที";
+	mes "ค่าใช้จ่าย: " + .@cost + " Zeny ต่อ 1 ชิ้น";
+	next;
+
+	if (select("สุ่มบัฟ " + .@cost + " Zeny:ยกเลิก") == 2) close;
+
+	setarray .@A_DROP[0], 1,1,2,3,4,5;
+	setarray .@A_EXP[0], 10,10,20,30,40,50;
+	setarray .@A_CAST[0], 3,3,5,5,7,10;
+	setarray .@A_ATK[0], 1,1,2,2,3,4;
+	setarray .@A_MATK[0], 1,1,2,2,3,4;
+
+	setarray .@S_HIT[0], 5,5,7,8,9,10;
+	setarray .@S_FLEE[0], 5,5,7,8,9,10;
+	setarray .@S_ATK[0], 5,5,7,8,9,10;
+	setarray .@S_DEF[0], 2,2,3,3,4,5;
+	setarray .@S_SIZE[0], 2,2,3,3,4,5;
+
+	setarray .@SH_ASPD[0], 1,2,3,3,4,5;
+	setarray .@SH_IMMDEF[0], 1,2,3,4,5,6;
+	setarray .@SH_IMDEF[0], 1,2,3,4,5,6;
+	setarray .@SH_RANGED[0], 1,1,2,3,4,5;
+	setarray .@SH_CRI[0], 1,2,3,4,5,6;
+	setarray .@SH_CRIDMG[0], 3,3,5,5,7,10;
+
+	setarray .@W_DROP[0], 2,3,4,5,6,7;
+	setarray .@W_KN_SKILL[0], 2,3,4,5,6,7;
+	setarray .@W_MA_MAM[0], 2,3,4,5,6,7;
+	setarray .@W_MA_CART[0], 10,20,30,40,50,60;
+	setarray .@W_AR_DS[0], 2,3,4,5,6,7;
+	setarray .@W_AR_BLITZ[0], 10,20,30,40,50,60;
+	setarray .@W_AS_SB[0], 5,10,15,20,25,30;
+	setarray .@W_AS_CRIDMG[0], 3,3,5,5,7,10;
+	setarray .@W_WZ_CAST[0], 5,6,7,8,9,10;
+	setarray .@W_WZ_DELAY[0], 5,10,15,20,25,30;
+	setarray .@W_EXP[0], 15,20,20,30,40,50;
+
+	.@m$ = "";
+	.@mcount = 0;
+	if (getequipid(EQI_SHADOW_ARMOR) > 0 && getequiprefinerycnt(EQI_SHADOW_ARMOR) >= 5) { .@m$ += "Shadow Armor:"; .@partmap[.@mcount++] = 1; }
+	if (getequipid(EQI_SHADOW_SHIELD) > 0 && getequiprefinerycnt(EQI_SHADOW_SHIELD) >= 5) { .@m$ += "Shadow Shield:"; .@partmap[.@mcount++] = 2; }
+	if (getequipid(EQI_SHADOW_SHOES) > 0 && getequiprefinerycnt(EQI_SHADOW_SHOES) >= 5) { .@m$ += "Shadow Shoes:"; .@partmap[.@mcount++] = 3; }
+	if (getequipid(EQI_SHADOW_WEAPON) > 0 && getequiprefinerycnt(EQI_SHADOW_WEAPON) >= 5) { .@m$ += "Shadow Weapon:"; .@partmap[.@mcount++] = 4; }
+	if (.@mcount == 0) {
+		mes "[Power of Shadow]";
+		mes "ไม่เข้าเงื่อนไขใด ๆ";
+		mes "ต้องสวม Shadow อย่างน้อย 1 ชิ้น และตีบวก +5 ขึ้นไป";
+		close;
+	}
+	.@m$ += "ยกเลิก";
+	next;
+	.@sel = select(.@m$);
+	if (.@sel == (.@mcount + 1)) close;
+	.@part = .@partmap[.@sel - 1];
+
+	if (Zeny < .@cost) {
+		mes "[Power of Shadow]";
+		mes "Zeny ไม่พอ";
+		close;
+	}
+	Zeny -= .@cost;
+
+	callfunc "F_ClearPowerShadowSC_Part", .@part;
+
+	.@cnt = 0;
+	.@ok = 1;
+
+	if (.@part == 1) {
+		.@r = getequiprefinerycnt(EQI_SHADOW_ARMOR);
+		if (.@r > 10) .@r = 10;
+		.@i = .@r - 5;
+		.@pick = rand(5);
+		if (.@pick == 0) { sc_start SC_POWER_DROP, .@dur, .@A_DROP[.@i];  #POWER_SHADOW_LAST_ARMOR$ = "DROP +" + .@A_DROP[.@i] + "%"; }
+		else if (.@pick == 1) { sc_start SC_POWER_EXP, .@dur, .@A_EXP[.@i]; #POWER_SHADOW_LAST_ARMOR$ = "EXP +" + .@A_EXP[.@i] + "%"; }
+		else if (.@pick == 2) { sc_start SC_POWER_CAST, .@dur, .@A_CAST[.@i]; #POWER_SHADOW_LAST_ARMOR$ = "ลดระยะร่ายเวท " + .@A_CAST[.@i] + "%"; }
+		else if (.@pick == 3) { sc_start SC_POWER_ATK, .@dur, .@A_ATK[.@i]; #POWER_SHADOW_LAST_ARMOR$ = "ATK +" + .@A_ATK[.@i] + "%"; }
+		else { sc_start SC_POWER_MATK, .@dur, .@A_MATK[.@i]; #POWER_SHADOW_LAST_ARMOR$ = "MATK +" + .@A_MATK[.@i] + "%"; }
+		#POWER_SHADOW_END_ARMOR = gettimetick(2) + (.@dur / 1000);
+		.@line$[.@cnt++] = "Armor +" + .@r + ": " + #POWER_SHADOW_LAST_ARMOR$ + " (เหลือ " + callfunc("F_PowerShadow_RemainTimePart$",1) + ")";
+	}
+	else if (.@part == 2) {
+		.@r = getequiprefinerycnt(EQI_SHADOW_SHIELD);
+		if (.@r > 10) .@r = 10;
+		.@i = .@r - 5;
+		.@pick = rand(5);
+		if (.@pick == 0) { sc_start SC_POWER_HIT, .@dur, .@S_HIT[.@i]; #POWER_SHADOW_LAST_SHIELD$ = "HIT +" + .@S_HIT[.@i]; }
+		else if (.@pick == 1) { sc_start SC_POWER_FLEE, .@dur, .@S_FLEE[.@i]; #POWER_SHADOW_LAST_SHIELD$ = "FLEE +" + .@S_FLEE[.@i]; }
+		else if (.@pick == 2) { sc_start SC_POWER_ATK_FLAT, .@dur, .@S_ATK[.@i]; #POWER_SHADOW_LAST_SHIELD$ = "ATK +" + .@S_ATK[.@i]; }
+		else if (.@pick == 3) { sc_start SC_POWER_DEF_FLAT, .@dur, .@S_DEF[.@i]; #POWER_SHADOW_LAST_SHIELD$ = "DEF +" + .@S_DEF[.@i]; }
+		else { sc_start SC_POWER_SIZE_RES, .@dur, .@S_SIZE[.@i]; #POWER_SHADOW_LAST_SHIELD$ = "ป้องกันทุกขนาด +" + .@S_SIZE[.@i] + "%"; }
+		#POWER_SHADOW_END_SHIELD = gettimetick(2) + (.@dur / 1000);
+		.@line$[.@cnt++] = "Shield +" + .@r + ": " + #POWER_SHADOW_LAST_SHIELD$ + " (เหลือ " + callfunc("F_PowerShadow_RemainTimePart$",2) + ")";
+	}
+	else if (.@part == 3) {
+		.@r = getequiprefinerycnt(EQI_SHADOW_SHOES);
+		if (.@r > 10) .@r = 10;
+		.@i = .@r - 5;
+		.@pick = rand(6);
+		if (.@pick == 0) { sc_start SC_POWER_ASPD, .@dur, .@SH_ASPD[.@i]; #POWER_SHADOW_LAST_SHOES$ = "ASPD +" + .@SH_ASPD[.@i] + "%"; }
+		else if (.@pick == 1) { sc_start SC_POWER_IGNORE_MDEF, .@dur, .@SH_IMMDEF[.@i]; #POWER_SHADOW_LAST_SHOES$ = "Ignore MDEF +" + .@SH_IMMDEF[.@i] + "%"; }
+		else if (.@pick == 2) { sc_start SC_POWER_IGNORE_DEF, .@dur, .@SH_IMDEF[.@i]; #POWER_SHADOW_LAST_SHOES$ = "Ignore DEF +" + .@SH_IMDEF[.@i] + "%"; }
+		else if (.@pick == 3) { sc_start SC_POWER_RANGED, .@dur, .@SH_RANGED[.@i]; #POWER_SHADOW_LAST_SHOES$ = "โจมตีระยะไกลแรงขึ้น " + .@SH_RANGED[.@i] + "%"; }
+		else if (.@pick == 4) { sc_start SC_POWER_CRI, .@dur, .@SH_CRI[.@i]; #POWER_SHADOW_LAST_SHOES$ = "Cri Rate +" + .@SH_CRI[.@i]; }
+		else { sc_start SC_POWER_CRIDMG, .@dur, .@SH_CRIDMG[.@i]; #POWER_SHADOW_LAST_SHOES$ = "Cri Dmg +" + .@SH_CRIDMG[.@i] + "%"; }
+		#POWER_SHADOW_END_SHOES = gettimetick(2) + (.@dur / 1000);
+		.@line$[.@cnt++] = "Shoes +" + .@r + ": " + #POWER_SHADOW_LAST_SHOES$ + " (เหลือ " + callfunc("F_PowerShadow_RemainTimePart$",3) + ")";
+	}
+	else {
+		.@r = getequiprefinerycnt(EQI_SHADOW_WEAPON);
+		if (.@r > 10) .@r = 10;
+		.@i = .@r - 5;
+		.@pick = rand(13);
+		.@pick = rand(6);
+		if (.@pick == 0) {
+			sc_start SC_POWER_DROP, .@dur, .@W_DROP[.@i];
+			sc_start SC_POWER_SKILL_BB, .@dur, .@W_KN_SKILL[.@i];
+			sc_start SC_POWER_SKILL_PIERCE, .@dur, .@W_KN_SKILL[.@i];
+			sc_start SC_POWER_SKILL_HOLYCROSS, .@dur, .@W_KN_SKILL[.@i];
+			#POWER_SHADOW_LAST_WEAPON$ = "DROP +" + .@W_DROP[.@i] + "%, Bowling Bash/Pierce/Holy Cross +" + .@W_KN_SKILL[.@i] + "%";
+		}
+		else if (.@pick == 1) {
+			sc_start SC_POWER_DROP, .@dur, .@W_DROP[.@i];
+			sc_start SC_POWER_SKILL_MAMMONITE, .@dur, .@W_MA_MAM[.@i];
+			sc_start SC_POWER_SKILL_CARTREV, .@dur, .@W_MA_CART[.@i];
+			#POWER_SHADOW_LAST_WEAPON$ = "DROP +" + .@W_DROP[.@i] + "%, Mammonite +" + .@W_MA_MAM[.@i] + "%, Cart Revolution +" + .@W_MA_CART[.@i] + "%";
+		}
+		else if (.@pick == 2) {
+			sc_start SC_POWER_DROP, .@dur, .@W_DROP[.@i];
+			sc_start SC_POWER_SKILL_DOUBLESTRAFE, .@dur, .@W_AR_DS[.@i];
+			sc_start SC_POWER_SKILL_BLITZBEAT, .@dur, .@W_AR_BLITZ[.@i];
+			#POWER_SHADOW_LAST_WEAPON$ = "DROP +" + .@W_DROP[.@i] + "%, Double Strafe +" + .@W_AR_DS[.@i] + "%, Blitz Beat +" + .@W_AR_BLITZ[.@i] + "%";
+		}
+		else if (.@pick == 3) {
+			sc_start SC_POWER_DROP, .@dur, .@W_DROP[.@i];
+			sc_start SC_POWER_SKILL_SONICBLOW, .@dur, .@W_AS_SB[.@i];
+			sc_start SC_POWER_CRIDMG, .@dur, .@W_AS_CRIDMG[.@i];
+			#POWER_SHADOW_LAST_WEAPON$ = "DROP +" + .@W_DROP[.@i] + "%, Sonic Blow +" + .@W_AS_SB[.@i] + "%, Cri Dmg +" + .@W_AS_CRIDMG[.@i] + "%";
+		}
+		else if (.@pick == 4) {
+			sc_start SC_POWER_DROP, .@dur, .@W_DROP[.@i];
+			sc_start SC_POWER_CAST, .@dur, .@W_WZ_CAST[.@i];
+			sc_start SC_POWER_DELAY, .@dur, .@W_WZ_DELAY[.@i];
+			#POWER_SHADOW_LAST_WEAPON$ = "DROP +" + .@W_DROP[.@i] + "%, ลดเวลาร่าย " + .@W_WZ_CAST[.@i] + "%, ลดดีเลย์สกิล " + .@W_WZ_DELAY[.@i] + "%";
+		}
+		else {
+			sc_start SC_POWER_EXP, .@dur, .@W_EXP[.@i];
+			#POWER_SHADOW_LAST_WEAPON$ = "EXP +" + .@W_EXP[.@i] + "%";
+		}
+		#POWER_SHADOW_END_WEAPON = gettimetick(2) + (.@dur / 1000);
+		.@line$[.@cnt++] = "Weapon +" + .@r + ": " + #POWER_SHADOW_LAST_WEAPON$ + " (เหลือ " + callfunc("F_PowerShadow_RemainTimePart$",4) + ")";
+	}
+
+	mes "[Power of Shadow]";
+	mes "คุณได้รับบัฟดังนี้:";
+	for (.@j = 0; .@j < .@cnt; .@j++) mes .@line$[.@j];
+	mes "เหลือเวลา: " + callfunc("F_PowerShadow_RemainTime$");
+	close;
+
+OnInit:
+	waitingroom "Power of Shadow",0;
+	end;
+}

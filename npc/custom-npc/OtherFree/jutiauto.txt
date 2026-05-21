@@ -1,0 +1,282 @@
+// =====================================================================
+// ======== Script by Jumbo
+// ======== V1.1 เพิ่มตั้งค่า เมื่อจุติแล้วจะให้เลเวลกลายเป็นเลเวลเท่าใด
+// =====================================================================
+oasis,166,81,4	script	เทพจุติ	10275,{
+
+	mes "หวัดดี ^0000FF"+strcharinfo(0)+"^000000.";
+		if( countfreejuti == .freejuti ){
+	mes "^FF0000เจ้าจุติเลเวลฟรีครบแล้ว^000000."; }
+		else{
+	mes "เจ้าจุติเลเวลฟรีไปแล้ว ^0000FF"+countfreejuti+"^000000/^FF0000"+.freejuti+"^000000."; }
+		if( countjutimaxbaselv == .maxjuti ){
+	mes "^FF0000เจ้าจุติเลเวลครบแล้ว^000000."; }
+		else{
+	mes "เจ้าจุติเลเวลไปแล้ว ^0000FF"+countjutimaxbaselv+"^000000/^FF0000"+.maxjuti+"^000000."; }
+		if( countfreejutijob == .freejutijob ){
+	mes "^FF0000เจ้าจุติสกิลฟรีครบแล้ว^000000."; }
+		else{
+	mes "เจ้าจุติสกิลฟรีไปแล้ว ^0000FF"+countfreejutijob+"^000000/^FF0000"+.freejutijob+"^000000."; }
+		if( countjutimaxjoblv == .maxjutijob ){
+	mes "^FF0000เจ้าจุติสกิลครบแล้ว^000000."; }
+		else{
+	mes "เจ้าจุติสกิลไปแล้ว ^0000FF"+countjutimaxjoblv+"^000000/^FF0000"+.maxjutijob+"^000000."; }
+
+next;
+
+		if(( countjutimaxbaselv == .maxjuti ) && ( countjutimaxjoblv == .maxjutijob )){
+	mes "เจ้าจุติครบทั้งหมดแล้ว.";
+	set autojuti,0;
+	set autojutijob,0;
+	end; }
+		else if( countjutimaxbaselv == .maxjuti ){
+	menu "^00FF00จุติสกิล^000000",J_job,"ยกเลิก",J_cancel; }	
+		else if( countjutimaxjoblv == .maxjutijob ){
+	menu "^FF0000จุติเลเวล^000000",J_lv,"ยกเลิก",J_cancel; }
+		else{
+	menu "^FF0000จุติเลเวล^000000",J_lv,"^00FF00จุติสกิล^000000",J_job,"ยกเลิก",J_cancel; }
+	
+J_lv:
+		mes "เลเวลขั้นต่ำในการจุติเลเวล ^0000FF"+.maxbaselv+"^000000.";
+		mes "เมื่อจุติแล้วเลเวลจะกลายเป็นเลเวล ^0000FF"+.backlv+"^000000.";
+		mes "เงินที่ใช้ในการจุติเลเวล ^0000FF"+.zenyjuti+"^000000 zeny.";
+		mes "แคชที่ใช้ในการจุติเลเวล ^0000FF"+.cashjuti+"^000000 cash.";
+		mes "ไอเท็มที่ใช้ในการจุติเลเวล ^0000FF"+getitemname(.itemjuti)+"^000000 ^FF0000"+.amountitemjuti+"^000000 อัน."; 
+		mes "ทุกครั้งที่จุติเลเวลจะได้โบนัสพอยท์ ^0000FF"+.bonusjuti+"^000000 แต้ม.";
+	next;
+		switch(select("จุติเลเวลทันที:^0000FFระบบจุติเลเวลออโต้^000000:ยกเลิก")) {
+	case 1:
+			if( countfreejuti == .freejuti ){
+				if( countjutimaxbaselv == .maxjuti ) goto chkmaxjutilevel;
+				if( BaseLevel < .maxbaselv ) goto chklevel;
+				if( zeny < .zenyjuti ) goto chkzenylevel;
+				if( #CASHPOINTS < .cashjuti ) goto chkcashlevel;
+				if( countitem( .itemjuti ) < .amountitemjuti ) goto chkitemlevel;
+					set BaseLevel, BaseLevel + ( -.maxbaselv + .backlv );
+					set zeny, zeny - .zenyjuti;
+					set #CASHPOINTS, #CASHPOINTS - .cashjuti;
+					delitem .itemjuti,.amountitemjuti;
+					set StatusPoint, StatusPoint +.bonusjuti;
+					set countjutimaxbaselv, countjutimaxbaselv + 1;
+					end;
+				}
+			else{
+				if( BaseLevel < .maxbaselv ) goto chklevel;
+					set BaseLevel, BaseLevel + ( -.maxbaselv + .backlv );
+					set StatusPoint, StatusPoint +.bonusjuti;
+					set countfreejuti, countfreejuti + 1;
+					end;
+				}
+	case 2:
+		mes "ระบบจุติออโต้จะเริ่มทำงาน."; 
+		mes "เมื่อมีการ ^FF0000กำจัดมอนสเตอร์ !!^000000";
+			if( autojuti == 1 ){
+		mes "ระบบจุติเลเวลออโต้ ^00FF00[เปิดใช้งาน]^000000."; }
+			else{
+		mes "ระบบจุติเลเวลออโต้ ^FF0000[ปิดใช้งาน]^000000."; }
+	next;
+				switch(select("^00FF00[เปิดใช้งาน]^000000:^FF0000[ปิดใช้งาน]^000000:ยกเลิก")) {
+			case 1:
+					mes "ระบบจุติออโต้จะเริ่มทำงาน."; 
+					mes "เมื่อมีการ ^FF0000กำจัดมอนสเตอร์ !!^000000";
+					mes "เปิดระบบจุติเลเวลออโต้แล้ว.";
+					set autojuti,1;
+					end;
+			case 2:
+					mes "ปิดระบบจุติเลเวลออโต้แล้ว.";
+					set autojuti,0;
+					end;
+			case 3:
+				end;
+			}
+	case 3:
+		end;
+	}
+
+J_job:
+		mes "เลเวลสกิลขั้นต่ำในการจุติสกิล ^0000FF"+.maxjoblv+"^000000.";
+		mes "เมื่อจุติแล้วเลเวลสกิลจะกลายเป็นเลเวล ^0000FF"+.backjoblv+"^000000.";
+		mes "เงินที่ใช้ในการจุติสกิล ^0000FF"+.zenyjutijob+"^000000 zeny.";
+		mes "แคชที่ใช้ในการจุติสกิล ^0000FF"+.cashjutijob+"^000000 cash.";
+		mes "ไอเท็มที่ใช้ในการจุติสกิล ^0000FF"+getitemname(.itemjutijob)+"^000000 ^FF0000"+.amountitemjutijob+"^000000 อัน.";
+		mes "ทุกครั้งที่จุติจะได้โบนัสสกิลพอยท์ ^0000FF"+.bonusjutijob+"^000000 แต้ม.";
+	next;
+		switch(select("จุติสกิลทันที:^0000FFระบบจุติสกิลออโต้^000000:ยกเลิก")) {
+	case 1:
+			if( countfreejutijob == .freejutijob ){
+				if( countjutimaxjoblv == .maxjutijob ) goto chkmaxjutijob;
+				if( JobLevel < .maxjoblv ) goto chkjob;
+				if( zeny < .zenyjutijob ) goto chkzenyjob;
+				if( #CASHPOINTS < .cashjutijob ) goto chkcashjob;
+				if( countitem( .itemjutijob ) < .amountitemjutijob ) goto chkitemjob;
+					set JobLevel, JobLevel + ( -.maxjoblv + .backjoblv );
+					set zeny, zeny - .zenyjutijob;
+					set #CASHPOINTS, #CASHPOINTS - .cashjutijob;
+					delitem .itemjutijob,.amountitemjutijob;
+					set SkillPoint, SkillPoint +.bonusjutijob;
+					set countjutimaxjoblv, countjutimaxjoblv + 1;
+					end;
+				}
+			else{
+				if( JobLevel < .maxjoblv ) goto chkjob;
+					set JobLevel, JobLevel + ( -.maxjoblv + .backjoblv );
+					set SkillPoint, SkillPoint +.bonusjutijob;
+					set countfreejutijob, countfreejutijob + 1;
+					end;
+				}
+	case 2:
+		mes "ระบบจุติออโต้จะเริ่มทำงาน."; 
+		mes "เมื่อมีการ ^FF0000กำจัดมอนสเตอร์ !!^000000";
+			if( autojutijob == 1 ){
+		mes "ระบบจุติสกิลออโต้ ^00FF00[เปิดใช้งาน]^000000."; }
+			else{
+		mes "ระบบจุติสกิลออโต้ ^FF0000[ปิดใช้งาน]^000000."; }
+	next;
+				switch(select("^00FF00[เปิดใช้งาน]^000000:^FF0000[ปิดใช้งาน]^000000:ยกเลิก")) {
+			case 1:
+					mes "ระบบจุติออโต้จะเริ่มทำงาน."; 
+					mes "เมื่อมีการ ^FF0000กำจัดมอนสเตอร์ !!^000000";
+					mes "เปิดระบบจุติสกิลออโต้แล้ว.";
+					set autojutijob,1;
+					end;
+			case 2:
+					mes "ปิดระบบจุติสกิลออโต้แล้ว.";
+					set autojutijob,0;
+					end;
+			case 3:
+				end;
+			}
+	case 3:
+		end;
+	}
+
+J_cancel:
+		end;
+		
+
+chklevel:
+message strcharinfo(0),"เลเวลยังไม่ถึง.";
+end;
+
+chkzenylevel:
+message strcharinfo(0),"เงินไม่พอ จุติเลเวล.";
+end;
+
+chkcashlevel:
+message strcharinfo(0),"แคชไม่พอ จุติเลเวล.";
+end;
+
+chkitemlevel:
+message strcharinfo(0),"ไอเท็มไม่พอ จุติเลเวล.";
+end;
+
+chkmaxjutilevel:
+message strcharinfo(0),"จุติเลเวลครบแล้ว.";
+end;
+
+chkmaxjutilevel2:
+message strcharinfo(0),"จุติเลเวลครบแล้ว ปิดระบบจุติออโต้.";
+set autojuti,0;
+end;
+
+chkjob:
+message strcharinfo(0),"เลเวลสกิลยังไม่ถึง.";
+end;
+
+chkzenyjob:
+message strcharinfo(0),"เงินไม่พอ จุติสกิล.";
+end;
+
+chkcashjob:
+message strcharinfo(0),"แคชไม่พอ จุติสกิล.";
+end;
+
+chkitemjob:
+message strcharinfo(0),"ไอเท็มไม่พอ จุติสกิล.";
+end;
+
+chkmaxjutijob:
+message strcharinfo(0),"จุติสกิลครบแล้ว.";
+end;
+
+chkmaxjutijob2:
+message strcharinfo(0),"จุติสกิลครบแล้ว ปิดระบบจุติจ็อบออโต้.";
+set autojutijob,0;
+end;
+	
+OnNPCKillEvent:
+if(( autojuti == 1 ) && ( BaseLevel >= .maxbaselv )){
+		if( countfreejuti == .freejuti ){
+			if( countjutimaxbaselv == .maxjuti ) goto chkmaxjutilevel2;
+			if( zeny < .zenyjuti ) goto chkzenylevel;
+			if( #CASHPOINTS < .cashjuti ) goto chkcashlevel;
+			if( countitem( .itemjuti ) < .amountitemjuti ) goto chkitemlevel; 
+				set BaseLevel, BaseLevel + ( -.maxbaselv + .backlv );
+				set zeny, zeny - .zenyjuti;
+				set #CASHPOINTS, #CASHPOINTS - .cashjuti;
+				delitem .itemjuti,.amountitemjuti;
+				set StatusPoint, StatusPoint +.bonusjuti;
+				set countjutimaxbaselv, countjutimaxbaselv + 1;
+				end;
+				
+			}
+		else{
+				set BaseLevel, BaseLevel + ( -.maxbaselv + .backlv );
+				set StatusPoint, StatusPoint +.bonusjuti;
+				set countfreejuti, countfreejuti + 1;
+				end;
+			}
+		}
+		
+if(( autojutijob == 1 ) && ( JobLevel >= .maxjoblv )){
+		if( countfreejutijob == .freejutijob ){
+			if( countjutimaxjoblv == .maxjutijob ) goto chkmaxjutijob2;
+			if( zeny < .zenyjutijob ) goto chkzenyjob;
+			if( #CASHPOINTS < .cashjutijob ) goto chkcashjob;
+			if( countitem( .itemjutijob ) < .amountitemjutijob ) goto chkitemjob;
+				set JobLevel, JobLevel + ( -.maxjoblv + .backjoblv );
+				set zeny, zeny - .zenyjutijob;
+				set #CASHPOINTS, #CASHPOINTS - .cashjutijob;
+				delitem .itemjutijob,.amountitemjutijob;
+				set SkillPoint, SkillPoint +.bonusjutijob;
+				set countjutimaxjoblv, countjutimaxjoblv + 1;
+				end;
+				}
+		else{
+				set JobLevel, JobLevel + ( -.maxjoblv + .backjoblv );
+				set SkillPoint, SkillPoint +.bonusjutijob;
+				set countfreejutijob, countfreejutijob + 1;
+				end;
+	          
+			}
+		}
+		
+// =====================================================================
+// ======== Setting
+// =====================================================================		
+OnInit:
+set .maxbaselv,99;									//เลเวลขั้นต่ำในการจุติ
+set .backlv,10;									//เมื่อจุติแล้วจะให้เลเวลกลับมากลายเป็นเลเวลเท่าใด ***สำหรับคลาสสามให้ตั้ง 100 จะดีที่สุด
+set	.freejuti,1;									//จุติเลเวลได้ฟรีกี่ครั้ง ***จำนวนจุติฟรีจะถูกใช้ก่อนจำนวนจุติแบบมีเงื่อนไข
+set .maxjuti,3;									//จุติเลเวลแบบมีเงื่อนไขได้กี่ครั้ง
+set .bonusjuti,100;								//โบนัสสเตตัสพอยท์เมื่อจุติ
+set .zenyjuti,5000000;								//เงินที่ใช้จุติเลเวล
+set .cashjuti,0;									//แคชที่ใช้จุติเลเวล
+set .itemjuti,1000451;									//ไอเท็มที่ใช้จุติเลเวล ( 7227 คือ TCG CARD ) ***ห้ามตั้งเป็นเลข 0 เด็ดขาด
+set .amountitemjuti,1;								//จำนวนไอเท็มที่ใช้จุติเลเวล ***ถ้าหากไม่อยากให้ใช้ไอเท็มจุติเลเวล ตั้งตรงนี้เป็นเลข 0 แทน
+
+set .maxjoblv,50;									//เลเวลสกิลขั้นต่ำในการจุติ
+set .backjoblv,1;									//เมื่อจุติแล้วจะให้เลเวลสกิลกลับมากลายเป็นเลเวลเท่าใด ***ค่าเริ่มต้นคือเลเวล 1
+set	.freejutijob,1;									//จุติสกิลได้ฟรีกี่ครั้ง ***จำนวนจุติฟรีจะถูกใช้ก่อนจำนวนจุติแบบมีเงื่อนไข
+set .maxjutijob,3;									//จุติสกิลแบบมีเงื่อนไขได้กี่ครั้ง
+set .bonusjutijob,3;								//โบนัสสกิลพอยท์เมื่อจุติ
+set .zenyjutijob,10000000;							//เงินที่ใช้จุติสกิล
+set .cashjutijob,0;								//แคชที่ใช้จุติสกิล
+set .itemjutijob,1000451;								//ไอเท็มที่ใช้จุติสกิล ( 7227 คือ TCG CARD ) ***ห้ามตั้งเป็นเลข 0 เด็ดขาด
+set .amountitemjutijob,1;							//จำนวนไอเท็มที่ใช้จุติสกิล ***ถ้าหากไม่อยากให้ใช้ไอเท็มจุติสกิล ตั้งตรงนี้เป็นเลข 0 แทน
+
+
+
+	end;
+	
+	}

@@ -1,0 +1,78 @@
+// แก้ปัญหา “ลงทะเบียนไว้ 90 แล้วไปเก็บต่อเป็น 95” ให้แก้เลเวลในใบลงทะเบียนได้
+// เงื่อนไข: อัปเดตได้เฉพาะตอน .setup==1 (ช่วง CBT) และอัปเดตได้เฉพาะถ้า BaseLevel สูงกว่าเลเวลที่เคยลงทะเบียน
+// **ไม่เปลี่ยนโครงสร้างเดิม** แค่ปรับ logic/ข้อความ + เพิ่มเมนูอัปเดต
+
+morocc,171,85,4	script	CBT Level	11050,{
+Start:
+
+	query_sql "SELECT status FROM `cbt_lv99_data` WHERE account_id = " + getcharid(3), .@lv99_status;
+
+	mes .mes$;
+	mes "^FF6600[ รางวัลพิเศษ Lv.99 Hi-Class ]^000000";
+	mes " ";
+	mes "เงื่อนไข: ตัวละครต้องถึง ^00CC00Lv.99^000000";
+	mes " ";
+	mes "^FF3300รางวัลที่จะได้รับ^000000";
+	mes "- Costume หาง (Middle) ^00CC00All Stat+1, EXP+5%^000000 30 วัน";
+	mes "  (เมื่อครบ 30 วัน ออฟชั่นจะหายไป แต่หางจะคงอยู่)";
+	mes "- " + getitemname(12263) + " x10";
+	mes "- " + getitemname(14606) + " x10";
+	mes "- " + getitemname(4100010) + " x5";
+	mes "- " + getitemname(12265) + " x5";
+	mes "- " + getitemname(12442) + " x10";
+	mes "- " + getitemname(4730) + " x10";
+	mes " ";
+	mes "^FF3300หมายเหตุ: รับได้ 1 ครั้งต่อ 1 Account เท่านั้น^000000";
+	mes " ";
+
+	if (.@lv99_status) {
+		mes "^009900ท่านรับรางวัลนี้ไปแล้ว^000000";
+		close;
+	}
+
+	if (BaseLevel < 99) {
+		mes "^FF0000ท่านยังไม่ถึง Lv.99 ยังไม่สามารถรับรางวัลได้^000000";
+		mes "เลเวลปัจจุบัน: ^00CC00" + BaseLevel + "^000000";
+		close;
+	}
+
+	mes "เลเวลปัจจุบัน: ^00CC00" + BaseLevel + "^000000";
+	mes "^00CC00ท่านผ่านเงื่อนไขแล้ว กดยืนยันเพื่อรับรางวัล^000000";
+
+	if (select("- ยืนยันรับรางวัล:- ยกเลิก") == 2)
+		close;
+
+	deletearray .@lv99_status;
+	query_sql "SELECT status FROM `cbt_lv99_data` WHERE account_id = " + getcharid(3), .@lv99_status;
+	if (.@lv99_status) {
+		clear;
+		mes .mes$;
+		mes "ท่านรับรางวัลนี้ไปแล้ว";
+		end;
+	}
+
+	getitem 64013, 1;
+	getitem 12263, 10;
+	getitem 14606, 10;
+	getitem 4100010, 5;
+	getitem 12265, 5;
+	getitem 12442, 10;
+	getitem 4730, 10;
+
+	query_sql "INSERT INTO `cbt_lv99_data` (account_id, char_name, status, reward_time) VALUES (" + getcharid(3) + ", '" + strcharinfo(0) + "', 1, NOW())";
+	announce "[CBT Lv99] " + strcharinfo(0) + " รับรางวัล Hi-Class Lv.99 สำเร็จ!", bc_all | bc_name;
+
+	clear;
+	mes .mes$;
+	mes "^00CC00รับรางวัลสำเร็จ!^000000";
+	mes "ท่านได้รับ Costume หาง และไอเท็มพิเศษแล้ว";
+	close;
+
+OnInit:
+	.mes$ = "^FF6600[ CBT Lv99 Reward ]^000000";
+	waitingroom "รับรางวัล Lv.99 Hi-Class", 0;
+
+	query_sql "CREATE TABLE IF NOT EXISTS `cbt_lv99_data` (`id` int(7) NOT NULL AUTO_INCREMENT, `account_id` int(11) NOT NULL, `char_name` varchar(25) NOT NULL, `status` int(11) NOT NULL, `reward_time` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
+
+	end;
+}

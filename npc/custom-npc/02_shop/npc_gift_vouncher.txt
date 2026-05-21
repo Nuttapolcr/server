@@ -1,0 +1,376 @@
+maintown,141,184,6	script	Gift Vouncher	757,{
+Start:
+	
+	mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	for ( .@i=0; .@i<getarraysize(.id_gift_vouncher); .@i++ ) {
+		if(.amount_gift_vouncher[.@i] == 0){
+			mes "• ยอดเงิน ^009900("+.prize_gift_vouncher[.@i]+"฿)^000000 ^0000FF[ไม่จำกัด]^000000 รายการ";
+		}
+		else {
+			mes "• ยอดเงิน ^009900("+.prize_gift_vouncher[.@i]+"฿)^000000 ^0000FF["+callfunc("F_InsertComma",getd("$gift_vouncher"+.id_gift_vouncher[.@i]))+"/"+callfunc("F_InsertComma",.amount_gift_vouncher[.@i])+"]^000000 รายการ";
+		}
+	}
+	
+	mes "กรุณาเลือกรายการที่ต้องการ";
+	
+	.@menu = select(
+		"- ตรวจสอบการทำรายการ",
+		"- ^0099FFส่ง Gift Vouncher^000000",
+		(getgmlevel()>=99)?"- Menu Admin":""
+	);
+	
+	if(.@menu == 1){	
+		
+		query_sql("SELECT account_id,char_id,player_name,bank_name,bank_account_number,name_surname,prize,status FROM `vouncher_logs` WHERE char_id = "+getcharid(0)+"",.@account_id,.@char_id,.@player_name$,.@bank_name$,.@bank_account_number$,.@name_surname$,.@prize,.@status);
+		
+		if(getarraysize(.@char_id) <= 0){
+			clear;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "ไม่พบการทำรายการของท่าน";
+			mes "โปรดตรวจสอบใหม่อีกครั้ง";
+			end;
+		}
+		
+		clear;
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		for ( .@i=0; .@i<getarraysize(.@char_id); .@i++ ){
+			if(.@status[.@i] == 1){
+				.@status$ = "อยู่ในขั้นตอนตรวจสอบ";
+				mes "สถานะ : ^0000FF"+.@status$+"^000000";
+			}
+			if(.@status[.@i] == 2){
+				.@status$ = "โอนเงินสำเร็จ";
+				mes "สถานะ : ^009900"+.@status$+"^000000";
+			}
+			
+			/*
+			mes "AID : "+.@account_id[.@i]+"";
+			mes "Char ID : "+.@char_id[.@i]+"";
+			mes "Player : "+.@player_name$[.@i]+"";
+			*/
+			mes "ธนาคาร : "+.@bank_name$[.@i]+"";
+			mes "หมายเลขบัญชี : "+.@bank_account_number$[.@i]+"";
+			mes "ชื่อ - นามสกุล : "+.@name_surname$[.@i]+"";
+			mes "ราคา : "+callfunc("F_InsertComma",.@prize[.@i])+" บาท";
+			mes "^FF9900====================^000000";
+		}
+	
+	}
+	
+	if(.@menu == 2){
+		
+		clear;
+		
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		mes "โปรดเลือกบัตรที่ต้องการส่ง";
+		
+		for ( .@i=0; .@i<getarraysize(.id_gift_vouncher); .@i++ ) {
+			if(.amount_gift_vouncher[.@i] == 0){
+				.@menu$ = .@menu$ + "- "+getitemname(.id_gift_vouncher[.@i])+" ^009900("+callfunc("F_InsertComma",.prize_gift_vouncher[.@i])+" ฿)^000000 ^0000FF[ไม่จำกัด]^000000";
+			}
+			else {
+				.@menu$ = .@menu$ + "- "+getitemname(.id_gift_vouncher[.@i])+" ^009900("+callfunc("F_InsertComma",.prize_gift_vouncher[.@i])+" ฿)^000000 ^0000FF["+callfunc("F_InsertComma",getd("$gift_vouncher"+.id_gift_vouncher[.@i]))+"/"+callfunc("F_InsertComma",.amount_gift_vouncher[.@i])+"]^000000";
+			}
+			.@menu$ = .@menu$ + ":";
+		}
+		
+		.@part = select(.@menu$) - 1;
+		
+		.@id_select	= .id_gift_vouncher[.@part];
+		.@am_prize	= .prize_gift_vouncher[.@part];
+		.@stock		= .amount_gift_vouncher[.@part];
+		
+		if(countitem(.@id_select) <= 0){
+			clear;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "ไม่พบไอเทม "+getitemname(.@id_select)+"";
+			mes "โปรดตรวจสอบอีกครั้ง";
+			end;
+		}
+		
+		if(.@stock){
+			if(getd("$gift_vouncher"+.@id_select) >= .@stock){
+				clear;
+				mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+				mes "ยอด "+.@am_prize+" ฿ ไม่สามารถทำรายการได้";
+				mes "เนื่องจากการรับยอดเต็มแล้ว";
+				end;
+			}
+		}
+		
+		next;
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		mes "โปรดใส่ ชื่อ ธนาคาร";
+		mes "^FF3300** ยกเลิก = 0 **^000000";
+		input .@bank_name$;
+		if(.@bank_name$ == "0"){ mes "ยกเลิกรายการสำเร็จ"; end; }
+		
+		next;
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		mes "โปรดใส่ หมายเลขบัญชี";
+		mes "^FF3300** ยกเลิก = 0 **^000000";
+		input .@bank_account_number$;
+		if(.@bank_account_number$ == "0"){ mes "ยกเลิกรายการสำเร็จ"; end; }
+		
+		next;
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		mes "โปรดใส่ ชื่อ - นามสกุล";
+		mes "^FF3300** ยกเลิก = 0 **^000000";
+		input .@name_surname$;
+		if(.@name_surname$ == "0"){ mes "ยกเลิกรายการสำเร็จ"; end; }
+		
+		next;
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		mes "ธนาคาร : "+.@bank_name$+"";
+		mes "หมายเลขบัญชี : "+.@bank_account_number$+"";
+		mes "ชื่อ - นามสกุล : "+.@name_surname$+"";
+		mes "ราคา : "+callfunc("F_InsertComma",.@am_prize)+" บาท";
+		
+		.@menu2 = select(
+			"- ยืนยันการทำรายการ"
+		);
+		
+		if(.@menu2 == 1){
+			
+			if(.@stock){
+				if(getd("$gift_vouncher"+.@id_select) >= .@stock){
+					clear;
+					mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+					mes "ยอด "+.@am_prize+" ฿ ไม่สามารถทำรายการได้";
+					mes "เนื่องจากการรับยอดเต็มแล้ว";
+					end;
+				}
+			}
+			
+			if(countitem(.@id_select) <= 0){
+				clear;
+				mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+				mes "ไม่พบไอเทม "+getitemname(.@id_select)+"";
+				mes "โปรดตรวจสอบอีกครั้ง";
+				end;
+			}
+			
+			query_sql("SELECT char_id FROM `vouncher_logs` WHERE char_id = "+getcharid(0)+"",.@char_id);
+			
+			if(.setting == 1){
+				if(getarraysize(.@char_id) > 0){
+					clear;
+					mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+					mes "ไม่สามารถทำรายการได้";
+					mes "เนื่องจากสามารถทำรายการได้ 1 ครั้งเท่านั้น";
+					end;
+				}
+			}
+			
+			delitem .@id_select,1;
+			query_sql("INSERT INTO `vouncher_logs` (account_id,char_id,player_name,bank_name,bank_account_number,name_surname,prize,status) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(.@bank_name$)+"','"+escape_sql(.@bank_account_number$)+"','"+escape_sql(.@name_surname$)+"',"+.@am_prize+",1)");
+			setd "$gift_vouncher"+.@id_select,getd("$gift_vouncher"+.@id_select)+1;
+			clear;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			mes "^009900บันทึกรายการเรียบร้อย^000000";
+			announce ""+strnpcinfo(0)+" : ยินดีด้วย ผู้เล่น "+strcharinfo(0)+" ได้ทำรายการ "+callfunc("F_InsertComma",.@am_prize)+" ฿ เรียบร้อยแล้ว ขอบคุณที่ใช้บริการ",bc_all,0xFFFF00;
+		}
+		
+	}
+	
+	if(.@menu == 3){
+	
+		OnCommand:
+		
+		clear;
+		mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+		
+		for ( .@i=0; .@i<getarraysize(.id_gift_vouncher); .@i++ ) {
+			if(.amount_gift_vouncher[.@i] == 0){
+				mes "• รายการ ^009900("+.prize_gift_vouncher[.@i]+"฿)^000000 ^0000FF[ไม่จำกัด]^000000";
+			}
+			else {
+				mes "• รายการ ^009900("+.prize_gift_vouncher[.@i]+"฿)^000000 ^0000FF["+callfunc("F_InsertComma",getd("$gift_vouncher"+.id_gift_vouncher[.@i]))+"/"+callfunc("F_InsertComma",.amount_gift_vouncher[.@i])+"]^000000";
+			}
+		}
+		
+		mes "กรุณาเลือกรายการที่ต้องการ";
+		
+		.@menu3 = select(
+			"- รีเซ็ตจำกัดการส่งทั้งหมด",
+			"- ตรวจสอบการทำรายการ โอนแล้ว",
+			"- ตรวจสอบการทำรายการ ยังไม่ได้โอน"
+		);
+		
+		if(.@menu3 == 1){
+			
+			.@menu3_1 = select(
+				"- ยกเลิกรายการ",
+				"-^FF3300 รีเซ็ตจำกัดการส่งทั้งหมด^000000"
+			);
+			if(.@menu3_1 == 1){
+				clear;
+				goto OnCommand;
+			}
+			if(.@menu3_1 == 2){
+				for ( .@i=0; .@i<getarraysize(.id_gift_vouncher); .@i++ ){
+					setd "$gift_vouncher"+.id_gift_vouncher[.@i],0;
+				}
+				message strcharinfo(0),"[ระบบ] : รีเซ็ตจำกัดการส่งทั้งหมดเรียบร้อยแล้ว";
+			}
+		}
+		if(.@menu3 == 2){
+			
+			query_sql("SELECT id,account_id,char_id,player_name,bank_name,bank_account_number,name_surname,prize,status FROM `vouncher_logs` WHERE status = 2",.@id,.@account_id,.@char_id,.@player_name$,.@bank_name$,.@bank_account_number$,.@name_surname$,.@prize,.@status);
+			
+			if(getarraysize(.@char_id) <= 0){
+				clear;
+				mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+				mes "ไม่พบการทำรายการที่โอนแล้ว";
+				mes "โปรดตรวจสอบใหม่อีกครั้ง";
+				end;
+			}
+			
+			for ( .@i=0; .@i<getarraysize(.@char_id); .@i ++){
+				.@menu$ = .@menu$ + "- "+.@bank_name$[.@i]+" "+.@name_surname$[.@i]+" "+.@prize[.@i]+" บ.";
+				.@menu$ = .@menu$ + ":";
+			}
+			
+			.@part = select(.@menu$) -1;
+			
+			clear;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			if(.@status[.@part] == 1){
+				.@status$ = "อยู่ในขั้นตอนตรวจสอบ";
+				mes "สถานะ : ^0000FF"+.@status$+"^000000";
+			}
+			if(.@status[.@part] == 2){
+				.@status$ = "โอนเงินสำเร็จ";
+				mes "สถานะ : ^009900"+.@status$+"^000000";
+			}
+			
+			/*
+			mes "AID : "+.@account_id[.@part]+"";
+			mes "Char ID : "+.@char_id[.@part]+"";
+			mes "Player : "+.@player_name$[.@part]+"";
+			*/
+			mes "ธนาคาร : "+.@bank_name$[.@part]+"";
+			mes "หมายเลขบัญชี : "+.@bank_account_number$[.@part]+"";
+			mes "ชื่อ - นามสกุล : "+.@name_surname$[.@part]+"";
+			mes "ราคา : "+callfunc("F_InsertComma",.@prize[.@part])+" บาท";
+			
+			.@menu3_2 = select(
+				"- ยกเลิกรายการ",
+				"- เปลี่ยนสถานะเป็น ^0099FFกำลังตรวจสอบ^000000"
+			);
+			
+			if(.@menu3_2 == 1){
+				clear;
+				mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+				mes "ยกเลิกรายการสำเร็จ";
+			}
+			if(.@menu3_2 == 2){
+				clear;
+				query_sql("UPDATE `vouncher_logs` SET `status` = 1 WHERE id = "+.@id[.@part]+"");
+				mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+				mes "บันทึกรายการสำเร็จ";
+			}
+		
+		}
+		if(.@menu3 == 3){
+			
+			query_sql("SELECT id,account_id,char_id,player_name,bank_name,bank_account_number,name_surname,prize,status FROM `vouncher_logs` WHERE status = 1",.@id,.@account_id,.@char_id,.@player_name$,.@bank_name$,.@bank_account_number$,.@name_surname$,.@prize,.@status);
+			
+			if(getarraysize(.@char_id) <= 0){
+				clear;
+				mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+				mes "ไม่พบการทำรายการที่โอนแล้ว";
+				mes "โปรดตรวจสอบใหม่อีกครั้ง";
+				end;
+			}
+			
+			for ( .@i=0; .@i<getarraysize(.@char_id); .@i ++){
+				.@menu$ = .@menu$ + "- "+.@bank_name$[.@i]+" "+.@name_surname$[.@i]+" "+.@prize[.@i]+" บ.";
+				.@menu$ = .@menu$ + ":";
+			}
+			
+			.@part = select(.@menu$) -1;
+			
+			clear;
+			mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+			if(.@status[.@part] == 1){
+				.@status$ = "อยู่ในขั้นตอนตรวจสอบ";
+				mes "สถานะ : ^0000FF"+.@status$+"^000000";
+			}
+			if(.@status[.@part] == 2){
+				.@status$ = "โอนเงินสำเร็จ";
+				mes "สถานะ : ^009900"+.@status$+"^000000";
+			}
+			
+			/*
+			mes "AID : "+.@account_id[.@part]+"";
+			mes "Char ID : "+.@char_id[.@part]+"";
+			mes "Player : "+.@player_name$[.@part]+"";
+			*/
+			mes "ธนาคาร : "+.@bank_name$[.@part]+"";
+			mes "หมายเลขบัญชี : "+.@bank_account_number$[.@part]+"";
+			mes "ชื่อ - นามสกุล : "+.@name_surname$[.@part]+"";
+			mes "ราคา : "+callfunc("F_InsertComma",.@prize[.@part])+" บาท";
+			
+			.@menu3_3 = select(
+				"- ยกเลิกรายการ",
+				"- เปลี่ยนสถานะเป็น ^009900โอนแล้ว^000000"
+			);
+			
+			if(.@menu3_3 == 1){
+				clear;
+				mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+				mes "ยกเลิกรายการสำเร็จ";
+			}
+			if(.@menu3_3 == 2){
+				clear;
+				query_sql("UPDATE `vouncher_logs` SET `status` = 2 WHERE id = "+.@id[.@part]+"");
+				mes "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+				mes "บันทึกรายการสำเร็จ";
+			}
+		
+		}
+	}
+	
+	end;
+	
+OnInit:
+	
+//	waitingroom "[#] "+strnpcinfo(0)+"",0;
+	
+	bindatcmd "gift_vouncher",""+strnpcinfo(3)+"::OnCommand",99,0;
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `vouncher_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`bank_name` varchar(255) NOT NULL,"+
+		"`bank_account_number` varchar(255) NOT NULL,"+
+		"`name_surname` varchar(255) NOT NULL,"+
+		"`prize` int(7) NOT NULL,"+
+		"`status` int(11) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	deletearray .id_gift_vouncher;
+	deletearray .prize_gift_vouncher;
+	deletearray .amount_gift_vouncher;
+	
+	//	กำหนดรหัสไอเทมที่จะใช้ส่ง
+	setarray .id_gift_vouncher[0]		,50007;
+	//	กำหนดราคาของไอเทมที่จะส่ง
+	setarray .prize_gift_vouncher[0]	,50;
+	//	กำหนดจำนวนที่สามารถส่งได้
+	setarray .amount_gift_vouncher[0]	,40;
+	
+	//	กำหนดเงื่อนไขการส่ง	ส่งกี่ครั้งก็ได้ = 0;	ส่งได้ครั้งเดียว = 1;
+	.setting = 0;
+	
+	end;
+	
+}
+

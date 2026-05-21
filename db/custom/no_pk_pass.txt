@@ -1,0 +1,119 @@
+//===== No Pk Pass Map Control List Configulation Files =======================================
+//  Whispering Rain
+//= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+// Structure of Database:
+// mapname
+// EX. morocc
+//= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+alberta
+aldebaran
+amatsu
+ayothaya
+brasilis
+comodo
+einbroch
+einbech
+geffen
+gonryun
+izlude
+jawaii
+hugel
+lighthalzen
+louyang
+manuk
+mid_camp
+moc_ruins
+morocc
+moscovia
+niflheim
+prontera
+payon
+pay_arche
+rachel
+splendide
+umbala
+veins
+xmas
+yuno
+
+//อธิบาย function
+//
+//pkpass("<atk/def>",<เวลาเป็นหน่วยนาที>);
+//
+//item bonus กัน pk attack
+//bonus bPkDefensePass;
+//
+//รีโหลดอ่านไฟล์ db/custom/no_pk_pass.txt (ไฟล์กำหนด แมปห้ามใช้ pk pass , หากวาร์ปเข้า จะโดนล้างสถานะ)
+//
+//@reloadpcdb
+//
+//// item ตัวอย่าง
+//  - Id: 33001
+//    AegisName: PkPass_Attack
+//    Name: PK Attack
+//    Type: Cash
+//    Delay:
+//      Duration: 1800000 # << cooldown 30นาที
+//    Trade:
+//      NoDrop: true
+//      NoSell: true
+//    Script: |
+//      pkpass("atk",10);
+//  - Id: 33002
+//    AegisName: PkPass_Defense
+//    Name: PK Defense
+//    Type: Cash
+//    Delay:
+//      Duration: 1800000 # << cooldown 30นาที
+//    Trade:
+//      NoDrop: true
+//      NoSell: true
+//    Script: |
+//      pkpass("def",10);
+//
+//
+//charm กัน PK , ไม่จำกัดเวลา // แต่ไม่ SC [buff]
+//
+//  - Id: 33037
+//    AegisName: PK_Shield
+//    Name: PK Shield
+//    Type: Charm
+//    Trade:
+//      NoDrop: true
+//      NoSell: true
+//    Script: |
+//      bonus bPkDefensePass;
+//
+//// file Lub
+//
+//efstids.lub
+//
+//	EFST_PKPASS_ATK = 2001,
+//  EFST_PKPASS_DEF = 2002,
+//
+//stateiconimginfo.lub
+//
+//  // กำหนดรูป SC
+//	[EFST_IDs.EFST_PKPASS_ATK] = "pk_attack.TGA",
+//	[EFST_IDs.EFST_PKPASS_DEF] = "pk_defense.TGA",
+//
+//stateiconinfo.lub
+//
+//StateIconList[EFST_IDs.EFST_PKPASS_ATK] = {
+//	haveTimeLimit = 1,
+//	posTimeLimitStr = 2,
+//	descript = {
+//		{ "PK Attack", COLOR_TITLE_BUFF },
+//		{ "%s", COLOR_TIME },
+//		{ "<คำอธิบาย>" }
+//	}
+//}
+//StateIconList[EFST_IDs.EFST_PKPASS_DEF] = {
+//	haveTimeLimit = 1,
+//	posTimeLimitStr = 2,
+//	descript = {
+//		{ "PK Defense", COLOR_TITLE_BUFF },
+//		{ "%s", COLOR_TIME },
+//		{ "<คำอธิบาย>" }
+//	}
+//}

@@ -1,0 +1,159 @@
+morocc,221,50,4	script	Master Rebirth	11021,{
+
+	function F_RebirthMult;
+
+	.@stage = #Rebirth_Stage;
+	if (.@stage < 0) .@stage = 0;
+	if (.@stage > 6) .@stage = 6;
+
+	mes "[Master Rebirth]";
+	mes "ข้าคือผู้ดูแลระบบ ^FF0000จุติตัวละคร^000000 ของเซิร์ฟเวอร์นี้.";
+	mes "ระบบนี้จะผูกกับไอดีของท่าน สามารถจุติได้สูงสุด ^FF00006 ครั้ง^000000.";
+	next;
+
+	mes "[Master Rebirth]";
+	mes "เงื่อนไขในการจุติมีดังนี้:";
+	mes "- ต้องเป็นอาชีพ 2-1: Knight / Hunter / Blacksmith / Assassin / Priest / Wizard";
+	mes "- ต้องมี Base Level 99 และ Job Level 50";
+	mes "- น้ำหนักต้องไม่เกิน 100 และต้องไม่ได้ขี่ Peco / Falcon / Cart";
+	mes "- เมื่อจุติแล้วจะได้รับของรางวัลตามจำนวนครั้งที่จุติ.";
+	next;
+
+	mes "[Master Rebirth]";
+	mes "ผลของการจุติในแต่ละครั้ง:";
+	mes "- ตัวละครจะกลับไปเป็น Novice Lv.1";
+	mes "- ค่าสเตตัสและสกิลจะถูกรีเซ็ตทั้งหมด และมี StatusPoint = 48";
+	mes "- ค่าประสบการณ์ที่ต้องใช้ในการเก็บเลเวลจะเพิ่มขึ้นตามจำนวนครั้งที่จุติ";
+	mes "  ครั้งที่ 1: x2, ครั้งที่ 2: x4, ครั้งที่ 3: x6,";
+	mes "  ครั้งที่ 4: x8, ครั้งที่ 5: x10, ครั้งที่ 6: x12.";
+	next;
+
+	mes "[Master Rebirth]";
+	mes "ไอดีของท่านจุติไปแล้วทั้งหมด ^FF0000"+.@stage+"^000000 ครั้ง.";
+	next;
+
+	if (.@stage >= 6) {
+		mes "[Master Rebirth]";
+		mes "ท่านจุติครบ ^FF00006 ครั้ง^000000 แล้ว ไม่สามารถจุติเพิ่มได้.";
+		close;
+	}
+
+	if (BaseLevel < 99) {
+		mes "[Master Rebirth]";
+		mes "จำเป็นต้องมี Base Lv.99 ก่อนถึงจะจุติได้.";
+		mes "ตอนนี้ Base Level ของท่านคือ "+BaseLevel+".";
+		close;
+	}
+
+	if (JobLevel < 50) {
+		mes "[Master Rebirth]";
+		mes "จำเป็นต้องมี Job Lv.50 ด้วย.";
+		mes "ตอนนี้ Job Level ของท่านคือ "+JobLevel+".";
+		close;
+	}
+
+	if (Class != Job_Knight &&
+	    Class != Job_Hunter &&
+	    Class != Job_Blacksmith &&
+	    Class != Job_Assassin &&
+	    Class != Job_Priest &&
+	    Class != Job_Wizard) {
+		mes "[Master Rebirth]";
+		mes "ระบบจุตินี้รองรับเฉพาะอาชีพ 2-1 เท่านั้น.";
+		mes "Knight, Hunter, Blacksmith, Assassin, Priest, Wizard";
+		close;
+	}
+
+	.@next = .@stage + 1;
+	.@mult = F_RebirthMult(.@next);
+
+	mes "[Master Rebirth]";
+	mes "หากท่านทำการจุติครั้งที่ ^FF0000"+.@next+"^000000";
+	mes "ค่าประสบการณ์ที่ต้องใช้ในการเก็บเลเวล";
+	mes "จะเพิ่มขึ้นเป็น ^FF0000"+.@mult+" เท่า^000000";
+	mes "สำหรับทุกเลเวลของ Base และ Job.";
+	mes "และตัวละครของท่านจะกลับไปเป็น Novice Lv.1";
+	mes "พร้อมสเตตัสและสกิลกลับไปเริ่มต้นใหม่ โดยมี StatusPoint = 48.";
+	next;
+
+	switch(select("จุติเลย:ยกเลิก")) {
+	case 1:
+		mes "[Master Rebirth]";
+		mes "ยืนยันอีกครั้ง ท่านต้องการจุติจริงหรือไม่?";
+		mes "การจุติไม่สามารถย้อนกลับได้.";
+		next;
+		if (select("ยืนยัน:ยกเลิก") == 2) {
+			mes "[Master Rebirth]";
+			mes "ไว้ค่อยกลับมาทีหลังเมื่อตัดสินใจได้แล้ว.";
+			close;
+		}
+
+		if (BaseLevel < 99 || JobLevel < 50) {
+			mes "[Master Rebirth]";
+			mes "ดูเหมือนเลเวลของท่านจะไม่ตรงตามเงื่อนไขแล้ว ลองเช็คอีกครั้ง.";
+			close;
+		}
+		if (Class != Job_Knight &&
+		    Class != Job_Hunter &&
+		    Class != Job_Blacksmith &&
+		    Class != Job_Assassin &&
+		    Class != Job_Priest &&
+		    Class != Job_Wizard) {
+			mes "[Master Rebirth]";
+			mes "ระบบจุตินี้รองรับเฉพาะอาชีพ 2-1 เท่านั้น.";
+			close;
+		}
+
+		if (Weight <= 100) {
+			if (checkriding() || checkfalcon() || checkcart())
+				return;
+		}
+
+		set #Rebirth_Stage, .@next;
+
+		jobchange Job_Novice;
+		resetlvl 1;
+		resetstatus;
+		resetskill;
+		set StatusPoint, 48;
+		sc_end SC_ALL;
+
+		if (.@next == 1) {
+			getitem 501,1;
+		} else if (.@next == 2) {
+			getitem 502,1;
+		} else if (.@next == 3) {
+			getitem 503,1;
+		} else if (.@next == 4) {
+			getitem 504,1;
+		} else if (.@next == 5) {
+			getitem 505,1;
+		} else if (.@next == 6) {
+			getitem 506,1;
+		}
+
+		mes "[Master Rebirth]";
+		mes "การจุติครั้งที่ ^FF0000"+.@next+"^000000 เสร็จสมบูรณ์.";
+		mes "ตั้งแต่นี้ไปการเก็บเลเวลของท่านจะยากขึ้นเป็น ^FF0000"+.@mult+" เท่า^000000";
+		mes "และไอดีนี้จุติไปแล้วทั้งหมด ^FF0000"+#Rebirth_Stage+"^000000 ครั้ง.";
+		close;
+
+	case 2:
+		mes "[Master Rebirth]";
+		mes "หากยังไม่พร้อม ค่อยกลับมาอีกครั้งก็ได้.";
+		close;
+	}
+
+	close;
+
+OnInit:
+	//waitingroom "Master Rebirth",0;
+	end;
+
+F_RebirthMult:
+	.@s = getarg(0);
+	if (.@s < 0) .@s = 0;
+	if (.@s > 6) .@s = 6;
+	setarray .@tbl[0],1,2,4,6,8,10,12;
+	return .@tbl[.@s];
+}

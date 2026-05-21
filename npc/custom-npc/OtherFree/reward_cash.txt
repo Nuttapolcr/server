@@ -1,0 +1,40 @@
+-	script	REWARD_CASH	 -1,{
+
+OnInit:
+
+	while (1)
+	{
+		query_sql "SELECT `reward_id`,`account_id`,`zeny`,`cash` FROM `reward` WHERE `status` = 0 ORDER BY RAND() LIMIT 10",.reward_id,.account_id,.zeny,.cash;
+		sleep 500;
+		if (getarraysize(.reward_id) > 0) {
+			for (set .i,0; .i < getarraysize(.reward_id); set .i,.i+1) {
+				if(attachrid(.account_id[.i])){
+					if(.zeny[.i] > 0)
+					{
+						dispbottom "[ระบบอัตโนมัติ] ยินดีด้วย : คุณได้รับ " + .zeny[.i] + " Zeny";
+						set Zeny,Zeny+.zeny[.i];
+					}
+					
+					if(.cash[.i] > 0)
+					{
+						dispbottom "[ระบบอัตโนมัติ] ยินดีด้วย : คุณได้รับ " + .cash[.i] + " Cash point.";
+						set #CASHPOINTS,#CASHPOINTS+.cash[.i];
+					}
+					
+					//getitem 501,1;
+					
+					query_sql "UPDATE `reward` SET `status` = 1 WHERE `reward_id` = " + .reward_id[.i];
+					detachrid;
+				}
+			}
+			deletearray .reward_id[0],getarraysize(.reward_id);
+			deletearray .zeny[0],getarraysize(.zeny);
+			deletearray .cash[0],getarraysize(.cash);
+			deletearray .account_id[0],getarraysize(.account_id);
+		}
+		
+		sleep 5000;
+	}
+	end;
+
+}

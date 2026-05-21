@@ -1,0 +1,112 @@
+maintown,180,120,4	script	Homun Master	10551,{
+Start:
+	
+	mes .mes$;
+	mes "กรุณาเลือกรายการที่ต้องการ";
+	
+	if(.cash_use){
+		mes "ค่าบริการ : "+callfunc("F_InsertComma",.cash_use)+" Cash";
+	}
+	if(.zeny_use){
+		mes "ค่าบริการ : "+callfunc("F_InsertComma",.zeny_use)+" Zeny";
+	}
+	
+	.@menu = select(
+		"- รับสกิล Homunculus",
+		"- อัพเลเวล Homunculus",
+		"- เพิ่มความสนิทสนม Homunculus"
+	);
+	
+	if(.@menu == 1){
+		if(Class == 18 || Class == 4019 || Class == 4071 || Class == 4078 || Class == 4041 || Class == 4107){
+			if(.cash_use){
+				if(#CASHPOINTS < .cash_use){
+					clear;
+					mes .mes$;
+					mes "วัตถุดิบ Cash ไม่เพียงพอ";
+					end;
+				}
+			}
+			if(.zeny_use){
+				if(Zeny < .zeny_use){
+					clear;
+					mes .mes$;
+					mes "วัตถุดิบ Zeny ไม่เพียงพอ";
+					end;
+				}
+			}
+			if(.cash_use){ #CASHPOINTS = #CASHPOINTS -.cash_use; }
+			if(.zeny_use){ Zeny = Zeny -.zeny_use; }
+			skill 238,1,0;
+			skill 243,1,0;
+			skill 247,5,0;
+		}
+		else {
+			clear;
+			mes .mes$;
+			mes "ท่านไม่ใช่ Class ที่สามารถรับสกิลได้";
+		}
+	}
+	if(.@menu == 2){
+		if(.cash_use){
+			if(#CASHPOINTS < .cash_use){
+				clear;
+				mes .mes$;
+				mes "วัตถุดิบ Cash ไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.zeny_use){
+			if(Zeny < .zeny_use){
+				clear;
+				mes .mes$;
+				mes "วัตถุดิบ Zeny ไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.cash_use){ #CASHPOINTS = #CASHPOINTS -.cash_use; }
+		if(.zeny_use){ Zeny = Zeny -.zeny_use; }
+		
+		atcommand "@homlvup 99";
+	}
+	if(.@menu == 3){
+		if(.cash_use){
+			if(#CASHPOINTS < .cash_use){
+				clear;
+				mes .mes$;
+				mes "วัตถุดิบ Cash ไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.zeny_use){
+			if(Zeny < .zeny_use){
+				clear;
+				mes .mes$;
+				mes "วัตถุดิบ Zeny ไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.cash_use){ #CASHPOINTS = #CASHPOINTS -.cash_use; }
+		if(.zeny_use){ Zeny = Zeny -.zeny_use; }
+		atcommand "@homfriendly 1000";
+	}
+	
+	end;
+	
+OnInit:
+	
+	//	กำหนด Waitingroom
+//	waitingroom "[#] "+strnpcinfo(0)+"",0;
+	
+	//	กำหนด Head Dialog
+	.mes$ = "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	//	กำหนด Cash วัตถุดิบ
+	.cash_use = 100;
+	
+	//	กำหนด Zeny วัตถุดิบ
+	.zeny_use = 200000;
+	
+	end;
+	
+}

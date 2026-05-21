@@ -1,0 +1,33 @@
+oasis,122,72,5	script	Mineral Extraction	778,{
+	switch(select("~ Oridecon:~ Elunium"))
+	{
+		case 1:
+			.@count_oridecon = (countitem(756) / 5);
+			delitem 756,(.@count_oridecon*5);
+			getitem 984,.@count_oridecon;
+			end;
+			
+		case 2:
+			.@count_elunium = (countitem(757) / 5);
+			delitem 757,(.@count_elunium*5);
+			getitem 985,.@count_elunium;
+			end;
+	}
+	end;
+
+OnInit:
+	setarray .messages$,"ช่","า","ง","ร","ว","ม","แ","ร่";
+	while( 1 )
+	{
+		set .Display$,"";
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+	end;
+}

@@ -1,0 +1,27 @@
+/*
+prontera,166,201,3	script	Platinum Skill NPC	734,{
+//	mes "[Platinum Skill NPC]";
+//	mes "ข้าสามารถให้สกิลเสริมแก่เจ้าได้.";
+//	mes "เจ้าพร้อมที่จะรับสกิลเสริมเลยไหม ?";
+//	next;
+//	if (select("พร้อม:ไม่") == 2) {
+//		mes "[Platinum Skill NPC]";
+//		mes "ขอให้โชคดี... >.>";
+//		close;
+//	}
+	callfunc "F_GetPlatinumSkills";
+//	mes "[Platinum Skill NPC]";
+//	mes "รับไปเลย!";
+	end;
+	
+OnInit:
+	PUBTITLE:
+			showscript "• สกิลเสริม •";
+			sleep 3000;
+		goto PUBTITLE;
+end;
+}
+
+*/
+
+//				@reloadnpc npc/custom/platinum_skills.txt

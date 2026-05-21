@@ -1,0 +1,58 @@
+-	script	permanent_99	-1,{
+
+mes "^FF0000[Level]^000000"; 
+mes "สวัสดีค่ะคุณ ^9370DB" + strcharinfo(0) + "^000000";
+mes "^FF0000เมื่อคุณรับ Level 99 แล้วจะถือว่าสละสิทธิการเล่นกิจกรรมเก็บเลเวลทันที^000000";
+mes "รับเลเวล 99+จ๊อบ";
+next;
+menu 
+	"^0000FF- ตกลง.^000000",L_ok,
+	"^FF0000- ยกเลิก.^000000",L_no;
+
+L_ok:
+	
+	if ( BaseLevel < 99 ) {
+		resetstatus;
+		atcommand "@lvup -99";
+		atcommand "@stpoint -1000";
+		set BaseLevel, BaseLevel+99;
+		atcommand "@stpoint 48";
+		//query_sql "UPDATE `char` SET `jump_level`=1 WHERE char_id ='"+getcharid(0)+"";
+		query_sql "UPDATE `char` SET `jump_level`=1 WHERE `char_id`="+getcharid(0);
+		mes "เพิ่มเลเวลแล้ว."; 
+	}
+	
+	if ( class > 0 && JobLevel < 50 ) {
+		resetskill;
+		atcommand "@joblvup -50";
+		atcommand "@skpoint -100";
+		set JobLevel, JobLevel+50;
+		if (class > 6)
+			atcommand "@skpoint 49";
+		mes "เพิ่มจ๊อบแล้ว."; 
+	}
+	
+	if ( class == 0 && JobLevel < 10 ) {
+		set JobLevel, JobLevel+10;
+		mes "เพิ่มจ๊อบแล้ว."; 
+	}
+	
+	close;
+	end;
+	
+L_no:
+	mes "ยินดีให้บริการค่ะ";
+	close;
+	end;
+
+OnInit:
+	waitingroom "    Level 99",0;
+	end;
+
+}
+
+//==============================================
+//ที่ตั้งNPC
+//==============================================
+morocc,149,111,4	duplicate(permanent_99)	เทพจุติ#01	871
+//==============================================

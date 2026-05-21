@@ -1,0 +1,60 @@
+-	script	custom_atcmd_2	-1,{
+
+OnInit:
+	bindatcmd("castlereset2",strnpcinfo(3)+"::OnAtCastleReset2",99,99);
+	end;
+	
+OnAtCastleReset2:
+	mes "Are you sure you want to reset 1 castle?";
+	next;
+	select("Yes, please reset 1 castle");
+	if(!(.@GID = getcharid(2))) {
+		mes "I cannot reset the castle because you don't have any guild.";
+		close;
+	}
+	SetCastleData "aldeg_cas01", CD_GUILD_ID, .@GID;
+	SetCastleData "aldeg_cas02", CD_GUILD_ID, .@GID;
+	SetCastleData "aldeg_cas03", CD_GUILD_ID, .@GID;
+	SetCastleData "aldeg_cas04", CD_GUILD_ID, .@GID;
+	SetCastleData "aldeg_cas05", CD_GUILD_ID, .@GID;
+	SetCastleData "gefg_cas01", CD_GUILD_ID, .@GID;
+	SetCastleData "gefg_cas02", CD_GUILD_ID, .@GID;
+	SetCastleData "gefg_cas03", CD_GUILD_ID, .@GID;
+	SetCastleData "gefg_cas04", CD_GUILD_ID, .@GID;
+	SetCastleData "gefg_cas05", CD_GUILD_ID, .@GID;
+	SetCastleData "payg_cas01", CD_GUILD_ID, .@GID;
+	SetCastleData "payg_cas02", CD_GUILD_ID, .@GID;
+	SetCastleData "payg_cas03", CD_GUILD_ID, .@GID;
+	SetCastleData "payg_cas04", CD_GUILD_ID, .@GID;
+	SetCastleData "payg_cas05", CD_GUILD_ID, .@GID;
+	SetCastleData "prtg_cas01", CD_GUILD_ID, .@GID;
+	SetCastleData "prtg_cas02", CD_GUILD_ID, .@GID;
+	SetCastleData "prtg_cas03", CD_GUILD_ID, .@GID;
+	SetCastleData "prtg_cas04", CD_GUILD_ID, .@GID;
+	SetCastleData "prtg_cas05", CD_GUILD_ID, .@GID;
+	donpcevent "::OnRecvCastleA01";
+	donpcevent "::OnRecvCastleA02";
+	donpcevent "::OnRecvCastleA03";
+	donpcevent "::OnRecvCastleA04";
+	donpcevent "::OnRecvCastleA05";
+	donpcevent "::OnRecvCastleG01";
+	donpcevent "::OnRecvCastleG02";
+	donpcevent "::OnRecvCastleG03";
+	donpcevent "::OnRecvCastleG04";
+	donpcevent "::OnRecvCastleG05";
+	donpcevent "::OnRecvCastlePy01";
+	donpcevent "::OnRecvCastlePy02";
+	donpcevent "::OnRecvCastlePy03";
+	donpcevent "::OnRecvCastlePy04";
+	donpcevent "::OnRecvCastlePy05";
+	donpcevent "::OnRecvCastlePt01";
+	donpcevent "::OnRecvCastlePt02";
+	donpcevent "::OnRecvCastlePt03";
+	donpcevent "::OnRecvCastlePt04";
+	donpcevent "::OnRecvCastlePt05";
+	mes "1 Castle reset done.";
+	close;
+	
+end;
+
+}

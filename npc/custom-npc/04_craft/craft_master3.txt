@@ -1,0 +1,2057 @@
+/*
+
+craft_masterf = Replace All
+
+*/
+
+-	shop	craft_masterf_shop_01	-1,909:-1
+-	shop	craft_masterf_shop_02	-1,909:-1
+-	shop	craft_masterf_shop_03	-1,909:-1
+-	shop	craft_masterf_shop_04	-1,909:-1
+-	shop	craft_masterf_shop_05	-1,909:-1
+-	shop	craft_masterf_shop_06	-1,909:-1
+-	shop	craft_masterf_shop_07	-1,909:-1
+-	shop	craft_masterf_shop_08	-1,909:-1
+-	shop	craft_masterf_shop_09	-1,909:-1
+-	shop	craft_masterf_shop_10	-1,909:-1
+-	shop	craft_masterf_shop_11	-1,909:-1
+-	shop	craft_masterf_shop_12	-1,909:-1
+-	shop	craft_masterf_shop_13	-1,909:-1
+-	shop	craft_masterf_shop_14	-1,909:-1
+-	shop	craft_masterf_shop_15	-1,909:-1
+-	shop	craft_masterf_shop_16	-1,909:-1
+-	shop	craft_masterf_shop_17	-1,909:-1
+-	shop	craft_masterf_shop_18	-1,909:-1
+-	shop	craft_masterf_shop_19	-1,909:-1
+-	shop	craft_masterf_shop_20	-1,909:-1
+
+maintown,115,180,4	script	Promotion Shop	11001,{
+Start:
+	
+	mes .mes$;
+	
+	.@menu = select(
+		"- เข้าสู่ร้านค้า ^FF0000Promotion Shop^000000",
+		(getgmlevel()>=99)?"- Menu Admin":""
+	);
+	
+	if(.@menu == 1){
+		for ( .@i=0; .@i<getarraysize(.menu$); .@i++ ){
+			.@menu$ = .@menu$ + "- "+.menu$[.@i]+"";
+			.@menu$ = .@menu$ + ":";
+		}
+		
+		.@part = select(.@menu$)-1;
+		
+		mes "กรุณาปิดหน้าค่างสนทนา ...";
+		close2;
+		callshop .menu2$[.@part],1;
+		npcshopattach .menu2$[.@part];
+	}
+	if(.@menu == 2){
+		goto OnMenu;
+	}
+	end;
+
+OnBuyItem:
+	
+	freeloop(1);
+	
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_01); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_01[.@a]){
+			.@stock = .craft_masterf_01[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_02); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_02[.@a]){
+			.@stock = .craft_masterf_02[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_03); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_03[.@a]){
+			.@stock = .craft_masterf_03[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_04); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_04[.@a]){
+			.@stock = .craft_masterf_04[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_05); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_05[.@a]){
+			.@stock = .craft_masterf_05[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_06); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_06[.@a]){
+			.@stock = .craft_masterf_06[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_07); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_07[.@a]){
+			.@stock = .craft_masterf_07[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_08); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_08[.@a]){
+			.@stock = .craft_masterf_08[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_09); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_09[.@a]){
+			.@stock = .craft_masterf_09[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_10); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_10[.@a]){
+			.@stock = .craft_masterf_10[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_11); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_11[.@a]){
+			.@stock = .craft_masterf_11[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_12); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_12[.@a]){
+			.@stock = .craft_masterf_12[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_13); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_13[.@a]){
+			.@stock = .craft_masterf_13[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_14); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_14[.@a]){
+			.@stock = .craft_masterf_14[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_15); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_15[.@a]){
+			.@stock = .craft_masterf_15[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_16); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_16[.@a]){
+			.@stock = .craft_masterf_16[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_17); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_17[.@a]){
+			.@stock = .craft_masterf_17[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_18); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_18[.@a]){
+			.@stock = .craft_masterf_18[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_19); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_19[.@a]){
+			.@stock = .craft_masterf_19[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	for ( .@a=0; .@a<getarraysize(.craft_masterf_20); .@a=.@a+2 ){
+		if(@bought_nameid == .craft_masterf_20[.@a]){
+			.@stock = .craft_masterf_20[.@a+1];
+			goto OnPass;
+			end;
+		}
+	}
+	
+	mes .mes$;
+	mes "ระบบทำงานผิดพลาด โปรดลองใหม่อีกครั้ง";
+	
+	end;
+	
+	OnPass:
+	
+	if(@bought_nameid == 250011){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250012){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250013){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250014){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250015){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}	if(@bought_nameid == 250016){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250017){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250018){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250019){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250020){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250021){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250022){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250023){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250024){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250025){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250026){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 250027){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,2;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0		,0		,0			,0
+								,0		,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55030){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}	
+	if(@bought_nameid == 55031){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55032){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55033){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55034){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55035){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55036){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55037){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55038){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55039){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55040){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55041){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55042){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}	
+	if(@bought_nameid == 55043){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	if(@bought_nameid == 55044){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,50004;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,1;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0] 		,0;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]		,0;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 100;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,0			,0		,0			,0
+								,0			,0		,0			,0
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 0;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}	
+	if(@bought_nameid == 969){
+		
+		//	กำหนดวัตถุุดิบหลัก รหัสไอเทม
+		setarray .@item_id[0]	,0;
+		//	กำหนดวัตถุุดิบหลัก จำนวน
+		setarray .@item_am[0]	,0;
+		
+		//	กำหนดวัตถุุดิบรอง	รหัสไอเทม
+		setarray .@item_id2[0]	,984	,985;
+		//	กำหนดวัตถุุดิบรอง	จำนวน
+		setarray .@item_am2[0]	,5		,5;
+		
+		//	กำหนดโอกาสสำเร็จ
+		.@rate_win = 40;
+		
+		//	กำหนด รหัสไอเทม ป้องกันวัตถุดิบหลัก
+		.@broken_id = 0;
+		//	กำหนด จำนวน ป้องกันวัตถุดิบหลัก
+		.@broken_am = 0;
+		
+		//	กำหนดการเพิ่มโอกาส		รหัสไอเทม		จำนวน	โอกาสที่เพิ่ม		จำนวนสูงสุด
+		setarray .@percent[0]	,0			,0		,0			,0
+								,50001		,1		,5			,1
+								,50002		,1		,10			,1
+								;
+								
+		//	กำหนด Zeny เป็นวัตถุดิบ
+		.@zeny_use = 100000;
+		
+		//	กำหนด Cash เป็นวัตถุดิบ
+		.@cash_use = 0;
+		
+	}
+	
+	if(!.@rate_win){
+		mes .mes$;
+		mes "รายการนี้ยังไม่เปิดให้ทำรายการ";
+		end;
+	}
+	
+	mes .mes$;
+	if(!.@stock){
+		mes "เงื่อนไขการสร้าง ^009900[ไม่จำกัดการสร้าง]^000000";
+	}
+	else {
+		if(getd("$craft_masterf"+@bought_nameid)>=.@stock){ mes "เงื่อนไขการสร้าง ^FF3300["+getd("$craft_masterf"+@bought_nameid)+"/"+.@stock+"]^000000"; }
+		if(getd("$craft_masterf"+@bought_nameid)<.@stock){ mes "เงื่อนไขการสร้าง ^0099FF["+getd("$craft_masterf"+@bought_nameid)+"/"+.@stock+"]^000000"; }
+	}
+	if(!.new_exe){
+		mes "<ITEM>< "+getitemname(@bought_nameid)+" ><INFO>"+@bought_nameid+"</INFO></ITEM>";
+	}
+	else {
+		mes "^i["+@bought_nameid+"] "+getitemname(@bought_nameid)+"";
+	}
+	mes "โอกาสสำเร็จ : ^0000FF"+.@rate_win+"%^000000";
+	
+	if(getarraysize(.@item_id)){
+		mes "< วัตถุดิบหลัก >";
+	}
+	
+	for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+		if(countitem(.@item_id[.@i]) < .@item_am[.@i]){
+			if(!.new_exe){
+				mes "<ITEM>- ^FF3300"+getitemname(.@item_id[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item_id[.@i]))+"/"+callfunc("F_InsertComma",.@item_am[.@i])+") ea<INFO>"+.@item_id[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item_id[.@i]+"]  "+getitemname(.@item_id[.@i])+" ^FF3300("+callfunc("F_InsertComma",countitem(.@item_id[.@i]))+"/"+callfunc("F_InsertComma",.@item_am[.@i])+") ea^000000";
+			}
+		}
+		if(countitem(.@item_id[.@i]) >= .@item_am[.@i]){
+			if(!.new_exe){
+				mes "<ITEM>- ^009900"+getitemname(.@item_id[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item_id[.@i]))+"/"+callfunc("F_InsertComma",.@item_am[.@i])+") ea<INFO>"+.@item_id[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item_id[.@i]+"]  "+getitemname(.@item_id[.@i])+" ^009900("+callfunc("F_InsertComma",countitem(.@item_id[.@i]))+"/"+callfunc("F_InsertComma",.@item_am[.@i])+") ea^000000";
+			}
+		}
+	}
+	
+	if(getarraysize(.@item_id2)){
+		mes "< วัตถุดิบรอง >";
+	}
+	
+	for ( .@i=0; .@i<getarraysize(.@item_id2); .@i++ ){
+		if(countitem(.@item_id2[.@i]) < .@item_am2[.@i]){
+			if(!.new_exe){
+				mes "<ITEM>- ^FF3300"+getitemname(.@item_id2[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item_id2[.@i]))+"/"+callfunc("F_InsertComma",.@item_am2[.@i])+") ea<INFO>"+.@item_id2[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item_id2[.@i]+"]  "+getitemname(.@item_id2[.@i])+" ^FF3300("+callfunc("F_InsertComma",countitem(.@item_id2[.@i]))+"/"+callfunc("F_InsertComma",.@item_am2[.@i])+") ea^000000";
+			}
+		}
+		if(countitem(.@item_id2[.@i]) >= .@item_am2[.@i]){
+			if(!.new_exe){
+				mes "<ITEM>- ^009900"+getitemname(.@item_id2[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item_id2[.@i]))+"/"+callfunc("F_InsertComma",.@item_am2[.@i])+") ea<INFO>"+.@item_id2[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item_id2[.@i]+"]  "+getitemname(.@item_id2[.@i])+" ^009900("+callfunc("F_InsertComma",countitem(.@item_id2[.@i]))+"/"+callfunc("F_InsertComma",.@item_am2[.@i])+") ea^000000";
+			}
+		}
+	}
+	
+	if(.@zeny_use){
+		if(Zeny < .@zeny_use){ mes "- ^FF3300("+callfunc("F_InsertComma",Zeny)+"/"+callfunc("F_InsertComma",.@zeny_use)+") Zeny^000000"; }
+		if(Zeny >= .@zeny_use){ mes "- ^009900("+callfunc("F_InsertComma",Zeny)+"/"+callfunc("F_InsertComma",.@zeny_use)+") Zeny^000000"; }
+	}
+	if(.@cash_use){
+		if(#CASHPOINTS < .@cash_use){ mes "- ^FF3300("+callfunc("F_InsertComma",#CASHPOINTS)+"/"+callfunc("F_InsertComma",.@cash_use)+") Cash^000000"; }
+		if(#CASHPOINTS >= .@cash_use){ mes "- ^009900("+callfunc("F_InsertComma",#CASHPOINTS)+"/"+callfunc("F_InsertComma",.@cash_use)+") Cash^000000"; }
+	}
+	if(.@stock){
+		if(getd("$craft_masterf"+@bought_nameid) >= .@stock){
+			next;
+			mes .mes$;
+			mes "ไอเทม "+getitemname(@bought_nameid)+"";
+			mes "ข้าจำกัดสิทธิ์ไว้";
+			mes "ไว้ครั้งหน้า มาให้เร็วกว่านี้นะ";
+			end;
+		}
+	}
+	for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+		if(isequipped(.@item_id[.@i])){
+			next;
+			mes .mes$;
+			mes "ตรวจพบ "+getitemname(.@item_id[.@i])+" ที่เป็นวัตถุดิบหลัก";
+			mes "ถูกส่วมใส่อยู่ภายในตัว กรุณานำเก็บเข้าคลังก่อน ...";
+			end;
+		}
+		if(countitem(.@item_id[.@i]) > .@item_am[.@i]){
+			next;
+			mes .mes$;
+			mes "ตรวจพบ "+getitemname(.@item_id[.@i])+" ที่เป็นวัตถุดิบหลัก";
+			mes "เกินจำนวน ที่กำหนด กรุณานำเก็บเข้าคลังก่อน ...";
+			end;
+		}
+	}
+	if(getarraysize(.@percent)){
+		next;
+		mes .mes$;
+		for ( .@i=0; .@i<getarraysize(.@percent); .@i=.@i+4 ){
+			if(!.new_exe){
+				if(.@percent[.@i]){
+					mes "ท่านนำ <ITEM>"+getitemname(.@percent[.@i])+" x"+.@percent[.@i+1]+" ea<INFO>"+.@percent[.@i]+"</INFO></ITEM>";
+				}
+			}
+			else {
+				if(.@percent[.@i]){
+					mes "ท่านนำ ^i["+.@percent[.@i]+"] "+getitemname(.@percent[.@i])+" x"+.@percent[.@i+1]+" ea";
+				}
+			}
+		}
+		mes "มาด้วยไหม ?";
+		mes "มันสามารถเพิ่มโอกาสสำเร็จได้นะ";
+		
+		for ( .@i=0; .@i<getarraysize(.@percent); .@i=.@i+4 ){
+			if(.@percent[.@i] == 0){
+				.@menu$ = .@menu$ + "-^FF3300 ไม่ใช้งานการเพิ่มโอกาส^000000";
+			}
+			else {
+				.@menu$ = .@menu$ + "- ใช้งาน "+getitemname(.@percent[.@i])+" ^009900[+"+.@percent[.@i+2]+"%]^000000";
+			}
+			.@menu$ = .@menu$ + ":";
+		}
+		
+		.@part = select(.@menu$)-1;
+		
+		if(.@part != 0){
+			clear;
+			mes .mes$;
+			if(!.new_exe){
+				if(.@percent[(.@part*4)]){
+					mes "ท่านนำ <ITEM>"+getitemname(.@percent[(.@part*4)])+" x"+.@percent[(.@part*4)+1]+" ea<INFO>"+.@percent[(.@part*4)]+"</INFO></ITEM>";
+				}
+			}
+			else {
+				if(.@percent[.@i]){
+					mes "ท่านนำ ^i["+.@percent[(.@part*4)]+"] "+getitemname(.@percent[(.@part*4)])+" x"+.@percent[(.@part*4)+1]+" ea";
+				}
+			}
+			
+			mes "ใช้งานได้สูงสุด ^FF3300"+.@percent[(.@part*4)+3]+" ea^000000";
+			mes "กรุณาใส่จำนวน";
+			mes "^FF9900** ใส่ 0 = ยกเลิก **^000000";
+			
+			input .@am;
+			
+			if(!.@am){
+				clear;
+				mes .mes$;
+				mes "ไว้เจอกันใหม่ครั้งหน้า";
+				end;
+			}
+			
+			if(.@am > .@percent[(.@part*4)+3]){
+				clear;
+				mes .mes$;
+				mes "ท่านใส่จำนวนเกินกว่าที่ข้ากำหนด !!";
+				end;
+			}
+			
+			.@percent_id	= .@percent[(.@part*4)];
+			.@percent_am	= .@percent[(.@part*4)+1]*.@am;
+			.@rate_plus		= .@percent[(.@part*4)+2]*.@am;
+			
+			if(.@percent_id){
+				if(countitem(.@percent_id) < .@percent_am){
+					next;
+					mes .mes$;
+					mes ""+getitemname(.@percent_id)+" ไม่เพียงพอ";
+					end;
+				}
+			}
+		}
+	}
+	
+	if((.@rate_win+.@rate_plus) < 100){
+		if(.@broken_id){
+			next;
+			mes .mes$;
+			if(!.new_exe){
+				mes "ท่านนำ <ITEM>"+getitemname(.@broken_id)+" x"+.@broken_am+" ea<INFO>"+.@broken_id+"</INFO></ITEM>";
+			}
+			else {
+				mes "ท่านนำ ^i["+.@broken_id+"] "+getitemname(.@broken_id)+" x"+.@broken_am+" ea";
+			}
+			mes "มาด้วยไหม ?";
+			mes "สามารถ ^FF9900ป้องกันวัตถุดิบไว้ได้^000000";
+			mes "^009900วัตถุดิบที่ป้องกันไว้หากไม่สำเร็จ^000000";
+			for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+				if(!.new_exe){
+					mes "- ^FF3300"+getitemname(.@item_id[.@i])+" ("+callfunc("F_InsertComma",.@item_am[.@i])+") ea^000000";
+				}
+				else {
+					mes "^i["+.@item_id[.@i]+"]  ^FF3300"+getitemname(.@item_id[.@i])+" ("+callfunc("F_InsertComma",.@item_am[.@i])+") ea^000000";
+				}
+			}
+			.@menu_broken = select(
+				"- ใช้งาน "+getitemname(.@broken_id)+" x"+.@broken_am+" ea",
+				"- ไม่ใช้งาน ข้ามั่นใจในดวงของข้า"
+			);
+			
+			if(.@menu_broken == 1){
+				if(countitem(.@broken_id) < .@broken_am){
+					next;
+					mes .mes$;
+					mes ""+getitemname(.@broken_id)+" ไม่เพียงพอ";
+					end;
+				}
+				.@broken = 1;
+			}
+			if(.@menu_broken == 2){
+				.@broken = 0;
+			}
+		}
+	}
+	
+	next;
+	
+	query_sql( "SELECT `char_id` FROM `ranking_mvp_player_ranking` ORDER BY `score` DESC LIMIT 3", .@check_char_id);
+	
+	for ( .@i=0; .@i<getarraysize(.ranking_mvp); .@i++ ){
+		if(getcharid(0) == .@check_char_id[.@i]){
+			.@rate_mvp = .ranking_mvp[.@i];
+			.@ranking = (.@i+1);
+		}
+	}
+	
+	for ( .@i=0; .@i<getarraysize(.item_plus); .@i=.@i+2 ){
+		if(isequipped(.item_plus[.@i])){
+			.@item_equip[.@b] = .item_plus[.@i];
+			.@rate_item_equip[.@b] = .item_plus[.@i+1];
+			.@b++;
+		}
+	}
+	
+	for ( .@i=0; .@i<getarraysize(.@item_equip); .@i++ ){
+		.@all_rate_item_equip = .@all_rate_item_equip +.@rate_item_equip[.@i];
+	}
+	
+	mes .mes$;
+	if(!.new_exe){
+		mes "ITEM : "+getitemname(@bought_nameid)+"";
+	}
+	else {
+		mes "ITEM : ^i["+@bought_nameid+"] "+getitemname(@bought_nameid)+"";
+	}
+	if(!.@broken){ mes "ป้องกันวัตถุดิบ :^FF3300 ไม่ทำงาน^000000"; }
+	if(.@broken){ mes "ป้องกันวัตถุดิบ :^009900 ทำงาน^000000"; }
+	if(.@rate_plus || .@rate_mvp || .@all_rate_item_equip){
+		mes "โอกาส : ^0000FF"+.@rate_win+"%+"+.@rate_plus+"%+"+.@rate_mvp+"%+"+.@all_rate_item_equip+"%=^009900"+(.@rate_win+.@rate_plus+.@rate_mvp+.@all_rate_item_equip)+"%^000000";
+	}
+	if(.@rate_plus){
+		mes "• ใช้งาน "+getitemname(.@percent_id)+" x"+callfunc("F_InsertComma",.@percent_am)+" ea [^009900+"+.@rate_plus+"%^000000]";
+	}
+	if(.@rate_mvp){
+		mes "• Ranking Mvp ^FF99CCอันดับที่ "+.@ranking+"^000000 [^009900+"+.@rate_mvp+"%^000000]";
+	}
+	for ( .@i=0; .@i<getarraysize(.@item_equip); .@i++ ){
+		mes "• ส่วมใส่ "+getitemname(.@item_equip[.@i])+" [^009900+"+.@rate_item_equip[.@i]+"%^000000]";
+	}
+	
+	for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+		if(countitem(.@item_id[.@i]) < .@item_am[.@i]){
+			if(!.new_exe){
+				mes "<ITEM>- ^FF3300"+getitemname(.@item_id[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item_id[.@i]))+"/"+callfunc("F_InsertComma",.@item_am[.@i])+") ea<INFO>"+.@item_id[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item_id[.@i]+"]  "+getitemname(.@item_id[.@i])+" ^FF3300("+callfunc("F_InsertComma",countitem(.@item_id[.@i]))+"/"+callfunc("F_InsertComma",.@item_am[.@i])+") ea^000000";
+			}
+		}
+		if(countitem(.@item_id[.@i]) >= .@item_am[.@i]){
+			if(!.new_exe){
+				mes "<ITEM>- ^009900"+getitemname(.@item_id[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item_id[.@i]))+"/"+callfunc("F_InsertComma",.@item_am[.@i])+") ea<INFO>"+.@item_id[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item_id[.@i]+"]  "+getitemname(.@item_id[.@i])+" ^009900("+callfunc("F_InsertComma",countitem(.@item_id[.@i]))+"/"+callfunc("F_InsertComma",.@item_am[.@i])+") ea^000000";
+			}
+		}
+	}
+	
+	for ( .@i=0; .@i<getarraysize(.@item_id2); .@i++ ){
+		if(countitem(.@item_id2[.@i]) < .@item_am2[.@i]){
+			if(!.new_exe){
+				mes "<ITEM>- ^FF3300"+getitemname(.@item_id2[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item_id2[.@i]))+"/"+callfunc("F_InsertComma",.@item_am2[.@i])+") ea<INFO>"+.@item_id2[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item_id2[.@i]+"]  "+getitemname(.@item_id2[.@i])+" ^FF3300("+callfunc("F_InsertComma",countitem(.@item_id2[.@i]))+"/"+callfunc("F_InsertComma",.@item_am2[.@i])+") ea^000000";
+			}
+		}
+		if(countitem(.@item_id2[.@i]) >= .@item_am2[.@i]){
+			if(!.new_exe){
+				mes "<ITEM>- ^009900"+getitemname(.@item_id2[.@i])+" ("+callfunc("F_InsertComma",countitem(.@item_id2[.@i]))+"/"+callfunc("F_InsertComma",.@item_am2[.@i])+") ea<INFO>"+.@item_id2[.@i]+"</INFO></ITEM>^000000";
+			}
+			else {
+				mes "^i["+.@item_id2[.@i]+"]  "+getitemname(.@item_id2[.@i])+" ^009900("+callfunc("F_InsertComma",countitem(.@item_id2[.@i]))+"/"+callfunc("F_InsertComma",.@item_am2[.@i])+") ea^000000";
+			}
+		}
+	}
+	
+	if(.@zeny_use){
+		if(Zeny < .@zeny_use){ mes "- ^FF3300("+callfunc("F_InsertComma",Zeny)+"/"+callfunc("F_InsertComma",.@zeny_use)+") Zeny^000000"; }
+		if(Zeny >= .@zeny_use){ mes "- ^009900("+callfunc("F_InsertComma",Zeny)+"/"+callfunc("F_InsertComma",.@zeny_use)+") Zeny^000000"; }
+	}
+	if(.@cash_use){
+		if(#CASHPOINTS < .@cash_use){ mes "- ^FF3300("+callfunc("F_InsertComma",#CASHPOINTS)+"/"+callfunc("F_InsertComma",.@cash_use)+") Cash^000000"; }
+		if(#CASHPOINTS >= .@cash_use){ mes "- ^009900("+callfunc("F_InsertComma",#CASHPOINTS)+"/"+callfunc("F_InsertComma",.@cash_use)+") Cash^000000"; }
+	}
+	
+	.@menu = select(
+		"- สร้าง ^0099FF"+getitemname(@bought_nameid)+"^000000",
+		"- ยังก่อน ข้ายังไม่พร้อม"
+	);
+	
+	if(.@menu == 1){
+		if(.@stock){
+			if(getd("$craft_masterf"+@bought_nameid)>=.@stock){
+				next;
+				mes .mes$;
+				mes "ไอเทม "+getitemname(@bought_nameid)+"";
+				mes "ข้าจำกัดสิทธิ์ไว้";
+				mes "ไว้ครั้งหน้า มาให้เร็วกว่านี้นะ";
+				end;
+			}
+		}
+		for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+			if(countitem(.@item_id[.@i]) < .@item_am[.@i]){
+				next;
+				mes .mes$;
+				mes "- "+getitemname(.@item_id[.@i])+" ไม่เพียงพอ";
+				end;
+			}
+		}
+		for ( .@i=0; .@i<getarraysize(.@item_id2); .@i++ ){
+			if(countitem(.@item_id2[.@i]) < .@item_am2[.@i]){
+				next;
+				mes .mes$;
+				mes "- "+getitemname(.@item_id2[.@i])+" ไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@zeny_use){
+			if(Zeny < .@zeny_use){
+				next;
+				mes .mes$;
+				mes "- น่าเสียดาย Zeny ของท่านไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@cash_use){
+			if(#CASHPOINTS < .@cash_use){
+				next;
+				mes .mes$;
+				mes "- น่าเสียดาย Cash ของท่านไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@broken){
+			if(countitem(.@broken_id) < .@broken_am){
+				next;
+				mes .mes$;
+				mes ""+getitemname(.@broken_id)+" ไม่เพียงพอ";
+				end;
+			}
+		}
+		if(.@rate_plus){
+			if(countitem(.@percent_id) < .@percent_am){
+				next;
+				mes .mes$;
+				mes ""+getitemname(.@percent_id)+" ไม่เพียงพอ";
+				end;
+			}
+		}
+		
+		.@r = rand(1,100);
+		
+		if(.@r <= (.@rate_win+.@rate_plus+.@rate_mvp+.@all_rate_item_equip)){
+			if(.@cash_use){
+				#CASHPOINTS = #CASHPOINTS -.@cash_use;
+			}
+			if(.@zeny_use){
+				Zeny = Zeny -.@zeny_use;
+			}
+			if(.@rate_plus){
+				delitem .@percent_id,.@percent_am;
+			}
+			if(.@broken){
+				delitem .@broken_id,.@broken_am;
+			}
+			for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+				delitem .@item_id[.@i],.@item_am[.@i];
+			}
+			for ( .@i=0; .@i<getarraysize(.@item_id2); .@i++ ){
+				delitem .@item_id2[.@i],.@item_am2[.@i];
+			}
+			
+			getitem @bought_nameid,1;
+			
+			announce ""+strnpcinfo(0)+" : ผู้เล่น "+strcharinfo(0)+" สร้าง "+getitemname(@bought_nameid)+" สำเร็จ",bc_all,0xFFFF00;
+			
+			if(.log){
+				query_sql("INSERT INTO `craft_masterf_logs` (account_id,char_id,player_name,item_id,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(@bought_nameid))+"','Succes',NOW())");
+			}
+			
+			for ( .@i=0; .@i<getarraysize(.craft_masterf); .@i=.@i+2 ){
+				npcshopdelitem "craft_masterf_shop_01",.craft_masterf[.@i];
+			}
+			
+			setd "$craft_masterf"+@bought_nameid,getd("$craft_masterf"+@bought_nameid) +1;
+			
+			for ( .@i=0; .@i<getarraysize(.craft_masterf); .@i=.@i+2 ){
+				npcshopadditem "craft_masterf_shop_01",.craft_masterf[.@i],(.craft_masterf[.@i+1]-getd("$craft_masterf"+.craft_masterf[.@i])); 
+			}
+			
+		}
+		if(.@r > (.@rate_win+.@rate_plus+.@rate_mvp+.@all_rate_item_equip)){
+			
+			if(.@cash_use){
+				#CASHPOINTS = #CASHPOINTS -.@cash_use;
+			}
+			if(.@zeny_use){
+				Zeny = Zeny -.@zeny_use;
+			}
+			if(.@rate_plus){
+				delitem .@percent_id,.@percent_am;
+			}
+			for ( .@i=0; .@i<getarraysize(.@item_id2); .@i++ ){
+				delitem .@item_id2[.@i],.@item_am2[.@i];
+			}
+			if(.@broken){
+				delitem .@broken_id,.@broken_am;
+				announce ""+strnpcinfo(0)+" : ผู้เล่น "+strcharinfo(0)+" สร้าง "+getitemname(@bought_nameid)+" ไม่สำเร็จ",bc_all,0xFF0000;
+				if(.log){
+					query_sql("INSERT INTO `craft_masterf_logs` (account_id,char_id,player_name,item_id,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(@bought_nameid))+"','UnSucces Save Main Item',NOW())");
+				}
+				clear;
+				mes .mes$;
+				mes "ข้าทำไม่สำเร็จ แต่ข้ารักษาวัตถุดิบไม่เสียหาย";
+				end;
+			}
+			for ( .@i=0; .@i<getarraysize(.@item_id); .@i++ ){
+				delitem .@item_id[.@i],.@item_am[.@i];
+			}
+			
+			announce ""+strnpcinfo(0)+" : ผู้เล่น "+strcharinfo(0)+" สร้าง "+getitemname(@bought_nameid)+" ไม่สำเร็จ",bc_all,0xFF0000;
+			
+			if(.log){
+				query_sql("INSERT INTO `craft_masterf_logs` (account_id,char_id,player_name,item_id,status,time_record) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(@bought_nameid))+"','UnSucces NoSave Main Item',NOW())");
+			}
+			
+		}
+		end;
+	}
+	
+	if(.@menu == 2){
+		next;
+		mes .mes$;
+		mes "ไว้เจอกันใหม่ครั้งหน้า";
+		end;
+	}
+	end;
+
+OnMenu:
+	
+	.@menu = select(
+		"- ^009900เปิดร้านค้า^000000",
+		"- ^FF3300ปิดร้านค้า^000000",
+		"- ^0000FFเติมสต๊อก^000000"
+	);
+	
+	if(.@menu == 1){
+		donpcevent ""+strnpcinfo(3)+"::OnOpen";
+	}
+	if(.@menu == 2){
+		donpcevent ""+strnpcinfo(3)+"::OnClose";
+	}
+	if(.@menu == 3){
+		for ( .@i=0; .@i<getarraysize(.craft_masterf); .@i=.@i+2 ){
+			setd "$craft_masterf"+.craft_masterf[.@i],0;
+		}
+		for ( .@i=0; .@i<getarraysize(.craft_masterf); .@i=.@i+2 ){
+			npcshopdelitem "craft_masterf_shop_01",.craft_masterf[.@i];
+		}
+		for ( .@i=0; .@i<getarraysize(.craft_masterf); .@i=.@i+2 ){
+			npcshopadditem "craft_masterf_shop_01",.craft_masterf[.@i],(.craft_masterf[.@i+1]-getd("$craft_masterf"+.craft_masterf[.@i])); 
+		}
+	}
+	
+	end;
+	
+OnInit:
+	
+	freeloop(1);
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `craft_masterf_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`item_id` varchar(255) NOT NULL,"+
+		"`status` varchar(255) NOT NULL,"+
+		"`time_record` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	//	กำหนดเก็บ log ผู้เล่น ใส่ 1 หากต้องการ	ใส่ 0 หากไม่ต้องการ
+	.log = 1;
+	
+	//	กำหนด Head Dialog
+	.mes$ = "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	//	ตั้งค่า Dialog โชว์ไอเทม เฉพาะรุ่นปี 2023+	ใส่ 1		หากต่้ำกว่า 2023+ ใส่ 0
+	.new_exe = 1;
+	
+	//	กำหนด Waitingroom
+//	waitingroom "# Promotion Shop",0;
+	
+	deletearray .ranking_mvp;
+	//	กำหนดโอกาสที่ได้รับจาก Ranking Mvp
+	 //	กำหนดแต้ม					อันดับที่ 1		อันดับที่ 2		อันดับที่ 3
+	setarray .ranking_mvp[0]	,10			,5			,3
+								;
+	
+	deletearray .item_plus;
+	//	กำหนดไอเทมที่ส่วมใส่แล้วได้รับโอกาสเพิ่ม	รหัสไอเทม	โอกาสได้รับ
+	setarray .item_plus[0]			,5388	,10
+									,2202	,7
+									,2269	,3
+									;
+	
+	//	ตั้งชื่อโชว์เมนู
+	setarray .menu$[0]	,"โปรโมชั่น ^FF0000[1]^000000 เหรียญ (V.1)"
+						,"โปรโมชั่น ^FF0000[2]^000000 เหรียญ (V.1)"
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						,""
+						;
+	
+	//	ไม่ต้องแก้ไข
+	setarray .menu2$[0]	,"craft_masterf_shop_01"
+						,"craft_masterf_shop_02"
+						,"craft_masterf_shop_03"
+						,"craft_masterf_shop_04"
+						,"craft_masterf_shop_05"
+						,"craft_masterf_shop_06"
+						,"craft_masterf_shop_07"
+						,"craft_masterf_shop_08"
+						,"craft_masterf_shop_09"
+						,"craft_masterf_shop_10"
+						,"craft_masterf_shop_11"
+						,"craft_masterf_shop_12"
+						,"craft_masterf_shop_13"
+						,"craft_masterf_shop_14"
+						,"craft_masterf_shop_15"
+						,"craft_masterf_shop_16"
+						,"craft_masterf_shop_17"
+						,"craft_masterf_shop_18"
+						,"craft_masterf_shop_19"
+						,"craft_masterf_shop_20"
+						;
+	
+	//	กำหนดรหัสไอเทมร้านที่ 1			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_01[0]	,55030		,0
+									,55031		,0
+									,55032		,0
+									,55033		,0
+									,55034		,0
+									,55035		,0
+									,55036		,0
+									,55037		,0
+									,55038		,0
+									,55039		,0
+									,55040		,0
+									,55041		,0
+									,55042		,0
+									,55043		,0
+									,55044		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 2			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_02[0]	,250011		,0
+									,250012		,0
+									,250013		,0
+									,250016		,0
+									,250017		,0
+									,250018		,0
+									,250019		,0
+									,250020		,0
+									,250021		,0
+									,250014		,0
+									,250015		,0
+									,250022		,0
+									,250023		,0
+									,250024		,0
+									,250025		,0
+									,250026		,0
+									,250027		,0	
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 3			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_03[0]	,0		,0
+
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 4			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_04[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 5			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_05[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 6			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_06[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 7			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_07[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 8			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_08[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 9			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_09[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 10			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_10[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 11			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_11[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 12			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_12[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 13			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_13[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 14			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_14[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 15			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_15[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 16			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_16[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 17			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_17[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 18			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_18[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 19			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_19[0]	,0		,0
+									;
+	//	กำหนดรหัสไอเทมร้านที่ 20			รหัสไอเทม	จำนวนที่คราฟได้
+	setarray .craft_masterf_20[0]	,0		,0
+									;
+	
+	npcshopdelitem "craft_masterf_shop_01",909;
+	npcshopdelitem "craft_masterf_shop_02",909;
+	npcshopdelitem "craft_masterf_shop_03",909;
+	npcshopdelitem "craft_masterf_shop_04",909;
+	npcshopdelitem "craft_masterf_shop_05",909;
+	npcshopdelitem "craft_masterf_shop_06",909;
+	npcshopdelitem "craft_masterf_shop_07",909;
+	npcshopdelitem "craft_masterf_shop_08",909;
+	npcshopdelitem "craft_masterf_shop_09",909;
+	npcshopdelitem "craft_masterf_shop_10",909;
+	npcshopdelitem "craft_masterf_shop_11",909;
+	npcshopdelitem "craft_masterf_shop_12",909;
+	npcshopdelitem "craft_masterf_shop_13",909;
+	npcshopdelitem "craft_masterf_shop_14",909;
+	npcshopdelitem "craft_masterf_shop_15",909;
+	npcshopdelitem "craft_masterf_shop_16",909;
+	npcshopdelitem "craft_masterf_shop_17",909;
+	npcshopdelitem "craft_masterf_shop_18",909;
+	npcshopdelitem "craft_masterf_shop_19",909;
+	npcshopdelitem "craft_masterf_shop_20",909;
+	
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_01); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_01",.craft_masterf_01[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_02); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_02",.craft_masterf_02[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_03); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_03",.craft_masterf_03[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_04); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_04",.craft_masterf_04[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_05); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_05",.craft_masterf_05[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_06); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_06",.craft_masterf_06[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_07); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_07",.craft_masterf_07[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_08); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_08",.craft_masterf_08[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_09); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_09",.craft_masterf_09[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_10); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_10",.craft_masterf_10[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_11); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_11",.craft_masterf_11[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_12); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_12",.craft_masterf_12[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_13); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_13",.craft_masterf_13[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_14); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_14",.craft_masterf_14[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_15); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_15",.craft_masterf_15[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_16); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_16",.craft_masterf_16[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_17); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_17",.craft_masterf_17[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_18); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_18",.craft_masterf_18[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_19); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_19",.craft_masterf_19[.@i],0;
+	}
+	for ( .@i=0; .@i<getarraysize(.craft_masterf_20); .@i=.@i+2 ){
+		npcshopadditem "craft_masterf_shop_20",.craft_masterf_20[.@i],0;
+	}
+	
+	end;
+	
+}
+

@@ -1,0 +1,28 @@
+###########################################################################
+# Whispering Rain
+###########################################################################
+# Event Global Drop
+#
+# 0 = DROPEFFECT_NONE
+# 1 = DROPEFFECT_CLIENT
+# 2 = DROPEFFECT_BLUE_PILLAR
+# 3 = DROPEFFECT_YELLOW_PILLAR
+# 4 = DROPEFFECT_PURPLE_PILLAR
+# 5 = DROPEFFECT_GREEN_PILLAR
+# 6 = DROPEFFECT_RED_PILLAR
+###########################################################################
+# กำหนดไอเท็มเอฟเฟคเวลาดรอปจากม่อนเตอร์
+
+Header:
+  Type: GLOBAL_DROP_DB
+  Version: 1
+
+Body:
+#- Name: GlobalDrop
+#  TargetItems:
+#    - Item: Red_Potion
+#      Rate: 10000
+#      DropEffect: DROPEFFECT_RED_PILLAR
+#    - Item: Apple
+#      Rate: 10000
+#      DropEffect: DROPEFFECT_RED_PILLAR

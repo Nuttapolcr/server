@@ -1,0 +1,38 @@
+
+นำบรรทัดนี้ไปใส่ในitemdbที่ต้องการให้มีความสามารถฝากเข้าคลัง collection ได้
+เพิ่มใส่ในส่วนล่างสุดของสคริป
+    CollectionScript: |
+      bonus bStr,1; //เมื่อฝาก str + 1 *สามารถปรับเปลี่ยนโบนัสสคริปได้ตามความต้องการของเรา
+	  
+ในที่นี้จะแสดงตัวอย่างเพิ่มสคริป Collection ลงในไอเท็มการ์ด item (db/pre-re/item_db_etc.txt)
+ตัวอย่าง (*สคริปไอเท็มก่อนเพิ่มสคริปฝากคลังคอเล็คชั่น)
+  - Id: 4079
+    AegisName: Mantis_Card
+    Name: Mantis Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Both_Accessory: true
+    Flags:
+      BuyingStore: true
+      DropEffect: PURPLE_PILLAR
+    Script: |
+      bonus bStr,3;
+ตัวอย่าง (*สคริปไอเท็มหลังเพิ่มสคริปฝากคลังคอเล็คชั่น)
+  - Id: 4079
+    AegisName: Mantis_Card
+    Name: Mantis Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Both_Accessory: true
+    Flags:
+      BuyingStore: true
+      DropEffect: PURPLE_PILLAR
+    Script: |
+      bonus bStr,3;
+	CollectionScript: |
+      bonus bStr,1;
+เพียงเท่านี้แล้วทำการรีโหลดไอเท็ม จะสามารถนำไอเท็มที่เพิ่มสคริปฝากลงคลัง Collection Item ได้ และ มีผลโบนัสตามที่เราตั้งค่าไว้

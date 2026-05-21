@@ -1,0 +1,15 @@
+maintown,181,157,4	script	รวมแร่	95,{
+	.@countori = (countitem(756) / 5); // rough ori
+	delitem 756, (.@countori * 5);
+	getitem 984, .@countori;
+
+	.@countelu = (countitem(757) / 5); // rough elu
+	delitem 757, (.@countelu * 5);
+	getitem 985, .@countelu;
+	message strcharinfo(0),"ได้รับ : Oridecon " + .@countori + " | Elunium " + .@countelu + "";
+	end;
+
+OnInit:
+//	waitingroom "[#] รวมแร่",0;
+	end;
+}

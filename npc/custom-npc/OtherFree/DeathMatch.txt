@@ -1,0 +1,68 @@
+//===== Developers Script ===================================
+//= Server Rate
+//===== Current Version =====================================
+//= 1.0
+//===== Description =========================================
+//= Server Rate
+//===== Additional Comments =================================
+//= 1.0 Start Version
+//= 1.1 Edit By Ragnarok PVP GVG
+//===========================================================
+
+-	script	deathmatch	-1,{
+OnInIt:
+	set .time, 10;
+	setarray .map$, 
+		"guild_vs3",
+		"m_pvp01",
+		"pvp_y_8-2",
+		"pvp_n_1-3",
+		"pvp_n_6-5",
+		"pvp_n_1-5";
+	end;
+	
+OnPCDieEvent:
+	if (killerrid != 0 || Class == Job_Crusader || Class == Job_Crusader2 || Class == Job_Paladin || Class == Job_Paladin2 || Class == Job_Baby_Crusader || Class == Job_Baby_Crusader2 || Class == Job_Royal_Guard || Class == Job_Royal_Guard_T || Class == Job_Royal_Guard2 || Class == Job_Royal_Guard_T2 || Class == Job_Baby_Guard || Class == Job_Baby_Guard2) {
+		getmapxy( .@map$, .@x, .@y, 0 );
+		for ( set .@i, 0; .@i < getarraysize(.map$); set .@i, .@i+1 ) {
+			if ( .@map$ == .map$[.@i] ) {
+				sleep2 800;
+				atcommand "@alive";
+				atcommand "@repairall";
+				percentheal 100,100;
+				sc_end SC_Poison;
+				sc_end SC_Freeze;
+				sc_end SC_Sleep;
+				sc_end SC_Stan;
+				sc_end SC_Stone;
+				sc_end SC_Silence;
+				sc_end SC_Blind;
+				sc_end SC_Bleeding;
+				sc_end SC_Confusion;
+				sc_end SC_Curse;
+				sc_end SC_Hallucination;
+				sc_end SC_POEMBRAGI;
+				sc_end SC_SERVICE4U;
+				sc_end SC_APPLEIDUN;
+				sc_end SC_DONTFORGETME;
+				sc_end SC_ASSASSINCROSS;
+	
+				sc_start SC_STRFood,1200000,5;
+				sc_start SC_AGIFood,1200000,5;
+				sc_start SC_INTFood,1200000,5;
+				sc_start SC_DEXFood,1200000,5;
+				sc_start SC_LUKFood,1200000,5;
+				sc_start SC_BLESSING,1200000,10;
+				sc_start SC_INCREASEAGI,1200000,10;
+				sc_start4 SC_POEMBRAGI,4500*40*5,5,70,90,10;
+		        sc_start4 SC_SERVICE4U,4500*40*5,5,40,40,1;
+				//sc_start SC_MAGNIFICAT,1200000,5;
+				//sc_start SC_GLORIA,1200000,5;
+				percentheal 100,100;
+				warp .map$[.@i], 0, 0;
+				break;
+				close;
+			}
+		}
+	}
+}

@@ -1,0 +1,1555 @@
+
+-	script	optoser#10	-1,{
+OnInit:
+set $@nameopd$,"ตีบวกสุ่มออฟชั่น";  //ชื่อ NPC
+set $seftyitem,6635; //กันแตก
+set $Elunium,7619; //อีลูเทพ
+set $Oridecon,7620; //โอลิเทพ
+set $Eluniumprice,10000; //ราคาตีบวกอีลูเทพ
+set $Orideconprice,10000; //ราคาตีบวกโอลิเทพ
+end;
+}
+
+morocc,127,59,4	script	ตีบวกสุ่มออฟชั่น	612,{
+function	script	F_refinemain	{
+	goto NPC;
+end;
+
+OnInit:
+waitingroom "ตีบวกสุ่มออฟชั่น",0;
+
+end;                        
+
+NPC:
+	disable_items;
+	if (checkweight(1201,1) == 0) {
+		mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+		mes "^9400D3คุณมีไอเทมมากเกินไป เอาไปเก็บก่อน!^000000";
+		close;
+	}
+	if (MaxWeight - Weight < 10000) {
+		mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+		mes "^9400D3คุณมีน้ำหนักมากเกินไป!^000000";
+		close;
+	}
+mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+mes "ยินตีต้อนรับสู่ระบบ ตีบวกแบบใหม่ ที่จะทำให้ไอเท็มของคุณแขงแกร่งขึ้น!";
+next;
+menu 
+"^FF0000•^000000 [ ตีบวกปกติ]",orig,
+"^FF0000• [ ลายละเอียด NPC]^000000",info;
+
+info:
+mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+mes "ท่านสามารถอัพเกรดของสวมใส่ และยังสามารถเพิ่มสถานะต่างๆ หรือ Option ได้";
+mes "ยิ่งอัพเกรดระดับสูงสถานะยิ่งดีขึ้นตามอัตราการอัพเดรด";
+mes "คุณสามารถเพิ่มโอกาสการอัพเกรดได้ด้วยหิน ^FF0000Enriched^000000";
+mes "และยังสามารถใช้ ^FF0000" + getitemname($seftyitem) + "^000000 ประกันความเสียหายได้ โดยที่ไอเท็มของคุณจะไม่หายไปไหนแต่จะลดระดับลง ^FF00001^000000 ระดับ";
+end;
+
+orig: 
+set .@mode,0;
+goto NPCS;
+end;
+
+
+
+
+NPCS:		
+set .sobrepor,1;
+if(.@mode == 1){
+	setarray .@eq[1], EQI_COSTUME_HEAD_TOP,EQI_COSTUME_HEAD_MID,EQI_COSTUME_HEAD_LOW,EQI_COSTUME_GARMENT;
+	for(set .@i,1; .@i<getarraysize(.@eq); set .@i,.@i+1){
+		if(getequipisequiped(.@eq[.@i])){
+			set @refine_rate,getequippercentrefinery(.@eq[.@i]);
+			set .@menu$,.@menu$+F_getpositionname(.@eq[.@i])+" ^FF0000•^000000 [ ^0000FF" + getequipname(.@eq[.@i]) + "^000000 ] ^ff0000สำเร็จ^000000 [^0000ff " + @refine_rate + "^000000 % ]";
+			set .@equipped,1;
+		} set .@menu$,.@menu$+":";
+	} set .@part,.@eq[select(.@menu$)];
+	next;
+goto NPCG;
+}else{
+	setarray .@eq[1], EQI_HEAD_TOP,EQI_ARMOR,EQI_HAND_R,EQI_HAND_L,EQI_GARMENT,EQI_SHOES;
+	for(set .@i,1; .@i<getarraysize(.@eq); set .@i,.@i+1){
+		if(getequipisequiped(.@eq[.@i])){
+set @refine_rate,getequippercentrefinery(.@eq[.@i]);
+			set .@menu$,.@menu$+F_getpositionname(.@eq[.@i])+" ^FF0000•^000000 [ ^0000FF" + getequipname(.@eq[.@i]) + "^000000 ] ^ff0000สำเร็จ^000000 [^0000ff " + @refine_rate + "^000000 % ]";
+			set .@equipped,1;
+		} set .@menu$,.@menu$+":";
+	} set .@part,.@eq[select(.@menu$)];	
+if(getequipweaponlv(.@part) == 1)+
+(getequipweaponlv(.@part) == 2)+
+(getequipweaponlv(.@part) == 3)+
+(getequipweaponlv(.@part) == 4){	
+mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+mes "ต้องการใช้ ^FF0000"+getitemname($Oridecon)+"^000000 หรือไม่?";
+next;
+menu 
+"^FF0000•^000000 ต้องการ",Oridecon,
+"^FF0000ไม่ต้องการ^000000",NPCG;}else{	
+mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+mes "ต้องการใช้ ^FF0000"+getitemname($Elunium)+"^000000 หรือไม่?";
+next;
+menu 
+"^FF0000•^000000 ต้องการ",Elunium,
+"^FF0000ไม่ต้องการ^000000",NPCG;}
+}
+
+Oridecon:
+if(countitem($Oridecon) < 1){mes "คุณไม่มี ^FF0000"+getitemname($Oridecon)+"^000000"; end;}
+set .@Enriched,1;
+goto NPCG;
+end;
+
+Elunium:
+if(countitem($Elunium) < 1){mes "คุณไม่มี ^FF0000"+getitemname($Elunium)+"^000000"; end;}
+set .@Enriched,2;
+goto NPCG;
+end;
+
+NPCG:
+///////////////----------------------------------////////////
+IgnoreCheck:
+if(.@Failure == 1){
+	set .@refinerycntpoint,getequiprefinerycnt(.@part);	
+	sleep2 1000;
+	set .@refinerycnt,(.@refinerycntpoint-1);
+	mes ""+.@refinerycnt+" ";
+	}else
+	{
+	set .@refinerycnt,getequiprefinerycnt(.@part);	
+	}
+	if(.@part == EQI_HEAD_TOP)+(.@part == EQI_COSTUME_HEAD_TOP){
+		if(.@indx == 0){
+////////ออฟชั่นสุ่มส่วนหัว///////////////////////////////
+setarray .thd1,
+RDMOPT_ETC_EXP_ALL,
+RDMOPT_ETC_DROP_ALL;
+//////////////////////////////
+setarray .thd2,
+RDMOPT_VAR_MAXSPPERCENT,
+RDMOPT_VAR_MAXHPAMOUNT;
+
+setarray .thd3,
+RDMOPT_VAR_STRAMOUNT,
+RDMOPT_VAR_MAXHPPERCENT,
+RDMOPT_VAR_MAXSPPERCENT;
+//////////////////////////////////////////
+
+	if(.@refinerycnt == 0)//+1
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,6;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,30;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,1;}
+	if(.@rah == 0){.@opt = .thd1[rand(getarraysize(.thd1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 1)//+2
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,12;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,60;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,2;}
+	if(.@rah == 0){.@opt = .thd1[rand(getarraysize(.thd1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 2)//+3
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,18;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,90;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,3;}
+	if(.@rah == 0){.@opt = .thd1[rand(getarraysize(.thd1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 3)//+4
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,24;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,120;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,4;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,4;}
+	if(.@rah == 0){.@opt = .thd1[rand(getarraysize(.thd1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 4)//+5
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,30;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,150;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,5;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,5;}
+	if(.@rah == 0){.@opt = .thd1[rand(getarraysize(.thd1))]; set .@val,3;}
+	}
+	if(.@refinerycnt == 5)//+6
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,36;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,180;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,6;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,6;}
+	if(.@rah == 0){.@opt = .thd1[rand(getarraysize(.thd1))]; set .@val,4;}
+	}
+	if(.@refinerycnt == 6)//+7
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,42;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,210;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,7;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,7;}
+	if(.@rah == 0){.@opt = .thd1[rand(getarraysize(.thd1))]; set .@val,5;}
+	}
+	if(.@refinerycnt == 7)//+8
+	{set .@rah, rand(1,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,48;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,240;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,8;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,8;}
+	}
+	if(.@refinerycnt == 8)//+9
+	{set .@rah, rand(1,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,54;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,270;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,9;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,9;}
+	}
+	if(.@refinerycnt == 9)//+10
+	{set .@rah, rand(1,5);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,60;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,300;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_USER; set .@val,10;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,10;}
+	}
+	}
+}
+
+
+///////////////----------------------------------////////////
+	if(.@part == EQI_ARMOR){
+	if(.@indx == 0){
+////////ออฟชั่นสุ่มชุดเกราะ///////////////////////////////
+setarray .arm1,
+RDMOPT_ETC_EXP_ALL,
+RDMOPT_ETC_DROP_ALL;
+//////////////////////////////
+setarray .arm2,
+RDMOPT_VAR_ITEMDEFPOWER,
+RDMOPT_ETC_STUNRESIS_ALL;
+
+setarray .arm3,
+RDMOPT_VAR_VITAMOUNT,
+RDMOPT_VAR_MAXHPPERCENT,
+RDMOPT_VAR_MAXSPPERCENT;
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+	if(.@refinerycnt == 0)//+1
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,30;}
+	if(.@rah == 0){.@opt = .arm1[rand(getarraysize(.arm1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 1)//+2
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,60;}
+	if(.@rah == 0){.@opt = .arm1[rand(getarraysize(.arm1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 2)//+3
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,90;}
+	if(.@rah == 0){.@opt = .arm1[rand(getarraysize(.arm1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 3)//+4
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,4;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,4;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,120;}
+	if(.@rah == 0){.@opt = .arm1[rand(getarraysize(.arm1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 4)//+5
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,5;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,5;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,150;}
+	if(.@rah == 0){.@opt = .arm1[rand(getarraysize(.arm1))]; set .@val,3;}
+	}
+	if(.@refinerycnt == 5)//+6
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,3;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,6;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,6;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,180;}
+	if(.@rah == 0){.@opt = .arm1[rand(getarraysize(.arm1))]; set .@val,4;}
+	}
+	if(.@refinerycnt == 6)//+7
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,7;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,7;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,210;}
+	if(.@rah == 0){.@opt = .arm1[rand(getarraysize(.arm1))]; set .@val,5;}
+	}
+	if(.@refinerycnt == 7)//+8
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,5;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,8;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,8;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,240;}
+	}
+	if(.@refinerycnt == 8)//+9
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,7;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,9;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,9;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,270;}
+	}
+	if(.@refinerycnt == 9)//+10
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MAXHPPERCENT; set .@val,6;}
+	if(.@rah == 3){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,10;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,10;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,300;}
+	}
+	}
+}
+///////////////----------------------------------////////////
+	if(.@part == EQI_HAND_R){
+		if(.@indx == 0){
+setarray .rwp0,
+RDMOPT_VAR_STRAMOUNT,
+RDMOPT_VAR_AGIAMOUNT,
+RDMOPT_VAR_VITAMOUNT,
+RDMOPT_VAR_INTAMOUNT,
+RDMOPT_VAR_LUKAMOUNT;
+
+setarray .rwp1,
+RDMOPT_VAR_STRAMOUNT,
+RDMOPT_VAR_AGIAMOUNT,
+RDMOPT_VAR_VITAMOUNT,
+RDMOPT_VAR_LUKAMOUNT;
+
+setarray .rwp2,
+RDMOPT_VAR_STRAMOUNT,
+RDMOPT_VAR_AGIAMOUNT,
+RDMOPT_VAR_VITAMOUNT,
+RDMOPT_VAR_INTAMOUNT,
+RDMOPT_VAR_DEXAMOUNT,
+RDMOPT_VAR_LUKAMOUNT;
+
+setarray .rwp3,
+RDMOPT_VAR_STRAMOUNT,
+RDMOPT_VAR_AGIAMOUNT,
+RDMOPT_VAR_VITAMOUNT,
+RDMOPT_VAR_INTAMOUNT,
+RDMOPT_VAR_LUKAMOUNT;
+		///////////////////Lv1//////////////////////////
+			if(getequipweaponlv(.@part) == 1 ){
+	if(.@refinerycnt == 0) //+1
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 1) //+2
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 2) //+3
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,3;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 3) //+4
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,4;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,4;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 4) //+5
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,5;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,5;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 5) //+6
+	{set .@rah, rand(0,2);
+	if(.@rah == 2){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,4;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 6) //+7
+	{set .@rah, rand(0,2);
+	if(.@rah == 2){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,5;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 7) //+8
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,6;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 8) //+9
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,7;}
+	if(.@rah == 2){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 0){.@opt = ETC_SPGAIN_ALL; set .@val,1;}
+	}
+	if(.@refinerycnt == 9) //+10
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 0){.@opt = ETC_SPGAIN_ALL; set .@val,2;}
+	}
+
+			}
+			
+			////////////////////Lv2///////////////////////////
+			if(getequipweaponlv(.@part) == 2 ){
+	if(.@refinerycnt == 0) //+1
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 1) //+2
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,4;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 2) //+3
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,6;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,6;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 3) //+4
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,8;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,5;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 4) //+5
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,10;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,10;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,7;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,3;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 5) //+6
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,6;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,3;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 6) //+7
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,7;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,5;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 7) //+8
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 8) //+9
+	{set .@rah, rand(1,6);
+	if(.@rah == 6){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,9;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	}
+	if(.@refinerycnt == 9) //+10
+	{set .@rah, rand(1,6);
+	if(.@rah == 6){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,10;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	}
+			}
+			
+			
+		///////////////////////Lv3///////////////////////	
+			if(getequipweaponlv(.@part) == 3 ){
+	if(.@refinerycnt == 0) //+1
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,2;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,2;}
+	}
+	if(.@refinerycnt == 1) //+2
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,4;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,4;}
+	}
+	if(.@refinerycnt == 2) //+3
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,6;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,6;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,6;}
+	}
+	if(.@refinerycnt == 3) //+4
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,8;}
+	}
+	if(.@refinerycnt == 4) //+5
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,10;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,10;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,10;}
+	}
+	if(.@refinerycnt == 5) //+6
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp2[rand(getarraysize(.rwp1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 6) //+7
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp2[rand(getarraysize(.rwp1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 7) //+8
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,3;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,2;}
+	}
+	if(.@refinerycnt == 8) //+9
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,5;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,4;}
+	}
+	if(.@refinerycnt == 9) //+10
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,7;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,6;}
+	}
+}
+
+	
+			
+			////////////////////////Lv4////////////////////
+			if(getequipweaponlv(.@part) == 4 ){
+	if(.@refinerycnt == 0) //+1
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,4;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,3;}
+	}
+	if(.@refinerycnt == 1) //+2
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,6;}
+	}
+	if(.@refinerycnt == 2) //+3
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,12;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,12;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,9;}
+	}
+	if(.@refinerycnt == 3) //+4
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,16;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,8;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,16;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,12;}
+	}
+	if(.@refinerycnt == 4) //+5
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,20;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,10;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,20;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,15;}
+	}
+	if(.@refinerycnt == 5) //+6
+	{set .@rah, rand(0,7);
+	if(.@rah == 7){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 6){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,1;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_STRAMOUNT; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_AGIAMOUNT; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_VITAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	}
+	if(.@refinerycnt == 6) //+7
+	{set .@rah, rand(0,7);
+	if(.@rah == 7){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 6){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,3;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_STRAMOUNT; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_AGIAMOUNT; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_VITAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	}
+	if(.@refinerycnt == 7) //+8
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,6;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,2;}
+	}
+	if(.@refinerycnt == 8) //+9
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,7;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,4;}
+	}
+	if(.@refinerycnt == 9) //+10
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,10;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,8;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,3;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,6;}
+	}
+
+			}
+
+	}
+}
+///////////////----------------------------------////////////
+	if(.@part == EQI_HAND_L){
+		if(.@indx == 0){
+////////ออฟชั่นสุ่มโล่///////////////////////////////
+setarray .arm4,
+RDMOPT_ETC_EXP_ALL,
+RDMOPT_ETC_DROP_ALL;
+
+//////////////////////////////
+setarray .arm6,
+RDMOPT_VAR_AGIAMOUNT,
+RDMOPT_VAR_MAXHPPERCENT,
+RDMOPT_VAR_MAXSPPERCENT;
+//////////////////////////////////////////
+		if(getequipweaponlv(.@part) == 0 )+(getequipweaponlv(.@part) == 5 ){
+	if(.@refinerycnt == 0)//+1
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,1;}  //กันบอส
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,1;}  //กันสั้น
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,1;}  //กัน Neutral
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,1;} //DEF
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,30;} //HP
+	if(.@rah == 0){.@opt = .arm4[rand(getarraysize(.arm4))]; set .@val,1;} //EXP DROP
+	}
+	if(.@refinerycnt == 1)//+2
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,60;}
+	if(.@rah == 0){.@opt = .arm4[rand(getarraysize(.arm4))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 2)//+3
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,3;}
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,90;}
+	if(.@rah == 0){.@opt = .arm4[rand(getarraysize(.arm4))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 3)//+4
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,4;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,120;}
+	if(.@rah == 0){.@opt = .arm4[rand(getarraysize(.arm4))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 4)//+5
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,5;}
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,5;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,150;}
+	if(.@rah == 0){.@opt = .arm4[rand(getarraysize(.arm4))]; set .@val,3;}
+	}
+	if(.@refinerycnt == 5)//+6
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,6;}
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,6;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,4;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,6;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,180;}
+	if(.@rah == 0){.@opt = .arm4[rand(getarraysize(.arm4))]; set .@val,4;}
+	}
+	if(.@refinerycnt == 6)//+7
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,7;}
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,7;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,5;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,7;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,210;}
+	if(.@rah == 0){.@opt = .arm4[rand(getarraysize(.arm4))]; set .@val,5;}
+	}
+	if(.@refinerycnt == 7)//+8
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,8;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,6;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,8;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,240;}
+	}
+	if(.@refinerycnt == 8)//+9
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,9;}
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,9;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,7;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,9;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,270;}
+	}
+	if(.@refinerycnt == 9)//+10
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = CLASS_DAMAGE_BOSS_USER; set .@val,10;}
+	if(.@rah == 4){.@opt = RDMOPT_ETC_STUNRESIS_ALL; set .@val,10;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_PROPERTY_NOTHING_USER; set .@val,8;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ITEMDEFPOWER; set .@val,9;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,3000;}
+	}
+			}
+			
+////////////////////Lv1///////////////////////////			
+	if(getequipweaponlv(.@part) == 1 ){
+	if(.@refinerycnt == 0) //+1
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 1) //+2
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 2) //+3
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,3;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 3) //+4
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,4;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,4;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 4) //+5
+	{set .@rah, rand(0,3);
+	if(.@rah == 3){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,5;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,5;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 5) //+6
+	{set .@rah, rand(0,2);
+	if(.@rah == 2){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,4;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 6) //+7
+	{set .@rah, rand(0,2);
+	if(.@rah == 2){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,5;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 7) //+8
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,6;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 8) //+9
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,7;}
+	if(.@rah == 2){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 0){.@opt = ETC_SPGAIN_ALL; set .@val,1;}
+	}
+	if(.@refinerycnt == 9) //+10
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 0){.@opt = ETC_SPGAIN_ALL; set .@val,2;}
+	}
+
+			}
+			
+			////////////////////Lv2///////////////////////////
+			if(getequipweaponlv(.@part) == 2 ){
+	if(.@refinerycnt == 0) //+1
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 1) //+2
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,4;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 2) //+3
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,6;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,6;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 3) //+4
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,8;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,5;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 4) //+5
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,10;}
+	if(.@rah == 3){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,10;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,7;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,3;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp0))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 5) //+6
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,6;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,3;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 6) //+7
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,7;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPDPERCENT; set .@val,5;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 7) //+8
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp0[rand(getarraysize(.rwp1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 8) //+9
+	{set .@rah, rand(1,6);
+	if(.@rah == 6){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,9;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	}
+	if(.@refinerycnt == 9) //+10
+	{set .@rah, rand(1,6);
+	if(.@rah == 6){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,10;}
+	if(.@rah == 2){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	}
+			}
+			
+			
+		///////////////////////Lv3///////////////////////	
+			if(getequipweaponlv(.@part) == 3 ){
+	if(.@refinerycnt == 0) //+1
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,2;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,2;}
+	}
+	if(.@refinerycnt == 1) //+2
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,4;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,4;}
+	}
+	if(.@refinerycnt == 2) //+3
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,6;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,6;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,6;}
+	}
+	if(.@refinerycnt == 3) //+4
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,8;}
+	}
+	if(.@refinerycnt == 4) //+5
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,10;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,10;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,10;}
+	}
+	if(.@refinerycnt == 5) //+6
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,1;}
+	if(.@rah == 0){.@opt = .rwp2[rand(getarraysize(.rwp1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 6) //+7
+	{set .@rah, rand(0,4);
+	if(.@rah == 4){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,2;}
+	if(.@rah == 0){.@opt = .rwp2[rand(getarraysize(.rwp1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 7) //+8
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,3;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,2;}
+	}
+	if(.@refinerycnt == 8) //+9
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,5;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,4;}
+	}
+	if(.@refinerycnt == 9) //+10
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,7;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,6;}
+	}
+}
+
+	
+			
+			////////////////////////Lv4////////////////////
+			if(getequipweaponlv(.@part) == 4 ){
+	if(.@refinerycnt == 0) //+1
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,4;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,3;}
+	}
+	if(.@refinerycnt == 1) //+2
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,8;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,6;}
+	}
+	if(.@refinerycnt == 2) //+3
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,12;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,12;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,9;}
+	}
+	if(.@refinerycnt == 3) //+4
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,16;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,8;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,16;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,12;}
+	}
+	if(.@refinerycnt == 4) //+5
+	{set .@rah, rand(0,6);
+	if(.@rah == 6){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5;}
+	if(.@rah == 5){.@opt = RDMOPT_CLASS_DAMAGE_BOSS_TARGET; set .@val,20;}
+	if(.@rah == 4){.@opt = RDMOPT_RANGE_ATTACK_DAMAGE_TARGET; set .@val,10;}
+	if(.@rah == 3){.@opt = RDMOPT_DAMAGE_CRI_TARGET; set .@val,20;}
+	if(.@rah == 2){.@opt = .rwp2[rand(getarraysize(.rwp2))]; set .@val,1;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAGICATKPERCENT; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,15;}
+	}
+	if(.@refinerycnt == 5) //+6
+	{set .@rah, rand(0,7);
+	if(.@rah == 7){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2;}
+	if(.@rah == 6){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,1;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_STRAMOUNT; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_AGIAMOUNT; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_VITAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	}
+
+	if(.@refinerycnt == 6) //+7
+	{set .@rah, rand(0,7);
+	if(.@rah == 7){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4;}
+	if(.@rah == 6){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,3;}
+	if(.@rah == 5){.@opt = RDMOPT_VAR_STRAMOUNT; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_AGIAMOUNT; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_VITAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,1;}
+	if(.@rah == 0){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,1;}
+	}
+	if(.@refinerycnt == 7) //+8
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,6;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,2;}
+	}
+	if(.@refinerycnt == 8) //+9
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,7;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,2;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,4;}
+	}
+	if(.@refinerycnt == 9) //+10
+		{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,10;}
+	if(.@rah == 4){.@opt = RDMOPT_DEC_SPELL_CAST_TIME; set .@val,8;}
+	if(.@rah == 3){.@opt = RDMOPT_VAR_INTAMOUNT; set .@val,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_DEXAMOUNT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_PLUSASPD; set .@val,3;}
+	if(.@rah == 0){.@opt = RDMOPT_ETC_SPGAIN_ALL; set .@val,6;}
+	}
+
+			}
+	}
+}
+
+
+///////////////----------------------------------////////////
+/////ผ้าคลุม
+	if(.@part == EQI_GARMENT)+(.@part == EQI_COSTUME_GARMENT){
+		if(.@indx == 0){
+	setarray .gar1,
+RDMOPT_ETC_EXP_ALL,
+RDMOPT_ETC_DROP_ALL;
+//////////////////////////////
+setarray .gar2,
+RDMOPT_VAR_MAXHPPERCENT,
+RDMOPT_VAR_MAXSPPERCENT;
+
+	if(.@refinerycnt == 0)//+1
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,1;} //ATK
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,1;} //MDEF
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1,1;} //ตีกึ่ง
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,1;}  //SP %
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,30;}  //HP
+	if(.@rah == 0){.@opt = .gar1[rand(getarraysize(.gar1))]; set .@val,1;}  //EXP DROP
+	}
+	if(.@refinerycnt == 1)//+2
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,2;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,1,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,2;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,60;}
+	if(.@rah == 0){.@opt = .gar1[rand(getarraysize(.gar1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 2)//+3
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,3;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,3;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,90;}
+	if(.@rah == 0){.@opt = .gar1[rand(getarraysize(.gar1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 3)//+4
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,2,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,4;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,120;}
+	if(.@rah == 0){.@opt = .gar1[rand(getarraysize(.gar1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 4)//+5
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,5;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,3,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,5;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,150;}
+	if(.@rah == 0){.@opt = .gar1[rand(getarraysize(.gar1))]; set .@val,3;}
+	}
+	if(.@refinerycnt == 5)//+6
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,6;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,6;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,4,4;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,6;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,180;}
+	if(.@rah == 0){.@opt = .gar1[rand(getarraysize(.gar1))]; set .@val,4;}
+	}
+	if(.@refinerycnt == 6)//+7
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,7;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,7;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,5,5;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,7;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,210;}
+	if(.@rah == 0){.@opt = .gar1[rand(getarraysize(.gar1))]; set .@val,5;}
+	}
+	if(.@refinerycnt == 7)//+8
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,8;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,6,6;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,8;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,240;}
+	}
+	if(.@refinerycnt == 8)//+9
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,9;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,9;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,7,7;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,9;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,270;}
+	}
+	if(.@refinerycnt == 9)//+10
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_ATTPOWER; set .@val,10;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_MDEFPOWER; set .@val,10;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_DAMAGE_HUMAN; set .@val,7,7;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPPERCENT; set .@val,10;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,300;}
+	}
+	}
+}
+///////////////----------------------------------////////////
+	if(.@part == EQI_SHOES){
+		if(.@indx == 0){
+////////////รองเท้า
+setarray .boot1,
+RDMOPT_ETC_EXP_ALL,
+RDMOPT_ETC_DROP_ALL;
+//////////////////////////////
+setarray .boot2,
+RDMOPT_VAR_INTAMOUNT,
+RDMOPT_VAR_MAXHPPERCENT,
+RDMOPT_VAR_MAXSPPERCENT;
+	if(.@refinerycnt == 0)//+1
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,4;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,1,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,6;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,30;}
+	if(.@rah == 0){.@opt = .boot1[rand(getarraysize(.boot1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 1)//+2
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,8;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,1,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,12;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,60;}
+	if(.@rah == 0){.@opt = .boot1[rand(getarraysize(.boot1))]; set .@val,1;}
+	}
+	if(.@refinerycnt == 2)//+3
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,12;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,1;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,1,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,18;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,90;}
+	if(.@rah == 0){.@opt = .boot1[rand(getarraysize(.boot1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 3)//+4
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,16;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,1,1;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,24;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,120;}
+	if(.@rah == 0){.@opt = .boot1[rand(getarraysize(.boot1))]; set .@val,2;}
+	}
+	if(.@refinerycnt == 4)//+5
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,20;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,2;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,2,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,30;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,150;}
+	if(.@rah == 0){.@opt = .boot1[rand(getarraysize(.boot1))]; set .@val,3;}
+	}
+	if(.@refinerycnt == 5)//+6
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,24;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,3;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,2,2;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,36;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,180;}
+	if(.@rah == 0){.@opt = .boot1[rand(getarraysize(.boot1))]; set .@val,4;}
+	}
+	if(.@refinerycnt == 6)//+7
+	{set .@rah, rand(0,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,28;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,4;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,3,3;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,42;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,210;}
+	if(.@rah == 0){.@opt = .boot1[rand(getarraysize(.boot1))]; set .@val,5;}
+	}
+	if(.@refinerycnt == 7)//+8
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,32;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,5;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,4,4;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,48;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,240;}
+	}
+	if(.@refinerycnt == 8)//+9
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,36;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,6;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,4,4;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,54;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,270;}
+	}
+	if(.@refinerycnt == 9)//+10
+	{set .@rah, rand(1,5);
+	if(.@rah == 5){.@opt = RDMOPT_VAR_AVOIDSUCCESSVALUE; set .@val,40;}
+	if(.@rah == 4){.@opt = RDMOPT_VAR_ATTMPOWER; set .@val,7;}
+	if(.@rah == 3){.@opt = RDMOPT_RACE_TOLERACE_HUMAN; set .@val,5,5;}
+	if(.@rah == 2){.@opt = RDMOPT_VAR_MAXSPAMOUNT; set .@val,60;}
+	if(.@rah == 1){.@opt = RDMOPT_VAR_MAXHPAMOUNT; set .@val,300;}
+	}
+	}
+}
+if(.@Failure == 1){ goto replusrandom;}
+///////////////----------------------------------////////////
+	for(set .@f,1; .@f<getarraysize(.ignore); set .@f,.@f+1)
+		if(.@opt==.ignore[.@f])
+			goto IgnoreCheck;		
+	
+set @refine_rate,getequippercentrefinery(.@part);
+		set .@refineitemid, getequipid(.@part); 
+	set .@refinerycnt, getequiprefinerycnt(.@part); 
+	switch(getequipweaponlv(.@part)){
+	case 0:
+if(.@Enriched == 2){set .@price,$Eluniumprice;set .@material,$Elunium;}
+if(.@Enriched == 0){set .@price,2000;set .@material,985;}
+		break;
+	case 1: 
+if(.@Enriched == 1){set .@price,$Orideconprice;set .@material,$Oridecon;}
+if(.@Enriched == 0){set .@price,50;set .@material,1010;}	
+		break;
+	case 2: 
+if(.@Enriched == 1){set .@price,$Orideconprice;set .@material,$Oridecon;}
+if(.@Enriched == 0){set .@price,200;set .@material,1011;}	
+		break;
+	case 3: 	
+if(.@Enriched == 1){set .@price,$Orideconprice;set .@material,$Oridecon;}
+if(.@Enriched == 0){set .@price,5000;set .@material,984;}
+		break;
+	case 4: 
+if(.@Enriched == 1){set .@price,$Orideconprice;set .@material,$Oridecon;}
+if(.@Enriched == 0){set .@price,20000;set .@material,984;}	
+		break;
+	case 5: 	
+if(.@Enriched == 2){set .@price,$Eluniumprice;set .@material,$Elunium;}
+if(.@Enriched == 0){set .@price,2000;set .@material,985;}
+		break;
+	}
+
+mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+if(.@Enriched > 0){ mes " คุณใช้ : ^FF0000"+getitemname(.@material)+"^000000";mes "โอกาสสำเร็จเพิ่มเป็น : ^0000ff" + getequippercentrefinery(.@part, true) +"^000000 %";}
+if(.@Enriched == 0){mes "คุณใช้ : ^FF0000"+getitemname(.@material)+"^000000";mes "โอกาสสำเร็จ : ^0000ff " + @refine_rate + "^000000 %";}
+mes "---------------------";
+mes "^FF0000หมายเหตุ^000000 : คุณสามารถป้องกันการเสียหายได้ด้วย ^FF0000"+getitemname($seftyitem)+"^000000";
+next;
+menu 
+"^FF0000•^000000 เริ่ม",yes,
+"^FF0000ยกเลิก^000000 ",no;
+
+no:
+end;
+yes:
+	
+	if((countitem(.@material) < 1) || (Zeny < .@price)) {
+		next;
+			mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+			mes "ไม่สามารถดำเนินการได้";
+			mes "คุณมี Zeny ไม่พอที่จะอัพเกรด หรือ "+getitemname(.@material)+" ไม่มี...";
+			mes "แล้วค่อยกลับมาหาข้า";
+			end;
+		}
+set Zeny,Zeny-.@price;
+delitem .@material,1;
+		if(getequipisequiped(.@part) == 0) { 
+		next;
+				mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+			mes "ดูเหมือนว่าท่านจะขาดอะไรไป โปรดตรวจสอบ.";
+			close;
+		}
+		if(getequiprefinerycnt(.@part) != .@refinerycnt || getequipid(.@part) != .@refineitemid) { 
+		next;
+				mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+				mes "รอสักครู่...";
+			mes "คุณคิดว่าฉันโง่!";
+			mes "คุณจะเปลี่ยนรายการในขณะที่ฉันไม่ได้มอง! ออกจากที่นี่!";
+			close;
+		}
+	if(.@Enriched == 1)+(.@Enriched == 2){
+		set .@partseter,getequippercentrefinery(.@part);
+	if(getequippercentrefinery(.@part, true) <= rand(100)) {goto OnFailure;}
+	}
+	if(.@Enriched == 0){if(getequippercentrefinery(.@part) <= rand(100)) {goto OnFailure;}}
+	successrefitem .@part;
+	goto replusrandom;	
+
+replusrandom:
+if(getequiprefinerycnt(.@part) > 10){goto plustop;}else{setrandomoption(.@part,.@indx,.@opt,.@val,.@indx,getcharid(0));end;}
+
+plustop:
+/**
+if(getequipweaponlv(.@part) == 1 )+
+	(getequipweaponlv(.@part) == 2 )
+	{
+if(getequiprefinerycnt(.@part) > 8){
+setrandomoption(.@part,.@indx,.@opt,.@val,.@indx,getcharid(0));
+setrandomoption(.@part,1,.@opts,.@vals,1,getcharid(0));
+end;
+}
+setrandomoption(.@part,1,.@opts,.@vals,1,getcharid(0));
+end;
+}
+if(getequipweaponlv(.@part) == 3 )
+	{
+if(getequiprefinerycnt(.@part) > 7){
+setrandomoption(.@part,.@indx,.@opt,.@val,.@indx,getcharid(0));
+setrandomoption(.@part,1,.@opts,.@vals,1,getcharid(0));
+end;
+}
+setrandomoption(.@part,1,.@opts,.@vals,1,getcharid(0));
+end;
+}
+if(getequipweaponlv(.@part) == 4 )
+	{
+if(getequiprefinerycnt(.@part) > 6){
+setrandomoption(.@part,.@indx,.@opt,.@val,.@indx,getcharid(0));
+setrandomoption(.@part,1,.@opts,.@vals,1,getcharid(0));
+end;
+}
+setrandomoption(.@part,1,.@opts,.@vals,1,getcharid(0));
+end;
+}
+**/
+setrandomoption(.@part,.@indx,.@opt,.@val,.@indx,getcharid(0));
+setrandomoption(.@part,1,.@opts,.@vals,1,getcharid(0));
+end;
+	
+
+OnFailure:
+if(countitem($seftyitem)){
+delitem $seftyitem,1;
+downrefitem .@part;
+	mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+	mes "^FF0000ยกโทษให้ฉัน...^000000";
+	mes "^FF0000กระบวนการล้มเหลว...^000000 ";
+	mes "^FF0000หมายเหตุ^000000 : คุณมีกันแตก ค่าดีบวกถูกลดลง 1 ระดับ  ";
+set .@Failure, 1;
+goto IgnoreCheck;
+}
+else{
+	failedrefitem .@part;
+	next;
+	mes "[ ^FF0000"+$@nameopd$+"^000000 ]";
+	mes "^FF0000ยกโทษให้ฉัน...^000000 ";
+	mes "^FF0000 กระบวนการล้มเหลว...^000000 ";
+	mes "^FF0000รายการของคุณถูกทำลาย.^000000";
+}
+end;
+
+}

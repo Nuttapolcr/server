@@ -1,0 +1,225 @@
+//===== rAthena Script =======================================
+//= Guild Buff Donation System (Guild Lv + Materials + Zeny)
+//===== Compatible With: rAthena Project
+//============================================================
+morocc,140,155,6	script	Buff Guild	11059,{
+
+	set .@GID, getcharid(2);
+	if (!.@GID) {
+		mes "[Buff Guild]";
+		mes "คุณไม่ได้อยู่ในกิลด์";
+		close;
+	}
+
+	set .@lv, getd("$GUILD_BLESSING_1_" + .@GID);
+
+	.@g_lv = 0;
+	query_sql "SELECT `guild_lv` FROM `guild` WHERE `guild_id` = "+.@GID+" LIMIT 1", .@g_lv;
+
+	mes "[Buff Guild]";
+	mes "Guild Lv : " + .@g_lv;
+	mes "ระดับเลเวล Guild Buff : " + .@lv;
+	next;
+
+	switch(select("- ดูเงื่อนไขเลเวลถัดไป:- บริจาคเพื่ออัพ Guild Buff:- ยกเลิก")) {
+		case 1: goto L_ShowNext;
+		case 2: goto L_Upgrade;
+		default: close;
+	}
+
+L_ShowNext:
+	.@next = .@lv + 1;
+	if (.@next > 10) {
+		mes "[Buff Guild]";
+		mes "ถึงเลเวลสูงสุดแล้ว";
+		close;
+	}
+
+	callfunc "F_GuildBuff_ShowReq", .@GID, .@next;
+	close;
+
+L_Upgrade:
+	if (getguildmasterid(.@GID) != getcharid(0)) {
+		mes "[Buff Guild]";
+		mes "คุณไม่ใช่หัวหน้ากิลด์";
+		close;
+	}
+
+	.@next = .@lv + 1;
+	if (.@next > 10) {
+		mes "[Buff Guild]";
+		mes "ถึงเลเวลสูงสุดแล้ว";
+		close;
+	}
+
+	callfunc "F_GuildBuff_ShowReq", .@GID, .@next;
+	next;
+
+	mes "[Buff Guild]";
+	mes "ยืนยันบริจาคเพื่ออัพเป็นเลเวล " + .@next + " ?";
+	next;
+
+	if (select("ยืนยัน:ยกเลิก") != 1) close;
+
+	callfunc "F_GuildBuff_DoDonate", .@GID, .@next;
+	close;
+OnInit:
+	waitingroom "  [ Guild Buff ]",0;
+	end;
+}
+
+function	script	F_GuildBuff_ShowReq	{
+
+	.@GID = getarg(0);
+	.@lv  = getarg(1);
+
+	.@g_lv = 0;
+	query_sql "SELECT `guild_lv` FROM `guild` WHERE `guild_id` = "+.@GID+" LIMIT 1", .@g_lv;
+
+	.@SOE  = 1001519;
+	.@ELU  = 985;
+	.@ORI  = 984;
+	.@COIN = 30001;
+
+	.@need_guildlv = 0;
+	.@soe_need = 0;
+	.@elu_need = 0;
+	.@ori_need = 0;
+	.@coin_need = 0;
+	.@zeny_need = 0;
+
+	if (.@lv == 1) { .@need_guildlv = 5;  .@soe_need = 20; .@elu_need = 50;  .@ori_need = 50;  .@coin_need = 200;  .@zeny_need = 2000000;  }
+	if (.@lv == 2) { .@need_guildlv = 10; .@soe_need = 20; .@elu_need = 100; .@ori_need = 100; .@coin_need = 400;  .@zeny_need = 4000000;  }
+	if (.@lv == 3) { .@need_guildlv = 15; .@soe_need = 20; .@elu_need = 150; .@ori_need = 150; .@coin_need = 600;  .@zeny_need = 6000000;  }
+	if (.@lv == 4) { .@need_guildlv = 20; .@soe_need = 20; .@elu_need = 200; .@ori_need = 200; .@coin_need = 800;  .@zeny_need = 8000000;  }
+	if (.@lv == 5) { .@need_guildlv = 25; .@soe_need = 20; .@elu_need = 250; .@ori_need = 250; .@coin_need = 1000; .@zeny_need = 10000000; }
+	if (.@lv == 6) { .@need_guildlv = 30; .@soe_need = 40; .@elu_need = 300; .@ori_need = 300; .@coin_need = 1200; .@zeny_need = 12000000; }
+	if (.@lv == 7) { .@need_guildlv = 35; .@soe_need = 40; .@elu_need = 350; .@ori_need = 350; .@coin_need = 1400; .@zeny_need = 14000000; }
+	if (.@lv == 8) { .@need_guildlv = 40; .@soe_need = 40; .@elu_need = 400; .@ori_need = 400; .@coin_need = 1600; .@zeny_need = 16000000; }
+	if (.@lv == 9) { .@need_guildlv = 45; .@soe_need = 40; .@elu_need = 450; .@ori_need = 450; .@coin_need = 1800; .@zeny_need = 18000000; }
+	if (.@lv == 10){ .@need_guildlv = 50; .@soe_need = 40; .@elu_need = 500; .@ori_need = 500; .@coin_need = 2000; .@zeny_need = 20000000; }
+
+	mes "[Buff Guild]";
+	mes "เงื่อนไขอัพ Guild Buff เป็นเลเวล " + .@lv;
+	mes "Guild Lv ต้องมีอย่างน้อย: " + .@need_guildlv + " (ปัจจุบัน " + .@g_lv + ")";
+	mes "ต้องใช้วัตถุดิบ:";
+	mes "^00c03e•^000000 ^i["+.@SOE+"] " + getitemname(.@SOE) + " x" + .@soe_need;
+	mes "^00c03e•^000000 ^i["+.@ELU+"] " + getitemname(.@ELU) + " x" + .@elu_need;
+	mes "^00c03e•^000000 ^i["+.@ORI+"] " + getitemname(.@ORI) + " x" + .@ori_need;
+	mes "^00c03e•^000000 ^i["+.@COIN+"] " + getitemname(.@COIN) + " x" + .@coin_need;
+	mes "^00c03e•^000000 " + .@zeny_need + " Zeny";
+	return;
+}
+
+function	script	F_GuildBuff_DoDonate	{
+
+	.@GID = getarg(0);
+	.@lv  = getarg(1);
+
+	if (!.@GID) end;
+
+	if (getguildmasterid(.@GID) != getcharid(0)) {
+		mes "[Buff Guild]";
+		mes "คุณไม่ใช่หัวหน้ากิลด์";
+		end;
+	}
+
+	.@cur = getd("$GUILD_BLESSING_1_" + .@GID);
+	if (.@lv != (.@cur + 1)) {
+		mes "[Buff Guild]";
+		mes "คุณต้องอัพตามลำดับเท่านั้น";
+		end;
+	}
+
+	.@g_lv = 0;
+	query_sql "SELECT `guild_lv` FROM `guild` WHERE `guild_id` = "+.@GID+" LIMIT 1", .@g_lv;
+
+	.@SOE  = 1001519;
+	.@ELU  = 985;
+	.@ORI  = 984;
+	.@COIN = 30001;
+
+	.@need_guildlv = 0;
+	.@soe_need = 0;
+	.@elu_need = 0;
+	.@ori_need = 0;
+	.@coin_need = 0;
+	.@zeny_need = 0;
+
+	if (.@lv == 1) { .@need_guildlv = 5;  .@soe_need = 20; .@elu_need = 50;  .@ori_need = 50;  .@coin_need = 200;  .@zeny_need = 2000000;  }
+	if (.@lv == 2) { .@need_guildlv = 10; .@soe_need = 20; .@elu_need = 100; .@ori_need = 100; .@coin_need = 400;  .@zeny_need = 4000000;  }
+	if (.@lv == 3) { .@need_guildlv = 15; .@soe_need = 20; .@elu_need = 150; .@ori_need = 150; .@coin_need = 600;  .@zeny_need = 6000000;  }
+	if (.@lv == 4) { .@need_guildlv = 20; .@soe_need = 20; .@elu_need = 200; .@ori_need = 200; .@coin_need = 800;  .@zeny_need = 8000000;  }
+	if (.@lv == 5) { .@need_guildlv = 25; .@soe_need = 20; .@elu_need = 250; .@ori_need = 250; .@coin_need = 1000; .@zeny_need = 10000000; }
+	if (.@lv == 6) { .@need_guildlv = 30; .@soe_need = 40; .@elu_need = 300; .@ori_need = 300; .@coin_need = 1200; .@zeny_need = 12000000; }
+	if (.@lv == 7) { .@need_guildlv = 35; .@soe_need = 40; .@elu_need = 350; .@ori_need = 350; .@coin_need = 1400; .@zeny_need = 14000000; }
+	if (.@lv == 8) { .@need_guildlv = 40; .@soe_need = 40; .@elu_need = 400; .@ori_need = 400; .@coin_need = 1600; .@zeny_need = 16000000; }
+	if (.@lv == 9) { .@need_guildlv = 45; .@soe_need = 40; .@elu_need = 450; .@ori_need = 450; .@coin_need = 1800; .@zeny_need = 18000000; }
+	if (.@lv == 10){ .@need_guildlv = 50; .@soe_need = 40; .@elu_need = 500; .@ori_need = 500; .@coin_need = 2000; .@zeny_need = 20000000; }
+
+	if (.@g_lv < .@need_guildlv) {
+		mes "[Buff Guild]";
+		mes "Guild Lv ไม่ถึงเงื่อนไข";
+		end;
+	}
+
+	if (Zeny < .@zeny_need
+	 || countitem(.@SOE)  < .@soe_need
+	 || countitem(.@ELU)  < .@elu_need
+	 || countitem(.@ORI)  < .@ori_need
+	 || countitem(.@COIN) < .@coin_need) {
+		mes "[Buff Guild]";
+		if (Zeny < .@zeny_need) mes "^00c03e•^000000 " + .@zeny_need + " Zeny";
+		if (countitem(.@SOE)  < .@soe_need) mes "^00c03e•^000000 ^i["+.@SOE+"] " + getitemname(.@SOE) + " x" + .@soe_need;
+		if (countitem(.@ELU)  < .@elu_need) mes "^00c03e•^000000 ^i["+.@ELU+"] " + getitemname(.@ELU) + " x" + .@elu_need;
+		if (countitem(.@ORI)  < .@ori_need) mes "^00c03e•^000000 ^i["+.@ORI+"] " + getitemname(.@ORI) + " x" + .@ori_need;
+		if (countitem(.@COIN) < .@coin_need) mes "^00c03e•^000000 ^i["+.@COIN+"] " + getitemname(.@COIN) + " x" + .@coin_need;
+		end;
+	}
+
+	set Zeny, Zeny - .@zeny_need;
+	delitem .@SOE,  .@soe_need;
+	delitem .@ELU,  .@elu_need;
+	delitem .@ORI,  .@ori_need;
+	delitem .@COIN, .@coin_need;
+
+	setd "$GUILD_BLESSING_1_" + .@GID, .@lv;
+
+	mes "[Buff Guild]";
+	mes "บริจาคสำเร็จ! Guild Buff เลเวล " + .@lv;
+	mes "^FF0000บัฟจะมีผลเมื่อคุณออกเข้าใหม่^000000";
+	end;
+}
+
+-	script	GuildSystem::GuildSystem	-1,{
+OnPCLoginEvent:
+	set .@GID, getcharid(2);
+
+	sc_end SC_GUILD_BUFF_LV1;
+	sc_end SC_GUILD_BUFF_LV2;
+	sc_end SC_GUILD_BUFF_LV3;
+	sc_end SC_GUILD_BUFF_LV4;
+	sc_end SC_GUILD_BUFF_LV5;
+	sc_end SC_GUILD_BUFF_LV6;
+	sc_end SC_GUILD_BUFF_LV7;
+	sc_end SC_GUILD_BUFF_LV8;
+	sc_end SC_GUILD_BUFF_LV9;
+	sc_end SC_GUILD_BUFF_LV10;
+
+	if (!.@GID) end;
+
+	set .@level, getd("$GUILD_BLESSING_1_" + .@GID);
+	if (.@level > 9) { sc_start SC_GUILD_BUFF_LV10, INFINITE_TICK, .@level; end; }
+	if (.@level > 8) { sc_start SC_GUILD_BUFF_LV9,  INFINITE_TICK, .@level; end; }
+	if (.@level > 7) { sc_start SC_GUILD_BUFF_LV8,  INFINITE_TICK, .@level; end; }
+	if (.@level > 6) { sc_start SC_GUILD_BUFF_LV7,  INFINITE_TICK, .@level; end; }
+	if (.@level > 5) { sc_start SC_GUILD_BUFF_LV6,  INFINITE_TICK, .@level; end; }
+	if (.@level > 4) { sc_start SC_GUILD_BUFF_LV5,  INFINITE_TICK, .@level; end; }
+	if (.@level > 3) { sc_start SC_GUILD_BUFF_LV4,  INFINITE_TICK, .@level; end; }
+	if (.@level > 2) { sc_start SC_GUILD_BUFF_LV3,  INFINITE_TICK, .@level; end; }
+	if (.@level > 1) { sc_start SC_GUILD_BUFF_LV2,  INFINITE_TICK, .@level; end; }
+	if (.@level > 0) { sc_start SC_GUILD_BUFF_LV1,  INFINITE_TICK, .@level; end; }
+
+	end;
+
+}

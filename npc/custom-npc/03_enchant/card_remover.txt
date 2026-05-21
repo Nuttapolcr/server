@@ -1,0 +1,161 @@
+/*
+=================== TERMS OF SERVICES. ===================
+1. ALL RIGHT RESERVED RE-SELLER OR SHARE SCRIPT TO PUBLISH.
+2. BUT YOU RE-SELLER OR SHARE SCRIPT WITH OUT UNAUTHORIZRD
+   I WILL ALL CANCEL MY SUPPORT FOR YOU.
+3. MAINTENANCE SCRIPTS WILL BE FREE SERVICES.
+4. I WILL NOT KEEP ANY INFORMATIONS FROMS YOU SERVER THAT
+   YOU SEND FOR ME.
+5. I HOPE YOU WILL ALL ACCEPT TERMS OF SERVICES.
+==========================================================
+Script. Card Remove																				 
+Create By. TyrNemesis^
+Translator By. Athena Studio
+Bug Report. Kittisak Sarounram [ FB ]																					 
+Contact Us. Kittisak Sarounram [ FB ]																					 
+TEL. 0909183008 [ TRUE MOVE H ]																					 
+==========================================================
+*/
+
+maintown,181,171,6	script	Card Remover	869,{
+
+	set .zenycost,200000;    // ค่าบริการ
+	set .percardcost,25000;  // ค่าบริการเพิ่มเติมของการ์ดจำนวนต่อใบ
+	set .faildestroy,1;      // หากการถอดล้มเหลวมีโอกาศที่ การ์ด หรือ ไอเท็ม จะถูกทำลาย ? 1 = ใช่, 0 = ไม่.
+
+	disable_items;
+	mes "[Card Remover]";
+	mes "สวัสดี, ฉันมีอำนาจที่จะสามารถถอดการ์ดที่ถูกผนึกเข้ากับอุปกรณ์ต่างๆออกมาได้ คุณคิดเห็นกับเรื่องนี้ว่าอย่างไร ?";
+	next;
+	switch(select("ใช่, ฉันก็คิดเช่นนั้น.:คุณคิดค่าบริการยังไง ?:ไม่เป็นไร ขอบคุณ.")) {
+	case 1:
+		mes "[Card Remover]";
+		mes "เยี่ยมมาก. คุณต้องการให้ฉันถอดการ์ดออกจากอุปกรณ์ใด ?";
+		next;
+
+		setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+		for( set .@i,1; .@i <= 10; set .@i,.@i+1 ) {
+			if( getequipisequiped(.@indices[.@i]) )
+				set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + " - [" + getequipname(.@indices[.@i]) + "]";
+			set .@menu$, .@menu$ + ":";
+		}
+		set .@part, .@indices[ select(.@menu$) ];
+		if(!getequipisequiped(.@part)) {
+			mes "[Card Remover]";
+			mes "เฮ้... คุณไม่ได้สวมใส่อะไรที่มันมีการ์ดที่ฉันจะสามารถถอดมันออกมาได้.";
+			close;
+		}
+		if(getequipcardcnt(.@part) == 0) {
+			mes "[Card Remover]";
+			mes "เฮ้... นี่คุณต้องล้อเล่นแน่ๆเลย อุปกรณ์นี้มันไม่ได้มีการ์ดอยู่เลย.";
+			close;
+		}
+		set .@cardcount,getequipcardcnt(.@part);
+		
+		if (!checkweight(1202,(.@cardcount+1))) { 
+			mes "^3355FFJust a minute!";
+			mes "ฉันไม่สามารถที่จะให้บริการคุณได้";
+			mes "ทำไมคุณไม่ลองกลับไปจัดการเกี่ยวกับ";
+			mes "ไอเท็มในตัวของคุณก่อน แล้วกลับมาใหม่ล่ะ~";
+			close;
+		}
+		mes "[Card Remover]";
+		mes "ไอเท็มนี้มีจำนวน " + .@cardcount + " การ์ด ถูกผนึกไว้อยู่. ในการใช้เวทย์มนตร์ของฉัน, ฉันต้องการ " + (.zenycost+(.@cardcount * .percardcost)) + "  เซนี, และ ^0000FFStar Crumb^000000, และ ^0000FFYellow Gemstone^000000.";
+		next;
+		if(select("เยี่ยมเลย. ทำมันเลยสิ.:ฉันไม่มี.") == 2) {
+			mes "[Card Remover]";
+			mes "เยี่ยม. กลับมาถ้าหากคุณต้องการใช้บริการ.";
+			close;
+		}
+		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(1000) < 1) || (countitem(715) < 1)) {
+			mes "[Card Remover]";
+			mes "คุณดูเหมือนไม่ได้มีอะไรสักอย่างที่มัน....";
+			close;
+		}
+		mes "[Card Remover]";
+		mes "ก่อนที่จะเริ่ม, ฉันจะเตือนว่า -- ฉันสามารถล้มเหลวได้. ถ้าหากล้มเหลว, คุณจะสูญเสียทั้งการ์ด, ไอเท็ม, หรือ ทั้งสองอย่าง. คุณต้องการที่จะ, รักษาส่วนไหนไว้ถ้าหากเกิดมันล้มเหลว: รักษาการ์ดไว้, หรือ ไอเท็มล่ะ ?";
+		next;
+		switch(select("ฉันเปลี่ยนใจ.:รักษาไอเท็มไว้.:รักษาการ์ดไว้.")) {
+		case 1:
+			mes "[Card Remover]";
+			mes "เยี่ยม. กลับมาถ้าหากคุณต้องการใช้บริการ.";
+			close;
+		case 2:
+			set .@failtype,1;
+			break;
+		case 3:
+			set .@failtype,2;
+		}
+		mes "[Card Remover]";
+		mes "เยี่ยม งั้นเรามาเริ่มกันเลย.";
+		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
+		delitem 1000,1;
+		delitem 715,1;
+
+		set .@failchance,rand(100);
+		if (.faildestroy==1) {
+			if(.@failchance < 2) {
+				next;
+				failedremovecards .@part,0;
+				mes "[Card Remover]";
+				mes "กระบวนการล้มเหลว ไอเท็มถูกทำลายทั้งหมด.";
+				close;
+			}
+
+			if(.@failchance < 8) {
+				if (.@failtype == 1) {
+					next;
+					failedremovecards .@part,1;
+					mes "[Card Remover]";
+					mes "ในขณะที่กำลังถอดการ์ดออกจากไอเท็ม การ์ดได้ถูกทำลายระหว่างการถอด.";
+					close;
+				}
+
+				if (.@failtype == 2) {
+					next;
+					failedremovecards .@part,2;
+					mes "[Card Remover]";
+					mes "กระบวนการถอดการ์ดประสบความสำเร็จ แต่... ไอเท็มได้ถูกทำลายระหว่างการถอด.";
+					close;
+				}
+			}
+		}
+
+		if(.@failchance < 10) {
+			next;
+			failedremovecards .@part,3;
+			mes "[Card Remover]";
+			mes "โอ้ ไม่นะ กระบวนการล้มเหลว แต่ยังโชคดีที่ การ์ด และ ไอเท็ม ยังคงปลอดภัยดี.";
+			close;
+		}
+		next;
+		successremovecards .@part;
+		mes "[Card Remover]";
+		mes "กระบวนการถอดเสร็จสมบูรณ์ นี่คือ การ์ด และ ไอเท็ม ของคุณ.";
+		close;
+	case 2:
+		mes "[Card Remover]";
+		mes "ค่าบริการคือ "+callfunc("F_InsertComma",.zenycost)+" เซนี, และ "+callfunc("F_InsertComma",.percardcost)+" เซนี ต่อการ์ด 1 ใบ. และ ฉันต้องการ star crumb และ yellow gemstone อย่างละ 1 รายการ.";
+		close;
+	case 3:
+		mes "[Card Remover]";
+		mes "ถ้าหากคุณต้องการใช้บริการ กรุณากลับมาหาฉันได้ที่นี่.";
+		close;
+	}
+	
+OnInit:
+	setarray .messages$,"ถ","อ","ด","ก","า","ร","์","ด";
+	while( 1 )
+	{
+		set .Display$,"";
+		for( set .i,0; .i < getarraysize( .messages$ ); set .i,.i + 1 )
+		{
+			set .Display$,.Display$ + .messages$[.i];
+			delwaitingroom;
+			waitingroom .Display$,0;
+			sleep 100;
+		}
+	sleep 1000;
+	}
+	end;
+}

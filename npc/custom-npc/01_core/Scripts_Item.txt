@@ -1,0 +1,22 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : แม่มดน้อย จอมป่วน
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+
+function	script	StatusItemHAT	{
+
+}
+
+function	script	StatusItemEAR	{
+
+}
+
+function	script	StatusItemMOUTH	{
+
+}
+
+function	script	StatusItemWeaponCostume	{
+
+}

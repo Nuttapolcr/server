@@ -1,0 +1,26 @@
+morocc,169,187,6	script	CBT Zeny	115,{
+Start:
+	
+	mes .mes$;
+	mes "ได้รับ Zeny สำหรับ CBT เรียบร้อย";
+	
+	//	กำหนด Zeny ที่ได้รับ
+	Zeny = 500000000;
+	
+	//	กำหนด Cash ที่ได้รับ
+	//#CASHPOINTS = 100000;
+	
+	end;
+	
+OnInit:
+	
+	//	กำหนด Waitingroom
+	waitingroom " "+strnpcinfo(0)+"",0;
+	
+	//	กำหนด Head Dialog
+	.mes$ = "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	end;
+	
+}
+

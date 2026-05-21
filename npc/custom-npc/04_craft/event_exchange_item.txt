@@ -1,0 +1,117 @@
+/*
+=================== TERMS OF SERVICES. ===================
+1. ALL RIGHT RESERVED RE-SELLER OR SHARE SCRIPT TO PUBLISH.
+2. BUT YOU RE-SELLER OR SHARE SCRIPT WITH OUT UNAUTHORIZRD
+   I WILL ALL CANCEL MY SUPPORT FOR YOU.
+3. MAINTENANCE SCRIPTS WILL BE FREE SERVICES.
+4. I WILL NOT KEEP ANY INFORMATIONS FROMS YOU SERVER THAT
+   YOU SEND FOR ME.
+5. I HOPE YOU WILL ALL ACCEPT TERMS OF SERVICES.
+==========================================================
+Script. Exchange Costume																									 =
+Create By. Athena Studio																										 =
+Bug Report. Kittisak Sarounram [ FB ]																					 =
+Contact Us. Kittisak Sarounram [ FB ]																					 =
+TEL. 0909183008 [ TRUE MOVE H ]																					 =
+==========================================================
+*/
+
+morocc,145,79,5	script	Exchange Item	757,{
+
+	mes "^0000FF[ กิจกรรมแลกไอเท็ม ]^000000";
+	mes "สวัสดี,นายท่าน";
+	mes "ฉันมีกิจกรรมใหม่นำเสนอ";
+	mes "คือ กิจกรรมแลกไอเท็มขยะ";
+	mes "เพื่อแลกคูปองกาชาปอง";
+	mes "เพื่อนๆต้องการกันอยู่แล้วใช่มัย";
+	mes "^FF0000- โปรดเลือกรายการที่ต้องการ -^000000";
+	next;
+	switch(select("~ รายละเอียดกิจกรรม:~ ^009900แลกไอเท็มขยะ^000000:~ ไม่ล่ะ,เดี๋ยวมาใหม่"))
+	{
+		case 1:
+			mes "^0000FF[ รายละเอียดกิจกรรม ]^000000";
+			mes "โดยปกติแล้ว เพื่อนๆจะมีไอเท็ม";
+			mes "Event Battle Manual";
+			mes "Event Bubble Gum";
+			mes "Event JOB Manual";
+			mes "ของกิจกรรมกันอยู่แล้ว ใช่หรือไม่";
+			next;
+			mes "^0000FF[ รายละเอียดกิจกรรม ]^000000";
+			mes "ฉันจึงเสนอให้ท่านนำไอเท็มนั้นมาแลก";
+			mes "เพื่อแลกคูปองกาชาปอง นั้นเอง";
+			mes "จะได้รับ Gashapon Card";
+			mes "อัตราการแลกไอเท็ม 1 ต่อ 1ชิ้น";
+			mes "ถ้าไม่เข้าใจโปรดสอบถามทีมงาน";
+			close;
+		case 2:
+				deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+				callshop "event_shops",2;
+				npcshopattach "event_shops";
+				end;
+		case 3:
+		close;
+	}
+	end;
+	
+OnSellItem:
+	mes "^0000FF[ กิจกรรมแลกไอเท็ม ]^000000";
+	mes "คุณแน่ใจแล้วใช่หรือไม่ ??";
+	mes "ที่ต้องการแลกเปลี่ยนไอเท็ม";
+	mes " ";
+	mes " ";
+	mes " ";
+	mes "^FF0000- โปรดยืนยันการแลกเปลี่ยน -^000000";
+	next;
+	switch(select("~ ยืนยัน,แลกเปลี่ยน:~ ไม่ล่ะ,เดี๋ยวมาใหม่"))
+	{
+	case 1:
+	for ( set .@i, 0; .@i < getarraysize(@sold_nameid); set .@i, .@i+1 )
+	{
+		set .@first, compare(.first$,""+ @sold_nameid[.@i] +""); set .@second, compare(.second$,""+ @sold_nameid[.@i] +""); set .@third, compare(.third$,""+ @sold_nameid[.@i] +"");  set .@four, compare(.four$,""+ @sold_nameid[.@i] +"");  set .@five, compare(.five$,""+ @sold_nameid[.@i] +"");  set .@six, compare(.six$,""+ @sold_nameid[.@i] +"");  set .@seven, compare(.seven$,""+ @sold_nameid[.@i] +"");  set .@eight, compare(.eight$,""+ @sold_nameid[.@i] +"");  set .@nine, compare(.nine$,""+ @sold_nameid[.@i] +"");  set .@ten, compare(.ten$,""+ @sold_nameid[.@i] +"");
+		.@compare = -1;  if ( .@second ) { .@compare = 1 ; } else if ( .@third ) { .@compare = 2 ; } else if ( .@four ) { .@compare = 3 ; } else if ( .@five ) { .@compare = 4 ; } else if ( .@six ) { .@compare = 5 ; } else if ( .@seven ) { .@compare = 6 ; } else if ( .@eight ) { .@compare = 7 ; } else if ( .@nine ) { .@compare = 8 ; } else if ( .@ten ) { .@compare = 9 ; } else if ( .@first ) { .@compare = 0; }
+		if ( .@compare != -1 ) { set .@count, .@count+(@sold_quantity[.@i]*.gets[.@compare]); set .@id[getarraysize(.@id)], @sold_nameid[.@i]; set .@amount[getarraysize(.@amount)], @sold_quantity[.@i]; }
+	}
+	deletearray @sold_nameid[0],getarraysize(@sold_nameid);
+	deletearray @sold_quantity[0],getarraysize(@sold_quantity);
+		if ( !.@id ) { 
+			mes "^0000FF[ กิจกรรมแลกไอเท็ม ]^000000";
+			mes "รายการไอเท็มบางชนิดไม่ได้อยู่ใน";
+			mes "เงื่อนใขสำหรับการแลกเปลี่ยน";
+			mes "กรุณาตรวจสอบใหม่อีกครั้ง"; 
+			close; 
+		}
+		
+		mes "^0000FF[ กิจกรรมแลกไอเท็ม ]^000000";
+		mes "ทำรายการสำเสร็จ";
+		mes "คุณได้รับ :";
+		mes "- ^0033FFGashapon Card^000000";
+		mes "จำนวน :";
+		mes "- ^FF3333"+ callfunc("F_InsertComma",.@count) +" ea.^000000";
+		mes "ขอบคุณที่ร่วมกิจกรรมครั้งนี้ !";
+		for ( set .@i, 0; .@i < getarraysize(.@id); set .@i, .@i+1 )
+			delitem .@id[.@i],.@amount[.@i];
+			getitem .exchange,.@count;
+	close;
+
+	case 2:
+	close;
+	}
+end;
+	
+OnInit:
+	waitingroom "~ แลกไอเท็มขยะ",0;
+	set .first$,"23001,23003";
+	set .second$,"23002,23016,23017,23018";
+	set .third$,"12208,12210,14592";
+	set .four$,"0";
+	set .five$,"0";
+	set .six$,"0";
+	set .seven$,"0";
+	set .eight$,"0";
+	set .nine$,"0";
+	set .ten$,"0";
+	set .exchange,29006;
+	setarray .gets[0],1,2,3,4,5,6,7,8,9,10;
+	end;
+}
+-	shop	event_shops	-1,501:-1

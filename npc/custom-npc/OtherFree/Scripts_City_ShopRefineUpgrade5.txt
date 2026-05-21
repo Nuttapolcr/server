@@ -1,0 +1,100 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+-	shop	อาวุธ	-1,909:-1
+-	shop	ของสวมใส่	-1,909:-1
+
+oasis,129,100,4	script	ร้านนี้อัพเกรดขั้น 5#1	85,{
+function Add;
+	mes "กรุณาเลือกร้านค้า";
+	next;
+	switch(select("^FF0000•^000000 อาวุธ:^FF0000•^000000 ของสวมใส่")) {
+		case 1:
+			set .@shop$,"อาวุธ";
+			break;
+		case 2:
+			set .@shop$,"ของสวมใส่";
+			break;
+	}
+	close2;
+	callshop ""+.@shop$+"",1;
+	npcshopattach ""+.@shop$+"";
+	end;
+	OnBuyItem:
+		set .@refine,5;	// ตีบวก
+		mes "ท่านต้องการกี่ชิ้น";
+		next;
+		input .@amount;
+		if (.@amount < 1) set .@amount,1;
+		if (.@amount > 20) set .@amount,20;
+		for(set .@i,0 ; .@i < getarraysize(.item) ; set .@i,.@i+1){
+			if(.item[.@i] > 0 && .item[.@i] == @bought_nameid){
+				set .@prize,.prize[.@i];
+				break;
+			}
+		}
+		if(.@prize > 0){
+			set .@total,.@amount*.@prize;
+			mes "ใช้เงินทั้งหมด "+.@total+" z";
+			if(Zeny < .@total){
+				mes "เงินไม่พอ";
+				close; end;
+			}		
+			set Zeny,Zeny-.@total;
+
+			getitem2 @bought_nameid,.@amount,1,.@refine,0,0,0,0,0;
+			
+		}
+		close;
+OnInit:
+waitingroom "ร้านนี้อัพเกรดขั้น 5",0;
+
+	setarray .shop_name$[1],"อาวุธ","ของสวมใส่";
+	
+	//อาวุธ
+	Add(1,1734,7000000);
+	Add(1,1727,7000000);
+	Add(1,1730,7000000);
+	Add(1,1731,7000000);
+	Add(1,1732,7000000);
+	Add(1,1733,7000000);
+	Add(1,1705,7000000);
+	Add(1,1261,7000000);
+	
+	//ของสวมใส่
+	Add(2,2425,7000000);
+	Add(2,2424,7000000);
+	Add(2,2415,7000000);
+	Add(2,2531,7000000);
+	Add(2,2528,7000000);
+	Add(2,2523,7000000);
+	Add(2,2530,7000000);
+	Add(2,2123,7000000);
+	Add(2,2124,7000000);
+	
+	
+	for(set .@i,1 ; .@i <= getarraysize(.shop_name$); set .@i,.@i+1){
+		npcshopdelitem .shop_name$[.@i],909;
+	}
+
+end; 
+function Add {
+	if(getarg(1) < 1 || getarg(2) < 1){
+		return;
+	}
+	npcshopadditem .shop_name$[getarg(0)],getarg(1),getarg(2);
+	setarray .item[getarraysize(.item)],getarg(1);
+	setarray .prize[getarraysize(.prize)],getarg(2);
+	return;
+}
+}

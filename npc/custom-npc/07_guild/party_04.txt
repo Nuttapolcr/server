@@ -1,0 +1,677 @@
+/*
+
+@party_04 = คำสั่ง
+party_04 = Replace All
+Party 04 = Replace All
+2012rwc_07 = แผนที่กิจกรรม
+a_room_04 = แผนที่ห้องรับรอง
+
+*/
+
+maintown,204,123,4	script	party_04	708,{
+Start:
+	
+	mes .mes$;
+	mes "Party ID : "+getcharid(1)+"";
+	mes "Party Name : "+getpartyname(getcharid(1))+"";
+	if($party_04_team_a){
+		mes "TEAM A : "+getpartyname($party_04_team_a)+" ["+$party_04_score_a+" GAME]";
+	}
+	if($party_04_team_b){
+		mes "TEAM B : "+getpartyname($party_04_team_b)+" ["+$party_04_score_b+" GAME]";
+	}
+	if(getgmlevel()>=99){
+		clear;
+		goto OnMenu;
+		end;
+	}
+	end;
+	
+OnPCKillEvent:
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	if(.@map$ == "2012rwc_07"){
+		if(getcharid(1) == $party_04_team_a){
+			$party_04_point_b = $party_04_point_b -1;
+			announce "Party 04 : ผู้เล่น "+strcharinfo(0)+" ปาร์ตี้ "+getpartyname($party_04_team_a)+" ได้สังหาร "+rid2name(killedrid)+" ปาร์ตี้ "+getpartyname($party_04_team_b)+"",bc_all|bc_woe;
+			donpcevent ""+strnpcinfo(0)+"::OnAnn";
+			if($party_04_point_b <= 0){
+				goto OnEmpBreak_b;
+				end;
+			}
+			end;
+		}
+		if(getcharid(1) == $party_04_team_b){
+			$party_04_point_a = $party_04_point_a -1;
+			announce "Party 04 : ผู้เล่น "+strcharinfo(0)+" ปาร์ตี้ "+getpartyname($party_04_team_b)+" ได้สังหาร "+rid2name(killedrid)+" ปาร์ตี้ "+getpartyname($party_04_team_a)+"",bc_all|bc_woe;
+			donpcevent ""+strnpcinfo(0)+"::OnAnn";
+			if($party_04_point_a <= 0){
+				goto OnEmpBreak_a;
+				end;
+			}
+			end;
+		}
+	}
+	end;
+
+OnAnn:
+	announce "Party 04 : ปาร์ตี้ "+getpartyname($party_04_team_a)+" (เหลือ "+$party_04_point_a+" คน) VS ปาร์ตี้ "+getpartyname($party_04_team_b)+" (เหลือ "+$party_04_point_b+" คน)",bc_all|bc_woe;
+	end;
+	
+OnTimeStart:
+	$status_party_04 = 0;
+	.end_game = 0;
+	.@sec = .time_ann;
+	GvgOn "2012rwc_07";
+	donpcevent ""+strnpcinfo(0)+"::OnRecall";
+	$party_04_round ++;
+	if($party_04_round == 2){
+		$party_04_round = 0;
+	}
+	while(1){
+		announce "Party 04 : การแข่งขันกำลังจะเริ่ม เหลือเวลาอีก "+.@sec+" วินาที",bc_all|bc_woe;
+		.@sec --;
+		sleep 1000;
+		if(.@sec <= 0){
+			announce "Party 04 : การแข่งขันเริ่มแล้ว ลุย ลุย ลุย !!!",bc_all|bc_woe;
+			goto OnStart;
+			end;
+		}
+	}
+	end;
+	
+OnStart:
+	donpcevent ""+strnpcinfo(0)+"::OnOpen";
+	.@GID = $party_04_team_a;
+	donpcevent ""+strnpcinfo(0)+"::OnCheckTime";
+	end;
+
+OnEmpBreak_a:
+	.@GID = 0;
+	announce "Party 04 : ผู้ชนะคือ ปาร์ตี้ "+getpartyname($party_04_team_b)+"",bc_all|bc_woe;
+	$party_04_score_b ++;
+	donpcevent ""+strnpcinfo(0)+"::OnEnding";
+	end;
+
+OnEmpBreak_b:
+	.@GID = 0;
+	announce "Party 04 : ผู้ชนะคือ ปาร์ตี้ "+getpartyname($party_04_team_a)+"",bc_all|bc_woe;
+	$party_04_score_a ++;
+	donpcevent ""+strnpcinfo(0)+"::OnEnding";
+	end;
+
+OnEnding:
+	GvgOff "2012rwc_07";
+	donpcevent ""+strnpcinfo(0)+"::OnClose";
+	$status_party_04 = 1;
+	.end_game = 1;
+	$party_04_point_a = .point_win;
+	$party_04_point_b = .point_win;
+	sleep 1500;
+	MapRespawnGuildID "2012rwc_07",.@GID,6;
+	/*
+	if(($party_04_score_a >= .game_win) && ($party_04_score_b >= .game_win)){
+		announce "Party 04 : การแข่งขันระหว่าง ปาร์ตี้ "+getpartyname($party_04_team_a)+" Vs ปาร์ตี้ "+getpartyname($party_04_team_b)+"",bc_all|bc_woe;
+		sleep 1500;
+		announce "Party 04 : ผลการแข่ง ปาร์ตี้ "+getpartyname($party_04_team_a)+" เสมอไปด้วย "+$party_04_score_a+"-"+$party_04_score_b+" GAME",bc_all|bc_woe;
+		$party_04_score_a = 0;
+		$party_04_score_b = 0;
+		$party_04_point_a = .point_win;
+		$party_04_point_b = .point_win;
+		$party_04_team_a = 0;
+		$party_04_team_b = 0;
+		end;
+	}
+	*/
+	if($party_04_score_a >= .game_win){
+		announce "Party 04 : การแข่งขันระหว่าง ปาร์ตี้ "+getpartyname($party_04_team_a)+" Vs ปาร์ตี้ "+getpartyname($party_04_team_b)+"",bc_all|bc_woe;
+		sleep 1500;
+		announce "Party 04 : ผลการแข่ง ปาร์ตี้ "+getpartyname($party_04_team_a)+" ชนะไปด้วย "+$party_04_score_a+"-"+$party_04_score_b+" GAME",bc_all|bc_woe;
+		$party_04_score_a = 0;
+		$party_04_score_b = 0;
+		$party_04_point_a = .point_win;
+		$party_04_point_b = .point_win;
+		$party_04_team_a = 0;
+		$party_04_team_b = 0;
+		end;
+	}
+	if($party_04_score_b >= .game_win){
+		announce "Party 04 : การแข่งขันระหว่าง ปาร์ตี้ "+getpartyname($party_04_team_a)+" Vs ปาร์ตี้ "+getpartyname($party_04_team_b)+"",bc_all|bc_woe;
+		sleep 1500;
+		announce "Party 04 : ผลการแข่ง ปาร์ตี้ "+getpartyname($party_04_team_b)+" ชนะไปด้วย "+$party_04_score_b+"-"+$party_04_score_a+" GAME",bc_all|bc_woe;
+		$party_04_score_a = 0;
+		$party_04_score_b = 0;
+		$party_04_point_a = .point_win;
+		$party_04_point_b = .point_win;
+		$party_04_team_a = 0;
+		$party_04_team_b = 0;
+		end;
+	}
+	end;
+
+OnCheckTime:
+	.@time = .sec_load;
+	.@time2 = gettimetick(2)+.@time;
+	while(1){
+		.@sec_time	= .@time2-gettimetick(2);
+		.@min_time	= .@sec_time/60;
+		.@hour_time	= .@min_time/60;
+		.@text_time	= .@min_time-(60*.@hour_time);
+		.@text2_time	= .@sec_time-(60*.@min_time);
+		if(.@hour_time >= 0 && .@hour_time <= 9){
+			.@hour_time$ = "0"+.@hour_time+"";
+		}
+		else if(.@hour_time > 9){
+			.@hour_time$ = ""+.@hour_time+"";
+		}
+		if(.@text_time >= 0 && .@text_time <= 9){
+			.@text_time$ = "0"+.@text_time+"";
+		}
+		else if(.@text_time > 9){
+			.@text_time$ = ""+.@text_time+"";
+		}
+		if(.@text2_time >= 0 && .@text2_time <= 9){
+			.@text2_time$ = "0"+.@text2_time+"";
+		}
+		else if(.@text2_time > 9){
+			.@text2_time$ = ""+.@text2_time+"";
+		}
+		//if(.@sec_time == 120 || .@sec_time == 60 || .@sec_time == 30 || .@sec_time == 20 || .@sec_time <= 10){
+			announce "Party 04 : เวลาการแข่งขันคงเหลือ ("+.@hour_time$+":"+.@text_time$+":"+.@text2_time$+")",bc_all|bc_woe;
+		//}
+		if($status_party_04 == 1){
+			.@sec_time = 0;
+			if(.end_game){
+				end;
+			}
+		}
+		if(.@sec_time <= 0){
+			if($party_04_point_a == $party_04_point_b){
+				announce "Party 04 : "+getpartyname($party_04_team_a)+" vs "+getpartyname($party_04_team_b)+" เสมอกัน "+$party_04_point_a+" คน vs "+$party_04_point_b+" คน",bc_all|bc_woe;
+				//$party_04_score_a ++;
+				//$party_04_score_b ++;
+				donpcevent ""+strnpcinfo(0)+"::OnEnding";
+			}
+			if($party_04_point_a > $party_04_point_b){
+				announce "Party 04 : "+getpartyname($party_04_team_a)+" เป็นฝ่ายชนะ "+$party_04_point_a+" คน vs "+$party_04_point_b+" คน",bc_all|bc_woe;
+				$party_04_score_a ++;
+				donpcevent ""+strnpcinfo(0)+"::OnEnding";
+			}
+			if($party_04_point_a < $party_04_point_b){
+				announce "Party 04 : "+getpartyname($party_04_team_b)+" เป็นฝ่ายชนะ "+$party_04_point_b+" คน vs "+$party_04_point_a+" คน",bc_all|bc_woe;
+				$party_04_score_b ++;
+				donpcevent ""+strnpcinfo(0)+"::OnEnding";
+			}
+			end;
+		}
+		sleep 1000;
+	}
+	end;
+	
+
+OnMenu:
+	
+	while(1){
+		mes .mes$;
+		if($party_04_team_a){
+			mes "TEAM A : "+getpartyname($party_04_team_a)+" ["+$party_04_score_a+" GAME]";
+		}
+		if($party_04_team_b){
+			mes "TEAM B : "+getpartyname($party_04_team_b)+" ["+$party_04_score_b+" GAME]";
+		}
+		.@menu = select(
+			"- ตั้งค่า Team",
+			"- เรียกผู้เล่นเข้า ห้องรับรอง",
+			"- เรียกผู้เล่นเข้า สนาม",
+			"- เริ่มสงคราม",
+			"- หยุดสงคราม",
+			"- หยุด+ตัดจบเกมส์นับผลเลย",
+			"- เปิด-ปิด กำแพง",
+			"- เตะผู้เล่นออกจากสนาม",
+			"- เตะผู้เล่นออกจากห้องรับรอง",
+			"- ดูข้อมูล Party-ID"
+		);
+		if(.@menu == 1){
+			.@menu_team = select(
+				"- Team A",
+				"- Team B",
+				"- ล้างค่า Team A/B"
+			);
+			if(.@menu_team == 1){
+				input .@gid;
+				clear;
+				mes .mes$;
+				mes "TEAM A : "+getpartyname(.@gid)+"";
+				mes "ใช่หรือไม่ ?";
+				.@menu_team_a = select(
+					"- ตกลง"
+				);
+				$party_04_team_a = .@gid;
+			}
+			if(.@menu_team == 2){
+				input .@gid;
+				clear;
+				mes .mes$;
+				mes "TEAM B : "+getpartyname(.@gid)+"";
+				mes "ใช่หรือไม่ ?";
+				.@menu_team_b = select(
+					"- ตกลง"
+				);
+				$party_04_team_b = .@gid;
+			}
+			if(.@menu_team == 3){
+				$party_04_team_a = 0;
+				$party_04_team_b = 0;
+				$party_04_score_a = 0;
+				$party_04_score_b = 0;
+			}
+		}
+		if(.@menu == 2){
+			donpcevent ""+strnpcinfo(0)+"::OnRecallRoom";
+		}
+		if(.@menu == 3){
+			donpcevent ""+strnpcinfo(0)+"::OnRecall";
+		}
+		if(.@menu == 4){ donpcevent ""+strnpcinfo(0)+"::OnTimeStart"; }
+		if(.@menu == 5){ $status_party_04 = 1; }
+		if(.@menu == 6){
+			$status_party_04 = 1;
+		}
+		if(.@menu == 7){
+			.@menu_wall = select(
+				"- เปิด",
+				"- ปิด"
+			);
+			if(.@menu_wall == 1){
+				donpcevent ""+strnpcinfo(0)+"::OnOpen";
+			}
+			if(.@menu_wall == 2){
+				donpcevent ""+strnpcinfo(0)+"::OnClose";
+			}
+		}
+		if(.@menu == 8){
+			$party_04_point_a = .point_win;
+			$party_04_point_b = .point_win;
+			MapRespawnGuildID "2012rwc_07",.@GID,7;
+		}
+		if(.@menu == 9){
+			donpcevent ""+strnpcinfo(0)+"::OnExit";
+		}
+		if(.@menu == 10){
+				clear;
+				mes "[Party Info]";
+				mes "กำลังโหลดรายชื่อปาร์ตี้ทั้งหมด...";
+				mes "ดูข้อมูลที่ช่องแชท";
+				.@count = query_sql("SELECT party_id, name FROM party ORDER BY party_id ASC", .@pid, .@pname$);
+				
+				if (.@count <= 0) {
+					mes "ไม่พบปาร์ตี้ในฐานข้อมูล.";
+					close;
+				}
+				
+				for (.@i = 0; .@i < .@count; .@i++) {
+					dispbottom "ID: " + .@pid[.@i] + " | Party: " + .@pname$[.@i];
+				}
+				close;
+			}
+		clear;
+	}
+	end;
+
+OnOpen:
+	
+	donpcevent "Board party_04#1::OnOpen";
+	donpcevent "Board party_04#2::OnOpen";
+	donpcevent "Board party_04#3::OnOpen";
+	donpcevent "Board party_04#4::OnOpen";
+	donpcevent "Board party_04#5::OnOpen";
+	donpcevent "Board party_04#6::OnOpen";
+	donpcevent "Board party_04#7::OnOpen";
+	donpcevent "Board party_04#8::OnOpen";
+	end;
+
+OnClose:
+	
+	donpcevent "Board party_04#1::OnClose";
+	donpcevent "Board party_04#2::OnClose";
+	donpcevent "Board party_04#3::OnClose";
+	donpcevent "Board party_04#4::OnClose";
+	donpcevent "Board party_04#5::OnClose";
+	donpcevent "Board party_04#6::OnClose";
+	donpcevent "Board party_04#7::OnClose";
+	donpcevent "Board party_04#8::OnClose";
+	end;
+
+OnRecallRoom:
+	
+	warpparty "a_room_04",64,133,$party_04_team_a;
+	warpparty "a_room_04",157,88,$party_04_team_b;
+	end;
+		
+OnRecall:
+	
+	if($party_04_round == 0){
+		warpparty "2012rwc_07",46,80,$party_04_team_a;
+		warpparty "2012rwc_07",153,80,$party_04_team_b;
+	}
+	if($party_04_round == 1){
+		warpparty "2012rwc_07",46,80,$party_04_team_b;
+		warpparty "2012rwc_07",153,80,$party_04_team_a;
+	}
+	end;
+
+OnExit:
+	
+	addrid(5),1,"a_room_04";
+	warp "SavePoint",0,0;
+	end;
+	
+OnPCLoadMapEvent:
+	getmapxy(.@map$,.@x,.@y,BL_PC);
+	if(.@map$ != "2012rwc_07"){
+		end;
+	}
+	if(getmapguildusers(strcharinfo(3),getcharid(2)) > .max_member) {
+		warp "SavePoint",0,0;
+		sleep2 2500;
+		message strcharinfo(0),"ไม่สามารถเข้าร่วมได้ เนื่องจากสมาชิกปาร์ตี้เกิน "+.max_member+" คน ในแผนที่นี้ .";
+		end;
+	}
+	end;
+	
+OnInit:
+	
+	.mes$ = "^FF3300[ Party 04 ]^000000";
+	
+	waitingroom "[#] Party 04",0;
+	
+	$status_party_04 = 0;
+	
+	.max_member			= 7;				//	กำหนดจำนวนของสมาชิกปาร์ตี้
+	.game_win			= 2;				//	ตั้งค่าชนะกี่เกมส์ ชนะเลย
+	.point_win			= .max_member;		//	ตั้งค่า แต้มห่างกี่แต้ม ชนะเลย
+	.time_ann			= 10;				//	กำหนดเวลาประกาศ ก่อนเริ่มกิจกรรม	(วินาที)
+	.sec_load			= 30;				//	กำหนดเวลาในการเล่น	(วินาที)
+	$party_04_point_a	= .point_win;
+	$party_04_point_b	= .point_win;
+	
+	bindatcmd "party_04",""+strnpcinfo(0)+"::OnMenu",99,0;
+	
+	setmapflag "2012rwc_07",mf_loadevent;
+	
+	end;
+	
+}
+
+2012rwc_07	mapflag	gvg
+2012rwc_07	mapflag	nomemo
+2012rwc_07	mapflag	nobranch
+2012rwc_07	mapflag	noicewall
+2012rwc_07	mapflag	noreturn
+2012rwc_07	mapflag	nosave	SavePoint
+2012rwc_07	mapflag	noteleport
+2012rwc_07	mapflag	nowarp
+
+2012rwc_07,0,0,0	script	Board_party_04	858,{
+end;
+
+OnClose:
+	enablenpc ""+strnpcinfo(0)+"";
+	getmapxy(.@map$,.@x,.@y,BL_NPC);
+	setwall "2012rwc_07",.@x,.@y,1,0,0,""+strnpcinfo(0)+"";
+	end;
+
+OnOpen:
+	delwall ""+strnpcinfo(0)+"";
+	disablenpc ""+strnpcinfo(0)+"";
+	end;
+	
+OnInit:
+	//delwall ""+strnpcinfo(0)+"";
+	goto OnClose;
+	end;
+}
+
+2012rwc_07,55,81,4	duplicate(Board_party_04)	Board party_04#1	858
+2012rwc_07,55,80,4	duplicate(Board_party_04)	Board party_04#2	858
+2012rwc_07,55,79,4	duplicate(Board_party_04)	Board party_04#3	858
+2012rwc_07,55,78,4	duplicate(Board_party_04)	Board party_04#4	858
+
+2012rwc_07,145,81,4	duplicate(Board_party_04)	Board party_04#5	858
+2012rwc_07,145,80,4	duplicate(Board_party_04)	Board party_04#6	858
+2012rwc_07,145,79,4	duplicate(Board_party_04)	Board party_04#7	858
+2012rwc_07,145,78,4	duplicate(Board_party_04)	Board party_04#8	858
+
+/*
+2012rwc_07,0,0,0	script	Buff_party_04	834,{
+Start:
+	
+	.@delay = 3;
+	if(gettimetick(2)-@delay_heal < .@delay){
+		dispbottom "[ระบบ] โปรดรออีก "+(.@delay-(gettimetick(2)-@delay_heal))+" วินาทีถึงจะใช้งานได้อีกครั้งนะค่ะ";
+	}
+	else {
+		@delay_heal = gettimetick(2);
+		sc_end SC_STAN;
+		sc_end SC_STUN;
+		sc_end SC_STONE;
+		sc_end SC_SLOWDOWN;
+		sc_end SC_FREEZE;
+		sc_end SC_SLEEP;
+		sc_end SC_CURSE;
+		sc_end SC_SILENCE;
+		sc_end SC_CONFUSION;
+		sc_end SC_BLIND;
+		sc_end SC_BLEEDING;
+		sc_end SC_DECREASEAGI;
+		sc_end SC_POISON;
+		sc_end SC_HALLUCINATION;
+		sc_end SC_STRIPWEAPON;
+		sc_end SC_STRIPARMOR;
+		sc_end SC_STRIPHELM;
+		sc_end SC_STRIPSHIELD;
+		sc_end SC_CHANGEUNDEAD;
+		sc_end SC_ORCISH;
+		sc_end SC_BERSERK;
+		sc_end SC_SKE;
+		sc_end SC_SWOO;
+		sc_end SC_SKA;
+		sc_end SC_BURNING;
+		sc_end SC_FREEZING;
+		sc_end SC_FEAR;
+		sc_start SC_BLESSING,1000*60*15,10;
+		sc_start SC_INCREASEAGI,1000*60*15,10;
+		percentheal 100,100;
+	}
+	end;
+}
+
+2012rwc_07,58,97,4	duplicate(Buff_party_04)	Buff#party_04_A	834
+
+2012rwc_07,202,97,4	duplicate(Buff_party_04)	Buff#party_04_B	834
+
+*/
+
+a_room_04	mapflag	noteleport
+a_room_04	mapflag	nomemo
+a_room_04	mapflag	nobranch
+
+-	script	setup_save_party_04	-1,{
+
+OnInit:
+	
+	setmapflag "a_room_04",mf_loadevent;
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `party_04_collect_save` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`map_name` varchar(255) NOT NULL,"+
+		"`map_x` int(7) NOT NULL,"+
+		"`map_y` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	deletearray .steam;
+	//	กำหนด Char ID ที่สามารถเข้าห้องรับรองได้
+	setarray .steam[0]	,0
+						;
+	
+	end;
+	
+OnPCLoadMapEvent:
+	getmapxy(.@map_me$,.@x_me,.@y_me,BL_PC);
+	if(.@map_me$ == "a_room_04"){
+		for ( .@i=0; .@i<getarraysize(.steam); .@i++ ){
+			if(getcharid(0) == .steam[.@i]){
+				sleep2 1500;
+				message strcharinfo(0),"[ระบบ] : ท่านได้รับสิทธิ์ใช้งานพิเศษในการอยู่แผนที่นี้ได้";
+				end;
+			}
+		}
+		if(!getcharid(1)){
+			query_sql("SELECT map_name,map_x,map_y FROM `party_04_collect_save` WHERE char_id = "+getcharid(0)+"",.@map_name$,.@map_x,.@map_y);
+			savepoint .@map_name$,.@map_x,.@map_y,getcharid(0);
+			warp "SavePoint",0,0;
+			query_sql("DELETE FROM `party_04_collect_save` WHERE char_id = "+getcharid(0)+"");
+			sleep2 2500;
+			message strcharinfo(0),"[ระบบ] : ท่านไม่มีปาร์ตี้";
+			end;
+		}
+		if(getsavepoint(0) != "a_room_04"){
+			query_sql("INSERT INTO `party_04_collect_save` (char_id,map_name,map_x,map_y) VALUES ("+getcharid(0)+",'"+getsavepoint(0)+"',"+getsavepoint(1)+","+getsavepoint(2)+")");
+			savepoint .@map_me$,.@x_me,.@y_me,getcharid(0);
+			end;
+		}
+		if(getcharid(1) == $party_04_team_a){ end; }
+		if(getcharid(1) == $party_04_team_b){ end; }
+		query_sql("SELECT map_name,map_x,map_y FROM `party_04_collect_save` WHERE char_id = "+getcharid(0)+"",.@map_name$,.@map_x,.@map_y);
+		savepoint .@map_name$,.@map_x,.@map_y,getcharid(0);
+		warp "SavePoint",0,0;
+		query_sql("DELETE FROM `party_04_collect_save` WHERE char_id = "+getcharid(0)+"");
+		sleep2 2500;
+		message strcharinfo(0),"[ระบบ] : ปาร์ตี้ของท่านไม่ได้ลงทะเบียนไว้นะ";
+	}
+	end;
+
+}
+
+a_room_04,0,0,0	script	Kafra_party_04	115,{
+Start:
+	
+	.@menu = select(
+		"- Open Storage"
+	);
+	
+	if(.@menu == 1){ openstorage; }
+	
+	end;
+	
+OnInit:
+	
+	waitingroom "  ||  Kafra  ||",0;
+	
+	end;
+}
+
+a_room_04,0,0,0	script	Buffs_party_04	834,{
+Start:
+	
+	.@delay = 3;
+	if(gettimetick(2)-@delay_heal < .@delay){
+		dispbottom "[ระบบ] โปรดรออีก "+(.@delay-(gettimetick(2)-@delay_heal))+" วินาทีถึงจะใช้งานได้อีกครั้งนะค่ะ";
+	}
+	else {
+		@delay_heal = gettimetick(2);
+		sc_end SC_STAN;
+		sc_end SC_STUN;
+		sc_end SC_STONE;
+		sc_end SC_SLOWDOWN;
+		sc_end SC_FREEZE;
+		sc_end SC_SLEEP;
+		sc_end SC_CURSE;
+		sc_end SC_SILENCE;
+		sc_end SC_CONFUSION;
+		sc_end SC_BLIND;
+		sc_end SC_BLEEDING;
+		sc_end SC_DECREASEAGI;
+		sc_end SC_POISON;
+		sc_end SC_HALLUCINATION;
+		sc_end SC_STRIPWEAPON;
+		sc_end SC_STRIPARMOR;
+		sc_end SC_STRIPHELM;
+		sc_end SC_STRIPSHIELD;
+		sc_end SC_CHANGEUNDEAD;
+		sc_end SC_ORCISH;
+		sc_end SC_BERSERK;
+		sc_end SC_SKE;
+		sc_end SC_SWOO;
+		sc_end SC_SKA;
+		sc_end SC_BURNING;
+		sc_end SC_FREEZING;
+		sc_end SC_FEAR;
+		sc_start SC_BLESSING,1000*60*15,10;
+		sc_start SC_INCREASEAGI,1000*60*15,10;
+		percentheal 100,100;
+		specialeffect2 305;
+		specialeffect2 446;
+		specialeffect2 493;
+		specialeffect2 497;
+		specialeffect2 498;
+		specialeffect2 499;
+	}
+	end;
+	
+OnInit:
+	
+	waitingroom "  ||  Buffs  ||  ",0;
+	
+	end;
+	
+}
+
+a_room_04,0,0,0	script	Exit_party_04	858,{
+Start:
+	
+	.@menu = select(
+		"- Exit"
+	);
+	
+	if(.@menu == 1){
+		query_sql("SELECT map_name,map_x,map_y FROM `party_04_collect_save` WHERE char_id = "+getcharid(0)+"",.@map_name$,.@map_x,.@map_y);
+		if(getarraysize(.@map_name$)){
+			savepoint .@map_name$,.@map_x,.@map_y,getcharid(0);
+		}
+		warp "SavePoint",0,0;
+		query_sql("DELETE FROM `party_04_collect_save` WHERE char_id = "+getcharid(0)+"");
+	}
+	
+	end;
+	
+OnInit:
+	
+	waitingroom "   ||  Exit  ||  ",0;
+	
+	while(1){
+		if(!$party_04_team_a && !$party_04_team_b){
+			hideoffnpc ""+strnpcinfo(0)+"";
+		}
+		if($party_04_team_a && $party_04_team_b){
+			hideonnpc ""+strnpcinfo(0)+"";
+		}
+		sleep 1000;
+	}
+	end;
+	
+}
+
+a_room_04,62,139,4	duplicate(Kafra_party_04)	Kafra#party_04_A	115
+a_room_04,65,139,4	duplicate(Buffs_party_04)	Buff#party_04_A	834
+a_room_04,56,130,6	duplicate(Exit_party_04)	Exit#party_04_A	858
+
+a_room_04,163,89,2	duplicate(Kafra_party_04)	Kafra#party_04_B	115
+a_room_04,163,86,2	duplicate(Buffs_party_04)	Buff#party_04_B	834
+a_room_04,154,80,2	duplicate(Exit_party_04)	Exit#party_04_B	858
+
+a_room_04,69,132,4 	shop	Tool Dealer#Tool_party04_A-1	83,1750:-1,1751:-1,1752:-1,611:-1,501:-1,502:-1,503:-1,504:-1,579:-1,578:-1,506:-1,525:-1,645:-1,656:-1,657:-1,601:-1,602:-1,1065:-1,610:-1,717:-1,716:-1,715:-1,662:-1
+a_room_04,154,93,4 	shop	Tool Dealer#Tool_party04_B-1	83,1750:-1,1751:-1,1752:-1,611:-1,501:-1,502:-1,503:-1,504:-1,579:-1,578:-1,506:-1,525:-1,645:-1,656:-1,657:-1,601:-1,602:-1,1065:-1,610:-1,717:-1,716:-1,715:-1,662:-1

@@ -1,0 +1,94 @@
+guild_vs2,53,53,3	script	พนักงานกิลด์วอ#1	10134,{
+
+
+	switch(select(
+		"^FF0000•^000000 คลังเก็บของกิลด์",
+		"^FF0000•^000000 เรียกรวมพลกิลด์"
+	)) {
+			
+
+
+		case 1:
+			set .@npcname$,"[คลังเก็บของกิลด์]";
+			set @GID,getcharid(2);
+
+			menu "^FF0000•^000000 เปิดคลังกิลด์",-,"^FF0000•^000000 เปลี่ยนรหัสคลังกิลด์",change,"^FF0000•^000000 ยกเลิก",ende;
+
+			mes .@npcname$;
+			mes "กรุณาใส่รหัสคลังกิลด์";
+			input .@GuildPW;
+			if ( getd("$GuildPW_"+getcharid(2)) == .@GuildPW) goto open;
+			if ( getd("$GuildPW_"+getcharid(2)) != .@GuildPW) goto wrong;
+			close;
+
+			open:
+			if(guildopenstorage0 == 1) goto wait;
+			guildopenstorage();
+			close;
+
+			wait:
+			mes .@npcname$;
+			mes "สมาชิกท่านอื่นใช้คลังกิลด์อยู่";
+			close;
+
+			wrong:
+			mes "";
+			mes "ท่านใส่รหัสคลังกิลด์ผิด";
+			close;
+
+			passwort:
+			if(@GID == 0) goto L_NoGuild;
+			if(strcharinfo(0) == getguildmaster(@GID)) goto change;
+			mes .@npcname$;
+			mes "หัวกิลด์เท่านั้นที่เปลี่ยนรหัสได้";
+			close;
+
+			change:
+			mes .@npcname$;
+			mes "โปรดใส่รหัสที่คุณต้องการ :";
+			input .@GuildPW;
+			setd "$GuildPW_"+getcharid(2),.@GuildPW;
+			mes "รหัสใหม่คือ ^0000FF"+.@GuildPW+"^000000 ";
+			close;
+
+			L_NoGuild:
+			mes .@npcname$;
+			mes "คุณไม่ใช่สมาชิกกิลด์นี้";
+			close;
+
+			ende:
+			mes .@npcname$;
+			mes "ยินดีให้บริการ";
+			close;
+			end;
+		case 2:
+			menu 
+			"^FF0000•^000000 เรียกรวมพลกิลด์",grecall,
+			"^FF0000•^000000 ยกเลิก",Lcancel;
+
+			grecall:
+			set @nguild,getcharid(2);
+			if (strcharinfo(0) == getguildmaster(@nguild)) goto ymaster;
+			if (getcharid(2) == @nguild) goto nmaster;
+
+			ymaster:
+			atcommand "@guildrecall "+ getcharid(2) +"";
+			close;
+
+			nmaster:
+			mes "ไม่สามารถดำเนินการให้ได้";
+			mes "เนื่องจากท่านไม่ใช่หัวหน้ากิลด์";
+			close;
+
+			Lcancel:
+			mes "ยินดีให้บริการ";
+			end;
+	}
+	end;
+	
+OnInit:
+	setunitdata getnpcid(0),UNPC_GROUP_ID,1011;
+	waitingroom "Guildwar Assistance",0; //ชื่อห้อง
+	.sb$ = "~";
+end;
+}

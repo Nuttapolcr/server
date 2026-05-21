@@ -1,0 +1,617 @@
+
+oasis,166,70,4	script	ย้ายสถานะส่วมใส่	10208,{
+Start:
+
+.@iduse = 985;	//	ใส่รหัส Item ID ที่ต้องการไว้ใช้ทำเควส
+.@amountuse = 5;	//	ใส่จำนวนที่ต้องการไว้ใช้ทำเควส
+
+mes "^FF0000[ ย้ายสถานะส่วมใส่ ]^000000";
+mes " ";
+mes "ข้าสามารถย้ายสถานะต่าง ๆ";
+mes "จาก ^0000FFชิ้นหนึ่งไปอีกชิ้นหนึ่ง^000000";
+mes "โดยข้าต้องการ ^FF3300"+getitemname(.@iduse)+"^000000 x"+.@amountuse+"";
+mes "เป็นการแลกเปลี่ยน";
+mes "เลือกส่วนที่ต้องการย้ายสิ";
+	
+	Switch(Select("- ประเภท Equipment:- ประเภท Costume / Shadow")){
+
+		case 1:
+		
+			goto MenuEquip;
+			end;
+			
+		case 2:
+		
+			goto MenuCostume;
+			end;
+			
+	}
+	
+	end;
+	
+	MenuCostume:
+	
+	Switch(Select("- ^0099FF"+getequipname(EQI_COSTUME_HEAD_TOP)+"^000000:- ^0099FF"+getequipname(EQI_COSTUME_HEAD_MID)+"^000000:- ^0099FF"+getequipname(EQI_COSTUME_HEAD_LOW)+"^000000:- ^0099FF"+getequipname(EQI_SHADOW_ARMOR)+"^000000:- ^0099FF"+getequipname(EQI_SHADOW_WEAPON)+"^000000:- ^0099FF"+getequipname(EQI_SHADOW_SHIELD)+"^000000:- ^0099FF"+getequipname(EQI_COSTUME_GARMENT)+"^000000:- ^0099FF"+getequipname(EQI_SHADOW_SHOES)+"^000000:- ^0099FF"+getequipname(EQI_SHADOW_ACC_R)+"^000000:- ^0099FF"+getequipname(EQI_SHADOW_ACC_L)+"^000000")){
+		
+		case 1:
+		
+			if( !getequipisequiped(EQI_COSTUME_HEAD_TOP) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_COSTUME_HEAD_TOP);
+			.@locationequip = 1024;
+			.@refineuse = getequiprefinerycnt(EQI_COSTUME_HEAD_TOP);
+			.@opt01 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_COSTUME_HEAD_TOP,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_COSTUME_HEAD_TOP,0);
+			.@cardslot02 = getequipcardid(EQI_COSTUME_HEAD_TOP,1);
+			.@cardslot03 = getequipcardid(EQI_COSTUME_HEAD_TOP,2);
+			.@cardslot04 = getequipcardid(EQI_COSTUME_HEAD_TOP,3);
+			goto recheck;
+			end;
+		
+		case 2:
+		
+			if( !getequipisequiped(EQI_COSTUME_HEAD_MID) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_COSTUME_HEAD_MID);
+			.@locationequip = 2048;
+			.@refineuse = getequiprefinerycnt(EQI_COSTUME_HEAD_MID);
+			.@opt01 = getequiprandomoption(EQI_COSTUME_HEAD_MID,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_COSTUME_HEAD_MID,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_COSTUME_HEAD_MID,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_COSTUME_HEAD_MID,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_COSTUME_HEAD_MID,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_COSTUME_HEAD_MID,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_COSTUME_HEAD_MID,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_COSTUME_HEAD_MID,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_COSTUME_HEAD_MID,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_COSTUME_HEAD_MID,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_COSTUME_HEAD_MID,0);
+			.@cardslot02 = getequipcardid(EQI_COSTUME_HEAD_MID,1);
+			.@cardslot03 = getequipcardid(EQI_COSTUME_HEAD_MID,2);
+			.@cardslot04 = getequipcardid(EQI_COSTUME_HEAD_MID,3);
+			goto recheck;
+			end;
+		
+		case 3:
+		
+			if( !getequipisequiped(EQI_COSTUME_HEAD_LOW) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_COSTUME_HEAD_LOW);
+			.@locationequip = 4096;
+			.@refineuse = getequiprefinerycnt(EQI_COSTUME_HEAD_LOW);
+			.@opt01 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_COSTUME_HEAD_LOW,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_COSTUME_HEAD_LOW,0);
+			.@cardslot02 = getequipcardid(EQI_COSTUME_HEAD_LOW,1);
+			.@cardslot03 = getequipcardid(EQI_COSTUME_HEAD_LOW,2);
+			.@cardslot04 = getequipcardid(EQI_COSTUME_HEAD_LOW,3);
+			goto recheck;
+			end;
+		
+		case 4:
+		
+			if( !getequipisequiped(EQI_SHADOW_ARMOR) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_SHADOW_ARMOR);
+			.@locationequip = 65536;
+			.@refineuse = getequiprefinerycnt(EQI_SHADOW_ARMOR);
+			.@opt01 = getequiprandomoption(EQI_SHADOW_ARMOR,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_SHADOW_ARMOR,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_SHADOW_ARMOR,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_SHADOW_ARMOR,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_SHADOW_ARMOR,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_SHADOW_ARMOR,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_SHADOW_ARMOR,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_SHADOW_ARMOR,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_SHADOW_ARMOR,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_SHADOW_ARMOR,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_SHADOW_ARMOR,0);
+			.@cardslot02 = getequipcardid(EQI_SHADOW_ARMOR,1);
+			.@cardslot03 = getequipcardid(EQI_SHADOW_ARMOR,2);
+			.@cardslot04 = getequipcardid(EQI_SHADOW_ARMOR,3);
+			goto recheck;
+			end;
+		
+		case 5:
+		
+			if( !getequipisequiped(EQI_SHADOW_WEAPON) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_SHADOW_WEAPON);
+			.@locationequip = 131072;
+			.@refineuse = getequiprefinerycnt(EQI_SHADOW_WEAPON);
+			.@opt01 = getequiprandomoption(EQI_SHADOW_WEAPON,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_SHADOW_WEAPON,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_SHADOW_WEAPON,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_SHADOW_WEAPON,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_SHADOW_WEAPON,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_SHADOW_WEAPON,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_SHADOW_WEAPON,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_SHADOW_WEAPON,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_SHADOW_WEAPON,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_SHADOW_WEAPON,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_SHADOW_WEAPON,0);
+			.@cardslot02 = getequipcardid(EQI_SHADOW_WEAPON,1);
+			.@cardslot03 = getequipcardid(EQI_SHADOW_WEAPON,2);
+			.@cardslot04 = getequipcardid(EQI_SHADOW_WEAPON,3);
+			goto recheck;
+			end;
+		
+		case 6:
+		
+			if( !getequipisequiped(EQI_SHADOW_SHIELD) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_SHADOW_SHIELD);
+			.@locationequip = 262144;
+			.@refineuse = getequiprefinerycnt(EQI_SHADOW_SHIELD);
+			.@opt01 = getequiprandomoption(EQI_SHADOW_SHIELD,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_SHADOW_SHIELD,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_SHADOW_SHIELD,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_SHADOW_SHIELD,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_SHADOW_SHIELD,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_SHADOW_SHIELD,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_SHADOW_SHIELD,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_SHADOW_SHIELD,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_SHADOW_SHIELD,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_SHADOW_SHIELD,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_SHADOW_SHIELD,0);
+			.@cardslot02 = getequipcardid(EQI_SHADOW_SHIELD,1);
+			.@cardslot03 = getequipcardid(EQI_SHADOW_SHIELD,2);
+			.@cardslot04 = getequipcardid(EQI_SHADOW_SHIELD,3);
+			goto recheck;
+			end;
+		
+		case 7:
+		
+			if( !getequipisequiped(EQI_COSTUME_GARMENT) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_COSTUME_GARMENT);
+			.@locationequip = 8192;
+			.@refineuse = getequiprefinerycnt(EQI_COSTUME_GARMENT);
+			.@opt01 = getequiprandomoption(EQI_COSTUME_GARMENT,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_COSTUME_GARMENT,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_COSTUME_GARMENT,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_COSTUME_GARMENT,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_COSTUME_GARMENT,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_COSTUME_GARMENT,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_COSTUME_GARMENT,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_COSTUME_GARMENT,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_COSTUME_GARMENT,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_COSTUME_GARMENT,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_COSTUME_GARMENT,0);
+			.@cardslot02 = getequipcardid(EQI_COSTUME_GARMENT,1);
+			.@cardslot03 = getequipcardid(EQI_COSTUME_GARMENT,2);
+			.@cardslot04 = getequipcardid(EQI_COSTUME_GARMENT,3);
+			goto recheck;
+			end;
+		
+		case 8:
+		
+			if( !getequipisequiped(EQI_SHADOW_SHOES) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_SHADOW_SHOES);
+			.@locationequip = 524288;
+			.@refineuse = getequiprefinerycnt(EQI_SHADOW_SHOES);
+			.@opt01 = getequiprandomoption(EQI_SHADOW_SHOES,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_SHADOW_SHOES,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_SHADOW_SHOES,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_SHADOW_SHOES,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_SHADOW_SHOES,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_SHADOW_SHOES,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_SHADOW_SHOES,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_SHADOW_SHOES,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_SHADOW_SHOES,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_SHADOW_SHOES,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_SHADOW_SHOES,0);
+			.@cardslot02 = getequipcardid(EQI_SHADOW_SHOES,1);
+			.@cardslot03 = getequipcardid(EQI_SHADOW_SHOES,2);
+			.@cardslot04 = getequipcardid(EQI_SHADOW_SHOES,3);
+			goto recheck;
+			end;
+		
+		case 9:
+		
+			if( !getequipisequiped(EQI_SHADOW_ACC_R) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_SHADOW_ACC_R);
+			.@locationequip = 1048576;
+			.@refineuse = getequiprefinerycnt(EQI_SHADOW_ACC_R);
+			.@opt01 = getequiprandomoption(EQI_SHADOW_ACC_R,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_SHADOW_ACC_R,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_SHADOW_ACC_R,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_SHADOW_ACC_R,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_SHADOW_ACC_R,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_SHADOW_ACC_R,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_SHADOW_ACC_R,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_SHADOW_ACC_R,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_SHADOW_ACC_R,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_SHADOW_ACC_R,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_SHADOW_ACC_R,0);
+			.@cardslot02 = getequipcardid(EQI_SHADOW_ACC_R,1);
+			.@cardslot03 = getequipcardid(EQI_SHADOW_ACC_R,2);
+			.@cardslot04 = getequipcardid(EQI_SHADOW_ACC_R,3);
+			goto recheck;
+			end;
+		
+		case 10:
+		
+			if( !getequipisequiped(EQI_SHADOW_ACC_L) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_SHADOW_ACC_L);
+			.@locationequip = 2097152;
+			.@refineuse = getequiprefinerycnt(EQI_SHADOW_ACC_L);
+			.@opt01 = getequiprandomoption(EQI_SHADOW_ACC_L,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_SHADOW_ACC_L,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_SHADOW_ACC_L,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_SHADOW_ACC_L,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_SHADOW_ACC_L,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_SHADOW_ACC_L,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_SHADOW_ACC_L,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_SHADOW_ACC_L,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_SHADOW_ACC_L,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_SHADOW_ACC_L,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_SHADOW_ACC_L,0);
+			.@cardslot02 = getequipcardid(EQI_SHADOW_ACC_L,1);
+			.@cardslot03 = getequipcardid(EQI_SHADOW_ACC_L,2);
+			.@cardslot04 = getequipcardid(EQI_SHADOW_ACC_L,3);
+			goto recheck;
+			end;
+		
+		
+	}
+
+	MenuEquip:
+	
+	Switch(Select("- ^0099FF"+getequipname(EQI_HEAD_TOP)+"^000000:- ^0099FF"+getequipname(EQI_HEAD_MID)+"^000000:- ^0099FF"+getequipname(EQI_HEAD_LOW)+"^000000:- ^0099FF"+getequipname(EQI_ARMOR)+"^000000:- ^0099FF"+getequipname(EQI_HAND_R)+"^000000:- ^0099FF"+getequipname(EQI_HAND_L)+"^000000:- ^0099FF"+getequipname(EQI_GARMENT)+"^000000:- ^0099FF"+getequipname(EQI_SHOES)+"^000000:- ^0099FF"+getequipname(EQI_ACC_L)+"^000000:- ^0099FF"+getequipname(EQI_ACC_R)+"^000000")){
+	
+		case 1:
+		
+			if( !getequipisequiped(EQI_HEAD_TOP) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_HEAD_TOP);
+			.@locationequip = 256;
+			.@refineuse = getequiprefinerycnt(EQI_HEAD_TOP);
+			.@opt01 = getequiprandomoption(EQI_HEAD_TOP,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_HEAD_TOP,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_HEAD_TOP,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_HEAD_TOP,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_HEAD_TOP,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_HEAD_TOP,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_HEAD_TOP,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_HEAD_TOP,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_HEAD_TOP,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_HEAD_TOP,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_HEAD_TOP,0);
+			.@cardslot02 = getequipcardid(EQI_HEAD_TOP,1);
+			.@cardslot03 = getequipcardid(EQI_HEAD_TOP,2);
+			.@cardslot04 = getequipcardid(EQI_HEAD_TOP,3);
+			goto recheck;
+			end;
+		
+		case 2:
+				
+			if( !getequipisequiped(EQI_HEAD_MID) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_HEAD_MID);
+			.@refineuse = getequiprefinerycnt(EQI_HEAD_MID);
+			.@locationequip = 512;
+			.@opt01 = getequiprandomoption(EQI_HEAD_MID,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_HEAD_MID,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_HEAD_MID,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_HEAD_MID,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_HEAD_MID,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_HEAD_MID,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_HEAD_MID,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_HEAD_MID,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_HEAD_MID,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_HEAD_MID,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_HEAD_MID,0);
+			.@cardslot02 = getequipcardid(EQI_HEAD_MID,1);
+			.@cardslot03 = getequipcardid(EQI_HEAD_MID,2);
+			.@cardslot04 = getequipcardid(EQI_HEAD_MID,3);
+			goto recheck;
+			end;
+	
+		case 3:
+				
+			if( !getequipisequiped(EQI_HEAD_LOW) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_HEAD_LOW);
+			.@locationequip = 1;
+			.@refineuse = getequiprefinerycnt(EQI_HEAD_LOW);
+			.@opt01 = getequiprandomoption(EQI_HEAD_LOW,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_HEAD_LOW,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_HEAD_LOW,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_HEAD_LOW,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_HEAD_LOW,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_HEAD_LOW,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_HEAD_LOW,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_HEAD_LOW,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_HEAD_LOW,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_HEAD_LOW,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_HEAD_LOW,0);
+			.@cardslot02 = getequipcardid(EQI_HEAD_LOW,1);
+			.@cardslot03 = getequipcardid(EQI_HEAD_LOW,2);
+			.@cardslot04 = getequipcardid(EQI_HEAD_LOW,3);
+			goto recheck;
+			end;
+	
+		case 4:
+				
+			if( !getequipisequiped(EQI_ARMOR) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_ARMOR);
+			.@locationequip = 16;
+			.@refineuse = getequiprefinerycnt(EQI_ARMOR);
+			.@opt01 = getequiprandomoption(EQI_ARMOR,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_ARMOR,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_ARMOR,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_ARMOR,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_ARMOR,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_ARMOR,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_ARMOR,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_ARMOR,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_ARMOR,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_ARMOR,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_ARMOR,0);
+			.@cardslot02 = getequipcardid(EQI_ARMOR,1);
+			.@cardslot03 = getequipcardid(EQI_ARMOR,2);
+			.@cardslot04 = getequipcardid(EQI_ARMOR,3);
+			goto recheck;
+			end;
+	
+		case 5:
+				
+			if( !getequipisequiped(EQI_HAND_R) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_HAND_R);
+			.@locationequip = 2;
+			.@refineuse = getequiprefinerycnt(EQI_HAND_R);
+			.@opt01 = getequiprandomoption(EQI_HAND_R,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_HAND_R,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_HAND_R,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_HAND_R,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_HAND_R,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_HAND_R,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_HAND_R,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_HAND_R,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_HAND_R,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_HAND_R,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_HAND_R,0);
+			.@cardslot02 = getequipcardid(EQI_HAND_R,1);
+			.@cardslot03 = getequipcardid(EQI_HAND_R,2);
+			.@cardslot04 = getequipcardid(EQI_HAND_R,3);
+			goto recheck;
+			end;
+	
+		case 6:
+				
+			if( !getequipisequiped(EQI_HAND_L) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_HAND_L);
+			.@locationequip = 32;
+			.@refineuse = getequiprefinerycnt(EQI_HAND_L);
+			.@opt01 = getequiprandomoption(EQI_HAND_L,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_HAND_L,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_HAND_L,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_HAND_L,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_HAND_L,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_HAND_L,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_HAND_L,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_HAND_L,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_HAND_L,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_HAND_L,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_HAND_L,0);
+			.@cardslot02 = getequipcardid(EQI_HAND_L,1);
+			.@cardslot03 = getequipcardid(EQI_HAND_L,2);
+			.@cardslot04 = getequipcardid(EQI_HAND_L,3);
+			goto recheck;
+			end;
+	
+		case 7:
+			
+			if( !getequipisequiped(EQI_GARMENT) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_GARMENT);
+			.@locationequip = 4;
+			.@refineuse = getequiprefinerycnt(EQI_GARMENT);
+			.@opt01 = getequiprandomoption(EQI_GARMENT,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_GARMENT,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_GARMENT,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_GARMENT,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_GARMENT,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_GARMENT,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_GARMENT,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_GARMENT,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_GARMENT,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_GARMENT,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_GARMENT,0);
+			.@cardslot02 = getequipcardid(EQI_GARMENT,1);
+			.@cardslot03 = getequipcardid(EQI_GARMENT,2);
+			.@cardslot04 = getequipcardid(EQI_GARMENT,3);
+			goto recheck;
+			end;
+	
+		case 8:
+				
+			if( !getequipisequiped(EQI_SHOES) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_SHOES);
+			.@locationequip = 64;
+			.@refineuse = getequiprefinerycnt(EQI_SHOES);
+			.@opt01 = getequiprandomoption(EQI_SHOES,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_SHOES,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_SHOES,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_SHOES,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_SHOES,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_SHOES,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_SHOES,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_SHOES,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_SHOES,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_SHOES,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_SHOES,0);
+			.@cardslot02 = getequipcardid(EQI_SHOES,1);
+			.@cardslot03 = getequipcardid(EQI_SHOES,2);
+			.@cardslot04 = getequipcardid(EQI_SHOES,3);
+			goto recheck;
+			end;
+	
+		case 9:
+				
+			if( !getequipisequiped(EQI_ACC_L) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_ACC_L);
+			.@locationequip = 136;
+			.@refineuse = getequiprefinerycnt(EQI_ACC_L);
+			.@opt01 = getequiprandomoption(EQI_ACC_L,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_ACC_L,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_ACC_L,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_ACC_L,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_ACC_L,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_ACC_L,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_ACC_L,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_ACC_L,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_ACC_L,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_ACC_L,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_ACC_L,0);
+			.@cardslot02 = getequipcardid(EQI_ACC_L,1);
+			.@cardslot03 = getequipcardid(EQI_ACC_L,2);
+			.@cardslot04 = getequipcardid(EQI_ACC_L,3);
+			goto recheck;
+			end;
+	
+		case 10:
+			
+			if( !getequipisequiped(EQI_ACC_R) ){ next; mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้."; end; }
+			set .@idequip,getequipid(EQI_ACC_R);
+			.@locationequip = 136;
+			.@refineuse = getequiprefinerycnt(EQI_ACC_R);
+			.@opt01 = getequiprandomoption(EQI_ACC_R,0,ROA_ID);
+			.@val01 = getequiprandomoption(EQI_ACC_R,0,ROA_VALUE);
+			.@opt02 = getequiprandomoption(EQI_ACC_R,1,ROA_ID);
+			.@val02 = getequiprandomoption(EQI_ACC_R,1,ROA_VALUE);
+			.@opt03 = getequiprandomoption(EQI_ACC_R,2,ROA_ID);
+			.@val03 = getequiprandomoption(EQI_ACC_R,2,ROA_VALUE);
+			.@opt04 = getequiprandomoption(EQI_ACC_R,3,ROA_ID);
+			.@val04 = getequiprandomoption(EQI_ACC_R,3,ROA_VALUE);
+			.@opt05 = getequiprandomoption(EQI_ACC_R,4,ROA_ID);
+			.@val05 = getequiprandomoption(EQI_ACC_R,4,ROA_VALUE);
+			.@cardslot01 = getequipcardid(EQI_ACC_R,0);
+			.@cardslot02 = getequipcardid(EQI_ACC_R,1);
+			.@cardslot03 = getequipcardid(EQI_ACC_R,2);
+			.@cardslot04 = getequipcardid(EQI_ACC_R,3);
+			goto recheck;
+			end;
+		
+	}
+
+	recheck:
+	
+		if(countitem(.@idequip) > 1){
+			
+			next;
+			mes "^FF0000[ ย้ายสถานะส่วมใส่ ]^000000";
+			mes " ";
+			mes " เจ้ามี "+getitemname(.@idequip)+"";
+			mes " มากกว่า 1 ชิ้น.";
+			end;
+			
+		}
+		
+		getinventorylist;
+		
+		for(set @i, 0; @i < @inventorylist_count; set @i, @i + 1) {
+			
+			if(getiteminfo(@inventorylist_id[@i],5) == .@locationequip){
+				
+				.@item_id[.@found] = @inventorylist_id[.@i];
+				.@found++;
+				.@menu$ = .@menu$ + "-" + " เลือก "+ getitemname( @inventorylist_id[.@i] ) +":";
+			
+			}
+			
+			.@i++;
+		
+		}
+			
+			if( .@found ){
+				
+				next;
+				
+				.@i = select( .@menu$ ) - 1;
+				
+				if(.@idequip == .@item_id[.@i]){
+					
+					next;
+					
+					mes "^FF0000[ ย้ายสถานะส่วมใส่ ]^000000";
+					mes " ";
+					mes "ไม่สามารถย้ายคุณสมบัติไปไอเทมเดิม";
+					end;
+					
+				}
+				
+				mes "^FF0000[ ย้ายสถานะส่วมใส่ ]^000000";
+				mes " ";
+				mes "ต้องการย้ายคุณสมบัติจาก";
+				mes ""+getitemname(.@idequip)+" > "+ getitemname(.@item_id[.@i]);
+				if(.@refineuse > 0){ mes "อัตราตีบวก : + "+.@refineuse+""; }
+				if(.@cardslot01 > 0){ mes "ช่องที่ 1 : "+getitemname(.@cardslot01)+""; }
+				if(.@cardslot02 > 0){ mes "ช่องที่ 2 : "+getitemname(.@cardslot02)+""; }
+				if(.@cardslot03 > 0){ mes "ช่องที่ 3 : "+getitemname(.@cardslot03)+""; }
+				if(.@cardslot04 > 0){ mes "ช่องที่ 4 : "+getitemname(.@cardslot04)+""; }
+				if(.@opt01 > 0){ mes "แถวที่ 1 : "+.@opt01+" + "+.@val01+""; }
+				if(.@opt02 > 0){ mes "แถวที่ 2 : "+.@opt02+" + "+.@val02+""; }
+				if(.@opt03 > 0){ mes "แถวที่ 3 : "+.@opt03+" + "+.@val03+""; }
+				if(.@opt04 > 0){ mes "แถวที่ 4 : "+.@opt04+" + "+.@val04+""; }
+				if(.@opt05 > 0){ mes "แถวที่ 5 : "+.@opt05+" + "+.@val05+""; }
+				
+			}	else{
+	
+					mes "No items.";
+				
+				}
+				
+			
+				
+				Switch(Select("- ยืนยัน การย้ายคุณสมบัติ")){
+				
+					case 1:
+						
+						if(countitem(.@iduse) >= .@amountuse){
+							
+							delitem .@iduse,.@amountuse;
+							delitem .@idequip,1;
+							delitem .@item_id[.@i],1;
+							getitem .@idequip,1;
+				
+							setarray .@OptID[0],.@opt01,.@opt02,.@opt03,.@opt04,.@opt05;
+							setarray .@OptVal[0],.@val01,.@val02,.@val03,.@val04,.@val05;
+							
+							.@param = 0;
+							
+							getitem3 .@item_id[.@i],1,1,.@refineuse,0,.@cardslot01,.@cardslot02,.@cardslot03,.@cardslot04,.@OptID,.@OptVal,.@param;
+					
+							specialeffect2 154;
+				
+							end;
+				
+						}	else {
+					
+								next;
+								mes "^FF0000[ ย้ายสถานะส่วมใส่ ]^000000";
+								mes " ";
+								mes "คุณยังขาด ^0000FF"+getitemname(.@iduse)+"^000000 อีก ^FF3300"+(.@amountuse-countitem(.@iduse))+"^000000";
+								end;
+				
+							}
+		
+						end;
+						
+					
+				}
+				
+				end;
+
+OnInit:
+waitingroom "[#] ย้ายบวก&ออพชั่น",0;
+end;
+
+}

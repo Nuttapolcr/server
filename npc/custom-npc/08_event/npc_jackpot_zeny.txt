@@ -1,0 +1,1299 @@
+//	===========================	//
+//	@setup_spiner_zeny = คำสั่งพิเศษ	//
+//	===========================	//
+
+-	shop	shop_spiner_zeny_01	-1,501:-1
+-	shop	shop_spiner_zeny_02	-1,501:-1
+-	shop	shop_spiner_zeny_03	-1,501:-1
+-	shop	shop_spiner_zeny_04	-1,501:-1
+-	shop	shop_spiner_zeny_05	-1,501:-1
+-	shop	shop_spiner_zeny_06	-1,501:-1
+
+-	script	setting_spiner_zeny	-1,{
+end;
+	
+	Onclock1900:			//	ตั้งเวลาเปิดตู้
+		
+		if(gettime(DT_DAYOFWEEK) == $day_of_spiner_zeny){
+			$status_spiner_zeny = 0;
+			announce "[ SlotMachine Zeny ] : ขณะนี้ตู้หมุนได้ทำการเปิดให้เล่นแล้ว สามารถตรวจสอบลำดับการเล่นได้ที่ NPC เชิญร่วมสนุกกันได้เลย",bc_all,0xFFFF00;
+			end;
+		}
+		
+		end;
+		
+	Onclock2359:
+		
+		if(gettime(DT_DAYOFWEEK) == $day_of_spiner_zeny){
+			OnRank:
+				$status_spiner_zeny = 1;
+				query_sql("TRUNCATE TABLE `spiner_zeny_player_winners`");
+				query_sql("SELECT account_id,char_id,player_name,score FROM `spiner_zeny_player_ranking` ORDER BY score DESC LIMIT "+.rank_max+"",.@account_id,.@char_id,.@player_name$,.@score);
+				for ( .@i=0; .@i<getarraysize(.@account_id); .@i++ ) {
+					announce "SlotMachine Zeny : ผู้เล่น " +.@player_name$[.@i]+ " ได้อันดับ "+(.@i+1)+" จากการเล่น SlotMachine Zeny "+.@score[.@i]+" คะแนน สัปดาห์นี้", bc_all, "0xFFFF00";
+					query_sql("INSERT INTO `spiner_zeny_player_winners` (account_id,char_id,player_name,score,status) VALUES ("+.@account_id[.@i]+","+.@char_id[.@i]+",'"+escape_sql(.@player_name$[.@i])+"',"+.@score[.@i]+",0)");
+				}
+				query_sql("TRUNCATE TABLE `spiner_zeny_player_ranking`");
+				announce "SlotMachine Zeny : ทำการรีเซ็ตอันดับ เรียบร้อยแล้ว", bc_all, "0xFFFF00";
+				end;
+		}
+		
+		end;
+	
+	
+	OnStart:
+			
+		$status_spiner_zeny = 0;
+		announce "[ SlotMachine Zeny ] : ขณะนี้ตู้หมุนได้ทำการเปิดให้เล่นแล้ว แต่ข้าไม่ได้รีเซ็ตอันดับนะ ข้าเปิดให้เล่นอีกนิด สามารถตรวจสอบลำดับการเล่นได้ที่ NPC เชิญร่วมสนุกกันได้เลย",bc_all,0xFFFF00;
+		end;
+	
+	OnClose:
+			
+		$status_spiner_zeny = 1;
+		announce "[ SlotMachine Zeny ] : ขณะนี้ตู้หมุนได้ทำการปิดลงแล้ว ไว้พบกันใหม่ครั้งหน้า",bc_all,0xFFFF00;
+		end;
+	
+	OnMenu:
+		
+		while(1){
+			mes .mes$;
+			if($jackpot_spiner_zeny_st == 0){ mes "Jackpot : ^009900ON^000000"; }
+			if($jackpot_spiner_zeny_st == 1){ mes "Jackpot : ^FF3300OFF^000000"; }
+			.@menu = select(
+				"- ตั้งค่าแจ๊กพอต",
+				"- เปิดรอบพิเศษ หรือ ต่อเวลา (ไม่รีเซ็ตอันดับ)",
+				"- ปิดตู้ด่วน",
+				"- ตัดยอดอันดับ + รับรางวัล",
+				"- รีเซ็ต Stock ร้านค้าพิเศษ",
+				"- รีเซ็ต แต้มการันตีไอเทมผู้เล่น",
+				"- รีเซ็ต Jackpot ทั้งหมด",
+				"- รีเซ็ต Stock รางวัลในตู้"
+			);
+			if(.@menu == 1){
+				if($jackpot_spiner_zeny_st == 0){
+					$jackpot_spiner_zeny_st = 1;
+					clear;
+					goto OnMenu;
+					end;
+				}
+				if($jackpot_spiner_zeny_st == 1){
+					$jackpot_spiner_zeny_st = 0;
+					clear;
+					goto OnMenu;
+					end;
+				}
+			}
+			if(.@menu == 2){
+				donpcevent ""+strnpcinfo(3)+"::OnStart";
+			}
+			if(.@menu == 3){
+				donpcevent ""+strnpcinfo(3)+"::OnClose";
+			}
+			if(.@menu == 4){
+				donpcevent ""+strnpcinfo(3)+"::OnRank";
+			}
+			if(.@menu == 5){
+				for ( .@i=0; .@i<getarraysize($sale_spiner_zeny); .@i=.@i+3 ){
+					setd "$spiner_zeny"+$sale_spiner_zeny[.@i],0;
+				}
+				message strcharinfo(0),"ระบบ : รีเซ็ตสต๊อกร้านค้าพิเศษสำเร็จ";
+			}
+			if(.@menu == 6){
+				$round_garuntee_spiner_zeny ++;
+				message strcharinfo(0),"ระบบ : รีเซ็ตแต้มการันตีสำเร็จแล้ว";
+			}
+			if(.@menu == 7){
+				$jackpot_spiner_zeny = 0;
+				message strcharinfo(0),"ระบบ : รีเซ็ต Jackpot ทั้งหมด สำเร็จ";
+			}
+			if(.@menu == 8){
+				for ( .@i=0; .@i<getarraysize($spiner_zeny_01); .@i=.@i+3 ){
+					setd "$spiner_zeny_stock"+$spiner_zeny_01[.@i],0;
+				}
+				for ( .@i=0; .@i<getarraysize($spiner_zeny_02); .@i=.@i+3 ){
+					setd "$spiner_zeny_stock"+$spiner_zeny_02[.@i],0;
+				}
+				for ( .@i=0; .@i<getarraysize($spiner_zeny_03); .@i=.@i+3 ){
+					setd "$spiner_zeny_stock"+$spiner_zeny_03[.@i],0;
+				}
+				for ( .@i=0; .@i<getarraysize($spiner_zeny_04); .@i=.@i+3 ){
+					setd "$spiner_zeny_stock"+$spiner_zeny_04[.@i],0;
+				}
+				for ( .@i=0; .@i<getarraysize($spiner_zeny_04); .@i=.@i+3 ){
+					setd "$spiner_zeny_stock"+$spiner_zeny_04[.@i],0;
+				}
+				message strcharinfo(0),"ระบบ : รีเซ็ตสต๊อกร้านค้าพิเศษสำเร็จ";
+			}
+			
+			clear;
+		}
+		
+		end;
+		
+OnInit:
+	
+	//	===================================================================================================	//
+	//	 0 = Sunday / 1 = Monday / 2 = Tuesday / 3 = Wednesday / 4 = Thursday / 5 = Friday / 6 = Saturday	//
+	//	===================================================================================================	//
+		$day_of_spiner_zeny = 1;		//	ตั้งค่าสำหรับวันที่จะรีเซ็ตอันดับ+แจกรางวัล
+	//	===================================================================================================	//
+	
+	//	กำหนด Head Dialog
+	.mes$ = "^FF3300[ SlotMachine Zeny ]^000000";
+	
+	bindatcmd "setup_spiner_zeny",""+strnpcinfo(3)+"::OnMenu",99,0;
+	
+	.rank_max			= 10;			//	กำหนดการจัดอันดับผู้เล่น
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `spiner_zeny_player_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`id_item` varchar(255) NOT NULL,"+
+		"`play_time` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `spiner_zeny_player_ranking` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`score` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `spiner_zeny_player_winners` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`score` int(7) NOT NULL,"+
+		"`status` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `spiner_zeny_player_jp_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`amount` varchar(255) NOT NULL,"+
+		"`play_time` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	freeloop(1);
+	
+	npcshopdelitem "shop_spiner_zeny_06",501;
+	
+	deletearray $sale_spiner_zeny;
+	
+	//								รหัสไอเทม		ราคา			สต๊อก
+	setarray $sale_spiner_zeny[0]	,6635		,100		,100
+									,969		,10			,0
+									,969		,100		,10
+									,969		,100		,10
+									;
+						
+	for ( .@i=0; .@i<getarraysize($sale_spiner_zeny); .@i=.@i+3 ){
+		npcshopadditem "shop_spiner_zeny_06",$sale_spiner_zeny[.@i],$sale_spiner_zeny[.@i+1];
+	}
+	
+	deletearray $spiner_zeny_01;
+	deletearray $spiner_zeny_02;
+	deletearray $spiner_zeny_03;
+	deletearray $spiner_zeny_04;
+	deletearray $spiner_zeny_05;
+	
+	//	กำหนดรหัสไอเทมสำหรับ Legend		สต๊อก		รหัสไอเทม		จำนวน
+	setarray $spiner_zeny_01[0]		,10		,2766		,1
+									,10		,2767		,1
+									,10		,2768		,1
+									,10		,2769		,1
+									,10		,2770		,1
+									,10		,2771		,1
+									,50		,6635		,1
+									,100	,7619		,1
+									,100	,7620		,1
+									;
+
+	//	กำหนดรหัสไอเทมสำหรับ General		สต๊อก		รหัสไอเทม		จำนวน
+	setarray $spiner_zeny_02[0]		,0		,969		,1
+									,0		,14536		,1
+									,0		,14586		,1
+									,0		,12103		,1
+									,10		,7776		,1
+									,0		,12213		,1
+									,5		,6320		,1
+									,0		,616		,1
+									;
+								
+	//	กำหนดรหัสไอเทมสำหรับ Major		สต๊อก		รหัสไอเทม		จำนวน
+	setarray $spiner_zeny_03[0]		,0		,12202		,1
+									,0		,12203		,1
+									,0		,12204		,1
+									,0		,12205		,1
+									,0		,12206		,1
+									,0		,12207		,1
+									;
+								
+	//	กำหนดรหัสไอเทมสำหรับ Sergeant	สต๊อก		รหัสไอเทม		จำนวน
+	setarray $spiner_zeny_04[0]		,0		,603		,1
+									,0		,984		,1
+									,0		,985		,1
+									,0		,12214		,1
+									,0		,12221		,1
+									;
+								
+	//	กำหนดรหัสไอเทมสำหรับ Basic		สต๊อก		รหัสไอเทม		จำนวน
+	setarray $spiner_zeny_05[0]		,0		,969		,1
+									,0		,757		,1
+									,0		,756		,1
+									,0		,644		,1
+									;
+	
+	npcshopdelitem "shop_spiner_zeny_01",501;
+	npcshopdelitem "shop_spiner_zeny_02",501;
+	npcshopdelitem "shop_spiner_zeny_03",501;
+	npcshopdelitem "shop_spiner_zeny_04",501;
+	npcshopdelitem "shop_spiner_zeny_05",501;
+	
+	for( .@i=0; .@i<getarraysize($spiner_zeny_01); .@i=.@i+3 ){
+		npcshopadditem "shop_spiner_zeny_01",$spiner_zeny_01[.@i+1],$spiner_zeny_01[.@i+2];
+	}
+	for( .@i=0; .@i<getarraysize($spiner_zeny_02); .@i=.@i+3 ){
+		npcshopadditem "shop_spiner_zeny_02",$spiner_zeny_02[.@i+1],$spiner_zeny_02[.@i+2];
+	}
+	for( .@i=0; .@i<getarraysize($spiner_zeny_03); .@i=.@i+3 ){
+		npcshopadditem "shop_spiner_zeny_03",$spiner_zeny_03[.@i+1],$spiner_zeny_03[.@i+2];
+	}
+	for( .@i=0; .@i<getarraysize($spiner_zeny_04); .@i=.@i+3 ){
+		npcshopadditem "shop_spiner_zeny_04",$spiner_zeny_04[.@i+1],$spiner_zeny_04[.@i+2];
+	}
+	for( .@i=0; .@i<getarraysize($spiner_zeny_05); .@i=.@i+3 ){
+		npcshopadditem "shop_spiner_zeny_05",$spiner_zeny_05[.@i+1],$spiner_zeny_05[.@i+2];
+	}
+	
+	end;
+	
+}
+
+-	script	SlotMachine Zeny	563,{
+Start:
+	
+	if(round_garuntee_spiner_zeny != $round_garuntee_spiner_zeny){
+		garuntee_spiner_zeny = 0;
+		round_garuntee_spiner_zeny = $round_garuntee_spiner_zeny;
+	}
+	
+	if($day_of_spiner_zeny == 0){ .@mes$ = "อาทิตย์"; }
+	if($day_of_spiner_zeny == 1){ .@mes$ = "จันทร์"; }
+	if($day_of_spiner_zeny == 2){ .@mes$ = "อังคาร"; }
+	if($day_of_spiner_zeny == 3){ .@mes$ = "พุธ"; }
+	if($day_of_spiner_zeny == 4){ .@mes$ = "พฤหัสบดี"; }
+	if($day_of_spiner_zeny == 5){ .@mes$ = "ศุกร์"; }
+	if($day_of_spiner_zeny == 6){ .@mes$ = "เสาร์"; }
+	
+	mes .mes$;
+	
+	if(.garuntee > 0){
+		mes "^0000FF• หมุนครบ "+garuntee_spiner_zeny+"/"+.garuntee+" ครั้ง";
+		mes "- จะได้รับ "+getitemname(.item_garuntee)+" x"+.amount_garuntee+" ea^000000";
+	}
+	mes "^CCCC00- ยอดเก็บเข้า Jackpot : "+callfunc("F_InsertComma",.jackpot)+" Zeny^000000";
+	
+	mes "^CCCC00- Jackpot แตก : "+callfunc("F_InsertComma",.jp_start)+"-"+callfunc("F_InsertComma",.jp_end)+"%^000000";
+	
+	query_sql("SELECT score FROM `spiner_zeny_player_ranking` WHERE char_id = "+getcharid(0)+"",.@check_score);
+	
+	mes "คะแนนจัดอันดับ : ^0000FF"+callfunc("F_InsertComma",.@check_score)+" คะแนน^000000";
+	
+	mes "คุณหมุนไปแล้ว ^009900[ "+jp_round_spiner_zeny+"/"+.jp_round_spiner_zeny+" ]^000000 ครั้ง";
+	
+	mes "^FF3300** ตัดแต้มทุกวัน "+.@mes$+" 23.59 น. **^000000";
+	
+	.@menu = select(
+		"- เริ่มหมุนได้ ^FF9900( ใช้ Zeny "+callfunc("F_InsertComma",.use)+" z )^000000",
+		"- เข้าชมร้านค้าตัวอย่าง",
+		"- ร้านค้าพิเศษ ["+callfunc("F_InsertComma",#rw_spiner_zeny)+"]",
+		"- ตรวจสอบอันดับ^FF3300 ปัจจุบัน^000000",
+		"- ตรวจสอบอันดับ^FF9900 สัปดาห์ที่แล้ว^000000",
+		"- รับรางวัลอันดับ",
+		"- ตัวอย่างรางวัล",
+		"- ตรวจสอบผู้เล่นที่ถูก^0099FF Jackpot^000000",
+		(getgmlevel()>=99)?"- Menu Admin":""
+	);
+	
+	if(.@menu == 1){
+		if(!.@loop){
+			.@menu_play = select(
+				"- เล่นทีละครั้ง",
+				"- เล่นแบบอัตโนมัติ สูงสุด "+.round_auto+" ครั้ง"
+			);
+			if(.@menu_play == 1){ .@loop = 1; }
+			if(.@menu_play == 2){ .@loop = 2; }
+		}
+		
+		OnRespin:
+		
+			if(round_garuntee_spiner_zeny != $round_garuntee_spiner_zeny){
+				garuntee_spiner_zeny = 0;
+				round_garuntee_spiner_zeny = $round_garuntee_spiner_zeny;
+			}
+			
+			.@OverW = MaxWeight*.weight_percent/100;
+			if (Weight >= .@OverW) {
+				clear;
+				mes .mes$;
+				mes "คุณมีน้ำหนักมากเกินไป!!";
+				end;
+			}
+			
+			getinventorylist;
+			if (@inventorylist_count >= .max_count) {
+				clear;
+				mes .mes$;
+				mes "คุณมีไอเทมมากเกินไป เอาไปเก็บก่อน!!";
+				end;
+			}
+			
+			if($status_spiner_zeny == 1){
+				clear;
+				mes .mes$;
+				mes "ขณะนี้ตู้หมุนยังไม่เปิดให้เล่น";
+				mes "กรุณารอการประกาศจากเซิฟเวอร์อีกครั้ง";
+				end;
+			}
+			
+			if(Zeny < .use){
+				clear;
+				mes .mes$;
+				mes "จำนวน Zeny ของคุณไม่เพียงพอ";
+				mes "ยังขาดอีก Zeny "+callfunc("F_InsertComma",(.use-Zeny))+" z.";
+				end;
+			}
+			
+			Zeny = Zeny -.use;
+		
+			.@round_auto ++;
+			if(.@loop == 2){
+				clear;
+				mes .mes$;
+				mes "( "+.@round_auto+"/"+.round_auto+" ) ครั้ง";
+			}
+			
+			if(.garuntee){
+				garuntee_spiner_zeny ++;
+			}
+			
+			jp_round_spiner_zeny ++;
+			
+			$jackpot_spiner_zeny = $jackpot_spiner_zeny +.jackpot;
+			
+			if(.garuntee > 0){
+				if(garuntee_spiner_zeny >= .garuntee){
+					getitem .item_garuntee,.amount_garuntee;
+					announce "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ได้รับ "+getitemname(.item_garuntee)+" จากการเล่นครบจำนวนครั้ง",bc_all,0xFFFF00;
+					garuntee_spiner_zeny = 0;
+				}
+			}
+			
+			if(.start_point == .end_point){
+				.@point = .start_point;
+			}
+			else {
+				.@point = rand(.start_point,.end_point);
+			}
+			
+			#rw_spiner_zeny = #rw_spiner_zeny +1;
+			
+			if(dq_spin_zeny){
+				setd "dq_spin_zeny"+$dq_day,getd("dq_spin_zeny"+$dq_day)+1;
+				dispbottom "Daily Quest : คุณหมุนครบ ("+callfunc("F_InsertComma",getd("dq_spin_zeny"+$dq_day))+"/"+callfunc("F_InsertComma",dq_spin_zeny)+") รอบ";
+				if(getd("dq_spin_zeny"+$dq_day) == dq_spin_zeny){
+					dispbottom "Daily Quest : คุณทำภารกิจสำเร็จแล้ว !!!",0xFFFF00;
+				}
+			}
+			
+			
+			query_sql("SELECT char_id FROM `spiner_zeny_player_ranking` WHERE char_id = "+getcharid(0)+"",.@check_char_id);
+			if (!.@check_char_id) {
+				query_sql("INSERT INTO `spiner_zeny_player_ranking` (account_id,char_id,player_name,score) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"',"+.@point+")");
+			}
+			else {
+				query_sql("UPDATE `spiner_zeny_player_ranking` SET `score` = `score`+"+.@point+" WHERE char_id = "+getcharid(0)+"");
+			}
+			
+			OnReItem:
+			
+			.@random_spin = rand(1,(.rate_rare+.rate_hard+.rate_normal+.rate_easy+.rate_basic));
+			
+			if(.dispbottom == 1){ dispbottom "ท่านสุ่มได้ "+.@random_spin+"%"; }
+			
+			if(.@random_spin <= (.rate_rare)){
+				
+				.@max_spin	= getarraysize($spiner_zeny_01)/3;
+				if(.@max_spin <= 1){
+					.@id_item	= $spiner_zeny_01[1];
+					.@am_item	= $spiner_zeny_01[2];
+					.@stock		= $spiner_zeny_01[0];
+				}
+				else {
+					.@local		= rand(getarraysize($spiner_zeny_01)/3);
+					.@id_item	= $spiner_zeny_01[(.@local*3)+1];
+					.@am_item	= $spiner_zeny_01[(.@local*3)+2];
+					.@stock		= $spiner_zeny_01[(.@local*3)];
+				}
+				.@announce	= 1;		//	หากต้องการให้ประกาศใส่ 1	หากไม่ต้องการใส่ 0
+				.@item_get	= 0;		//	หากจะให้ติดออฟแถวใส่ 1	หากไม่ต้องการใส่ 0
+				
+			}
+			if(.@random_spin > (.rate_rare) && .@random_spin <= (.rate_rare+.rate_hard)){
+				
+				.@max_spin	= getarraysize($spiner_zeny_02)/3;
+				if(.@max_spin <= 1){
+					.@id_item	= $spiner_zeny_02[1];
+					.@am_item	= $spiner_zeny_02[2];
+					.@stock		= $spiner_zeny_02[0];
+				}
+				else {
+					.@local		= rand(getarraysize($spiner_zeny_02)/3);
+					.@id_item	= $spiner_zeny_02[(.@local*3)+1];
+					.@am_item	= $spiner_zeny_02[(.@local*3)+2];
+					.@stock		= $spiner_zeny_02[(.@local*3)];
+				}
+				.@announce	= 2;		//	หากต้องการให้ประกาศใส่ 1	หากไม่ต้องการใส่ 0
+				.@item_get	= 0;		//	หากจะให้ติดออฟแถวใส่ 1	หากไม่ต้องการใส่ 0
+				
+			}
+			if(.@random_spin > (.rate_rare+.rate_hard) && .@random_spin <= (.rate_rare+.rate_hard+.rate_normal)){
+				
+				.@max_spin	= getarraysize($spiner_zeny_03)/3;
+				if(.@max_spin <= 1){
+					.@id_item	= $spiner_zeny_03[1];
+					.@am_item	= $spiner_zeny_03[2];
+					.@stock		= $spiner_zeny_03[0];
+				}
+				else {
+					.@local		= rand(getarraysize($spiner_zeny_03)/3);
+					.@id_item	= $spiner_zeny_03[(.@local*3)+1];
+					.@am_item	= $spiner_zeny_03[(.@local*3)+2];
+					.@stock		= $spiner_zeny_03[(.@local*3)];
+				}
+				.@announce	= 3;		//	หากต้องการให้ประกาศใส่ 1	หากไม่ต้องการใส่ 0
+				.@item_get	= 0;		//	หากจะให้ติดออฟแถวใส่ 1	หากไม่ต้องการใส่ 0
+				
+			}
+			if(.@random_spin > (.rate_rare+.rate_hard+.rate_normal) && .@random_spin <= (.rate_rare+.rate_hard+.rate_normal+.rate_easy)){
+				
+				.@max_spin	= getarraysize($spiner_zeny_04)/3;
+				if(.@max_spin <= 1){
+					.@id_item	= $spiner_zeny_04[1];
+					.@am_item	= $spiner_zeny_04[2];
+					.@stock		= $spiner_zeny_04[0];
+				}
+				else {
+					.@local		= rand(getarraysize($spiner_zeny_04)/3);
+					.@id_item	= $spiner_zeny_04[(.@local*3)+1];
+					.@am_item	= $spiner_zeny_04[(.@local*3)+2];
+					.@stock		= $spiner_zeny_04[(.@local*3)];
+				}
+				.@announce	= 0;		//	หากต้องการให้ประกาศใส่ 1	หากไม่ต้องการใส่ 0
+				.@item_get	= 0;		//	หากจะให้ติดออฟแถวใส่ 1	หากไม่ต้องการใส่ 0
+				
+			}
+			if(.@random_spin > (.rate_rare+.rate_hard+.rate_normal+.rate_easy) && .@random_spin <= (.rate_rare+.rate_hard+.rate_normal+.rate_easy+.rate_basic)){
+				
+				.@max_spin	= getarraysize($spiner_zeny_05)/3;
+				if(.@max_spin <= 1){
+					.@id_item	= $spiner_zeny_05[1];
+					.@am_item	= $spiner_zeny_05[2];
+					.@stock		= $spiner_zeny_05[0];
+				}
+				else {
+					.@local		= rand(getarraysize($spiner_zeny_05)/3);
+					.@id_item	= $spiner_zeny_05[(.@local*3)+1];
+					.@am_item	= $spiner_zeny_05[(.@local*3)+2];
+					.@stock		= $spiner_zeny_05[(.@local*3)];
+				}
+				.@announce	= 0;		//	หากต้องการให้ประกาศใส่ 1	หากไม่ต้องการใส่ 0
+				.@item_get	= 0;		//	หากจะให้ติดออฟแถวใส่ 1	หากไม่ต้องการใส่ 0
+				
+			}
+			
+			if(.@stock){
+				if((getd("$spiner_zeny_stock"+.@id_item)+.@am_item) > .@stock){
+					dispbottom "สต๊อก "+getitemname(.@id_item)+" เต็มแล้ว สุ่มใหม่";
+					goto OnReItem;
+					end;
+				}
+			}
+			
+			if(.jp_round_spiner_zeny){
+				if(jp_round_spiner_zeny >= .jp_round_spiner_zeny){
+					jp_round_spiner_zeny = 0;
+					if($jackpot_spiner_zeny_st == 0){ .@random_jp = rand(1,100); }
+					if($jackpot_spiner_zeny_st == 1){ .@random_jp = 10000; }
+					if(.@random_jp <= .rate_jackpot){
+						if(.jp_start == .jp_end){
+							.@jackpots = .jp_start;
+						}
+						else {
+							.@jackpots = rand(.jp_start,.jp_end);
+						}
+						announce "[ "+strnpcinfo(1)+" ] : ยินดีด้วย คุณ "+strcharinfo(0)+" ได้รับ Jackpot "+.@jackpots+"% Zeny จำนวน "+callfunc("F_InsertComma",($jackpot_spiner_zeny*.@jackpots/100))+" z.",bc_all,0xFFFF00;
+						query_sql("INSERT INTO `spiner_zeny_player_jp_logs` (account_id,char_id,player_name,amount,play_time) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+strcharinfo(0)+"','"+callfunc("F_InsertComma",($jackpot_spiner_zeny*.@jackpots/100))+" Zeny',NOW())");
+						Zeny = Zeny +($jackpot_spiner_zeny*.@jackpots/100);
+						dispbottom "[ระบบ] : คุณได้รับ Zeny "+callfunc("F_InsertComma",($jackpot_spiner_zeny*.@jackpots/100))+" z.";
+						if(.jp_all == 1){ $jackpot_spiner_zeny = 0; }
+						if(.jp_all == 2){ $jackpot_spiner_zeny = $jackpot_spiner_zeny -($jackpot_spiner_zeny*.@jackpots/100); }
+					}
+					else {
+						dispbottom "[ระบบ] : น่าเสียดาย ดวงท่านไม่ดีเลย อดได้รับ Jackpot เลย",0xFF0000;
+					}
+				}
+			}
+			
+			if(.@announce == 1){ announce "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ที่ได้รับ "+getitemname(.@id_item)+" จากการเสี่ยงโชค",bc_all,0xFFFF00; }
+			else if(.@announce == 2){ announce "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ที่ได้รับ "+getitemname(.@id_item)+" จากการเสี่ยงโชค",bc_all,0x0099FF; }
+			else if(.@announce == 3){ announce "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ที่ได้รับ "+getitemname(.@id_item)+" จากการเสี่ยงโชค",bc_all,0xFF0000; }
+			else {
+				npctalk "[ "+strnpcinfo(1)+" ] : คุณ "+strcharinfo(0)+" ได้รับ "+getitemname(.@id_item)+" จากการเสี่ยงโชค";
+			}
+			
+		recheck_lastest:
+	
+			.@randomoption = rand(1,42);
+			
+			if(.@randomoption == 1){	.@opt01 = 259;	.@val01 = rand(1,5); }	//	ATK%
+			if(.@randomoption == 2){	.@opt01 = 14;	.@val01 = rand(1,5); }	//	MATK%
+			if(.@randomoption == 3){	.@opt01 = 170;	.@val01 = rand(1,5); }	//	ลดร่าย
+			if(.@randomoption == 4){	.@opt01 = 16;	.@val01 = rand(1,10); }	//	ASPD%
+			if(.@randomoption == 5){	.@opt01 = 17;	.@val01 = rand(1,20); }	//	ATK
+			if(.@randomoption == 6){	.@opt01 = 19;	.@val01 = rand(1,20); }	//	MATK
+			if(.@randomoption == 7){	.@opt01 = 166;	.@val01 = rand(1,5); }	//	โจมตีระยะไกล%
+			if(.@randomoption == 8){	.@opt01 = 164;	.@val01 = rand(1,5); }	//	โจมตีคริแรงขึ้น%
+			if(.@randomoption == 9){	.@opt01 = 157;	.@val01 = rand(1,5); }	//	โจมขนาด%
+			if(.@randomoption == 10){	.@opt01 = 158;	.@val01 = rand(1,5); }	//	โจมขนาด%
+			if(.@randomoption == 11){	.@opt01 = 159;	.@val01 = rand(1,5); }	//	โจมขนาด%
+			if(.@randomoption == 12){	.@opt01 = 148;	.@val01 = rand(1,5); }	//	โจมตีบอส%
+			if(.@randomoption == 13){	.@opt01 = 94;	.@val01 = rand(1,5); }	//	ป้องกันมนุษย์%
+			if(.@randomoption == 14){	.@opt01 = 160;	.@val01 = rand(1,5); }	//	ป้องกันขนาด%
+			if(.@randomoption == 15){	.@opt01 = 161;	.@val01 = rand(1,5); }	//	ป้องกันขนาด%
+			if(.@randomoption == 16){	.@opt01 = 162;	.@val01 = rand(1,5); }	//	ป้องกันขนาด%
+			if(.@randomoption == 17){	.@opt01 = 167;	.@val01 = rand(1,5); }	//	ป้องกันไกล%
+			if(.@randomoption == 18){	.@opt01 = 155;	.@val01 = rand(1,5); }	//	ไม่สน Mdef%
+			if(.@randomoption == 19){	.@opt01 = 208;	.@val01 = rand(1,5); }	//	โจมกายภาพมนุษย์%
+			if(.@randomoption == 20){	.@opt01 = 210;	.@val01 = rand(1,5); }	//	โจมเวทย์มนุษย์%
+			if(.@randomoption == 21){	.@opt01 = 1;	.@val01 = rand(50,300); }	//	HP
+			if(.@randomoption == 22){	.@opt01 = 2;	.@val01 = rand(1,50); }	//	SP
+			if(.@randomoption == 23){	.@opt01 = 9;	.@val01 = rand(1,5); }	//	HP%
+			if(.@randomoption == 24){	.@opt01 = 10;	.@val01 = rand(1,3); }	//	SP%
+			if(.@randomoption == 25){	.@opt01 = 242;	.@val01 = rand(1,10); }	//	EXP%
+			if(.@randomoption == 26){	.@opt01 = 258;	.@val01 = rand(1,10); }	//	DROP%
+			if(.@randomoption == 27){	.@opt01 = 18;	.@val01 = rand(1,20); }	//	HIT
+			if(.@randomoption == 28){	.@opt01 = 24;	.@val01 = rand(1,10); }	//	CRI
+			if(.@randomoption == 29){	.@opt01 = 22;	.@val01 = rand(1,20); }	//	FLEE
+			if(.@randomoption == 30){	.@opt01 = 20;	.@val01 = rand(1,5); }	//	DEF
+			if(.@randomoption == 31){	.@opt01 = 21;	.@val01 = rand(1,5); }	//	MDEF
+			if(.@randomoption == 32){	.@opt01 = 1;	.@val01 = rand(50,300); }	//	HP
+			if(.@randomoption == 33){	.@opt01 = 2;	.@val01 = rand(1,50); }	//	SP
+			if(.@randomoption == 34){	.@opt01 = 9;	.@val01 = rand(1,5); }	//	HP%
+			if(.@randomoption == 35){	.@opt01 = 10;	.@val01 = rand(1,3); }	//	SP%
+			if(.@randomoption == 36){	.@opt01 = 242;	.@val01 = rand(1,10); }	//	EXP%
+			if(.@randomoption == 37){	.@opt01 = 258;	.@val01 = rand(1,10); }	//	DROP%
+			if(.@randomoption == 38){	.@opt01 = 18;	.@val01 = rand(1,20); }	//	HIT
+			if(.@randomoption == 39){	.@opt01 = 24;	.@val01 = rand(1,10); }	//	CRI
+			if(.@randomoption == 40){	.@opt01 = 22;	.@val01 = rand(1,20); }	//	FLEE
+			if(.@randomoption == 41){	.@opt01 = 20;	.@val01 = rand(1,5); }	//	DEF
+			if(.@randomoption == 42){	.@opt01 = 21;	.@val01 = rand(1,5); }	//	MDEF
+			
+			if(.@opt01 == 0){ .@opt01 = 300; }
+			if(.@opt02 == 0){ .@opt02 = 300; }
+			if(.@opt03 == 0){ .@opt03 = 300; }
+			if(.@opt04 == 0){ .@opt04 = 300; }
+			if(.@opt05 == 0){ .@opt05 = 300; }
+			
+			setarray .@OptID[0],.@opt01,.@opt02,.@opt03,.@opt04,.@opt05;
+			setarray .@OptVal[0],.@val01,.@val02,.@val03,.@val04,.@val05;
+									
+			.@param = 0;
+			
+			if(.log){
+				if(.@id_item){ query_sql("INSERT INTO `spiner_zeny_player_logs` (account_id,char_id,player_name,id_item,play_time) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(getitemname(.@id_item))+"',NOW())"); }
+			}
+			
+			if(.@stock){
+				setd "$spiner_zeny_stock"+.@id_item,getd("$spiner_zeny_stock"+.@id_item)+.@am_item;
+			}
+			
+			if(.@item_get == 0){
+				getitem .@id_item,.@am_item;
+			}
+			
+			if(.@item_get == 1){ 
+				getitem3 .@id_item,.@am_item,1,.@refineuse,0,.@cardslot01,.@cardslot02,.@cardslot03,.@cardslot04,.@OptID,.@OptVal,.@param;
+			}
+			
+			if(.@loop == 2){
+				if(.@round_auto >= .round_auto){
+					mes "ครบทั้งหมด "+.round_auto+" ครั้งแล้ว";
+					end;
+				}
+				sleep2 .speed;
+				goto OnRespin;
+				end;
+			}
+			clear;
+			goto Start;
+			end;
+	}		
+	if(.@menu == 2){
+			menu	"- ตัวอย่าง^FF3300 Legend^000000",menu_shop_01,
+					"- ตัวอย่าง^FF3300 General^000000",menu_shop_02,
+					"- ตัวอย่าง^FF3300 Major^000000",menu_shop_03,
+					"- ตัวอย่าง^FF3300 Sergeant^000000",menu_shop_04,
+					"- ตัวอย่าง^FF3300 Basic^000000",menu_shop_05;
+			end;
+			
+		menu_shop_01:
+			close2;
+			dispbottom "=========================",0x00FFFF;
+			dispbottom "        [ Stock คงเหลือ ณ ปัจจุบัน ]",0x00FFFF;
+			dispbottom "=========================",0x00FFFF;
+			for ( .@i=0; .@i<getarraysize($spiner_zeny_01); .@i=.@i+3 ){
+					if($spiner_zeny_01[.@i] == 0){
+					dispbottom "• "+getitemname($spiner_zeny_01[.@i+1])+" ไม่จำกัด",0xFFFF00;
+				}
+				else {
+					dispbottom "• "+getitemname($spiner_zeny_01[.@i+1])+" จำกัดสินค้าที่ ("+getd("$spiner_zeny_stock"+$spiner_zeny_01[.@i+1])+"/"+$spiner_zeny_01[.@i]+") ea",0xFFFF00;
+				}
+			}
+			@ex_review = 0;
+			npcshopattach "shop_spiner_zeny_01";
+			callshop "shop_spiner_zeny_01",1;
+			end;
+		menu_shop_02:
+			close2;
+			dispbottom "=========================",0x00FFFF;
+			dispbottom "        [ Stock คงเหลือ ณ ปัจจุบัน ]",0x00FFFF;
+			dispbottom "=========================",0x00FFFF;
+			for ( .@i=0; .@i<getarraysize($spiner_zeny_02); .@i=.@i+3 ){
+					if($spiner_zeny_02[.@i] == 0){
+					dispbottom "• "+getitemname($spiner_zeny_02[.@i+1])+" ไม่จำกัด",0xFFFF00;
+				}
+				else {
+					dispbottom "• "+getitemname($spiner_zeny_02[.@i+1])+" จำกัดสินค้าที่ ("+getd("$spiner_zeny_stock"+$spiner_zeny_02[.@i+1])+"/"+$spiner_zeny_02[.@i]+") ea",0xFFFF00;
+				}
+			}
+			@ex_review = 0;
+			npcshopattach "shop_spiner_zeny_02";
+			callshop "shop_spiner_zeny_02",1;
+			end;
+		menu_shop_03:
+			close2;
+			dispbottom "=========================",0x00FFFF;
+			dispbottom "        [ Stock คงเหลือ ณ ปัจจุบัน ]",0x00FFFF;
+			dispbottom "=========================",0x00FFFF;
+			for ( .@i=0; .@i<getarraysize($spiner_zeny_03); .@i=.@i+3 ){
+					if($spiner_zeny_03[.@i] == 0){
+					dispbottom "• "+getitemname($spiner_zeny_03[.@i+1])+" ไม่จำกัด",0xFFFF00;
+				}
+				else {
+					dispbottom "• "+getitemname($spiner_zeny_03[.@i+1])+" จำกัดสินค้าที่ ("+getd("$spiner_zeny_stock"+$spiner_zeny_03[.@i+1])+"/"+$spiner_zeny_03[.@i]+") ea",0xFFFF00;
+				}
+			}
+			@ex_review = 0;
+			npcshopattach "shop_spiner_zeny_03";
+			callshop "shop_spiner_zeny_03",1;
+			end;
+		menu_shop_04:
+			close2;
+			dispbottom "=========================",0x00FFFF;
+			dispbottom "        [ Stock คงเหลือ ณ ปัจจุบัน ]",0x00FFFF;
+			dispbottom "=========================",0x00FFFF;
+			for ( .@i=0; .@i<getarraysize($spiner_zeny_04); .@i=.@i+3 ){
+					if($spiner_zeny_04[.@i] == 0){
+					dispbottom "• "+getitemname($spiner_zeny_04[.@i+1])+" ไม่จำกัด",0xFFFF00;
+				}
+				else {
+					dispbottom "• "+getitemname($spiner_zeny_04[.@i+1])+" จำกัดสินค้าที่ ("+getd("$spiner_zeny_stock"+$spiner_zeny_04[.@i+1])+"/"+$spiner_zeny_04[.@i]+") ea",0xFFFF00;
+				}
+			}
+			@ex_review = 0;
+			npcshopattach "shop_spiner_zeny_04";
+			callshop "shop_spiner_zeny_04",1;
+			end;
+		menu_shop_05:
+			close2;
+			dispbottom "=========================",0x00FFFF;
+			dispbottom "        [ Stock คงเหลือ ณ ปัจจุบัน ]",0x00FFFF;
+			dispbottom "=========================",0x00FFFF;
+			for ( .@i=0; .@i<getarraysize($spiner_zeny_05); .@i=.@i+3 ){
+					if($spiner_zeny_05[.@i] == 0){
+					dispbottom "• "+getitemname($spiner_zeny_05[.@i+1])+" ไม่จำกัด",0xFFFF00;
+				}
+				else {
+					dispbottom "• "+getitemname($spiner_zeny_05[.@i+1])+" จำกัดสินค้าที่ ("+getd("$spiner_zeny_stock"+$spiner_zeny_05[.@i+1])+"/"+$spiner_zeny_05[.@i]+") ea",0xFFFF00;
+				}
+			}
+			@ex_review = 0;
+			npcshopattach "shop_spiner_zeny_05";
+			callshop "shop_spiner_zeny_05",1;
+			end;
+	}
+	if(.@menu == 3){
+		//clear;
+		close2;
+		@ex_review = 1;
+		npcshopattach "shop_spiner_zeny_06";
+		callshop "shop_spiner_zeny_06",1;
+		//mes .mes$;
+		dispbottom "=========================",0x00FFFF;
+		dispbottom "        [ Stock คงเหลือ ณ ปัจจุบัน ]",0x00FFFF;
+		dispbottom "=========================",0x00FFFF;
+		for ( .@i=0; .@i<getarraysize($sale_spiner_zeny); .@i=.@i+3 ){
+				if($sale_spiner_zeny[.@i+2] == 0){
+				dispbottom "• "+getitemname($sale_spiner_zeny[.@i])+" ไม่จำกัด",0xFFFF00;
+			}
+			else {
+				dispbottom "• "+getitemname($sale_spiner_zeny[.@i])+" จำกัดสินค้าที่ ("+getd("$spiner_zeny"+$sale_spiner_zeny[.@i])+"/"+$sale_spiner_zeny[.@i+2]+") ea",0xFFFF00;
+			}
+		}
+		end;
+	}
+	if(.@menu == 4){
+		clear;
+		mes .mes$;
+		query_sql("SELECT player_name,score FROM `spiner_zeny_player_ranking` ORDER BY score DESC LIMIT "+.rank_show+"",.@name2$,.@score2);
+		if (!getarraysize(.@score2)) {
+			mes "^FF0000ยังไม่มีข้อมูลของสัปดาห์นี้^000000";
+			end;
+		}
+		for ( .@i=0; .@i<getarraysize(.@name2$); .@i++ ) {
+			mes "อันดับ "+(.@i+1)+" : ^0000FF"+.@name2$[.@i]+"^009900 ["+.@score2[.@i]+"]^000000 pt.";
+		}
+	}
+	if(.@menu == 5){
+		clear;
+		mes .mes$;
+		query_sql("SELECT player_name,score FROM `spiner_zeny_player_winners` ORDER BY score DESC LIMIT "+.rank_show+"",.@name1$,.@score1);
+		if (!getarraysize(.@score1)) {
+			mes "^FF0000ยังไม่มีข้อมูลของสัปดาห์ที่แล้ว^000000";
+			close;
+		}
+		for ( .@i=0; .@i<getarraysize(.@name1$); .@i++) {
+			mes "อันดับ "+(.@i+1)+" : ^0000FF"+.@name1$[.@i]+"^009900 ["+.@score1[.@i]+"]^000000 pt.";
+		}
+	}
+	if(.@menu == 6){
+		clear;
+		query_sql("SELECT id FROM `spiner_zeny_player_winners` WHERE char_id = "+getcharid(0)+" && status = 0",.@id);
+		mes .mes$;
+		mes "รางวัลที่ยังไม่ได้รับ ^FF0000"+getarraysize(.@id)+"^000000 รางวัล";
+		next;
+		if(!.@id){
+			mes .mes$;
+			mes "ยังไม่มีรางวัลที่ท่านสามารถรับได้";
+			end;
+		}
+		if(select("รับรางวัล:ยกเลิก") == 1) {
+			goto OnReward;
+			end;
+		}
+		mes .mes$;
+		mes "ไม่เป็นไร ไว้มารับทีหลังก็ได้นะ";
+		end;
+		
+		OnReward:
+		
+		query_sql("UPDATE `spiner_zeny_player_winners` SET status = 1 WHERE char_id = "+getcharid(0)+"");
+		dispbottom "ระบบ : คุณได้รับรางวัล ranking อันดับ "+.@id+"",0x0000FF;
+		if(.@id == 1){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_01); .@i++ ){
+				getitem .item_id_rw_01[.@i],.item_am_rw_01[.@i];
+			}
+		}
+		if(.@id == 2){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_02); .@i++ ){
+				getitem .item_id_rw_02[.@i],.item_am_rw_02[.@i];
+			}
+		}
+		if(.@id == 3){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_03); .@i++ ){
+				getitem .item_id_rw_03[.@i],.item_am_rw_03[.@i];
+			}
+		}
+		if(.@id == 4){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_04); .@i++ ){
+				getitem .item_id_rw_04[.@i],.item_am_rw_04[.@i];
+			}
+		}
+		if(.@id == 5){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_05); .@i++ ){
+				getitem .item_id_rw_05[.@i],.item_am_rw_05[.@i];
+			}
+		}
+		if(.@id == 6){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_06); .@i++ ){
+				getitem .item_id_rw_06[.@i],.item_am_rw_06[.@i];
+			}
+		}
+		if(.@id == 7){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_07); .@i++ ){
+				getitem .item_id_rw_07[.@i],.item_am_rw_07[.@i];
+			}
+		}
+		if(.@id == 8){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_08); .@i++ ){
+				getitem .item_id_rw_08[.@i],.item_am_rw_08[.@i];
+			}
+		}
+		if(.@id == 9){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_09); .@i++ ){
+				getitem .item_id_rw_09[.@i],.item_am_rw_09[.@i];
+			}
+		}
+		if(.@id == 10){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_10); .@i++ ){
+				getitem .item_id_rw_10[.@i],.item_am_rw_10[.@i];
+			}
+		}
+	}
+	if(.@menu == 7){
+		if(getarraysize(.item_id_rw_01)){
+			clear;
+			mes .mes$;
+			mes "อันดับ 1";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_01); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_01[.@i])+" x"+.item_am_rw_01[.@i]+" ea";
+			}
+		}
+		if(getarraysize(.item_id_rw_02)){
+			next;
+			mes .mes$;
+			mes "อันดับ 2";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_02); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_02[.@i])+" x"+.item_am_rw_02[.@i]+" ea";
+			}
+		}
+		if(getarraysize(.item_id_rw_03)){
+			next;
+			mes .mes$;
+			mes "อันดับ 3";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_03); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_03[.@i])+" x"+.item_am_rw_03[.@i]+" ea";
+			}
+		}
+		if(getarraysize(.item_id_rw_04)){
+			next;
+			mes .mes$;
+			mes "อันดับ 4";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_04); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_04[.@i])+" x"+.item_am_rw_04[.@i]+" ea";
+			}
+		}
+		if(getarraysize(.item_id_rw_05)){
+			next;
+			mes .mes$;
+			mes "อันดับ 5";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_05); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_05[.@i])+" x"+.item_am_rw_05[.@i]+" ea";
+			}
+		}
+		if(getarraysize(.item_id_rw_06)){
+			next;
+			mes .mes$;
+			mes "อันดับ 6";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_06); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_06[.@i])+" x"+.item_am_rw_06[.@i]+" ea";
+			}
+		}
+		if(getarraysize(.item_id_rw_07)){
+			next;
+			mes .mes$;
+			mes "อันดับ 7";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_07); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_07[.@i])+" x"+.item_am_rw_07[.@i]+" ea";
+			}
+		}
+		if(getarraysize(.item_id_rw_08)){
+			next;
+			mes .mes$;
+			mes "อันดับ 8";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_08); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_08[.@i])+" x"+.item_am_rw_08[.@i]+" ea";
+			}
+		}
+		if(getarraysize(.item_id_rw_09)){
+			next;
+			mes .mes$;
+			mes "อันดับ 9";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_09); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_09[.@i])+" x"+.item_am_rw_09[.@i]+" ea";
+			}
+		}
+		if(getarraysize(.item_id_rw_10)){
+			next;
+			mes .mes$;
+			mes "อันดับ 10";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_10); .@i++ ){
+				mes "- "+getitemname(.item_id_rw_10[.@i])+" x"+.item_am_rw_10[.@i]+" ea";
+			}
+		}
+	}
+	if(.@menu == 8){
+		clear;
+		mes .mes$;
+		query_sql("SELECT player_name,amount,play_time FROM `spiner_zeny_player_jp_logs` ORDER BY play_time DESC LIMIT "+.rank_show+"",.@name3$,.@amount$,.@play_time3$);
+		if (!getarraysize(.@amount$)) {
+			mes "^FF0000ยังไม่มีข้อมูลตอนนี้^000000";
+			end;
+		}
+		mes "กรุณาปิดหน้าต่างสนทนา";
+		close2;
+		dispbottom "[ ตรวจสอบผู้เล่นที่ถูก Jackpot Zeny ]";
+		for ( .@i=0; .@i<getarraysize(.@name3$); .@i++ ) {
+			dispbottom "รายการที่ "+(.@i+1)+" : ผู้เล่น "+.@name3$[.@i]+" ได้รับ ["+.@amount$[.@i]+"] ("+.@play_time3$[.@i]+")";
+		}
+	}
+	if(.@menu == 9){
+		clear;
+		addtimer 50,"setting_spiner_zeny::OnMenu";
+	}
+	
+	end;
+	
+OnBuyItem:
+	
+	if(@ex_review == 0){
+		dispbottom "[ "+strnpcinfo(1)+" ] : ไอเทมเหล่านี้เป็นเพียงตัวอย่างเท่านั้น";
+		end;
+	}
+	
+	freeloop(1);
+	
+	for ( .@i=0; .@i<getarraysize($sale_spiner_zeny); .@i=.@i+3 ){
+		if(@bought_nameid == $sale_spiner_zeny[.@i]){
+			mes .mes$;
+			mes "Item : ^0000FF"+getitemname(@bought_nameid)+"^000000";
+			mes "จำนวน : ^FF9900"+@bought_quantity+" ea^000000";
+			if($sale_spiner_zeny[.@i+2] == 0){
+				mes "สต๊อก : สามารถดึงได้ไม่จำกัด";
+			}
+			else {
+				mes "สต๊อก : ("+getd("$spiner_zeny"+$sale_spiner_zeny[.@i])+"/"+$sale_spiner_zeny[.@i+2]+") ea";
+			}
+			if(#rw_spiner_zeny < $sale_spiner_zeny[.@i+1]*@bought_quantity){
+				mes "รางวัล : ^FF3300("+callfunc("F_InsertComma",#rw_spiner_zeny)+"/"+callfunc("F_InsertComma",$sale_spiner_zeny[.@i+1]*@bought_quantity)+") Point^000000";
+			}
+			if(#rw_spiner_zeny >= $sale_spiner_zeny[.@i+1]*@bought_quantity){
+				mes "รางวัล : ^009900("+callfunc("F_InsertComma",#rw_spiner_zeny)+"/"+callfunc("F_InsertComma",$sale_spiner_zeny[.@i+1]*@bought_quantity)+") Point^000000";
+			}
+			
+			menu	"- ยืนยันการแลก ^0000FF"+getitemname(@bought_nameid)+"^000000",menu_buy;
+			end;
+			
+			menu_buy:
+				
+				if($sale_spiner_zeny[.@i+2]){
+					if((getd("$spiner_zeny"+$sale_spiner_zeny[.@i])+@bought_quantity) > $sale_spiner_zeny[.@i+2]){
+						clear;
+						mes .mes$;
+						mes "ข้าเสียใจด้วย แต่ว่า";
+						mes ""+getitemname(@bought_nameid)+" สต๊อกหมดแล้ว";
+						end;
+					}
+				}
+				if(#rw_spiner_zeny < $sale_spiner_zeny[.@i+1]*@bought_quantity){
+					clear;
+					mes .mes$;
+					mes "จำนวนแต้มของท่านไม่เพียงพอ";
+					mes "ต้องการอีก "+callfunc("F_InsertComma",($sale_spiner_zeny[.@i+1]*@bought_quantity-#rw_spiner_zeny))+" แต้ม";
+					end;					
+				}
+				
+				#rw_spiner_zeny = #rw_spiner_zeny -$sale_spiner_zeny[.@i+1]*@bought_quantity;
+				setd "$spiner_zeny"+@bought_nameid,getd("$spiner_zeny"+@bought_nameid)+@bought_quantity;
+				getitem @bought_nameid,@bought_quantity;
+				message strcharinfo(0),"[ระบบ] : ท่านได้แลกเปลี่ยน "+getitemname(@bought_nameid)+" x"+callfunc("F_InsertComma",@bought_quantity)+" ea";
+				message strcharinfo(0),"[ระบบ] : ท่านมีแต้มสะสมทั้งหมด "+callfunc("F_InsertComma",#rw_spiner_zeny)+" แต้ม";
+				
+				end;
+		}
+	}
+	
+	end;
+	
+	
+OnInit:
+	
+	.mes$ = "^FF3300[ SlotMachine Zeny ]^000000";	//	Head Dialog
+	
+	$status_spiner_zeny		= 1;			//	ทุกครั้งที่ Reloadscript ตู้จะปิด ไม่ให้หมุน	หากต้องการให้หมุนตลอด ให้ใส่ 0
+	
+	.dispbottom				= 0;			//	กำหนดโชว์ข้อความ % ที่สุ่มได้ หากต้องการโชว์ ใส่ 1 หากไม่ต้องการ ใส่ 0
+	
+	.round_auto				= 100;			//	กำหนดรอบการเล่นอัตโนมัติไว้สูงสุด
+	
+	//	รวม 5 เรทให้ได้ 10000 = 100%
+	.rate_rare				= 300;			//	ตั้งค่า % การออก Legend	ตัวอย่างคือ	3%
+	.rate_hard				= 900;			//	ตั้งค่า % การออก General	ตัวอย่างคือ	9%
+	.rate_normal			= 1500;			//	ตั้งค่า % การออก Major		ตัวอย่างคือ	15%
+	.rate_easy				= 2300;			//	ตั้งค่า % การออก Sergeant	ตัวอย่างคือ	23%
+	.rate_basic				= 5000;			//	ตั้งค่า % การออก Basic		ตัวอย่างคือ	50%
+	
+	.log					= 1;			//	กำหนดการเก็บค่าผู้เล่น หากไม่ต้องการใส่ 0		หากต้องการใส่ 1
+	
+	.use					= 79500;		//	ตั้งค่า Zeny ในการเล่น
+	.jackpot				= 12900;		//	ตั้งค่าจำนวนที่เก็บเข้าไปรวม แจ๊กพอต Zeny
+	
+	.jp_round_spiner_zeny	= 30;			//	กำหนดจำนวนรอบในการเข้า Jackpot
+	.rate_jackpot			= 10;			//	ตั้งค่า % การออก Jackpot	ตัวอย่างคือ	1%
+	.jp_start				= 5;			//	ตั้งค่า % ของ แจ๊กพอต ที่ได้รับจากยอด แจ๊กพอต เริ่มต้น
+	.jp_end					= 20;			//	ตั้งค่า % ของ แจ๊กพอต ที่ได้รับจากยอด แจ๊กพอต เริ่มต้น
+	.jp_all					= 2;			//	หากแจ๊กพอตแตก	หากต้องการให้ลบแจ๊กพอตทั้งหมดให้ใส่ 1	หากต้องการให้ลบแค่ที่แตกให้ใส่ 2
+	
+	.garuntee				= 25;			//	กำหนดจำนวนรอบการันตี
+	.item_garuntee			= 5000006;		//	กำหนดรหัสไอเทมจากการการันตี
+	.amount_garuntee		= 1;			//	กำหนดจำนวนไอเทมจากการการันตี
+	
+	.start_point			= 1;			//	กำหนดแต้มที่ได้รับจากการสุ่ม เริ่มต้น
+	.end_point				= 1;			//	กำหนดแต้มที่ได้รับจากการสุ่ม สิ้นสุด
+	
+	.weight_percent			= 80;			//	กำหนด %	หากน้ำหนักเกินจะหมุนไม่ได้
+	.max_count				= 90;			//	กำหนด จำนวน ช่องกระเป๋า
+	
+	.rank_show				= 10;			//	กำหนดจำนวนโชว์อันดับผู้เล่น
+	
+	.speed					= 50;			//	กำหนดความเร็ว Auto
+	
+	deletearray .item_id_rw_01;	deletearray .item_am_rw_01;
+	deletearray .item_id_rw_02;	deletearray .item_am_rw_02;
+	deletearray .item_id_rw_03;	deletearray .item_am_rw_03;
+	deletearray .item_id_rw_04;	deletearray .item_am_rw_04;
+	deletearray .item_id_rw_05;	deletearray .item_am_rw_05;
+	deletearray .item_id_rw_06;	deletearray .item_am_rw_06;
+	deletearray .item_id_rw_07;	deletearray .item_am_rw_07;
+	deletearray .item_id_rw_08;	deletearray .item_am_rw_08;
+	deletearray .item_id_rw_09;	deletearray .item_am_rw_09;
+	deletearray .item_id_rw_10;	deletearray .item_am_rw_10;
+	
+	setarray .item_id_rw_01[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 1
+	setarray .item_am_rw_01[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 1
+	
+	setarray .item_id_rw_02[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 2
+	setarray .item_am_rw_02[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 2
+	
+	setarray .item_id_rw_03[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 3
+	setarray .item_am_rw_03[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 3
+	
+	setarray .item_id_rw_04[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 4
+	setarray .item_am_rw_04[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 4
+	
+	setarray .item_id_rw_05[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 5
+	setarray .item_am_rw_05[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 5
+	
+	setarray .item_id_rw_06[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 6
+	setarray .item_am_rw_06[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 6
+	
+	setarray .item_id_rw_07[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 7
+	setarray .item_am_rw_07[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 7
+	
+	setarray .item_id_rw_08[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 8
+	setarray .item_am_rw_08[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 8
+	
+	setarray .item_id_rw_09[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 9
+	setarray .item_am_rw_09[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 9
+	
+	setarray .item_id_rw_10[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 10
+	setarray .item_am_rw_10[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 10
+	
+	while(1){
+		delwaitingroom;
+		waitingroom "# "+callfunc("F_InsertComma",$jackpot_spiner_zeny)+" z",0;
+		sleep 1000;
+		delwaitingroom;
+		waitingroom "Monday JP Zeny",0;
+		sleep 1000;
+	}
+	
+end;
+}
+
+//	Duplicate
+maintown,125,155,6	duplicate(SlotMachine Zeny)	SlotMachine Zeny#1	563	
+
+-	script	จัดอันดับ Ranking Zeny 1	10007,{
+end;
+
+OnInit:
+	
+	while(1){
+	
+		deletearray .@char_id;
+		deletearray .@player_name$;
+		deletearray .@sex$;
+		deletearray .@sex;
+		deletearray .@class;
+		deletearray .@hair;
+		deletearray .@hair_color;
+		deletearray .@clothes_color;
+		deletearray .@head_top;
+		deletearray .@head_mid;
+		deletearray .@head_bottom;
+		deletearray .@robe;
+		
+		query_sql("SELECT char_id,player_name FROM `spiner_zeny_player_ranking` ORDER BY score DESC LIMIT 3",.@char_id,.@player_name$);
+		
+		if(!.@char_id[0]){
+			setnpcdisplay(strnpcinfo(0), ""+strnpcinfo(0)+"", 10007);
+		}
+		if(.@char_id[0]){
+		
+			query_sql("SELECT sex,class,hair,hair_color,clothes_color,head_top,head_mid,head_bottom,robe FROM `char` WHERE char_id = "+.@char_id[0]+"",.@sex$,.@class,.@hair,.@hair_color,.@clothes_color,.@head_top,.@head_mid,.@head_bottom,.@robe);
+			
+			if(.@sex$ == "F"){ .@sex = 0; }
+			if(.@sex$ == "M"){ .@sex = 1; }
+			
+			setunitdata(getnpcid(0), UNPC_SEX,.@sex);
+			setunitdata(getnpcid(0), UNPC_CLASS,.@class);
+			setunitdata(getnpcid(0), UNPC_HAIRSTYLE,.@hair);
+			setunitdata(getnpcid(0), UNPC_HAIRCOLOR,.@hair_color);
+			setunitdata(getnpcid(0), UNPC_HEADTOP,.@head_top);
+			setunitdata(getnpcid(0), UNPC_HEADMIDDLE,.@head_mid);
+			setunitdata(getnpcid(0), UNPC_HEADBOTTOM,.@head_bottom);
+			setunitdata(getnpcid(0), UNPC_CLOTHCOLOR,.@clothes_color);
+			setunitdata(getnpcid(0), UNPC_ROBE,.@robe);
+		
+		}
+		
+		waitingroom "1st : ผู้เล่น "+.@player_name$[0]+"",0;
+		sleep 5000;
+		delwaitingroom;
+		
+	}
+	
+	end;
+	
+}
+
+-	script	จัดอันดับ Ranking Zeny 2	10007,{
+end;
+
+OnInit:
+	
+	while(1){
+	
+		deletearray .@char_id;
+		deletearray .@player_name$;
+		deletearray .@sex$;
+		deletearray .@sex;
+		deletearray .@class;
+		deletearray .@hair;
+		deletearray .@hair_color;
+		deletearray .@clothes_color;
+		deletearray .@head_top;
+		deletearray .@head_mid;
+		deletearray .@head_bottom;
+		deletearray .@robe;
+		
+		query_sql("SELECT char_id,player_name FROM `spiner_zeny_player_ranking` ORDER BY score DESC LIMIT 3",.@char_id,.@player_name$);
+		
+		if(!.@char_id[1]){
+			setnpcdisplay(strnpcinfo(0), ""+strnpcinfo(0)+"", 10007);
+		}
+		if(.@char_id[1]){
+		
+			query_sql("SELECT sex,class,hair,hair_color,clothes_color,head_top,head_mid,head_bottom,robe FROM `char` WHERE char_id = "+.@char_id[1]+"",.@sex$,.@class,.@hair,.@hair_color,.@clothes_color,.@head_top,.@head_mid,.@head_bottom,.@robe);
+			
+			if(.@sex$ == "F"){ .@sex = 0; }
+			if(.@sex$ == "M"){ .@sex = 1; }
+			
+			setunitdata(getnpcid(0), UNPC_SEX,.@sex);
+			setunitdata(getnpcid(0), UNPC_CLASS,.@class);
+			setunitdata(getnpcid(0), UNPC_HAIRSTYLE,.@hair);
+			setunitdata(getnpcid(0), UNPC_HAIRCOLOR,.@hair_color);
+			setunitdata(getnpcid(0), UNPC_HEADTOP,.@head_top);
+			setunitdata(getnpcid(0), UNPC_HEADMIDDLE,.@head_mid);
+			setunitdata(getnpcid(0), UNPC_HEADBOTTOM,.@head_bottom);
+			setunitdata(getnpcid(0), UNPC_CLOTHCOLOR,.@clothes_color);
+			setunitdata(getnpcid(0), UNPC_ROBE,.@robe);
+		
+		}
+		
+		waitingroom "2nd : ผู้เล่น "+.@player_name$[1]+"",0;
+		sleep 5000;
+		delwaitingroom;
+		
+	}
+	
+	end;
+	
+}
+
+-	script	จัดอันดับ Ranking Zeny 3	10007,{
+end;
+
+OnInit:
+	
+	while(1){
+	
+		deletearray .@char_id;
+		deletearray .@player_name$;
+		deletearray .@sex$;
+		deletearray .@sex;
+		deletearray .@class;
+		deletearray .@hair;
+		deletearray .@hair_color;
+		deletearray .@clothes_color;
+		deletearray .@head_top;
+		deletearray .@head_mid;
+		deletearray .@head_bottom;
+		deletearray .@robe;
+		
+		query_sql("SELECT char_id,player_name FROM `spiner_zeny_player_ranking` ORDER BY score DESC LIMIT 3",.@char_id,.@player_name$);
+		
+		if(!.@char_id[2]){
+			setnpcdisplay(strnpcinfo(0), ""+strnpcinfo(0)+"", 10007);
+		}
+		if(.@char_id[2]){
+		
+			query_sql("SELECT sex,class,hair,hair_color,clothes_color,head_top,head_mid,head_bottom,robe FROM `char` WHERE char_id = "+.@char_id[2]+"",.@sex$,.@class,.@hair,.@hair_color,.@clothes_color,.@head_top,.@head_mid,.@head_bottom,.@robe);
+			
+			if(.@sex$ == "F"){ .@sex = 0; }
+			if(.@sex$ == "M"){ .@sex = 1; }
+			
+			setunitdata(getnpcid(0), UNPC_SEX,.@sex);
+			setunitdata(getnpcid(0), UNPC_CLASS,.@class);
+			setunitdata(getnpcid(0), UNPC_HAIRSTYLE,.@hair);
+			setunitdata(getnpcid(0), UNPC_HAIRCOLOR,.@hair_color);
+			setunitdata(getnpcid(0), UNPC_HEADTOP,.@head_top);
+			setunitdata(getnpcid(0), UNPC_HEADMIDDLE,.@head_mid);
+			setunitdata(getnpcid(0), UNPC_HEADBOTTOM,.@head_bottom);
+			setunitdata(getnpcid(0), UNPC_CLOTHCOLOR,.@clothes_color);
+			setunitdata(getnpcid(0), UNPC_ROBE,.@robe);
+		
+		}
+		
+		waitingroom "3rd : ผู้เล่น "+.@player_name$[2]+"",0;
+		sleep 5000;
+		delwaitingroom;
+		
+	}
+	
+	end;
+	
+}
+
+//morocc,154,105,4	duplicate(จัดอันดับ Ranking Zeny 2)	จัดอันดับ Ranking Zeny 2#01	10007
+//morocc,159,105,4	duplicate(จัดอันดับ Ranking Zeny 1)	จัดอันดับ Ranking Zeny 1#01	10007
+//morocc,164,105,4	duplicate(จัดอันดับ Ranking Zeny 3)	จัดอันดับ Ranking Zeny 3#01	10007
+

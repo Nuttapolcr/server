@@ -1,0 +1,286 @@
+//morocc,157,73,6	script	Craft Master#1	826,{ callfunc "craftcoslower"; }
+//maintown,170,175,4	script	Craft Costume#3	826,{ callfunc "craftcoslower";
+OnInit:
+	Waitingroom "[#] Craft Costume",0;
+    end;
+}
+-	script	craft_Cos_Lower	-1,{
+function Add; function Chk; function Slot;
+
+OnInit:
+	freeloop(1);	
+
+// -----------------------------------------------------------
+//  Basic shop settings.
+// -----------------------------------------------------------
+
+	set .Signer,0;		// ��ѡ���� 0 ��� - 1 ��
+	set .Announce,1;	// ��С���ҡ���ҿ�����? (1: yes / 0: no)
+	set .ShowSlot,1;	// �ʴ� Slot ? (2: �ػ�ó������ / 1: ����� [] > 0 / 0: ������)
+	set .ShowID,0;  	// �ʴ� Item ID? (1: yes / 0: no)
+	set .ShowZeny,0;	// �ʴ��������� Zeny (1: yes / 0: no)
+	set .MaxStack,100;	// �ӹǳ�ҡ�ش���м�Ե��������ͺ
+
+// -----------------------------------------------------------
+//
+// -----------------------------------------------------------
+
+	setarray .Points$[0],
+		"#CASHPOINTS", "Cash Points";
+
+// -----------------------------------------------------------
+//
+// -----------------------------------------------------------
+
+	setarray .Shops$[1],
+		"~ Craft Costume Garment [^FF000090%^000000]",	// Shop Named 1 (�͡������� 20%)
+
+		
+
+// -----------------------------------------------------------
+//
+// -----------------------------------------------------------
+
+
+// Shop 1 craft charm LV.1
+//	add(�����,���������,	�ӹǹ,	zeny,	�͡�������,	 ������ص�شԺ1,�ӹǹ1,������ص�شԺ2,�ӹǹ2,������ص�شԺ3,�ӹǹ3, ... );
+
+
+	
+//2 costume Garment	
+	Add(1,250001,		1,	1000000,		90,	100000,1); //c_garment
+	Add(1,250002,		1,	1000000,		90,	100000,1); //c_garment
+	Add(1,250003,		1,	1000000,		90,	100000,1); //c_garment
+	Add(1,250004,		1,	1000000,		90,	100000,1); //c_garment
+	Add(1,250005,		1,	1000000,		90,	100000,1); //c_garment
+	Add(1,250006,		1,	1000000,		90,	100000,1); //c_garment
+	Add(1,250007,		1,	1000000,		90,	100000,1); //c_garment
+	Add(1,250008,		1,	1000000,		90,	100000,1); //c_garment
+	Add(1,250009,		1,	1000000,		90,	100000,1); //c_garment
+	Add(1,250010,		1,	1000000,		90,	100000,1); //c_garment
+
+
+// -----------------------------------------------------------
+
+//=====================================================================================
+// ------------------- YOUR SHOPS AND ITEMS SHOPS HAVE BEEN ADDED ---------------------
+//=====================================================================================
+
+	freeloop(0);
+	set .menu$,"";
+	for(set .@i,1; .@i<=getarraysize(.Shops$); set .@i,.@i+1) {
+		set .menu$, .menu$+.Shops$[.@i]+":";
+		npcshopdelitem "craftcoslower"+.@i,909;
+	}
+	end;
+
+OnMenu:
+	set .@size, getarraysize(@i);
+	if (!.@size) set @shop_index, select(.menu$);
+	else if (.@size == 1) set @shop_index, @i[0];
+	else {
+		for(set .@j,0; .@j<.@size; set .@j,.@j+1)
+			set .@menu$, .@menu$+.Shops$[@i[.@j]]+":";
+		set @shop_index, @i[select(.@menu$)-1];
+	}
+	deletearray @i[0],getarraysize(@i);
+	if (.Shops$[@shop_index] == "") {
+		message strcharinfo(0),"An error has occurred.";
+		end;
+	}
+	dispbottom "����¡��������� 1 ��¡�� �������Թ 100 ��� ��ҹ��";
+	callshop "craftcoslower"+@shop_index,1;
+	npcshopattach "craftcoslower"+@shop_index;
+	end;
+
+OnBuyItem:
+	// .@q[] : RewardID, BoughtAmt, RewardAmt, BaseAmt, ReqZeny, ReqPts, { ReqItem, ReqAmt, ... }
+	setarray .@q[0],@bought_nameid[0],((@bought_quantity[0] > .MaxStack)?.MaxStack:@bought_quantity[0]);
+	copyarray .@q[3],getd(".q_"+@shop_index+"_"+.@q[0]+"[0]"),getarraysize(getd(".q_"+@shop_index+"_"+.@q[0]));
+	set .@q[2],.@q[1]*.@q[3];
+	if (!.@q[2] || .@q[2] > 30000) {
+		message strcharinfo(0),"�������ö���� "+getitemname(.@q[0])+" ���ҡ���ҹ��.";
+		end;
+	}
+	if (!.@q[5]) {
+		mes "[Craft Man]";
+		mes "�ѵ�شԺ�ͧ :";
+		mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM> "+.@q[2]+" ���";
+		mes "����ѵ�شԺ :";
+		disable_items;
+		if (.@q[4]) mes " > "+Chk(Zeny,.@q[4]*.@q[1])+F_InsertComma(.@q[4]*.@q[1])+" Zeny^000000";
+		//if (.@q[5]) mes " > "+Chk(getd(.Points$[0]),.@q[5]*.@q[1])+(.@q[5]*.@q[1])+" "+.Points$[1]+" ("+getd(.Points$[0])+"/"+(.@q[5]*.@q[1])+")^000000";
+		mes "���ѵ�شԺ�ѧ��� :";
+		if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2) {
+			mes " > <ITEM>"+((.ShowID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+"<INFO>"+.@q[.@i]+"</INFO></ITEM> ^000000( "+(.@q[.@i+1]*.@q[1])+" )";
+			.@boughtweight += getiteminfo(.@q[.@i],6)*.@q[.@i+1]*.@q[1];
+		}
+		next;
+		setarray @qe[1], getiteminfo(.@q[0],5), getiteminfo(.@q[0],11);
+		addtimer 1000, strnpcinfo(0)+"::OnEnd";
+		while(1) {
+			switch(select(" ~ �׹�ѹ ^0055FF"+getitemname(.@q[0])+"^000000: ~ ^777777¡��ԡ^000000")) {
+			case 1:
+				if (@qe[0]) {
+					mes "[Craft Man]";
+					mes "Zeny ����";
+					close;
+				}
+				if ( Weight+.@boughtweight > MaxWeight ) {
+					mes "[Craft Man]";
+					mes "�ѵ�شԺ�������չ��˹ѡ�ҡ�Թ���ҷ����Ҩ�ạ��";
+					mes " ";
+					mes "�Թ���� ^FF0000"+((Weight +.@boughtweight) - MaxWeight) / 10+"^000000 ˹���";
+					close;
+				}
+				if (!checkweight(.@q[0],.@q[2])) {
+					mes "[Craft Man]";
+					mes "^FF0000��ͧ�չ��˹ѡ���ҧ���� "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" ���ͨ��š����¹.^000000";
+					close;
+				}
+				if (.@q[4]) set Zeny, Zeny-(.@q[4]*.@q[1]);
+				//if (.@q[5]) setd .Points$[0], getd(.Points$[0])-(.@q[5]*.@q[1]);
+				if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2)
+					getitem .@q[.@i],.@q[.@i+1]*.@q[1];
+				//getitem .@q[0],.@q[2];
+				if (.Announce) announce strcharinfo(0)+" �����ҧ "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+"!",0;
+				specialeffect2 EF_FLOWERLEAF;
+				close;
+			case 2:
+				close;
+			}
+		}
+	} else {
+		mes "[Craft Man]";
+		mes "������ҧ :";
+		mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM> "+.@q[2]+" ���";
+		disable_items;
+		if (.@q[4]) { mes "��Ҵ��Թ��� :"; mes " > "+Chk(Zeny,.@q[4]*.@q[1])+F_InsertComma(.@q[4]*.@q[1])+" Zeny^000000"; }
+		if (.@q[5]) mes " > �͡������� "+.@q[5]+" %";
+		mes "���ѵ�شԺ�ѧ��� :";
+		if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2)
+			mes " > <ITEM>"+Chk(countitem(.@q[.@i]),.@q[.@i+1]*.@q[1])+((.ShowID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+"<INFO>"+.@q[.@i]+"</INFO></ITEM> ("+countitem(.@q[.@i])+"/"+(.@q[.@i+1]*.@q[1])+")^000000";
+		next;
+		setarray @qe[1], getiteminfo(.@q[0],5), getiteminfo(.@q[0],11);
+		addtimer 1000, strnpcinfo(0)+"::OnEnd";
+		while(1) {
+			switch(select(" ~ �׹�ѹ ^0055FF"+getitemname(.@q[0])+"^000000: ~ ^777777¡��ԡ^000000")) {
+			case 1:
+				if (@qe[0]) {
+					mes "[Craft Man]";
+					mes "���͹����ú";
+					close;
+				}
+				if (!checkweight(.@q[0],.@q[2])) {
+					mes "[Craft Man]";
+					mes "^FF0000��ͧ�չ��˹ѡ���ҧ���� "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" ���ͨ��š����¹.^000000";
+					close;
+				}
+				if (.@q[4]) set Zeny, Zeny-(.@q[4]*.@q[1]);
+				if (.@q[5]) {
+					for (.@i = 1; .@i <= .@q[2]; .@i++)
+						if (rand(1,100) <= .@q[5])
+							.@success += 1;
+				}
+				if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2)
+					delitem .@q[.@i],.@q[.@i+1]*.@q[1];
+				if (!.@success) {
+					mes "[Craft Man]";
+					mes "���ɴ��� ��ҷ� :";
+					mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM>";
+					mes "�����������";
+					close;
+				}
+				if (.Signer)
+					getitem2 .@q[0],.@success,1,0,0,254,0,getcharid(0)&0xffff,(getcharid(0)>>16)&0xffff;
+				else
+					getitem .@q[0],.@success;
+				if (.Announce) announce strcharinfo(0)+" �����ҧ "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+"!",0;
+				specialeffect2 EF_FLOWERLEAF;
+				close;
+			case 2:
+				close;
+			}
+		}
+	}
+
+OnEnd:
+	if (@qe[7]) {
+		changelook LOOK_HEAD_BOTTOM, @qe[3];
+		changelook LOOK_HEAD_TOP, @qe[4];
+		changelook LOOK_HEAD_MID, @qe[5];
+		changelook LOOK_ROBE, @qe[6];
+	}
+	deletearray @qe[0],8;
+	end;
+
+function Add {
+	if (getitemname(getarg(1)) == "null") {
+		debugmes "Quest reward #"+getarg(1)+" invalid (skipped).";
+		return;
+	}
+	setarray .@j[0],getarg(2),getarg(3),getarg(4);
+	for(set .@i,5; .@i<getargcount(); set .@i,.@i+2) {
+		if (getitemname(getarg(.@i)) == "null") {
+			debugmes "Quest requirement #"+getarg(.@i)+" invalid (skipped).";
+			return;
+		} else
+			setarray .@j[.@i-2],getarg(.@i),getarg(.@i+1);
+	}
+	copyarray getd(".q_"+getarg(0)+"_"+getarg(1)+"[0]"),.@j[0],getarraysize(.@j);
+	npcshopadditem "craftcoslower"+getarg(0),getarg(1),((.ShowZeny)?getarg(3):1);
+	return;
+}
+
+function Chk {
+	if (getarg(0) < getarg(1)) {
+		set @qe[0],1;
+		return "^FF0000";
+	} else
+		return "^00FF00";
+}
+
+function Slot {
+	set .@s$,getitemname(getarg(0));
+	switch(.ShowSlot) {
+		case 1: if (!getitemslots(getarg(0))) return .@s$;
+		case 2: if (getiteminfo(getarg(0),2) == 4 || getiteminfo(getarg(0),2) == 5) return .@s$+" ["+getitemslots(getarg(0))+"]";
+		default: return .@s$;
+	}
+}
+}
+
+function	script	craftcoslower	{
+	deletearray @i[0],getarraysize(@i);
+	for(set .@i,0; .@i<getargcount(); set .@i,.@i+1)
+		set @i[.@i],getarg(.@i);
+	doevent "craft_Cos_Lower::OnMenu";
+	end;
+}
+
+
+
+// Dummy shop data -- copy as needed.
+//============================================================
+-	shop	craftcoslower1	-1,909:-1
+-	shop	craftcoslower2	-1,909:-1
+-	shop	craftcoslower3	-1,909:-1
+-	shop	craftcoslower4	-1,909:-1
+-	shop	craftcoslower5	-1,909:-1
+-	shop	craftcoslower6	-1,909:-1
+-	shop	craftcoslower7	-1,909:-1
+-	shop	craftcoslower8	-1,909:-1
+-	shop	craftcoslower9	-1,909:-1
+-	shop	craftcoslower10	-1,909:-1
+-	shop	craftcoslower11	-1,909:-1
+-	shop	craftcoslower12	-1,909:-1
+-	shop	craftcoslower13	-1,909:-1
+-	shop	craftcoslower14	-1,909:-1
+-	shop	craftcoslower15	-1,909:-1
+-	shop	craftcoslower16	-1,909:-1
+-	shop	craftcoslower17	-1,909:-1
+-	shop	craftcoslower18	-1,909:-1
+
+
+
+

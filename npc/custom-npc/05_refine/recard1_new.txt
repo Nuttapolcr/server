@@ -1,0 +1,25 @@
+
+// card_illust( <card id> );
+function	script	card_illust	{
+	.@card_id = getarg(0);
+	switch( .@card_id ){
+		// case <card id>: return "<illust name>";
+		// case 4489: return "sorry";
+		// case 4490: return "sorry";
+		// case 4491: return "sorry";
+		// case 4492: return "sorry";
+		// case 4493: return "sorry";
+		// case 4496: return "sorry";
+		// case 4552: return "sorry";
+		// case 4553: return "sorry";
+		// case 4554: return "sorry";
+		// case 4555: return "sorry";		
+		default: return "sorry"; // sorry image printing
+		case 4331: return "heater";	
+		case 4345: return "hillwind";			
+		case 4453: return "Hillslion";
+		case 4035: return "hydra";
+		case 4348: return "whikebain";
+		case 4077: return "phen";
+	}
+}

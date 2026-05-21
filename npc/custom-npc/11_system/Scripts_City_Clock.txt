@@ -1,0 +1,87 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : แม่มดน้อย จอมป่วน
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/appleroplus2
+// Gmail appleroplus@gmail.com
+// Skype appleroplus@outlook.co.th LINE agmsapple
+//==============================================
+//==============================================
+//==============================================
+maintown,155,113,4	script	นาฬิกา	858,{
+mes "[นาฬิกา]";
+if (gettime(4)==0) mes "วัน อาทิตย์ ที่ "+gettime(5)+"";
+if (gettime(4)==1) mes "วัน จันทร์ ที่ "+gettime(5)+"";
+if (gettime(4)==2) mes "วัน อังคาร ที่ "+gettime(5)+"";
+if (gettime(4)==3) mes "วัน พุธ ที่ "+gettime(5)+"";
+if (gettime(4)==4) mes "วัน พฤหัสบดี ที่ "+gettime(5)+"";
+if (gettime(4)==5) mes "วัน ศุกร์ ที่ "+gettime(5)+"";
+if (gettime(4)==6) mes "วัน เสาร์ ที่ "+gettime(5)+"";
+if (gettime(6)==1) mes "เดือน มกราคม";
+if (gettime(6)==2) mes "เดือน กุมภาพันธ์";
+if (gettime(6)==3) mes "เดือน มีนาคม";
+if (gettime(6)==4) mes "เดือน เมษายน";
+if (gettime(6)==5) mes "เดือน พฤษภาคม";
+if (gettime(6)==6) mes "เดือน มิถุนายน";
+if (gettime(6)==7) mes "เดือน กรกฎาคม";
+if (gettime(6)==8) mes "เดือน สิงหาคม";
+if (gettime(6)==9) mes "เดือน กันยายน";
+if (gettime(6)==10) mes "เดือน ตุลาคม";
+if (gettime(6)==11) mes "เดือน พฤศจิกายน";
+if (gettime(6)==12) mes "เดือน ธันวาคม";
+if(gettime(7)) set @year_time,gettime(7)+543;
+mes "ปี " + @year_time + "";
+mes "เวลา: "+gettime(3)+":"+gettime(2)+":"+gettime(1)+" นาที";
+mes "เวลารวม "+gettime(3)+":"+gettime(2)+":"+gettime(1)+" "+gettime(5)+"-"+gettime(6)+"-"+@year_time+"";
+close;
+end;
+
+OnTimer1000:
+setnpctimer 0;
+startnpctimer;
+delwaitingroom "นาฬิกา";
+waitingroom "ขณะนี้: "+gettime(3)+":"+gettime(2)+":"+gettime(1)+" น.",0;
+end;
+
+OnInit:
+initnpctimer;
+waitingroom "ขณะนี้: "+gettime(3)+":"+gettime(2)+":"+gettime(1)+" น.",0;
+end;
+}
+
+//แบบเก่า
+/*
+//==============================================
+//ที่ตั้งNPC
+//==============================================
+maintown,99,193,4	script	#Clock0	858,{
+end;
+//==============================================
+OnTimer1000:
+set $@Count,$@Count+1;
+set $@Clock$,gettimestr("%H:%M:%S",19);
+delwaitingroom "#Clock0";
+if($@Count >= 10) goto Sick1;
+waitingroom "เวลา["+$@Clock$+" น.]",0;
+stopnpctimer;
+initnpctimer;
+end;
+
+Sick1:
+set $@Count,0;
+set $@Day$,gettimestr("%d / %m / %Y",21);
+waitingroom "วันที่ ["+$@Day$+"]",0;
+stopnpctimer;
+sleep 5000;
+initnpctimer;
+end;
+
+OnInit:
+initnpctimer;
+waitingroom "—["+$@Clock$+" น.]—",0; 
+end;
+}
+*/

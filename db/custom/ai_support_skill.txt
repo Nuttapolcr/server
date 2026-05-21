@@ -1,0 +1,165 @@
+//===== AI Support SKill List Configulation Files =======================================
+//  Whispering Rain
+//= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+// Structure of Database:
+// skillname
+// EX. AL_HEAL
+//= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+//==============================
+// Acolyte / Priest / High Priest
+//==============================
+AL_HEAL
+AL_INCAGI
+AL_BLESSING
+AL_RUWACH
+AL_TELEPORT
+PR_IMPOSITIO
+PR_SUFFRAGIUM
+PR_ASPERSIO
+PR_GLORIA
+PR_KYRIE
+PR_MAGNIFICAT
+PR_SANCTUARY
+MG_SAFETYWALL
+HP_ASSUMPTIO
+HP_BASILICA
+HP_MEDITATIO
+HP_MANARECHARGE
+
+//==============================
+// Swordsman / Knight / Crusader
+//==============================
+SM_PROVOKE
+SM_ENDURE
+KN_TWOHANDQUICKEN
+SM_AUTOBERSERK
+KN_PIERCE
+CR_AUTOGUARD
+CR_REFLECTSHIELD
+CR_DEFENDER
+CR_SPEARQUICKEN
+CR_SHRINK
+PA_GOSPEL
+PA_SHIELDCHAIN
+CR_DEFENDER
+
+//==============================
+// Archer / Hunter / Bard / Dancer
+//==============================
+AC_CONCENTRATION
+HT_BEASTBANE
+HT_FALCON
+BA_MUSICALSTRIKE
+BA_POEMBRAGI
+BA_APPLEIDUN
+DC_SERVICEFORYOU
+DC_HUMMING
+DC_FORTUNEKISS
+DC_WINKCHARM
+DC_SCREAM
+
+//==============================
+// Mage / Wizard / Sage / Scholar
+//==============================
+MG_SRECOVERY
+MG_SIGHT
+MG_SRECOVERY
+MG_SAFETYWALL
+MG_ENERGYCOAT
+WZ_QUAGMIRE
+WZ_ICEWALL
+WZ_SIGHTRASHER
+SA_AUTOSPELL
+SA_FLAMELAUNCHER
+SA_LIGHTNINGLOADER
+SA_SEISMICWEAPON
+SA_FROSTWEAPON
+SA_VOLCANO
+SA_DELUGE
+SA_VIOLENTGALE
+SA_SPELLBREAKER
+SA_AUTOSPELL
+PF_DOUBLECASTING
+SA_MAGICROD
+PF_HPCONVERSION
+
+//==============================
+// Thief / Assassin / Rogue / Stalker
+//==============================
+TF_HIDING
+AS_CLOAKING
+AS_ENCHANTPOISON
+RG_SNATCHER
+RG_TUNNELDRIVE
+RG_BACKSTAP
+ST_CHASEWALK
+ST_PRESERVE
+
+//==============================
+// Merchant / Blacksmith / Alchemist / Creator
+//==============================
+MC_LOUD
+BS_ADRENALINE
+BS_WEAPONPERFECT
+BS_OVERTHRUST
+BS_MAXIMIZE
+AM_POTIONPITCHER
+AM_ACIDTERROR
+AM_CP_WEAPON
+AM_CP_ARMOR
+AM_CP_SHIELD
+AM_CP_HELM
+CR_SLIMPITCHER
+CR_FULLPROTECTION
+
+//==============================
+// Monk / Champion / Sura
+//==============================
+MO_DODGE
+MO_STEELBODY
+MO_CALLSPIRITS
+MO_EXPLOSIONSPIRITS
+MO_CHAINCOMBO
+MO_COMBOFINISH
+CH_SOULCOLLECT
+SR_GENTLETOUCH_QUIET
+SR_GENTLETOUCH_CHANGE
+SR_DRAGONCOMBO
+
+//==============================
+// Taekwon / Star Gladiator / Soul Linker
+//==============================
+TK_HIGHJUMP
+TK_RUN
+TK_MISSION
+SG_FEEL
+SG_FRIEND
+SL_ALCHEMIST
+SL_KNIGHT
+SL_PRIEST
+SL_WIZARD
+SL_ASSASIN
+SL_BARDDANCER
+SL_BARDDANCER
+SL_HUNTER
+SL_CRUSADER
+SL_SUPERNOVICE
+SL_SOULLINKER
+SL_MONK
+
+//==============================
+// Ninja / Gunslinger / Rebellion / Kagerou / Oboro
+//==============================
+NJ_NINPOU
+NJ_TATAMIGAESHI
+NJ_KIRIKAGE
+NJ_UTSUSEMI
+GS_CHAINACTION
+GS_INCREASING
+GS_MAGICALBULLET
+RL_H_MINE
+RL_SLUGSHOT
+KO_MEIKYOUSISUI
+KO_JYUMONJIKIRI
+
+

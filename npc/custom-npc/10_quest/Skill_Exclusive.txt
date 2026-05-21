@@ -1,0 +1,754 @@
+// ============================================================
+// Unlimit Break / Skill Exclusive System (Quest-skill style)
+// - Craft Book / Craft Scroll
+// - Unlock Mastery (use Book) -> save UB_*_LV
+// - Upgrade Mastery (use Scroll + Soul)
+// - Fix Login: restore skills from saved vars (BaseJob)
+// ============================================================
+
+function	script	F_UB_GiveIfUnlocked	{
+	.@var$ = getarg(0);
+	.@skill$ = getarg(1);
+
+	.@lv = getd(.@var$);
+	if (.@lv <= 0) end;
+
+	if (.@lv > 3) .@lv = 3;
+	skill .@skill$, .@lv, SKILL_PERM;
+	end;
+}
+
+prontera,174,125,4	script	Unlimit Break Master	4_F_KAFRA1,{
+	disable_items;
+	.mes$ = "[ Skill Exclusive ]";
+
+Main:
+	mes .mes$;
+	mes "เลือกเมนูที่ต้องการ";
+	next;
+
+	.@m = select(
+		"คราฟ Unlimit Break Book",
+		"คราฟ Unlimit Break Skill Scroll",
+		"ปลดล็อก Skill Mastery (ใช้ Book)",
+		"อัปเลเวล Skill Mastery (ใช้ Scroll + Soul)",
+		"ยกเลิก"
+	);
+
+	if (.@m == 5) close;
+	if (.@m == 1) goto CraftBook;
+	if (.@m == 2) goto CraftScroll;
+	if (.@m == 3) goto UnlockMastery;
+	if (.@m == 4) goto UpgradeMastery;
+	goto Main;
+
+CraftBook:
+	mes .mes$;
+	mes "คราฟ ^FF9900Unlimit Break Book^000000";
+	mes "ต้องใช้วัตถุดิบ:";
+	mes "^777777- ^i["+ .ShardID +"] "+getitemname(.ShardID)+" x"+.BookShardNeed+"^000000";
+	mes "^777777- Zeny "+callfunc("F_InsertComma",.BookZenyNeed)+"^000000";
+	mes "^777777โอกาสสำเร็จ "+.BookSuccessRate+"%^000000";
+	mes "";
+	mes "^777777คำเตือน:^000000 หากคราฟล้มเหลว วัตถุดิบจะหายทั้งหมด";
+	next;
+
+	if (select("เริ่มคราฟ","ยกเลิก") == 2) goto Main;
+
+	if (countitem(.ShardID) < .BookShardNeed) { mes .mes$; mes "คุณมี Monster's Shard ไม่พอ"; close; }
+	if (Zeny < .BookZenyNeed) { mes .mes$; mes "Zeny ไม่พอ"; close; }
+
+	delitem .ShardID, .BookShardNeed;
+	Zeny -= .BookZenyNeed;
+
+	if (rand(100) < .BookSuccessRate) {
+		getitem .BookID, 1;
+		mes .mes$;
+		mes "^00FF00คราฟสำเร็จ!^000000";
+		mes "ได้รับ ^FF9900Unlimit Break Book^000000";
+		close;
+	}
+
+	mes .mes$;
+	mes "^FF0000คราฟล้มเหลว!^000000";
+	close;
+
+CraftScroll:
+	mes .mes$;
+	mes "คราฟ ^FF9900Unlimit Break Skill Scroll^000000";
+	mes "ต้องใช้วัตถุดิบ:";
+	mes "^777777- ^i["+ .ShardID +"] "+getitemname(.ShardID)+" x"+.ScrollShardNeed+"^000000";
+	mes "^777777- Zeny "+callfunc("F_InsertComma",.ScrollZenyNeed)+"^000000";
+	mes "^777777โอกาสสำเร็จ "+.ScrollSuccessRate+"%^000000";
+	mes "";
+	mes "^777777หมายเหตุ:^000000 Scroll ใช้สำหรับอัปเลเวล Skill Mastery";
+	next;
+
+	if (select("เริ่มคราฟ","ยกเลิก") == 2) goto Main;
+
+	if (countitem(.ShardID) < .ScrollShardNeed) { mes .mes$; mes "คุณมี Monster's Shard ไม่พอ"; close; }
+	if (Zeny < .ScrollZenyNeed) { mes .mes$; mes "Zeny ไม่พอ"; close; }
+
+	delitem .ShardID, .ScrollShardNeed;
+	Zeny -= .ScrollZenyNeed;
+
+	if (rand(100) < .ScrollSuccessRate) {
+		getitem .ScrollID, 1;
+		mes .mes$;
+		mes "^00FF00คราฟสำเร็จ!^000000";
+		mes "ได้รับ ^FF9900Unlimit Break Skill Scroll^000000";
+		close;
+	}
+
+	mes .mes$;
+	mes "^FF0000คราฟล้มเหลว!^000000";
+	close;
+
+UnlockMastery:
+	mes .mes$;
+	mes "ปลดล็อก Skill Mastery";
+	mes "ใช้ ^FF9900Unlimit Break Book^000000 1 เล่ม ต่อ 1 สกิล";
+	mes "คุณมี Book: ^FF9900"+countitem(.BookID)+"^000000";
+	next;
+
+	if (countitem(.BookID) < 1) { mes .mes$; mes "คุณไม่มี Unlimit Break Book"; close; }
+
+	switch (BaseJob) {
+
+		case Job_Knight: {
+			.@menu$ = "";
+			.@menu$ += (getd("UB_PIERCE_LV")   > 0 ? "^777777[ปลดแล้ว]^000000 " : "") + "Pierce Mastery:";
+			.@menu$ += (getd("UB_BBASH_LV")    > 0 ? "^777777[ปลดแล้ว]^000000 " : "") + "Bowling Bash Mastery:";
+			.@menu$ += (getd("UB_BRANDISH_LV") > 0 ? "^777777[ปลดแล้ว]^000000 " : "") + "Brandish Spear Mastery:";
+			.@menu$ += (getd("UB_HPREC_LV")    > 0 ? "^777777[ปลดแล้ว]^000000 " : "") + "Increase HP Recovery:";
+			.@sel = select(.@menu$);
+
+			if (.@sel == 1) {
+				callsub S_Lore_Pierce;
+				if (getd("UB_PIERCE_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+				if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+				delitem .BookID, 1;
+				setd "UB_PIERCE_LV", 1;
+				skill "KN_PIERCE_MASTERY", 1, SKILL_PERM;
+				mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+			}
+			if (.@sel == 2) {
+				callsub S_Lore_Bbash;
+				if (getd("UB_BBASH_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+				if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+				delitem .BookID, 1;
+				setd "UB_BBASH_LV", 1;
+				skill "KN_BOWLINGBASH_MASTERY", 1, SKILL_PERM;
+				mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+			}
+			if (.@sel == 3) {
+				callsub S_Lore_Brandish;
+				if (getd("UB_BRANDISH_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+				if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+				delitem .BookID, 1;
+				setd "UB_BRANDISH_LV", 1;
+				skill "KN_BRANDISHSPEAR_MASTERY", 1, SKILL_PERM;
+				mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+			}
+			if (.@sel == 4) {
+				callsub S_Lore_HPrec;
+				if (getd("UB_HPREC_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+				if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+				delitem .BookID, 1;
+				setd "UB_HPREC_LV", 1;
+				skill "KNCR_INC_HP_RECOVERY", 1, SKILL_PERM; // ? Knight ได้ Lv.1 ทันที
+				mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+			}
+			close;
+		}
+
+		case Job_Crusader: {
+			.@menu$ = "";
+			.@menu$ += (getd("UB_HPREC_LV") > 0 ? "^777777[ปลดแล้ว]^000000 " : "") + "Increase HP Recovery:";
+			.@sel = select(.@menu$);
+
+			if (.@sel == 1) {
+				callsub S_Lore_HPrec;
+				if (getd("UB_HPREC_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+				if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+				delitem .BookID, 1;
+				setd "UB_HPREC_LV", 1;
+				skill "KNCR_INC_HP_RECOVERY", 1, SKILL_PERM; // ? Crusader ได้ Lv.1 ทันที
+				mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+			}
+			close;
+		}
+
+		case Job_Hunter: {
+			.@menu$ = "";
+			.@menu$ += (getd("UB_DS_LV")    > 0 ? "^777777[ปลดแล้ว]^000000 " : "") + "Double Strafe Mastery:";
+			.@menu$ += (getd("UB_BLITZ_LV") > 0 ? "^777777[ปลดแล้ว]^000000 " : "") + "Blitz Beat Mastery:";
+			.@sel = select(.@menu$);
+
+			if (.@sel == 1) {
+				callsub S_Lore_DS;
+				if (getd("UB_DS_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+				if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+				delitem .BookID, 1;
+				setd "UB_DS_LV", 1;
+				skill "HT_DOUBLESTRAFE_MASTERY", 1, SKILL_PERM; // ? ได้ Lv.1
+				mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+			}
+			if (.@sel == 2) {
+				callsub S_Lore_Blitz;
+				if (getd("UB_BLITZ_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+				if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+				delitem .BookID, 1;
+				setd "UB_BLITZ_LV", 1;
+				skill "HT_BLITZBEAT_MASTERY", 1, SKILL_PERM; // ? ได้ Lv.1
+				mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+			}
+			close;
+		}
+
+		case Job_Blacksmith:
+			callsub S_Lore_Mammo;
+			if (getd("UB_MAMMO_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+			if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+			delitem .BookID, 1;
+			setd "UB_MAMMO_LV", 1;
+			skill "BS_MAMMONITE_MASTERY", 1, SKILL_PERM;
+			mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+
+		case Job_Assassin:
+			callsub S_Lore_Katar;
+			if (getd("UB_KATAR_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+			if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+			delitem .BookID, 1;
+			setd "UB_KATAR_LV", 1;
+			skill "AS_KATAR_MASTERY", 1, SKILL_PERM;
+			mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+
+		case Job_Rogue:
+			callsub S_Lore_Snatch;
+			if (getd("UB_SNATCH_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+			if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+			delitem .BookID, 1;
+			setd "UB_SNATCH_LV", 1;
+			skill "RG_SNATCHER_MASTERY", 1, SKILL_PERM;
+			mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+
+		case Job_Monk: {
+			.@menu$ = "";
+			.@menu$ += (getd("UB_TRIPLE_LV") > 0 ? "^777777[ปลดแล้ว]^000000 " : "") + "Triple Mastery:";
+			.@menu$ += (getd("UB_ASURA_LV")  > 0 ? "^777777[ปลดแล้ว]^000000 " : "") + "Asura Strike Mastery:";
+			.@sel = select(.@menu$);
+
+			if (.@sel == 1) {
+				callsub S_Lore_Triple;
+				if (getd("UB_TRIPLE_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+				if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+				delitem .BookID, 1;
+				setd "UB_TRIPLE_LV", 1;
+				skill "MO_TRIPLE_MASTERY", 1, SKILL_PERM;
+				mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+			}
+			if (.@sel == 2) {
+				callsub S_Lore_Asura;
+				if (getd("UB_ASURA_LV") > 0) { mes .mes$; mes "สกิลนี้ปลดล็อกแล้ว"; close; }
+				if (select("ยืนยันใช้ Book เพื่อปลดล็อก","ยกเลิก") == 2) close;
+				delitem .BookID, 1;
+				setd "UB_ASURA_LV", 1;
+				skill "MO_ASURA_MASTERY", 1, SKILL_PERM;
+				mes .mes$; mes "^00FF00ปลดล็อกสำเร็จ!^000000"; close;
+			}
+			close;
+		}
+
+		default:
+			mes .mes$;
+			mes "อาชีพนี้ยังไม่มี Skill Mastery";
+			close;
+	}
+
+UpgradeMastery:
+	mes .mes$;
+	mes "อัปเลเวล Skill Mastery";
+	mes "ต้องใช้วัตถุดิบ:";
+	mes "^777777- ^i["+ .ScrollID +"] "+getitemname(.ScrollID)+" ตามขั้น^000000";
+	mes "^777777- ^i["+ .SoulID +"] "+getitemname(.SoulID)+" x"+.SoulNeed+"^000000";
+	mes "";
+	mes "^777777Lv.1 -> Lv.2:^000000 Scroll x"+.ScrollNeed1;
+	mes "^777777Lv.2 -> Lv.3:^000000 Scroll x"+.ScrollNeed2;
+	next;
+
+	if (countitem(.SoulID) < .SoulNeed) { mes .mes$; mes "คุณมี Soul of Emperium ไม่พอ"; close; }
+
+	switch (BaseJob) {
+
+		case Job_Knight: {
+			.@menu$ = "";
+			.@map[0] = 0; .@idx = 0;
+
+			if (getd("UB_PIERCE_LV") > 0 && getd("UB_PIERCE_LV") < 3)      { .@idx++; .@map[.@idx] = 1; .@menu$ += "Pierce Mastery (Lv."+getd("UB_PIERCE_LV")+" -> Lv."+(getd("UB_PIERCE_LV")+1)+"):"; }
+			if (getd("UB_BBASH_LV") > 0 && getd("UB_BBASH_LV") < 3)       { .@idx++; .@map[.@idx] = 2; .@menu$ += "Bowling Bash Mastery (Lv."+getd("UB_BBASH_LV")+" -> Lv."+(getd("UB_BBASH_LV")+1)+"):"; }
+			if (getd("UB_BRANDISH_LV") > 0 && getd("UB_BRANDISH_LV") < 3) { .@idx++; .@map[.@idx] = 3; .@menu$ += "Brandish Spear Mastery (Lv."+getd("UB_BRANDISH_LV")+" -> Lv."+(getd("UB_BRANDISH_LV")+1)+"):"; }
+			if (getd("UB_HPREC_LV") > 0 && getd("UB_HPREC_LV") < 3)       { .@idx++; .@map[.@idx] = 4; .@menu$ += "Increase HP Recovery (Lv."+getd("UB_HPREC_LV")+" -> Lv."+(getd("UB_HPREC_LV")+1)+"):"; }
+
+			if (.@menu$ == "") { mes .mes$; mes "ไม่มีสกิลที่สามารถอัปได้"; close; }
+
+			.@sel = select(.@menu$);
+			.@pick = .@map[.@sel];
+
+			if (.@pick == 1) { callsub S_Lore_Pierce_Upgrade;   callsub S_UpgradeOne, "UB_PIERCE_LV",   "KN_PIERCE_MASTERY";        close; }
+			if (.@pick == 2) { callsub S_Lore_Bbash_Upgrade;    callsub S_UpgradeOne, "UB_BBASH_LV",    "KN_BOWLINGBASH_MASTERY";   close; }
+			if (.@pick == 3) { callsub S_Lore_Brandish_Upgrade; callsub S_UpgradeOne, "UB_BRANDISH_LV", "KN_BRANDISHSPEAR_MASTERY"; close; }
+			if (.@pick == 4) { callsub S_Lore_HPrec_Upgrade;    callsub S_UpgradeOne, "UB_HPREC_LV",    "KNCR_INC_HP_RECOVERY";     close; }
+			close;
+		}
+
+		case Job_Crusader: {
+			.@menu$ = "";
+			if (getd("UB_HPREC_LV") > 0 && getd("UB_HPREC_LV") < 3)
+				.@menu$ = "Increase HP Recovery (Lv."+getd("UB_HPREC_LV")+" -> Lv."+(getd("UB_HPREC_LV")+1)+"):";
+
+			if (.@menu$ == "") { mes .mes$; mes "ไม่มีสกิลที่สามารถอัปได้"; close; }
+
+			.@sel = select(.@menu$);
+			callsub S_Lore_HPrec_Upgrade;
+			callsub S_UpgradeOne, "UB_HPREC_LV", "KNCR_INC_HP_RECOVERY";
+			close;
+		}
+
+		case Job_Hunter: {
+			.@menu$ = "";
+			.@map[0] = 0; .@idx = 0;
+
+			if (getd("UB_DS_LV") > 0 && getd("UB_DS_LV") < 3)       { .@idx++; .@map[.@idx] = 1; .@menu$ += "Double Strafe Mastery (Lv."+getd("UB_DS_LV")+" -> Lv."+(getd("UB_DS_LV")+1)+"):"; }
+			if (getd("UB_BLITZ_LV") > 0 && getd("UB_BLITZ_LV") < 3) { .@idx++; .@map[.@idx] = 2; .@menu$ += "Blitz Beat Mastery (Lv."+getd("UB_BLITZ_LV")+" -> Lv."+(getd("UB_BLITZ_LV")+1)+"):"; }
+
+			if (.@menu$ == "") { mes .mes$; mes "ไม่มีสกิลที่สามารถอัปได้"; close; }
+
+			.@sel = select(.@menu$);
+			.@pick = .@map[.@sel];
+
+			if (.@pick == 1) { callsub S_Lore_DS_Upgrade;    callsub S_UpgradeOne, "UB_DS_LV",    "HT_DOUBLESTRAFE_MASTERY"; close; }
+			if (.@pick == 2) { callsub S_Lore_Blitz_Upgrade; callsub S_UpgradeOne, "UB_BLITZ_LV", "HT_BLITZBEAT_MASTERY";    close; }
+			close;
+		}
+
+		case Job_Blacksmith:
+			callsub S_Lore_Mammo_Upgrade;
+			callsub S_UpgradeOne, "UB_MAMMO_LV", "BS_MAMMONITE_MASTERY";
+			close;
+
+		case Job_Assassin:
+			callsub S_Lore_Katar_Upgrade;
+			callsub S_UpgradeOne, "UB_KATAR_LV", "AS_KATAR_MASTERY";
+			close;
+
+		case Job_Rogue:
+			callsub S_Lore_Snatch_Upgrade;
+			callsub S_UpgradeOne, "UB_SNATCH_LV", "RG_SNATCHER_MASTERY";
+			close;
+
+		case Job_Monk: {
+			.@menu$ = "";
+			.@map[0] = 0; .@idx = 0;
+
+			if (getd("UB_TRIPLE_LV") > 0 && getd("UB_TRIPLE_LV") < 3) { .@idx++; .@map[.@idx] = 1; .@menu$ += "Triple Mastery (Lv."+getd("UB_TRIPLE_LV")+" -> Lv."+(getd("UB_TRIPLE_LV")+1)+"):"; }
+			if (getd("UB_ASURA_LV") > 0 && getd("UB_ASURA_LV") < 3)   { .@idx++; .@map[.@idx] = 2; .@menu$ += "Asura Strike Mastery (Lv."+getd("UB_ASURA_LV")+" -> Lv."+(getd("UB_ASURA_LV")+1)+"):"; }
+
+			if (.@menu$ == "") { mes .mes$; mes "ไม่มีสกิลที่สามารถอัปได้"; close; }
+
+			.@sel = select(.@menu$);
+			.@pick = .@map[.@sel];
+
+			if (.@pick == 1) { callsub S_Lore_Triple_Upgrade; callsub S_UpgradeOne, "UB_TRIPLE_LV", "MO_TRIPLE_MASTERY"; close; }
+			if (.@pick == 2) { callsub S_Lore_Asura_Upgrade;  callsub S_UpgradeOne, "UB_ASURA_LV",  "MO_ASURA_MASTERY";  close; }
+			close;
+		}
+
+		default:
+			mes .mes$;
+			mes "อาชีพนี้ยังไม่มี Skill Mastery";
+			close;
+	}
+
+S_UpgradeOne:
+	.@var$ = getarg(0);
+	.@skill$ = getarg(1);
+
+	.@cur = getd(.@var$);
+
+	if (.@cur <= 0) { mes .mes$; mes "คุณยังไม่ได้ปลดล็อกสกิลนี้"; return; }
+	if (.@cur >= 3) { mes .mes$; mes "สกิลนี้เต็มเลเวลแล้ว"; return; }
+
+	.@need = .ScrollNeed1;
+	if (.@cur == 2) .@need = .ScrollNeed2;
+
+	mes .mes$;
+	mes "ต้องใช้:";
+	mes "^777777- ^i["+ .ScrollID +"] "+getitemname(.ScrollID)+" x"+.@need+"^000000";
+	mes "^777777- ^i["+ .SoulID +"] "+getitemname(.SoulID)+" x"+.SoulNeed+"^000000";
+	mes "คุณมี Scroll: ^FF9900"+countitem(.ScrollID)+"^000000";
+	mes "คุณมี Soul: ^FF9900"+countitem(.SoulID)+"^000000";
+	next;
+
+	if (countitem(.ScrollID) < .@need) { mes .mes$; mes "คุณมี Unlimit Break Skill Scroll ไม่พอ"; return; }
+	if (countitem(.SoulID) < .SoulNeed) { mes .mes$; mes "คุณมี Soul of Emperium ไม่พอ"; return; }
+
+	if (select("ยืนยันอัปเลเวล","ยกเลิก") == 2) return;
+
+	delitem .ScrollID, .@need;
+	delitem .SoulID, .SoulNeed;
+
+	.@new = .@cur + 1;
+	if (.@new > 3) .@new = 3;
+
+	setd .@var$, .@new;
+	skill .@skill$, .@new, SKILL_PERM;
+
+	mes .mes$;
+	mes "^00FF00อัปเลเวลสำเร็จ!^000000";
+	mes "Lv."+.@cur+" -> Lv."+.@new;
+	mes "^777777ระบบจะคืนสกิลให้ทุกครั้งที่ Login^000000";
+	return;
+
+// ------------------------- LORE -------------------------
+
+S_Lore_Pierce:
+	mes .mes$;
+	mes "^FF9900Pierce Mastery^000000";
+	mes "มีนักรบจำนวนมากที่ “แทง” ได้… แต่มีน้อยคนที่ “แทงทะลุ”.";
+	mes "หอกไม่ใช่แค่ปลายคม—มันคือเส้นทางของแรงที่วิ่งตรงจนศัตรูไม่มีเวลาหลบ.";
+	next;
+	mes .mes$;
+	mes "ว่ากันว่าเหล่าอัศวินรุ่นแรกเคยฝึกกับเกราะจริง—";
+	mes "แทงพลาดเพียงครั้งเดียว ปลายหอกจะสะท้อนกลับมาหาแขนตัวเอง.";
+	mes "คนที่รอด คือคนที่รู้ว่าแรงต้อง “ยาว” ไม่ต้อง “ดัง”.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: เพิ่มดาเมจ Pierce 1%";
+	mes "Lv.2: เพิ่มดาเมจ Pierce 3%";
+	mes "Lv.3: เพิ่มดาเมจ Pierce 5%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_Bbash:
+	mes .mes$;
+	mes "^FF9900Bowling Bash Mastery^000000";
+	mes "การฟาดที่ดี ไม่ใช่ฟาดให้ล้ม… แต่ฟาดให้ “เสียจังหวะ”.";
+	mes "Bowling Bash ที่แท้จริงคือการผลักศัตรูให้ชีวิตของเขาเดินไม่ทันเท้าตัวเอง.";
+	next;
+	mes .mes$;
+	mes "ผู้ชำนาญจะไม่ปล่อยแรงทิ้งไปกับเสียงดัง.";
+	mes "เขาเลือกมุมที่ทำให้แรงกระแทกแตกตัวเป็นคลื่น—";
+	mes "และคลื่นนั้นจะวิ่งต่อไป จนศัตรูยืนไม่ได้แม้อยากยืน.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: เพิ่มดาเมจ Bowling Bash 1%";
+	mes "Lv.2: เพิ่มดาเมจ Bowling Bash 3%";
+	mes "Lv.3: เพิ่มดาเมจ Bowling Bash 5%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_Brandish:
+	mes .mes$;
+	mes "^FF9900Brandish Spear Mastery^000000";
+	mes "Brandish Spear ไม่ใช่แค่การกวาดอาวุธ—";
+	mes "มันคือการวาด “วง” ที่ศัตรูไม่กล้าก้าวเข้า.";
+	next;
+	mes .mes$;
+	mes "ในสนามรบจริง คนที่รอดไม่ใช่คนที่ฆ่าได้มากที่สุด…";
+	mes "แต่เป็นคนที่คุมพื้นที่ได้.";
+	mes "Mastery จะสอนให้เจ้าต่อแรงจากไหล่สู่ปลายหอกแบบไม่ขาดตอน.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: เพิ่มดาเมจ Brandish Spear 1%";
+	mes "Lv.2: เพิ่มดาเมจ Brandish Spear 3%";
+	mes "Lv.3: เพิ่มดาเมจ Brandish Spear 5%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_DS:
+	mes .mes$;
+	mes "^FF9900Double Strafe Mastery^000000";
+	mes "นักล่าที่แท้จริงไม่ได้ยิงให้โดน… เขายิงให้ “ทางหนีหายไป”.";
+	mes "Double Strafe คือการสอนให้ลูกธนูสองดอกเป็นเหมือนคำตอบเดียว.";
+	next;
+	mes .mes$;
+	mes "คนทั่วไปเรียกมันว่า “ยิงซ้ำ”.";
+	mes "แต่ผู้ชำนาญรู้ว่า มันคือการทำให้ศัตรู “ตัดสินใจช้า” เพียงเสี้ยววินาที—";
+	mes "เสี้ยวนั้นเอง ที่ต่างระหว่างเหยื่อกับนักล่า.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: เพิ่มดาเมจโจมตีระยะไกล 1%";
+	mes "Lv.2: เพิ่มดาเมจโจมตีระยะไกล 3%";
+	mes "Lv.3: เพิ่มดาเมจโจมตีระยะไกล 5%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_Blitz:
+	mes .mes$;
+	mes "^FF9900Blitz Beat Mastery^000000";
+	mes "คู่หูของนักล่าไม่ได้สู้แทน… เขาสู้ “พร้อมกัน”.";
+	mes "Blitz Beat ที่แรงขึ้น ไม่ได้มาจากกรงเล็บ… แต่มาจากความเข้าใจ.";
+	next;
+	mes .mes$;
+	mes "ผู้ฝึก Mastery จะอ่านลมหายใจของศัตรูได้จากระยะไกล.";
+	mes "เมื่อศัตรูเผลอ—นกจะพุ่งเข้าจุดที่เขาไม่ทันป้องกัน.";
+	mes "หนึ่งจังหวะที่ถูกต้อง มีค่ากว่าสิบจังหวะที่รีบ.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: เพิ่มดาเมจ Blitz Beat 10%";
+	mes "Lv.2: เพิ่มดาเมจ Blitz Beat 20%";
+	mes "Lv.3: เพิ่มดาเมจ Blitz Beat 30%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_Mammo:
+	mes .mes$;
+	mes "^FF9900Mammonite Mastery^000000";
+	mes "เงินทำให้คนลังเล… แต่ช่างตีเหล็กที่แท้จริง ทำให้เงิน “ยอม”.";
+	mes "Mammonite ไม่ใช่แค่ทุ่มเหรียญเพื่อเพิ่มแรง—มันคือการอัดแรงลงจุดเดียว.";
+	next;
+	mes .mes$;
+	mes "ผู้ชำนาญจะรู้ว่า… แรงมากไม่ได้แปลว่าเจ็บมาก.";
+	mes "เจ็บมาก คือเจ็บถูกที่.";
+	mes "Mastery จะทำให้แรงกระแทกของ Mammonite มีคุณภาพมากขึ้นทุกเลเวล.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: เพิ่มดาเมจ Mammonite 1%";
+	mes "Lv.2: เพิ่มดาเมจ Mammonite 3%";
+	mes "Lv.3: เพิ่มดาเมจ Mammonite 5%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_Katar:
+	mes .mes$;
+	mes "^FF9900Katar Mastery^000000";
+	mes "Assassin ไม่ได้ชนะด้วยการสู้ยืดเยื้อ… เขาชนะด้วยวินาทีที่ศัตรูไม่ทันรู้ตัว.";
+	mes "Katar ที่ถูกฝึกจนชำนาญ จะทำให้ “คริติคอล” ไม่ใช่เรื่องโชค… แต่เป็นนิสัย.";
+	next;
+	mes .mes$;
+	mes "คนทั่วไปคิดว่าโอกาสคริติคอลคือความเสี่ยง.";
+	mes "แต่ผู้ชำนาญรู้ว่า ความเสี่ยงคือการปล่อยให้ศัตรูได้หายใจหนึ่งครั้ง.";
+	mes "Mastery จะเพิ่มพลังของคริติคอลให้คมขึ้นตามเลเวล.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: เพิ่มคริดาเมจ 1%";
+	mes "Lv.2: เพิ่มคริดาเมจ 3%";
+	mes "Lv.3: เพิ่มคริดาเมจ 5%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_Snatch:
+	mes .mes$;
+	mes "^FF9900Snatcher Mastery^000000";
+	mes "Rogue ที่ดีไม่ใช่คนที่ขโมยเก่ง… แต่เป็นคนที่ทำให้ศัตรูไม่รู้ว่าอะไรหายไป.";
+	mes "Snatcher Mastery คือการอ่าน “จังหวะมือ” ของอีกฝ่าย แล้วสอดเข้าไปแบบไร้เสียง.";
+	next;
+	mes .mes$;
+	mes "บางคนคิดว่า Snatcher คือความโลภ.";
+	mes "แต่ในสงครามจริง… ทรัพยากรหนึ่งชิ้นที่ถูกตัดไป อาจเท่ากับการหยุดศัตรูทั้งกอง.";
+	mes "Mastery จะเพิ่มโอกาส Snatcher ตามเลเวล.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: เพิ่มโอกาส Snatcher 1%";
+	mes "Lv.2: เพิ่มโอกาส Snatcher 3%";
+	mes "Lv.3: เพิ่มโอกาส Snatcher 5%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_Triple:
+	mes .mes$;
+	mes "^FF9900Triple Mastery^000000";
+	mes "หมัดที่หนักที่สุด ไม่ใช่หมัดที่ใช้แรงที่สุด—แต่เป็นหมัดที่ “ต่อเนื่อง” จนศัตรูหายใจไม่ทัน.";
+	mes "Triple Attack จะรุนแรงขึ้น เมื่อเจ้าเลิกคิดว่ามันคือการโจมตี และเริ่มคิดว่ามันคือจังหวะก้าว.";
+	next;
+	mes .mes$;
+	mes "ผู้ชำนาญจะไม่เร่ง… เขา “ลื่นไหล”.";
+	mes "พลังของหมัดที่สองและสาม ไม่ได้มาจากกล้ามเนื้อเพิ่ม—";
+	mes "แต่มาจากการไม่เสียแรงไปกับความลังเล.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: Triple Attack แรงขึ้น 1%";
+	mes "Lv.2: Triple Attack แรงขึ้น 3%";
+	mes "Lv.3: Triple Attack แรงขึ้น 5%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_Asura:
+	mes .mes$;
+	mes "^FF9900Asura Strike Mastery^000000";
+	mes "Asura Strike คือคำตอบสุดท้ายของคนที่ยอมเอาทุกอย่างไปแลกกับหนึ่งวินาที.";
+	mes "แต่คนที่ชำนาญ จะรู้ว่า ‘หนึ่งวินาที’ นั้นต้องคุ้มค่าจริง ๆ.";
+	next;
+	mes .mes$;
+	mes "Mastery จะไม่ทำให้เจ้าฟุ่มเฟือยขึ้น—";
+	mes "มันทำให้เจ้ารู้ว่า… เมื่อไหร่ควรยอม และเมื่อไหร่ควรจบศึกทันที.";
+	mes "ยิ่งเลเวลสูง พลังจะยิ่งนิ่งและแน่นเหมือนคำสาบาน.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: Asura Strike แรงขึ้น 1%";
+	mes "Lv.2: Asura Strike แรงขึ้น 2%";
+	mes "Lv.3: Asura Strike แรงขึ้น 3%";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+S_Lore_HPrec:
+	mes .mes$;
+	mes "^FF9900Increase HP Recovery^000000";
+	mes "ร่างกายคือเตาหลอม—ยิ่งฝึก ยิ่งฟื้น.";
+	mes "ผู้ที่ควบคุมลมหายใจได้ จะยืนอยู่ได้นานกว่าใครในสนามรบ.";
+	next;
+	mes .mes$;
+	mes "^777777ผลของ Mastery^000000";
+	mes "Lv.1: เพิ่มเลือด 100";
+	mes "Lv.2: เพิ่มเลือด 150";
+	mes "Lv.3: เพิ่มเลือด 200";
+	mes "";
+	mes "^777777เมื่อปลดล็อกแล้ว จะติดตัวถาวร^000000";
+	return;
+
+// ----- Upgrade Lore routing -----
+S_Lore_Pierce_Upgrade:   callsub S_Lore_Upgrade_Generic, "Pierce Mastery"; return;
+S_Lore_Bbash_Upgrade:    callsub S_Lore_Upgrade_Generic, "Bowling Bash Mastery"; return;
+S_Lore_Brandish_Upgrade: callsub S_Lore_Upgrade_Generic, "Brandish Spear Mastery"; return;
+S_Lore_DS_Upgrade:       callsub S_Lore_Upgrade_Generic, "Double Strafe Mastery"; return;
+S_Lore_Blitz_Upgrade:    callsub S_Lore_Upgrade_Generic, "Blitz Beat Mastery"; return;
+S_Lore_Mammo_Upgrade:    callsub S_Lore_Upgrade_Generic, "Mammonite Mastery"; return;
+S_Lore_Katar_Upgrade:    callsub S_Lore_Upgrade_Generic, "Katar Mastery"; return;
+S_Lore_Snatch_Upgrade:   callsub S_Lore_Upgrade_Generic, "Snatcher Mastery"; return;
+S_Lore_Triple_Upgrade:   callsub S_Lore_Upgrade_Generic, "Triple Mastery"; return;
+S_Lore_Asura_Upgrade:    callsub S_Lore_Upgrade_Generic, "Asura Strike Mastery"; return;
+S_Lore_HPrec_Upgrade:    callsub S_Lore_Upgrade_Generic, "Increase HP Recovery"; return;
+
+S_Lore_Upgrade_Generic:
+	mes .mes$;
+	mes "^FF9900การอัปเลเวล Mastery^000000 : "+getarg(0);
+	mes "Scroll ไม่ได้เป็นแค่กระดาษ… มันคือรอยสลักของความตั้งใจ.";
+	mes "คนที่อัปเลเวลได้ แปลว่าเขายอมรับผลของพลังที่เพิ่มขึ้นแล้ว.";
+	next;
+	mes .mes$;
+	mes "Soul of Emperium คือสิ่งยืนยันว่าเจ้าไม่ได้ ‘ได้พลังฟรี’";
+	mes "มันคือคำสาบานว่าเจ้าจะใช้ความชำนาญนี้อย่างมีราคา.";
+	mes "ถ้าพร้อมแล้ว… จงก้าวต่อแบบไม่ลังเล.";
+	return;
+
+OnInit:
+	.BookID = 1001568;
+	.ScrollID = 1001569;
+	.ShardID = 1001570;
+
+	.BookShardNeed = 10;
+	.BookZenyNeed = 500000;
+	.BookSuccessRate = 30;
+
+	.ScrollShardNeed = 3;
+	.ScrollZenyNeed = 200000;
+	.ScrollSuccessRate = 40;
+
+	.SoulID = 1001519;
+	.SoulNeed = 20;
+
+	.ScrollNeed1 = 5;
+	.ScrollNeed2 = 10;
+
+	waitingroom "   Skill Exclusive",0;
+	end;
+}
+
+-	script	FixUBSkill_Login	-1,{
+	end;
+
+OnPCLoginEvent:
+
+	.@cid = getcharid(0);
+	.@lv = 0;
+
+	switch (BaseJob) {
+
+		case Job_Knight:
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_PIERCE_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "KN_PIERCE_MASTERY", .@lv, SKILL_PERM; }
+			.@lv = 0;
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_BBASH_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "KN_BOWLINGBASH_MASTERY", .@lv, SKILL_PERM; }
+			.@lv = 0;
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_BRANDISH_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "KN_BRANDISHSPEAR_MASTERY", .@lv, SKILL_PERM; }
+			.@lv = 0;
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_HPREC_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "KNCR_INC_HP_RECOVERY", .@lv, SKILL_PERM; }
+			end;
+
+		case Job_Crusader:
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_HPREC_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "KNCR_INC_HP_RECOVERY", .@lv, SKILL_PERM; }
+			end;
+
+		case Job_Hunter:
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_DS_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "HT_DOUBLESTRAFE_MASTERY", .@lv, SKILL_PERM; }
+			.@lv = 0;
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_BLITZ_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "HT_BLITZBEAT_MASTERY", .@lv, SKILL_PERM; }
+			end;
+
+		case Job_Blacksmith:
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_MAMMO_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "BS_MAMMONITE_MASTERY", .@lv, SKILL_PERM; }
+			end;
+
+		case Job_Assassin:
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_KATAR_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "AS_KATAR_MASTERY", .@lv, SKILL_PERM; }
+			end;
+
+		case Job_Rogue:
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_SNATCH_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "RG_SNATCHER_MASTERY", .@lv, SKILL_PERM; }
+			end;
+
+		case Job_Monk:
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_TRIPLE_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "MO_TRIPLE_MASTERY", .@lv, SKILL_PERM; }
+			.@lv = 0;
+
+			query_sql("SELECT `value` FROM `char_reg_num` WHERE `char_id`="+.@cid+" AND `key`='UB_ASURA_LV' LIMIT 1", .@lv);
+			if (.@lv > 0) { if (.@lv > 3) .@lv = 3; skill "MO_ASURA_MASTERY", .@lv, SKILL_PERM; }
+			end;
+
+		default:
+			end;
+	}
+}
+

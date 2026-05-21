@@ -1,0 +1,914 @@
+/*
+
+Rubbish_Etc = Replace All
+
+*/
+-	shop	Rubbish_Etc_shop	-1,909:-1
+-	shop	Rubbish_Etc_shop2	-1,909:-1
+
+morocc,180,152,4	script	Rubbish System	11147,{
+Start:
+	
+	mes .mes$;
+	mes "ข้ารับซื้อสินค้า เพื่อแลกเปลี่ยนเป็นแต้ม";
+	mes "ไว้สำหรับซื้อของในร้านค้าของข้าได้";
+	mes "สินค้าที่ข้ารับ สามารถดูได้ที่รายการ";
+	mes "^0000FF< ตัวอย่างขยะที่แลกเปลี่ยนได้ >^000000";
+	
+	.@menu = select(
+		"- ขยะแลก ^0099FFRubbish Point^000000",
+		"- เข้าชมร้านค้า ^0000FF["+callfunc("F_InsertComma",#Rubbish_Etc_point)+"]^000000",
+		"- ตัวอย่างขยะที่แลกเปลี่ยนได้",
+		(.ranking)?"- ตรวจสอบอันดับ^FF3300 ปัจจุบัน^000000":"",
+		(.ranking)?"- ตรวจสอบอันดับ^FF9900 สัปดาห์ที่แล้ว^000000":"",
+		(.ranking)?"- รับรางวัลอันดับ":"",
+		(.ranking)?"- ตัวอย่างรางวัล":"",
+		(getgmlevel()>=99)?"- Menu Admin":""
+	);
+	
+	if(.@menu == 1){
+		mes "^FF3300กรุณาปิดหน้าต่างสนทนา^000000";
+		close2;
+		callshop "Rubbish_Etc_shop",2;
+		npcshopattach "Rubbish_Etc_shop";
+	}
+	if(.@menu == 2){
+		mes "^FF3300กรุณาปิดหน้าต่างสนทนา^000000";
+		close2;
+		message strcharinfo(0),"[ระบบ] : ท่านมีแต้มสะสมทั้งหมด "+callfunc("F_InsertComma",#Rubbish_Etc_point)+" แต้ม";
+		callshop "Rubbish_Etc_shop2",1;
+		npcshopattach "Rubbish_Etc_shop2";
+		dispbottom "=========================",0x00FFFF;
+		dispbottom "        [ Stock คงเหลือ ณ ปัจจุบัน ]",0x00FFFF;
+		dispbottom "=========================",0x00FFFF;
+		for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+3 ){
+			if(.sale[.@i] == 0){
+				dispbottom "• "+getitemname(.sale[.@i+1])+" ไม่จำกัด",0xFFFF00;
+			}
+			else {
+				dispbottom "• "+getitemname(.sale[.@i+1])+" จำกัดสินค้าที่ ("+getd("$Rubbish_Etc"+.sale[.@i+1])+"/"+.sale[.@i]+") ea",0xFFFF00;
+			}
+		}
+	}
+	if(.@menu == 3){
+		mes "^FF3300กรุณาปิดหน้าต่างสนทนา^000000";
+		close2;
+		callshop "Rubbish_Etc_shop",1;
+		npcshopattach "Rubbish_Etc_shop";
+	}
+	if(.@menu == 4){
+		clear;
+		mes .mes$;
+		query_sql("SELECT player_name,score FROM `Rubbish_Etc_player_ranking` ORDER BY score DESC LIMIT "+.rank_show+"",.@name2$,.@score2);
+		if (!getarraysize(.@score2)) {
+			mes "^FF0000ยังไม่มีข้อมูลของสัปดาห์นี้^000000";
+			end;
+		}
+		for ( .@i=0; .@i<getarraysize(.@name2$); .@i++ ) {
+			mes "อันดับ "+(.@i+1)+" : ^0000FF"+.@name2$[.@i]+"^009900 ["+.@score2[.@i]+"]^000000 pt.";
+		}
+	}
+	if(.@menu == 5){
+		clear;
+		mes .mes$;
+		query_sql("SELECT player_name,score FROM `Rubbish_Etc_player_winners` ORDER BY score DESC LIMIT "+.rank_show+"",.@name1$,.@score1);
+		if (!getarraysize(.@score1)) {
+			mes "^FF0000ยังไม่มีข้อมูลของสัปดาห์ที่แล้ว^000000";
+			close;
+		}
+		for ( .@i=0; .@i<getarraysize(.@name1$); .@i++) {
+			mes "อันดับ "+(.@i+1)+" : ^0000FF"+.@name1$[.@i]+"^009900 ["+.@score1[.@i]+"]^000000 pt.";
+		}
+	}
+	if(.@menu == 6){
+		clear;
+		query_sql("SELECT id,score FROM `Rubbish_Etc_player_winners` WHERE char_id = "+getcharid(0)+" && status = 0",.@id,.@score);
+		mes .mes$;
+		mes "รางวัลที่ยังไม่ได้รับ ^FF0000"+getarraysize(.@id)+"^000000 รางวัล";
+		next;
+		if(!.@id){
+			mes .mes$;
+			mes "ยังไม่มีรางวัลที่ท่านสามารถรับได้";
+			end;
+		}
+		if(select("รับรางวัล:ยกเลิก") == 1) {
+			goto OnReward;
+			end;
+		}
+		mes .mes$;
+		mes "ไม่เป็นไร ไว้มารับทีหลังก็ได้นะ";
+		end;
+		
+		OnReward:
+		
+		.@OverW = MaxWeight*.weight_percent/100;
+		if (Weight >= .@OverW) {
+			clear;
+			mes .mes$;
+			mes "คุณมีน้ำหนักมากเกินไป!!";
+			end;
+		}
+		
+		getinventorylist;
+		if (@inventorylist_count >= .max_count) {
+			clear;
+			mes .mes$;
+			mes "คุณมีไอเทมมากเกินไป เอาไปเก็บก่อน!!";
+			end;
+		}
+		
+		query_sql("UPDATE `Rubbish_Etc_player_winners` SET status = 1 WHERE char_id = "+getcharid(0)+"");
+		dispbottom "ระบบ : คุณได้รับรางวัล ranking อันดับ "+.@id+"",0x0000FF;
+		if(.@id == 1){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_01); .@i++ ){
+				if(.item_id_rw_01[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_01[.@i],.item_am_rw_01[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_01[.@i],.item_am_rw_01[.@i];
+				}
+			}
+		}
+		if(.@id == 2){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_02); .@i++ ){
+				if(.item_id_rw_02[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_02[.@i],.item_am_rw_02[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_02[.@i],.item_am_rw_02[.@i];
+				}
+			}
+		}
+		if(.@id == 3){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_03); .@i++ ){
+				if(.item_id_rw_03[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_03[.@i],.item_am_rw_03[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_03[.@i],.item_am_rw_03[.@i];
+				}
+			}
+		}
+		if(.@id == 4){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_04); .@i++ ){
+				if(.item_id_rw_04[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_04[.@i],.item_am_rw_04[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_04[.@i],.item_am_rw_04[.@i];
+				}
+			}
+		}
+		if(.@id == 5){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_05); .@i++ ){
+				if(.item_id_rw_05[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_05[.@i],.item_am_rw_05[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_05[.@i],.item_am_rw_05[.@i];
+				}
+			}
+		}
+		if(.@id == 6){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_06); .@i++ ){
+				if(.item_id_rw_06[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_06[.@i],.item_am_rw_06[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_06[.@i],.item_am_rw_06[.@i];
+				}
+			}
+		}
+		if(.@id == 7){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_07); .@i++ ){
+				if(.item_id_rw_07[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_07[.@i],.item_am_rw_07[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_07[.@i],.item_am_rw_07[.@i];
+				}
+			}
+		}
+		if(.@id == 8){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_08); .@i++ ){
+				if(.item_id_rw_08[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_08[.@i],.item_am_rw_08[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_08[.@i],.item_am_rw_08[.@i];
+				}
+			}
+		}
+		if(.@id == 9){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_09); .@i++ ){
+				if(.item_id_rw_09[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_09[.@i],.item_am_rw_09[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_09[.@i],.item_am_rw_09[.@i];
+				}
+			}
+		}
+		if(.@id == 10){
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_10); .@i++ ){
+				if(.item_id_rw_10[.@i] == .reward_special){
+					if(.@score >= .check_pt_reward){
+						getitem .item_id_rw_10[.@i],.item_am_rw_10[.@i];
+					}
+				}
+				else {
+					getitem .item_id_rw_10[.@i],.item_am_rw_10[.@i];
+				}
+			}
+		}
+	}
+	if(.@menu == 7){
+		if(getarraysize(.item_id_rw_01)){
+			clear;
+			mes .mes$;
+			mes "อันดับ 1";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_01); .@i++ ){
+				if(.item_id_rw_01[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_01[.@i])+" x"+.item_am_rw_01[.@i]+" ea<INFO>"+.item_id_rw_01[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_01[.@i]+"] . "+getitemname(.item_id_rw_01[.@i])+" x"+.item_am_rw_01[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_01[.@i])+" x"+.item_am_rw_01[.@i]+" ea<INFO>"+.item_id_rw_01[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_01[.@i]+"] . "+getitemname(.item_id_rw_01[.@i])+" x"+.item_am_rw_01[.@i]+" ea";
+					}
+				}
+			}
+		}
+		if(getarraysize(.item_id_rw_02)){
+			next;
+			mes .mes$;
+			mes "อันดับ 2";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_02); .@i++ ){
+				if(.item_id_rw_02[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_02[.@i])+" x"+.item_am_rw_02[.@i]+" ea<INFO>"+.item_id_rw_02[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_02[.@i]+"] . "+getitemname(.item_id_rw_02[.@i])+" x"+.item_am_rw_02[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_02[.@i])+" x"+.item_am_rw_02[.@i]+" ea<INFO>"+.item_id_rw_02[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_02[.@i]+"] . "+getitemname(.item_id_rw_02[.@i])+" x"+.item_am_rw_02[.@i]+" ea";
+					}
+				}
+			}
+		}
+		if(getarraysize(.item_id_rw_03)){
+			next;
+			mes .mes$;
+			mes "อันดับ 3";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_03); .@i++ ){
+				if(.item_id_rw_03[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_03[.@i])+" x"+.item_am_rw_03[.@i]+" ea<INFO>"+.item_id_rw_03[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_03[.@i]+"] . "+getitemname(.item_id_rw_03[.@i])+" x"+.item_am_rw_03[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_03[.@i])+" x"+.item_am_rw_03[.@i]+" ea<INFO>"+.item_id_rw_03[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_03[.@i]+"] . "+getitemname(.item_id_rw_03[.@i])+" x"+.item_am_rw_03[.@i]+" ea";
+					}
+				}
+			}
+		}
+		if(getarraysize(.item_id_rw_04)){
+			next;
+			mes .mes$;
+			mes "อันดับ 4";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_04); .@i++ ){
+				if(.item_id_rw_04[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_04[.@i])+" x"+.item_am_rw_04[.@i]+" ea<INFO>"+.item_id_rw_04[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_04[.@i]+"] . "+getitemname(.item_id_rw_04[.@i])+" x"+.item_am_rw_04[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_04[.@i])+" x"+.item_am_rw_04[.@i]+" ea<INFO>"+.item_id_rw_04[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_04[.@i]+"] . "+getitemname(.item_id_rw_04[.@i])+" x"+.item_am_rw_04[.@i]+" ea";
+					}
+				}
+			}
+		}
+		if(getarraysize(.item_id_rw_05)){
+			next;
+			mes .mes$;
+			mes "อันดับ 5";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_05); .@i++ ){
+				if(.item_id_rw_05[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_05[.@i])+" x"+.item_am_rw_05[.@i]+" ea<INFO>"+.item_id_rw_05[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_05[.@i]+"] . "+getitemname(.item_id_rw_05[.@i])+" x"+.item_am_rw_05[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_05[.@i])+" x"+.item_am_rw_05[.@i]+" ea<INFO>"+.item_id_rw_05[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_05[.@i]+"] . "+getitemname(.item_id_rw_05[.@i])+" x"+.item_am_rw_05[.@i]+" ea";
+					}
+				}
+			}
+		}
+		if(getarraysize(.item_id_rw_06)){
+			next;
+			mes .mes$;
+			mes "อันดับ 6";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_06); .@i++ ){
+				if(.item_id_rw_06[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_06[.@i])+" x"+.item_am_rw_06[.@i]+" ea<INFO>"+.item_id_rw_06[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_06[.@i]+"] . "+getitemname(.item_id_rw_06[.@i])+" x"+.item_am_rw_06[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_06[.@i])+" x"+.item_am_rw_06[.@i]+" ea<INFO>"+.item_id_rw_06[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_06[.@i]+"] . "+getitemname(.item_id_rw_06[.@i])+" x"+.item_am_rw_06[.@i]+" ea";
+					}
+				}
+			}
+		}
+		if(getarraysize(.item_id_rw_07)){
+			next;
+			mes .mes$;
+			mes "อันดับ 7";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_07); .@i++ ){
+				if(.item_id_rw_07[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_07[.@i])+" x"+.item_am_rw_07[.@i]+" ea<INFO>"+.item_id_rw_07[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_07[.@i]+"] . "+getitemname(.item_id_rw_07[.@i])+" x"+.item_am_rw_07[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_07[.@i])+" x"+.item_am_rw_07[.@i]+" ea<INFO>"+.item_id_rw_07[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_07[.@i]+"] . "+getitemname(.item_id_rw_07[.@i])+" x"+.item_am_rw_07[.@i]+" ea";
+					}
+				}
+			}
+		}
+		if(getarraysize(.item_id_rw_08)){
+			next;
+			mes .mes$;
+			mes "อันดับ 8";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_08); .@i++ ){
+				if(.item_id_rw_08[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_08[.@i])+" x"+.item_am_rw_08[.@i]+" ea<INFO>"+.item_id_rw_08[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_08[.@i]+"] . "+getitemname(.item_id_rw_08[.@i])+" x"+.item_am_rw_08[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_08[.@i])+" x"+.item_am_rw_08[.@i]+" ea<INFO>"+.item_id_rw_08[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_08[.@i]+"] . "+getitemname(.item_id_rw_08[.@i])+" x"+.item_am_rw_08[.@i]+" ea";
+					}
+				}
+			}
+		}
+		if(getarraysize(.item_id_rw_09)){
+			next;
+			mes .mes$;
+			mes "อันดับ 9";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_09); .@i++ ){
+				if(.item_id_rw_09[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_09[.@i])+" x"+.item_am_rw_09[.@i]+" ea<INFO>"+.item_id_rw_09[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_09[.@i]+"] . "+getitemname(.item_id_rw_09[.@i])+" x"+.item_am_rw_09[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_09[.@i])+" x"+.item_am_rw_09[.@i]+" ea<INFO>"+.item_id_rw_09[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_09[.@i]+"] . "+getitemname(.item_id_rw_09[.@i])+" x"+.item_am_rw_09[.@i]+" ea";
+					}
+				}
+			}
+		}
+		if(getarraysize(.item_id_rw_10)){
+			next;
+			mes .mes$;
+			mes "อันดับ 10";
+			for ( .@i=0; .@i<getarraysize(.item_id_rw_10); .@i++ ){
+				if(.item_id_rw_10[.@i] == .reward_special){
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_10[.@i])+" x"+.item_am_rw_10[.@i]+" ea<INFO>"+.item_id_rw_10[.@i]+"</INFO></ITEM>";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_10[.@i]+"] . "+getitemname(.item_id_rw_10[.@i])+" x"+.item_am_rw_10[.@i]+" ea";
+						mes "^FF3300(แต้มอันดับ "+callfunc("F_InsertComma",.check_pt_reward)+" แต้ม หรือมากกว่า)^000000";
+					}
+				}
+				else {
+					if(!.new_exe){
+						mes "<ITEM>- "+getitemname(.item_id_rw_10[.@i])+" x"+.item_am_rw_10[.@i]+" ea<INFO>"+.item_id_rw_10[.@i]+"</INFO></ITEM>";
+					}
+					else {
+						mes "- ^i["+.item_id_rw_10[.@i]+"] . "+getitemname(.item_id_rw_10[.@i])+" x"+.item_am_rw_10[.@i]+" ea";
+					}
+				}
+			}
+		}
+	}
+	
+	if(.@menu == 8){
+		clear;
+		goto OnMenu;
+	}
+	end;
+
+OnMenu:
+	
+	while(1){
+		mes .mes$;
+		.@menu = select(
+			"- ตัดยอดอันดับ + รับรางวัล",
+			"- รีเซ็ต Stock ร้านค้าพิเศษ"
+		);
+		if(.@menu == 1){
+			donpcevent ""+strnpcinfo(3)+"::OnRank";
+		}
+		if(.@menu == 2){
+			for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+3 ){
+				setd "$Rubbish_Etc"+.sale[.@i+1],0;
+			}
+			message strcharinfo(0),"ระบบ : รีเซ็ตสต๊อกร้านค้าพิเศษสำเร็จ";
+		}
+		clear;
+	}
+	
+	end;
+
+Onclock2359:
+		
+		if(.ranking){
+			if(gettime(DT_DAYOFWEEK) == $day_of_Rubbish_Etc){
+				OnRank:
+					query_sql("TRUNCATE TABLE `Rubbish_Etc_player_winners`");
+					query_sql("SELECT account_id,char_id,player_name,score FROM `Rubbish_Etc_player_ranking` ORDER BY score DESC LIMIT "+.rank_max+"",.@account_id,.@char_id,.@player_name$,.@score);
+					for ( .@i=0; .@i<getarraysize(.@account_id); .@i++ ) {
+						announce ""+strnpcinfo(0)+" : ผู้เล่น " +.@player_name$[.@i]+ " ได้อันดับ "+(.@i+1)+" จากการย่อยขยะ "+.@score[.@i]+" คะแนน สัปดาห์นี้", bc_all, "0xFFFF00";
+						query_sql("INSERT INTO `Rubbish_Etc_player_winners` (account_id,char_id,player_name,score,status) VALUES ("+.@account_id[.@i]+","+.@char_id[.@i]+",'"+escape_sql(.@player_name$[.@i])+"',"+.@score[.@i]+",0)");
+					}
+					query_sql("TRUNCATE TABLE `Rubbish_Etc_player_ranking`");
+					announce ""+strnpcinfo(0)+" : ทำการรีเซ็ตอันดับ เรียบร้อยแล้ว", bc_all, "0xFFFF00";
+					end;
+			}
+		}
+		
+		end;
+	
+OnSellItem:
+	
+	freeloop(1);
+	
+	mes .mes$;
+	for( .@i=0; .@i<getarraysize(@sold_nameid); .@i++ ){
+		for( .@a=0; .@a<getarraysize(.item_decompose); .@a=.@a+2 ){
+			if (@sold_nameid[.@i] == .item_decompose[.@a]){
+				
+				.@item_id_etc[.@b] = @sold_nameid[.@i];
+				.@item_am_etc[.@b] = @sold_quantity[.@i];
+				
+				.@opt_01[.@b] = @sold_option_id1[.@i];
+				.@opt_02[.@b] = @sold_option_id2[.@i];
+				.@opt_03[.@b] = @sold_option_id3[.@i];
+				.@opt_04[.@b] = @sold_option_id4[.@i];
+				.@opt_05[.@b] = @sold_option_id5[.@i];
+				
+				.@val_01[.@b] = @sold_option_val1[.@i];
+				.@val_02[.@b] = @sold_option_val2[.@i];
+				.@val_03[.@b] = @sold_option_val3[.@i];
+				.@val_04[.@b] = @sold_option_val4[.@i];
+				.@val_05[.@b] = @sold_option_val5[.@i];
+				
+				.@param_01[.@b] = @sold_option_param1[.@i];
+				.@param_02[.@b] = @sold_option_param2[.@i];
+				.@param_03[.@b] = @sold_option_param3[.@i];
+				.@param_04[.@b] = @sold_option_param4[.@i];
+				.@param_05[.@b] = @sold_option_param5[.@i];
+				
+				.@identify[.@b] = @sold_identify[.@i];
+				.@refine[.@b] = @sold_refine[.@i];
+				.@attribute[.@b] = @sold_attribute[.@i];
+				
+				.@card_01[.@b] = @sold_card1[.@i];
+				.@card_02[.@b] = @sold_card2[.@i];
+				.@card_03[.@b] = @sold_card3[.@i];
+				.@card_04[.@b] = @sold_card4[.@i];
+				
+				.@grade[.@b] = @sold_enchantgrade[.@i];
+				
+				.@etc_npctext = compare(.Etcitems$,""+@sold_nameid[.@i]);
+				.@point_back = (@sold_quantity[.@i]*.item_decompose[.@a+1]);
+				.@point_back2 = .item_decompose[.@a+1];
+				.@Etc_Totalpoint = .@Etc_Totalpoint +.@point_back;
+				mes ((.@etc_npctext)?"  ^FF0000":"• ")+getitemname(@sold_nameid[.@i])+" x"+callfunc("F_InsertComma",@sold_quantity[.@i])+" ea^000000";
+				mes "^009900-> ("+callfunc("F_InsertComma",.@point_back2)+" pt x "+callfunc("F_InsertComma",@sold_quantity[.@i])+" ea = "+callfunc("F_InsertComma",.@point_back)+" pt)^000000";
+				.@b++;
+				
+			}
+		}
+	}
+	if(.@Etc_Totalpoint <= 0){
+		mes "ไอเทมทั้งหมดที่ขายมาให้ข้า";
+		mes "ข้าไม่ได้รับซื้อมันนะ";
+		mes "ไว้ครั้งหน้าท่านกลับมาหาข้าใหม่นะ";
+		end;
+	}
+	
+	mes "รวม : "+callfunc("F_InsertComma",.@Etc_Totalpoint)+" แต้ม";
+	
+	
+	menu	"- ยืนยันการแลก ^0000FF("+callfunc("F_InsertComma",.@Etc_Totalpoint)+")^000000",menu_ok;
+	end;
+	
+	menu_ok:
+	
+	if(.@Etc_Totalpoint <= 0){
+		mes "ไอเทมทั้งหมดที่ขายมาให้ข้า";
+		mes "ข้าไม่ได้รับซื้อมันนะ";
+		mes "ไว้ครั้งหน้าท่านกลับมาหาข้าใหม่นะ";
+		end;
+	}
+	
+	for( .@i=0; .@i<getarraysize(.@item_id_etc); .@i++ ){
+		setarray .@param[0],.@param_01[.@i],.@param_02[.@i],.@param_03[.@i],.@param_04[.@i],.@param_05[.@i];
+		setarray .@opt[0],.@opt_01[.@i],.@opt_02[.@i],.@opt_03[.@i],.@opt_04[.@i],.@opt_05[.@i];
+		setarray .@val[0],.@val_01[.@i],.@val_02[.@i],.@val_03[.@i],.@val_04[.@i],.@val_05[.@i];
+		if(getiteminfo(.@item_id_etc[.@i],ITEMINFO_TYPE) == 4 || getiteminfo(.@item_id_etc[.@i],ITEMINFO_TYPE) == 5){
+			delitem4 .@item_id_etc[.@i],.@item_am_etc[.@i],.@identify[.@i],.@refine[.@i],.@attribute[.@i],.@card_01[.@i],.@card_02[.@i],.@card_03[.@i],.@card_04[.@i],.@grade[.@i],.@opt,.@val,.@param;
+		}
+		else {
+			delitem .@item_id_etc[.@i],.@item_am_etc[.@i];
+		}
+	}
+	
+	if(.log){
+		for( .@i=0; .@i<getarraysize(.@item_id_etc); .@i++ ){
+			query_sql("INSERT INTO `Rubbish_Etc_logs` (account_id,char_id,item_id,item_name,item_am,time) VALUES ("+getcharid(3)+","+getcharid(0)+","+.@item_id_etc[.@i]+",'"+escape_sql(getitemname(.@item_id_etc[.@i]))+"',"+.@item_am_etc[.@i]+",NOW())");
+		}
+	}
+	
+	if(.ranking){
+		query_sql("SELECT char_id FROM `Rubbish_Etc_player_ranking` WHERE char_id = "+getcharid(0)+"",.@check_char_id);
+		if (!.@check_char_id) {
+			query_sql("INSERT INTO `Rubbish_Etc_player_ranking` (account_id,char_id,player_name,score) VALUES ("+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"',"+.@Etc_Totalpoint+")");
+		}
+		else {
+			query_sql("UPDATE `Rubbish_Etc_player_ranking` SET `score` = `score`+"+.@Etc_Totalpoint+" WHERE char_id = "+getcharid(0)+"");
+		}
+	}
+	
+	#Rubbish_Etc_point = #Rubbish_Etc_point +.@Etc_Totalpoint; 
+	dispbottom "[ ระบบ ] : คุณได้รับ "+callfunc("F_InsertComma",.@Etc_Totalpoint)+" แต้ม Rubbish ทั้งหมด "+callfunc("F_InsertComma",#Rubbish_Etc_point)+" แต้ม";
+	
+	end;
+
+OnBuyItem:
+	
+	freeloop(1);
+	
+	for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+3 ){
+		if(@bought_nameid == .sale[.@i+1]){
+			mes .mes$;
+			mes "Item : ^0000FF"+getitemname(@bought_nameid)+"^000000";
+			mes "จำนวน : ^FF9900"+@bought_quantity+" ea^000000";
+			if(.sale[.@i] == 0){
+				mes "สต๊อก : สามารถดึงได้ไม่จำกัด";
+			}
+			else {
+				mes "สต๊อก : ("+getd("$Rubbish_Etc"+.sale[.@i+1])+"/"+.sale[.@i]+") ea";
+			}
+			if(#Rubbish_Etc_point < .sale[.@i+2]*@bought_quantity){
+				mes "ราคา : ^FF3300("+callfunc("F_InsertComma",#Rubbish_Etc_point)+"/"+callfunc("F_InsertComma",.sale[.@i+2]*@bought_quantity)+") Point^000000";
+			}
+			if(#Rubbish_Etc_point >= .sale[.@i+2]*@bought_quantity){
+				mes "ราคา : ^009900("+callfunc("F_InsertComma",#Rubbish_Etc_point)+"/"+callfunc("F_InsertComma",.sale[.@i+2]*@bought_quantity)+") Point^000000";
+			}
+			
+			menu	"- ยืนยันการแลก ^0000FF"+getitemname(@bought_nameid)+"^000000",menu_buy;
+			end;
+			
+			menu_buy:
+				
+				if(.sale[.@i]){
+					if((getd("$Rubbish_Etc"+.sale[.@i+1])+@bought_quantity) > .sale[.@i]){
+						clear;
+						mes .mes$;
+						mes "ข้าเสียใจด้วย แต่ว่า";
+						mes ""+getitemname(@bought_nameid)+" สต๊อกหมดแล้ว";
+						end;
+					}
+				}
+				if(#Rubbish_Etc_point < .sale[.@i+2]*@bought_quantity){
+					clear;
+					mes .mes$;
+					mes "จำนวนแต้มของท่านไม่เพียงพอ";
+					mes "ต้องการอีก "+callfunc("F_InsertComma",(.sale[.@i+2]*@bought_quantity-#Rubbish_Etc_point))+" แต้ม";
+					end;					
+				}
+				
+				#Rubbish_Etc_point = #Rubbish_Etc_point -.sale[.@i+2]*@bought_quantity;
+				if(.sale[.@i]){
+					setd "$Rubbish_Etc"+@bought_nameid,getd("$Rubbish_Etc"+@bought_nameid)+@bought_quantity;
+				}
+				getitem @bought_nameid,@bought_quantity;
+				message strcharinfo(0),"[ระบบ] : ท่านได้แลกเปลี่ยน "+getitemname(@bought_nameid)+" x"+callfunc("F_InsertComma",@bought_quantity)+" ea";
+				message strcharinfo(0),"[ระบบ] : ท่านมีแต้มสะสมทั้งหมด "+callfunc("F_InsertComma",#Rubbish_Etc_point)+" แต้ม";
+				
+				end;
+		}
+	}
+	
+	end;
+
+OnInit:
+	
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `Rubbish_Etc_logs` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`item_id` int(11) NOT NULL,"+
+		"`item_name` varchar(255) NOT NULL,"+
+		"`item_am` int(11) NOT NULL,"+
+		"`time` DATETIME NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `Rubbish_Etc_player_ranking` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`score` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `Rubbish_Etc_player_winners` ("+
+		"`id` int(7) NOT NULL AUTO_INCREMENT,"+
+		"`account_id` int(11) NOT NULL,"+
+		"`char_id` int(11) NOT NULL,"+
+		"`player_name` varchar(255) NOT NULL,"+
+		"`score` int(7) NOT NULL,"+
+		"`status` int(7) NOT NULL,"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+	
+	//	===================================================================================================	//
+	//	 0 = Sunday / 1 = Monday / 2 = Tuesday / 3 = Wednesday / 4 = Thursday / 5 = Friday / 6 = Saturday	//
+	//	===================================================================================================	//
+		$day_of_Rubbish_Etc = 1;		//	ตั้งค่าสำหรับวันที่จะรีเซ็ตอันดับ+แจกรางวัล
+	//	===================================================================================================	//
+	
+	//	กำหนดการจัดอันดับผู้เล่น
+	.rank_max	= 10;
+	
+	//	กำหนดจำนวนโชว์อันดับผู้เล่น
+	.rank_show	= 10;
+	
+	//	กำหนดการจัดอันดับ 0 = ไม่จัดอันดับ / 1 = จัดอันดับ
+	.ranking = 1;
+	
+	//	กำหนดแต้มอันดับหากถึง ได้รับรางวัลพิเศษ
+	.check_pt_reward = 100000000;
+	
+	//	กำหนดรหัสไอเทม รางวัลพิเศษ
+	.reward_special = 501;
+	
+	//	กำหนด %	หากน้ำหนักเกินจะหมุนไม่ได้
+	.weight_percent = 80;
+	
+	//	กำหนด จำนวน ช่องกระเป๋า
+	.max_count = 90;
+	
+	deletearray .item_id_rw_01;	deletearray .item_am_rw_01;
+	deletearray .item_id_rw_02;	deletearray .item_am_rw_02;
+	deletearray .item_id_rw_03;	deletearray .item_am_rw_03;
+	deletearray .item_id_rw_04;	deletearray .item_am_rw_04;
+	deletearray .item_id_rw_05;	deletearray .item_am_rw_05;
+	deletearray .item_id_rw_06;	deletearray .item_am_rw_06;
+	deletearray .item_id_rw_07;	deletearray .item_am_rw_07;
+	deletearray .item_id_rw_08;	deletearray .item_am_rw_08;
+	deletearray .item_id_rw_09;	deletearray .item_am_rw_09;
+	deletearray .item_id_rw_10;	deletearray .item_am_rw_10;
+	
+	setarray .item_id_rw_01[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 1
+	setarray .item_am_rw_01[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 1
+	
+	setarray .item_id_rw_02[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 2
+	setarray .item_am_rw_02[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 2
+	
+	setarray .item_id_rw_03[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 3
+	setarray .item_am_rw_03[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 3
+	
+	setarray .item_id_rw_04[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 4
+	setarray .item_am_rw_04[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 4
+	
+	setarray .item_id_rw_05[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 5
+	setarray .item_am_rw_05[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 5
+	
+	setarray .item_id_rw_06[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 6
+	setarray .item_am_rw_06[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 6
+	
+	setarray .item_id_rw_07[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 7
+	setarray .item_am_rw_07[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 7
+	
+	setarray .item_id_rw_08[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 8
+	setarray .item_am_rw_08[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 8
+	
+	setarray .item_id_rw_09[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 9
+	setarray .item_am_rw_09[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 9
+	
+	setarray .item_id_rw_10[0],0;	//	ตั้งรหัสไอเทมสำหรับรางวัลอันดับที่ 10
+	setarray .item_am_rw_10[0],0;	//	ตั้งจำนวนสำหรับรางวัลอันดับที่ 10
+	
+	//	กำหนด Waitingroom
+	waitingroom "    Rubbish",0;
+	
+	//	กำหนด Head Dialog
+	.mes$ = "^FF3300[ "+strnpcinfo(0)+" ]^000000";
+	
+	//	กำหนดให้เก็บ log การใช้งาน		หากต้องการใส่ 1		หากไม่ต้องการใส่ 0
+	.log = 1;
+	
+	//	ตั้งค่า Dialog โชว์ไอเทม เฉพาะรุ่นปี 2023+	ใส่ 1		หากต่้ำกว่า 2023+ ใส่ 0
+	.new_exe	= 1;
+	
+	npcshopdelitem "Rubbish_Etc_shop",909;
+
+	deletearray .item_decompose;
+	//	กำหนดรายการไอเทมที่รับซื้อ			รหัสไอเทม		แต้ม
+	setarray .item_decompose[0]
+					,932	,116	// Skel-Bone
+					,1094	,139	// Short Daenggie
+					,901	,130	// Daenggie
+					,1020	,146	// Black Hair
+					,1055	,98	// Earthworm Peeling
+					,1056	,153	// Grit
+					,936	,233	// Scale Shell
+					,930	,175	// Rotten Bandage
+					,7225	,243	// Pumpkin Lantern
+					,1041	,125	// Lantern
+					,1040	,116	// Elder Pixie's Moustache
+					,7007	,374	// Claw of Rat
+					,922	,110	// Orc's Fang
+					,1043	,84	// Orc Claw
+					,7053	,386	// Cyfar
+					,1042	,215	// Bug Leg
+					,931	,71	// Orcish Voucher
+					,951	,206	// Fin
+					,956	,171	// Gill
+					,1024	,132	// Squid Ink
+					,963	,125	// Sharp Scale
+					,1023	,98	// Fish Tail
+					,1034	,171	// Blue Hair
+					,1064	,401	// Reins
+					,7063	,140	// Soft Feather
+					,7071	,640	// Tattered Clothes
+					,1097	,474	// Worn Out Page
+					,7047	,1212	// Alice's Apron
+					,7054	,373	// Brigan
+					,7015	,1500	// Bookclip in Memory
+					,7005	,522	// Skull
+					,934	,300	// Memento
+					,958	,195	// Horrendous Mouth
+					,943	,224	// Solid Shell
+					,1096	,390	// Round Shell
+					,7004	,438	// Mud Lump
+					,2611	,10000	// Silver Ring
+					,1060	,215	// Golden Hair
+					,954	,233	// Shining Scale
+					,7016	,1250	// Spoon Stub
+					,1099	,340	// Worn-out Prison Uniform
+					,7003	,484	// Anolian Skin
+					,1095	,273	// Needle of Alarm
+					,7013	,386	// Coral Reef
+					,944	,294	// Horseshoe
+					,1038	,264	// Little Evil Horn
+					,1037	,600	// Dragon Tail
+					,1035	,242	// Dragon Canine
+					,1036	,250	// Dragon Scale
+					,1039	,1000	// Little Evil Wing
+					,1012	,125	// Frill
+					,929	,187	// Immortal Heart
+					,1025	,92	// Cobweb
+					,1061	,242	// Witch StarSand
+					,1044	,132	// Zenorc's Fang
+					,1051	,225	// Detonator
+					,7110	,294	// Broken Sword
+					,7121	,311	// Honey Pot
+					,7101	,227	// Peco Peco Feather
+					;
+	
+	freeloop(1);
+	
+	for ( .@i=0; .@i<getarraysize(.item_decompose); .@i=.@i+2 ){
+		npcshopadditem "Rubbish_Etc_shop",.item_decompose[.@i],.item_decompose[.@i+1];
+	}
+	
+	npcshopdelitem "Rubbish_Etc_shop2",909;
+	
+	deletearray .sale;
+	
+	//					Stock	รหัสไอเทม		ราคา
+	setarray .sale[0]	,0		,905027		,10000
+						,0		,980004		,10000
+						,0		,7619		,10000
+						,0		,7620		,10000
+						,0		,1001516	,100000
+						;
+						
+	for ( .@i=0; .@i<getarraysize(.sale); .@i=.@i+3 ){
+		npcshopadditem "Rubbish_Etc_shop2",.sale[.@i+1],.sale[.@i+2];
+	}
+	
+	end;
+	
+}

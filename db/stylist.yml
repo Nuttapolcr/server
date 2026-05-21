@@ -1,0 +1,1137 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2022 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Stylist Database
+###########################################################################
+#
+# Stylist Settings
+#
+###########################################################################
+# - Look                     Look that will be changed.
+#   Options                  Possible options to select from.
+#     - Index                Client side index of the option.
+#       Value                Value of the look (can also be an item name).
+#       CostsHuman:          Costs for human players.
+#           Price            Required zeny. (Default: 0)
+#           RequiredItem     Required item. (Default: None)
+#           RequiredItemBox  Required item box. (Default: None)
+#       CostsDoram:          Costs for doram players.
+#           Price            Required zeny. (Default: 0)
+#           RequiredItem     Required item. (Default: None)
+#           RequiredItemBox  Required item box. (Default: None)
+###########################################################################
+
+Header:
+  Type: STYLIST_DB
+  Version: 1
+
+Body:
+  - Look: Hair_Color
+    Options:
+      - Index: -1
+        Value: 0
+        CostsHuman:
+            Price: 0
+        CostsDoram:
+            Price: 0
+      - Index: 1
+        Value: 1
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 2
+        Value: 2
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 3
+        Value: 3
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 4
+        Value: 4
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 5
+        Value: 5
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 6
+        Value: 6
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 7
+        Value: 7
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 8
+        Value: 8
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+  - Look: Hair
+    Options:
+      - Index: 1
+        Value: 1
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 2
+        Value: 2
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 3
+        Value: 3
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 4
+        Value: 4
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 5
+        Value: 5
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 6
+        Value: 6
+        CostsHuman:
+            Price: 100000
+        CostsDoram:
+            Price: 100000
+      - Index: 7
+        Value: 7
+        CostsHuman:
+            Price: 100000
+        CostDoram:
+            RequiredItem: J_Shop_Coupon2
+            RequiredItemBox: J_Shop_Coupon2
+      - Index: 8
+        Value: 8
+        CostsHuman:
+            Price: 100000
+        CostDoram:
+            RequiredItem: J_Shop_Coupon2
+            RequiredItemBox: J_Shop_Coupon2
+      - Index: 9
+        Value: 9
+        CostsHuman:
+            Price: 100000
+        CostDoram:
+            RequiredItem: J_Shop_Coupon2
+            RequiredItemBox: J_Shop_Coupon2
+      - Index: 10
+        Value: 10
+        CostsHuman:
+            Price: 100000
+        CostDoram:
+            RequiredItem: J_Shop_Coupon2
+            RequiredItemBox: J_Shop_Coupon2
+      - Index: 11
+        Value: 11
+        CostsHuman:
+            Price: 100000
+      - Index: 12
+        Value: 12
+        CostsHuman:
+            Price: 100000
+      - Index: 13
+        Value: 13
+        CostsHuman:
+            Price: 100000
+      - Index: 14
+        Value: 14
+        CostsHuman:
+            Price: 100000
+      - Index: 15
+        Value: 15
+        CostsHuman:
+            Price: 100000
+      - Index: 16
+        Value: 16
+        CostsHuman:
+            Price: 100000
+      - Index: 17
+        Value: 17
+        CostsHuman:
+            Price: 100000
+      - Index: 18
+        Value: 18
+        CostsHuman:
+            Price: 100000
+      - Index: 19
+        Value: 19
+        CostsHuman:
+            Price: 100000
+      - Index: 20
+        Value: 20
+        CostsHuman:
+            Price: 100000
+      - Index: 21
+        Value: 21
+        CostsHuman:
+            Price: 100000
+      - Index: 22
+        Value: 22
+        CostsHuman:
+            Price: 100000
+      - Index: 23
+        Value: 23
+        CostsHuman:
+            Price: 100000
+      - Index: 24
+        Value: 24
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+      - Index: 25
+        Value: 25
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+      - Index: 26
+        Value: 26
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+      - Index: 27
+        Value: 27
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+      - Index: 28
+        Value: 28
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+      - Index: 29
+        Value: 29
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+      - Index: 30
+        Value: 30
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+      - Index: 31
+        Value: 31
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+      - Index: 32
+        Value: 32
+        CostsHuman:
+            Price: 100000
+      - Index: 33
+        Value: 33
+        CostsHuman:
+            Price: 3000000
+      - Index: 34
+        Value: 34
+        CostsHuman:
+            Price: 3000000
+      - Index: 35
+        Value: 35
+        CostsHuman:
+            Price: 3000000
+      - Index: 36
+        Value: 36
+        CostsHuman:
+            Price: 3000000
+      - Index: 37
+        Value: 37
+        CostsHuman:
+            Price: 3000000
+      - Index: 38
+        Value: 38
+        CostsHuman:
+            Price: 3000000
+      - Index: 39
+        Value: 39
+        CostsHuman:
+            Price: 3000000
+      - Index: 40
+        Value: 40
+        CostsHuman:
+            Price: 3000000
+      - Index: 41
+        Value: 41
+        CostsHuman:
+            Price: 3000000
+      - Index: 42
+        Value: 42
+        CostsHuman:
+            Price: 3000000
+  - Look: Clothes_Color
+    Options:
+      - Index: 1
+        Value: 0
+        CostsHuman:
+            RequiredItem: Clothing_Dye_Coupon_II
+        CostsDoram:
+            RequiredItem: Clothing_Dye_Coupon_II
+      - Index: 2
+        Value: 2
+        CostsHuman:
+            RequiredItem: Clothing_Dye_Coupon
+        CostsDoram:
+            RequiredItem: Clothing_Dye_Coupon
+            
+      - Index: 3
+        Value: 3
+        CostsHuman:
+            RequiredItem: Clothing_Dye_Coupon
+            
+        CostsDoram:
+            RequiredItem: Clothing_Dye_Coupon
+            
+      - Index: 4
+        Value: 4
+        CostsHuman:
+            RequiredItem: Clothing_Dye_Coupon
+            
+      - Index: 5
+        Value: 5
+        CostsHuman:
+            RequiredItem: Clothing_Dye_Coupon
+            
+      - Index: 6
+        Value: 6
+        CostsHuman:
+            RequiredItem: Clothing_Dye_Coupon
+            
+      - Index: 7
+        Value: 7
+        CostsHuman:
+            RequiredItem: Clothing_Dye_Coupon
+            
+  - Look: Head_Top
+    Options:
+      - Index: 1
+        Value: Hat
+        CostsHuman:
+            Price: 1000
+        CostsDoram:
+            Price: 1000
+      - Index: 2
+        Value: Ribbon
+        CostsHuman:
+            Price: 800
+        CostsDoram:
+            Price: 800
+      - Index: 3
+        Value: Bandana
+        CostsHuman:
+            Price: 400
+        CostsDoram:
+            Price: 400
+  - Look: Head_Mid
+    Options:
+      - Index: 1
+        Value: One_Eyed_Glass
+        CostsHuman:
+            Price: 10000
+        CostsDoram:
+            Price: 10000
+      - Index: 2
+        Value: Sunglasses
+        CostsHuman:
+            Price: 5000
+        CostsDoram:
+            Price: 5000
+      - Index: 3
+        Value: Luxury_Sunglasses
+        CostsHuman:
+            Price: 24000
+        CostsDoram:
+            Price: 24000
+      - Index: 4
+        Value: Spinning_Eyes
+        CostsHuman:
+            Price: 20000
+        CostsDoram:
+            Price: 20000
+      - Index: 5
+        Value: Diver's_Goggles
+        CostsHuman:
+            Price: 3500
+        CostsDoram:
+            Price: 3500
+      - Index: 6
+        Value: Glasses
+        CostsHuman:
+            Price: 4000
+        CostsDoram:
+            Price: 4000
+      - Index: 7
+        Value: Eye_Bandage
+        CostsHuman:
+            Price: 1000
+        CostsDoram:
+            Price: 1000
+  - Look: Head_Bottom
+    Options:
+      - Index: 1
+        Value: Granpa_Beard
+        CostsHuman:
+            Price: 5000
+        CostsDoram:
+            Price: 5000
+  - Look: Body2
+    Options:
+      - Index: 1
+        BaseJob: 4252
+        Value: 4252
+        CostsHuman:
+            Price: 0
+      - Index: 2
+        BaseJob: 4060
+        Value: 4252
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 3
+        BaseJob: 4252
+        Value: 4332
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 4
+        BaseJob: 4253
+        Value: 4253
+        CostsHuman:
+            Price: 0
+      - Index: 5
+        BaseJob: 4253
+        Value: 4064
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 6
+        BaseJob: 4253
+        Value: 4333
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 7
+        BaseJob: 4254
+        Value: 4254
+        CostsHuman:
+            Price: 0
+      - Index: 8
+        BaseJob: 4254
+        Value: 4065
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 9
+        BaseJob: 4254
+        Value: 4334
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 10
+        BaseJob: 4255
+        Value: 4255
+        CostsHuman:
+            Price: 0
+      - Index: 11
+        BaseJob: 4255
+        Value: 4061
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 12
+        BaseJob: 4255
+        Value: 4335
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 13
+        BaseJob: 4256
+        Value: 4256
+        CostsHuman:
+            Price: 0
+      - Index: 14
+        BaseJob: 4256
+        Value: 4063
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 15
+        BaseJob: 4256
+        Value: 4336
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 16
+        BaseJob: 4257
+        Value: 4257
+        CostsHuman:
+            Price: 0
+      - Index: 17
+        BaseJob: 4257
+        Value: 4062
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 18
+        BaseJob: 4257
+        Value: 4337
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 19
+        BaseJob: 4258
+        Value: 4258
+        CostsHuman:
+            Price: 0
+      - Index: 20
+        BaseJob: 4258
+        Value: 4073
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 21
+        BaseJob: 4258
+        Value: 4338
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 22
+        BaseJob: 4259
+        Value: 4259
+        CostsHuman:
+            Price: 0
+      - Index: 23
+        BaseJob: 4259
+        Value: 4078
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 24
+        BaseJob: 4259
+        Value: 4339
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 25
+        BaseJob: 4260
+        Value: 4260
+        CostsHuman:
+            Price: 0
+      - Index: 26
+        BaseJob: 4260
+        Value: 4079
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 27
+        BaseJob: 4260
+        Value: 4340
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 28
+        BaseJob: 4261
+        Value: 4261
+        CostsHuman:
+            Price: 0
+      - Index: 29
+        BaseJob: 4261
+        Value: 4074
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 30
+        BaseJob: 4261
+        Value: 4341
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 31
+        BaseJob: 4262
+        Value: 4262
+        CostsHuman:
+            Price: 0
+      - Index: 32
+        BaseJob: 4262
+        Value: 4077
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 33
+        BaseJob: 4262
+        Value: 4342
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 34
+        BaseJob: 4263
+        Value: 4263
+        CostsHuman:
+            Price: 0
+      - Index: 35
+        BaseJob: 4263
+        Value: 4075
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 36
+        BaseJob: 4263
+        Value: 4343
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 37
+        BaseJob: 4264
+        Value: 4264
+        CostsHuman:
+            Price: 0
+      - Index: 38
+        BaseJob: 4264
+        Value: 4076
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 39
+        BaseJob: 4264
+        Value: 4344
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 40
+        BaseJob: 4060
+        Value: 4060
+        CostsHuman:
+            Price: 0
+      - Index: 41
+        BaseJob: 4060
+        Value: 4332
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 42
+        BaseJob: 4054
+        Value: 4054
+        CostsHuman:
+            Price: 0
+      - Index: 43
+        BaseJob: 4054
+        Value: 4332
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 44
+        BaseJob: 4096
+        Value: 4096
+        CostsHuman:
+            Price: 0
+      - Index: 45
+        BaseJob: 4096
+        Value: 4332
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 46
+        BaseJob: 4064
+        Value: 4064
+        CostsHuman:
+            Price: 0
+      - Index: 47
+        BaseJob: 4064
+        Value: 4333
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 48
+        BaseJob: 4058
+        Value: 4058
+        CostsHuman:
+            Price: 0
+      - Index: 49
+        BaseJob: 4058
+        Value: 4333
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 50
+        BaseJob: 4100
+        Value: 4100
+        CostsHuman:
+            Price: 0
+      - Index: 51
+        BaseJob: 4100
+        Value: 4333
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 52
+        BaseJob: 4065
+        Value: 4065
+        CostsHuman:
+            Price: 0
+      - Index: 53
+        BaseJob: 4065
+        Value: 4334
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 54
+        BaseJob: 4059
+        Value: 4059
+        CostsHuman:
+            Price: 0
+      - Index: 55
+        BaseJob: 4059
+        Value: 4334
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 56
+        BaseJob: 4101
+        Value: 4101
+        CostsHuman:
+            Price: 0
+      - Index: 57
+        BaseJob: 4101
+        Value: 4334
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 58
+        BaseJob: 4061
+        Value: 4061
+        CostsHuman:
+            Price: 0
+      - Index: 59
+        BaseJob: 4061
+        Value: 4335
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 60
+        BaseJob: 4055
+        Value: 4055
+        CostsHuman:
+            Price: 0
+      - Index: 61
+        BaseJob: 4055
+        Value: 4335
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 62
+        BaseJob: 4097
+        Value: 4097
+        CostsHuman:
+            Price: 0
+      - Index: 63
+        BaseJob: 4097
+        Value: 4335
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 64
+        BaseJob: 4063
+        Value: 4063
+        CostsHuman:
+            Price: 0
+      - Index: 65
+        BaseJob: 4063
+        Value: 4336
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 66
+        BaseJob: 4057
+        Value: 4057
+        CostsHuman:
+            Price: 0
+      - Index: 67
+        BaseJob: 4057
+        Value: 4336
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 68
+        BaseJob: 4099
+        Value: 4099
+        CostsHuman:
+            Price: 0
+      - Index: 69
+        BaseJob: 4099
+        Value: 4336
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 70
+        BaseJob: 4062
+        Value: 4062
+        CostsHuman:
+            Price: 0
+      - Index: 71
+        BaseJob: 4062
+        Value: 4337
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 72
+        BaseJob: 4056
+        Value: 4056
+        CostsHuman:
+            Price: 0
+      - Index: 73
+        BaseJob: 4056
+        Value: 4337
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 74
+        BaseJob: 4098
+        Value: 4098
+        CostsHuman:
+            Price: 0
+      - Index: 75
+        BaseJob: 4098
+        Value: 4337
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 76
+        BaseJob: 4073
+        Value: 4073
+        CostsHuman:
+            Price: 0
+      - Index: 77
+        BaseJob: 4073
+        Value: 4338
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 78
+        BaseJob: 4066
+        Value: 4066
+        CostsHuman:
+            Price: 0
+      - Index: 79
+        BaseJob: 4066
+        Value: 4338
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 80
+        BaseJob: 4102
+        Value: 4102
+        CostsHuman:
+            Price: 0
+      - Index: 81
+        BaseJob: 4102
+        Value: 4338
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 82
+        BaseJob: 4078
+        Value: 4078
+        CostsHuman:
+            Price: 0
+      - Index: 83
+        BaseJob: 4078
+        Value: 4339
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 84
+        BaseJob: 4071
+        Value: 4071
+        CostsHuman:
+            Price: 0
+      - Index: 85
+        BaseJob: 4071
+        Value: 4339
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 86
+        BaseJob: 4107
+        Value: 4107
+        CostsHuman:
+            Price: 0
+      - Index: 87
+        BaseJob: 4107
+        Value: 4339
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 88
+        BaseJob: 4079
+        Value: 4079
+        CostsHuman:
+            Price: 0
+      - Index: 89
+        BaseJob: 4079
+        Value: 4340
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 90
+        BaseJob: 4072
+        Value: 4072
+        CostsHuman:
+            Price: 0
+      - Index: 91
+        BaseJob: 4072
+        Value: 4340
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 92
+        BaseJob: 4108
+        Value: 4108
+        CostsHuman:
+            Price: 0
+      - Index: 93
+        BaseJob: 4108
+        Value: 4340
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 94
+        BaseJob: 4074
+        Value: 4074
+        CostsHuman:
+            Price: 0
+      - Index: 95
+        BaseJob: 4074
+        Value: 4341
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 96
+        BaseJob: 4067
+        Value: 4067
+        CostsHuman:
+            Price: 0
+      - Index: 97
+        BaseJob: 4067
+        Value: 4341
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 98
+        BaseJob: 4103
+        Value: 4103
+        CostsHuman:
+            Price: 0
+      - Index: 99
+        BaseJob: 4103
+        Value: 4341
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 100
+        BaseJob: 4077
+        Value: 4077
+        CostsHuman:
+            Price: 0
+      - Index: 101
+        BaseJob: 4077
+        Value: 4342
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 102
+        BaseJob: 4070
+        Value: 4070
+        CostsHuman:
+            Price: 0
+      - Index: 103
+        BaseJob: 4070
+        Value: 4342
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 104
+        BaseJob: 4106
+        Value: 4106
+        CostsHuman:
+            Price: 0
+      - Index: 105
+        BaseJob: 4106
+        Value: 4342
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 106
+        BaseJob: 4075
+        Value: 4075
+        CostsHuman:
+            Price: 0
+      - Index: 107
+        BaseJob: 4075
+        Value: 4343
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 108
+        BaseJob: 4068
+        Value: 4068
+        CostsHuman:
+            Price: 0
+      - Index: 109
+        BaseJob: 4068
+        Value: 4343
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 110
+        BaseJob: 4104
+        Value: 4104
+        CostsHuman:
+            Price: 0
+      - Index: 111
+        BaseJob: 4104
+        Value: 4343
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 112
+        BaseJob: 4076
+        Value: 4076
+        CostsHuman:
+            Price: 0
+      - Index: 113
+        BaseJob: 4076
+        Value: 4344
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 114
+        BaseJob: 4069
+        Value: 4069
+        CostsHuman:
+            Price: 0
+      - Index: 115
+        BaseJob: 4069
+        Value: 4344
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 116
+        BaseJob: 4105
+        Value: 4105
+        CostsHuman:
+            Price: 0
+      - Index: 117
+        BaseJob: 4105
+        Value: 4344
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 118
+        BaseJob: 4302
+        Value: 4302
+        CostsHuman:
+            Price: 0
+      - Index: 119
+        BaseJob: 4302
+        Value: 4239
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 120
+        BaseJob: 4303
+        Value: 4303
+        CostsHuman:
+            Price: 0
+      - Index: 121
+        BaseJob: 4303
+        Value: 4240
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 122
+        BaseJob: 4304
+        Value: 4304
+        CostsHuman:
+            Price: 0
+      - Index: 123
+        BaseJob: 4304
+        Value: 4211
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 124
+        BaseJob: 4305
+        Value: 4305
+        CostsHuman:
+            Price: 0
+      - Index: 125
+        BaseJob: 4305
+        Value: 4212
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 126
+        BaseJob: 4306
+        Value: 4306
+        CostsHuman:
+            Price: 0
+      - Index: 127
+        BaseJob: 4306
+        Value: 4215
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 128
+        BaseJob: 4307
+        Value: 4307
+        CostsHuman:
+            Price: 0
+      - Index: 129
+        BaseJob: 4307
+        Value: 4190
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon
+      - Index: 130
+        BaseJob: 4308
+        Value: 4308
+        CostsHuman:
+            Price: 0
+      - Index: 131
+        BaseJob: 4308
+        Value: 4218
+        CostsHuman:
+            RequiredItem: New_Style_Coupon
+            RequiredItemBox: New_Style_Coupon

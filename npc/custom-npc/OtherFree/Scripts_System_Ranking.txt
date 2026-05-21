@@ -1,0 +1,339 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : แม่มดน้อย จอมป่วน
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/appleroplus2
+// Gmail appleroplus@gmail.com
+// Skype appleroplus@hotmail.com
+//==============================================
+//==============================================
+//==============================================
+/*
+# AUTO Ranking v1
+  ALTER TABLE  `char` ADD  `point_pvp` INT NOT NULL DEFAULT  '0',
+  ADD  `point_mvp` INT NOT NULL DEFAULT  '0',
+  ADD  `point_emp` INT NOT NULL DEFAULT  '0'
+*/
+-	script	Ranking	-1,{
+	end;
+
+OnPCKillEvent:
+	if (!getmapflag(strcharinfo(3),mf_gvg)) {
+		callfunc("AddPointChar","PVP");
+	}
+	end;
+
+OnNPCKillEvent:
+	switch(killedrid) {
+	case 1086:	callfunc ("AddPointChar","MVP");	break; /*Golden Bug	*/
+	case 1112:	callfunc ("AddPointChar","MVP");	break; /*Drake	*/
+	case 1115:	callfunc ("AddPointChar","MVP");	break; /*Eddga	*/
+	case 1150:	callfunc ("AddPointChar","MVP");	break; /*Moonlight	*/
+	case 1159:	callfunc ("AddPointChar","MVP");	break; /*Phreeoni	*/
+	case 1252:	callfunc ("AddPointChar","MVP");	break; /*Garm	*/
+	case 1583:	callfunc ("AddPointChar","MVP");	break; /*Tao Gunka	*/
+	case 1038:	callfunc ("AddPointChar","MVP");	break; /*Osiris	*/
+	case 1046:	callfunc ("AddPointChar","MVP");	break; /*Doppelganger*/
+	case 1087:	callfunc ("AddPointChar","MVP");	break; /*Orc Hero	*/
+	case 1147:	callfunc ("AddPointChar","MVP");	break; /*Maya	*/
+	case 1251:	callfunc ("AddPointChar","MVP");	break; /*Stormy Knight*/
+	case 1492:	callfunc ("AddPointChar","MVP");	break; /*Samurai	*/
+	case 1157:	callfunc ("AddPointChar","MVP");	break; /*Pharaoh	*/
+	case 1312:	callfunc ("AddPointChar","MVP");	break; /*TurtleGeneral*/
+	case 1389:	callfunc ("AddPointChar","MVP");	break; /*Dracula	*/
+	case 1418:	callfunc ("AddPointChar","MVP");	break; /*EvilSnakeLord	*/
+	case 1658:	callfunc ("AddPointChar","MVP");	break; /*Egnigem Cenia	*/
+	case 1885:	callfunc ("AddPointChar","MVP");	break; /*Zmey Gorynych	*/
+	case 1039:	callfunc ("AddPointChar","MVP");	break; /*Baphomet	*/
+	case 1190:	callfunc ("AddPointChar","MVP");	break; /*Orc Lord	*/
+	case 1373:	callfunc ("AddPointChar","MVP");	break; /*LordOfTheDead	*/
+	case 1272:	callfunc ("AddPointChar","MVP");	break; /*Dark Lord	*/
+	case 1623:	callfunc ("AddPointChar","MVP");	break; /*RSX-0806	*/
+	case 1630:	callfunc ("AddPointChar","MVP");	break; /*White Lady	*/
+	case 1685:	callfunc ("AddPointChar","MVP");	break; /*Vesper	*/
+	case 1719:	callfunc ("AddPointChar","MVP");	break; /*Detardeurus	*/
+	case 1785:	callfunc ("AddPointChar","MVP");	break; /*Atros	*/
+	case 1734:	callfunc ("AddPointChar","MVP");	break; /*Kiel D-01	*/
+	case 1059:	callfunc ("AddPointChar","MVP");	break; /*Mistress	*/
+	case 1511:	callfunc ("AddPointChar","MVP");	break; /*Amon Ra	*/ 
+	case 1688:	callfunc ("AddPointChar","MVP");	break; /*Lady Tanee	*/
+	case 1708:	callfunc ("AddPointChar","MVP");	break; /*Thanatos	*/
+	case 1646:	callfunc ("AddPointChar","MVP");	break; /*Lord Knight	*/
+	case 1648:	callfunc ("AddPointChar","MVP");	break; /*Whitesmith	*/
+	case 1647:	callfunc ("AddPointChar","MVP");	break; /*AssassinCross	*/
+	case 1649:	callfunc ("AddPointChar","MVP");	break; /*High Priest	*/
+	case 1751:	callfunc ("AddPointChar","MVP");	break; /*Valkyrie	*/
+	case 1779:	callfunc ("AddPointChar","MVP");	break; /*Ktullanux	*/
+	case 1650:	callfunc ("AddPointChar","MVP");	break; /*Sniper	*/
+	case 1871:	callfunc ("AddPointChar","MVP");	break; /*Fallen Bishop	*/
+	case 1768:	callfunc ("AddPointChar","MVP");	break; /*GloomUnder	*/
+	case 1651:	callfunc ("AddPointChar","MVP");	break; /*High Wizard	*/
+	case 1832:	callfunc ("AddPointChar","MVP");	break; /*Ifrit	*/
+	case 1874:	callfunc ("AddPointChar","MVP");	break; /*Beelzebub 	*/
+	case 1917:	callfunc ("AddPointChar","MVP");	break; /*Satan Morroc 	*/
+	case 1956:	callfunc ("AddPointChar","MVP");	break; /*Naght Sieger	*/
+	case 1990:	callfunc ("AddPointChar","MVP");	break; /*Hardrock Mammoth	*/
+	case 1991:	callfunc ("AddPointChar","MVP");	break; /*Tendril Lion 	*/
+	}
+	end;
+
+OnWhisperGlobal:
+	if (@whispervar0$ == "") end;
+	set .@npc$,"[Ranking]";
+	set .@command$,@whispervar0$;
+	if ( (getgmlevel() >= 99) && (.@command$ == "Admin") ) {
+		mes .@npc$;
+		mes "ระบบจัดการคะแนน";
+		next;
+		switch (select("- Reset คะแนน PVP","- Reset คะแนน MVP","- Reset คะแนน EMP","- Reset คะแนน REP")) {
+		case 1:
+			query_sql "UPDATE `char` SET `point_pvp`='0'";
+			mes .@npc$;
+			mes "Reset คะแนน PVP";
+			mes "เรียบร้อยแล้ว";
+			close;
+		break;
+		case 2:
+			query_sql "UPDATE `char` SET `point_mvp`='0'";
+			mes .@npc$;
+			mes "Reset คะแนน MVP";
+			mes "เรียบร้อยแล้ว";
+			close;
+		break;
+		case 3:
+			query_sql "UPDATE `char` SET `point_emp`='0'";
+			mes .@npc$;
+			mes "Reset คะแนน EMP";
+			mes "เรียบร้อยแล้ว";
+			close;
+		break;
+		case 4:
+			query_sql "UPDATE `hwdig` SET `point_total`='0'";
+			mes .@npc$;
+			mes "Reset คะแนน REP";
+			mes "เรียบร้อยแล้ว";
+			close;
+		break;
+		}
+	} else if ( (.@command$ == "pvp") || (.@command$ == "PVP") ) {
+OnShow_PVP:
+		query_sql "SELECT `name`,`point_pvp` FROM `char` ORDER BY `point_pvp` DESC LIMIT 10",.@name$,.@point;
+		mes "====== PVP RANKING ======";
+		for (set .@i,0; .@i < 10; set .@i,.@i+1) {
+			if (.@point[.@i] == 0) set .@name$[.@i],"None";
+			mes "["+(.@i+1)+"]  "+.@name$[.@i]+" : คะแนน " +.@point[.@i]+"";
+		}
+		mes "-----------------------";
+		query_sql "SELECT `point_pvp` FROM `char` WHERE `char_id`='"+getcharid(0)+"'",.@cpoint;
+		mes "คุณมีคะแนน : "+.@cpoint;
+		mes "=========================";
+	} else if ( (.@command$ == "mvp") || (.@command$ == "MVP") ) {
+OnShow_MVP:
+		query_sql "SELECT `name`,`point_mvp` FROM `char` ORDER BY `point_mvp` DESC LIMIT 10",.@name$,.@point;
+		mes "====== MVP RANKING ======";
+		for (set .@i,0; .@i < 10; set .@i,.@i+1) {
+			if (.@point[.@i] == 0) set .@name$[.@i],"None";
+			mes "["+(.@i+1)+"]  "+.@name$[.@i]+" : คะแนน " +.@point[.@i]+"";
+		}
+		mes "-----------------------";
+		query_sql "SELECT `point_mvp` FROM `char` WHERE `char_id`='"+getcharid(0)+"'",.@cpoint;
+		mes "คุณมีคะแนน : "+.@cpoint;
+		mes "=========================";
+	} else if ( (.@command$ == "emp") || (.@command$ == "EMP") ) {
+OnShow_EMP:
+		query_sql "SELECT `name`,`point_emp` FROM `char` ORDER BY `point_emp` DESC LIMIT 10",.@name$,.@point;
+		mes "====== EMP RANKING ======";
+		for (set .@i,0; .@i < 10; set .@i,.@i+1) {
+			if (.@point[.@i] == 0) set .@name$[.@i],"None";
+			mes "["+(.@i+1)+"]  "+.@name$[.@i]+" : คะแนน " +.@point[.@i]+"";
+		}
+		mes "-----------------------";
+		query_sql "SELECT `point_emp` FROM `char` WHERE `char_id`='"+getcharid(0)+"'",.@cpoint;
+		mes "คุณมีคะแนน : "+.@cpoint;
+		mes "=========================";
+	} else if ( (.@command$ == "rep") || (.@command$ == "REP") ) {
+OnShow_REP:
+		query_sql "SELECT `userid`,`point_total` FROM `login` ORDER BY `point_total` DESC LIMIT 10",.@name$,.@point;
+		mes "====== REP RANKING ======";
+		for (set .@i,0; .@i < 10; set .@i,.@i+1) {
+			if (.@point[.@i] == 0) set .@name$[.@i],"None";
+			mes "["+(.@i+1)+"]  "+.@name$[.@i]+" : คะแนน " +.@point[.@i]+"";
+		}
+		mes "-----------------------";
+		query_sql "SELECT `point_rep` FROM `login` WHERE `account_id`='"+getcharid(3)+"'",.@cpoint;
+		mes "คุณมีคะแนน : "+.@cpoint;
+		mes "=========================";
+	}
+	end;
+}
+
+-	script	ตรวจสอบอันดับผู้เล่น::rankingbbs	GUILD_FLAG,{
+
+//soundeffect "rank.wav",0;
+	set .@npc$,"^00BFFF[ ตรวจสอบอันดับผู้เล่น ]^000000";
+	mes .@npc$;
+	mes "สวัสดี ข้าสามารถแสดง";
+	mes "10 อันดับผู้เล่นที่อยู่ในจุดสูงสุด";
+	mes "ในโลกของเราได้ ท่าต้องการ";
+	mes "ตรวจสอบข้อมูลใด";
+	mes "โปรดเลือกเมนูที่คุณต้องการ";
+	next;
+	switch (select("^FF0000•^000000 สังหารผู้เล่น^000000","^FF0000•^000000 สังหารบอส^000000","^FF0000•^000000 สงครามชิงปราสาท^000000")) {
+	case 1:
+		mes .@npc$;
+		mes "แสดงข้อมูลเรียบร้อยแล้ว";
+		close2;
+		doevent "Ranking::OnShow_PVP";
+	break;
+	case 2:
+		mes .@npc$;
+		mes "แสดงข้อมูลเรียบร้อยแล้ว";
+		close2;
+		doevent "Ranking::OnShow_MVP";
+	break;
+	case 3:
+		mes .@npc$;
+		mes "แสดงข้อมูลเรียบร้อยแล้ว";
+		close2;
+		doevent "Ranking::OnShow_EMP";
+	break;
+	case 4:
+		mes .@npc$;
+		mes "แสดงข้อมูลเรียบร้อยแล้ว";
+		close2;
+		doevent "Ranking::OnShow_REP";
+	break;
+	}
+	end;
+
+OnInit:
+	waitingroom "ตรวจสอบอันดับผู้เล่น",0;
+	end;
+}
+
+function	script	AddPointChar	{
+	set .@string$,getarg(0);
+	if (.@string$ == "PVP") {
+		query_sql "UPDATE `char` SET `point_pvp`=(`point_pvp` + 1) WHERE `char_id`='"+getcharid(0)+"' LIMIT 1";
+	} else if (.@string$ == "MVP") {
+		query_sql "UPDATE `char` SET `point_mvp`=(`point_mvp` + 1) WHERE `char_id`='"+getcharid(0)+"' LIMIT 1";
+	} else if (.@string$ == "EMP") {
+		query_sql "UPDATE `char` SET `point_emp`=(`point_emp` + 1) WHERE `char_id`='"+getcharid(0)+"' LIMIT 1";
+	}
+	return 0;
+}
+
+oasis,184,95,4	duplicate(rankingbbs)	ตรวจสอบอันดับผู้เล่น#SaveTower	11028 
+
+// Jhondominic Script
+-	script	rank_reset	-1,{
+
+OnClock0000:
+	query_sql("SELECT COUNT(char_id) FROM `mvp_rank_reward`", .@charcount);
+	if ( .@charcount > 0 ) {
+		query_sql("SELECT char_id FROM `mvp_rank_reward`", .@char_id);
+		for ( set .@c, 0; .@c < getarraysize(.@char_id); set .@c, .@c + 1 )
+		query_sql("DELETE FROM `mvp_rank_reward` WHERE char_id = "+.@char_id[.@c]+"");
+	}
+
+	if ( gettime(4) == 0 ) {
+		query_sql("SELECT char_id, account_id, name, point_mvp FROM `char` ORDER BY point_mvp DESC LIMIT 3", .@charid, .@accid, .@name$, .@points);
+		for ( set .@i, 0; .@i < getarraysize(.@charid); set .@i, .@i + 1 )
+		query_sql("INSERT INTO `mvp_rank_reward` (char_id, name, points, reward_get) VALUES ("+.@charid[.@i]+", '"+.@name$[.@i]+"', "+.@points[.@i]+", 0)");
+		query_sql("UPDATE `char` SET point_mvp = 0");
+	}
+	end;
+	
+OnAtcommand:
+	mes "[ Reset MVP Rank ]";
+	mes "ท่านต้องการรีเซ็ตแต้มแร้งค์ MVP";
+	mes "ใช่หรือไม่?";
+	next;
+	menu "~ ยกเลิก",Cancel,"~ ใช่แล้ว",-;
+	
+	query_sql("UPDATE `char` SET point_mvp = 0");
+	end;
+	
+OnPvPReset:
+	mes "[ Reset PVP Rank ]";
+	mes "ท่านต้องการรีเซ็ตแต้มแร้งค์ PVP";
+	mes "ใช่หรือไม่?";
+	next;
+	menu "~ ยกเลิก",Cancel,"~ ใช่แล้ว",-;
+	
+	query_sql("UPDATE `char` SET point_pvp = 0");
+	end;
+	
+Cancel:
+	close;
+	
+OnInit:
+	bindatcmd "mvpreset",strnpcinfo(3) + "::OnAtcommand";
+	bindatcmd "pvpreset",strnpcinfo(3) + "::OnPvPReset";
+	end;
+}
+
+oasis,188,92,4	script	MVP Rank Reward	882,{
+
+query_sql("SELECT COUNT(char_id) FROM `mvp_rank_reward`", .@charcount);
+if ( .@charcount == 0 ) {
+	mes .NPCName$;
+	mes "ข้ายังจดสถิติไม่เสร็จเลย";
+	mes "ผู้เล่นที่ติดอันดับ 1-3 จะได้รับรางวัล 1000Cash";
+	mes "สามารถรับรางวัลได้ทุกวันอาทิตย์ เวลา 00.01น";
+	mes "แร๊งจะถูกรีทุกอาทิตย์";
+	close;
+}
+
+mes .NPCName$;
+mes "สวัสดีผู้เล่น ^0000FF"+strcharinfo(0)+"^000000";
+mes "ข้าคือผู้แจกรางวัลผู้เล่นที่ล่า MVP มากสุด 3 อันดับ";
+query_sql("SELECT char_id, name, points FROM `mvp_rank_reward` ORDER BY points DESC LIMIT 3", .@charid, .@name$, .@points);
+for ( set .@i, 0; .@i < getarraysize(.@charid); set .@i, .@i + 1 )
+mes "อันดับ "+(.@i+1)+" : "+.@name$[.@i]+" "+.@points[.@i]+" คะแนน";
+mes "เจ้ามาคุยกับข้าทำไมล่ะ?";
+next;
+menu "~ ข้ามารับรางวัล",-,"~ ยกเลิก",Cancel;
+
+for ( set .@a, 0; .@a < getarraysize(.@charid); set .@a, .@a + 1 )
+if ( getcharid(0) == .@charid[.@a] ) {
+	for ( set .@b, 0; .@b < getarraysize(.reward_id); set .@b, .@b + 1 )
+	getitem .reward_id[.@b], .reward_amount[.@b];
+
+	query_sql("DELETE FROM `mvp_rank_reward` WHERE char_id = "+getcharid(0)+"");
+	mes .NPCName$;
+	mes "รับไปเลยนี้คือรางวัลของท่าน";
+	close;
+}
+
+mes .NPCName$;
+	mes "^FF0000บางทีท่านควรละอายใจที่หน้าด้านแบบนี้^000000";
+	close;
+
+Cancel:
+	close;
+
+OnInit:
+	waitingroom "[ รับรางวัลแร้งค์ MVP ]",0;		// ตั้งค่าป้ายบนหัว NPC
+	set .NPCName$, "[ รับรางวัลแร้งค์ MVP ]";		// ตั้งค่าชื่อ NPC 
+	setarray .reward_id, 61003;		// ตั้งค่า item_id ของรางวัล
+	setarray .reward_amount, 1;		// ตั้งค่าจำนวนของรางวัล
+	end;
+}
+
+-	script	mvp_database	-1,{
+OnInit:
+	query_sql (
+		"CREATE TABLE IF NOT EXISTS `mvp_rank_reward` ("+
+		"`id` int(7) unsigned NOT NULL AUTO_INCREMENT,"+
+		"`char_id` int(12) unsigned NOT NULL,"+
+		"`name` varchar(255) NOT NULL,"+
+		"`points` int(7) unsigned NOT NULL,"+
+		"`reward_get` tinyint(1) unsigned NOT NULL DEFAULT '0',"+
+		"PRIMARY KEY (`id`)"+
+		") ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+	);
+}

@@ -1,0 +1,23 @@
+-	script	#load	-1,{
+OnInit:
+    bindatcmd "load",strnpcinfo(3)+"::OnLoadBack",0,0;
+    end;
+    
+OnLoadBack:
+	if (getgmlevel()>60) { atcommand "@return"; end; }
+	if ( getmapflag(strcharinfo(3),mf_pvp,0) && getmapflag(strcharinfo(3),pkpass,0) ){
+		message strcharinfo(0),"[System] : คุณอยู่ในแมฟ PvP & GvG ";
+		end;
+	}
+	if ( getmapflag( strcharinfo(3),mf_gvg,0 ) ){
+		message strcharinfo(0),"[System] : คุณอยู่ในแมฟ PvP & GvG ";
+		end;
+	}
+	set .@map$,getsavepoint(0);
+	set .@x,getsavepoint(1);
+	set .@y,getsavepoint(2);
+	set .@nx,.@x + rand(-5,5);
+	set .@ny,.@y + rand(-5,5);	
+	warp .@map$,.@nx,.@ny;	
+	end;
+}

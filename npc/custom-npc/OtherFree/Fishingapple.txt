@@ -1,0 +1,113 @@
+//==============================================
+//==============================================
+//==============================================
+// - Script By : AGMS
+// - Script City : Thailand 
+// - Script Support Server : rAthena & Hercules
+// Contacts
+// Facebook https://www.facebook.com/agms03 https://www.facebook.com/appleroplus2
+// Gmail mcomocz@gmail.com appleroplus@gmail.com
+// Skype appleroplus@hotmail.com LINE mcomocz
+//==============================================
+//==============================================
+//==============================================
+-	script	FishingHole	-1,{
+
+//Fishing rod
+set .@Rod,2764;
+//Fishing Lure
+set .@Lure,2775;
+//Auto-Fish
+set .@Auto,1;
+//Auto-Fish on Fail
+set .@AutoFail,1;
+Fish:
+	if (isequipped(.@Rod)) && (isequipped(.@Lure)){
+		specialeffect EF_BUBBLE,"Fishing Hole";
+		soundeffect "fishing_wait.wav",0;
+		dispbottom "[ระบบ] กำลังเริ่มตกปลา";
+		set .@fcast,15;
+			if (isequipped(2550)) { //Fisher's Muffler
+				set .@fcast,.@fcast - 2;
+			}
+			if (isequipped(2443)) { //Fisher's Boots
+				set .@fcast,.@fcast - 2;
+			}
+			if (isequipped(2764)) { //Fishing Pole
+				set .@fcast,.@fcast - 3;
+			}
+			if (isequipped(2775)) { //Fishing Lure
+				set .@fcast,.@fcast - 1;
+			}
+		progressbar "ffffff",.@fcast;
+		if (rand(1,400) == 2){ //โอกาศ 1ใน 400
+		getitem 61001,1;
+		getitem 61019,1;
+		specialeffect2 EF_TEMP_OK;
+		specialeffect2 410;
+		//soundeffectall "fishing_m_success.wav",0,strcharinfo(3);
+		soundeffect "fishing_m_success.wav",0;
+		//mapannounce strcharinfo(3),"ว้าว...ยินดีด้วย คุณ  [ "+strcharinfo(0)+" ] ได้รับ Cash Coin 1 ea. และ Random Farm Box 1 ea. จากการตกปลา",bc_map,"0x66FF99";
+		if(.@Auto==1){
+		goto Fish;}else{
+		end;}
+		}
+			if (rand(1,6) == 1) ||(rand(1,6) == 3) || (rand(1,6) == 6){
+			setarray .@Catch[0],579,908,909,963,956,6049,918,960,910,938,624,61707,61708,61709,61710,61711,61712,61713,991,717,713,962,943,514,512,61714;// List of Junk/Other
+			set .@CatchRand,.@Catch[rand(getarraysize(.@Catch))];
+			getitem .@CatchRand,1;
+			}
+			else {
+			soundeffect "fishing_m_failure.wav",0;
+			dispbottom "[Fishing] ว้าแย่จังเลย...คุณดูเหมือนคุณตกไม่ได้อะไรเลย";
+			if(.@AutoFail == 1){
+			goto Fish;} else{
+			end;}
+			}
+		if (rand(1,1000) == 3){ //โอกาศ 1ใน 1000
+		setarray .@Rare[0],61202;
+		set .@RareCatch, .@Rare[rand(getarraysize(.@Rare))];
+		getitem .@RareCatch,1; //Reward
+		specialeffect2 410;
+		soundeffect "fishing_m_success.wav",0;
+		//mapannounce strcharinfo(3),"ว้าวว้าวว้าว...ยินดีด้วย คุณ [ "+strcharinfo(0)+" ] ได้รับ "+getitemname(.@RareCatch)+" จากการตกปลา",bc_map,"0x66FF99";
+		}
+		if(.@Auto == 1){
+		goto Fish;} else{
+		end;}
+		}
+	else {
+	dispbottom "[ระบบ] คุณจำเป็นต้องมีเบ็ดตกปลาและเหยื่อตกปลาก่อน...";
+	end;
+	}
+}
+
+
+oasis,148,125,0	duplicate(FishingHole)	จุดตกปลา#01	844
+oasis,144,125,0	duplicate(FishingHole)	จุดตกปลา#02	844
+oasis,140,125,0	duplicate(FishingHole)	จุดตกปลา#03	844
+oasis,136,125,0	duplicate(FishingHole)	จุดตกปลา#04	844
+oasis,132,125,0	duplicate(FishingHole)	จุดตกปลา#05	844
+oasis,128,125,0	duplicate(FishingHole)	จุดตกปลา#06	844
+oasis,124,125,0	duplicate(FishingHole)	จุดตกปลา#07	844
+oasis,120,125,0	duplicate(FishingHole)	จุดตกปลา#08	844
+//oasis,116,126,0	duplicate(FishingHole)	จุดตกปลา#09	844
+//oasis,112,126,0	duplicate(FishingHole)	จุดตกปลา#10	844
+//oasis,105,120,0	duplicate(FishingHole)	จุดตกปลา#11	844
+
+
+oasis,148,125,5	duplicate(FishingHole)	น้องปลาน้อย#20	2070
+oasis,144,125,5	duplicate(FishingHole)	น้องปลาน้อย#21	2070
+oasis,140,125,5	duplicate(FishingHole)	น้องปลาน้อย#11	2070
+oasis,136,125,5	duplicate(FishingHole)	น้องปลาน้อย#12	2070
+oasis,132,125,5	duplicate(FishingHole)	น้องปลาน้อย#13	2070
+oasis,128,125,5	duplicate(FishingHole)	น้องปลาน้อย#14	2070
+oasis,124,125,5	duplicate(FishingHole)	น้องปลาน้อย#15	2070
+oasis,120,125,5	duplicate(FishingHole)	น้องปลาน้อย#16	2070
+//oasis,116,129,5	duplicate(FishingHole)	น้องปลาน้อย#17	2070
+//oasis,112,129,5	duplicate(FishingHole)	น้องปลาน้อย#18	2070
+//oasis,108,129,5	duplicate(FishingHole)	น้องปลาน้อย#19	2070
+
+
+
+oasis,131,119,0	shop	ขายของตกปลา	634,2764:1000000,2775:1000000,2550:1000000,2443:1000000

@@ -1,0 +1,238 @@
+//===== *Athena Script =======================================
+//= Disguise Race Script
+//===== By: ==================================================
+//= KamiShi
+//===== Current Version: =====================================
+//= 2
+//===== Compatible With: =====================================
+//= *Athena SVN
+//===== Description: =========================================
+//= Fantasy script
+//============================================================
+//Variable race_id :
+//------------------------------------------------------------
+//0 = Human
+//1 = Dark Elf
+//2 = Light Elf
+//3 = Merman
+//4 = Orc
+//5 = Vampire
+//6 = Beast
+//7 = Dragon
+//8 = Demon
+//============================================================
+// ITEM EQUIP SCRIPT :
+//------------------------------------------------------------
+// callfunc "TransformToRaceFantasy", <race_id>;
+//============================================================
+// ITEM UNEQUIP SCRIPT :
+//------------------------------------------------------------
+// callfunc "TransformToHuman";
+//============================================================
+
+-	script	Fantasy	-1,{
+//prontera,138,195,5	script	Fantasy	435,{
+	mes "[^008B00Fantasy^000000]";
+	if(race_id)
+	{
+		mes "Hi, ^008B00"+$RaceNamesFantasy$[race_id]+"^000000!";
+		next;
+		mes "[^008B00Fantasy^000000]";
+		mes "What would you like to do ?";
+		next;
+		switch(select("I want to change my colors.:I want to be human again!"))
+		{
+			case 1:
+				callfunc "RaceDyeFantasy",$RacePalsFantasy[race_id*4],$RacePalsFantasy[race_id*4+1],$RacePalsFantasy[race_id*4+2],$RacePalsFantasy[race_id*4+3];
+				close;
+
+			case 2:
+				mes "[^008B00Fantasy^000000]";
+				mes "Done!";
+				callfunc "TransformToHuman";
+				announce "[Fantasy]: ["+strcharinfo(0)+"] has became a human again...",bc_all,"0xFFEBCD";
+				close;
+		}
+	}
+	mes "I can help you to change your Human essence.";
+	mes "Which race are you interested in?";
+	next;
+	switch(select("Night Elf:Light Elf:Merman:Orc:Vampire:Lycan:Dragoon:Demon"))
+	{
+		case 1: //Dark Elf
+				callfunc "TransformToRaceFantasy", 1;
+				break;
+				
+		case 2: //Light Elf
+				callfunc "TransformToRaceFantasy", 2;
+				break;
+			
+		case 3: //Merman
+				callfunc "TransformToRaceFantasy", 3;
+				break;
+			
+		case 4: //Orc
+				callfunc "TransformToRaceFantasy", 4;
+				break;
+			
+		case 5: //Vampire
+				callfunc "TransformToRaceFantasy", 5;
+				break;
+			
+		case 6: //Beast
+				callfunc "TransformToRaceFantasy", 6;
+				break;
+
+		case 7: //Dragon
+				callfunc "TransformToRaceFantasy", 7;
+				break;
+
+		case 8: //Demon
+				callfunc "TransformToRaceFantasy", 8;
+				break;
+			
+
+
+				
+	}
+	
+	mes "[^008B00Fantasy^000000]";
+	mes "Now you are a ^008B00"+$RaceNamesFantasy$[race_id]+"^000000!";
+	announce "[Fantasy]: ["+strcharinfo(0)+"] has became a "+$RaceNamesFantasy$[race_id]+"",bc_all,"0xFFEBCD"; 
+	
+	close;
+	
+	
+
+}
+
+
+function	script	TransformToRaceFantasy	{		
+	set race_id, getarg(0);	// Race ID 
+	setlook(6, $RacePalsFantasy[race_id*4+2]);	// Number of the first race hair dye
+	setlook(7, $RacePalsFantasy[race_id*4]);	// Number of the first race clothes dye
+	specialeffect2 248;	// Some fancy effect
+	return;
+	
+}
+
+function	script	TransformToHuman	{		
+	set race_id, 0;	// Race ID 
+	setlook(6, 1);	
+	setlook(7, 1);
+	specialeffect2 248;	// Some fancy effect
+	return;
+}
+
+
+function	script	RaceDyeFantasy	{	
+
+	set .@offsetFantasyC, $RacePalsFantasy[race_id*4];
+	set .@offsetFantasyH, $RacePalsFantasy[race_id*4+2];
+
+	mes "[^FF8000Fantasy^000000]";
+	mes "You are currently wearing:";
+	mes "^000000Cloth color: ^0000FF"+(getlook(7)-.@offsetFantasyC);
+	mes "^000000Hair color: ^0000FF"+(getlook(6)-.@offsetFantasyH);
+	next;
+	mes "[^FF8000Fantasy^000000]";
+	mes "What would you like to change?";
+	next;
+	switch(select("Clothes color:Hair color"))
+	{
+		case 1:
+			mes "[^FF8000Fantasy^000000]";
+			
+			mes "Choose a clothes color from ^0000FF"+(getarg(2)-.@offsetFantasyC)+" to "+(getarg(3)-1-.@offsetFantasyC)+"^000000.";
+
+			chose1:
+			input (.@style, getarg(2)-.@offsetFantasyC, getarg(3)-.@offsetFantasyC);
+			if((.@style+.@offsetFantasyC) < getarg(2) || (.@style+.@offsetFantasyC) >= getarg(3))
+			{
+				mes "The color chosen is out of range.";
+				goto chose1;
+			}
+			
+			browse1:
+			setlook(7, .@style+.@offsetFantasyC);
+			dispbottom "This is the color number "+(.@style)+".";
+			switch(select("Next:Previous:I Like It!")){
+				
+				case 1:
+					set .@style, .@style+1;
+					if (.@style >= (getarg(3)-.@offsetFantasyC)) set .@style, (getarg(2)-.@offsetFantasyC);
+					goto browse1;
+					
+				case 2:
+					set .@style, .@style-1;
+					if (.@style <= (getarg(2)-.@offsetFantasyC)) set .@style, (getarg(3)-1-.@offsetFantasyC);
+					goto browse1;
+				
+				case 3:
+					next;
+					mes "[^FF8000Fantasy^000000]";
+					mes "Perfect ! I am glad you found a color that fits you!";
+					close;
+					
+			}
+			
+			close;
+
+		case 2:
+			mes "[^FF8000Fantasy^000000]";
+			mes "Choose a hair color from ^0000FF"+(getarg(0)-.@offsetFantasyH)+" to "+(getarg(1)-1-.@offsetFantasyH)+"^000000.";
+			chose2:
+			input (.@style, (getarg(0)-.@offsetFantasyH), (getarg(1)-.@offsetFantasyH));
+			if((.@style+.@offsetFantasyH) < getarg(0) || (.@style+.@offsetFantasyH) >= getarg(1))
+			{
+				mes "The chosen color is out of range.";
+				goto chose2;
+			}
+			
+			browse2:
+			setlook(6,.@style+.@offsetFantasyH);
+			dispbottom "This is the color number "+(.@style)+".";
+			
+			switch(select("Next:Previous:I Like It!")){
+				
+				case 1:
+					set .@style, .@style+1;
+					if (.@style >= (getarg(1)-.@offsetFantasyH)) set .@style, (getarg(0)-.@offsetFantasyH);
+					goto browse2;
+					
+				case 2:
+					set .@style, .@style-1;
+					if (.@style <= (getarg(0)-.@offsetFantasyH)) set .@style, (getarg(1)-1-.@offsetFantasyH);
+					goto browse2;
+				
+				case 3:
+					next;
+					mes "[^FF8000Fantasy^000000]";
+					mes "Perfect ! I am glad you found a color that fits you!";
+					close;
+			
+			}
+			
+			close;
+	}
+}
+
+-	script	PalOffsetsFantasy	-1,{
+OnInit:
+	set .@offsetFantasyC, 0;
+	set .@offsetFantasyH, 0;
+	
+	setarray $RacePalsFantasy[1*4], 700+.@offsetFantasyC,732+.@offsetFantasyC,700+.@offsetFantasyH,732+.@offsetFantasyH;	// Dark Elf
+	setarray $RacePalsFantasy[2*4], 732+.@offsetFantasyC,764+.@offsetFantasyC,732+.@offsetFantasyH,764+.@offsetFantasyH;	// Light Elf
+	setarray $RacePalsFantasy[3*4], 764+.@offsetFantasyC,796+.@offsetFantasyC,764+.@offsetFantasyH,796+.@offsetFantasyH;	// Merman
+	setarray $RacePalsFantasy[4*4], 796+.@offsetFantasyC,828+.@offsetFantasyC,796+.@offsetFantasyH,828+.@offsetFantasyH;	// Orc
+	setarray $RacePalsFantasy[5*4], 828+.@offsetFantasyC,860+.@offsetFantasyC,828+.@offsetFantasyH,860+.@offsetFantasyH;	// Vampire
+	setarray $RacePalsFantasy[6*4], 860+.@offsetFantasyC,892+.@offsetFantasyC,860+.@offsetFantasyH,892+.@offsetFantasyH;	// Beast
+	setarray $RacePalsFantasy[7*4], 892+.@offsetFantasyC,924+.@offsetFantasyC,892+.@offsetFantasyH,924+.@offsetFantasyH;	// Demon
+	setarray $RacePalsFantasy[8*4], 924+.@offsetFantasyC,956+.@offsetFantasyC,924+.@offsetFantasyH,956+.@offsetFantasyH;	// Dragon
+		
+	/* Define Races Names */
+	setarray $RaceNamesFantasy$[0], "Human", "Dark Elf", "Light Elf", "Merman", "Orc", "Vampire", "Beast", "Demon", "Dragoon";
+	end;
+
+}

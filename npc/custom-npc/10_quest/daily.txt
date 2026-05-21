@@ -1,0 +1,490 @@
+//!rathena
+//@resetdailyhunt
+-	script	IG_DailyQuest_WoECard	-1,{
+
+OnInit:
+	bindatcmd "resetdailyhunt", strnpcinfo(3) + "::OnResetDailyHunt", 99, 99;
+	end;
+
+OnNPCKillEvent:
+	if (#dh_active != 1) end;
+	if (getcharid(1) != 0) end;
+	if (killedrid != #dh_mobid) end;
+	if (#dh_kill >= 100) end;
+	#dh_kill++;
+	if (#dh_kill >= 100) #dh_done = 1;
+	dispbottom "[Daily Hunt] " + #dh_name$ + " : " + #dh_kill + " / 100";
+	if (#dh_done == 1) dispbottom "[Daily Hunt] สำเร็จแล้ว! กลับไปส่งรายงานที่ Prontera (144,125)";
+	end;
+
+OnResetDailyHunt:
+	#dh_active = 0;
+	#dh_done = 0;
+	#dh_kill = 0;
+	#dh_mobid = 0;
+	#dh_name$ = "";
+	#dh_daily_date = 0;
+	if (checkquest(99057) >= 0) erasequest 99057;
+	if (checkquest(99058) >= 0) erasequest 99058;
+	if (checkquest(99059) >= 0) erasequest 99059;
+	if (checkquest(99060) >= 0) erasequest 99060;
+	if (checkquest(99061) >= 0) erasequest 99061;
+	if (checkquest(99062) >= 0) erasequest 99062;
+	if (checkquest(99063) >= 0) erasequest 99063;
+	if (checkquest(99064) >= 0) erasequest 99064;
+	if (checkquest(99055) >= 0) erasequest 99055;
+	if (checkquest(99056) >= 0) erasequest 99056;
+	dispbottom "[Daily Hunt] รีเซ็ตข้อมูล/เควสเรียบร้อยแล้ว";
+	end;
+}
+
+
+prontera,144,125,4	script	Quest Daily	96,{
+	.@today = gettime(DT_YEAR) * 10000 + gettime(DT_MONTH) * 100 + gettime(DT_DAYOFMONTH);
+	if (#dh_daily_date != .@today && checkquest(99056) >= 0) erasequest 99056;
+	if (BaseLevel < 90) {
+		mes "[Quest Daily]";
+		mes "ขอโทษทีนะ นักผจญภัย...";
+		mes "ประกาศนี้ออกโดยสภาเมือง";
+		mes "รับเฉพาะผู้ที่มีเลเวล 90 ขึ้นไปเท่านั้น";
+		close;
+	}
+
+	if (getcharid(1) != 0) {
+		mes "[Quest Daily]";
+		mes "ข้าขอเตือนก่อนเลย";
+		mes "ภารกิจนี้เป็นงานลับของสภาเมือง";
+		mes "ต้องทำแบบลุยเดี่ยวเท่านั้น";
+		mes "ถ้าเจ้าจะรับงาน กรุณาออกจากปาร์ตี้ก่อน";
+		close;
+	}
+
+	mes "[Quest Daily]";
+	mes "เจ้ามาถูกที่แล้ว";
+	mes "ข้าคือผู้ประสานงานของสภาเมือง Prontera";
+	mes "แต้ม Daily Point ปัจจุบันของเจ้า: " + #DailyPoint;
+	next;
+	
+	switch(select(
+		"รับเควสล่ามอนสเตอร์ประจำวัน",
+		"Craft Daily Quest",
+		"ยกเลิก"
+	)) {
+	case 1:
+		break;
+	case 2:
+		goto L_CRAFT;
+	default:
+		close;
+	}
+	if (#dh_daily_date == .@today) {
+		mes "[Quest Daily]";
+		mes "ชื่อของเจ้ายังอยู่ในสมุดบันทึกของข้า";
+		mes "วันนี้เจ้ารับงานไปแล้ว";
+		mes "กลับมาใหม่หลังเที่ยงคืน";
+		close;
+	}
+	mes "[Quest Daily]";
+	mes "ช่วงหลายวันมานี้ ข่าวร้ายถูกส่งเข้ามาไม่หยุด";
+	mes "Morocc กำลังเกิดความผิดปกติ";
+	mes "ไม่ใช่แค่โจรหรือสัตว์ป่า แต่เป็น 'การไหลบ่าของพลังแปลกประหลาด'";
+	next;
+
+	mes "[Quest Daily]";
+	mes "เราได้รับรายงานว่าบริเวณใกล้สมรภูมิ GVG";
+	mes "มีเศษพลังงานสีดำหลงเหลือจากสนามรบ";
+	mes "มันเหมือนเศษความโกรธแค้นของผู้แพ้";
+	mes "และมันกำลังทำให้มอนสเตอร์บ้าคลั่ง";
+	next;
+
+	mes "[Quest Daily]";
+	mes "ที่น่ากลัวกว่านั้นคือ...";
+	mes "มีคนเริ่มลักลอบทำ 'การ์ดต้องห้าม'";
+	mes "การ์ดที่ถูกผนึกไว้ให้ใช้ได้เฉพาะในสงครามกิลด์";
+	mes "พวกเขาเรียกมันว่า 'NT Card'";
+	next;
+
+	mes "[Quest Daily]";
+	mes "สภาเมืองไม่ต้องการให้ข่าวนี้แพร่ออกไป";
+	mes "เพราะจะทำให้ผู้คนตื่นตระหนก";
+	mes "ดังนั้นเราจึงต้องการนักผจญภัย";
+	mes "ที่ลงมือคนเดียว ไม่พัวพันกับกลุ่มใด";
+	next;
+
+	mes "[Quest Daily]";
+	mes "กติกามีอยู่ 3 ข้อ";
+	mes "1) เลเวล 90 ขึ้นไป";
+	mes "2) ห้ามปาร์ตี้ระหว่างล่า (ไม่นับ Kill)";
+	mes "3) รับได้วันละ 1 ครั้ง/ไอดี รีเซ็ตเที่ยงคืน";
+	next;
+
+	if (checkquest(99055) >= 0) {
+		mes "[Quest Daily]";
+		mes "ข้าตรวจสมุดบันทึกแล้ว...";
+		mes "เจ้ากำลังอยู่ระหว่างภารกิจล่าอยู่";
+		next;
+
+		if (getcharid(1) != 0) {
+			mes "[Quest Daily]";
+			mes "แต่ตอนนี้เจ้ามีปาร์ตี้อยู่";
+			mes "กติกาคือห้ามปาร์ตี้";
+			mes "ออกจากปาร์ตี้ก่อน แล้วค่อยมาคุยต่อ";
+			close;
+		}
+
+		mes "[Quest Daily]";
+		mes "เป้าหมาย: " + #dh_name$;
+		mes "ความคืบหน้า: " + #dh_kill + " / 100";
+		next;
+
+		if (#dh_done != 1) {
+			mes "[Quest Daily]";
+			mes "ยังไม่ครบ 100 ตัว";
+			mes "ทำให้ครบแล้วค่อยกลับมาส่งรายงานที่นี่";
+			close;
+		}
+
+		#dh_active = 0;
+		#dh_done = 0;
+		#dh_kill = 0;
+		#dh_mobid = 0;
+		#dh_name$ = "";
+
+		if (checkquest(99057) >= 0) erasequest 99057;
+		if (checkquest(99058) >= 0) erasequest 99058;
+		if (checkquest(99059) >= 0) erasequest 99059;
+		if (checkquest(99060) >= 0) erasequest 99060;
+		if (checkquest(99061) >= 0) erasequest 99061;
+		if (checkquest(99062) >= 0) erasequest 99062;
+		if (checkquest(99063) >= 0) erasequest 99063;
+		if (checkquest(99064) >= 0) erasequest 99064;
+		if (checkquest(99055) >= 0) erasequest 99055;
+
+		// กันเควส 99056 ยังติดอยู่ (จะทำให้ setquest error / หรือติดเวลาค้าง)
+		if (checkquest(99056) >= 0) erasequest 99056;
+		setquest 99056;
+		#dh_daily_date = .@today;
+
+		#DailyPoint += 1;
+		sc_start SC_DAILY_QUEST_BUFF_1, 14400000, 1;
+
+		mes "[Quest Daily]";
+		mes "ดีมาก... รายงานของเจ้าถูกบันทึกแล้ว";
+		mes "รับ Daily Point +1";
+		mes "แต้ม Daily Point ปัจจุบัน: " + #DailyPoint;
+		mes "และบัฟ DROP +3% เป็นเวลา 4 ชั่วโมง";
+		next;
+
+		mes "[Quest Daily]";
+		mes "พรุ่งนี้กลับมารับงานใหม่หลังเที่ยงคืน";
+		close;
+	}
+
+	switch(select(
+		"รับเควสล่ามอนสเตอร์ประจำวัน",
+		"ยกเลิก"
+	)) {
+
+	case 1:
+		#dh_kill = 0;
+		#dh_done = 0;
+		#dh_active = 1;
+
+		.@r = rand(8);
+
+		if (checkquest(99057) >= 0) erasequest 99057;
+		if (checkquest(99058) >= 0) erasequest 99058;
+		if (checkquest(99059) >= 0) erasequest 99059;
+		if (checkquest(99060) >= 0) erasequest 99060;
+		if (checkquest(99061) >= 0) erasequest 99061;
+		if (checkquest(99062) >= 0) erasequest 99062;
+		if (checkquest(99063) >= 0) erasequest 99063;
+		if (checkquest(99064) >= 0) erasequest 99064;
+		if (checkquest(99055) >= 0) erasequest 99055;
+
+		setquest 99055;
+
+		if (.@r == 0) { #dh_mobid = 1178; #dh_name$ = "Zerom"; setquest 99057; }
+		if (.@r == 1) { #dh_mobid = 1113; #dh_name$ = "Drops"; setquest 99058; }
+		if (.@r == 2) { #dh_mobid = 1056; #dh_name$ = "Smokie"; setquest 99059; }
+		if (.@r == 3) { #dh_mobid = 1068; #dh_name$ = "Hydra"; setquest 99060; }
+		if (.@r == 4) { #dh_mobid = 1169; #dh_name$ = "Skel Worker"; setquest 99061; }
+		if (.@r == 5) { #dh_mobid = 1170; #dh_name$ = "Sohee"; setquest 99062; }
+		if (.@r == 6) { #dh_mobid = 1034; #dh_name$ = "Thara Frog"; setquest 99063; }
+		if (.@r == 7) { #dh_mobid = 1146; #dh_name$ = "Matyr"; setquest 99064; }
+
+		mes "[Quest Daily]";
+		mes "บันทึกภารกิจถูกเขียนลงในสมุดของสภาเมืองแล้ว";
+		next;
+
+		mes "[Quest Daily]";
+		mes "เป้าหมายของเจ้าวันนี้คือ: " + #dh_name$;
+		mes "กำจัดให้ครบ 100 ตัว";
+		mes "แล้วกลับมาส่งรายงานที่นี่";
+		next;
+
+		mes "[Quest Daily]";
+		mes "ข้าจะส่งสัญญาณเตือนความคืบหน้าให้เจ้าที่หน้าจอ";
+		mes "เจ้าจะเห็นจำนวน Kill ของตัวเองเท่านั้น";
+		next;
+
+		mes "[Quest Daily]";
+		mes "จำไว้อีกครั้ง...";
+		mes "ห้ามปาร์ตี้ระหว่างล่า";
+		mes "ขอให้โชคดี นักผจญภัย";
+		close;
+
+	default:
+		close;
+	}
+L_CRAFT:
+	mes "[Quest Daily]";
+	mes "ที่นี่คือโต๊ะ Craft ของสภาเมือง";
+	mes "ใช้ Daily Point แลกคราฟของช่วยสงคราม";
+	next;
+
+	switch(select(
+		"Woe Card Album (5 Daily Point + Rubbish Coin x5) [50%]",
+		"Siege Blue Potion x30 (3 Daily Point + 30,000 Zeny) [20%]",
+		"Siege Blue Potion x10 (2 Daily Point + 30,000 Zeny) [20%]",
+		"Bubble Gum 50% (1 Daily Point + 5,000 Zeny) [20%]",
+		"ยกเลิก"
+	)) {
+
+	case 1:
+		if (#DailyPoint < 5) { mes "Daily Point ไม่พอ"; close; }
+		if (countitem(1001515) < 5) { mes "ต้องใช้ Rubbish Coin x5"; close; }
+		mes "[Quest Daily]";
+		mes "กำลังคราฟ...";
+		progressbar "0xFFFFFF", 3;
+		#DailyPoint -= 5;
+		delitem 1001515,5;
+		if (rand(100) < 50) {
+			getitem 1001552,1;
+			mes "คราฟสำเร็จ ได้ Woe Card Album";
+		} else {
+			mes "คราฟล้มเหลว";
+		}
+		close;
+
+	case 2:
+		if (#DailyPoint < 3) { mes "Daily Point ไม่พอ"; close; }
+		if (Zeny < 30000) { mes "Zeny ไม่พอ"; close; }
+		mes "[Quest Daily]";
+		mes "กำลังคราฟ...";
+		progressbar "0xFFFFFF", 3;
+		#DailyPoint -= 3;
+		set Zeny, Zeny - 30000;
+		if (rand(100) < 20) {
+			getitem 11504,30;
+			mes "คราฟสำเร็จ";
+		} else {
+			mes "คราฟล้มเหลว";
+		}
+		close;
+
+	case 3:
+		if (#DailyPoint < 2) { mes "Daily Point ไม่พอ"; close; }
+		if (Zeny < 30000) { mes "Zeny ไม่พอ"; close; }
+		mes "[Quest Daily]";
+		mes "กำลังคราฟ...";
+		progressbar "0xFFFFFF", 3;
+		#DailyPoint -= 2;
+		set Zeny, Zeny - 30000;
+		if (rand(100) < 20) {
+			getitem 11504,10;
+			mes "คราฟสำเร็จ";
+		} else {
+			mes "คราฟล้มเหลว";
+		}
+		close;
+
+	case 4:
+		if (#DailyPoint < 1) { mes "Daily Point ไม่พอ"; close; }
+		if (Zeny < 5000) { mes "Zeny ไม่พอ"; close; }
+		mes "[Quest Daily]";
+		mes "กำลังคราฟ...";
+		progressbar "0xFFFFFF", 3;
+		#DailyPoint -= 1;
+		set Zeny, Zeny - 5000;
+		if (rand(100) < 20) {
+			getitem 410005,1;
+			mes "คราฟสำเร็จ";
+		} else {
+			mes "คราฟล้มเหลว";
+		}
+		close;
+
+	default:
+		close;
+	}
+OnInit:
+	waitingroom " Quest Daily",0;
+	end;
+}
+
+//!rathena
+prontera,138,125,4	script	Recycle Card NT	97,{
+
+	mes "[Recycle NT Card]";
+	mes "ข้าคือผู้ดูแลของต้องห้าม";
+	mes "การ์ด NT ที่ถูกผนึกให้ทำงานเฉพาะใน GVG";
+	mes "ถูกสร้างขึ้นจากความโลภของผู้คนและเศษพลังสงคราม";
+	next;
+
+	switch(select(
+		"Recycle Card NT",
+		"แลก ReCard Point",
+		"Remove Card NT",
+		"ยกเลิก"
+	)) {
+
+	case 1:
+		mes "[Recycle NT Card]";
+		mes "การ์ด NT 1 ใบ = ReCard Point 1 แต้ม";
+		next;
+
+		switch(select(
+			"Zerom Card (NT)",
+			"Drops Card (NT)",
+			"Smokie Card (NT)",
+			"Hydra Card (NT)",
+			"Sohee Card (NT)",
+			"Matyr Card (NT)",
+			"Raydric Card (NT)",
+			"Frilldora Card (NT)",
+			"ยกเลิก"
+		)) {
+		case 1: if (countitem(1001544) < 1) { mes "ไม่มีการ์ด"; close; } delitem 1001544,1; break;
+		case 2: if (countitem(1001545) < 1) { mes "ไม่มีการ์ด"; close; } delitem 1001545,1; break;
+		case 3: if (countitem(1001546) < 1) { mes "ไม่มีการ์ด"; close; } delitem 1001546,1; break;
+		case 4: if (countitem(1001547) < 1) { mes "ไม่มีการ์ด"; close; } delitem 1001547,1; break;
+		case 5: if (countitem(1001548) < 1) { mes "ไม่มีการ์ด"; close; } delitem 1001548,1; break;
+		case 6: if (countitem(1001549) < 1) { mes "ไม่มีการ์ด"; close; } delitem 1001549,1; break;
+		case 7: if (countitem(1001550) < 1) { mes "ไม่มีการ์ด"; close; } delitem 1001550,1; break;
+		case 8: if (countitem(1001551) < 1) { mes "ไม่มีการ์ด"; close; } delitem 1001551,1; break;
+		default: close;
+		}
+
+		#ReCardPoint += 1;
+
+		mes "[Recycle NT Card]";
+		mes "รับ ReCard Point +1";
+		close;
+
+	case 2:
+		mes "[Recycle NT Card]";
+		mes "ReCard Point ที่เจ้ามี: " + #ReCardPoint;
+		next;
+
+		switch(select(
+			"แลก Album WoE Card (1 แต้ม 300,000zeny)",
+			"แลก Card Fragment (10 แต้ม)",
+			"ยกเลิก"
+		)) {
+		case 1:
+			if (#ReCardPoint < 1) { mes "แต้มไม่พอ"; close; }
+			if (Zeny < 300000) { mes "Zeny ไม่พอ"; close; }
+			#ReCardPoint -= 1;
+			Zeny -= 300000;
+			getitem 1001552,1;
+			mes "ได้รับ Album WoE Card";
+			close;
+
+		case 2:
+			if (#ReCardPoint < 10) { mes "แต้มไม่พอ"; close; }
+			#ReCardPoint -= 10;
+			getitem 1001543,1;
+			mes "ได้รับ Card Fragment";
+			close;
+
+		default:
+			close;
+		}
+
+	case 3:
+		mes "[Recycle NT Card]";
+		mes "บริการถอดการ์ด NT";
+		mes "สำเร็จ 100% แต่ถอดได้เฉพาะการ์ด NT ที่สภากำหนดเท่านั้น";
+		next;
+
+		mes "[Recycle NT Card]";
+		mes "กรุณาเลือกชิ้นส่วนอุปกรณ์ที่ต้องการถอดการ์ด";
+		next;
+
+		setarray .@EQI[0],EQI_HEAD_TOP,EQI_HEAD_MID,EQI_HEAD_LOW,EQI_ARMOR,EQI_HAND_R,EQI_HAND_L,EQI_GARMENT,EQI_SHOES,EQI_ACC_L,EQI_ACC_R;
+		setarray .@EQI$[0],"หมวก","หู","ปาก","เกราะ","อาวุธ","โล่","ผ้าคลุม","รองเท้า","ประดับซ้าย","ประดับขวา";
+		.@max = getarraysize(.@EQI);
+
+		.@menu$ = "";
+		for (.@i = 0; .@i < .@max; .@i++) {
+			if (getequipisequiped(.@EQI[.@i]))
+				.@menu$ = .@menu$ + "[" + .@EQI$[.@i] + "] - " + getequipname(.@EQI[.@i]);
+			.@menu$ = .@menu$ + ":";
+		}
+		.@pick = select(.@menu$) - 1;
+		.@part = .@EQI[.@pick];
+
+		if (!getequipisequiped(.@part)) {
+			mes "[Recycle NT Card]";
+			mes "เจ้าไม่ได้สวมใส่อะไรในส่วนนี้";
+			close;
+		}
+
+		.@c0 = getequipcardid(.@part,0);
+		.@c1 = getequipcardid(.@part,1);
+		.@c2 = getequipcardid(.@part,2);
+		.@c3 = getequipcardid(.@part,3);
+
+		.@ok = 0;
+		if (.@c0 == 1001544 || .@c0 == 1001545 || .@c0 == 1001546 || .@c0 == 1001547 || .@c0 == 1001548 || .@c0 == 1001549 || .@c0 == 1001550 || .@c0 == 1001551) .@ok = 1;
+		if (.@c1 == 1001544 || .@c1 == 1001545 || .@c1 == 1001546 || .@c1 == 1001547 || .@c1 == 1001548 || .@c1 == 1001549 || .@c1 == 1001550 || .@c1 == 1001551) .@ok = 1;
+		if (.@c2 == 1001544 || .@c2 == 1001545 || .@c2 == 1001546 || .@c2 == 1001547 || .@c2 == 1001548 || .@c2 == 1001549 || .@c2 == 1001550 || .@c2 == 1001551) .@ok = 1;
+		if (.@c3 == 1001544 || .@c3 == 1001545 || .@c3 == 1001546 || .@c3 == 1001547 || .@c3 == 1001548 || .@c3 == 1001549 || .@c3 == 1001550 || .@c3 == 1001551) .@ok = 1;
+
+		if (.@ok == 0) {
+			mes "[Recycle NT Card]";
+			mes "อุปกรณ์ชิ้นนี้ไม่มีการ์ด NT ที่อนุญาตให้ถอด";
+			mes "ถอดได้เฉพาะการ์ด NT ต่อไปนี้เท่านั้น:";
+			mes "1001544~1001551";
+			close;
+		}
+
+		mes "[Recycle NT Card]";
+		mes "เงื่อนไขค่าพิธี:";
+		mes "- Card Fragment x1";
+		mes "- Cash Coin x50";
+		mes "- Zeny 1,000,000";
+		next;
+
+		if (countitem(1001543) < 1 || countitem(30001) < 50 || Zeny < 1000000) {
+			mes "[Recycle NT Card]";
+			mes "ของยังไม่ครบ";
+			close;
+		}
+
+		if (select("ยืนยันการถอด:ยกเลิก") != 1) close;
+
+		delitem 1001543,1;
+		delitem 30001,50;
+		set Zeny, Zeny - 1000000;
+
+		mes "[Recycle NT Card]";
+		mes "พิธีเริ่มต้นแล้ว...";
+		next;
+
+		successremovecards .@part;
+
+		mes "[Recycle NT Card]";
+		mes "ถอดการ์ดสำเร็จ 100%";
+		mes "หากมีการ์ด NT อยู่ ระบบจะถอดออกให้ทั้งหมด";
+		close;
+
+	default:
+		close;
+	}
+OnInit:
+	waitingroom "Recycle&Remove Card",0;
+	end;
+}
+

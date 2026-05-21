@@ -1,0 +1,33 @@
+-	script	Vip_Icon	-,{
+OnPCLoginEvent:
+	bonus_script_clear EFST_VIPSTATUS;
+	if(vip_status(1)) {
+		set .@a, vip_status(2) - gettimetick(2);
+		bonus_script "{}",.@a,8,0,EFST_VIPSTATUS;
+		dispbottom "===============ระบบ VIP (กำลังทำงาน)==================";
+		dispbottom "Account Status : VIP Account";
+		dispbottom "Account Status : คลังเก็บของ +300 ช่อง";
+		dispbottom "Account Status : Exp & Job เพิ่มขึ้น 20%";
+		dispbottom "Account Status : Drop เพิ่มขึ้น 10%";
+		dispbottom "VIP จะหมดอายุในอีก :"+callfunc("Time2Str",vip_status(2));
+		dispbottom "==========================";
+		end;
+	}
+}
+
+-	script	F_VIP_REMAINS	-1,{
+	end;
+
+OnPCLoginEvent:
+OnVipCheck:
+	if(vip_status(VIP_STATUS_ACTIVE)){
+		dispbottom "[VIP System] Vip ของท่านจะหมดลงเมื่อถึง " + gettimestr("%H:%M:%S %d-%m-%Y",21,vip_status(VIP_STATUS_EXPIRE)),0xff4000;
+		end;
+	}
+	dispbottom "[System] VIP ของท่านหมดอายุ กรุณาต่อเวลา";
+	end;
+
+Oninit:
+	bindatcmd "@viptime",""+strnpcinfo(0)+"::OnVipCheck",0,0;
+	end;
+}

@@ -1,0 +1,74 @@
+maintown,173,177,4	script	Enchanted Master	619,{
+Start:
+	
+	mes .mes$;
+	mes "กรุณาเลือกรายการที่ต้องการ";
+	
+	.@menu = select(
+		"-^0000FF เลือก ^000000หินออฟชั่น",
+		"-^FF3300 ล้างหิน ^000000หินออฟชั่น"
+	);
+	
+	if(.@menu == 1){
+		.@menu1 = select(
+			"• ช่องที่ 1",
+			"• ช่องที่ 2",
+			"• ช่องที่ 3",
+			"• ช่องที่ 4"
+		);
+		if(.@menu1 == 1){
+			clear;
+			addtimer 10,"Enchant_Pick_01::OnStart";
+		}
+		if(.@menu1 == 2){
+			clear;
+			addtimer 10,"Enchant_Pick_02::OnStart";
+		}
+		if(.@menu1 == 3){
+			clear;
+			addtimer 10,"Enchant_Pick_03::OnStart";
+		}
+		if(.@menu1 == 4){
+			clear;
+			addtimer 10,"Enchant_Pick_04::OnStart";
+		}
+	}
+	if(.@menu == 2){
+		.@menu2 = select(
+			"• ช่องที่ 1",
+			"• ช่องที่ 2",
+			"• ช่องที่ 3",
+			"• ช่องที่ 4"
+		);
+		if(.@menu2 == 1){
+			clear;
+			addtimer 10,"Enchant_Remove_01::OnStart";
+		}
+		if(.@menu2 == 2){
+			clear;
+			addtimer 10,"Enchant_Remove_02::OnStart";
+		}
+		if(.@menu2 == 3){
+			clear;
+			addtimer 10,"Enchant_Remove_03::OnStart";
+		}
+		if(.@menu2 == 4){
+			clear;
+			addtimer 10,"Enchant_Remove_04::OnStart";
+		}
+	}
+	
+	end;
+	
+OnInit:
+	
+	//	กำหนด Head Dialog
+	.mes$ = "^FF3300[ Enchanted Stone ]^000000";
+	
+	//	กำหนด Waitingroom
+//	waitingroom "Enchanted Stone",0;
+	
+	end;
+	
+}
+

@@ -1,0 +1,156 @@
+/*
+
+prontera,207,189,5	script	ถอดการ์ด	4_RAGFES_02,{
+
+	set .zenycost,50000;    	// ค่าบริการถอดการ์ด (in Zeny)
+	set .percardcost,250000;	// ค่าบริการถอดการ์ดต่อใบ (in Zeny)
+	set .faildestroy,0;			// เลือกได้ว่าจะให้ไอเท็มแตกไหมเวลาล้มเหลว ? (1=yes, 0=no)
+
+	disable_items;
+	mes "[นักถอดการ์ด]";
+	mes "สวัสดี, ท่านต้องการถอดการ์ดที่สวมใส่ในอุปกรณ์ใช่มั้ย ?";
+	next;
+	switch(select("ใช่ ฉันต้องการ:ค่าใช้จ่ายเท่าไร?:ซื้อแร่ถอดการ์ด:ไม่ล่ะ ขอบคุณ")) {
+	case 1:
+		mes "[นักถอดการ์ด]";
+		mes "ยอดเยี่ยม. ฉันกำลังตรวจสอบอุปกรณ์สวมใส่?";
+		next;
+
+		setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
+		for( set .@i,1; .@i <= 10; set .@i,.@i+1 ) {
+			if( getequipisequiped(.@indices[.@i]) )
+				set .@menu$, .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+			set .@menu$, .@menu$ + ":";
+		}
+		set .@part, .@indices[ select(.@menu$) ];
+		if(!getequipisequiped(.@part)) {
+			mes "[นักถอดการ์ด]";
+			mes "หนุ่มน้อย... คุณไม่ได้ใส่อะไรที่ฉันสามารถถอดการ์ดออกได้";
+			close;
+		}
+		if(getequipcardcnt(.@part) == 0) {
+			mes "[นักถอดการ์ด]";
+			mes "หนุ่มน้อย... ไม่มีการ์ดสวมใส่ในอุปกรณ์นี้ ฉันไม่สามารถทำอะไรกับมันได้";
+			close;
+		}
+		set .@cardcount,getequipcardcnt(.@part);
+		
+		if (!checkweight(1202,(.@cardcount+1))) { 
+			mes "^3355FFรอสักครู่!";
+			mes "ขอโทษด้วย";
+			mes "เราไม่สามารถให้บริการได้ เนืองจาก";
+			mes "น้ำหนักคุณมากเกินไป";
+			mes "ช่องเก็บของเต็ม";
+			mes "เอาไปเก็บในคลังแล้ว ไว้ค่อยกลับมาใหม่~";
+			close;
+		}
+		mes "[นักถอดการ์ด]";
+		mes "ไอเท็มมีการ์ด " + .@cardcount + " ใบ. ข้าต้องการ " + (.zenycost+(.@cardcount * .percardcost)) + " zeny,^i[6417] ^FF0000Silvervine^000000 x3 ea.,^i[1000] ^0000FFStar Crumb^000000 x10 ea., และ ^i[715] ^0000FFYellow Gemstone^000000 x5ea.";
+		next;
+		if(select("ฉันจะทำมัน.:ไม่เป็นไร") == 2) {
+			mes "[นักถอดการ์ด]";
+			mes "ดีมาก. กลับมาทันทีหากคุณต้องการใช้บริการของฉัน.";
+			close;
+		}
+		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(6417) < 3) || (countitem(1000) < 10) || (countitem(715) < 5)) {
+			mes "[นักถอดการ์ด]";
+			mes "คุณมีไอเท็มไม่เพียงพอ ไว้ค่อยกลับมาใหม่ เมื่อเจ้าพร้อม.";
+			close;
+		}
+		mes "[นักถอดการ์ด]";
+		mes "แน่ใจใช่มั้ย?";
+		next;
+		switch(select("ฉันเปลี่ยนใจ ไว้คราวหน้า.:เลือกไอเท็ม.:เลือกการ์ด.")) {
+		case 1:
+			mes "[นักถอดการ์ด]";
+			mes "ยอดเยี่ยม. กลับมาทันทีหากคุณต้องการใช้บริการของฉัน";
+			close;
+		case 2:
+			set .@failtype,1;
+			break;
+		case 3:
+			set .@failtype,2;
+		}
+		mes "[นักถอดการ์ด]";
+		mes "ยอดเยี่ยม. ฉันจะเริ่มแล้วนะ.";
+		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
+		delitem 6417,3;
+		delitem 1000,10; //Star_Crumb
+		delitem 715,5; //Yellow_Gemstone
+		
+		// Replace the constants in the next 3 lines with failure chance values defined in refine_db.txt
+		// First value = Total failure chance (item and cards destroyed)
+		// Second value = Partial failure chance (one or the other is destroyed, player decides which one is safe)
+		// Third value = Harmless failure chance (all that's lost is your investment)
+
+		set .@failchance,rand(100);
+		if (.faildestroy==1) {
+			if(.@failchance < 2) {
+				next;
+				failedremovecards .@part,0;
+				mes "[นักถอดการ์ด]";
+				mes "ฉันเกรงว่าไอเท็มและการ์ดจะถูกทำลาย.";
+				close;
+			}
+
+			if(.@failchance < 8) {
+				if (.@failtype == 1) {
+					next;
+					failedremovecards .@part,1;
+					mes "[นักถอดการ์ด]";
+					mes "แม้ว่าฉันจะสามารถลบการ์ดออกจากไอเท็มได้ แต่ก็ถูกทำลาย.";
+					close;
+				}
+
+				if (.@failtype == 2) {
+					next;
+					failedremovecards .@part,2;
+					mes "[นักถอดการ์ด]";
+					mes "น่าเสียดายที่สุด ฉันลบการ์ดได้สำเร็จ แต่ตัวไอเท็มเองถูกทำลาย.";
+					close;
+				}
+			}
+		}
+
+		if(.@failchance < 10) {
+			next;
+			failedremovecards .@part,3;
+			mes "[นักถอดการ์ด]";
+			mes "ฉันไม่สามารถลบการ์ดได้ โชคดีที่ทั้งไอเทมและการ์ดยังโอเคอยู่.";
+			close;
+		}
+		next;
+		successremovecards .@part;
+		mes "[นักถอดการ์ด]";
+		mes "สำเร็จเรียบร้อย.";
+		close;
+	case 2:
+		mes "[นักถอดการ์ด]";
+		mes "ค่าบริการ "+callfunc("F_InsertComma",.zenycost)+" zeny";
+		mes "+"+callfunc("F_InsertComma",.percardcost)+" zeny";
+		mes "ไอเท็มที่ต้องการ ";
+		mes "^i[6417] Silvervine x2";
+		mes "^i[1000] Star Crumb x10 และ";
+		mes "^i[715] Yellow gemstone x5.";
+		close;
+	case 3:
+		mes "[นักถอดการ์ด]";
+		mes "เลือกเอาเองแล้วกัน";
+		callshop "remove_card_mt",1;
+		close;
+	case 4:
+		mes "[นักถอดการ์ด]";
+		mes "ดีมาก. กลับมาทันทีหากคุณต้องการใช้บริการของฉัน";
+		close;
+	}
+	
+	OnInit:
+	PUBTITLE:
+			showscript "• ถอดการ์ด •";
+			sleep 3000;
+		goto PUBTITLE;
+	end;
+}
+-	shop	remove_card_mt	-1,1000:15000,715:5000
+
+*/

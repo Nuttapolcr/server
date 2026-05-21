@@ -1,0 +1,56 @@
+-	script	guildsystem	-1,{
+if(agitcheck())goto wars;
+goto main;
+
+wars:
+set @GIDGUILD,getcharid(2);
+set .@name$, "^FF0000[ระบบจัดการกิลด์]^000000";
+
+menu 
+"^0000FF-^000000 สร้างกิลด์",Yes,
+"^0000FF-^000000 อัพเวลกิลด์",Ca,
+"^0000FF-^000000 ลบกิลด์",Ea;
+
+main:
+set @GIDGUILD,getcharid(2);
+set .@name$, "^FF0000[ระบบจัดการกิลด์]^000000";
+
+menu 
+"^0000FF-^000000 สร้างกิลด์",Yes,
+"^0000FF-^000000 อัพเวลกิลด์",Ca,
+"^0000FF-^000000 โอนหัวกิลด์ (ไม่สามารถโอนได้ในช่วงกิลด์วอร์)",Da,
+"^0000FF-^000000 ลบกิลด์",Ea;
+
+Yes:
+if( getcharid(2) ){close; }
+mes .@name$;
+mes "กรอกชื่อกิลด์ครับ";
+input @nameguild$;
+atcommand "@guild "+@nameguild$;
+close;
+
+
+Ca:
+mes "อัพเลเวลกิลด์เรียบร้อยครับ";
+atcommand "@guildlvup 50";
+close;
+
+Da:
+mes .@name$;
+mes "กรอกชื่อตัวละครครับ";
+input @name$;
+next;
+atcommand "@changegm "+@name$+"";
+close;
+
+Ea:
+mes "ลบกิลด์เรียบร้อยครับ";
+atcommand "@breakguild";
+close;
+
+OnInit:
+waitingroom "สร้างกิล,ยุบกิล", 0;
+end;
+}
+
+oasis,170,74,4	duplicate(guildsystem)	Guild Manager#1	891,{

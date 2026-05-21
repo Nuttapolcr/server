@@ -1,0 +1,53 @@
+//===== Developers Script ===================================
+//= Server Rate
+//===== Current Version =====================================
+//= 1.0
+//===== Description =========================================
+//= Server Rate
+//===== Additional Comments =================================
+//= 1.0 Start Version
+//= 1.1 Edit By Ragnarok PVP GVG
+//===========================================================
+
+//morocc,154,216,4	script	Test Damage Room	10582,{
+morocc,210,65,4	script	Test Damage Room	10582,{
+	mes "[ ทดสอบดาเมจ ]";
+	next;
+	menu "^FF0000[ "+getmapusers("turbo_room.gat")+" ]^000000 - Test Dagmae Room",map1;
+	
+map1:
+	warp "turbo_room",81,131;
+	close;
+	OnInit:
+	Waitingroom "ไปห้องทดสอบดาเมจ",0;
+	end;
+}
+
+turbo_room,99,85,4	script	Test Damage Setting#2	837,{
+	mes "คุณสามารถตั้งค่าของเสาทดสอบดาเมจ เมื่อคุณเอาเม้าส์ไปชี้ที่ฐานของเสา จะมีปุ่มข้อความ Set Parameters ขึ้น  ";
+	next; 
+	mes	"ทำให้คุณสามารถตั้งค่าสถานะต่าง ๆ ของเสาทดสอบได้ เช่น ธาตุ ขนาด เผ่า รวมไปถึงสามารถใช้ Monster ID             เพื่อที่จะสามารถคัดลอกค่าพลังของมอนเตอร์ไว้ที่เสาทดสอบได้";
+	//menu "^FF0000[ "+getmapusers("turbo_room.gat")+" ]^000000 - Test Damage",map1;
+	
+map1:
+	//warp "turbo_room",81,131;
+	//close;
+	OnInit:
+	Waitingroom "การตั้งค่าเสาทดสอบ",0;
+	end;
+}
+turbo_room,99,114,1	script	Test Damage Setting#3	837,{
+	mes "คุณสามารถตั้งค่าของเสาทดสอบดาเมจ เมื่อคุณเอาเม้าส์ไปชี้ที่ฐานของเสา จะมีปุ่มข้อความ Set Parameters ขึ้น  ";
+	next; 
+	mes	"ทำให้คุณสามารถตั้งค่าสถานะต่าง ๆ ของเสาทดสอบได้ เช่น ธาตุ ขนาด เผ่า รวมไปถึงสามารถใช้ Monster ID             เพื่อที่จะสามารถคัดลอกค่าพลังของมอนเตอร์ไว้ที่เสาทดสอบได้";
+	//menu "^FF0000[ "+getmapusers("turbo_room.gat")+" ]^000000 - Test Damage",map1;
+	
+map1:
+	//warp "turbo_room",81,131;
+	//close;
+	OnInit:
+	Waitingroom "การตั้งค่าเสาทดสอบ",0;
+	end;
+}
+
+

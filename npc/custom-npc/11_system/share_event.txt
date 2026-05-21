@@ -1,0 +1,363 @@
+// ===================================================
+// NPC 1: แจกฟันเฟือง (ไลก์/เข้ากลุ่ม/แท็กเพื่อน)
+// ===================================================
+morocc,168,83,4	script	Share Activity	11050,{
+Start:
+
+	mes .mes$;
+	mes "^FF6600[ กิจกรรม Share ]^000000";
+	mes " ";
+	mes "ทำกิจกรรมรับฟันเฟือง ^FF6600(64383)^000000 วันละ 1 อัน/กิจกรรม";
+	mes " ";
+	mes "^FF3300กิจกรรมที่ร่วมได้^000000";
+	mes "- ไลก์เพจ         → ฟันเฟือง x1";
+	mes "- เข้ากลุ่ม        → ฟันเฟือง x1";
+	mes "- แท็กเพื่อน       → ฟันเฟือง x1";
+	mes " ";
+	mes "^FF3300หมายเหตุ^000000";
+	mes "- รับได้วันละ 1 ครั้ง/กิจกรรม";
+	mes "- นำฟันเฟืองไปสุ่มของรางวัลที่ NPC Share Gacha";
+	mes " ";
+
+	// โหลดเวลาล่าสุดที่รับแต่ละกิจกรรม
+	query_sql "SELECT like_time, group_time, tag_time FROM `share_activity_data` WHERE account_id = " + getcharid(3), .@like_time$, .@group_time$, .@tag_time$;
+
+	.@today$ = charat(gettimestr("%Y-%m-%d %H:%M:%S", 16), 0) + charat(gettimestr("%Y-%m-%d %H:%M:%S", 16), 1) + charat(gettimestr("%Y-%m-%d %H:%M:%S", 16), 2) + charat(gettimestr("%Y-%m-%d %H:%M:%S", 16), 3) + "-" + charat(gettimestr("%Y-%m-%d %H:%M:%S", 16), 5) + charat(gettimestr("%Y-%m-%d %H:%M:%S", 16), 6) + "-" + charat(gettimestr("%Y-%m-%d %H:%M:%S", 16), 8) + charat(gettimestr("%Y-%m-%d %H:%M:%S", 16), 9);
+
+	.@menu$ = "";
+
+	if (compare(.@like_time$, .@today$))
+		.@menu$ = .@menu$ + "- ไลก์เพจ ^777777(รับแล้ววันนี้)^000000:";
+	else
+		.@menu$ = .@menu$ + "- ไลก์เพจ ^00CC00(รับได้)^000000:";
+
+	if (compare(.@group_time$, .@today$))
+		.@menu$ = .@menu$ + "- เข้ากลุ่ม ^777777(รับแล้ววันนี้)^000000:";
+	else
+		.@menu$ = .@menu$ + "- เข้ากลุ่ม ^00CC00(รับได้)^000000:";
+
+	if (compare(.@tag_time$, .@today$))
+		.@menu$ = .@menu$ + "- แท็กเพื่อน ^777777(รับแล้ววันนี้)^000000:";
+	else
+		.@menu$ = .@menu$ + "- แท็กเพื่อน ^00CC00(รับได้)^000000:";
+
+	.@menu$ = .@menu$ + "- ออก";
+
+	.@choice = select(.@menu$) - 1;
+
+	if (.@choice == 3)
+		close;
+
+	// เช็คว่ารับไปแล้วในวันนี้ไหม
+	if (.@choice == 0 && compare(.@like_time$, .@today$)) {
+		mes .mes$;
+		mes "^FF0000ท่านรับฟันเฟืองจากการไลก์เพจแล้ววันนี้^000000";
+		mes "กลับมาใหม่พรุ่งนี้";
+		close;
+	}
+	if (.@choice == 1 && compare(.@group_time$, .@today$)) {
+		mes .mes$;
+		mes "^FF0000ท่านรับฟันเฟืองจากการเข้ากลุ่มแล้ววันนี้^000000";
+		mes "กลับมาใหม่พรุ่งนี้";
+		close;
+	}
+	if (.@choice == 2 && compare(.@tag_time$, .@today$)) {
+		mes .mes$;
+		mes "^FF0000ท่านรับฟันเฟืองจากการแท็กเพื่อนแล้ววันนี้^000000";
+		mes "กลับมาใหม่พรุ่งนี้";
+		close;
+	}
+
+	// แจกฟันเฟืองและอัปเดตเวลา
+	getitem 64383, 1;
+
+	if (!.@like_time$ && !.@group_time$ && !.@tag_time$) {
+		// ยังไม่มีข้อมูลในฐานข้อมูล INSERT ใหม่
+		if (.@choice == 0)
+			query_sql "INSERT INTO `share_activity_data` (account_id, char_name, like_time, group_time, tag_time) VALUES (" + getcharid(3) + ", '" + strcharinfo(0) + "', NOW(), '2000-01-01', '2000-01-01')";
+		else if (.@choice == 1)
+			query_sql "INSERT INTO `share_activity_data` (account_id, char_name, like_time, group_time, tag_time) VALUES (" + getcharid(3) + ", '" + strcharinfo(0) + "', '2000-01-01', NOW(), '2000-01-01')";
+		else if (.@choice == 2)
+			query_sql "INSERT INTO `share_activity_data` (account_id, char_name, like_time, group_time, tag_time) VALUES (" + getcharid(3) + ", '" + strcharinfo(0) + "', '2000-01-01', '2000-01-01', NOW())";
+	} else {
+		if (.@choice == 0)
+			query_sql "UPDATE `share_activity_data` SET like_time = NOW() WHERE account_id = " + getcharid(3);
+		else if (.@choice == 1)
+			query_sql "UPDATE `share_activity_data` SET group_time = NOW() WHERE account_id = " + getcharid(3);
+		else if (.@choice == 2)
+			query_sql "UPDATE `share_activity_data` SET tag_time = NOW() WHERE account_id = " + getcharid(3);
+	}
+
+	clear;
+	mes .mes$;
+	mes "^00CC00ได้รับฟันเฟือง x1 แล้ว!^000000";
+	mes "ฟันเฟืองคงเหลือ: ^FF6600" + countitem(64383) + "^000000 อัน";
+	close;
+
+OnInit:
+	.mes$ = "^FF6600[ Share Activity ]^000000";
+	waitingroom "รับฟันเฟืองกิจกรรม Share", 0;
+
+	query_sql "CREATE TABLE IF NOT EXISTS `share_activity_data` (`id` int(7) NOT NULL AUTO_INCREMENT, `account_id` int(11) NOT NULL, `char_name` varchar(25) NOT NULL, `like_time` DATETIME NOT NULL, `group_time` DATETIME NOT NULL, `tag_time` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
+
+	end;
+}
+
+// ===================================================
+// NPC 2: สุ่มของรางวัล (ใช้ Point ในฐานข้อมูล)
+// ===================================================
+morocc,171,93,4	script	Share Gacha	-1,{
+Start:
+
+	query_sql "SELECT point FROM `share_point_data` WHERE account_id = " + getcharid(3), .@point;
+
+	mes .mes$;
+	mes "^FF6600[ Share Gacha ]^000000";
+	mes " ";
+	mes "Point ของท่าน: ^00CC00" + .@point + "^000000 Point";
+	mes " ";
+	mes "^FF3300ของรางวัลสุ่ม (1 Point / 1 ครั้ง)^000000";
+	mes "- Costume เพนกวิน (Middle) ^FF0000[หายากมาก!]^000000";
+	mes "- Cash 100 Baht";
+	mes "- " + getitemname(12265);
+	mes "- " + getitemname(12264);
+	mes "- " + getitemname(12263);
+	mes "- " + getitemname(14606);
+	mes "- " + getitemname(6291);
+	mes "- " + getitemname(6292);
+	mes " ";
+
+	if (select("- สุ่มของ (ใช้ 1 Point):- ออก") == 2)
+		close;
+
+	if (.@point < 1) {
+		clear;
+		mes .mes$;
+		mes "^FF0000ท่านไม่มี Point^000000";
+		mes "กรุณาแชร์ลิ้งค์และกรอก Google Form เพื่อรับ Point";
+		close;
+	}
+
+	// หัก Point
+	query_sql "UPDATE `share_point_data` SET point = point - 1 WHERE account_id = " + getcharid(3);
+
+	// สุ่มของ (rand 1000)
+	// เพนกวิน 64089  = 0.1% (1)
+	// Cash 30001      = 1%   (10)
+	// Life Ins 12265  = 5%   (50)
+	// Bubble Gum 12264= 10%  (100)
+	// Field Man 12263 = 15%  (150)
+	// Job Man 14606   = 15%  (150)
+	// Enr.Elu 6291    = 27%  (270)
+	// Enr.Ori 6292    = 26.9%(269)
+
+	.@roll = rand(1000);
+
+	if (.@roll < 1) {
+		.@reward_id = 64089;
+		.@reward_qty = 1;
+		.@reward_name$ = "Costume เพนกวิน (Middle)";
+	} else if (.@roll < 11) {
+		.@reward_id = 30001;
+		.@reward_qty = 1;
+		.@reward_name$ = "Cash 100 Baht";
+	} else if (.@roll < 61) {
+		.@reward_id = 12265;
+		.@reward_qty = 1;
+		.@reward_name$ = getitemname(12265);
+	} else if (.@roll < 161) {
+		.@reward_id = 12264;
+		.@reward_qty = 1;
+		.@reward_name$ = getitemname(12264);
+	} else if (.@roll < 311) {
+		.@reward_id = 12263;
+		.@reward_qty = 1;
+		.@reward_name$ = getitemname(12263);
+	} else if (.@roll < 461) {
+		.@reward_id = 14606;
+		.@reward_qty = 1;
+		.@reward_name$ = getitemname(14606);
+	} else if (.@roll < 731) {
+		.@reward_id = 6291;
+		.@reward_qty = 1;
+		.@reward_name$ = getitemname(6291);
+	} else {
+		.@reward_id = 6292;
+		.@reward_qty = 1;
+		.@reward_name$ = getitemname(6292);
+	}
+
+	getitem .@reward_id, .@reward_qty;
+
+	// บันทึก log
+	query_sql "INSERT INTO `share_gacha_log` (account_id, char_name, reward_id, reward_name, roll_time) VALUES (" + getcharid(3) + ", '" + strcharinfo(0) + "', " + .@reward_id + ", '" + .@reward_name$ + "', NOW())";
+
+	if (.@reward_id == 64089) {
+		announce "[Share Gacha] " + strcharinfo(0) + " ได้รับ Costume เพนกวิน สุดหายาก!!! ยินดีด้วย!", bc_all, 0xFFD700;
+	} else if (.@reward_id == 30001) {
+		announce "[Share Gacha] " + strcharinfo(0) + " ได้รับ Cash 100 Baht!", bc_all | bc_name;
+	}
+
+	// โหลด Point ใหม่หลังหัก
+	query_sql "SELECT point FROM `share_point_data` WHERE account_id = " + getcharid(3), .@point_left;
+
+	clear;
+	mes .mes$;
+	mes "^00CC00ผลการสุ่ม^000000";
+	mes " ";
+	mes "ท่านได้รับ: ^FF6600" + .@reward_name$ + "^000000 x" + .@reward_qty;
+	mes " ";
+	mes "Point คงเหลือ: ^00CC00" + .@point_left + "^000000 Point";
+	close;
+
+OnInit:
+	.mes$ = "^FF6600[ Share Gacha ]^000000";
+	waitingroom "สุ่มของรางวัล Share", 0;
+
+	query_sql "CREATE TABLE IF NOT EXISTS `share_point_data` (`id` int(7) NOT NULL AUTO_INCREMENT, `account_id` int(11) NOT NULL, `char_name` varchar(25) NOT NULL, `point` int(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`), UNIQUE KEY `account_id` (`account_id`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
+
+	query_sql "CREATE TABLE IF NOT EXISTS `share_gacha_log` (`id` int(7) NOT NULL AUTO_INCREMENT, `account_id` int(11) NOT NULL, `char_name` varchar(25) NOT NULL, `reward_id` int(11) NOT NULL, `reward_name` varchar(50) NOT NULL, `roll_time` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
+
+	end;
+}
+
+// ===================================================
+// NPC 3: GM เพิ่ม Point
+// ===================================================
+morocc,171,95,4	script	GM Point Manager	-1,{
+Start:
+
+	if (getgroupid() < 1) {
+		mes "ท่านไม่มีสิทธิ์เข้าถึง NPC นี้";
+		close;
+	}
+
+	mes .mes$;
+	mes "^FF0000[ GM Point Manager ]^000000";
+	mes " ";
+	mes "เพิ่ม/ลด Point ให้ผู้เล่น";
+	mes " ";
+
+	switch (select("- เพิ่ม Point:- ลด Point:- เช็ค Point:- ออก")) {
+	case 1:
+		goto L_AddPoint;
+	case 2:
+		goto L_RemovePoint;
+	case 3:
+		goto L_CheckPoint;
+	case 4:
+		close;
+	}
+
+L_AddPoint:
+	mes .mes$;
+	mes "กรุณากรอกชื่อตัวละคร:";
+	input .@target_name$;
+
+	if (!.@target_name$) {
+		mes "^FF0000ชื่อไม่ถูกต้อง^000000";
+		close;
+	}
+
+	query_sql "SELECT account_id FROM `char` WHERE `name` = '" + .@target_name$ + "'", .@target_aid;
+	if (!.@target_aid) {
+		mes "^FF0000ไม่พบตัวละคร: " + .@target_name$ + "^000000";
+		close;
+	}
+
+	mes "กรุณากรอกจำนวน Point ที่ต้องการเพิ่ม:";
+	input .@amount, 1, 9999;
+
+	if (.@amount < 1) {
+		mes "^FF0000จำนวนต้องมากกว่า 0^000000";
+		close;
+	}
+
+	query_sql "SELECT point FROM `share_point_data` WHERE account_id = " + .@target_aid, .@cur_point;
+
+	if (.@cur_point || .@cur_point == 0) {
+		query_sql "UPDATE `share_point_data` SET point = point + " + .@amount + " WHERE account_id = " + .@target_aid;
+	} else {
+		query_sql "INSERT INTO `share_point_data` (account_id, char_name, point) VALUES (" + .@target_aid + ", '" + .@target_name$ + "', " + .@amount + ")";
+	}
+
+	query_sql "SELECT point FROM `share_point_data` WHERE account_id = " + .@target_aid, .@new_point;
+
+	clear;
+	mes .mes$;
+	mes "^00CC00เพิ่ม Point สำเร็จ^000000";
+	mes "ตัวละคร: ^FF6600" + .@target_name$ + "^000000";
+	mes "เพิ่ม: ^00CC00+" + .@amount + "^000000 Point";
+	mes "Point รวม: ^00CC00" + .@new_point + "^000000 Point";
+	close;
+
+L_RemovePoint:
+	mes .mes$;
+	mes "กรุณากรอกชื่อตัวละคร:";
+	input .@target_name$;
+
+	if (!.@target_name$) {
+		mes "^FF0000ชื่อไม่ถูกต้อง^000000";
+		close;
+	}
+
+	query_sql "SELECT account_id FROM `char` WHERE `name` = '" + .@target_name$ + "'", .@target_aid;
+	if (!.@target_aid) {
+		mes "^FF0000ไม่พบตัวละคร: " + .@target_name$ + "^000000";
+		close;
+	}
+
+	query_sql "SELECT point FROM `share_point_data` WHERE account_id = " + .@target_aid, .@cur_point;
+
+	mes "Point ปัจจุบัน: ^00CC00" + .@cur_point + "^000000";
+	mes "กรุณากรอกจำนวน Point ที่ต้องการลด:";
+	input .@amount, 1, 9999;
+
+	if (.@amount < 1) {
+		mes "^FF0000จำนวนต้องมากกว่า 0^000000";
+		close;
+	}
+
+	if (.@amount > .@cur_point) {
+		mes "^FF0000Point ไม่พอ (มี " + .@cur_point + " Point)^000000";
+		close;
+	}
+
+	query_sql "UPDATE `share_point_data` SET point = point - " + .@amount + " WHERE account_id = " + .@target_aid;
+
+	clear;
+	mes .mes$;
+	mes "^00CC00ลด Point สำเร็จ^000000";
+	mes "ตัวละคร: ^FF6600" + .@target_name$ + "^000000";
+	mes "ลด: ^FF0000-" + .@amount + "^000000 Point";
+	mes "Point คงเหลือ: ^00CC00" + (.@cur_point - .@amount) + "^000000 Point";
+	close;
+
+L_CheckPoint:
+	mes .mes$;
+	mes "กรุณากรอกชื่อตัวละคร:";
+	input .@target_name$;
+
+	if (!.@target_name$) {
+		mes "^FF0000ชื่อไม่ถูกต้อง^000000";
+		close;
+	}
+
+	query_sql "SELECT account_id FROM `char` WHERE `name` = '" + .@target_name$ + "'", .@target_aid;
+	if (!.@target_aid) {
+		mes "^FF0000ไม่พบตัวละคร: " + .@target_name$ + "^000000";
+		close;
+	}
+
+	query_sql "SELECT point FROM `share_point_data` WHERE account_id = " + .@target_aid, .@cur_point;
+
+	clear;
+	mes .mes$;
+	mes "ตัวละคร: ^FF6600" + .@target_name$ + "^000000";
+	mes "Point: ^00CC00" + .@cur_point + "^000000 Point";
+	close;
+
+OnInit:
+	.mes$ = "^FF0000[ GM Point Manager ]^000000";
+	end;
+}

@@ -1,0 +1,37 @@
+-	script	cleanlogday	-1,{
+	end;
+
+OnClock0600:
+	set $CLEANLOGS, $CLEANLOGS + 1;
+	if ($CLEANLOGS == 2) {
+		query_logsql "TRUNCATE `picklog`";
+		query_logsql "TRUNCATE `zenylog`";
+		query_logsql "TRUNCATE `branchlog`";
+		query_logsql "TRUNCATE `mvplog`";
+		query_logsql "TRUNCATE `npclog`";
+		query_logsql "TRUNCATE `chatlog`";
+		query_sql "TRUNCATE `charlog`";
+		query_sql "TRUNCATE `interlog`";
+		query_sql "TRUNCATE `atcommandlog`";
+		set $CLEANLOGS, 0;
+	}
+}
+
+-	script	cleanlognight	-1,{
+	end;
+
+OnClock2100:
+	set $CLEANLOGS, $CLEANLOGS + 1;
+	if ($CLEANLOGS == 2) {
+		query_logsql "TRUNCATE `picklog`";
+		query_logsql "TRUNCATE `zenylog`";
+		query_logsql "TRUNCATE `branchlog`";
+		query_logsql "TRUNCATE `mvplog`";
+		query_logsql "TRUNCATE `npclog`";
+		query_logsql "TRUNCATE `chatlog`";
+		query_sql "TRUNCATE `charlog`";
+		query_sql "TRUNCATE `interlog`";
+		query_sql "TRUNCATE `atcommandlog`";
+		set $CLEANLOGS, 0;
+	}
+}

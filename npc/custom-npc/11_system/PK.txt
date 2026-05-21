@@ -1,0 +1,468 @@
+
+// PK PASS Function
+
+-	script	PKPASS	-1,{
+
+
+OnInit:
+set $pkpass_hateffect_attack, 242; //เลขhatteffect สำหรับ attacker pass
+set $pkpass_hateffect_defend, 92; //เลขhatteffect สำหรับ protect,defend pass
+end;
+
+
+
+OnPCDieEvent:
+OnPCLoginEvent:
+	sc_end SC_PK_ATTACK;
+	sc_end SC_PK_DEFEND;
+	hateffect $pkpass_hateffect_defend, false;
+    hateffect $pkpass_hateffect_attack, false;
+	end;
+
+OnPCLoadMapEvent:
+	// เข้าเมือง (town) หรือเข้าแมพที่ไม่อนุญาต pkpass ให้ล้างสถานะทันที
+	if (getmapflag(strcharinfo(3), MF_TOWN) || !getmapflag(strcharinfo(3), MF_PKPASS)) {
+		deltimer "PKPASS::OnPKPASSEND";
+		sc_end SC_PK_ATTACK;
+		sc_end SC_PK_DEFEND;
+		hateffect $pkpass_hateffect_defend, false;
+		hateffect $pkpass_hateffect_attack, false;
+		dispbottom "[PK PASS] ออกจากพื้นที่ PK PASS แล้ว ระบบปิดใช้งานและล้างสถานะเรียบร้อย";
+	}
+	end;
+
+
+OnPKPASSEND:
+	sc_end SC_PK_ATTACK;
+	sc_end SC_PK_DEFEND;
+	hateffect $pkpass_hateffect_defend, false;
+    hateffect $pkpass_hateffect_attack, false;
+    end;
+}
+
+function	script	PK_Defend_Pass	{
+    // ตรวจสอบว่าแมพอนุญาตให้ใช้หรือไม่
+	if (!getmapflag(strcharinfo(3), MF_PKPASS)) {
+        dispbottom "[PK PASS] ไม่สามารถใช้ได้กับแผนที่นี้!";
+        getitem 40001,1;
+        end;
+    }
+    
+    // ตรวจสอบ cooldown
+    .@cooldown_time = gettimetick(2) - @pk_defend_last_use;
+    if (.@cooldown_time < 1800) { // 600 วินาที = 10 นาที
+        .@remaining = 1800 - .@cooldown_time;
+        .@minutes = .@remaining / 60;
+        .@seconds = .@remaining % 60;
+        
+        if (.@minutes > 0) {
+            dispbottom "[PK PASS] โปรดรออีก " + .@minutes + " นาที " + .@seconds + " วินาที ถึงจะใช้งานได้อีกครั้ง";
+        } else {
+            dispbottom "[PK PASS] โปรดรออีก " + .@seconds + " วินาที ถึงจะใช้งานได้อีกครั้ง";
+        }
+        getitem 40001,1;
+        end;
+    }
+    
+    // บันทึกเวลาที่ใช้งาน
+    @pk_defend_last_use = gettimetick(2);
+    
+	deltimer "PKPASS::OnPKPASSEND";
+	dispbottom " "+$pkpass_hateffect_defend+" ";
+	sc_end SC_PK_ATTACK;
+	hateffect $pkpass_hateffect_attack, false;
+    hateffect $pkpass_hateffect_defend, true;
+	dispbottom "[PK PASS] เปิดใช้งาน PK Defender ได้รับการป้องกัน PK";
+	showscript "ใช้งาน PK Defender";
+	sc_start SC_PK_DEFEND,1800000,1;
+    addtimer 1800000, "PKPASS::OnPKPASSEND";
+    end;
+}
+
+function	script	PK_Attack_Pass	{
+    // ตรวจสอบว่าแมพอนุญาตให้ใช้หรือไม่
+	if (!getmapflag(strcharinfo(3), MF_PKPASS)) {
+        dispbottom "[PK PASS] ไม่สามารถใช้ได้กับแผนที่นี้!";
+        getitem 40000,1;
+        end;
+    }
+    
+    // ตรวจสอบ cooldown
+    .@cooldown_time = gettimetick(2) - @pk_attack_last_use;
+    if (.@cooldown_time < 900) { // 600 วินาที = 10 นาที
+        .@remaining = 900 - .@cooldown_time;
+        .@minutes = .@remaining / 60;
+        .@seconds = .@remaining % 60;
+        
+        if (.@minutes > 0) {
+            dispbottom "[PK PASS] โปรดรออีก " + .@minutes + " นาที " + .@seconds + " วินาที ถึงจะใช้งานได้อีกครั้ง";
+        } else {
+            dispbottom "[PK PASS] โปรดรออีก " + .@seconds + " วินาที ถึงจะใช้งานได้อีกครั้ง";
+        }
+        getitem 40000,1;
+        end;
+    }
+    
+    // บันทึกเวลาที่ใช้งาน
+    @pk_attack_last_use = gettimetick(2);
+    
+	deltimer "PKPASS::OnPKPASSEND";
+	sc_end SC_PK_DEFEND;
+	hateffect $pkpass_hateffect_defend, false;
+    hateffect $pkpass_hateffect_attack, true;
+	dispbottom "[PK PASS] เปิดใช้งาน PK Attacker สามารถโจมตีผู้เล่นได้";
+	showscript "ใช้งาน PK Attacker";
+	sc_start SC_PK_ATTACK,900000,1;
+    addtimer 900000, "PKPASS::OnPKPASSEND";
+    end;
+}
+
+
+
+/// PK PASS MAPFLAG
+abbey01	mapflag	pkpass
+abbey02	mapflag	pkpass
+abbey03	mapflag	pkpass
+abyss_01	mapflag	pkpass
+abyss_02	mapflag	pkpass
+abyss_03	mapflag	pkpass
+alde_dun01	mapflag	pkpass
+alde_dun02	mapflag	pkpass
+alde_dun03	mapflag	pkpass
+alde_dun04	mapflag	pkpass
+ama_dun01	mapflag	pkpass
+ama_dun02	mapflag	pkpass
+ama_dun03	mapflag	pkpass
+ama_fild01	mapflag	pkpass
+anthell01	mapflag	pkpass
+anthell02	mapflag	pkpass
+ayo_dun01	mapflag	pkpass
+ayo_dun02	mapflag	pkpass
+ayo_fild01	mapflag	pkpass
+ayo_fild02	mapflag	pkpass
+beach_dun	mapflag	pkpass
+beach_dun2	mapflag	pkpass
+beach_dun3	mapflag	pkpass
+bif_fild01	mapflag	pkpass
+bif_fild02	mapflag	pkpass
+bra_dun01	mapflag	pkpass
+bra_dun02	mapflag	pkpass
+bra_fild01	mapflag	pkpass
+cmd_fild01	mapflag	pkpass
+cmd_fild02	mapflag	pkpass
+cmd_fild03	mapflag	pkpass
+cmd_fild04	mapflag	pkpass
+cmd_fild05	mapflag	pkpass
+cmd_fild06	mapflag	pkpass
+cmd_fild07	mapflag	pkpass
+cmd_fild08	mapflag	pkpass
+cmd_fild09	mapflag	pkpass
+com_d02_i	mapflag	pkpass
+c_tower1	mapflag	pkpass
+c_tower2	mapflag	pkpass
+c_tower2_	mapflag	pkpass
+c_tower3	mapflag	pkpass
+c_tower3_	mapflag	pkpass
+c_tower4	mapflag	pkpass
+dew_dun01	mapflag	pkpass
+dew_dun02	mapflag	pkpass
+dew_fild01	mapflag	pkpass
+dic_dun01	mapflag	pkpass
+dic_dun02	mapflag	pkpass
+dic_dun03	mapflag	pkpass
+dic_fild01	mapflag	pkpass
+dic_fild02	mapflag	pkpass
+ecl_fild01	mapflag	pkpass
+ecl_tdun01	mapflag	pkpass
+ecl_tdun02	mapflag	pkpass
+ecl_tdun03	mapflag	pkpass
+ecl_tdun04	mapflag	pkpass
+ein_d02_i	mapflag	pkpass
+ein_dun01	mapflag	pkpass
+ein_dun02	mapflag	pkpass
+ein_fild01	mapflag	pkpass
+ein_fild02	mapflag	pkpass
+ein_fild03	mapflag	pkpass
+ein_fild04	mapflag	pkpass
+ein_fild05	mapflag	pkpass
+ein_fild06	mapflag	pkpass
+ein_fild07	mapflag	pkpass
+ein_fild08	mapflag	pkpass
+ein_fild09	mapflag	pkpass
+ein_fild10	mapflag	pkpass
+gefenia01	mapflag	pkpass
+gefenia02	mapflag	pkpass
+gefenia03	mapflag	pkpass
+gefenia04	mapflag	pkpass
+gef_d01_i	mapflag	pkpass
+gef_dun00	mapflag	pkpass
+gef_dun01	mapflag	pkpass
+gef_dun02	mapflag	pkpass
+gef_dun03	mapflag	pkpass
+gef_fild00	mapflag	pkpass
+gef_fild01	mapflag	pkpass
+gef_fild02	mapflag	pkpass
+gef_fild03	mapflag	pkpass
+gef_fild04	mapflag	pkpass
+gef_fild05	mapflag	pkpass
+gef_fild06	mapflag	pkpass
+gef_fild07	mapflag	pkpass
+gef_fild08	mapflag	pkpass
+gef_fild09	mapflag	pkpass
+gef_fild10	mapflag	pkpass
+gef_fild11	mapflag	pkpass
+gef_fild12	mapflag	pkpass
+gef_fild13	mapflag	pkpass
+gef_fild14	mapflag	pkpass
+glast_01	mapflag	pkpass
+gld2_ald	mapflag	pkpass
+gld2_gef	mapflag	pkpass
+gld2_pay	mapflag	pkpass
+gld2_prt	mapflag	pkpass
+gl_cas01	mapflag	pkpass
+gl_cas02	mapflag	pkpass
+gl_cas02_	mapflag	pkpass
+gl_church	mapflag	pkpass
+gl_chyard	mapflag	pkpass
+gl_chyard_	mapflag	pkpass
+gl_dun01	mapflag	pkpass
+gl_dun02	mapflag	pkpass
+gl_in01	mapflag	pkpass
+gl_knt01	mapflag	pkpass
+gl_knt02	mapflag	pkpass
+gl_prison	mapflag	pkpass
+gl_prison1	mapflag	pkpass
+gl_sew01	mapflag	pkpass
+gl_sew02	mapflag	pkpass
+gl_sew03	mapflag	pkpass
+gl_sew04	mapflag	pkpass
+gl_step	mapflag	pkpass
+gon_dun01	mapflag	pkpass
+gon_dun02	mapflag	pkpass
+gon_dun03	mapflag	pkpass
+gon_fild01	mapflag	pkpass
+harboro1	mapflag	pkpass
+harboro2	mapflag	pkpass
+hu_fild01	mapflag	pkpass
+hu_fild02	mapflag	pkpass
+hu_fild03	mapflag	pkpass
+hu_fild04	mapflag	pkpass
+hu_fild05	mapflag	pkpass
+hu_fild06	mapflag	pkpass
+hu_fild07	mapflag	pkpass
+ice_d03_i	mapflag	pkpass
+ice_dun01	mapflag	pkpass
+ice_dun02	mapflag	pkpass
+ice_dun03	mapflag	pkpass
+in_sphinx1	mapflag	pkpass
+in_sphinx2	mapflag	pkpass
+in_sphinx3	mapflag	pkpass
+in_sphinx4	mapflag	pkpass
+in_sphinx5	mapflag	pkpass
+iz_dun00	mapflag	pkpass
+iz_dun01	mapflag	pkpass
+iz_dun02	mapflag	pkpass
+iz_dun03	mapflag	pkpass
+iz_dun04	mapflag	pkpass
+iz_dun05	mapflag	pkpass
+juperos_01	mapflag	pkpass
+juperos_02	mapflag	pkpass
+jupe_core	mapflag	pkpass
+kh_dun01	mapflag	pkpass
+kh_dun02	mapflag	pkpass
+lhz_dun01	mapflag	pkpass
+lhz_dun02	mapflag	pkpass
+lhz_dun03	mapflag	pkpass
+lhz_dun04	mapflag	pkpass
+lhz_dun_n	mapflag	pkpass
+lhz_fild01	mapflag	pkpass
+lhz_fild02	mapflag	pkpass
+lhz_fild03	mapflag	pkpass
+lou_dun01	mapflag	pkpass
+lou_dun02	mapflag	pkpass
+lou_dun03	mapflag	pkpass
+lou_fild01	mapflag	pkpass
+mag_dun01	mapflag	pkpass
+mag_dun02	mapflag	pkpass
+mal_dun01	mapflag	pkpass
+man_fild01	mapflag	pkpass
+man_fild02	mapflag	pkpass
+man_fild03	mapflag	pkpass
+ma_dun01	mapflag	pkpass
+ma_fild01	mapflag	pkpass
+ma_fild02	mapflag	pkpass
+mjolnir_01	mapflag	pkpass
+mjolnir_02	mapflag	pkpass
+mjolnir_03	mapflag	pkpass
+mjolnir_04	mapflag	pkpass
+mjolnir_05	mapflag	pkpass
+mjolnir_06	mapflag	pkpass
+mjolnir_07	mapflag	pkpass
+mjolnir_08	mapflag	pkpass
+mjolnir_09	mapflag	pkpass
+mjolnir_10	mapflag	pkpass
+mjolnir_11	mapflag	pkpass
+mjolnir_12	mapflag	pkpass
+mjo_dun01	mapflag	pkpass
+mjo_dun02	mapflag	pkpass
+mjo_dun03	mapflag	pkpass
+moc_fild01	mapflag	pkpass
+moc_fild02	mapflag	pkpass
+moc_fild03	mapflag	pkpass
+moc_fild07	mapflag	pkpass
+moc_fild11	mapflag	pkpass
+moc_fild12	mapflag	pkpass
+moc_fild13	mapflag	pkpass
+moc_fild16	mapflag	pkpass
+moc_fild17	mapflag	pkpass
+moc_fild18	mapflag	pkpass
+moc_fild20	mapflag	pkpass
+moc_fild21	mapflag	pkpass
+moc_fild22	mapflag	pkpass
+moc_pryd01	mapflag	pkpass
+moc_pryd02	mapflag	pkpass
+moc_pryd03	mapflag	pkpass
+moc_pryd04	mapflag	pkpass
+moc_pryd05	mapflag	pkpass
+moc_pryd06	mapflag	pkpass
+moc_prydn1	mapflag	pkpass
+moc_prydn2	mapflag	pkpass
+moro_vol	mapflag	pkpass
+mosk_dun01	mapflag	pkpass
+mosk_dun02	mapflag	pkpass
+mosk_dun03	mapflag	pkpass
+mosk_fild01	mapflag	pkpass
+mosk_fild02	mapflag	pkpass
+nameless_n	mapflag	pkpass
+niflheim	mapflag	pkpass
+nif_fild01	mapflag	pkpass
+nif_fild02	mapflag	pkpass
+nyd_dun01	mapflag	pkpass
+nyd_dun02	mapflag	pkpass
+
+odin_tem01	mapflag	pkpass
+odin_tem02	mapflag	pkpass
+odin_tem03	mapflag	pkpass
+orcsdun01	mapflag	pkpass
+orcsdun02	mapflag	pkpass
+pay_d03_i	mapflag	pkpass
+pay_dun00	mapflag	pkpass
+pay_dun01	mapflag	pkpass
+pay_dun02	mapflag	pkpass
+pay_dun03	mapflag	pkpass
+pay_dun04	mapflag	pkpass
+pay_fild01	mapflag	pkpass
+pay_fild02	mapflag	pkpass
+pay_fild03	mapflag	pkpass
+pay_fild04	mapflag	pkpass
+pay_fild05	mapflag	pkpass
+pay_fild06	mapflag	pkpass
+pay_fild07	mapflag	pkpass
+pay_fild08	mapflag	pkpass
+pay_fild09	mapflag	pkpass
+pay_fild10	mapflag	pkpass
+pay_fild11	mapflag	pkpass
+prt_fild00	mapflag	pkpass
+prt_fild01	mapflag	pkpass
+prt_fild02	mapflag	pkpass
+prt_fild03	mapflag	pkpass
+prt_fild04	mapflag	pkpass
+prt_fild05	mapflag	pkpass
+prt_fild06	mapflag	pkpass
+prt_fild07	mapflag	pkpass
+prt_fild08	mapflag	pkpass
+prt_fild09	mapflag	pkpass
+prt_fild10	mapflag	pkpass
+prt_fild11	mapflag	pkpass
+prt_maze01	mapflag	pkpass
+prt_maze02	mapflag	pkpass
+prt_maze03	mapflag	pkpass
+prt_sewb1	mapflag	pkpass
+prt_sewb2	mapflag	pkpass
+prt_sewb3	mapflag	pkpass
+prt_sewb4	mapflag	pkpass
+ra_fild01	mapflag	pkpass
+ra_fild02	mapflag	pkpass
+ra_fild03	mapflag	pkpass
+ra_fild04	mapflag	pkpass
+ra_fild05	mapflag	pkpass
+ra_fild06	mapflag	pkpass
+ra_fild07	mapflag	pkpass
+ra_fild08	mapflag	pkpass
+ra_fild09	mapflag	pkpass
+ra_fild10	mapflag	pkpass
+ra_fild11	mapflag	pkpass
+ra_fild12	mapflag	pkpass
+ra_fild13	mapflag	pkpass
+ra_san01	mapflag	pkpass
+ra_san02	mapflag	pkpass
+ra_san03	mapflag	pkpass
+ra_san04	mapflag	pkpass
+ra_san05	mapflag	pkpass
+rockmi1	mapflag	pkpass
+rockmi2	mapflag	pkpass
+rockrdg1	mapflag	pkpass
+rockrdg2	mapflag	pkpass
+
+spl_fild01	mapflag	pkpass
+spl_fild02	mapflag	pkpass
+spl_fild03	mapflag	pkpass
+thana_boss	mapflag	pkpass
+tha_t01	mapflag	pkpass
+tha_t02	mapflag	pkpass
+tha_t03	mapflag	pkpass
+tha_t04	mapflag	pkpass
+tha_t05	mapflag	pkpass
+tha_t06	mapflag	pkpass
+tha_t07	mapflag	pkpass
+tha_t08	mapflag	pkpass
+tha_t09	mapflag	pkpass
+tha_t10	mapflag	pkpass
+tha_t11	mapflag	pkpass
+tha_t12	mapflag	pkpass
+thor_v01	mapflag	pkpass
+thor_v02	mapflag	pkpass
+thor_v03	mapflag	pkpass
+treasure01	mapflag	pkpass
+treasure02	mapflag	pkpass
+tur_d03_i	mapflag	pkpass
+tur_d04_i	mapflag	pkpass
+tur_dun01	mapflag	pkpass
+tur_dun02	mapflag	pkpass
+tur_dun03	mapflag	pkpass
+tur_dun04	mapflag	pkpass
+um_dun01	mapflag	pkpass
+um_dun02	mapflag	pkpass
+um_fild01	mapflag	pkpass
+um_fild02	mapflag	pkpass
+um_fild03	mapflag	pkpass
+um_fild04	mapflag	pkpass
+un_bunker	mapflag	pkpass
+verus01	mapflag	pkpass
+verus02	mapflag	pkpass
+verus03	mapflag	pkpass
+ver_eju	mapflag	pkpass
+ver_tunn	mapflag	pkpass
+ve_fild01	mapflag	pkpass
+ve_fild02	mapflag	pkpass
+ve_fild03	mapflag	pkpass
+ve_fild04	mapflag	pkpass
+ve_fild05	mapflag	pkpass
+ve_fild06	mapflag	pkpass
+ve_fild07	mapflag	pkpass
+xmas_dun01	mapflag	pkpass
+xmas_dun02	mapflag	pkpass
+xmas_fild01	mapflag	pkpass
+yggdrasil01	mapflag	pkpass
+yuno_fild01	mapflag	pkpass
+yuno_fild02	mapflag	pkpass
+yuno_fild03	mapflag	pkpass
+yuno_fild04	mapflag	pkpass
+yuno_fild05	mapflag	pkpass
+yuno_fild06	mapflag	pkpass
+yuno_fild07	mapflag	pkpass
+yuno_fild08	mapflag	pkpass
+yuno_fild09	mapflag	pkpass
+yuno_fild10	mapflag	pkpass
+yuno_fild11	mapflag	pkpass
+yuno_fild12	mapflag	pkpass

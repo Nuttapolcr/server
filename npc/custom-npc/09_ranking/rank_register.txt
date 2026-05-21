@@ -1,0 +1,37 @@
+morocc,140,153,5	script	Register Adventure Hall	71,{
+
+	mes "==>[^0000FFRegister Adventure Hall^000000]<==";
+	mes "ท่านมาหาข้าเพื่อลงทะเบียนเป็นนักผจญภัย อย่างนั้นหรอ";
+	mes "ค่าสมัคร : ^0000FF" + callfunc("F_InsertComma", $@feeregistb) + "^000000 Zeny";
+	mes "Zeny ปัจจุบัน :  ^0000FF"+callfunc("F_InsertComma", Zeny) + "^000000 "; // แสดง Zeny
+	mes "จะดำเนินการหรือไม่";
+	if(select("Yes","No") == 2) close;	
+	
+	clear;
+			
+	if(Zeny >= $@feeregistb){ // เปลี่ยนเป็น >= เพื่อเช็คว่ามีเงินพอ
+		query_sql "SELECT 1 FROM `rank_title` WHERE char_id = '"+getcharid(0)+"'", .@exists;
+		if (.@exists == 0) {
+			query_sql "INSERT INTO `rank_title` VALUES ('"+getcharid(0)+"', '0', '0', '0', '0')";
+			mes "==>[^0000FFRegister Adventure Hall^000000]<==";
+			mes "เราได้ลงทะเบียนให้ท่านเรียบร้อย";	
+			mes "ท่านสามารถใช้ระบบต่างๆ ของ Adventure Hall ได้แล้ว";	
+			set Zeny,Zeny-$@feeregistb;
+			//getitem 501,1;  // Adventure Member
+		} else {
+			mes "==>[^0000FFRegister Adventure Hall^000000]<==";
+			mes "ท่านได้ลงทะเบียนไปแล้ว";
+			mes "ไม่ต้องกลับมาหาข้าอีก";				
+		}		
+	} else {
+		mes "==>[^0000FFRegister Adventure Hall^000000]<==";
+		mes "ท่านมีเงินไม่พอนะ ไว้ค่อยกลับมาใหม่";		
+	}
+
+end;
+
+OnInit:
+	waitingroom "ลงทะเบียน Adventure Hall",0;				
+end;
+}
+

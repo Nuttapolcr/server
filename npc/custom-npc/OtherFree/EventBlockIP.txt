@@ -1,0 +1,29 @@
+-	script	#EventBlockIP	FAKE_NPC,{
+    
+OnPCLoadMapEvent:
+    set .@charmap$, strcharinfo(3);
+    if(!compare(.tmp$,.@charmap$)) end;
+    set .@len, query_sql("SELECT DISTINCT `account_id` FROM `char` WHERE `account_id` IN "+
+        "(SELECT `account_id` FROM `login` WHERE `last_ip` = "+
+        "(SELECT `last_ip` FROM `login` WHERE `account_id`="+getcharid(3)+")) AND `online` <> 0;",.@a);
+    if(.@len-1) {
+        for(set(.@d,0);.@d<.@len;set(.@d,.@d+1)) {
+            getmapxy(.@map$,.@x,.@y,BL_PC,rid2name(.@a[.@d]));
+            if(.@charmap$==.@map$&&rid2name(.@a[.@d])!=strcharinfo(0)) {
+                dispbottom "อนุญาติไม่เข้าได้แค่ 1 จอเท่านั้น !!";
+                dispbottom "อนุญาติไม่เข้าได้แค่ 1 จอเท่านั้น !!";
+                dispbottom "อนุญาติไม่เข้าได้แค่ 1 จอเท่านั้น !!";
+                warp "x_prt",68,46;
+            }
+        }
+    }
+    end;
+    
+OnInit:
+    setarray   .maps$  ,    "m_pvp02",    "quiz_02",    "payg_cas04",   "m_pvp01";  //เพิ่มแมพ
+    set        .lens   ,    getarraysize(.maps$);
+    for(set(.a,0);.a<.lens;set(.a,.a+1)) {
+        setmapflag .maps$[.a],    mf_loadevent ;
+        set .tmp$  ,.tmp$+.maps$[.a]+",";
+    }
+}

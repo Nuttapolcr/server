@@ -1,0 +1,141 @@
+//===== rAthena Script =======================================
+//= War of Emperium (Al De Baran) - Banadis
+//===== By: ==================================================
+//= L0ne_W0lf
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= NPCs that relate to Al De Baran Guild Castle 4
+//===== Additional Comments: =================================
+//= 1.0 First Version. No longer uses functions. [L0ne_W0lf]
+//= 1.1 Removed dialog from interior flags. [L0ne_W0lf]
+//= 1.2 Partially rewrote Script. [Masao]
+//============================================================
+
+// Guild Flag (Outside Castle)
+//============================================================
+-	script	Banadis#1::OutsideFlagsAR5	722,{
+
+	set .@GID, GetCastleData("arug_cas05",1);
+
+
+	if (.@GID == 0) {
+		mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+		mes " ";
+		mes "1. ตามคำสั่งของ The Divine แห่งราชอาณาจักร Rune-Midgarts";
+		mes " เราขอประกาศว่า";
+		mes " ปราสาทหลังนี้ ยังไม่มีผู้ใดครอบครอง";
+		mes " ";
+		mes "2. ผู้ใดที่สามารถ";
+		mes " เอาชนะสงสรามและสามารถ";
+		mes " ทำลาย Emperium ลงได้";
+		mes " จะเป็นผู้ที่ครอบครัว";
+		mes " ปราสาทหลังนี้";
+		close;
+	}
+	if (getcharid(2) == .@GID) {
+		mes "[ Echoing Voice ]";
+		mes " ท่านผู้กล้า...";
+		mes " ท่านต้องการกลับไปยังสถานที่อันทรงเกียรติของท่านหรือไม่?";
+		next;
+		if(select(" กลับไปที่ปราสาทกิลด์: ออก") == 1) {
+			close2;
+			if (getcharid(2) == GetCastleData("arug_cas05",1)) {
+				warp "arug_cas05",116,217;
+				end;
+			}
+			end;
+		}
+		close;
+	}
+	mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+	mes " ";
+	mes "1. ตามคำสั่งของ The Divine แห่งราชอาณาจักร Rune-Midgarts";
+	mes " เราขออนุมัติว่าสถานที่แห่งนี้";
+	mes " เป็นพื้นที่ส่วนตัวของ ^ff0000"+getguildname(.@GID)+"^000000 Guild.";
+	mes " ";
+	mes "2. Guild Master แห่ง ^ff0000"+getguildname(.@GID)+"^000000 Guild ";
+	mes " คือ ^ff0000"+getguildmaster(.@GID)+"^000000";
+	mes " หากมีใครก็ตามที่ต้องการพิสูจน์ความแข็งแกร่ง";
+	mes " โปรดหยิบดาบที่อยู่ในมือขึ้นมาต่อสู้ด้วยศักศรีดิ์และเกียรติยศ";
+	close;
+
+OnRecvCastleAR05:
+	FlagEmblem GetCastleData("arug_cas05",1);
+	end;
+}
+
+alde_gld,239,246,2	duplicate(OutsideFlagsAR5)	Banadis#1-2	722
+alde_gld,239,239,2	duplicate(OutsideFlagsAR5)	Banadis#2	722
+
+// Guild Flag (Inside Castle)
+//============================================================
+-	script	Banadis#3::InsideFlagsAR5	722,{
+	mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+	mes " ";
+	mes "1. ตามคำสั่งของ The Divine แห่งราชอาณาจักร Rune-Midgarts";
+	mes " เราขออนุมัติว่าสถานที่แห่งนี้";
+	mes " เป็นพื้นที่ส่วนตัวของ ^ff0000"+getguildname(.@GID)+"^000000 Guild.";
+	mes " ";
+	mes "2. Guild Master แห่ง ^ff0000"+getguildname(.@GID)+"^000000 Guild ";
+	mes " คือ ^ff0000"+getguildmaster(.@GID)+"^000000";
+	mes " หากมีใครก็ตามที่ต้องการพิสูจน์ความแข็งแกร่ง";
+	mes " โปรดหยิบดาบที่อยู่ในมือขึ้นมาต่อสู้ด้วยศักศรีดิ์และเกียรติยศ";
+	end;
+
+OnRecvCastleAR05:
+	FlagEmblem GetCastleData("arug_cas05",1);
+	end;
+}
+
+hero_tra,60,147,4	duplicate(OutsideFlagsAR5)	Main Castle#33	722
+hero_tra,79,147,4	duplicate(OutsideFlagsAR5)	Main Castle#44	722
+
+
+// Guild Flag (Town)
+//============================================================
+//mooc,217,74,4	duplicate(InsideFlagsAR5)	เธเนเธฒเธเธเธฒเธเธฒ#1	722
+
+// Kafra Employee
+//============================================================
+arug_cas05,45,88,0	duplicate(guildkafra)	Kafra Staff#arug_cas05	111
+
+// Steward
+//============================================================
+arug_cas05,67,116,0	duplicate(cm)	Brymhensen#arug_cas05	111
+
+// Treasure Room Exit
+//============================================================
+
+/*
+arug_cas05,83,17,0	script	#lever_A04	111,{
+	mes " ";
+	mes "There's a small lever. Will you pull it?";
+	next;
+	if(select("Pull.:Do not.") == 1) {
+		close2;
+		warp "arug_cas05",67,117;
+		end;
+	}
+	close;
+}
+
+
+// Guild Dungeon Switch
+//============================================================
+arug_cas05,76,64,0	duplicate(gdlever)	#arug_cas05	111
+
+// Guild Treasure Spawns
+//============================================================
+arug_cas05,84,13,0	duplicate(Gld_Trea_Spawn)	Treasure#arug_cas05	-1
+*/
+
+// AGIT Manager
+//============================================================
+arug_cas05,36,218,0	duplicate(Gld_Agit_Manager)	Agit#arug_cas05	-1
+
+// Guardians
+//============================================================
+arug_cas05,67,116,0	duplicate(Gld_Guard_Template)	Guardian#arug_cas05	-1

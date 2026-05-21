@@ -1,0 +1,214 @@
+/*
+=================== TERMS OF SERVICES. ===================
+1. ALL RIGHT RESERVED RE-SELLER OR SHARE SCRIPT TO PUBLISH.
+2. BUT YOU RE-SELLER OR SHARE SCRIPT WITH OUT UNAUTHORIZRD
+   I WILL ALL CANCEL MY SUPPORT FOR YOU.
+3. MAINTENANCE SCRIPTS WILL BE FREE SERVICES.
+4. I WILL NOT KEEP ANY INFORMATIONS FROMS YOU SERVER THAT
+   YOU SEND FOR ME.
+5. I HOPE YOU WILL ALL ACCEPT TERMS OF SERVICES.
+==========================================================
+Script. Natural Weather																				 
+Create By. [Eddga-Studio]
+Translator By. Eddga Studio
+Bug Report. Dollaporn Naraphan [ FB ]																					 
+Contact Us. Dollaporn Naraphan [ FB ]																					 																				 
+==========================================================
+*/
+
+-	script	weatherchanger	FAKE_NPC,{
+
+OnTimer27000:
+
+//	If enable third array,please set value to 3
+	set .@rv,3;
+
+//	Enable or disable weather report (Default: 1)
+	set .@report,1;
+
+//	If you want to set the random timer range (Default: min: 0 , max: 900000)
+	set .@min,0;
+	set .@max,60000;
+
+	setarray .@gat0$,
+	"prontera","alberta","aldebaran","izlude","morocc","payon","geffen","comodo","yuno"/*,"ayothaya"*/;
+
+	setarray .@mapname0$,
+	"Prontera","Alberta","Aldebaran","Izlude","Morocc","Payon","Geffen","Comodo","Yuno"/*,"Ayothaya"*/;
+
+	setarray .@gat1$,
+	"prontera","alberta","aldebaran","izlude","morocc","payon","geffen","comodo","yuno"/*,"ayothaya"*/;
+
+	setarray .@mapname1$,
+	"Prontera","Alberta","Aldebaran","Izlude","Morocc","Payon","Geffen","Comodo","Yuno"/*,"Ayothaya"*/;
+
+
+//	Add your map here!
+	setarray .@gat2$,
+	"prontera","alberta","aldebaran","izlude","morocc","payon","geffen","comodo","yuno"/*,"ayothaya"*/;
+//	Add your map name here!Must be same position as map above!
+	setarray .@mapname2$,
+	"Prontera","Alberta","Aldebaran","Izlude","Morocc","Payon","Geffen","Comodo","Yuno"/*,"Ayothaya"*/;
+
+//	to prevent weather conflict
+	setarray .allweather,16,18,19,20,24;
+
+//	Monthly Check
+	if(gettime(6)>=3 && gettime(6)<=5) goto L_Spring;
+	else if(gettime(6)>=6 && gettime(6)<=8) goto L_Summer;
+	else if(gettime(6)>=9 && gettime(6)<=11) goto L_Autumn;
+	else goto L_Winter;
+
+	L_Spring:
+		if( gettime(DT_HOUR) >= 7 && gettime(DT_HOUR)< 19 ) {
+		setarray .@weather,0,16,18,19,20,24;
+		}
+
+		else {
+		setarray .@weather,0,16,18,19,20,24;
+		}
+
+		goto L_end;
+
+	L_Summer:
+		if( gettime(DT_HOUR) >= 7 && gettime(DT_HOUR)< 19 ) {
+		setarray .@weather,0,16,18,19,20,24;
+		}
+
+		else {
+		setarray .@weather,0,16,18,19,20,24;
+		}
+
+		goto L_end;
+
+	L_Autumn:
+		if( gettime(DT_HOUR) >= 7 && gettime(DT_HOUR)< 19 ) {
+		setarray .@weather,0,16,18,19,20,24;
+		}
+
+		else {
+		setarray .@weather,0,16,18,19,20,24;
+		}
+
+		goto L_end;
+
+	L_Winter:
+		if( gettime(DT_HOUR) >= 7 && gettime(DT_HOUR)< 19 ) {
+		setarray .@weather,0,16;
+		}
+
+		else {
+		setarray .@weather,0,16,18,19;
+		}
+
+	L_end:
+		set .@size,rand(.@rv);
+		set .@int,rand(getarraysize(getd(".@gat"+.@size+"$")));
+		set .@gat$,getd(".@gat"+.@size+"$["+.@int+"]");
+		set .@display$,getd(".@mapname"+.@size+"$["+.@int+"]");
+
+//	To remove all the weather from the map
+	for (set .@x,0; .@x < getarraysize(.allweather); set .@x, .@x + 1) {
+	removemapflag .@gat$,.allweather[.@x];
+	}
+
+	set .@weather,.@weather[rand(getarraysize(.@weather))];
+
+	if (.@report == 1) {
+		switch(.@weather) {
+		case 0:
+			announce "รายงานสภาพอากาศ : ตอนนี้ที่ "+.@display$+" ท้องฟ้าแจ่มใส",0,0xFF9B00;
+			break;
+
+		case 16:
+			announce "รายงานสภาพอากาศ : ตอนนี้ที่ "+.@display$+" หิมะกำลังตก",0,0xC8C8FF;
+			break;
+
+		case 17:
+			announce "รายงานสภาพอากาศ : ตอนนี้ที่ "+.@display$+" มีฝุ่นควันมาก",0,0x8080C0;
+			break;
+
+		case 18:
+			announce "รายงานสภาพอากาศ : ตอนนี้ที่ "+.@display$+" กำลังมีดอกซากุระ",0,0xFF9B00;
+			break;
+
+		case 19:
+			announce "รายงานสภาพอากาศ : ตอนนี้ที่ "+.@display$+" มีใบไม้ร่วง",0,0x00FF80;
+			break;
+
+		case 23:
+			announce "รายงานสภาพอากาศ : ตอนนี้ที่ "+.@display$+" มีหมอกลงมาก",0,0xC0C0C0;
+			break;
+
+		case 24:
+			announce "รายงานสภาพอากาศ : ตอนนี้ที่ "+.@display$+" ปรากฏหมอกเล็กน้อย",0,0xC0C0C0;
+			break;
+
+		case 25:
+			announce "รายงานสภาพอากาศ : ตอนนี้ที่ "+.@display$+" มีการจุดพลุไฟ",0,0xFF0000;
+			break;
+		}
+
+//		Apply the weather
+		if(.@weather)	setmapflag .@gat$,.@weather;
+	}
+
+	Stopnpctimer;
+	Initnpctimer;
+	set .@again,rand(.@min,.@max);
+	setnpctimer .@again;
+	end;
+
+OnWhisperGlobal:
+	if (getgmlevel() < 98) end;	//Set GM level here
+	set .@tempmu,getmapusers(@whispervar0$);
+	if (.@tempmu != -1) goto L_dcheck1;
+	dispbottom "Map is not existed!";
+	end;
+
+L_dcheck1:
+	set .@tempweather,@whispervar1$;
+	for (set .@x,0; .@x < getarraysize(.allweather); set .@x, .@x + 1) {
+		if(.@tempweather == .allweather[.@x]) goto L_dcheck2;
+	}
+	dispbottom "Weather is not exist in the weather list!";
+	end;
+	
+L_dcheck2:
+	for (set .@x,0; .@x < getarraysize(.allweather); set .@x, .@x + 1) {
+	removemapflag .@gat$,.allweather[.@x];
+	}
+	setmapflag @whispervar0$,@whispervar1$;
+	dispbottom "Weather has been change for "+ @whispervar0$ + " map.";
+	end;
+
+OnInit:
+//	Enable or disable Day and Night function (Default: 0)
+	set .@dn,1;
+
+	donpcevent "weatherchanger::OnTimer27000";
+	If(!.@dn) disablenpc "DayNight";
+	end;
+}
+
+//Please disable/set 0 for day_duration & night_duration in misc.conf when you use this
+-	script	DayNight	-1,{
+
+OnHour07:
+	day;
+end;
+
+OnHour19:
+	night;
+end;
+
+OnInit:
+	if( gettime(DT_HOUR) >= 7 && gettime(DT_HOUR)< 19 )	{
+		day;
+	}
+	else
+	{
+		night;
+	}
+end;
+}
