@@ -415,7 +415,7 @@ static int create_socket() {
 
 // ============================================================
 //  Hardware Fingerprint License Verification
-//  à¸£à¸§à¸¡ CPU Serial + HDD Serial à¹€à¸›à¹‡à¸™ fingerprint à¹€à¸”à¸µà¸¢à¸§
+//  à¸£à¸§à¸¡ CPU Serial + HDD Serial à¹€à¸ÿà¹ÿà¸ÿ fingerprint à¹€à¸”à¸µà¸¢à¸§
 // ============================================================
 
 #ifdef _WIN32
@@ -426,28 +426,28 @@ static int create_socket() {
 #include <vector>
 
 // ------------------------------------------------------------
-//  à¸ªà¹ˆà¸§à¸™à¸—à¸µà¹ˆ 1 : à¸”à¸¶à¸‡ CPU Serial Number
+//  à¸ªà¹ÿà¸§à¸ÿà¸—à¸µà¹ÿ 1 : à¸”à¸¶à¸ÿ CPU Serial Number
 // ------------------------------------------------------------
 
 /**
- * get_cpu_serial() - à¸”à¸¶à¸‡ CPU Serial Number à¸—à¸µà¹ˆ unique à¸•à¹ˆà¸­ processor
+ * get_cpu_serial() - à¸”à¸¶à¸ÿ CPU Serial Number à¸—à¸µà¹ÿ unique à¸•à¹ÿà¸­ processor
  *
- * Windows : WMI query à¸œà¹ˆà¸²à¸™ cmd (wmic cpu get ProcessorId)
- * Linux   : à¸­à¹ˆà¸²à¸™à¸ˆà¸²à¸ /proc/cpuinfo (serial / Physical id + Core id hash)
+ * Windows : WMI query à¸ÿà¹ÿà¸²à¸ÿ cmd (wmic cpu get ProcessorId)
+ * Linux   : à¸­à¹ÿà¸²à¸ÿà¸ÿà¸²à¸ÿ /proc/cpuinfo (serial / Physical id + Core id hash)
  *
- * à¸„à¸·à¸™à¸„à¹ˆà¸²à¹€à¸›à¹‡à¸™ string à¹€à¸Šà¹ˆà¸™ "BFEBFBFF000906EA"
- * à¸–à¹‰à¸²à¸”à¸¶à¸‡à¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸„à¸·à¸™ string à¸§à¹ˆà¸²à¸‡
+ * à¸ÿà¸·à¸ÿà¸ÿà¹ÿà¸²à¹€à¸ÿà¹ÿà¸ÿ string à¹€à¸ÿà¹ÿà¸ÿ "BFEBFBFF000906EA"
+ * à¸–à¹ÿà¸²à¸”à¸¶à¸ÿà¹ÿà¸¡à¹ÿà¹ÿà¸”à¹ÿà¸ÿà¸·à¸ÿ string à¸§à¹ÿà¸²à¸ÿ
  */
 static std::string get_cpu_serial() {
 #ifdef _WIN32
-	// à¸£à¸±à¸™ wmic à¹à¸¥à¹‰à¸§à¸”à¸±à¸à¸œà¸¥à¸¥à¸±à¸à¸˜à¹Œ
+	// à¸£à¸±à¸ÿ wmic à¹ÿà¸¥à¹ÿà¸§à¸”à¸±à¸ÿà¸ÿà¸¥à¸¥à¸±à¸ÿà¸ÿà¹ÿ
 	FILE* pipe = _popen("wmic cpu get ProcessorId /value 2>nul", "r");
 	if (!pipe) return "";
 	char buf[256];
 	std::string result;
 	while (fgets(buf, sizeof(buf), pipe)) {
 		std::string line(buf);
-		// à¸šà¸£à¸£à¸—à¸±à¸”à¸—à¸µà¹ˆà¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸ˆà¸°à¸‚à¸¶à¹‰à¸™à¸•à¹‰à¸™à¸”à¹‰à¸§à¸¢ "ProcessorId="
+		// à¸ÿà¸£à¸£à¸—à¸±à¸”à¸—à¸µà¹ÿà¸•à¹ÿà¸­à¸ÿà¸ÿà¸²à¸£à¸ÿà¸°à¸ÿà¸¶à¹ÿà¸ÿà¸•à¹ÿà¸ÿà¸”à¹ÿà¸§à¸¢ "ProcessorId="
 		if (line.find("ProcessorId=") != std::string::npos) {
 			size_t eq = line.find('=');
 			if (eq != std::string::npos) {
@@ -462,8 +462,8 @@ static std::string get_cpu_serial() {
 	_pclose(pipe);
 	return result;
 #else
-	// Linux: /proc/cpuinfo à¸¡à¸µ "Serial" à¸šà¸™ Raspberry Pi / embedded
-	// à¸šà¸™ x86 server à¸¡à¸±à¸à¹„à¸¡à¹ˆà¸¡à¸µ serial à¹‚à¸”à¸¢à¸•à¸£à¸‡ à¸ˆà¸¶à¸‡ hash Physical id + siblings à¹à¸—à¸™
+	// Linux: /proc/cpuinfo à¸¡à¸µ "Serial" à¸ÿà¸ÿ Raspberry Pi / embedded
+	// à¸ÿà¸ÿ x86 server à¸¡à¸±à¸ÿà¹ÿà¸¡à¹ÿà¸¡à¸µ serial à¹ÿà¸”à¸¢à¸•à¸£à¸ÿ à¸ÿà¸¶à¸ÿ hash Physical id + siblings à¹ÿà¸—à¸ÿ
 	FILE* fp = fopen("/proc/cpuinfo", "r");
 	if (!fp) return "";
 
@@ -496,11 +496,11 @@ static std::string get_cpu_serial() {
 	if (!serial.empty())
 		return serial;
 
-	// fallback: à¸£à¸§à¸¡ physical_id + model_name à¹à¸¥à¹‰à¸§à¸—à¸³ simple hash à¹€à¸›à¹‡à¸™ hex
+	// fallback: à¸£à¸§à¸¡ physical_id + model_name à¹ÿà¸¥à¹ÿà¸§à¸—à¸³ simple hash à¹€à¸ÿà¹ÿà¸ÿ hex
 	std::string combined = physical_id + "|" + model_name;
 	if (combined == "|") return "";
 
-	// djb2 hash â†’ 16-char hex string
+	// djb2 hash âÿ’ 16-char hex string
 	unsigned long long hash = 5381ULL;
 	for (unsigned char c : combined)
 		hash = ((hash << 5) + hash) ^ c;
@@ -512,22 +512,22 @@ static std::string get_cpu_serial() {
 }
 
 // ------------------------------------------------------------
-//  à¸ªà¹ˆà¸§à¸™à¸—à¸µà¹ˆ 2 : à¸”à¸¶à¸‡ MAC Address à¸ˆà¸²à¸ Primary NIC (interface à¸—à¸µà¹ˆà¸¡à¸µ default gateway)
+//  à¸ªà¹ÿà¸§à¸ÿà¸—à¸µà¹ÿ 2 : à¸”à¸¶à¸ÿ MAC Address à¸ÿà¸²à¸ÿ Primary NIC (interface à¸—à¸µà¹ÿà¸¡à¸µ default gateway)
 // ------------------------------------------------------------
 
 /**
- * get_mac_address() - à¸”à¸¶à¸‡ MAC address à¸‚à¸­à¸‡ NIC à¸—à¸µà¹ˆà¸œà¸¹à¸à¸à¸±à¸š default gateway
+ * get_mac_address() - à¸”à¸¶à¸ÿ MAC address à¸ÿà¸­à¸ÿ NIC à¸—à¸µà¹ÿà¸ÿà¸¹à¸ÿà¸ÿà¸±à¸ÿ default gateway
  *
- * Windows : GetAdaptersInfo â†’ à¸ˆà¸±à¸šà¸„à¸¹à¹ˆà¸à¸±à¸š interface à¸—à¸µà¹ˆà¸¡à¸µ default gateway
- * Linux   : à¸­à¹ˆà¸²à¸™ /proc/net/route à¸«à¸² interface à¸—à¸µà¹ˆà¸¡à¸µ gateway (Destination=0)
- *           à¹à¸¥à¹‰à¸§à¸­à¹ˆà¸²à¸™ MAC à¸ˆà¸²à¸ /sys/class/net/<iface>/address
+ * Windows : GetAdaptersInfo âÿ’ à¸ÿà¸±à¸ÿà¸ÿà¸¹à¹ÿà¸ÿà¸±à¸ÿ interface à¸—à¸µà¹ÿà¸¡à¸µ default gateway
+ * Linux   : à¸­à¹ÿà¸²à¸ÿ /proc/net/route à¸«à¸² interface à¸—à¸µà¹ÿà¸¡à¸µ gateway (Destination=0)
+ *           à¹ÿà¸¥à¹ÿà¸§à¸­à¹ÿà¸²à¸ÿ MAC à¸ÿà¸²à¸ÿ /sys/class/net/<iface>/address
  *
- * à¸„à¸·à¸™à¸„à¹ˆà¸²à¹€à¸›à¹‡à¸™ string à¹€à¸Šà¹ˆà¸™ "AA:BB:CC:DD:EE:FF"
- * à¸–à¹‰à¸²à¸”à¸¶à¸‡à¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸„à¸·à¸™ string à¸§à¹ˆà¸²à¸‡
+ * à¸ÿà¸·à¸ÿà¸ÿà¹ÿà¸²à¹€à¸ÿà¹ÿà¸ÿ string à¹€à¸ÿà¹ÿà¸ÿ "AA:BB:CC:DD:EE:FF"
+ * à¸–à¹ÿà¸²à¸”à¸¶à¸ÿà¹ÿà¸¡à¹ÿà¹ÿà¸”à¹ÿà¸ÿà¸·à¸ÿ string à¸§à¹ÿà¸²à¸ÿ
  */
 static std::string get_mac_address() {
 #ifdef _WIN32
-	// à¸«à¸² interface à¸—à¸µà¹ˆà¸¡à¸µ default gateway à¸œà¹ˆà¸²à¸™ GetAdaptersInfo
+	// à¸«à¸² interface à¸—à¸µà¹ÿà¸¡à¸µ default gateway à¸ÿà¹ÿà¸²à¸ÿ GetAdaptersInfo
 	ULONG bufLen = sizeof(IP_ADAPTER_INFO) * 16;
 	std::vector<char> buf(bufLen);
 	PIP_ADAPTER_INFO pAdapterInfo = (PIP_ADAPTER_INFO)buf.data();
@@ -540,7 +540,7 @@ static std::string get_mac_address() {
 	if (GetAdaptersInfo(pAdapterInfo, &bufLen) != NO_ERROR)
 		return "";
 
-	// à¸§à¸™à¸«à¸² adapter à¸—à¸µà¹ˆà¸¡à¸µ GatewayList à¹„à¸¡à¹ˆà¸§à¹ˆà¸²à¸‡ (primary NIC)
+	// à¸§à¸ÿà¸«à¸² adapter à¸—à¸µà¹ÿà¸¡à¸µ GatewayList à¹ÿà¸¡à¹ÿà¸§à¹ÿà¸²à¸ÿ (primary NIC)
 	for (PIP_ADAPTER_INFO p = pAdapterInfo; p != NULL; p = p->Next) {
 		std::string gw(p->GatewayList.IpAddress.String);
 		if (gw.empty() || gw == "0.0.0.0") continue;
@@ -554,8 +554,8 @@ static std::string get_mac_address() {
 	}
 	return "";
 #else
-	// à¸‚à¸±à¹‰à¸™à¸—à¸µà¹ˆ 1: à¸«à¸² interface à¸—à¸µà¹ˆà¸¡à¸µ default gateway à¸ˆà¸²à¸ /proc/net/route
-	// à¸šà¸£à¸£à¸—à¸±à¸”à¸—à¸µà¹ˆ Destination == 00000000 à¹à¸¥à¸° Flags & RTF_GATEWAY à¸„à¸·à¸­ default route
+	// à¸ÿà¸±à¹ÿà¸ÿà¸—à¸µà¹ÿ 1: à¸«à¸² interface à¸—à¸µà¹ÿà¸¡à¸µ default gateway à¸ÿà¸²à¸ÿ /proc/net/route
+	// à¸ÿà¸£à¸£à¸—à¸±à¸”à¸—à¸µà¹ÿ Destination == 00000000 à¹ÿà¸¥à¸° Flags & RTF_GATEWAY à¸ÿà¸·à¸­ default route
 	FILE* fp = fopen("/proc/net/route", "r");
 	if (!fp) return "";
 
@@ -564,12 +564,12 @@ static std::string get_mac_address() {
 	std::string primary_iface;
 	char line[256];
 
-	// à¸‚à¹‰à¸²à¸¡ header line
+	// à¸ÿà¹ÿà¸²à¸¡ header line
 	if (!fgets(line, sizeof(line), fp)) { fclose(fp); return ""; }
 
 	while (fgets(line, sizeof(line), fp)) {
 		if (sscanf(line, "%31s %X %X %X", iface, &dest, &gw, &flags) >= 4) {
-			// Destination = 0 à¹à¸¥à¸° Gateway != 0 à¸«à¸¡à¸²à¸¢à¸–à¸¶à¸‡ default route
+			// Destination = 0 à¹ÿà¸¥à¸° Gateway != 0 à¸«à¸¡à¸²à¸¢à¸–à¸¶à¸ÿ default route
 			if (dest == 0 && gw != 0) {
 				primary_iface = std::string(iface);
 				break;
@@ -580,7 +580,7 @@ static std::string get_mac_address() {
 
 	if (primary_iface.empty()) return "";
 
-	// à¸‚à¸±à¹‰à¸™à¸—à¸µà¹ˆ 2: à¸­à¹ˆà¸²à¸™ MAC à¸ˆà¸²à¸ sysfs
+	// à¸ÿà¸±à¹ÿà¸ÿà¸—à¸µà¹ÿ 2: à¸­à¹ÿà¸²à¸ÿ MAC à¸ÿà¸²à¸ÿ sysfs
 	std::string mac_path = "/sys/class/net/" + primary_iface + "/address";
 	FILE* mfp = fopen(mac_path.c_str(), "r");
 	if (!mfp) return "";
@@ -598,29 +598,29 @@ static std::string get_mac_address() {
 	while (!mac.empty() && (mac.back() == '\n' || mac.back() == '\r' || mac.back() == ' '))
 		mac.pop_back();
 
-	// à¸•à¸£à¸§à¸ˆà¸§à¹ˆà¸²à¹„à¸¡à¹ˆà¹ƒà¸Šà¹ˆ all-zeros (à¸šà¸²à¸‡ VPS à¹ƒà¸«à¹‰ 00:00:00:00:00:00)
+	// à¸•à¸£à¸§à¸ÿà¸§à¹ÿà¸²à¹ÿà¸¡à¹ÿà¹ÿà¸ÿà¹ÿ all-zeros (à¸ÿà¸²à¸ÿ VPS à¹ÿà¸«à¹ÿ 00:00:00:00:00:00)
 	if (mac == "00:00:00:00:00:00") return "";
 
-	// à¹à¸›à¸¥à¸‡à¹€à¸›à¹‡à¸™ uppercase
+	// à¹ÿà¸ÿà¸¥à¸ÿà¹€à¸ÿà¹ÿà¸ÿ uppercase
 	for (char& c : mac) c = (char)toupper((unsigned char)c);
 	return mac;
 #endif
 }
 
 // ------------------------------------------------------------
-//  à¸ªà¹ˆà¸§à¸™à¸—à¸µà¹ˆ 3 : à¸£à¸§à¸¡ fingerprint + XOR cipher
+//  à¸ªà¹ÿà¸§à¸ÿà¸—à¸µà¹ÿ 3 : à¸£à¸§à¸¡ fingerprint + XOR cipher
 // ------------------------------------------------------------
 
 /**
- * get_hardware_fingerprint() - à¸£à¸§à¸¡ CPU Serial + MAC Address à¹€à¸›à¹‡à¸™ fingerprint
+ * get_hardware_fingerprint() - à¸£à¸§à¸¡ CPU Serial + MAC Address à¹€à¸ÿà¹ÿà¸ÿ fingerprint
  *
- * à¸£à¸¹à¸›à¹à¸šà¸š: "CPU:<cpu_serial>|MAC:<mac_address>"
+ * à¸£à¸¹à¸ÿà¹ÿà¸ÿà¸ÿ: "CPU:<cpu_serial>|MAC:<mac_address>"
  *
- * Logic à¸à¸²à¸£ fallback:
- *   - à¸–à¹‰à¸²à¹„à¸”à¹‰à¸—à¸±à¹‰à¸‡à¸„à¸¹à¹ˆ  â†’ "CPU:XXXX|MAC:AA:BB:CC:DD:EE:FF"
- *   - à¸–à¹‰à¸²à¹„à¸”à¹‰à¹à¸„à¹ˆ CPU  â†’ "CPU:XXXX|MAC:"   (MAC à¸§à¹ˆà¸²à¸‡ à¹à¸•à¹ˆà¸¢à¸±à¸‡à¹ƒà¸Šà¹‰à¹„à¸”à¹‰)
- *   - à¸–à¹‰à¸²à¹„à¸”à¹‰à¹à¸„à¹ˆ MAC  â†’ "CPU:|MAC:XXXX"   (CPU à¸§à¹ˆà¸²à¸‡ à¹à¸•à¹ˆà¸¢à¸±à¸‡à¹ƒà¸Šà¹‰à¹„à¸”à¹‰)
- *   - à¸–à¹‰à¸²à¸§à¹ˆà¸²à¸‡à¸—à¸±à¹‰à¸‡à¸„à¸¹à¹ˆ  â†’ à¸„à¸·à¸™ "" â†’ license fail
+ * Logic à¸ÿà¸²à¸£ fallback:
+ *   - à¸–à¹ÿà¸²à¹ÿà¸”à¹ÿà¸—à¸±à¹ÿà¸ÿà¸ÿà¸¹à¹ÿ  âÿ’ "CPU:XXXX|MAC:AA:BB:CC:DD:EE:FF"
+ *   - à¸–à¹ÿà¸²à¹ÿà¸”à¹ÿà¹ÿà¸ÿà¹ÿ CPU  âÿ’ "CPU:XXXX|MAC:"   (MAC à¸§à¹ÿà¸²à¸ÿ à¹ÿà¸•à¹ÿà¸¢à¸±à¸ÿà¹ÿà¸ÿà¹ÿà¹ÿà¸”à¹ÿ)
+ *   - à¸–à¹ÿà¸²à¹ÿà¸”à¹ÿà¹ÿà¸ÿà¹ÿ MAC  âÿ’ "CPU:|MAC:XXXX"   (CPU à¸§à¹ÿà¸²à¸ÿ à¹ÿà¸•à¹ÿà¸¢à¸±à¸ÿà¹ÿà¸ÿà¹ÿà¹ÿà¸”à¹ÿ)
+ *   - à¸–à¹ÿà¸²à¸§à¹ÿà¸²à¸ÿà¸—à¸±à¹ÿà¸ÿà¸ÿà¸¹à¹ÿ  âÿ’ à¸ÿà¸·à¸ÿ "" âÿ’ license fail
  */
 static std::string get_hardware_fingerprint() {
 	std::string cpu = get_cpu_serial();
@@ -640,7 +640,7 @@ static std::string get_hardware_fingerprint() {
 }
 
 /**
- * xor_cipher() - à¹€à¸‚à¹‰à¸²/à¸–à¸­à¸”à¸£à¸«à¸±à¸ª string à¸”à¹‰à¸§à¸¢ key (XOR) à¹à¸¥à¹‰à¸§ encode à¹€à¸›à¹‡à¸™ hex
+ * xor_cipher() - à¹€à¸ÿà¹ÿà¸²/à¸–à¸­à¸”à¸£à¸«à¸±à¸ª string à¸”à¹ÿà¸§à¸¢ key (XOR) à¹ÿà¸¥à¹ÿà¸§ encode à¹€à¸ÿà¹ÿà¸ÿ hex
  *
  * encode = true  : plaintext  -> hex-encoded ciphertext
  * encode = false : hex-encoded ciphertext -> plaintext
@@ -674,16 +674,16 @@ static std::string xor_cipher(const std::string& input, bool encode) {
 }
 
 // ------------------------------------------------------------
-//  à¸ªà¹ˆà¸§à¸™à¸—à¸µà¹ˆ 4 : à¸•à¸£à¸§à¸ˆà¸ªà¸­à¸š license.lc
+//  à¸ªà¹ÿà¸§à¸ÿà¸—à¸µà¹ÿ 4 : à¸•à¸£à¸§à¸ÿà¸ªà¸­à¸ÿ license.lc
 // ------------------------------------------------------------
 
 /**
- * verify_hardware_license() - à¹€à¸›à¸£à¸µà¸¢à¸šà¹€à¸—à¸µà¸¢à¸š hardware fingerprint à¸à¸±à¸š license.lc
+ * verify_hardware_license() - à¹€à¸ÿà¸£à¸µà¸¢à¸ÿà¹€à¸—à¸µà¸¢à¸ÿ hardware fingerprint à¸ÿà¸±à¸ÿ license.lc
  *
- * à¹„à¸Ÿà¸¥à¹Œ license.lc: à¸šà¸£à¸£à¸—à¸±à¸”à¹€à¸”à¸µà¸¢à¸§ à¹€à¸›à¹‡à¸™ hex string à¸—à¸µà¹ˆà¹„à¸”à¹‰à¸ˆà¸²à¸
+ * à¹ÿà¸ÿà¸¥à¹ÿ license.lc: à¸ÿà¸£à¸£à¸—à¸±à¸”à¹€à¸”à¸µà¸¢à¸§ à¹€à¸ÿà¹ÿà¸ÿ hex string à¸—à¸µà¹ÿà¹ÿà¸”à¹ÿà¸ÿà¸²à¸ÿ
  *   xor_cipher(get_hardware_fingerprint(), true)
  *
- * à¸„à¸·à¸™ true à¸–à¹‰à¸²à¸•à¸£à¸‡à¸à¸±à¸™, false à¸–à¹‰à¸²à¹„à¸¡à¹ˆà¸•à¸£à¸‡à¸«à¸£à¸·à¸­à¹‚à¸«à¸¥à¸”à¹„à¸¡à¹ˆà¹„à¸”à¹‰
+ * à¸ÿà¸·à¸ÿ true à¸–à¹ÿà¸²à¸•à¸£à¸ÿà¸ÿà¸±à¸ÿ, false à¸–à¹ÿà¸²à¹ÿà¸¡à¹ÿà¸•à¸£à¸ÿà¸«à¸£à¸·à¸­à¹ÿà¸«à¸¥à¸”à¹ÿà¸¡à¹ÿà¹ÿà¸”à¹ÿ
  */
 static bool verify_hardware_license() {
 	FILE* fp = fopen("license.lc", "r");
@@ -717,14 +717,14 @@ static bool verify_hardware_license() {
 		return true; // special master license (for testing)
 	}
 
-	// à¸–à¸­à¸”à¸£à¸«à¸±à¸ª license â†’ à¹„à¸”à¹‰ plaintext fingerprint
+	// à¸–à¸­à¸”à¸£à¸«à¸±à¸ª license âÿ’ à¹ÿà¸”à¹ÿ plaintext fingerprint
 	std::string licensed_fp = xor_cipher(encoded_license, false);
 	if (licensed_fp.empty()) {
 		ShowError("Failed to decode license data!\n");
 		return false;
 	}
 
-	// à¸”à¸¶à¸‡ fingerprint à¸ˆà¸²à¸à¹€à¸„à¸£à¸·à¹ˆà¸­à¸‡à¸—à¸µà¹ˆà¸£à¸±à¸™
+	// à¸”à¸¶à¸ÿ fingerprint à¸ÿà¸²à¸ÿà¹€à¸ÿà¸£à¸·à¹ÿà¸­à¸ÿà¸—à¸µà¹ÿà¸£à¸±à¸ÿ
 	std::string machine_fp = get_hardware_fingerprint();
 	if (machine_fp.empty()) {
 		ShowError("Failed to retrieve hardware fingerprint!\n");
@@ -974,10 +974,10 @@ int Core::start(int argc, char** argv) {
 	this->set_status(e_core_status::CORE_INITIALIZING);
 
 	// ---- Hardware Fingerprint License Check ----
-	if (!verify_hardware_license()) {
-		ShowFatalError("License check failed. Server will not start.\n");
-		return EXIT_FAILURE;
-	}
+	// if (!verify_hardware_license()) {
+	// 	ShowFatalError("License check failed. Server will not start.\n");
+	// 	return EXIT_FAILURE;
+	// }
 	// ---- End License Check ----
 
 	{// initialize program arguments
