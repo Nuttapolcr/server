@@ -1,46 +1,46 @@
-# ‡∏Ñ‡∏•‡∏±‡∏á‡∏Ñ‡∏ß‡∏≤‡∏°‡∏£‡∏π‡πâ ‚Äî Custom RO Server (pre-re rAthena)
+# §≈—ß§«“¡√ŸÈ ó Custom RO Server (pre-re rAthena)
 
-> ‡πÑ‡∏ü‡∏•‡πå‡∏ô‡∏µ‡πâ‡∏Ñ‡∏∑‡∏≠ **‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•** ‡πÑ‡∏°‡πà‡πÉ‡∏ä‡πà‡∏Å‡∏é ‚Äî ‡∏Å‡∏é‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô `CLAUDE.md`
-> ‡∏≠‡∏±‡∏û‡πÄ‡∏î‡∏ï‡∏ó‡∏∏‡∏Å‡∏Ñ‡∏£‡∏±‡πâ‡∏á‡∏ó‡∏µ‡πà‡∏Ñ‡πâ‡∏ô‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏´‡∏°‡πà
+> ‰ø≈Ïπ’È§◊Õ **¢ÈÕ¡Ÿ≈** ‰¡Ë„™Ë°Æ ó °ÆÕ¬ŸË„π `CLAUDE.md`
+> Õ—æ‡¥µ∑ÿ°§√—Èß∑’Ë§Èπæ∫¢ÈÕ¡Ÿ≈„À¡Ë
 
 ---
 
-## ‡∏†‡∏≤‡∏û‡∏£‡∏ß‡∏° Project
+## ¿“æ√«¡ Project
 
-Private Ragnarok Online server ‡∏£‡∏±‡∏ô **rAthena** ‡πÇ‡∏´‡∏°‡∏î **pre-renewal (pre-re)**
+Private Ragnarok Online server √—π **rAthena** ‚À¡¥ **pre-renewal (pre-re)**
 
-| ‡πÑ‡∏ü‡∏•‡πå | ‡∏´‡∏ô‡πâ‡∏≤‡∏ó‡∏µ‡πà |
+| ‰ø≈Ï | ÀπÈ“∑’Ë |
 |---|---|
-| `db/pre-re/item_db_equip.yml` | ‡∏ê‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ó‡∏µ‡πà‡πÉ‡∏ä‡πâ‡∏á‡∏≤‡∏ô‡∏à‡∏£‡∏¥‡∏á (~43k+ lines) |
-| `db/re/item_db_equip.yml` | Reference ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô (~236k lines) ‡∏î‡∏∂‡∏á base structure ‡πÑ‡∏î‡πâ |
+| `db/pre-re/item_db_equip.yml` | ∞“π¢ÈÕ¡Ÿ≈∑’Ë„™Èß“π®√‘ß (~43k+ lines) |
+| `db/re/item_db_equip.yml` | Reference ‡∑Ë“π—Èπ (~236k lines) ¥÷ß base structure ‰¥È |
 
 ---
 
-## ‡∏ß‡∏¥‡∏ò‡∏µ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤ Item
+## «‘∏’§ÈπÀ“ Item
 
 ```bash
-# ‡∏ï‡∏£‡∏ß‡∏à‡∏ß‡πà‡∏≤‡∏°‡∏µ‡πÉ‡∏ô pre-re ‡πÑ‡∏´‡∏°
+# µ√«®«Ë“¡’„π pre-re ‰À¡
 grep -n "  - Id: <ID>$" db/pre-re/item_db_equip.yml
 
-# ‡∏ñ‡πâ‡∏≤‡πÑ‡∏°‡πà‡∏°‡∏µ ‡∏î‡∏∂‡∏á‡∏à‡∏≤‡∏Å re (‡∏ö‡∏≠‡∏Å line number ‡πÅ‡∏•‡πâ‡∏ß‡πÉ‡∏ä‡πâ sed)
+# ∂È“‰¡Ë¡’ ¥÷ß®“° re (∫Õ° line number ·≈È«„™È sed)
 grep -n "  - Id: <ID>$" db/re/item_db_equip.yml
 sed -n '<line>,<line+60>p' db/re/item_db_equip.yml
 ```
 
 ---
 
-## ‡∏£‡∏π‡∏õ‡πÅ‡∏ö‡∏ö YAML
+## √Ÿª·∫∫ YAML
 
 ```yaml
   - Id: 21016
-    AegisName: Sinister_Twohand_Sword   # ‡∏´‡πâ‡∏≤‡∏°‡∏°‡∏µ‡πÄ‡∏ß‡πâ‡∏ô‡∏ß‡∏£‡∏£‡∏Ñ
+    AegisName: Sinister_Twohand_Sword   # ÀÈ“¡¡’‡«Èπ«√√§
     Name: Two-Handed Sword of Vicious Mind
     Type: Weapon
     SubType: 2hSword
     Buy: 20
-    Weight: 2200           # display weight √ó 10
+    Weight: 2200           # display weight x 10
     Attack: 300
-    MagicAttack: 290       # ‡πÉ‡∏™‡πà‡πÄ‡∏â‡∏û‡∏≤‡∏∞‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏°‡∏µ‡∏Ñ‡πà‡∏≤ MATK
+    MagicAttack: 290       # „ Ë‡©æ“–‡¡◊ËÕ¡’§Ë“ MATK
     Range: 1
     Slots: 3
     Jobs:
@@ -50,18 +50,18 @@ sed -n '<line>,<line+60>p' db/re/item_db_equip.yml
     WeaponLevel: 4
     EquipLevelMin: 160
     Refineable: true
-    Gradable: true         # [Legend] items ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô
+    Gradable: true         # [Legend] items ‡∑Ë“π—Èπ
     Script: |
       bonus bStr,5;
 ```
 
-**Weight:** spreadsheet ‡πÅ‡∏™‡∏î‡∏á "220" ‚Üí YAML `Weight: 2200`
+**Weight:** spreadsheet · ¥ß "220" -> YAML `Weight: 2200`
 
 ---
 
 ## Job Name Mapping
 
-| ‡∏ä‡∏∑‡πà‡∏≠‡πÉ‡∏ô‡πÄ‡∏Å‡∏° / Spreadsheet | YAML key |
+| ™◊ËÕ„π‡°¡ / Spreadsheet | YAML key |
 |---|---|
 | Lord Knight / Knight | `Knight: true` |
 | Paladin / Crusader | `Crusader: true` |
@@ -88,17 +88,17 @@ sed -n '<line>,<line+60>p' db/re/item_db_equip.yml
 
 | Slot | Key |
 |---|---|
-| ‡∏≠‡∏≤‡∏ß‡∏∏‡∏ò 1 ‡∏°‡∏∑‡∏≠ | `Right_Hand: true` |
-| ‡∏≠‡∏≤‡∏ß‡∏∏‡∏ò 2 ‡∏°‡∏∑‡∏≠ | `Both_Hand: true` |
-| ‡πÇ‡∏•‡πà | `Left_Hand: true` |
-| ‡πÄ‡∏™‡∏∑‡πâ‡∏≠‡πÄ‡∏Å‡∏£‡∏≤‡∏∞ | `Armor: true` |
-| ‡∏£‡∏≠‡∏á‡πÄ‡∏ó‡πâ‡∏≤ | `Shoes: true` |
-| ‡∏°‡∏±‡∏û / ‡∏ú‡πâ‡∏≤‡∏Ñ‡∏•‡∏∏‡∏° | `Garment: true` |
-| ‡∏´‡∏±‡∏ß‡∏ö‡∏ô / ‡∏Å‡∏•‡∏≤‡∏á / ‡∏•‡πà‡∏≤‡∏á | `Head_Top / Head_Mid / Head_Low: true` |
+| Õ“«ÿ∏ 1 ¡◊Õ | `Right_Hand: true` |
+| Õ“«ÿ∏ 2 ¡◊Õ | `Both_Hand: true` |
+| ‚≈Ë | `Left_Hand: true` |
+| ‡ ◊ÈÕ‡°√“– | `Armor: true` |
+| √Õß‡∑È“ | `Shoes: true` |
+| ¡—æ / ºÈ“§≈ÿ¡ | `Garment: true` |
+| À—«∫π / °≈“ß / ≈Ë“ß | `Head_Top / Head_Mid / Head_Low: true` |
 
 ---
 
-## Script Reference ‚Äî Bonus Codes
+## Script Reference ó Bonus Codes
 
 ```
 bonus bStr,N;               # STR+N
@@ -123,22 +123,22 @@ bonus bCritical,N;          # Critical rate +N
 bonus bCritAtkRate,N;       # Critical damage +N%
 bonus bHealPower,N;         # Heal +N%
 bonus bLongAtkRate,N;       # Long range damage +N%
-bonus bIgnoreMdefRate,N;    # ‡πÄ‡∏à‡∏≤‡∏∞ MDEF N%
-bonus bCastRate,-N;         # ‡∏•‡∏î‡∏£‡πà‡∏≤‡∏¢ N%
-bonus bDelayRate,-N;        # ‡∏•‡∏î‡∏î‡∏µ‡πÄ‡∏•‡∏¢‡πå N%
-bonus bUnbreakableWeapon;   # ‡∏≠‡∏≤‡∏ß‡∏∏‡∏ò‡πÑ‡∏°‡πà‡πÅ‡∏ï‡∏Å
+bonus bIgnoreMdefRate,N;    # ‡®“– MDEF N%
+bonus bCastRate,-N;         # ≈¥√Ë“¬ N%
+bonus bDelayRate,-N;        # ≈¥¥’‡≈¬Ï N%
+bonus bUnbreakableWeapon;   # Õ“«ÿ∏‰¡Ë·µ°
 
-bonus2 bAddClass,Class_Boss,N;   # ‡πÇ‡∏à‡∏°‡∏ö‡∏≠‡∏™‡πÅ‡∏£‡∏á‡∏Ç‡∏∂‡πâ‡∏ô N%
-bonus2 bSubClass,Class_Boss,N;   # ‡∏õ‡πâ‡∏≠‡∏á‡∏Å‡∏±‡∏ô‡∏ö‡∏≠‡∏™ N%
-bonus2 bAddClass,Class_All,N;    # ‡πÇ‡∏à‡∏°‡∏ó‡∏∏‡∏Å class N%
+bonus2 bAddClass,Class_Boss,N;   # ‚®¡∫Õ ·√ß¢÷Èπ N%
+bonus2 bSubClass,Class_Boss,N;   # ªÈÕß°—π∫Õ  N%
+bonus2 bAddClass,Class_All,N;    # ‚®¡∑ÿ° class N%
 bonus2 bSkillAtk,"SKILL",N;      # Skill damage +N%
 ```
 
 ---
 
-## Script Reference ‚Äî Skill Constants (pre-re)
+## Script Reference ó Skill Constants (pre-re)
 
-| ‡∏™‡∏Å‡∏¥‡∏• | Constant |
+|  °‘≈ | Constant |
 |---|---|
 | Bowling Bash | `LK_BOWLINGBASH` |
 | Shield Chain | `PA_SHIELDCHAIN` |
@@ -161,7 +161,66 @@ bonus2 bSkillAtk,"SKILL",N;      # Skill damage +N%
 
 ## Script Patterns
 
-### [Legend] Vicious Mind Weapon ‚Äî Base Pattern
+## Workflow ó  √È“ß NPC ®“° Google Sheet
+
+„™È‡¡◊ËÕ≈Ÿ°§È“ Ëß Google Sheet ·≈È«¢Õ„ÀÈ ì √È“ß NPC µ“¡≈‘ß°Ïî
+
+1. ÕË“π metadata ¢Õß Google Sheet °ËÕπ‡ ¡Õ ‡æ◊ËÕ®—∫ `gid` ‡ªÁπ™◊ËÕ·∑Á∫®√‘ß
+2. ÕË“π™Ë«ßÀ—«µ“√“ß·≈–·∂«¢ÈÕ¡Ÿ≈‡∑Ë“∑’Ë®”‡ªÁπ ‡™Ëπ `A1:AC120`
+3. ·¬°¢ÈÕ¡Ÿ≈ 3 °≈ÿË¡:
+   - √“¬°“√‰Õ‡∑¡ / item id / √“§“·µÈ¡
+   - ™◊ËÕ NPC / sprite id / map x y
+   - note ®“° Dev Request
+4. µ√«® item id °—∫ DB ®√‘ß„π `db/pre-re/` °ËÕπ‡¢’¬π script
+   - ∂È“™◊ËÕ°—∫‡≈¢„π™’µ‰¡Ëµ√ß°—π „ÀÈ¬÷¥ DB ‡ªÁπÀ≈—° ·≈–·®Èß„π √ÿª
+   - µ—«Õ¬Ë“ß: `12246` §◊Õ `Mystical Card Album`; `Boss Card Album` „π custom DB §◊Õ `12698`
+5. «“ß custom NPC „π `npc/custom-npc/<category>/`
+6. ‡ª‘¥‚À≈¥‰ø≈Ï„π `npc/custom-npc.conf`
+7. ∂È“ script ¡’¿“…“‰∑¬ „ÀÈ·ª≈ß‡ªÁπ `WINDOWS-874` °ËÕπ Ëßß“π/commit:
+
+```bash
+iconv -f UTF-8 -t WINDOWS-874 input.txt -o /tmp/input.win874
+mv /tmp/input.win874 input.txt
+```
+
+∂È“‰ø≈Ï‡ªÁπ UTF-8 BOM „ÀÈ∂Õ¥ BOM °ËÕπ:
+
+```bash
+dd bs=1 skip=3 if=npc/custom-npc.conf of=/tmp/custom-npc.conf.nobom
+iconv -f UTF-8 -t WINDOWS-874 /tmp/custom-npc.conf.nobom -o /tmp/custom-npc.conf.win874
+mv /tmp/custom-npc.conf.win874 npc/custom-npc.conf
+```
+
+¬◊π¬—π encoding ‚¥¬ decode °≈—∫:
+
+```bash
+iconv -f WINDOWS-874 -t UTF-8 npc/custom-npc/04_craft/boss_point_shop.txt | sed -n '1,30p'
+```
+
+8. µ√«®§«“¡ –Õ“¥:
+
+```bash
+git diff --check
+git status --short
+```
+
+9. ∂È“µÈÕß commit „ÀÈ stage ‡©æ“–‰ø≈Ïß“π ÀÈ“¡√«¡ dirty file Õ◊Ëπ¢ÕßºŸÈ„™È:
+
+```bash
+git add npc/custom-npc.conf npc/custom-npc/04_craft/example.txt
+git diff --cached --name-only
+git commit -m "Add ..."
+```
+
+### À¡“¬‡Àµÿ®“°ß“π NPC ¬ËÕ¬/·≈°¢Õß∫Õ 
+
+- `NPC¬ËÕ¬¢Õß∫Õ ` „™Èæ‘°—¥ `morocc,180,156`, sprite `618`
+- `·≈°¢Õß∫Õ ` „™Èæ‘°—¥ `morocc,180,153`, sprite `619`
+- ·µÈ¡„™È account variable `#RELIC_POINTS`
+- À“°„™È√–∫∫¬ËÕ¬‰Õ‡∑¡ §«√°√Õß‡©æ“– item  –Õ“¥: ‰¡Ë «¡„ Ë, ‰¡Ë refine, ‰¡Ë¡’ card, ‰¡Ë bound/expire, ‰¡Ë¡’ enchant grade/random option
+- „π environment π’È `./map-server --help` ∑” license check ·≈– fail ‰¥È ®÷ß„™È static checks ·∑π‡¡◊ËÕ√—π server ‰¡Ë‰¥È
+
+### [Legend] Vicious Mind Weapon ó Base Pattern
 
 ```
 Script: |
@@ -172,7 +231,7 @@ Script: |
   .@r = getrefine();
   bonus2 bSkillAtk,"SKILL_CONST",(.@r/3)*3;   # per 3 refines
   if(.@r>=7) bonus bAtkRate,7;
-  if(.@r>=9) bonus2 bAddClass,Class_All,10;   # melee; ‡πÉ‡∏ä‡πâ bLongAtkRate ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö ranged
+  if(.@r>=9) bonus2 bAddClass,Class_All,10;   # melee; „™È bLongAtkRate  ”À√—∫ ranged
   if(.@r>=11) bonus bAspdRate,15;
   .@g = getenchantgrade();
   if(.@g >= ENCHANTGRADE_D) {
@@ -185,7 +244,7 @@ Script: |
 
 Grade constants: `ENCHANTGRADE_D`, `ENCHANTGRADE_C`, `ENCHANTGRADE_B`, `ENCHANTGRADE_A`
 
-### [Rookie] Weapon ‚Äî Base Pattern
+### [Rookie] Weapon ó Base Pattern
 
 ```
 Script: |
@@ -196,7 +255,7 @@ Script: |
   if(.@r>=7) { bonus bBaseAtk,30; bonus bAtkRate,15; bonus2 bSubClass,Class_Boss,30; }
 ```
 
-### [Rookie] Armor Set ‚Äî Pattern
+### [Rookie] Armor Set ó Pattern
 
 ```
 Script: |
@@ -266,52 +325,52 @@ Sheet mobs without matching `db/pre-re/mob_db.yml` entries:
 
 ## Source Hooks (C++)
 
-> ‡∏á‡∏≤‡∏ô‡∏ó‡∏µ‡πà‡πÅ‡∏Å‡πâ source code ‡πÇ‡∏î‡∏¢‡∏ï‡∏£‡∏á ‡πÑ‡∏°‡πà‡πÉ‡∏ä‡πà item script / YAML ‚Äî ‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô `src/map/`
+> ß“π∑’Ë·°È source code ‚¥¬µ√ß ‰¡Ë„™Ë item script / YAML ó Õ¬ŸË„π `src/map/`
 
 ### Full Refine Set Bonus
 
-‡∏£‡∏∞‡∏ö‡∏ö‡πÇ‡∏ö‡∏ô‡∏±‡∏™‡∏ä‡∏∏‡∏î‡∏ï‡∏≤‡∏°‡∏£‡∏∞‡∏î‡∏±‡∏ö‡∏ï‡∏µ‡∏ö‡∏ß‡∏Å: ‡πÉ‡∏™‡πà‡∏Ñ‡∏£‡∏ö 6 slot (‡∏´‡∏±‡∏ß+‡πÄ‡∏™‡∏∑‡πâ‡∏≠+‡∏≠‡∏≤‡∏ß‡∏∏‡∏ò+‡πÇ‡∏•‡πà+‡πÄ‡∏ó‡πâ‡∏≤+‡∏°‡∏±‡∏ü) ‡πÅ‡∏•‡∏∞‡∏ó‡∏∏‡∏Å slot
-‡∏ï‡∏µ‡∏ö‡∏ß‡∏Å‡∏ñ‡∏∂‡∏á‡∏£‡∏∞‡∏î‡∏±‡∏ö‡πÄ‡∏î‡∏µ‡∏¢‡∏ß‡∏Å‡∏±‡∏ô ‚Üí ‡πÑ‡∏î‡πâ‡πÇ‡∏ö‡∏ô‡∏±‡∏™‡∏ï‡∏≤‡∏° **min refine** ‡∏Ç‡∏≠‡∏á‡∏ó‡∏±‡πâ‡∏á‡∏ä‡∏∏‡∏î (single-tier ‡πÅ‡∏ó‡∏ô‡∏ó‡∏µ‡πà ‡πÑ‡∏°‡πà‡∏™‡∏∞‡∏™‡∏°)
+√–∫∫‚∫π— ™ÿ¥µ“¡√–¥—∫µ’∫«°: „ Ë§√∫ 6 slot (À—«+‡ ◊ÈÕ+Õ“«ÿ∏+‚≈Ë+‡∑È“+¡—ø) ·≈–∑ÿ° slot
+µ’∫«°∂÷ß√–¥—∫‡¥’¬«°—π -> ‰¥È‚∫π— µ“¡ **min refine** ¢Õß∑—Èß™ÿ¥ (single-tier ·∑π∑’Ë ‰¡Ë – ¡)
 
-**‡∏à‡∏∏‡∏î hook:** `status_calc_pc_sub` ‡πÉ‡∏ô `src/map/status.cpp` ‚Äî ‡πÅ‡∏ó‡∏£‡∏Å‡∏´‡∏•‡∏±‡∏á equipment loop
-(`// Parse equipment`) ‡∏õ‡∏¥‡∏î ‡∏Å‡πà‡∏≠‡∏ô block `EQI_AMMO` ‡∏°‡∏≤‡∏£‡πå‡∏Å‡∏î‡πâ‡∏ß‡∏¢ `// === Custom: Full Refine Set Bonus ===`
+**®ÿ¥ hook:** `status_calc_pc_sub` „π `src/map/status.cpp` ó ·∑√°À≈—ß equipment loop
+(`// Parse equipment`) ª‘¥ °ËÕπ block `EQI_AMMO` ¡“√Ï°¥È«¬ `// === Custom: Full Refine Set Bonus ===`
 
-**Slot ‡∏ó‡∏µ‡πà‡∏ô‡∏±‡∏ö:** `EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_R, EQI_HAND_L, EQI_SHOES, EQI_GARMENT`
-(‡∏´‡∏±‡∏ß = ‡πÄ‡∏â‡∏û‡∏≤‡∏∞ HEAD_TOP)
+**Slot ∑’Ëπ—∫:** `EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_R, EQI_HAND_L, EQI_SHOES, EQI_GARMENT`
+(À—« = ‡©æ“– HEAD_TOP)
 
-**‡∏ï‡∏≤‡∏£‡∏≤‡∏á tier (pre-re: MAX_REFINE=11 ‚Üí ‡∏°‡∏µ‡∏ñ‡∏∂‡∏á +11):**
+**µ“√“ß tier (pre-re: MAX_REFINE=11 -> ¡’∂÷ß +11):**
 
 | min refine | DROP | Weight | HP | resist | all stat |
 |---|---|---|---|---|---|
-| 7 | +10% | +200 | +500 | ‚Äî | ‚Äî |
-| 8 | +15% | +300 | +700 | ‚Äî | ‚Äî |
-| 9 | +20% | +400 | +900 | ‚Äî | ‚Äî |
+| 7 | +10% | +200 | +500 | ó | ó |
+| 8 | +15% | +300 | +700 | ó | ó |
+| 9 | +20% | +400 | +900 | ó | ó |
 | 10 | +25% | +500 | +1200 | 1% | +1 |
 | 11 | +25% | +600 | +1500 | 2% | +1 |
 
-**Field ‡∏ó‡∏µ‡πà set (‡∏ó‡∏∏‡∏Å‡∏ï‡∏±‡∏ß‡∏ñ‡∏π‡∏Å consume ‡∏´‡∏•‡∏±‡∏á‡∏à‡∏∏‡∏î hook ‡πÉ‡∏ô calc ‡∏£‡∏≠‡∏ö‡πÄ‡∏î‡∏µ‡∏¢‡∏ß‡∏Å‡∏±‡∏ô):**
+**Field ∑’Ë set (∑ÿ°µ—«∂Ÿ° consume À≈—ß®ÿ¥ hook „π calc √Õ∫‡¥’¬«°—π):**
 
-| ‡πÇ‡∏ö‡∏ô‡∏±‡∏™ | C++ field | consume ‡∏ó‡∏µ‡πà |
+| ‚∫π—  | C++ field | consume ∑’Ë |
 |---|---|---|
 | DROP+N% | `sd->indexed_bonus.dropaddrace[RC_ALL] += N` | mob.cpp drop calc |
 | Weight+N | `sd->add_max_weight += N` | status.cpp `status_calc_weight` |
 | HP+N | `sd->bonus.hp += N` | status.cpp `status_calc_maxhpsp_pc` |
-| resist N% (‡∏Å‡∏±‡∏ô‡∏Å‡∏∂‡πà‡∏á) | `subrace[RC_DEMIHUMAN] += N` **‡πÅ‡∏•‡∏∞** `subrace[RC_PLAYER_HUMAN] += N` | battle damage calc |
-| all stat +N | `param_bonus[PARAM_STR..LUK] += N` (6 ‡∏ï‡∏±‡∏ß) | status.cpp stat finalize |
+| resist N% (°—π°÷Ëß) | `subrace[RC_DEMIHUMAN] += N` **·≈–** `subrace[RC_PLAYER_HUMAN] += N` | battle damage calc |
+| all stat +N | `param_bonus[PARAM_STR..LUK] += N` (6 µ—«) | status.cpp stat finalize |
 
-**‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏‡∏™‡∏≥‡∏Ñ‡∏±‡∏ç:**
-- **‡∏≠‡∏≤‡∏ß‡∏∏‡∏ò 2 ‡∏°‡∏∑‡∏≠:** `pc_equipitem` set ‡∏ó‡∏±‡πâ‡∏á `equip_index[EQI_HAND_R]` ‡πÅ‡∏•‡∏∞ `[EQI_HAND_L]`
-  ‡πÄ‡∏õ‡πá‡∏ô inventory index ‡πÄ‡∏î‡∏µ‡∏¢‡∏ß‡∏Å‡∏±‡∏ô (equip ‡∏ó‡∏µ‡πà `EQP_ARMS`) ‚Üí ‡∏≠‡πà‡∏≤‡∏ô refine ‡∏Ç‡∏≠‡∏á HAND_L ‡πÑ‡∏î‡πâ‡∏Ñ‡πà‡∏≤‡πÄ‡∏î‡∏µ‡∏¢‡∏ß‡∏Å‡∏±‡∏ö‡∏≠‡∏≤‡∏ß‡∏∏‡∏ò
-  ‡∏ï‡∏£‡∏á‡∏ï‡∏≤‡∏° spec "‡∏≠‡∏≤‡∏ß‡∏∏‡∏ò2‡∏°‡∏∑‡∏≠ ‡∏ô‡∏±‡∏ö‡πÄ‡∏õ‡πá‡∏ô ‡∏≠‡∏≤‡∏ß‡∏∏‡∏ò+‡πÇ‡∏•‡πà" ‡πÇ‡∏î‡∏¢‡πÑ‡∏°‡πà‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏Ç‡∏µ‡∏¢‡∏ô logic ‡∏û‡∏¥‡πÄ‡∏®‡∏©
-- ‡∏Å‡∏≤‡∏£ set `subrace[]` ‡∏ï‡∏£‡∏á‡πÜ ‡∏Ç‡πâ‡∏≤‡∏° cap `battle_config.limit_race_def` (path script ‡∏õ‡∏Å‡∏ï‡∏¥‡∏à‡∏∞ cap) ‡πÅ‡∏ï‡πà‡∏Ñ‡πà‡∏≤‡∏ô‡πâ‡∏≠‡∏¢‡∏°‡∏≤‡∏Å‡∏à‡∏∂‡∏á‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏õ‡∏±‡∏ç‡∏´‡∏≤
-- ‡∏ñ‡πâ‡∏≤‡∏≠‡∏ô‡∏≤‡∏Ñ‡∏ï‡πÄ‡∏õ‡∏¥‡∏î renewal / ‡πÄ‡∏û‡∏¥‡πà‡∏° `MAX_REFINE` ‡∏Ñ‡πà‡∏≠‡∏¢‡πÄ‡∏û‡∏¥‡πà‡∏° tier +12~+15 ‡∏ï‡∏≤‡∏° spreadsheet ‡πÄ‡∏î‡∏¥‡∏°
+**À¡“¬‡Àµÿ ”§—≠:**
+- **Õ“«ÿ∏ 2 ¡◊Õ:** `pc_equipitem` set ∑—Èß `equip_index[EQI_HAND_R]` ·≈– `[EQI_HAND_L]`
+  ‡ªÁπ inventory index ‡¥’¬«°—π (equip ∑’Ë `EQP_ARMS`) -> ÕË“π refine ¢Õß HAND_L ‰¥È§Ë“‡¥’¬«°—∫Õ“«ÿ∏
+  µ√ßµ“¡ spec "Õ“«ÿ∏2¡◊Õ π—∫‡ªÁπ Õ“«ÿ∏+‚≈Ë" ‚¥¬‰¡ËµÈÕß‡¢’¬π logic æ‘‡»…
+- °“√ set `subrace[]` µ√ßÊ ¢È“¡ cap `battle_config.limit_race_def` (path script ª°µ‘®– cap) ·µË§Ë“πÈÕ¬¡“°®÷ß‰¡Ë¡’ª—≠À“
+- ∂È“Õπ“§µ‡ª‘¥ renewal / ‡æ‘Ë¡ `MAX_REFINE` §ËÕ¬‡æ‘Ë¡ tier +12~+15 µ“¡ spreadsheet ‡¥‘¡
 
 ---
 
 ## Item Categories
 
 ### [Legend] Vicious Mind Weapons
-`Gradable: true` | `WeaponLevel: 4` | `EquipLevelMin: 160` | `Slots: 3` (‡∏™‡πà‡∏ß‡∏ô‡πÉ‡∏´‡∏ç‡πà)
+`Gradable: true` | `WeaponLevel: 4` | `EquipLevelMin: 160` | `Slots: 3` ( Ë«π„À≠Ë)
 
 | ID | Name | AegisName | ATK/MATK | Weight | Slots | Job |
 |---|---|---|---|---|---|---|
@@ -333,10 +392,10 @@ Sheet mobs without matching `db/pre-re/mob_db.yml` entries:
 | 13128 | Revolver of Vicious Mind | Sinister_Revolver | ATK 250 | 600 | 2 | Gunslinger |
 | 13468 | Sword of Vicious Mind | Sinister_Sword_SN | ATK 250 / MATK 250 | 1500 | 3 | SuperNovice |
 
-**‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏ ID 28605:** ‡∏°‡∏µ class-conditional script ‚Äî Sage ‡πÑ‡∏î‡πâ MATK effect, StarGladiator ‡πÑ‡∏î‡πâ ATK/Flying Kick effect
+**À¡“¬‡Àµÿ ID 28605:** ¡’ class-conditional script ó Sage ‰¥È MATK effect, StarGladiator ‰¥È ATK/Flying Kick effect
 
 ### [Rookie] Weapons
-`WeaponLevel: 3` | `EquipLevelMin: 1` | `Slots: 1` | ‡πÑ‡∏°‡πà‡∏°‡∏µ Gradable
+`WeaponLevel: 3` | `EquipLevelMin: 1` | `Slots: 1` | ‰¡Ë¡’ Gradable
 
 | ID | Name | AegisName | Subtype | Job |
 |---|---|---|---|---|
@@ -345,7 +404,7 @@ Sheet mobs without matching `db/pre-re/mob_db.yml` entries:
 | 1491 | [Rookie] Spear | Rookie_Lance | 2hSpear | Swordman |
 | 1585 | [Rookie] Book | Rookie_Book | Book | Priest, Sage, StarGladiator |
 | 2015 | [Rookie] Staff | Rookie_Staff | 2hStaff | Mage, Acolyte, SoulLinker |
-| 13071 | [Rookie] Dagger | Rookie_Dagger | Dagger | ‡∏´‡∏•‡∏≤‡∏¢ class |
+| 13071 | [Rookie] Dagger | Rookie_Dagger | Dagger | À≈“¬ class |
 | 13115 | [Rookie] Revolver | Rookie_Revolver | Revolver | Gunslinger |
 | 21000 | [Rookie] Two-handed Sword | Rookie_Twohand_Sword | 2hSword | Swordman |
 | 16019 | [Rookie] Mace | Rookie_Mace | Mace | Novice, Swordman, Acolyte, Merchant |
@@ -360,13 +419,13 @@ Sheet mobs without matching `db/pre-re/mob_db.yml` entries:
 | 2560 | [Rookie] Boots | Rookie_Boots | Shoes | 13 |
 | 2562 | [Rookie] Muffler | Rookie_Muffler | Garment | 13 |
 
-Set bonus ‡πÄ‡∏°‡∏∑‡πà‡∏≠‡πÉ‡∏™‡πà‡∏Ñ‡∏£‡∏ö 15015 + 2560 + 2562: MaxHP+1000, Boss damage+10%, Boss defense+10%
+Set bonus ‡¡◊ËÕ„ Ë§√∫ 15015 + 2560 + 2562: MaxHP+1000, Boss damage+10%, Boss defense+10%
 
 ---
 
 ## References
 
-| ‡πÅ‡∏´‡∏•‡πà‡∏á‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏• | ‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î |
+| ·À≈Ëß¢ÈÕ¡Ÿ≈ | √“¬≈–‡Õ’¬¥ |
 |---|---|
 | Google Sheets | `https://docs.google.com/spreadsheets/d/18jXOdXuyUAcnRlopt6nwZ_U6AursYYIGTvecjY8jirM/edit` |
 | Sheets fileId | `18jXOdXuyUAcnRlopt6nwZ_U6AursYYIGTvecjY8jirM` |
