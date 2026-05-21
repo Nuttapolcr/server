@@ -4925,12 +4925,12 @@ Body:
       bonus bUnbreakableWeapon;
       bonus2 bAddSize,Size_All,40;
   - Id: 1292
-    AegisName: Upg_Katar
-    Name: Upg Katar
+    AegisName: Rookie_Katar
+    Name: "[Rookie] Katar"
     Type: Weapon
     SubType: Katar
     Buy: 20
-    Weight: 1000
+    Weight: 500
     Attack: 80
     Range: 1
     Slots: 1
@@ -4941,14 +4941,13 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 1
     Refineable: true
-    Trade:
-      NoDrop: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,(.@r*10);
-      bonus bCritAtkRate,(.@r*2);
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+      bonus bBaseAtk,.@r*15;
+      bonus bCritAtkRate,.@r*3;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bBaseAtk,30; bonus bCritAtkRate,20; bonus2 bSubClass,Class_Boss,30; }
   - Id: 1301
     AegisName: Axe
     Name: Axe
@@ -6413,6 +6412,35 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 1394
+    AegisName: Rookie_Two_Handed_Axe
+    Name: "[Rookie] Two-handed Axe"
+    Type: Weapon
+    SubType: 2hAxe
+    Buy: 20
+    Weight: 2000
+    Attack: 110
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bUnbreakableWeapon;
+      .@r = getrefine();
+      bonus bBaseAtk,.@r*20;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bBaseAtk,30; bonus bAtkRate,15; bonus2 bSubClass,Class_Boss,30; }
   - Id: 1401
     AegisName: Javelin
     Name: Javelin
@@ -7153,6 +7181,41 @@ Body:
       bonus bStr,1;
       bonus bInt,2;
       bonus bDex,1;
+  - Id: 1450
+    AegisName: Sinister_Lance
+    Name: Lance of Vicious Mind
+    Type: Weapon
+    SubType: 2hSpear
+    Buy: 20
+    Weight: 2100
+    Attack: 340
+    Range: 3
+    Slots: 3
+    Jobs:
+      Crusader: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bVit,10;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"PA_SHIELDCHAIN",25;
+      bonus bHPrate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"PA_SHIELDCHAIN",(.@r/3)*3;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus bLongAtkRate,10;
+      if(.@r>=11) bonus bAspdRate,15;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bBaseAtk,20; bonus bAtkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"PA_SHIELDCHAIN",(.@r/2)*3;
+          else bonus2 bSkillAtk,"PA_SHIELDCHAIN",(.@r/3)*3;
+      }
   - Id: 1451
     AegisName: Guisarme
     Name: Guisarme
@@ -8006,6 +8069,31 @@ Body:
       bonus2 bAddRace,RC_DemiHuman,10;
       bonus2 bAddRace,RC_Player_Human,10;
       bonus3 bAutoSpell,"KN_PIERCE",5,30;
+  - Id: 1491
+    AegisName: Rookie_Lance
+    Name: "[Rookie] Spear"
+    Type: Weapon
+    SubType: 2hSpear
+    Buy: 20
+    Weight: 1500
+    Attack: 105
+    Range: 3
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,.@r*15;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bBaseAtk,30; bonus bAtkRate,15; bonus2 bSubClass,Class_Boss,30; }
   - Id: 1501
     AegisName: Club
     Name: Club
@@ -10112,6 +10200,34 @@ Body:
       Right_Hand: true
     WeaponLevel: 3
     EquipLevelMin: 1
+  - Id: 1585
+    AegisName: Rookie_Book
+    Name: "[Rookie] Book"
+    Type: Weapon
+    SubType: Book
+    Buy: 20
+    Weight: 600
+    Attack: 45
+    MagicAttack: 20
+    Range: 1
+    Slots: 1
+    Jobs:
+      Priest: true
+      Sage: true
+      StarGladiator: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,.@r*10;
+      bonus bMatk,.@r*5;
+      bonus bMatkRate,.@r*5;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bBaseAtk,30; bonus bMatk,30; bonus bAtkRate,25; bonus bMatkRate,25; }
   - Id: 1599
     AegisName: Angra_Manyu
     Name: Angra Manyu
@@ -10138,6 +10254,40 @@ Body:
       Skill "WZ_METEOR",10;
       Skill "WZ_VERMILION",10;
       skill "GM_SANDMAN",1;
+  - Id: 1600
+    AegisName: Sinister_Rod
+    Name: Rod of Vicious Mind
+    Type: Weapon
+    SubType: Staff
+    Buy: 20
+    Weight: 1200
+    MagicAttack: 290
+    Range: 1
+    Slots: 2
+    Jobs:
+      Wizard: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bInt,10;
+      bonus bMatkRate,20;
+      bonus2 bAddClass,Class_Boss,20;
+      .@r = getrefine();
+      bonus bDelayRate,-(.@r/3*2);
+      if(.@r>=7) bonus bMatkRate,7;
+      if(.@r>=9) { bonus bMatkRate,10; bonus bDelayRate,-3; }
+      if(.@r>=11) { bonus bInt,6; bonus bDex,10; bonus bDelayRate,-8; }
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bMatk,20; bonus bMatkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus bDelayRate,-(.@r/2*2);
+          else bonus bDelayRate,-(.@r/3*2);
+      }
   - Id: 1601
     AegisName: Rod
     Name: Rod
@@ -12599,6 +12749,41 @@ Body:
       bonus2 bSkillAtk,"SN_SHARPSHOOTING",10;
       bonus2 bSkillAtk,"AC_DOUBLE",10;
       bonus2 bSkillAtk,"AC_CHARGEARROW",10;
+  - Id: 1800
+    AegisName: Sinister_Fist
+    Name: Fist of Vicious Mind
+    Type: Weapon
+    SubType: Knuckle
+    Buy: 20
+    Weight: 1800
+    Attack: 310
+    Range: 1
+    Slots: 2
+    Jobs:
+      Monk: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bStr,5; bonus bDex,5;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"MO_EXTREMITYFIST",15;
+      bonus bAspdRate,5; bonus bSPrate,20;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"MO_EXTREMITYFIST",(.@r/3)*5;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus2 bAddClass,Class_All,10;
+      if(.@r>=11) bonus bAspdRate,15;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bAspdRate,5; bonus bSPrate,10;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"MO_EXTREMITYFIST",(.@r/2)*5;
+          else bonus2 bSkillAtk,"MO_EXTREMITYFIST",(.@r/3)*5;
+      }
   - Id: 1801
     AegisName: Waghnakh
     Name: Waghnak
@@ -13358,6 +13543,43 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 1900
+    AegisName: Sinister_Viollin
+    Name: Violin of Vicious Mind
+    Type: Weapon
+    SubType: Musical
+    Buy: 20
+    Weight: 1300
+    Attack: 220
+    Range: 1
+    Slots: 2
+    Jobs:
+      BardDancer: true
+    Gender: Male
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bDex,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",20;
+      bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",(.@r/3)*10;
+      bonus bDex,(.@r/3)*2;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus bLongAtkRate,10;
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bBaseAtk,20; bonus bAtkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"CG_ARROWVULCAN",(.@r/2)*10;
+          else bonus2 bSkillAtk,"CG_ARROWVULCAN",(.@r/3)*10;
+      }
   - Id: 1901
     AegisName: Violin
     Name: Violin
@@ -14800,6 +15022,43 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 1996
+    AegisName: Sinister_Wire
+    Name: Wire of Vicious Mind
+    Type: Weapon
+    SubType: Whip
+    Buy: 20
+    Weight: 1300
+    Attack: 220
+    Range: 2
+    Slots: 2
+    Jobs:
+      BardDancer: true
+    Gender: Female
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bDex,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"DC_THROWARROW",20;
+      bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"DC_THROWARROW",(.@r/3)*10;
+      bonus bDex,(.@r/3)*2;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus bLongAtkRate,10;
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bBaseAtk,20; bonus bAtkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"DC_THROWARROW",(.@r/2)*10;
+          else bonus2 bSkillAtk,"DC_THROWARROW",(.@r/3)*10;
+      }
   - Id: 2000
     AegisName: Destruction_Rod
     Name: Staff of Destruction
@@ -14981,6 +15240,77 @@ Body:
       bonus bInt,6;
       bonus bVit,2;
       autobonus3 "{ }",20,1000,"AL_HEAL","{ specialeffect2 EF_MAGICALATTHIT; heal 0,200; }";
+  - Id: 2015
+    AegisName: Rookie_Staff
+    Name: "[Rookie] Staff"
+    Type: Weapon
+    SubType: 2hStaff
+    Buy: 20
+    Weight: 1000
+    MagicAttack: 70
+    Range: 1
+    Slots: 1
+    Jobs:
+      Acolyte: true
+      Mage: true
+      Monk: true
+      Priest: true
+      Sage: true
+      SoulLinker: true
+      Wizard: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bMatk,70;
+      if (BaseJob == Job_Wizard || BaseJob == Job_Sage) bonus bMatkRate,20;
+      .@r = getrefine();
+      bonus bMatk,.@r*10;
+      bonus bHealPower,.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bMatk,80; bonus bMatkRate,25; bonus2 bSubClass,Class_Boss,30; }
+  - Id: 2026
+    AegisName: Sinister_Staff
+    Name: Staff of Vicious Mind
+    Type: Weapon
+    SubType: 2hStaff
+    Buy: 20
+    Weight: 1000
+    MagicAttack: 300
+    Range: 1
+    Slots: 2
+    Jobs:
+      SoulLinker: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bInt,5; bonus bDex,5; bonus bVit,10;
+      bonus2 bSkillAtk,"SL_SMA",30;
+      bonus bIgnoreMdefRate,20;
+      bonus bFlee,20; bonus bHit,20; bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"SL_SMA",(.@r/3)*10;
+      if(.@r>=7) { bonus bInt,5; bonus bDex,5; }
+      if(.@r>=9) { bonus bInt,5; bonus bDex,5; }
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bInt,5;
+          bonus2 bSkillAtk,"SL_SMA",10;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) {
+              bonus bDelayRate,-2; bonus bCastRate,-1; bonus bDex,2;
+          } else {
+              bonus bDelayRate,-2; bonus bCastRate,-1; bonus bDex,2;
+          }
+      }
   - Id: 2101
     AegisName: Guard
     Name: Guard
@@ -15883,6 +16213,22 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 99
     View: 1
+  - Id: 2149
+    AegisName: Rookie_Guard
+    Name: "[Rookie] Guard"
+    Type: Armor
+    Buy: 20
+    Weight: 150
+    Defense: 25
+    Slots: 1
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    View: 1
+    Script: |
+      bonus bMaxHPrate,5;
   - Id: 2199
     AegisName: Ahura_Mazda
     Name: Ahura Mazdah
@@ -21813,6 +22159,46 @@ Body:
       bonus bMaxSP,(BaseLevel/3)+(getrefine()*10);
       bonus2 bSPDrainRate,10,1;
       bonus bMdef,3;
+  - Id: 2560
+    AegisName: Rookie_Boots
+    Name: "[Rookie] Boots"
+    Type: Armor
+    Buy: 20
+    Weight: 150
+    Defense: 13
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bMaxHPrate,5;
+      if (getequipid(EQI_ARMOR) == 15015 && getequipid(EQI_GARMENT) == 2562) {
+          bonus bMaxHP,1000;
+          bonus2 bAddClass,Class_Boss,10;
+          bonus2 bSubClass,Class_Boss,10;
+      }
+  - Id: 2562
+    AegisName: Rookie_Muffler
+    Name: "[Rookie] Muffler"
+    Type: Armor
+    Buy: 20
+    Weight: 200
+    Defense: 13
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bMaxHPrate,5;
+      if (getequipid(EQI_ARMOR) == 15015 && getequipid(EQI_SHOES) == 2560) {
+          bonus bMaxHP,1000;
+          bonus2 bAddClass,Class_Boss,10;
+          bonus2 bSubClass,Class_Boss,10;
+      }
   - Id: 2576
     AegisName: Bravery_Bag
     Name: Adventurer's Backpack
@@ -39274,6 +39660,48 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 13071
+    AegisName: Rookie_Dagger
+    Name: "[Rookie] Dagger"
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 600
+    Attack: 55
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Archer: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      Knight: true
+      Mage: true
+      Merchant: true
+      Ninja: true
+      Novice: true
+      Rogue: true
+      Sage: true
+      SoulLinker: true
+      SuperNovice: true
+      Swordman: true
+      Thief: true
+      Wizard: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,.@r*10;
+      bonus bMatkRate,.@r*5;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bBaseAtk,30; bonus bCritical,20; bonus bCritAtkRate,20; }
   - Id: 13100
     AegisName: Six_Shooter
     Name: Six Shooter
@@ -39560,6 +39988,66 @@ Body:
       NoAuction: true
     Script: |
       bonus bHit,-5;
+  - Id: 13115
+    AegisName: Rookie_Revolver
+    Name: "[Rookie] Revolver"
+    Type: Weapon
+    SubType: Revolver
+    Buy: 20
+    Weight: 500
+    Attack: 35
+    Range: 7
+    Slots: 1
+    Jobs:
+      Gunslinger: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,.@r*5;
+      bonus bLongAtkRate,.@r*2;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bBaseAtk,30; bonus bLongAtkRate,10; bonus2 bSubClass,Class_Boss,30; }
+  - Id: 13128
+    AegisName: Sinister_Revolver
+    Name: Revolver of Vicious Mind
+    Type: Weapon
+    SubType: Revolver
+    Buy: 20
+    Weight: 600
+    Attack: 250
+    Range: 7
+    Slots: 2
+    Jobs:
+      Gunslinger: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bDex,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"GS_DESPERADO",20;
+      bonus bAspdRate,5; bonus bHit,30;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"GS_DESPERADO",(.@r/3)*10;
+      bonus bDex,(.@r/3)*2; bonus bHit,(.@r/3)*5;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus bLongAtkRate,10;
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bBaseAtk,20; bonus bAtkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"GS_DESPERADO",(.@r/2)*10;
+          else bonus2 bSkillAtk,"GS_DESPERADO",(.@r/3)*10;
+      }
   - Id: 13150
     AegisName: Branch
     Name: Branch
@@ -40528,6 +41016,69 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,80;
+  - Id: 13316
+    AegisName: Rookie_Huuma_Shuriken
+    Name: "[Rookie] Huuma Shuriken"
+    Type: Weapon
+    SubType: Huuma
+    Buy: 20
+    Weight: 1500
+    Attack: 55
+    Range: 1
+    Slots: 1
+    Jobs:
+      Ninja: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bUnbreakableWeapon;
+      .@r = getrefine();
+      bonus bBaseAtk,.@r*10;
+      bonus bLongAtkRate,.@r*2;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bBaseAtk,30; bonus bLongAtkRate,10; bonus2 bSubClass,Class_Boss,30; }
+  - Id: 13328
+    AegisName: Sinister_Huuma
+    Name: Huuma Shuriken of Vicious Mind
+    Type: Weapon
+    SubType: Huuma
+    Buy: 20
+    Weight: 1600
+    Attack: 240
+    Range: 1
+    Slots: 2
+    Jobs:
+      Ninja: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bStr,5; bonus bDex,5;
+      bonus2 bSkillAtk,"NJ_HUUMA",30;
+      bonus bCastRate,-15; bonus bDelayRate,-15; bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"NJ_HUUMA",(.@r/3)*10;
+      if(.@r>=7) { bonus bStr,5; bonus bDex,5; }
+      if(.@r>=9) { bonus bStr,5; bonus bDex,5; }
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bDex,3;
+          bonus2 bSkillAtk,"NJ_HUUMA",10;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) {
+              bonus bDelayRate,-2; bonus bCastRate,-1; bonus bDex,2;
+          } else {
+              bonus bDelayRate,-2; bonus bCastRate,-1; bonus bDex,2;
+          }
+      }
   - Id: 13400
     AegisName: Cutlas_
     Name: Cutlus
@@ -41259,6 +41810,90 @@ Body:
     Script: |
       bonus bUnbreakableWeapon;
       bonus2 bAddSize,Size_All,40;
+  - Id: 13455
+    AegisName: Sinister_Saber
+    Name: Saber of Vicious Mind
+    Type: Weapon
+    SubType: 1hSword
+    Buy: 20
+    Weight: 1500
+    Attack: 360
+    Range: 1
+    Slots: 3
+    Jobs:
+      Alchemist: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bInt,5; bonus bDex,5;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",30;
+      bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/3)*5;
+      if(.@r>=7) { bonus bInt,5; bonus bDex,5; }
+      if(.@r>=9) { bonus bInt,5; bonus bDex,5; }
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bInt,5; bonus bDex,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2)*5;
+          else bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/3)*5;
+      }
+  - Id: 13468
+    AegisName: Sinister_Sword_SN
+    Name: Sword of Vicious Mind
+    Type: Weapon
+    SubType: 1hSword
+    Buy: 20
+    Weight: 1500
+    Attack: 250
+    MagicAttack: 250
+    Range: 1
+    Slots: 3
+    Jobs:
+      SuperNovice: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bStr,10; bonus bAgi,10; bonus bVit,10;
+      bonus bInt,10; bonus bDex,10; bonus bLuk,10;
+      bonus bAtkRate,10; bonus bMatkRate,10;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bCastRate,-5; bonus bDelayRate,-10; bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus bDelayRate,-(.@r/3*2);
+      bonus bCastRate,-(.@r/3);
+      bonus bStr,(.@r/3); bonus bAgi,(.@r/3); bonus bVit,(.@r/3);
+      bonus bInt,(.@r/3); bonus bDex,(.@r/3); bonus bLuk,(.@r/3);
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus bLongAtkRate,10;
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bMaxHP,1000; bonus bAtkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) {
+              bonus bDelayRate,-(.@r/2*2);
+              bonus bCastRate,-(.@r/2);
+              bonus bStr,(.@r/2); bonus bAgi,(.@r/2); bonus bVit,(.@r/2);
+              bonus bInt,(.@r/2); bonus bDex,(.@r/2); bonus bLuk,(.@r/2);
+          } else {
+              bonus bDelayRate,-(.@r/3*2);
+              bonus bCastRate,-(.@r/3);
+              bonus bStr,(.@r/3); bonus bAgi,(.@r/3); bonus bVit,(.@r/3);
+              bonus bInt,(.@r/3); bonus bDex,(.@r/3); bonus bLuk,(.@r/3);
+          }
+      }
   - Id: 15000
     AegisName: Bone_Plate
     Name: Bone Plate
@@ -41312,6 +41947,62 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+  - Id: 15015
+    AegisName: Rookie_Adv_Suit
+    Name: "[Rookie] Adventure Suit"
+    Type: Armor
+    Buy: 20
+    Weight: 150
+    Defense: 25
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bMaxHPrate,5;
+      if (getequipid(EQI_SHOES) == 2560 && getequipid(EQI_GARMENT) == 2562) {
+          bonus bMaxHP,1000;
+          bonus2 bAddClass,Class_Boss,10;
+          bonus2 bSubClass,Class_Boss,10;
+      }
+  - Id: 16019
+    AegisName: Rookie_Mace
+    Name: "[Rookie] Mace"
+    Type: Weapon
+    SubType: Mace
+    Buy: 20
+    Weight: 800
+    MagicAttack: 80
+    Range: 1
+    Slots: 1
+    Jobs:
+      Acolyte: true
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Monk: true
+      Novice: true
+      Priest: true
+      SuperNovice: true
+      Swordman: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bMatk,80;
+      if (BaseJob == Job_Wizard || BaseJob == Job_Sage) bonus bMatkRate,20;
+      .@r = getrefine();
+      bonus bMatk,.@r*10;
+      bonus bHealPower,.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bMatk,80; bonus bMatkRate,25; bonus2 bSubClass,Class_Boss,30; }
   - Id: 1029001
     AegisName: Beginner50_Blade
     Name: Beginner Blade
@@ -42023,6 +42714,173 @@ Body:
     Script: |
       bonus bMaxHP,getrefine()*10;
       bonus bBaseAtk,15;
+  - Id: 28008
+    AegisName: Sinister_Katar
+    Name: Katar of Vicious Mind
+    Type: Weapon
+    SubType: Katar
+    Buy: 20
+    Weight: 1500
+    Attack: 320
+    Range: 1
+    Slots: 3
+    Jobs:
+      Assassin: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bStr,5; bonus bLuk,15; bonus bCritical,10;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"AS_SONICBLOW",20;
+      bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"AS_SONICBLOW",(.@r/3)*10;
+      bonus bCritAtkRate,(.@r/3)*5;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus2 bAddClass,Class_All,10;
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bBaseAtk,20; bonus bAtkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"AS_SONICBLOW",(.@r/2)*10;
+          else bonus2 bSkillAtk,"AS_SONICBLOW",(.@r/3)*10;
+      }
+  - Id: 28107
+    AegisName: Sinister_Twohand_Axe
+    Name: Two Handed Axe of Vicious Mind
+    Type: Weapon
+    SubType: 2hAxe
+    Buy: 20
+    Weight: 3000
+    Attack: 420
+    Range: 1
+    Slots: 3
+    Jobs:
+      Blacksmith: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bStr,5; bonus bAgi,5;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",50;
+      bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",(.@r/3)*10;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus2 bAddClass,Class_All,10;
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bBaseAtk,20; bonus bAtkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"WS_CARTTERMINATION",(.@r/2)*10;
+          else bonus2 bSkillAtk,"WS_CARTTERMINATION",(.@r/3)*10;
+      }
+  - Id: 28605
+    AegisName: Sinister_Book
+    Name: Book of Vicious Mind
+    Type: Weapon
+    SubType: Book
+    Buy: 20
+    Weight: 1000
+    Attack: 280
+    MagicAttack: 300
+    Range: 1
+    Slots: 2
+    Jobs:
+      Sage: true
+      StarGladiator: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      if (BaseJob == Job_Sage) {
+          bonus bDex,10;
+          bonus bMatkRate,20;
+          bonus2 bAddClass,Class_Boss,20;
+          .@r = getrefine();
+          bonus bDelayRate,-(.@r/3*2);
+          bonus bCastRate,-(.@r/3);
+          if(.@r>=7) bonus bMatkRate,7;
+          if(.@r>=9) { bonus bMatkRate,10; bonus bDelayRate,-3; }
+          if(.@r>=11) { bonus bInt,6; bonus bDex,10; bonus bDelayRate,-8; }
+          .@g = getenchantgrade();
+          if(.@g >= ENCHANTGRADE_D) {
+              bonus bMatk,20; bonus bMatkRate,5;
+              bonus2 bAddClass,Class_Boss,10;
+          }
+      } else {
+          bonus bStr,10;
+          bonus2 bAddClass,Class_Boss,20;
+          bonus2 bSkillAtk,"TK_JUMPKICK",20;
+          bonus bAspdRate,5;
+          .@r = getrefine();
+          bonus2 bSkillAtk,"TK_JUMPKICK",(.@r/3)*10;
+          bonus bStr,(.@r/3);
+          if(.@r>=7) bonus bAtkRate,7;
+          if(.@r>=9) bonus bLongAtkRate,10;
+          if(.@r>=11) bonus bAspdRate,10;
+          .@g = getenchantgrade();
+          if(.@g >= ENCHANTGRADE_D) {
+              bonus bBaseAtk,20; bonus bAtkRate,5;
+              bonus2 bAddClass,Class_Boss,10;
+          }
+      }
+  - Id: 28706
+    AegisName: Sinister_Dagger
+    Name: Dagger of Vicious Mind
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 1200
+    Attack: 220
+    Range: 1
+    Slots: 3
+    Jobs:
+      Rogue: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bStr,5; bonus bLuk,15; bonus bCritical,20;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"RG_BACKSTAB",20;
+      bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"RG_BACKSTAB",(.@r/3)*10;
+      bonus bCritical,(.@r/3)*5;
+      bonus bCritAtkRate,(.@r/3)*5;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus2 bAddClass,Class_All,10;
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bBaseAtk,20; bonus bAtkRate,5; bonus bCritical,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) {
+              bonus bCritical,5;
+              bonus2 bSkillAtk,"RG_BACKSTAB",(.@r/2)*10;
+              bonus bCritAtkRate,(.@r/2)*5;
+          } else {
+              bonus2 bSkillAtk,"RG_BACKSTAB",(.@r/3)*10;
+              bonus bCritAtkRate,(.@r/3)*5;
+          }
+      }
   - Id: 930101
     AegisName: aegis_930101
     Name: Refine Event V1
@@ -42203,6 +43061,105 @@ Body:
     Refineable: true
     Script: |
       bonus bUseSPrate,getrefine()*-1;
+  - Id: 16041
+    AegisName: Sinister_Mace
+    Name: Mace of Vicious Mind
+    Type: Weapon
+    SubType: Mace
+    Buy: 20
+    Weight: 1400
+    MagicAttack: 300
+    Range: 1
+    Slots: 2
+    Jobs:
+      Priest: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bInt,5; bonus bDex,5; bonus bVit,10;
+      bonus bHealPower,30;
+      bonus2 bSkillAtk,"AL_HOLYLIGHT",50;
+      bonus bFlee,20; bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus bHealPower,(.@r/3)*10;
+      if(.@r>=7) { bonus bInt,5; bonus bDex,5; }
+      if(.@r>=9) { bonus bInt,5; bonus bDex,5; }
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bInt,5; bonus bDex,5; bonus bHPrate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus bHealPower,(.@r/2)*10;
+          else bonus bHealPower,(.@r/3)*10;
+      }
+  - Id: 18112
+    AegisName: Rookie_Bow
+    Name: "[Rookie] Bow"
+    Type: Weapon
+    SubType: Bow
+    Buy: 20
+    Weight: 600
+    Attack: 60
+    Range: 5
+    Slots: 1
+    Jobs:
+      Archer: true
+      BardDancer: true
+      Hunter: true
+      Rogue: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      if (BaseJob == Job_Hunter || BaseJob == Job_Archer) bonus bBaseAtk,20;
+      .@r = getrefine();
+      bonus bBaseAtk,.@r*10;
+      bonus bLongAtkRate,.@r*2;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bBaseAtk,30; bonus bLongAtkRate,10; bonus2 bSubClass,Class_Boss,30; }
+  - Id: 18121
+    AegisName: Sinister_Bow
+    Name: Bow of Vicious Mind
+    Type: Weapon
+    SubType: Bow
+    Buy: 20
+    Weight: 1800
+    Attack: 290
+    Range: 5
+    Slots: 2
+    Jobs:
+      Hunter: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bDex,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"AC_DOUBLESTRAFE",20;
+      bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"AC_DOUBLESTRAFE",(.@r/3)*10;
+      bonus bDex,(.@r/3)*2;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus bLongAtkRate,10;
+      if(.@r>=11) bonus bAspdRate,10;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bBaseAtk,20; bonus bAtkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"AC_DOUBLESTRAFE",(.@r/2)*10;
+          else bonus2 bSkillAtk,"AC_DOUBLESTRAFE",(.@r/3)*10;
+      }
   - Id: 19095
     AegisName: Happy_Balloon_K
     Name: Happy Balloon
@@ -42216,6 +43173,67 @@ Body:
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus2 bExpAddRace,RC_All,5;      
+  - Id: 21000
+    AegisName: Rookie_Twohand_Sword
+    Name: "[Rookie] Two-handed Sword"
+    Type: Weapon
+    SubType: 2hSword
+    Buy: 20
+    Weight: 1500
+    Attack: 100
+    Range: 1
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,.@r*15;
+      bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=5) bonus2 bAddClass,Class_Boss,10;
+      if(.@r>=7) { bonus bBaseAtk,30; bonus2 bSubClass,Class_Boss,30; }
+  - Id: 21016
+    AegisName: Sinister_Twohand_Sword
+    Name: Two-Handed Sword of Vicious Mind
+    Type: Weapon
+    SubType: 2hSword
+    Buy: 20
+    Weight: 2200
+    Attack: 300
+    Range: 1
+    Slots: 3
+    Jobs:
+      Crusader: true
+      Knight: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Gradable: true
+    Script: |
+      bonus bStr,5; bonus bDex,5;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"LK_BOWLINGBASH",20;
+      bonus bAspdRate,5;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"LK_BOWLINGBASH",(.@r/3)*3;
+      if(.@r>=7) bonus bAtkRate,7;
+      if(.@r>=9) bonus2 bAddClass,Class_All,10;
+      if(.@r>=11) bonus bAspdRate,15;
+      .@g = getenchantgrade();
+      if(.@g >= ENCHANTGRADE_D) {
+          bonus bBaseAtk,20; bonus bAtkRate,5;
+          bonus2 bAddClass,Class_Boss,10;
+          if(.@g >= ENCHANTGRADE_C) bonus2 bSkillAtk,"LK_BOWLINGBASH",(.@r/2)*3;
+          else bonus2 bSkillAtk,"LK_BOWLINGBASH",(.@r/3)*3;
+      }
   - Id: 1030000
     AegisName: aegis_1030000
     Name: CBT Shadow ct
