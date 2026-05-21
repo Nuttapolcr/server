@@ -1,5 +1,5 @@
 //===== rAthena Script =======================================
-//= Aurelia Vespera - Relic Appraiser
+//= แลกของบอส - Relic Appraiser
 //===== Description: =========================================
 //= Recycles configured rare equipment into account-bound points.
 //= Points are stored in #RELIC_POINTS.
@@ -7,8 +7,8 @@
 //= carded, broken, enchanted, or random-option equipment by mistake.
 //============================================================
 
-prontera,150,180,5	script	Aurelia Vespera	811,{
-	mes "[Aurelia Vespera]";
+morrocc,180,153,4	script	แลกของบอส	619,{
+	mes "[แลกของบอส]";
 	mes "ข้ารับประเมินยุทธภัณฑ์หายาก";
 	mes "และเปลี่ยนมันเป็น ^0055FFRelic Points^000000";
 	mes "แต้มของท่านตอนนี้: ^FF9900"+#RELIC_POINTS+"^000000";
@@ -32,7 +32,7 @@ prontera,150,180,5	script	Aurelia Vespera	811,{
 			.@point = .ItemPoint[.@idx];
 			.@have = callsub(S_CountClean, .@item_id);
 
-			mes "[Aurelia Vespera]";
+			mes "[แลกของบอส]";
 			mes "รายการ: ^0055FF"+getitemname(.@item_id)+"^000000";
 			mes "แต้มที่ได้รับ: ^FF9900"+.@point+" pt / 1 ชิ้น^000000";
 			mes "จำนวนที่แลกได้: ^00AA00"+.@have+"^000000";
@@ -44,7 +44,7 @@ prontera,150,180,5	script	Aurelia Vespera	811,{
 			input .@amount, 1, .@have;
 			.@total = .@amount * .@point;
 
-			mes "[Aurelia Vespera]";
+			mes "[แลกของบอส]";
 			mes "ต้องการแลก ^0055FF"+getitemname(.@item_id)+"^000000 x "+.@amount+"";
 			mes "เพื่อรับ ^FF9900"+.@total+" Relic Points^000000 ใช่หรือไม่?";
 			next;
@@ -53,14 +53,14 @@ prontera,150,180,5	script	Aurelia Vespera	811,{
 
 			.@have = callsub(S_CountClean, .@item_id);
 			if (.@have < .@amount) {
-				mes "[Aurelia Vespera]";
+				mes "[แลกของบอส]";
 				mes "จำนวนไอเทมไม่พอแล้ว กรุณาตรวจสอบกระเป๋าอีกครั้ง";
 				close;
 			}
 
 			.@deleted = callsub(S_DeleteClean, .@item_id, .@amount);
 			if (.@deleted < .@amount) {
-				mes "[Aurelia Vespera]";
+				mes "[แลกของบอส]";
 				mes "เกิดข้อผิดพลาดระหว่างแลกไอเทม";
 				mes "ลบได้ "+.@deleted+" ชิ้น จากที่ต้องการ "+.@amount+" ชิ้น";
 				close;
@@ -68,13 +68,13 @@ prontera,150,180,5	script	Aurelia Vespera	811,{
 
 			#RELIC_POINTS += .@total;
 			dispbottom "ได้รับ Relic Points +" + .@total + " | คงเหลือ " + #RELIC_POINTS;
-			mes "[Aurelia Vespera]";
+			mes "[แลกของบอส]";
 			mes "ประเมินเสร็จแล้ว";
 			mes "Relic Points ของท่านตอนนี้: ^FF9900"+#RELIC_POINTS+"^000000";
 			close;
 
 		case 2:
-			mes "[Aurelia Vespera]";
+			mes "[แลกของบอส]";
 			mes "ระบบนี้จะแลกไอเทมที่อยู่ในรายการทั้งหมด";
 			mes "รับเฉพาะของเปล่า ไม่ตีบวก ไม่ใส่การ์ด และไม่ได้สวมใส่อยู่";
 			next;
@@ -93,7 +93,7 @@ prontera,150,180,5	script	Aurelia Vespera	811,{
 				.@total_point += .@deleted * .ItemPoint[.@i];
 			}
 
-			mes "[Aurelia Vespera]";
+			mes "[แลกของบอส]";
 			if (.@total_item <= 0) {
 				mes "ยังไม่มีไอเทมที่สามารถแลกได้ในตัวท่าน";
 				close;
@@ -107,7 +107,7 @@ prontera,150,180,5	script	Aurelia Vespera	811,{
 			close;
 
 		case 3:
-			mes "[Aurelia Vespera]";
+			mes "[แลกของบอส]";
 			mes "รายการประเมินยุทธภัณฑ์";
 			next;
 			for (.@i = 0; .@i < getarraysize(.ItemID); .@i++) {
@@ -119,7 +119,7 @@ prontera,150,180,5	script	Aurelia Vespera	811,{
 			close;
 
 		case 4:
-			mes "[Aurelia Vespera]";
+			mes "[แลกของบอส]";
 			mes "Relic Points ของท่านตอนนี้:";
 			mes "^FF9900"+#RELIC_POINTS+"^000000";
 			close;
