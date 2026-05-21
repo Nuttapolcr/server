@@ -204,6 +204,12 @@ git diff --check
 git status --short
 ```
 
+ถ้าใช้สูตร lookup ใน Google Sheet แล้วต้องแปลงเป็นค่า static:
+
+- อย่า `PASTE_VALUES` เป็นช่วงยาวที่คร่อม merged cells เพราะ Google Sheets API จะ fail ด้วย `partially intersects a merge`
+- ให้ paste values เฉพาะ block แถวรายการจริง และหลบ header/title/blank merged rows
+- ตรวจด้วย `get_spreadsheet_cells` ว่า `userEnteredValue` เป็น `numberValue` หรือ `stringValue` ไม่ใช่ `formulaValue`
+
 9. ถ้าต้อง commit ให้ stage เฉพาะไฟล์งาน ห้ามรวม dirty file อื่นของผู้ใช้:
 
 ```bash
