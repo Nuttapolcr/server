@@ -1,0 +1,93 @@
+//===== rAthena Script =======================================
+//= แลกของบอส
+//===== Description: =========================================
+//= Exchanges boss fragment points for reward items.
+//= Uses #RELIC_POINTS, the same account variable as NPCย่อยของบอส.
+//============================================================
+
+morocc,180,153,4	script	แลกของบอส	619,{
+	.@npc$ = "[แลกของบอส]";
+
+	mes .@npc$;
+	mes "ใช้ ^0055FFแต้มย่อยบอส^000000 เพื่อแลกของรางวัล";
+	mes "แต้มของท่านตอนนี้: ^FF9900"+callfunc("F_InsertComma",#RELIC_POINTS)+"^000000";
+	next;
+
+	.@menu$ = "";
+	for (.@i = 0; .@i < getarraysize(.RewardID); .@i++) {
+		.@menu$ += getitemname(.RewardID[.@i])+" x "+.RewardAmount[.@i]+" - "+callfunc("F_InsertComma",.RewardCost[.@i])+" แต้ม:";
+	}
+	.@menu$ += "ตรวจแต้ม:ยกเลิก";
+
+	.@select = select(.@menu$);
+	if (.@select == getarraysize(.RewardID) + 1) {
+		mes .@npc$;
+		mes "แต้มย่อยบอสของท่านตอนนี้:";
+		mes "^FF9900"+callfunc("F_InsertComma",#RELIC_POINTS)+"^000000";
+		close;
+	}
+	if (.@select > getarraysize(.RewardID))
+		close;
+
+	.@idx = .@select - 1;
+	.@reward_id = .RewardID[.@idx];
+	.@reward_amount = .RewardAmount[.@idx];
+	.@cost = .RewardCost[.@idx];
+	.@max = #RELIC_POINTS / .@cost;
+	if (.@max > 30000)
+		.@max = 30000;
+
+	mes .@npc$;
+	mes "รายการที่เลือก:";
+	mes "<ITEM>"+getitemname(.@reward_id)+"<INFO>"+.@reward_id+"</INFO></ITEM> x "+.@reward_amount;
+	mes "ใช้แต้ม: ^FF9900"+callfunc("F_InsertComma",.@cost)+"^000000 แต้ม";
+	if (.@max <= 0) {
+		mes "^FF0000แต้มของท่านไม่พอสำหรับแลกรายการนี้^000000";
+		close;
+	}
+	next;
+
+	mes .@npc$;
+	mes "ต้องการแลกกี่ชุด?";
+	mes "แลกได้สูงสุด: ^00AA00"+callfunc("F_InsertComma",.@max)+"^000000 ชุด";
+	input .@amount, 1, .@max;
+
+	.@total_cost = .@amount * .@cost;
+	.@total_reward = .@amount * .@reward_amount;
+
+	mes .@npc$;
+	mes "ยืนยันแลก <ITEM>"+getitemname(.@reward_id)+"<INFO>"+.@reward_id+"</INFO></ITEM> x "+.@total_reward;
+	mes "ใช้แต้มทั้งหมด: ^FF9900"+callfunc("F_InsertComma",.@total_cost)+"^000000 แต้ม";
+	next;
+	if (select("ยืนยัน:ยกเลิก") == 2)
+		close;
+
+	if (#RELIC_POINTS < .@total_cost) {
+		mes .@npc$;
+		mes "แต้มของท่านไม่พอ กรุณาตรวจสอบอีกครั้ง";
+		close;
+	}
+
+	if (!checkweight(.@reward_id, .@total_reward)) {
+		mes .@npc$;
+		mes "น้ำหนักหรือช่องเก็บของไม่พอสำหรับรับไอเทม";
+		close;
+	}
+
+	#RELIC_POINTS -= .@total_cost;
+	getitem .@reward_id, .@total_reward;
+	specialeffect2 EF_FLOWERLEAF;
+
+	mes .@npc$;
+	mes "แลกของเรียบร้อย";
+	mes "แต้มคงเหลือ: ^FF9900"+callfunc("F_InsertComma",#RELIC_POINTS)+"^000000";
+	close;
+
+OnInit:
+	waitingroom "แลกของบอส",0;
+
+	setarray .RewardID[0], 101856,12246,12698;
+	setarray .RewardAmount[0], 1,1,1;
+	setarray .RewardCost[0], 1,50,1000;
+	end;
+}

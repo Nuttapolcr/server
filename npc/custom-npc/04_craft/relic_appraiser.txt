@@ -1,25 +1,26 @@
 //===== rAthena Script =======================================
-//= แลกของบอส - Relic Appraiser
+//= NPCย่อยของบอส
 //===== Description: =========================================
-//= Recycles configured rare equipment into account-bound points.
-//= Points are stored in #RELIC_POINTS.
-//= Only clean, unequipped items are accepted to avoid deleting upgraded,
-//= carded, broken, enchanted, or random-option equipment by mistake.
+//= Converts boss equipment drops into boss fragment points.
+//= Points are stored in #RELIC_POINTS for compatibility with
+//= the existing account variable.
 //============================================================
 
-morrocc,180,153,4	script	แลกของบอส	619,{
-	mes "[แลกของบอส]";
-	mes "ข้ารับประเมินยุทธภัณฑ์หายาก";
-	mes "และเปลี่ยนมันเป็น ^0055FFRelic Points^000000";
-	mes "แต้มของท่านตอนนี้: ^FF9900"+#RELIC_POINTS+"^000000";
+morocc,180,156,4	script	NPCย่อยของบอส	618,{
+	.@npc$ = "[NPCย่อยของบอส]";
+
+	mes .@npc$;
+	mes "นำของย่อยบอสมาย่อยเป็น ^0055FFแต้มย่อยบอส^000000";
+	mes "ไอเทม 1 ชิ้น จะได้แต้มตามรายการที่กำหนด";
+	mes "แต้มของท่านตอนนี้: ^FF9900"+callfunc("F_InsertComma",#RELIC_POINTS)+"^000000";
 	next;
 
-	switch(select("แลกไอเทมเป็นแต้ม:แลกทั้งหมดในตัว:ดูรายการแต้ม:ตรวจแต้มของฉัน:ยกเลิก")) {
+	switch(select("ย่อยทีละรายการ:ย่อยทั้งหมดในตัว:ดูรายการแต้ม:ตรวจแต้ม:ยกเลิก")) {
 		case 1:
 			.@menu$ = "";
 			for (.@i = 0; .@i < getarraysize(.ItemID); .@i++) {
 				.@have = callsub(S_CountClean, .ItemID[.@i]);
-				.@menu$ += getitemname(.ItemID[.@i])+" - "+.ItemPoint[.@i]+" pt (มี "+.@have+"):";
+				.@menu$ += getitemname(.ItemID[.@i])+" - "+.ItemPoint[.@i]+" แต้ม (มี "+.@have+"):";
 			}
 			.@menu$ += "ย้อนกลับ";
 
@@ -32,11 +33,11 @@ morrocc,180,153,4	script	แลกของบอส	619,{
 			.@point = .ItemPoint[.@idx];
 			.@have = callsub(S_CountClean, .@item_id);
 
-			mes "[แลกของบอส]";
+			mes .@npc$;
 			mes "รายการ: ^0055FF"+getitemname(.@item_id)+"^000000";
-			mes "แต้มที่ได้รับ: ^FF9900"+.@point+" pt / 1 ชิ้น^000000";
-			mes "จำนวนที่แลกได้: ^00AA00"+.@have+"^000000";
-			mes "รับเฉพาะของเปล่าที่ไม่ใส่การ์ด ไม่ตีบวก และไม่ได้สวมใส่อยู่";
+			mes "แต้มที่ได้รับ: ^FF9900"+.@point+" แต้ม / 1 ชิ้น^000000";
+			mes "จำนวนที่ย่อยได้: ^00AA00"+.@have+"^000000";
+			mes "รับเฉพาะไอเทมปกติที่ไม่ได้สวมใส่ ไม่ตีบวก ไม่มีการ์ด และไม่มีออฟชั่น";
 			if (.@have <= 0)
 				close;
 			next;
@@ -44,41 +45,41 @@ morrocc,180,153,4	script	แลกของบอส	619,{
 			input .@amount, 1, .@have;
 			.@total = .@amount * .@point;
 
-			mes "[แลกของบอส]";
-			mes "ต้องการแลก ^0055FF"+getitemname(.@item_id)+"^000000 x "+.@amount+"";
-			mes "เพื่อรับ ^FF9900"+.@total+" Relic Points^000000 ใช่หรือไม่?";
+			mes .@npc$;
+			mes "ต้องการย่อย ^0055FF"+getitemname(.@item_id)+"^000000 x "+.@amount;
+			mes "เพื่อรับ ^FF9900"+callfunc("F_InsertComma",.@total)+" แต้มย่อยบอส^000000 ใช่หรือไม่?";
 			next;
 			if (select("ยืนยัน:ยกเลิก") == 2)
 				close;
 
 			.@have = callsub(S_CountClean, .@item_id);
 			if (.@have < .@amount) {
-				mes "[แลกของบอส]";
-				mes "จำนวนไอเทมไม่พอแล้ว กรุณาตรวจสอบกระเป๋าอีกครั้ง";
+				mes .@npc$;
+				mes "จำนวนไอเทมไม่พอ กรุณาตรวจสอบอีกครั้ง";
 				close;
 			}
 
 			.@deleted = callsub(S_DeleteClean, .@item_id, .@amount);
 			if (.@deleted < .@amount) {
-				mes "[แลกของบอส]";
-				mes "เกิดข้อผิดพลาดระหว่างแลกไอเทม";
+				mes .@npc$;
+				mes "เกิดข้อผิดพลาดระหว่างย่อยไอเทม";
 				mes "ลบได้ "+.@deleted+" ชิ้น จากที่ต้องการ "+.@amount+" ชิ้น";
 				close;
 			}
 
 			#RELIC_POINTS += .@total;
-			dispbottom "ได้รับ Relic Points +" + .@total + " | คงเหลือ " + #RELIC_POINTS;
-			mes "[แลกของบอส]";
-			mes "ประเมินเสร็จแล้ว";
-			mes "Relic Points ของท่านตอนนี้: ^FF9900"+#RELIC_POINTS+"^000000";
+			dispbottom "ได้รับแต้มย่อยบอส +" + .@total + " | คงเหลือ " + #RELIC_POINTS;
+			mes .@npc$;
+			mes "ย่อยไอเทมเรียบร้อย";
+			mes "แต้มย่อยบอสของท่านตอนนี้: ^FF9900"+callfunc("F_InsertComma",#RELIC_POINTS)+"^000000";
 			close;
 
 		case 2:
-			mes "[แลกของบอส]";
-			mes "ระบบนี้จะแลกไอเทมที่อยู่ในรายการทั้งหมด";
-			mes "รับเฉพาะของเปล่า ไม่ตีบวก ไม่ใส่การ์ด และไม่ได้สวมใส่อยู่";
+			mes .@npc$;
+			mes "ระบบจะย่อยไอเทมทั้งหมดในรายการที่พบในตัวท่าน";
+			mes "รับเฉพาะไอเทมปกติที่ไม่ได้สวมใส่ ไม่ตีบวก ไม่มีการ์ด และไม่มีออฟชั่น";
 			next;
-			if (select("ยืนยันแลกทั้งหมด:ยกเลิก") == 2)
+			if (select("ยืนยันย่อยทั้งหมด:ยกเลิก") == 2)
 				close;
 
 			.@total_point = 0;
@@ -93,35 +94,35 @@ morrocc,180,153,4	script	แลกของบอส	619,{
 				.@total_point += .@deleted * .ItemPoint[.@i];
 			}
 
-			mes "[แลกของบอส]";
+			mes .@npc$;
 			if (.@total_item <= 0) {
-				mes "ยังไม่มีไอเทมที่สามารถแลกได้ในตัวท่าน";
+				mes "ยังไม่มีไอเทมที่สามารถย่อยได้ในตัวท่าน";
 				close;
 			}
 
 			#RELIC_POINTS += .@total_point;
-			dispbottom "แลกไอเทม " + .@total_item + " ชิ้น ได้รับ Relic Points +" + .@total_point;
-			mes "แลกไอเทมทั้งหมด ^00AA00"+.@total_item+"^000000 ชิ้น";
-			mes "ได้รับ ^FF9900"+.@total_point+" Relic Points^000000";
-			mes "แต้มสะสมตอนนี้: ^FF9900"+#RELIC_POINTS+"^000000";
+			dispbottom "ย่อยทั้งหมด " + .@total_item + " ชิ้น ได้รับแต้มย่อยบอส +" + .@total_point;
+			mes "ย่อยไอเทมทั้งหมด ^00AA00"+.@total_item+"^000000 ชิ้น";
+			mes "ได้รับ ^FF9900"+callfunc("F_InsertComma",.@total_point)+" แต้มย่อยบอส^000000";
+			mes "แต้มคงเหลือ: ^FF9900"+callfunc("F_InsertComma",#RELIC_POINTS)+"^000000";
 			close;
 
 		case 3:
-			mes "[แลกของบอส]";
-			mes "รายการประเมินยุทธภัณฑ์";
+			mes .@npc$;
+			mes "รายการไอเทมที่สามารถย่อยเป็นแต้ม";
 			next;
 			for (.@i = 0; .@i < getarraysize(.ItemID); .@i++) {
 				mes "^0055FF"+getitemname(.ItemID[.@i])+"^000000";
-				mes "หมวด: "+.ItemPos$[.@i]+" | แต้ม: ^FF9900"+.ItemPoint[.@i]+"^000000";
+				mes "ตำแหน่ง: "+.ItemPos$[.@i]+" | แต้ม: ^FF9900"+.ItemPoint[.@i]+"^000000";
 				if ((.@i + 1) % 8 == 0 && .@i + 1 < getarraysize(.ItemID))
 					next;
 			}
 			close;
 
 		case 4:
-			mes "[แลกของบอส]";
-			mes "Relic Points ของท่านตอนนี้:";
-			mes "^FF9900"+#RELIC_POINTS+"^000000";
+			mes .@npc$;
+			mes "แต้มย่อยบอสของท่านตอนนี้:";
+			mes "^FF9900"+callfunc("F_InsertComma",#RELIC_POINTS)+"^000000";
 			close;
 
 		default:
@@ -196,6 +197,8 @@ S_IsCleanIndex:
 	return 1;
 
 OnInit:
+	waitingroom "ย่อยของบอส",0;
+
 	setarray .ItemID[0],
 		2433,2412,2421,2423,
 		2702,2655,2649,2648,2650,2651,2678,2679,2615,2677,2659,2660,2661,2662,
