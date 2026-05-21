@@ -36,6 +36,11 @@
 
 **ถ้าได้รับความรู้ใหม่เกี่ยวกับ server นี้ในระหว่าง session → ต้องอัพเดตทันที:**
 
+ให้จดเป็น **ความรู้สำหรับอ้างอิง/หลักการแก้งานครั้งต่อไปเท่านั้น** เช่น mapping, ID range,
+bonus code, script pattern, workflow rule, external reference. **ห้ามจดเป็น changelog หรือ session log**
+เช่น "ทำอะไรไปแล้ว", "เพิ่มอะไรไปแล้ว", "ไฟล์ไหนถูกแก้ในรอบนี้" เว้นแต่ข้อมูลนั้นจำเป็นต่อการตัดสินใจแก้ครั้งต่อไป
+ให้เขียนเป็นกฎหรือ reference แทน
+
 | ประเภทความรู้ | อัพเดตที่ไหน |
 |---|---|
 | item ID ใหม่, stats, job restriction | `docs/knowledge.md` หัวข้อ Item Categories |

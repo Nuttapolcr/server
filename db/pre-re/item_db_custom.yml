@@ -267,6 +267,106 @@ Body:
     AegisName: Usalia_Egg
     Name: Usalia Egg
     Type: Petegg
+  - Id: 9264
+    AegisName: Golden_Bug_Egg
+    Name: Golden Thief Bug Egg
+    Type: Petegg
+  - Id: 9265
+    AegisName: Maya_Egg
+    Name: Maya Egg
+    Type: Petegg
+  - Id: 9266
+    AegisName: Eddga_Egg
+    Name: Eddga Egg
+    Type: Petegg
+  - Id: 9267
+    AegisName: Dark_Lord_Egg
+    Name: Dark Lord Egg
+    Type: Petegg
+  - Id: 9268
+    AegisName: Baphomet_Egg
+    Name: Baphomet Egg
+    Type: Petegg
+  - Id: 9269
+    AegisName: Orc_Lord_Egg
+    Name: Orc Lord Egg
+    Type: Petegg
+  - Id: 9270
+    AegisName: Lady_Tanee_Egg
+    Name: Lady Tanee Egg
+    Type: Petegg
+  - Id: 9271
+    AegisName: Phreeoni_Egg
+    Name: Phreeoni Egg
+    Type: Petegg
+  - Id: 9272
+    AegisName: Orc_Hero_Egg
+    Name: Orc Hero Egg
+    Type: Petegg
+  - Id: 9273
+    AegisName: Amon_Ra_Egg
+    Name: Amon Ra Egg
+    Type: Petegg
+  - Id: 9274
+    AegisName: Pharaoh_Egg
+    Name: Pharaoh Egg
+    Type: Petegg
+  - Id: 9275
+    AegisName: Osiris_Egg
+    Name: Osiris Egg
+    Type: Petegg
+  - Id: 9276
+    AegisName: Dracula_Egg
+    Name: Dracula Egg
+    Type: Petegg
+  - Id: 9277
+    AegisName: Doppelganger_Egg
+    Name: Doppelganger Egg
+    Type: Petegg
+  - Id: 9278
+    AegisName: Mistress_Egg
+    Name: Mistress Egg
+    Type: Petegg
+  - Id: 9279
+    AegisName: Moonlight_Egg
+    Name: Moonlight Flower Egg
+    Type: Petegg
+  - Id: 9280
+    AegisName: Drake_Egg
+    Name: Drake Egg
+    Type: Petegg
+  - Id: 9281
+    AegisName: Knight_Of_Windstorm_Egg
+    Name: Stormy Knight Egg
+    Type: Petegg
+  - Id: 9282
+    AegisName: Lord_Of_Death_Egg
+    Name: Lord of Death Egg
+    Type: Petegg
+  - Id: 9283
+    AegisName: B_Seyren_Egg
+    Name: Seyren Windsor Egg
+    Type: Petegg
+  - Id: 9284
+    AegisName: B_Eremes_Egg
+    Name: Eremes Guile Egg
+    Type: Petegg
+  - Id: 9285
+    AegisName: B_Harword_Egg
+    Name: Howard Alt-Eisen Egg
+    Type: Petegg
+  - Id: 9286
+    AegisName: B_Magaleta_Egg
+    Name: Margaretha Sorin Egg
+    Type: Petegg
+  - Id: 9287
+    AegisName: B_Shecil_Egg
+    Name: Shecil Damon Egg
+    Type: Petegg
+  - Id: 9288
+    AegisName: B_Katrinn_Egg
+    Name: Katrinn Keyron Egg
+    Type: Petegg
   - Id: 55000
     AegisName: 22266
     Name: Fire Red Storm Sword

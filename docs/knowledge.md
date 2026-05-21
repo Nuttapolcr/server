@@ -220,6 +220,48 @@ else if (BaseJob == Job_Wizard) { /* Wizard effects */ }
 if (BaseJob == Job_Wizard || BaseJob == Job_Sage) bonus bMatkRate,20;
 ```
 
+## Pet Database Notes
+
+Google Sheet `gid=2014536238` contains MVP pet bonus data split by rarity.
+For `pet_db.yml`, only add pets whose `Mob` exists in `db/pre-re/mob_db.yml`; otherwise the pet loader rejects the entry.
+Pet entries need a real `EggItem`; before adding a new MVP pet egg, check the custom pet egg ID range starting at `9264`.
+
+MVP pet stat mapping:
+
+| Mob | EggItem | Loyal bonus |
+|---|---|---|
+| `GOLDEN_BUG` | `Golden_Bug_Egg` | STR+2, DEX+2 |
+| `MAYA` | `Maya_Egg` | STR+2, AGI+2 |
+| `EDDGA` | `Eddga_Egg` | AGI+2, DEX+2 |
+| `DARK_LORD` | `Dark_Lord_Egg` | LUK+5, INT+5 |
+| `BAPHOMET` | `Baphomet_Egg` | DROP+10% |
+| `ORC_LORD` | `Orc_Lord_Egg` | INT+2, SP+100 |
+| `LADY_TANEE` | `Lady_Tanee_Egg` | LUK+5, Critical+5 |
+| `PHREEONI` | `Phreeoni_Egg` | Flee+5, HIT+5 |
+| `ORK_HERO` | `Orc_Hero_Egg` | ATK+10, ATK+1% |
+| `AMON_RA` | `Amon_Ra_Egg` | MATK+10, MATK+1% |
+| `PHARAOH` | `Pharaoh_Egg` | All stats+1 |
+| `BACSOJIN_` | `Bacsojin_Egg` | All stats+1, DROP+20% |
+| `OSIRIS` | `Osiris_Egg` | All stats+1, Critical damage+20% |
+| `DRACULA` | `Dracula_Egg` | All stats+1, all-size physical damage+10% |
+| `DOPPELGANGER` | `Doppelganger_Egg` | All stats+1, boss physical damage+10% |
+| `MISTRESS` | `Mistress_Egg` | All stats+1, move speed+30% |
+| `MOONLIGHT` | `Moonlight_Egg` | All stats+1, ASPD+5% |
+| `DRAKE` | `Drake_Egg` | All stats+1, HP gained on physical kill+100 |
+| `KNIGHT_OF_WINDSTORM` | `Knight_Of_Windstorm_Egg` | 20% resist to common statuses |
+| `LORD_OF_DEATH` | `Lord_Of_Death_Egg` | All stats+1, SP gained on physical kill+20 |
+| `B_SEYREN` | `B_Seyren_Egg` | All stats+3, Critical+20, ASPD+1, Player resist+5% |
+| `B_EREMES` | `B_Eremes_Egg` | All stats+1, move speed+30%, Player resist+5% |
+| `B_HARWORD` | `B_Harword_Egg` | All stats+1, ASPD+10%, Player resist+5% |
+| `B_MAGALETA` | `B_Magaleta_Egg` | Stun resist+50%, Freeze on attack, Player resist+5% |
+| `B_SHECIL` | `B_Shecil_Egg` | Boss damage+40%, Coma/Curse on attack, Player resist+5% |
+| `B_KATRINN` | `B_Katrinn_Egg` | Physical reflect reduction, ATK-10%, Player resist+5% |
+
+Sheet mobs without matching `db/pre-re/mob_db.yml` entries:
+`MEDJAY`, `CP_HEKA`, `MEDJED`, `SPIRIT_R_FLAME_SL`, `SPIRIT_I_WATER_M`,
+`SPIRIT_S_WIND_M`, `B_RANDEL`, `B_FLAMEL`, `B_CELIA`, `B_CHEN`,
+`GUIDE_OF_DEAD`, `MD_EP20_BOSS_LASGAND`, `HEROS_F_PEGASUS`.
+
 ---
 
 ## Source Hooks (C++)

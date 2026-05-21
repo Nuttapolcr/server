@@ -888,15 +888,6 @@ Body:
         bonus2 bSubRace,RC_Brute,3;
         bonus2 bSubRace,RC_Player_Doram,3;
       }
-  - Mob: BACSOJIN_
-    TameItem: Shiny_Wing_Gown
-    EggItem: Bacsojin_Egg
-    EquipItem: Round_Hair_Ornament
-    FoodItem: Traditional_Cookie
-    Fullness: 7
-    IntimacyFed: 10
-    CaptureRate: 2000
-    SpecialPerformance: false
   - Mob: IMP
     TameItem: Flaming_Ice
     EggItem: Imp_Egg
@@ -1798,3 +1789,517 @@ Body:
     AllowAutoFeed: true
     Script: >
       petloot 100;
+  - Mob: GOLDEN_BUG
+    TameItem: Pet_Taming
+    EggItem: Golden_Bug_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bStr,2;
+        bonus bDex,2;
+      }
+  - Mob: MAYA
+    TameItem: Pet_Taming
+    EggItem: Maya_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bStr,2;
+        bonus bAgi,2;
+      }
+  - Mob: EDDGA
+    TameItem: Pet_Taming
+    EggItem: Eddga_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAgi,2;
+        bonus bDex,2;
+      }
+  - Mob: DARK_LORD
+    TameItem: Pet_Taming
+    EggItem: Dark_Lord_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bLuk,5;
+        bonus bInt,5;
+      }
+  - Mob: BAPHOMET
+    TameItem: Pet_Taming
+    EggItem: Baphomet_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus2 bDropAddRace,RC_All,10;
+      }
+  - Mob: ORC_LORD
+    TameItem: Pet_Taming
+    EggItem: Orc_Lord_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bInt,2;
+        bonus bMaxSP,100;
+      }
+  - Mob: LADY_TANEE
+    TameItem: Pet_Taming
+    EggItem: Lady_Tanee_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bLuk,5;
+        bonus bCritical,5;
+      }
+  - Mob: PHREEONI
+    TameItem: Pet_Taming
+    EggItem: Phreeoni_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bFlee,5;
+        bonus bHit,5;
+      }
+  - Mob: ORK_HERO
+    TameItem: Pet_Taming
+    EggItem: Orc_Hero_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAtk,10;
+        bonus bAtkRate,1;
+      }
+  - Mob: AMON_RA
+    TameItem: Pet_Taming
+    EggItem: Amon_Ra_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bMatk,10;
+        bonus bMatkRate,1;
+      }
+  - Mob: PHARAOH
+    TameItem: Pet_Taming
+    EggItem: Pharaoh_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+      }
+  - Mob: BACSOJIN_
+    TameItem: Pet_Taming
+    EggItem: Bacsojin_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus2 bDropAddRace,RC_All,20;
+      }
+  - Mob: OSIRIS
+    TameItem: Pet_Taming
+    EggItem: Osiris_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus bCritAtkRate,20;
+      }
+  - Mob: DRACULA
+    TameItem: Pet_Taming
+    EggItem: Dracula_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus2 bAddSize,Size_All,10;
+      }
+  - Mob: DOPPELGANGER
+    TameItem: Pet_Taming
+    EggItem: Doppelganger_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus2 bAddClass,Class_Boss,10;
+      }
+  - Mob: MISTRESS
+    TameItem: Pet_Taming
+    EggItem: Mistress_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus bSpeedAddRate,30;
+      }
+  - Mob: MOONLIGHT
+    TameItem: Pet_Taming
+    EggItem: Moonlight_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus bAspdRate,5;
+      }
+  - Mob: DRAKE
+    TameItem: Pet_Taming
+    EggItem: Drake_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus bHPGainValue,100;
+      }
+  - Mob: KNIGHT_OF_WINDSTORM
+    TameItem: Pet_Taming
+    EggItem: Knight_Of_Windstorm_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus2 bResEff,Eff_Stone,2000;
+        bonus2 bResEff,Eff_Freeze,2000;
+        bonus2 bResEff,Eff_Stun,2000;
+        bonus2 bResEff,Eff_Sleep,2000;
+        bonus2 bResEff,Eff_Poison,2000;
+        bonus2 bResEff,Eff_Curse,2000;
+        bonus2 bResEff,Eff_Silence,2000;
+        bonus2 bResEff,Eff_Blind,2000;
+        bonus2 bResEff,Eff_Bleeding,2000;
+      }
+  - Mob: LORD_OF_DEATH
+    TameItem: Pet_Taming
+    EggItem: Lord_Of_Death_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus bSPGainValue,20;
+      }
+  - Mob: B_SEYREN
+    TameItem: Pet_Taming
+    EggItem: B_Seyren_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,3;
+        bonus bCritical,20;
+        bonus bAspd,1;
+        bonus2 bSubRace,RC_DemiHuman,5;
+        bonus2 bSubRace,RC_Player_Human,5;
+      }
+  - Mob: B_EREMES
+    TameItem: Pet_Taming
+    EggItem: B_Eremes_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus bSpeedAddRate,30;
+        bonus2 bSubRace,RC_DemiHuman,5;
+        bonus2 bSubRace,RC_Player_Human,5;
+      }
+  - Mob: B_HARWORD
+    TameItem: Pet_Taming
+    EggItem: B_Harword_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bAllStats,1;
+        bonus bAspdRate,10;
+        bonus2 bSubRace,RC_DemiHuman,5;
+        bonus2 bSubRace,RC_Player_Human,5;
+      }
+  - Mob: B_MAGALETA
+    TameItem: Pet_Taming
+    EggItem: B_Magaleta_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus2 bResEff,Eff_Stun,5000;
+        bonus2 bAddEff,Eff_Freeze,10000;
+        bonus2 bSubRace,RC_DemiHuman,5;
+        bonus2 bSubRace,RC_Player_Human,5;
+      }
+  - Mob: B_SHECIL
+    TameItem: Pet_Taming
+    EggItem: B_Shecil_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus2 bAddClass,Class_Boss,40;
+        bonus2 bComaRace,RC_DemiHuman,10;
+        bonus2 bComaRace,RC_Player_Human,10;
+        bonus2 bAddEff,Eff_Curse,10000;
+        bonus2 bSubRace,RC_DemiHuman,5;
+        bonus2 bSubRace,RC_Player_Human,5;
+      }
+  - Mob: B_KATRINN
+    TameItem: Pet_Taming
+    EggItem: B_Katrinn_Egg
+    FoodItem: Pet_Food
+    Fullness: 0
+    HungryDelay: 120
+    IntimacyFed: 0
+    IntimacyHungry: -5
+    IntimacyOverfed: -100
+    IntimacyOwnerDie: 0
+    CaptureRate: 0
+    AllowAutoFeed: true
+    Script: |
+      petloot 100;
+      .@i = getpetinfo(PETINFO_INTIMATE);
+      if (.@i >= PET_INTIMATE_LOYAL) {
+        bonus bShortWeaponDamageReturn,-100;
+        bonus bAtkRate,-10;
+        bonus2 bSubRace,RC_DemiHuman,5;
+        bonus2 bSubRace,RC_Player_Human,5;
+      }
