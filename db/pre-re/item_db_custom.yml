@@ -22843,3 +22843,384 @@ Body:
       bonus bBaseAtk,pow(min(getrefine(),15),2);
       bonus bMatk,pow(min(getrefine(),15),2);
       bonus bUnbreakableWeapon;
+  - Id: 1394
+    AegisName: Upg_Two_Handed_Axe
+    Name: "[Rookie] Two-handed Axe"
+    Type: Weapon
+    SubType: 2hAxe
+    Buy: 20
+    Weight: 2000
+    Attack: 110
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bBaseAtk,(getrefine()*14);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+      bonus bUnbreakableWeapon;
+  - Id: 1491
+    AegisName: Upg_Lance
+    Name: "[Rookie] Spear"
+    Type: Weapon
+    SubType: 2hSpear
+    Buy: 20
+    Weight: 1500
+    Attack: 105
+    Range: 3
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bBaseAtk,(getrefine()*12);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+  - Id: 1585
+    AegisName: Upg_Book
+    Name: "[Rookie] Book"
+    Type: Weapon
+    SubType: Book
+    Buy: 20
+    Weight: 600
+    Attack: 45
+    MagicAttack: 20
+    Range: 1
+    Slots: 1
+    Jobs:
+      Priest: true
+      Sage: true
+      StarGladiator: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*10);
+      bonus bMatk,(.@r*5);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+  - Id: 2015
+    AegisName: Upg_Staff
+    Name: "[Rookie] Staff"
+    Type: Weapon
+    SubType: 2hStaff
+    Buy: 20
+    Weight: 1000
+    Attack: 50
+    MagicAttack: 70
+    Range: 1
+    Slots: 1
+    Jobs:
+      Acolyte: true
+      Mage: true
+      Monk: true
+      Priest: true
+      Sage: true
+      SoulLinker: true
+      Wizard: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bMatk,(.@r*10);
+      bonus bHealPower,.@r;
+      if (BaseJob == Job_Wizard)
+         bonus bMatk,30;
+      else if (BaseJob == Job_Sage)
+         bonus bMatk,20;
+      if (BaseLevel>70)
+         bonus bMatk,(((BaseLevel-70)/10)*10);
+  - Id: 13071
+    AegisName: Upg_Dagger
+    Name: "[Rookie] Dagger"
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 600
+    Attack: 55
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Archer: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      KagerouOboro: true
+      Knight: true
+      Mage: true
+      Merchant: true
+      Ninja: true
+      Novice: true
+      Rogue: true
+      Sage: true
+      SoulLinker: true
+      SuperNovice: true
+      Swordman: true
+      Thief: true
+      Wizard: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*10);
+      bonus bMatk,(.@r*5);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+  - Id: 13115
+    AegisName: Upg_Revolver
+    Name: "[Rookie] Revolver"
+    Type: Weapon
+    SubType: Revolver
+    Buy: 20
+    Weight: 500
+    Attack: 35
+    Range: 7
+    Slots: 1
+    Jobs:
+      Gunslinger: true
+      Rebellion: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*5);
+      bonus bLongAtkRate,(.@r*2);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+  - Id: 21000
+    AegisName: Upg_Twohand_Sword
+    Name: "[Rookie] Two-handed Sword"
+    Type: Weapon
+    SubType: 2hSword
+    Buy: 20
+    Weight: 1500
+    Attack: 100
+    Range: 1
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*12);
+      bonus bMatk,(.@r*5);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+  - Id: 16019
+    AegisName: Upg_Mace
+    Name: "[Rookie] Mace"
+    Type: Weapon
+    SubType: Mace
+    Buy: 20
+    Weight: 800
+    Attack: 80
+    Range: 1
+    Slots: 1
+    Jobs:
+      Acolyte: true
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Monk: true
+      Novice: true
+      Priest: true
+      SuperNovice: true
+      Swordman: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*10);
+      bonus bHealPower,.@r;
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+  - Id: 18112
+    AegisName: Upg_Bow
+    Name: "[Rookie] Bow"
+    Type: Weapon
+    SubType: Bow
+    Buy: 20
+    Weight: 600
+    Attack: 60
+    Range: 5
+    Slots: 1
+    Jobs:
+      Archer: true
+      BardDancer: true
+      Hunter: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*7);
+      bonus bLongAtkRate,(.@r*2);
+      if (BaseJob == Job_Hunter)
+         bonus bBaseAtk,20;
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+  - Id: 13316
+    AegisName: Upg_Huuma_Shuriken
+    Name: "[Rookie] Huuma Shuriken"
+    Type: Weapon
+    SubType: Huuma
+    Buy: 20
+    Weight: 1500
+    Attack: 55
+    Range: 1
+    Slots: 1
+    Jobs:
+      KagerouOboro: true
+      Ninja: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*10);
+      bonus bMatk,(.@r*5);
+      bonus bLongAtkRate,(.@r);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+      bonus bUnbreakableWeapon;
+  - Id: 15015
+    AegisName: Upg_Adv_Suit
+    Name: "[Rookie] Adventure Suit"
+    Type: Armor
+    Buy: 20
+    Weight: 150
+    Defense: 25
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bMaxHPrate,3;
+  - Id: 2149
+    AegisName: Upg_Guard
+    Name: "[Rookie] Guard"
+    Type: Armor
+    Buy: 20
+    Weight: 150
+    Defense: 25
+    Slots: 1
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    View: 1
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bMaxHPrate,3;
+  - Id: 2560
+    AegisName: Para_Team_Manteau
+    Name: "[Rookie] Boots"
+    Type: Armor
+    Defense: 14
+    Locations:
+      Garment: true
+    ArmorLevel: 1
+    EquipLevelMin: 7
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus2 bSubEle,Ele_Neutral,10;
+  - Id: 2562
+    AegisName: Upg_Muffler
+    Name: "[Rookie] Muffler"
+    Type: Armor
+    Buy: 20
+    Weight: 200
+    Defense: 13
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Locations:
+      Garment: true
+    ArmorLevel: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bMaxHPrate,3;

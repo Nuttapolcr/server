@@ -4595,7 +4595,7 @@ Body:
       bonus2 bAddSize,Size_All,40;
   - Id: 1292
     AegisName: Upg_Katar
-    Name: Upg Katar
+    Name: "[Rookie] Katar"
     Type: Weapon
     SubType: Katar
     Buy: 20
