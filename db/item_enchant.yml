@@ -73,6 +73,8 @@ Header:
 
 Footer:
   Imports:
+  - Path: db/pre-re/item_enchant.yml
+    Mode: Prerenewal
   - Path: db/re/item_enchant.yml
     Mode: Renewal
   - Path: db/import/item_enchant.yml

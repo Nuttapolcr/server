@@ -1287,4 +1287,42 @@ Body:
 #          - UPG II Diabolus_Boots
 #          - UPG II Diabolus_Manteau
 #    Script: |
-#      bonus bMaxHPRate,10;      
+#      bonus bMaxHPRate,10;
+
+# HICLASS Enchant UI generated combos (gid 1328426605).
+  - Combos:
+      - Combo:
+          - Gh_md_dex
+          - Hawkeye
+    Script: |
+      bonus bAtkRate,10;
+  - Combos:
+      - Combo:
+          - Gh_md_int
+          - Runaway_Magic
+    Script: |
+      bonus2 bMagicAtkEle,Ele_All,15;
+  - Combos:
+      - Combo:
+          - Gh_md_agi
+          - Speed_Of_Light
+    Script: |
+      bonus bCritAtkRate,30;
+  - Combos:
+      - Combo:
+          - Gh_md_str
+          - Bear's_Power
+    Script: |
+      bonus2 bAddSize,Size_All,25;
+  - Combos:
+      - Combo:
+          - Gh_md_luk
+          - Lucky_Day
+    Script: |
+      bonus bAspd,2;
+  - Combos:
+      - Combo:
+          - Gh_md_vit
+          - Muscle_Fool
+    Script: |
+      bonus bLongAtkRate,7;

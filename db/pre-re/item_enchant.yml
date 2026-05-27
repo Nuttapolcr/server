@@ -1,0 +1,2699 @@
+# This file is generated from HICLASS Google Sheet tab "Enchant UI" (gid 1328426605).
+# Keep these IDs in sync with npc/pre-re/merchants/enchantui.txt.
+
+Header:
+  Type: ITEM_ENCHANT_DB
+  Version: 1
+
+Body:
+  - Id: 1000
+    TargetItems:
+      Rare_Melee_Armor: true
+      Rare_Ranged_Armor: true
+      Rare_Magic_Armor: true
+      Rare_Defense_Armor: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 20
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 4000
+              - Item: Strength2
+                Chance: 4000
+              - Item: Strength3
+                Chance: 4000
+              - Item: Inteligence1
+                Chance: 4000
+              - Item: Inteligence2
+                Chance: 4000
+              - Item: Inteligence3
+                Chance: 4000
+              - Item: Dexterity1
+                Chance: 4000
+              - Item: Dexterity2
+                Chance: 4000
+              - Item: Dexterity3
+                Chance: 4000
+              - Item: Agility1
+                Chance: 4000
+              - Item: Agility2
+                Chance: 4000
+              - Item: Agility3
+                Chance: 4000
+              - Item: Vitality1
+                Chance: 4000
+              - Item: Vitality2
+                Chance: 4000
+              - Item: Vitality3
+                Chance: 4000
+              - Item: Luck1
+                Chance: 4000
+              - Item: Luck2
+                Chance: 4000
+              - Item: Luck3
+                Chance: 4000
+              - Item: MHP1
+                Chance: 4000
+              - Item: MHP2
+                Chance: 4000
+              - Item: HP50
+                Chance: 4000
+              - Item: HP100
+                Chance: 4000
+              - Item: Critical2
+                Chance: 4000
+              - Item: Critical3
+                Chance: 4000
+              - Item: Hiclass_All_StatsPlus1
+                Chance: 4000
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 3125
+              - Item: Strength2
+                Chance: 3125
+              - Item: Strength3
+                Chance: 3125
+              - Item: Inteligence1
+                Chance: 3125
+              - Item: Inteligence2
+                Chance: 3125
+              - Item: Inteligence3
+                Chance: 3125
+              - Item: Dexterity1
+                Chance: 3125
+              - Item: Dexterity2
+                Chance: 3125
+              - Item: Dexterity3
+                Chance: 3125
+              - Item: Agility1
+                Chance: 3125
+              - Item: Agility2
+                Chance: 3125
+              - Item: Agility3
+                Chance: 3125
+              - Item: Vitality1
+                Chance: 3125
+              - Item: Vitality2
+                Chance: 3125
+              - Item: Vitality3
+                Chance: 3125
+              - Item: Luck1
+                Chance: 3125
+              - Item: Luck2
+                Chance: 3125
+              - Item: Luck3
+                Chance: 3125
+              - Item: MSP1
+                Chance: 3125
+              - Item: Hiclass_Max_SPPlus2Pct
+                Chance: 3125
+              - Item: SP10
+                Chance: 3125
+              - Item: Hiclass_SPPlus20
+                Chance: 3125
+              - Item: Hiclass_Perfect_Dodge_Plus1
+                Chance: 3125
+              - Item: Hiclass_Perfect_Dodge_Plus2
+                Chance: 3125
+              - Item: Hiclass_Perfect_Dodge_Plus3
+                Chance: 3125
+              - Item: Hiclass_Perfect_Dodge_Plus4
+                Chance: 3125
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 3125
+              - Item: Hiclass_Perfect_Dodge_Plus6
+                Chance: 3125
+              - Item: Hiclass_Perfect_Dodge_Plus7
+                Chance: 3125
+              - Item: Hiclass_HITPlus3
+                Chance: 3125
+              - Item: Hiclass_HITPlus6
+                Chance: 3125
+              - Item: Hiclass_All_StatsPlus1
+                Chance: 3125
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 3847
+              - Item: Strength2
+                Chance: 3847
+              - Item: Strength3
+                Chance: 3847
+              - Item: Inteligence1
+                Chance: 3847
+              - Item: Inteligence2
+                Chance: 3846
+              - Item: Inteligence3
+                Chance: 3846
+              - Item: Dexterity1
+                Chance: 3846
+              - Item: Dexterity2
+                Chance: 3846
+              - Item: Dexterity3
+                Chance: 3846
+              - Item: Agility1
+                Chance: 3846
+              - Item: Agility2
+                Chance: 3846
+              - Item: Agility3
+                Chance: 3846
+              - Item: Vitality1
+                Chance: 3846
+              - Item: Vitality2
+                Chance: 3846
+              - Item: Vitality3
+                Chance: 3846
+              - Item: Luck1
+                Chance: 3846
+              - Item: Luck2
+                Chance: 3846
+              - Item: Luck3
+                Chance: 3846
+              - Item: Hiclass_All_StatsPlus1
+                Chance: 3846
+              - Item: PlayerTolerance1
+                Chance: 3846
+              - Item: PlayerTolerance2
+                Chance: 3846
+              - Item: PlayerTolerance3
+                Chance: 3846
+              - Item: PlayerTolerance4
+                Chance: 3846
+              - Item: PlayerTolerance5
+                Chance: 3846
+              - Item: PlayerTolerance6
+                Chance: 3846
+              - Item: PlayerTolerance7
+                Chance: 3846
+  - Id: 1001
+    TargetItems:
+      Epic_Melee_Armor: true
+      Epic_Ranged_Armor: true
+      Epic_Magic_Armor: true
+      Epic_Defense_Armor: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 40
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 5264
+              - Item: Strength4
+                Chance: 5264
+              - Item: Inteligence3
+                Chance: 5264
+              - Item: Inteligence4
+                Chance: 5263
+              - Item: Dexterity3
+                Chance: 5263
+              - Item: Dexterity4
+                Chance: 5263
+              - Item: Agility3
+                Chance: 5263
+              - Item: Agility4
+                Chance: 5263
+              - Item: Vitality3
+                Chance: 5263
+              - Item: Vitality4
+                Chance: 5263
+              - Item: Luck3
+                Chance: 5263
+              - Item: Luck4
+                Chance: 5263
+              - Item: MHP3
+                Chance: 5263
+              - Item: MHP4
+                Chance: 5263
+              - Item: Hiclass_HP_Plus150
+                Chance: 5263
+              - Item: HP200
+                Chance: 5263
+              - Item: Critical4
+                Chance: 5263
+              - Item: Hiclass_CRIRATE_Plus8
+                Chance: 5263
+              - Item: Hiclass_All_StatsPlus2
+                Chance: 5263
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 4348
+              - Item: Strength4
+                Chance: 4348
+              - Item: Inteligence3
+                Chance: 4348
+              - Item: Inteligence4
+                Chance: 4348
+              - Item: Dexterity3
+                Chance: 4348
+              - Item: Dexterity4
+                Chance: 4348
+              - Item: Agility3
+                Chance: 4348
+              - Item: Agility4
+                Chance: 4348
+              - Item: Vitality3
+                Chance: 4348
+              - Item: Vitality4
+                Chance: 4348
+              - Item: Luck3
+                Chance: 4348
+              - Item: Luck4
+                Chance: 4348
+              - Item: Hiclass_Max_SPPlus3Pct
+                Chance: 4348
+              - Item: Hiclass_Max_SPPlus4Pct
+                Chance: 4348
+              - Item: Hiclass_SPPlus30
+                Chance: 4348
+              - Item: Hiclass_SPPlus40
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus4
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus6
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus7
+                Chance: 4347
+              - Item: Hiclass_HITPlus9
+                Chance: 4347
+              - Item: Hiclass_HITPlus12
+                Chance: 4347
+              - Item: Hiclass_All_StatsPlus2
+                Chance: 4347
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 5000
+              - Item: Strength4
+                Chance: 5000
+              - Item: Inteligence3
+                Chance: 5000
+              - Item: Inteligence4
+                Chance: 5000
+              - Item: Dexterity3
+                Chance: 5000
+              - Item: Dexterity4
+                Chance: 5000
+              - Item: Agility3
+                Chance: 5000
+              - Item: Agility4
+                Chance: 5000
+              - Item: Vitality3
+                Chance: 5000
+              - Item: Vitality4
+                Chance: 5000
+              - Item: Luck3
+                Chance: 5000
+              - Item: Luck4
+                Chance: 5000
+              - Item: Hiclass_All_StatsPlus2
+                Chance: 5000
+              - Item: Hero
+                Chance: 5000
+              - Item: Release_Of_Magic
+                Chance: 5000
+              - Item: Dynast
+                Chance: 5000
+              - Item: PlayerTolerance4
+                Chance: 5000
+              - Item: PlayerTolerance5
+                Chance: 5000
+              - Item: PlayerTolerance6
+                Chance: 5000
+              - Item: PlayerTolerance7
+                Chance: 5000
+  - Id: 1002
+    TargetItems:
+      Legend_Melee_Armor: true
+      Legend_Ranged_Armor: true
+      Legend_Magic_Armor: true
+      Legend_Defense_Armor: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength6
+                Chance: 9091
+              - Item: Inteligence6
+                Chance: 9091
+              - Item: Dexterity6
+                Chance: 9091
+              - Item: Agility6
+                Chance: 9091
+              - Item: Vitality6
+                Chance: 9091
+              - Item: Luck6
+                Chance: 9091
+              - Item: Hiclass_MaxHPPlus6Pct
+                Chance: 9091
+              - Item: HP300
+                Chance: 9091
+              - Item: Hiclass_CRIRATE_Plus12
+                Chance: 9091
+              - Item: Hiclass_All_StatsPlus3
+                Chance: 9091
+              - Item: Hiclass_All_StatsPlus4
+                Chance: 9090
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength6
+                Chance: 5883
+              - Item: Inteligence6
+                Chance: 5883
+              - Item: Dexterity6
+                Chance: 5883
+              - Item: Agility6
+                Chance: 5883
+              - Item: Vitality6
+                Chance: 5883
+              - Item: Luck6
+                Chance: 5883
+              - Item: Hiclass_Max_SPPlus5Pct
+                Chance: 5882
+              - Item: Hiclass_Max_SPPlus6Pct
+                Chance: 5882
+              - Item: SP50
+                Chance: 5882
+              - Item: Hiclass_SPPlus60
+                Chance: 5882
+              - Item: Hiclass_Perfect_Dodge_Plus7
+                Chance: 5882
+              - Item: Hiclass_HITPlus18
+                Chance: 5882
+              - Item: Hiclass_All_StatsPlus3
+                Chance: 5882
+              - Item: Hiclass_All_StatsPlus4
+                Chance: 5882
+              - Item: Hero
+                Chance: 5882
+              - Item: Release_Of_Magic
+                Chance: 5882
+              - Item: Dynast
+                Chance: 5882
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength6
+                Chance: 6250
+              - Item: Inteligence6
+                Chance: 6250
+              - Item: Dexterity6
+                Chance: 6250
+              - Item: Agility6
+                Chance: 6250
+              - Item: Vitality6
+                Chance: 6250
+              - Item: Luck6
+                Chance: 6250
+              - Item: Hiclass_MaxHPPlus6Pct
+                Chance: 6250
+              - Item: HP300
+                Chance: 6250
+              - Item: Hiclass_Max_SPPlus6Pct
+                Chance: 6250
+              - Item: Hiclass_SPPlus60
+                Chance: 6250
+              - Item: Hiclass_All_StatsPlus4
+                Chance: 6250
+              - Item: Hero
+                Chance: 6250
+              - Item: Release_Of_Magic
+                Chance: 6250
+              - Item: Dynast
+                Chance: 6250
+              - Item: PlayerTolerance6
+                Chance: 6250
+              - Item: PlayerTolerance7
+                Chance: 6250
+        PerfectEnchants:
+          - Item: Hero
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Release_Of_Magic
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Dynast
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: PlayerTolerance7
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+  - Id: 1003
+    TargetItems:
+      Rare_Melee_Muffler: true
+      Rare_Ranged_Muffler: true
+      Rare_Magic_Muffler: true
+      Rare_Defense_Muffler: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 20
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 3334
+              - Item: Strength2
+                Chance: 3334
+              - Item: Strength3
+                Chance: 3334
+              - Item: Inteligence1
+                Chance: 3334
+              - Item: Inteligence2
+                Chance: 3334
+              - Item: Inteligence3
+                Chance: 3334
+              - Item: Dexterity1
+                Chance: 3334
+              - Item: Dexterity2
+                Chance: 3334
+              - Item: Dexterity3
+                Chance: 3334
+              - Item: Agility1
+                Chance: 3334
+              - Item: Agility2
+                Chance: 3333
+              - Item: Agility3
+                Chance: 3333
+              - Item: Vitality1
+                Chance: 3333
+              - Item: Vitality2
+                Chance: 3333
+              - Item: Vitality3
+                Chance: 3333
+              - Item: Luck1
+                Chance: 3333
+              - Item: Luck2
+                Chance: 3333
+              - Item: Luck3
+                Chance: 3333
+              - Item: MSP1
+                Chance: 3333
+              - Item: Hiclass_Max_SPPlus2Pct
+                Chance: 3333
+              - Item: SP10
+                Chance: 3333
+              - Item: Hiclass_SPPlus20
+                Chance: 3333
+              - Item: Evasion3
+                Chance: 3333
+              - Item: Evasion6
+                Chance: 3333
+              - Item: Hiclass_Perfect_Dodge_Plus1
+                Chance: 3333
+              - Item: Hiclass_Perfect_Dodge_Plus2
+                Chance: 3333
+              - Item: Hiclass_Perfect_Dodge_Plus3
+                Chance: 3333
+              - Item: Hiclass_Perfect_Dodge_Plus4
+                Chance: 3333
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 3333
+              - Item: Hiclass_All_StatsPlus1
+                Chance: 3333
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 4348
+              - Item: Strength2
+                Chance: 4348
+              - Item: Strength3
+                Chance: 4348
+              - Item: Inteligence1
+                Chance: 4348
+              - Item: Inteligence2
+                Chance: 4348
+              - Item: Inteligence3
+                Chance: 4348
+              - Item: Dexterity1
+                Chance: 4348
+              - Item: Dexterity2
+                Chance: 4348
+              - Item: Dexterity3
+                Chance: 4348
+              - Item: Agility1
+                Chance: 4348
+              - Item: Agility2
+                Chance: 4348
+              - Item: Agility3
+                Chance: 4348
+              - Item: Vitality1
+                Chance: 4348
+              - Item: Vitality2
+                Chance: 4348
+              - Item: Vitality3
+                Chance: 4348
+              - Item: Luck1
+                Chance: 4348
+              - Item: Luck2
+                Chance: 4348
+              - Item: Luck3
+                Chance: 4348
+              - Item: PlayerTolerance1
+                Chance: 4348
+              - Item: PlayerTolerance2
+                Chance: 4347
+              - Item: PlayerTolerance3
+                Chance: 4347
+              - Item: PlayerTolerance4
+                Chance: 4347
+              - Item: PlayerTolerance5
+                Chance: 4347
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 4000
+              - Item: Strength2
+                Chance: 4000
+              - Item: Strength3
+                Chance: 4000
+              - Item: Inteligence1
+                Chance: 4000
+              - Item: Inteligence2
+                Chance: 4000
+              - Item: Inteligence3
+                Chance: 4000
+              - Item: Dexterity1
+                Chance: 4000
+              - Item: Dexterity2
+                Chance: 4000
+              - Item: Dexterity3
+                Chance: 4000
+              - Item: Agility1
+                Chance: 4000
+              - Item: Agility2
+                Chance: 4000
+              - Item: Agility3
+                Chance: 4000
+              - Item: Vitality1
+                Chance: 4000
+              - Item: Vitality2
+                Chance: 4000
+              - Item: Vitality3
+                Chance: 4000
+              - Item: Luck1
+                Chance: 4000
+              - Item: Luck2
+                Chance: 4000
+              - Item: Luck3
+                Chance: 4000
+              - Item: Evasion3
+                Chance: 4000
+              - Item: Evasion6
+                Chance: 4000
+              - Item: Hiclass_HITPlus3
+                Chance: 4000
+              - Item: Hiclass_HITPlus6
+                Chance: 4000
+              - Item: Critical2
+                Chance: 4000
+              - Item: Critical3
+                Chance: 4000
+              - Item: Hiclass_All_StatsPlus1
+                Chance: 4000
+  - Id: 1004
+    TargetItems:
+      Epic_Melee_Muffler: true
+      Epic_Ranged_Muffler: true
+      Epic_Magic_Muffler: true
+      Epic_Defense_Muffler: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 40
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 4348
+              - Item: Strength4
+                Chance: 4348
+              - Item: Inteligence3
+                Chance: 4348
+              - Item: Inteligence4
+                Chance: 4348
+              - Item: Dexterity3
+                Chance: 4348
+              - Item: Dexterity4
+                Chance: 4348
+              - Item: Agility3
+                Chance: 4348
+              - Item: Agility4
+                Chance: 4348
+              - Item: Vitality3
+                Chance: 4348
+              - Item: Vitality4
+                Chance: 4348
+              - Item: Luck3
+                Chance: 4348
+              - Item: Luck4
+                Chance: 4348
+              - Item: Hiclass_Max_SPPlus3Pct
+                Chance: 4348
+              - Item: Hiclass_Max_SPPlus4Pct
+                Chance: 4348
+              - Item: Hiclass_SPPlus30
+                Chance: 4348
+              - Item: Hiclass_SPPlus40
+                Chance: 4348
+              - Item: Hiclass_FLEEPlus9
+                Chance: 4348
+              - Item: Evasion12
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus2
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus3
+                Chance: 4347
+              - Item: Hiclass_Perfect_Dodge_Plus4
+                Chance: 4347
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 4347
+              - Item: Hiclass_All_StatsPlus2
+                Chance: 4347
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 6250
+              - Item: Strength4
+                Chance: 6250
+              - Item: Inteligence3
+                Chance: 6250
+              - Item: Inteligence4
+                Chance: 6250
+              - Item: Dexterity3
+                Chance: 6250
+              - Item: Dexterity4
+                Chance: 6250
+              - Item: Agility3
+                Chance: 6250
+              - Item: Agility4
+                Chance: 6250
+              - Item: Vitality3
+                Chance: 6250
+              - Item: Vitality4
+                Chance: 6250
+              - Item: Luck3
+                Chance: 6250
+              - Item: Luck4
+                Chance: 6250
+              - Item: PlayerTolerance2
+                Chance: 6250
+              - Item: PlayerTolerance3
+                Chance: 6250
+              - Item: PlayerTolerance4
+                Chance: 6250
+              - Item: PlayerTolerance5
+                Chance: 6250
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 5264
+              - Item: Strength4
+                Chance: 5264
+              - Item: Inteligence3
+                Chance: 5264
+              - Item: Inteligence4
+                Chance: 5263
+              - Item: Dexterity3
+                Chance: 5263
+              - Item: Dexterity4
+                Chance: 5263
+              - Item: Agility3
+                Chance: 5263
+              - Item: Agility4
+                Chance: 5263
+              - Item: Vitality3
+                Chance: 5263
+              - Item: Vitality4
+                Chance: 5263
+              - Item: Luck3
+                Chance: 5263
+              - Item: Luck4
+                Chance: 5263
+              - Item: Hiclass_FLEEPlus9
+                Chance: 5263
+              - Item: Evasion12
+                Chance: 5263
+              - Item: Hiclass_HITPlus9
+                Chance: 5263
+              - Item: Hiclass_HITPlus12
+                Chance: 5263
+              - Item: Critical4
+                Chance: 5263
+              - Item: Hiclass_CRIRATE_Plus8
+                Chance: 5263
+              - Item: Hiclass_All_StatsPlus2
+                Chance: 5263
+  - Id: 1005
+    TargetItems:
+      Legend_Melee_Muffler: true
+      Legend_Ranged_Muffler: true
+      Legend_Magic_Muffler: true
+      Legend_Defense_Muffler: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength6
+                Chance: 8334
+              - Item: Inteligence6
+                Chance: 8334
+              - Item: Dexterity6
+                Chance: 8334
+              - Item: Agility6
+                Chance: 8334
+              - Item: Vitality6
+                Chance: 8333
+              - Item: Luck6
+                Chance: 8333
+              - Item: Hiclass_Max_SPPlus6Pct
+                Chance: 8333
+              - Item: Hiclass_SPPlus60
+                Chance: 8333
+              - Item: Hiclass_FLEEPlus18
+                Chance: 8333
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 8333
+              - Item: Hiclass_All_StatsPlus3
+                Chance: 8333
+              - Item: Hiclass_All_StatsPlus4
+                Chance: 8333
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength6
+                Chance: 12500
+              - Item: Inteligence6
+                Chance: 12500
+              - Item: Dexterity6
+                Chance: 12500
+              - Item: Agility6
+                Chance: 12500
+              - Item: Vitality6
+                Chance: 12500
+              - Item: Luck6
+                Chance: 12500
+              - Item: PlayerTolerance4
+                Chance: 12500
+              - Item: PlayerTolerance5
+                Chance: 12500
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength6
+                Chance: 9091
+              - Item: Inteligence6
+                Chance: 9091
+              - Item: Dexterity6
+                Chance: 9091
+              - Item: Agility6
+                Chance: 9091
+              - Item: Vitality6
+                Chance: 9091
+              - Item: Luck6
+                Chance: 9091
+              - Item: Hiclass_FLEEPlus18
+                Chance: 9091
+              - Item: Hiclass_HITPlus18
+                Chance: 9091
+              - Item: Hiclass_CRIRATE_Plus12
+                Chance: 9091
+              - Item: Hiclass_All_StatsPlus4
+                Chance: 9091
+              - Item: Murderous_Grudge
+                Chance: 9090
+        PerfectEnchants:
+          - Item: Hiclass_All_StatsPlus4
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Murderous_Grudge
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+  - Id: 1006
+    TargetItems:
+      Rare_Melee_Boots: true
+      Rare_Ranged_Boots: true
+      Rare_Magic_Boots: true
+      Rare_Defense_Boots: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 20
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Coagulated_Spell
+            Amount: 20
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 4000
+              - Item: Strength2
+                Chance: 4000
+              - Item: Strength3
+                Chance: 4000
+              - Item: Inteligence1
+                Chance: 4000
+              - Item: Inteligence2
+                Chance: 4000
+              - Item: Inteligence3
+                Chance: 4000
+              - Item: Dexterity1
+                Chance: 4000
+              - Item: Dexterity2
+                Chance: 4000
+              - Item: Dexterity3
+                Chance: 4000
+              - Item: Agility1
+                Chance: 4000
+              - Item: Agility2
+                Chance: 4000
+              - Item: Agility3
+                Chance: 4000
+              - Item: Vitality1
+                Chance: 4000
+              - Item: Vitality2
+                Chance: 4000
+              - Item: Vitality3
+                Chance: 4000
+              - Item: Luck1
+                Chance: 4000
+              - Item: Luck2
+                Chance: 4000
+              - Item: Luck3
+                Chance: 4000
+              - Item: PlayerTolerance1
+                Chance: 4000
+              - Item: PlayerTolerance2
+                Chance: 4000
+              - Item: PlayerTolerance3
+                Chance: 4000
+              - Item: PlayerTolerance4
+                Chance: 4000
+              - Item: PlayerTolerance5
+                Chance: 4000
+              - Item: PlayerTolerance6
+                Chance: 4000
+              - Item: PlayerTolerance7
+                Chance: 4000
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Coagulated_Spell
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 4167
+              - Item: Strength2
+                Chance: 4167
+              - Item: Strength3
+                Chance: 4167
+              - Item: Inteligence1
+                Chance: 4167
+              - Item: Inteligence2
+                Chance: 4167
+              - Item: Inteligence3
+                Chance: 4167
+              - Item: Dexterity1
+                Chance: 4167
+              - Item: Dexterity2
+                Chance: 4167
+              - Item: Dexterity3
+                Chance: 4167
+              - Item: Agility1
+                Chance: 4167
+              - Item: Agility2
+                Chance: 4167
+              - Item: Agility3
+                Chance: 4167
+              - Item: Vitality1
+                Chance: 4167
+              - Item: Vitality2
+                Chance: 4167
+              - Item: Vitality3
+                Chance: 4167
+              - Item: Luck1
+                Chance: 4167
+              - Item: Luck2
+                Chance: 4166
+              - Item: Luck3
+                Chance: 4166
+              - Item: Hiclass_Perfect_Dodge_Plus1
+                Chance: 4166
+              - Item: Hiclass_Perfect_Dodge_Plus2
+                Chance: 4166
+              - Item: Hiclass_Perfect_Dodge_Plus3
+                Chance: 4166
+              - Item: Hiclass_Perfect_Dodge_Plus4
+                Chance: 4166
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 4166
+              - Item: Hiclass_All_StatsPlus1
+                Chance: 4166
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Coagulated_Spell
+            Amount: 40
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 4167
+              - Item: Strength2
+                Chance: 4167
+              - Item: Strength3
+                Chance: 4167
+              - Item: Inteligence1
+                Chance: 4167
+              - Item: Inteligence2
+                Chance: 4167
+              - Item: Inteligence3
+                Chance: 4167
+              - Item: Dexterity1
+                Chance: 4167
+              - Item: Dexterity2
+                Chance: 4167
+              - Item: Dexterity3
+                Chance: 4167
+              - Item: Agility1
+                Chance: 4167
+              - Item: Agility2
+                Chance: 4167
+              - Item: Agility3
+                Chance: 4167
+              - Item: Vitality1
+                Chance: 4167
+              - Item: Vitality2
+                Chance: 4167
+              - Item: Vitality3
+                Chance: 4167
+              - Item: Luck1
+                Chance: 4167
+              - Item: Luck2
+                Chance: 4166
+              - Item: Luck3
+                Chance: 4166
+              - Item: Bear's_Power
+                Chance: 4166
+              - Item: Runaway_Magic
+                Chance: 4166
+              - Item: Speed_Of_Light
+                Chance: 4166
+              - Item: Muscle_Fool
+                Chance: 4166
+              - Item: Hawkeye
+                Chance: 4166
+              - Item: Lucky_Day
+                Chance: 4166
+  - Id: 1007
+    TargetItems:
+      Epic_Melee_Boots: true
+      Epic_Ranged_Boots: true
+      Epic_Magic_Boots: true
+      Epic_Defense_Boots: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 40
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Coagulated_Spell
+            Amount: 20
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 6250
+              - Item: Strength4
+                Chance: 6250
+              - Item: Inteligence3
+                Chance: 6250
+              - Item: Inteligence4
+                Chance: 6250
+              - Item: Dexterity3
+                Chance: 6250
+              - Item: Dexterity4
+                Chance: 6250
+              - Item: Agility3
+                Chance: 6250
+              - Item: Agility4
+                Chance: 6250
+              - Item: Vitality3
+                Chance: 6250
+              - Item: Vitality4
+                Chance: 6250
+              - Item: Luck3
+                Chance: 6250
+              - Item: Luck4
+                Chance: 6250
+              - Item: PlayerTolerance4
+                Chance: 6250
+              - Item: PlayerTolerance5
+                Chance: 6250
+              - Item: PlayerTolerance6
+                Chance: 6250
+              - Item: PlayerTolerance7
+                Chance: 6250
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Coagulated_Spell
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 5883
+              - Item: Strength4
+                Chance: 5883
+              - Item: Inteligence3
+                Chance: 5883
+              - Item: Inteligence4
+                Chance: 5883
+              - Item: Dexterity3
+                Chance: 5883
+              - Item: Dexterity4
+                Chance: 5883
+              - Item: Agility3
+                Chance: 5882
+              - Item: Agility4
+                Chance: 5882
+              - Item: Vitality3
+                Chance: 5882
+              - Item: Vitality4
+                Chance: 5882
+              - Item: Luck3
+                Chance: 5882
+              - Item: Luck4
+                Chance: 5882
+              - Item: Hiclass_Perfect_Dodge_Plus2
+                Chance: 5882
+              - Item: Hiclass_Perfect_Dodge_Plus3
+                Chance: 5882
+              - Item: Hiclass_Perfect_Dodge_Plus4
+                Chance: 5882
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 5882
+              - Item: Hiclass_All_StatsPlus2
+                Chance: 5882
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Coagulated_Spell
+            Amount: 40
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 5556
+              - Item: Strength4
+                Chance: 5556
+              - Item: Inteligence3
+                Chance: 5556
+              - Item: Inteligence4
+                Chance: 5556
+              - Item: Dexterity3
+                Chance: 5556
+              - Item: Dexterity4
+                Chance: 5556
+              - Item: Agility3
+                Chance: 5556
+              - Item: Agility4
+                Chance: 5556
+              - Item: Vitality3
+                Chance: 5556
+              - Item: Vitality4
+                Chance: 5556
+              - Item: Luck3
+                Chance: 5555
+              - Item: Luck4
+                Chance: 5555
+              - Item: Bear's_Power
+                Chance: 5555
+              - Item: Runaway_Magic
+                Chance: 5555
+              - Item: Speed_Of_Light
+                Chance: 5555
+              - Item: Muscle_Fool
+                Chance: 5555
+              - Item: Hawkeye
+                Chance: 5555
+              - Item: Lucky_Day
+                Chance: 5555
+  - Id: 1008
+    TargetItems:
+      Legend_Melee_Boots: true
+      Legend_Ranged_Boots: true
+      Legend_Magic_Boots: true
+      Legend_Defense_Boots: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Coagulated_Spell
+            Amount: 20
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength6
+                Chance: 12500
+              - Item: Inteligence6
+                Chance: 12500
+              - Item: Dexterity6
+                Chance: 12500
+              - Item: Agility6
+                Chance: 12500
+              - Item: Vitality6
+                Chance: 12500
+              - Item: Luck6
+                Chance: 12500
+              - Item: PlayerTolerance6
+                Chance: 12500
+              - Item: PlayerTolerance7
+                Chance: 12500
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Coagulated_Spell
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength6
+                Chance: 7143
+              - Item: Inteligence6
+                Chance: 7143
+              - Item: Dexterity6
+                Chance: 7143
+              - Item: Agility6
+                Chance: 7143
+              - Item: Vitality6
+                Chance: 7143
+              - Item: Luck6
+                Chance: 7143
+              - Item: Hiclass_All_StatsPlus3
+                Chance: 7143
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 7143
+              - Item: Gh_md_int
+                Chance: 7143
+              - Item: Gh_md_str
+                Chance: 7143
+              - Item: Gh_md_agi
+                Chance: 7143
+              - Item: Gh_md_vit
+                Chance: 7143
+              - Item: Gh_md_luk
+                Chance: 7142
+              - Item: Gh_md_dex
+                Chance: 7142
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Coagulated_Spell
+            Amount: 40
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength6
+                Chance: 8334
+              - Item: Inteligence6
+                Chance: 8334
+              - Item: Dexterity6
+                Chance: 8334
+              - Item: Agility6
+                Chance: 8334
+              - Item: Vitality6
+                Chance: 8333
+              - Item: Luck6
+                Chance: 8333
+              - Item: Bear's_Power
+                Chance: 8333
+              - Item: Runaway_Magic
+                Chance: 8333
+              - Item: Speed_Of_Light
+                Chance: 8333
+              - Item: Muscle_Fool
+                Chance: 8333
+              - Item: Hawkeye
+                Chance: 8333
+              - Item: Lucky_Day
+                Chance: 8333
+        PerfectEnchants:
+          - Item: Bear's_Power
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Coagulated_Spell
+                Amount: 500
+          - Item: Runaway_Magic
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Coagulated_Spell
+                Amount: 500
+          - Item: Speed_Of_Light
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Coagulated_Spell
+                Amount: 500
+          - Item: Muscle_Fool
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Coagulated_Spell
+                Amount: 500
+          - Item: Hawkeye
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Coagulated_Spell
+                Amount: 500
+          - Item: Lucky_Day
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Coagulated_Spell
+                Amount: 500
+  - Id: 1009
+    TargetItems:
+      Up_Dragonic_Slayer: true
+      Up_Undine_Spear_K: true
+      Up_Blue_Crystal_Staff: true
+      Up_Demon_Hunting_Bible: true
+      Up_Avenger: true
+      Up_Sword_Of_Bluefire: true
+      Up_Saint_Hall: true
+      Up_Iron_Nail_K: true
+      Up_Shiver_Katar_K: true
+      Up_Magic_Sword: true
+      Up_Royal_Bow_K: true
+      Up_Trumpet_Shell_K: true
+      Up_Barb_Wire_K: true
+      Up_OneSkyOneSun: true
+      Up_SoulWeight: true
+      Up_Humma_Clear: true
+      Up_Crimson_Rose: true
+      Up_Blessed_Knife: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Atk1p
+                Chance: 3847
+              - Item: Atk2
+                Chance: 3847
+              - Item: Matk1
+                Chance: 3847
+              - Item: Matk2
+                Chance: 3847
+              - Item: MHP1
+                Chance: 3846
+              - Item: MHP2
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus1
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus2
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus3
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus4
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus6
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus7
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus8
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus9
+                Chance: 3846
+              - Item: Hiclass_Perfect_Dodge_Plus10
+                Chance: 3846
+              - Item: aegis_312446
+                Chance: 3846
+              - Item: Hiclass_Water_Element_Weapon
+                Chance: 3846
+              - Item: Hiclass_Earth_Element_Weapon
+                Chance: 3846
+              - Item: Hiclass_Fire_Element_Weapon
+                Chance: 3846
+              - Item: Hiclass_Wind_Element_Weapon
+                Chance: 3846
+              - Item: Hiclass_Poison_Element_Weapon
+                Chance: 3846
+              - Item: Hiclass_Holy_Element_Weapon
+                Chance: 3846
+              - Item: Hiclass_Dark_Element_Weapon
+                Chance: 3846
+              - Item: Hiclass_Ghost_Element_Weapon
+                Chance: 3846
+              - Item: Hiclass_Undead_Element_Weapon
+                Chance: 3846
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Atk1p
+                Chance: 4348
+              - Item: Atk2
+                Chance: 4348
+              - Item: Matk1
+                Chance: 4348
+              - Item: Matk2
+                Chance: 4348
+              - Item: MHP1
+                Chance: 4348
+              - Item: MHP2
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus1
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus2
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus3
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus4
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus6
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus7
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus8
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus9
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus10
+                Chance: 4348
+              - Item: PlayerTolerance1
+                Chance: 4348
+              - Item: PlayerTolerance2
+                Chance: 4348
+              - Item: PlayerTolerance3
+                Chance: 4348
+              - Item: PlayerTolerance4
+                Chance: 4347
+              - Item: PlayerTolerance5
+                Chance: 4347
+              - Item: PlayerTolerance6
+                Chance: 4347
+              - Item: PlayerTolerance7
+                Chance: 4347
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Atk1p
+                Chance: 4348
+              - Item: Atk2
+                Chance: 4348
+              - Item: Matk1
+                Chance: 4348
+              - Item: Matk2
+                Chance: 4348
+              - Item: MHP1
+                Chance: 4348
+              - Item: MHP2
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus1
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus2
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus3
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus4
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus6
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus7
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus8
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus9
+                Chance: 4348
+              - Item: Hiclass_Perfect_Dodge_Plus10
+                Chance: 4348
+              - Item: Murderous_Grudge
+                Chance: 4348
+              - Item: Bear's_Power
+                Chance: 4348
+              - Item: Runaway_Magic
+                Chance: 4348
+              - Item: Speed_Of_Light
+                Chance: 4347
+              - Item: Muscle_Fool
+                Chance: 4347
+              - Item: Hawkeye
+                Chance: 4347
+              - Item: Lucky_Day
+                Chance: 4347
+  - Id: 1010
+    TargetItems:
+      Adulter_F_T_Sword: true
+      Adulter_F_Lance: true
+      Adulter_F_Rod: true
+      Adulter_F_P_Book: true
+      Adulter_F_Axe: true
+      Adulter_F_Lapier: true
+      Adulter_F_Wand: true
+      Adulter_F_Knuckle: true
+      Adulter_F_Katar: true
+      Adulter_F_Dagger: true
+      Adulter_F_A_Bow: true
+      Adulter_F_Harp: true
+      Adulter_F_C_Rope: true
+      Adulter_F_Star_B: true
+      Adulter_F_D_Wand: true
+      Adulter_F_C_Humma: true
+      Adulter_F_Revolver: true
+      Adulter_F_G_Sword: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Atk2
+                Chance: 4546
+              - Item: Atk3
+                Chance: 4546
+              - Item: Matk2
+                Chance: 4546
+              - Item: Matk3
+                Chance: 4546
+              - Item: MHP2
+                Chance: 4546
+              - Item: MHP3
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus6
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus7
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus8
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus9
+                Chance: 4545
+              - Item: Hiclass_Perfect_Dodge_Plus10
+                Chance: 4545
+              - Item: aegis_312446
+                Chance: 4545
+              - Item: Hiclass_Water_Element_Weapon
+                Chance: 4545
+              - Item: Hiclass_Earth_Element_Weapon
+                Chance: 4545
+              - Item: Hiclass_Fire_Element_Weapon
+                Chance: 4545
+              - Item: Hiclass_Wind_Element_Weapon
+                Chance: 4545
+              - Item: Hiclass_Poison_Element_Weapon
+                Chance: 4545
+              - Item: Hiclass_Holy_Element_Weapon
+                Chance: 4545
+              - Item: Hiclass_Dark_Element_Weapon
+                Chance: 4545
+              - Item: Hiclass_Ghost_Element_Weapon
+                Chance: 4545
+              - Item: Hiclass_Undead_Element_Weapon
+                Chance: 4545
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Atk2
+                Chance: 5556
+              - Item: Atk3
+                Chance: 5556
+              - Item: Matk2
+                Chance: 5556
+              - Item: Matk3
+                Chance: 5556
+              - Item: MHP2
+                Chance: 5556
+              - Item: MHP3
+                Chance: 5556
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 5556
+              - Item: Hiclass_Perfect_Dodge_Plus6
+                Chance: 5556
+              - Item: Hiclass_Perfect_Dodge_Plus7
+                Chance: 5556
+              - Item: Hiclass_Perfect_Dodge_Plus8
+                Chance: 5556
+              - Item: Hiclass_Perfect_Dodge_Plus9
+                Chance: 5555
+              - Item: Hiclass_Perfect_Dodge_Plus10
+                Chance: 5555
+              - Item: PlayerTolerance3
+                Chance: 5555
+              - Item: PlayerTolerance4
+                Chance: 5555
+              - Item: PlayerTolerance5
+                Chance: 5555
+              - Item: PlayerTolerance6
+                Chance: 5555
+              - Item: PlayerTolerance7
+                Chance: 5555
+              - Item: Murderous_Grudge
+                Chance: 5555
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Atk2
+                Chance: 4546
+              - Item: Atk3
+                Chance: 4546
+              - Item: Matk2
+                Chance: 4546
+              - Item: Matk3
+                Chance: 4546
+              - Item: MHP2
+                Chance: 4546
+              - Item: MHP3
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus5
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus6
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus7
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus8
+                Chance: 4546
+              - Item: Hiclass_Perfect_Dodge_Plus9
+                Chance: 4545
+              - Item: Hiclass_Perfect_Dodge_Plus10
+                Chance: 4545
+              - Item: Murderous_Grudge
+                Chance: 4545
+              - Item: Hero
+                Chance: 4545
+              - Item: Release_Of_Magic
+                Chance: 4545
+              - Item: Dynast
+                Chance: 4545
+              - Item: Bear's_Power
+                Chance: 4545
+              - Item: Runaway_Magic
+                Chance: 4545
+              - Item: Speed_Of_Light
+                Chance: 4545
+              - Item: Muscle_Fool
+                Chance: 4545
+              - Item: Hawkeye
+                Chance: 4545
+              - Item: Lucky_Day
+                Chance: 4545
+  - Id: 1011
+    TargetItems:
+      Sinister_Twohand_Sword: true
+      Sinister_Lance: true
+      Sinister_Rod: true
+      Sinister_Book: true
+      Sinister_Twohand_Axe: true
+      Sinister_Saber: true
+      Sinister_Mace: true
+      Sinister_Fist: true
+      Sinister_Katar: true
+      Sinister_Dagger: true
+      Sinister_Bow: true
+      Sinister_Viollin: true
+      Sinister_Wire: true
+      Sinister_Book_PR105: true
+      Sinister_Staff: true
+      Sinister_Huuma: true
+      Sinister_Revolver: true
+      Sinister_Saber_J: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Atk5p
+                Chance: 6667
+              - Item: Matk5p
+                Chance: 6667
+              - Item: MHP5
+                Chance: 6667
+              - Item: Hiclass_Perfect_Dodge_Plus9
+                Chance: 6667
+              - Item: Hiclass_Perfect_Dodge_Plus10
+                Chance: 6667
+              - Item: aegis_312446
+                Chance: 6667
+              - Item: Hiclass_Water_Element_Weapon
+                Chance: 6667
+              - Item: Hiclass_Earth_Element_Weapon
+                Chance: 6667
+              - Item: Hiclass_Fire_Element_Weapon
+                Chance: 6667
+              - Item: Hiclass_Wind_Element_Weapon
+                Chance: 6667
+              - Item: Hiclass_Poison_Element_Weapon
+                Chance: 6666
+              - Item: Hiclass_Holy_Element_Weapon
+                Chance: 6666
+              - Item: Hiclass_Dark_Element_Weapon
+                Chance: 6666
+              - Item: Hiclass_Ghost_Element_Weapon
+                Chance: 6666
+              - Item: Hiclass_Undead_Element_Weapon
+                Chance: 6666
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Atk5p
+                Chance: 12500
+              - Item: Matk5p
+                Chance: 12500
+              - Item: MHP5
+                Chance: 12500
+              - Item: Hiclass_Perfect_Dodge_Plus9
+                Chance: 12500
+              - Item: Hiclass_Perfect_Dodge_Plus10
+                Chance: 12500
+              - Item: PlayerTolerance6
+                Chance: 12500
+              - Item: PlayerTolerance7
+                Chance: 12500
+              - Item: Murderous_Grudge
+                Chance: 12500
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Atk5p
+                Chance: 5883
+              - Item: Matk5p
+                Chance: 5883
+              - Item: MHP5
+                Chance: 5883
+              - Item: Hiclass_Perfect_Dodge_Plus9
+                Chance: 5883
+              - Item: Hiclass_Perfect_Dodge_Plus10
+                Chance: 5883
+              - Item: PlayerTolerance6
+                Chance: 5883
+              - Item: PlayerTolerance7
+                Chance: 5882
+              - Item: Murderous_Grudge
+                Chance: 5882
+              - Item: Hero
+                Chance: 5882
+              - Item: Release_Of_Magic
+                Chance: 5882
+              - Item: Dynast
+                Chance: 5882
+              - Item: Bear's_Power
+                Chance: 5882
+              - Item: Runaway_Magic
+                Chance: 5882
+              - Item: Speed_Of_Light
+                Chance: 5882
+              - Item: Muscle_Fool
+                Chance: 5882
+              - Item: Hawkeye
+                Chance: 5882
+              - Item: Lucky_Day
+                Chance: 5882
+        PerfectEnchants:
+          - Item: PlayerTolerance7
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Murderous_Grudge
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Hero
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Release_Of_Magic
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Dynast
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Bear's_Power
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Runaway_Magic
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Speed_Of_Light
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Muscle_Fool
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Hawkeye
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Lucky_Day
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+  - Id: 1012
+    TargetItems:
+      Rare_Melee_Necklace: true
+      Rare_Ranged_Necklace: true
+      Rare_Magic_Necklace: true
+      Rare_Defense_Necklace: true
+      Rare_Melee_Ring: true
+      Rare_Ranged_Ring: true
+      Rare_Magic_Ring: true
+      Rare_Defense_Ring: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 3704
+              - Item: Strength2
+                Chance: 3704
+              - Item: Strength3
+                Chance: 3704
+              - Item: Inteligence1
+                Chance: 3704
+              - Item: Inteligence2
+                Chance: 3704
+              - Item: Inteligence3
+                Chance: 3704
+              - Item: Dexterity1
+                Chance: 3704
+              - Item: Dexterity2
+                Chance: 3704
+              - Item: Dexterity3
+                Chance: 3704
+              - Item: Agility1
+                Chance: 3704
+              - Item: Agility2
+                Chance: 3704
+              - Item: Agility3
+                Chance: 3704
+              - Item: Vitality1
+                Chance: 3704
+              - Item: Vitality2
+                Chance: 3704
+              - Item: Vitality3
+                Chance: 3704
+              - Item: Luck1
+                Chance: 3704
+              - Item: Luck2
+                Chance: 3704
+              - Item: Luck3
+                Chance: 3704
+              - Item: Attack_Delay_1
+                Chance: 3704
+              - Item: Attack_Delay_2
+                Chance: 3703
+              - Item: Attack_Delay_3
+                Chance: 3703
+              - Item: Skill_Delay1
+                Chance: 3703
+              - Item: Skill_Delay2
+                Chance: 3703
+              - Item: Skill_Delay3
+                Chance: 3703
+              - Item: Spell1
+                Chance: 3703
+              - Item: Spell2
+                Chance: 3703
+              - Item: Spell3
+                Chance: 3703
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 4762
+              - Item: Strength2
+                Chance: 4762
+              - Item: Strength3
+                Chance: 4762
+              - Item: Inteligence1
+                Chance: 4762
+              - Item: Inteligence2
+                Chance: 4762
+              - Item: Inteligence3
+                Chance: 4762
+              - Item: Dexterity1
+                Chance: 4762
+              - Item: Dexterity2
+                Chance: 4762
+              - Item: Dexterity3
+                Chance: 4762
+              - Item: Agility1
+                Chance: 4762
+              - Item: Agility2
+                Chance: 4762
+              - Item: Agility3
+                Chance: 4762
+              - Item: Vitality1
+                Chance: 4762
+              - Item: Vitality2
+                Chance: 4762
+              - Item: Vitality3
+                Chance: 4762
+              - Item: Luck1
+                Chance: 4762
+              - Item: Luck2
+                Chance: 4762
+              - Item: Luck3
+                Chance: 4762
+              - Item: PlayerTolerance1
+                Chance: 4762
+              - Item: PlayerTolerance2
+                Chance: 4761
+              - Item: PlayerTolerance3
+                Chance: 4761
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength1
+                Chance: 4348
+              - Item: Strength2
+                Chance: 4348
+              - Item: Strength3
+                Chance: 4348
+              - Item: Inteligence1
+                Chance: 4348
+              - Item: Inteligence2
+                Chance: 4348
+              - Item: Inteligence3
+                Chance: 4348
+              - Item: Dexterity1
+                Chance: 4348
+              - Item: Dexterity2
+                Chance: 4348
+              - Item: Dexterity3
+                Chance: 4348
+              - Item: Agility1
+                Chance: 4348
+              - Item: Agility2
+                Chance: 4348
+              - Item: Agility3
+                Chance: 4348
+              - Item: Vitality1
+                Chance: 4348
+              - Item: Vitality2
+                Chance: 4348
+              - Item: Vitality3
+                Chance: 4348
+              - Item: Luck1
+                Chance: 4348
+              - Item: Luck2
+                Chance: 4348
+              - Item: Luck3
+                Chance: 4348
+              - Item: Tolerance_Not1
+                Chance: 4348
+              - Item: Tolerance_Not2
+                Chance: 4347
+              - Item: Tolerance_Not3
+                Chance: 4347
+              - Item: HPdrain1
+                Chance: 4347
+              - Item: SPdrain1
+                Chance: 4347
+  - Id: 1013
+    TargetItems:
+      Epic_Melee_Necklace: true
+      Epic_Ranged_Necklace: true
+      Epic_Magic_Necklace: true
+      Epic_Defense_Necklace: true
+      Epic_Melee_Ring: true
+      Epic_Ranged_Ring: true
+      Epic_Magic_Ring: true
+      Epic_Defense_Ring: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength2
+                Chance: 4546
+              - Item: Strength3
+                Chance: 4546
+              - Item: Inteligence2
+                Chance: 4546
+              - Item: Inteligence3
+                Chance: 4546
+              - Item: Dexterity2
+                Chance: 4546
+              - Item: Dexterity3
+                Chance: 4546
+              - Item: Agility2
+                Chance: 4546
+              - Item: Agility3
+                Chance: 4546
+              - Item: Vitality2
+                Chance: 4546
+              - Item: Vitality3
+                Chance: 4546
+              - Item: Luck2
+                Chance: 4545
+              - Item: Luck3
+                Chance: 4545
+              - Item: Attack_Delay_2
+                Chance: 4545
+              - Item: Attack_Delay_3
+                Chance: 4545
+              - Item: Attack_Delay_4
+                Chance: 4545
+              - Item: Skill_Delay1
+                Chance: 4545
+              - Item: Skill_Delay2
+                Chance: 4545
+              - Item: Skill_Delay3
+                Chance: 4545
+              - Item: Hiclass_Skill_Delay_8Pct
+                Chance: 4545
+              - Item: Spell2
+                Chance: 4545
+              - Item: Spell3
+                Chance: 4545
+              - Item: Spell4
+                Chance: 4545
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength2
+                Chance: 7143
+              - Item: Strength3
+                Chance: 7143
+              - Item: Inteligence2
+                Chance: 7143
+              - Item: Inteligence3
+                Chance: 7143
+              - Item: Dexterity2
+                Chance: 7143
+              - Item: Dexterity3
+                Chance: 7143
+              - Item: Agility2
+                Chance: 7143
+              - Item: Agility3
+                Chance: 7143
+              - Item: Vitality2
+                Chance: 7143
+              - Item: Vitality3
+                Chance: 7143
+              - Item: Luck2
+                Chance: 7143
+              - Item: Luck3
+                Chance: 7143
+              - Item: PlayerTolerance2
+                Chance: 7142
+              - Item: PlayerTolerance3
+                Chance: 7142
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength2
+                Chance: 4762
+              - Item: Strength3
+                Chance: 4762
+              - Item: Inteligence2
+                Chance: 4762
+              - Item: Inteligence3
+                Chance: 4762
+              - Item: Dexterity2
+                Chance: 4762
+              - Item: Dexterity3
+                Chance: 4762
+              - Item: Agility2
+                Chance: 4762
+              - Item: Agility3
+                Chance: 4762
+              - Item: Vitality2
+                Chance: 4762
+              - Item: Vitality3
+                Chance: 4762
+              - Item: Luck2
+                Chance: 4762
+              - Item: Luck3
+                Chance: 4762
+              - Item: Tolerance_Not2
+                Chance: 4762
+              - Item: Tolerance_Not3
+                Chance: 4762
+              - Item: HPdrain1
+                Chance: 4762
+              - Item: SPdrain1
+                Chance: 4762
+              - Item: Reactor_A_STR
+                Chance: 4762
+              - Item: Reactor_A_INT
+                Chance: 4762
+              - Item: Reactor_A_DEF
+                Chance: 4762
+              - Item: aegis_312421
+                Chance: 4761
+              - Item: Immuned1
+                Chance: 4761
+  - Id: 1014
+    TargetItems:
+      Legend_Melee_Necklace: true
+      Legend_Ranged_Necklace: true
+      Legend_Magic_Necklace: true
+      Legend_Defense_Necklace: true
+      Legend_Melee_Ring: true
+      Legend_Ranged_Ring: true
+      Legend_Magic_Ring: true
+      Legend_Defense_Ring: true
+    Reset:
+      Chance: 100000
+      Price: 100000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 11112
+              - Item: Inteligence3
+                Chance: 11111
+              - Item: Dexterity3
+                Chance: 11111
+              - Item: Agility3
+                Chance: 11111
+              - Item: Vitality3
+                Chance: 11111
+              - Item: Luck3
+                Chance: 11111
+              - Item: Attack_Delay_4
+                Chance: 11111
+              - Item: Hiclass_Skill_Delay_15Pct
+                Chance: 11111
+              - Item: Spell5
+                Chance: 11111
+      - Slot: 2
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 14286
+              - Item: Inteligence3
+                Chance: 14286
+              - Item: Dexterity3
+                Chance: 14286
+              - Item: Agility3
+                Chance: 14286
+              - Item: Vitality3
+                Chance: 14286
+              - Item: Luck3
+                Chance: 14285
+              - Item: PlayerTolerance3
+                Chance: 14285
+      - Slot: 1
+        Price: 0
+        Materials:
+          - Material: Hiclass_Option_Ticket
+            Amount: 1
+          - Material: Meteorite_Fragment
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: Strength3
+                Chance: 7693
+              - Item: Inteligence3
+                Chance: 7693
+              - Item: Dexterity3
+                Chance: 7693
+              - Item: Agility3
+                Chance: 7693
+              - Item: Vitality3
+                Chance: 7692
+              - Item: Luck3
+                Chance: 7692
+              - Item: HPdrain1
+                Chance: 7692
+              - Item: SPdrain1
+                Chance: 7692
+              - Item: Reactor_A_STR
+                Chance: 7692
+              - Item: Reactor_A_INT
+                Chance: 7692
+              - Item: Reactor_A_DEF
+                Chance: 7692
+              - Item: aegis_312421
+                Chance: 7692
+              - Item: Immuned1
+                Chance: 7692
+        PerfectEnchants:
+          - Item: HPdrain1
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: SPdrain1
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Reactor_A_STR
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Reactor_A_INT
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Reactor_A_DEF
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: aegis_312421
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
+          - Item: Immuned1
+            Price: 0
+            Materials:
+              - Material: Hiclass_Legend_Option_Ticket
+                Amount: 1
+              - Material: Meteorite_Fragment
+                Amount: 1000
