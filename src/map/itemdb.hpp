@@ -2831,6 +2831,11 @@ enum e_random_item_group {
 	IG_ACC_STONE_COMBINATION_RARE_REWARD,
 	IG_ACC_STONE_COMBINATION_EPIC_REWARD,
 
+	// Custom: MVP Treasure box loot pools (SubGroup 1 = Tier-A, SubGroup 2 = Tier-S)
+	IG_MVP_TREASURE_BLUE,
+	IG_MVP_TREASURE_RED,
+	IG_MVP_TREASURE_PURPLE,
+
 	IG_MAX,
 };
 

@@ -8086,6 +8086,9 @@
 	export_constant(IG_ARMOR_STONE_COMBINATION_EPIC_REWARD);
 	export_constant(IG_ACC_STONE_COMBINATION_RARE_REWARD);
 	export_constant(IG_ACC_STONE_COMBINATION_EPIC_REWARD);
+	export_constant(IG_MVP_TREASURE_BLUE);
+	export_constant(IG_MVP_TREASURE_RED);
+	export_constant(IG_MVP_TREASURE_PURPLE);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);

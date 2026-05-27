@@ -1,0 +1,154 @@
+//===== Custom NPC: MVP Treasure ============================================
+//= Source: Google Sheet gid=1934403543 rows 49-139
+//= When a listed MVP boss dies, clickable treasure chests spawn at the death
+//= spot. The player clicks a chest, a per-color "open" bar runs, and on
+//= completion the chest yields ONE weighted-random reward and is removed.
+//=
+//= Box counts per kill (independent per-color rolls, total capped at 10):
+//=   Blue   : 100%       -> rand(2,6)   open 10s
+//=   Red    : 10%        -> rand(1,4)   open 20s
+//=   Purple : 1%         -> rand(1,3)   open 30s
+//=
+//= Rewards come from item_group_db (db/pre-re/item_group_db.yml):
+//=   IG_MVP_TREASURE_BLUE / _RED / _PURPLE
+//=   SubGroup 1 = Tier-A (A3-A39), SubGroup 2 = Tier-S (A40-A44, adds stones).
+//=   Blue is identical for both tiers, so it always uses SubGroup 1.
+//=   One item is pulled per open via groupranditem() (Rate = weight per group).
+//=
+//= Implementation notes:
+//=  - Chests are runtime duplicates (duplicate()) with a treasure-chest sprite.
+//=    Color/tier are encoded in the hidden part of the NPC name "<disp>#C_T_ID".
+//=  - Moving during the open cancels progressbar -> the script ends BEFORE the
+//=    reward block, so the chest is NOT consumed (player can retry).
+//=  - A per-chest temp flag $@mtbo_<id> guards against double-loot if two
+//=    players open the same chest at once (script engine is single-threaded).
+//=  - Unopened chests auto-despawn after .despawn seconds via their own timer.
+//=  - LIMITATION: opened/expired chests are disablenpc'd (hidden), not fully
+//=    unloaded (rAthena has no delnpc script cmd); cleared on @reloadscript /
+//=    server restart. The UID ring (1..100000) bounds the temp-var/name space.
+//===========================================================================
+
+-	script	MvpTreasure	FAKE_NPC,{
+	end;
+
+OnInit:
+	// --- Tier-A bosses (A4-A39): standard loot tables ---
+	// NOTE: sheet's "Giant Eggring" (A3) has no pre-re mob entry; add its id here if created.
+	setarray .tierA[0],
+		1087,1147,1190,1115,1086,1038,1511,1159,1389,1046,	// OrcHero,Maya,OrcLord,Eddga,GTB,Osiris,AmonRa,Phreeoni,Dracula,Doppel
+		1059,1150,1688,1039,1157,1112,1251,2068,1373,1272,	// Mistress,Moonlight,LadyTanee,Baphomet,Pharaoh,Drake,StormyKnight,Boitata,LoD,DarkLord
+		1885,1630,1252,1779,1708,1623,1492,1418,1583,1312,	// Gopinich,WhiteLady,Hatii,Ktullanux,Thanatos,RSX,SamuraiSpecter,EvilSnakeLord,TaoGunka,TurtleGen
+		1785,1734,1685,1719,1871,1768;						// Atroce,KielD-01,Vesper,Detardeurus,FallingBishop,Gloom
+	// --- Tier-S bosses (A40-A44): high-tier loot (adds Rare/Epic stones) ---
+	setarray .tierS[0],
+		2022,1751,1832,1873,1917;							// S Nydhog,Valkyrie Randgris,Ifrit,Beelzebub,Wounded Morocc
+
+	.chest_sprite = 1324;	// Treasure Chest sprite
+	.spawn_radius = 3;		// random scatter (cells) around the death spot
+	.despawn      = 120;	// seconds before an unopened chest disappears
+	end;
+
+OnNPCKillEvent:
+	// which tier is the killed mob?
+	.@tier = 0;
+	if (inarray(.tierA, killedrid) >= 0) .@tier = 1;
+	else if (inarray(.tierS, killedrid) >= 0) .@tier = 2;
+	if (!.@tier) end;
+
+	// death spot ~ killer's location
+	if (getmapxy(.@m$, .@x, .@y, BL_PC) != 0) end;
+
+	// independent per-color box counts, capped at 10 total (trim Blue first)
+	.@blue   = rand(2,6);							// 100%
+	.@red    = (rand(100) < 10) ? rand(1,4) : 0;	// 10%
+	.@purple = (rand(100) < 1)  ? rand(1,3) : 0;	// 1%
+	.@cap = 10 - .@purple - .@red;
+	if (.@cap < 0) .@cap = 0;
+	if (.@blue > .@cap) .@blue = .@cap;
+
+	callsub OnSpawn, .@m$, .@x, .@y, "P", .@tier, .@purple;
+	callsub OnSpawn, .@m$, .@x, .@y, "R", .@tier, .@red;
+	callsub OnSpawn, .@m$, .@x, .@y, "B", .@tier, .@blue;
+	end;
+
+// callsub OnSpawn, <map$>, <x>, <y>, <color$>, <tier>, <count>
+OnSpawn:
+	.@m$   = getarg(0);
+	.@x    = getarg(1);
+	.@y    = getarg(2);
+	.@col$ = getarg(3);
+	.@tier = getarg(4);
+	.@cnt  = getarg(5);
+	if (.@cnt <= 0) return;
+
+	if (.@col$ == "R")      .@disp$ = "กล่องสมบัติแดง";
+	else if (.@col$ == "P") .@disp$ = "กล่องสมบัติม่วง";
+	else                    .@disp$ = "กล่องสมบัติฟ้า";
+
+	for (.@k = 0; .@k < .@cnt; .@k++) {
+		// rolling unique id (ring 1..100000)
+		$MTB_UID++;
+		if ($MTB_UID > 100000 || $MTB_UID < 1) $MTB_UID = 1;
+		.@id = $MTB_UID;
+		setd "$@mtbo_"+.@id, 0;	// clear claim flag for the reused id
+
+		.@sx = .@x + rand(-.spawn_radius, .spawn_radius);
+		.@sy = .@y + rand(-.spawn_radius, .spawn_radius);
+		if (.@sx < 0) .@sx = 0;	// avoid out-of-bounds near map edge
+		if (.@sy < 0) .@sy = 0;
+		.@name$ = .@disp$ + "#" + .@col$ + "_" + .@tier + "_" + .@id;
+		.@ex$ = duplicate("MvpTreasureChest", .@m$, .@sx, .@sy, .@name$, .chest_sprite);
+		if (.@ex$ != "") donpcevent .@ex$ + "::OnArm";
+	}
+	return;
+}
+
+//=== Treasure chest template (clicked duplicates run this body) =============
+-	script	MvpTreasureChest	FAKE_NPC,{
+	// hidden name = "<color>_<tier>_<id>"
+	explode(.@p$, strnpcinfo(2), "_");
+	.@col$ = .@p$[0];
+	.@tier = atoi(.@p$[1]);
+	.@id   = .@p$[2];
+
+	// already opened?
+	if (getd("$@mtbo_"+.@id)) { disablenpc strnpcinfo(3); end; }
+
+	// open time + bar color by box color
+	.@sec = 10; .@bar$ = "0x33B5FF";						// Blue
+	if (.@col$ == "R")      { .@sec = 20; .@bar$ = "0xFF3333"; }	// Red
+	else if (.@col$ == "P") { .@sec = 30; .@bar$ = "0xCC33FF"; }	// Purple
+
+	progressbar .@bar$, .@sec;	// moving -> script ENDs here, chest is kept
+
+	// --- reached only on a completed open ---
+	if (getd("$@mtbo_"+.@id)) end;	// someone else finished first
+	setd "$@mtbo_"+.@id, 1;	// claim
+	stopnpctimer;
+
+	// pull one weighted reward from item_group_db; SubGroup = tier (Blue shares SubGroup 1)
+	.@grp = IG_MVP_TREASURE_BLUE;
+	if (.@col$ == "R")      .@grp = IG_MVP_TREASURE_RED;
+	else if (.@col$ == "P") .@grp = IG_MVP_TREASURE_PURPLE;
+	.@sub = .@tier;
+	if (.@col$ == "B") .@sub = 1;
+	.@reward = groupranditem(.@grp, .@sub);
+	getitem .@reward, 1;
+
+	// announce rare pulls (Epic items / equipment stones)
+	setarray .@rare[0], 1001686,1001689,1001692,1000419,1000423,1000426,1000422,1000425,1000428;
+	if (inarray(.@rare, .@reward) >= 0)
+		announce "[MVP Treasure] "+strcharinfo(0)+" ได้รับ "+getitemname(.@reward)+" !", bc_all;
+
+	disablenpc strnpcinfo(3);
+	end;
+
+OnArm:
+	initnpctimer;
+	end;
+
+OnTimer120000:
+	stopnpctimer;
+	disablenpc strnpcinfo(3);
+	end;
+}

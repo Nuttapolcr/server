@@ -10543,3 +10543,203 @@ Body:
           - Index: 7
             Item: Frilldora_Card_NT
             Rate: 1
+# === Custom: MVP Treasure box loot pools (SubGroup 1 = Tier-A, SubGroup 2 = Tier-S) ===
+  - Group: MVP_TREASURE_BLUE
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Meteorite_Fragment
+            Rate: 3600
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 3300
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT
+            Rate: 500
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT
+            Rate: 500
+          - Index: 4
+            Item: Yggdrasilberry
+            Rate: 1000
+          - Index: 5
+            Item: Seed_Of_Yggdrasil
+            Rate: 1000
+          - Index: 6
+            Item: F_Enriched_Oridecon
+            Rate: 50
+          - Index: 7
+            Item: F_Enriched_Elunium
+            Rate: 50
+  - Group: MVP_TREASURE_RED
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Meteorite_Fragment
+            Rate: 2600
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 1200
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT
+            Rate: 3300
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT
+            Rate: 800
+          - Index: 4
+            Item: Pow_Meteorite_Dust_NT
+            Rate: 100
+          - Index: 5
+            Item: Barmund_Flame_Essence_NT
+            Rate: 100
+          - Index: 6
+            Item: Pow_Meteorite_Fragment_NT
+            Rate: 100
+          - Index: 7
+            Item: Yggdrasilberry
+            Rate: 800
+          - Index: 8
+            Item: Seed_Of_Yggdrasil
+            Rate: 800
+          - Index: 9
+            Item: F_Enriched_Oridecon
+            Rate: 100
+          - Index: 10
+            Item: F_Enriched_Elunium
+            Rate: 100
+      - SubGroup: 2
+        List:
+          - Index: 0
+            Item: Meteorite_Fragment
+            Rate: 2525
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 1200
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT
+            Rate: 3300
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT
+            Rate: 800
+          - Index: 4
+            Item: Pow_Meteorite_Dust_NT
+            Rate: 100
+          - Index: 5
+            Item: Barmund_Flame_Essence_NT
+            Rate: 100
+          - Index: 6
+            Item: Pow_Meteorite_Fragment_NT
+            Rate: 100
+          - Index: 7
+            Item: Weapon_Ore_1
+            Rate: 25
+          - Index: 8
+            Item: Armor_Ore_1
+            Rate: 25
+          - Index: 9
+            Item: Acc_Ore_1
+            Rate: 25
+          - Index: 10
+            Item: Yggdrasilberry
+            Rate: 800
+          - Index: 11
+            Item: Seed_Of_Yggdrasil
+            Rate: 800
+          - Index: 12
+            Item: F_Enriched_Oridecon
+            Rate: 100
+          - Index: 13
+            Item: F_Enriched_Elunium
+            Rate: 100
+  - Group: MVP_TREASURE_PURPLE
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Meteorite_Fragment
+            Rate: 1600
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 800
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT
+            Rate: 1600
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT
+            Rate: 3300
+          - Index: 4
+            Item: Pow_Meteorite_Dust_NT
+            Rate: 300
+          - Index: 5
+            Item: Barmund_Flame_Essence_NT
+            Rate: 300
+          - Index: 6
+            Item: Pow_Meteorite_Fragment_NT
+            Rate: 300
+          - Index: 7
+            Item: Yggdrasilberry
+            Rate: 600
+          - Index: 8
+            Item: Seed_Of_Yggdrasil
+            Rate: 600
+          - Index: 9
+            Item: F_Enriched_Oridecon
+            Rate: 300
+          - Index: 10
+            Item: F_Enriched_Elunium
+            Rate: 300
+      - SubGroup: 2
+        List:
+          - Index: 0
+            Item: Meteorite_Fragment
+            Rate: 1494
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 800
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT
+            Rate: 1600
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT
+            Rate: 3300
+          - Index: 4
+            Item: Pow_Meteorite_Dust_NT
+            Rate: 300
+          - Index: 5
+            Item: Barmund_Flame_Essence_NT
+            Rate: 300
+          - Index: 6
+            Item: Pow_Meteorite_Fragment_NT
+            Rate: 300
+          - Index: 7
+            Item: Weapon_Ore_1
+            Rate: 100
+          - Index: 8
+            Item: Armor_Ore_1
+            Rate: 100
+          - Index: 9
+            Item: Acc_Ore_1
+            Rate: 100
+          - Index: 10
+            Item: Weapon_Ore_4
+            Rate: 2
+          - Index: 11
+            Item: Armor_Ore_4
+            Rate: 2
+          - Index: 12
+            Item: Acc_Ore_3
+            Rate: 2
+          - Index: 13
+            Item: Yggdrasilberry
+            Rate: 500
+          - Index: 14
+            Item: Seed_Of_Yggdrasil
+            Rate: 500
+          - Index: 15
+            Item: F_Enriched_Oridecon
+            Rate: 300
+          - Index: 16
+            Item: F_Enriched_Elunium
+            Rate: 300
