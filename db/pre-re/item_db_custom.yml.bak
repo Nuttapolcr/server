@@ -25770,3 +25770,555 @@ Body:
     AegisName: Pegasus_V_Egg
     Name: "[Legendaly] Pegasus V  Egg"
     Type: PetEgg
+  - Id: 490487
+    AegisName: Rare_Melee_Necklace
+    Name: "[Rare] Melee Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 0
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,1;
+      bonus bShortAtkRate,5;
+      bonus2 bResEff,Eff_Stun,500;
+      bonus2 bResEff,Eff_Freeze,500;
+      bonus2 bResEff,Eff_Stone,500;
+      bonus2 bResEff,Eff_Sleep,500;
+      bonus2 bResEff,Eff_Curse,500;
+      bonus2 bResEff,Eff_Silence,500;
+      bonus2 bResEff,Eff_Confusion,500;
+      bonus2 bResEff,Eff_Blind,500;
+      bonus2 bResEff,Eff_Poison,500;
+      bonus2 bResEff,Eff_Bleeding,500;
+  - Id: 490488
+    AegisName: Rare_Ranged_Necklace
+    Name: "[Rare] Ranged Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 0
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,1;
+      bonus bLongAtkRate,5;
+      bonus2 bResEff,Eff_Stun,500;
+      bonus2 bResEff,Eff_Freeze,500;
+      bonus2 bResEff,Eff_Stone,500;
+      bonus2 bResEff,Eff_Sleep,500;
+      bonus2 bResEff,Eff_Curse,500;
+      bonus2 bResEff,Eff_Silence,500;
+      bonus2 bResEff,Eff_Confusion,500;
+      bonus2 bResEff,Eff_Blind,500;
+      bonus2 bResEff,Eff_Poison,500;
+      bonus2 bResEff,Eff_Bleeding,500;
+  - Id: 490489
+    AegisName: Rare_Magic_Necklace
+    Name: "[Rare] Magic Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 0
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,1;
+      bonus bMatkRate,5;
+      bonus2 bResEff,Eff_Stun,500;
+      bonus2 bResEff,Eff_Freeze,500;
+      bonus2 bResEff,Eff_Stone,500;
+      bonus2 bResEff,Eff_Sleep,500;
+      bonus2 bResEff,Eff_Curse,500;
+      bonus2 bResEff,Eff_Silence,500;
+      bonus2 bResEff,Eff_Confusion,500;
+      bonus2 bResEff,Eff_Blind,500;
+      bonus2 bResEff,Eff_Poison,500;
+      bonus2 bResEff,Eff_Bleeding,500;
+  - Id: 490490
+    AegisName: Rare_Defense_Necklace
+    Name: "[Rare] Defense Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 0
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,1;
+      bonus bMaxHPrate,5;
+      bonus2 bResEff,Eff_Stun,500;
+      bonus2 bResEff,Eff_Freeze,500;
+      bonus2 bResEff,Eff_Stone,500;
+      bonus2 bResEff,Eff_Sleep,500;
+      bonus2 bResEff,Eff_Curse,500;
+      bonus2 bResEff,Eff_Silence,500;
+      bonus2 bResEff,Eff_Confusion,500;
+      bonus2 bResEff,Eff_Blind,500;
+      bonus2 bResEff,Eff_Poison,500;
+      bonus2 bResEff,Eff_Bleeding,500;
+  - Id: 490491
+    AegisName: Epic_Melee_Necklace
+    Name: "[Epic] Melee Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,2;
+      bonus bShortAtkRate,8;
+      bonus2 bResEff,Eff_Stun,1000;
+      bonus2 bResEff,Eff_Freeze,1000;
+      bonus2 bResEff,Eff_Stone,1000;
+      bonus2 bResEff,Eff_Sleep,1000;
+      bonus2 bResEff,Eff_Curse,1000;
+      bonus2 bResEff,Eff_Silence,1000;
+      bonus2 bResEff,Eff_Confusion,1000;
+      bonus2 bResEff,Eff_Blind,1000;
+      bonus2 bResEff,Eff_Poison,1000;
+      bonus2 bResEff,Eff_Bleeding,1000;
+  - Id: 490492
+    AegisName: Epic_Ranged_Necklace
+    Name: "[Epic] Ranged Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,2;
+      bonus bLongAtkRate,8;
+      bonus2 bResEff,Eff_Stun,1000;
+      bonus2 bResEff,Eff_Freeze,1000;
+      bonus2 bResEff,Eff_Stone,1000;
+      bonus2 bResEff,Eff_Sleep,1000;
+      bonus2 bResEff,Eff_Curse,1000;
+      bonus2 bResEff,Eff_Silence,1000;
+      bonus2 bResEff,Eff_Confusion,1000;
+      bonus2 bResEff,Eff_Blind,1000;
+      bonus2 bResEff,Eff_Poison,1000;
+      bonus2 bResEff,Eff_Bleeding,1000;
+  - Id: 490493
+    AegisName: Epic_Magic_Necklace
+    Name: "[Epic] Magic Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMatkRate,8;
+      bonus2 bResEff,Eff_Stun,1000;
+      bonus2 bResEff,Eff_Freeze,1000;
+      bonus2 bResEff,Eff_Stone,1000;
+      bonus2 bResEff,Eff_Sleep,1000;
+      bonus2 bResEff,Eff_Curse,1000;
+      bonus2 bResEff,Eff_Silence,1000;
+      bonus2 bResEff,Eff_Confusion,1000;
+      bonus2 bResEff,Eff_Blind,1000;
+      bonus2 bResEff,Eff_Poison,1000;
+      bonus2 bResEff,Eff_Bleeding,1000;
+  - Id: 490494
+    AegisName: Epic_Defense_Necklace
+    Name: "[Epic] Defense Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHPrate,8;
+      bonus2 bResEff,Eff_Stun,1000;
+      bonus2 bResEff,Eff_Freeze,1000;
+      bonus2 bResEff,Eff_Stone,1000;
+      bonus2 bResEff,Eff_Sleep,1000;
+      bonus2 bResEff,Eff_Curse,1000;
+      bonus2 bResEff,Eff_Silence,1000;
+      bonus2 bResEff,Eff_Confusion,1000;
+      bonus2 bResEff,Eff_Blind,1000;
+      bonus2 bResEff,Eff_Poison,1000;
+      bonus2 bResEff,Eff_Bleeding,1000;
+  - Id: 490495
+    AegisName: Legend_Melee_Necklace
+    Name: "[Legend] Melee Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,3;
+      bonus bShortAtkRate,10;
+      bonus2 bResEff,Eff_Stun,1500;
+      bonus2 bResEff,Eff_Freeze,1500;
+      bonus2 bResEff,Eff_Stone,1500;
+      bonus2 bResEff,Eff_Sleep,1500;
+      bonus2 bResEff,Eff_Curse,1500;
+      bonus2 bResEff,Eff_Silence,1500;
+      bonus2 bResEff,Eff_Confusion,1500;
+      bonus2 bResEff,Eff_Blind,1500;
+      bonus2 bResEff,Eff_Poison,1500;
+      bonus2 bResEff,Eff_Bleeding,1500;
+  - Id: 490496
+    AegisName: Legend_Ranged_Necklace
+    Name: "[Legend] Ranged Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,3;
+      bonus bLongAtkRate,10;
+      bonus2 bResEff,Eff_Stun,1500;
+      bonus2 bResEff,Eff_Freeze,1500;
+      bonus2 bResEff,Eff_Stone,1500;
+      bonus2 bResEff,Eff_Sleep,1500;
+      bonus2 bResEff,Eff_Curse,1500;
+      bonus2 bResEff,Eff_Silence,1500;
+      bonus2 bResEff,Eff_Confusion,1500;
+      bonus2 bResEff,Eff_Blind,1500;
+      bonus2 bResEff,Eff_Poison,1500;
+      bonus2 bResEff,Eff_Bleeding,1500;
+  - Id: 490497
+    AegisName: Legend_Magic_Necklace
+    Name: "[Legend] Magic Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,3;
+      bonus bMatkRate,10;
+      bonus2 bResEff,Eff_Stun,1500;
+      bonus2 bResEff,Eff_Freeze,1500;
+      bonus2 bResEff,Eff_Stone,1500;
+      bonus2 bResEff,Eff_Sleep,1500;
+      bonus2 bResEff,Eff_Curse,1500;
+      bonus2 bResEff,Eff_Silence,1500;
+      bonus2 bResEff,Eff_Confusion,1500;
+      bonus2 bResEff,Eff_Blind,1500;
+      bonus2 bResEff,Eff_Poison,1500;
+      bonus2 bResEff,Eff_Bleeding,1500;
+  - Id: 490498
+    AegisName: Legend_Defense_Necklace
+    Name: "[Legend] Defense Necklace"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,3;
+      bonus bMaxHPrate,10;
+      bonus2 bResEff,Eff_Stun,1500;
+      bonus2 bResEff,Eff_Freeze,1500;
+      bonus2 bResEff,Eff_Stone,1500;
+      bonus2 bResEff,Eff_Sleep,1500;
+      bonus2 bResEff,Eff_Curse,1500;
+      bonus2 bResEff,Eff_Silence,1500;
+      bonus2 bResEff,Eff_Confusion,1500;
+      bonus2 bResEff,Eff_Blind,1500;
+      bonus2 bResEff,Eff_Poison,1500;
+      bonus2 bResEff,Eff_Bleeding,1500;
+  - Id: 490499
+    AegisName: Rare_Melee_Ring
+    Name: "[Rare] Melee Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 0
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,1;
+      bonus bShortAtkRate,5;
+      bonus2 bResEff,Eff_Stun,500;
+      bonus2 bResEff,Eff_Freeze,500;
+      bonus2 bResEff,Eff_Stone,500;
+      bonus2 bResEff,Eff_Sleep,500;
+      bonus2 bResEff,Eff_Curse,500;
+      bonus2 bResEff,Eff_Silence,500;
+      bonus2 bResEff,Eff_Confusion,500;
+      bonus2 bResEff,Eff_Blind,500;
+      bonus2 bResEff,Eff_Poison,500;
+      bonus2 bResEff,Eff_Bleeding,500;
+  - Id: 490500
+    AegisName: Rare_Ranged_Ring
+    Name: "[Rare] Ranged Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 0
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,1;
+      bonus bLongAtkRate,5;
+      bonus2 bResEff,Eff_Stun,500;
+      bonus2 bResEff,Eff_Freeze,500;
+      bonus2 bResEff,Eff_Stone,500;
+      bonus2 bResEff,Eff_Sleep,500;
+      bonus2 bResEff,Eff_Curse,500;
+      bonus2 bResEff,Eff_Silence,500;
+      bonus2 bResEff,Eff_Confusion,500;
+      bonus2 bResEff,Eff_Blind,500;
+      bonus2 bResEff,Eff_Poison,500;
+      bonus2 bResEff,Eff_Bleeding,500;
+  - Id: 490501
+    AegisName: Rare_Magic_Ring
+    Name: "[Rare] Magic Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 0
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,1;
+      bonus bMatkRate,5;
+      bonus2 bResEff,Eff_Stun,500;
+      bonus2 bResEff,Eff_Freeze,500;
+      bonus2 bResEff,Eff_Stone,500;
+      bonus2 bResEff,Eff_Sleep,500;
+      bonus2 bResEff,Eff_Curse,500;
+      bonus2 bResEff,Eff_Silence,500;
+      bonus2 bResEff,Eff_Confusion,500;
+      bonus2 bResEff,Eff_Blind,500;
+      bonus2 bResEff,Eff_Poison,500;
+      bonus2 bResEff,Eff_Bleeding,500;
+  - Id: 490502
+    AegisName: Rare_Defense_Ring
+    Name: "[Rare] Defense Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 0
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,1;
+      bonus bMaxHPrate,5;
+      bonus2 bResEff,Eff_Stun,500;
+      bonus2 bResEff,Eff_Freeze,500;
+      bonus2 bResEff,Eff_Stone,500;
+      bonus2 bResEff,Eff_Sleep,500;
+      bonus2 bResEff,Eff_Curse,500;
+      bonus2 bResEff,Eff_Silence,500;
+      bonus2 bResEff,Eff_Confusion,500;
+      bonus2 bResEff,Eff_Blind,500;
+      bonus2 bResEff,Eff_Poison,500;
+      bonus2 bResEff,Eff_Bleeding,500;
+  - Id: 490503
+    AegisName: Epic_Melee_Ring
+    Name: "[Epic] Melee Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,2;
+      bonus bShortAtkRate,8;
+      bonus2 bResEff,Eff_Stun,1000;
+      bonus2 bResEff,Eff_Freeze,1000;
+      bonus2 bResEff,Eff_Stone,1000;
+      bonus2 bResEff,Eff_Sleep,1000;
+      bonus2 bResEff,Eff_Curse,1000;
+      bonus2 bResEff,Eff_Silence,1000;
+      bonus2 bResEff,Eff_Confusion,1000;
+      bonus2 bResEff,Eff_Blind,1000;
+      bonus2 bResEff,Eff_Poison,1000;
+      bonus2 bResEff,Eff_Bleeding,1000;
+  - Id: 490504
+    AegisName: Epic_Ranged_Ring
+    Name: "[Epic] Ranged Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,2;
+      bonus bLongAtkRate,8;
+      bonus2 bResEff,Eff_Stun,1000;
+      bonus2 bResEff,Eff_Freeze,1000;
+      bonus2 bResEff,Eff_Stone,1000;
+      bonus2 bResEff,Eff_Sleep,1000;
+      bonus2 bResEff,Eff_Curse,1000;
+      bonus2 bResEff,Eff_Silence,1000;
+      bonus2 bResEff,Eff_Confusion,1000;
+      bonus2 bResEff,Eff_Blind,1000;
+      bonus2 bResEff,Eff_Poison,1000;
+      bonus2 bResEff,Eff_Bleeding,1000;
+  - Id: 490505
+    AegisName: Epic_Magic_Ring
+    Name: "[Epic] Magic Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMatkRate,8;
+      bonus2 bResEff,Eff_Stun,1000;
+      bonus2 bResEff,Eff_Freeze,1000;
+      bonus2 bResEff,Eff_Stone,1000;
+      bonus2 bResEff,Eff_Sleep,1000;
+      bonus2 bResEff,Eff_Curse,1000;
+      bonus2 bResEff,Eff_Silence,1000;
+      bonus2 bResEff,Eff_Confusion,1000;
+      bonus2 bResEff,Eff_Blind,1000;
+      bonus2 bResEff,Eff_Poison,1000;
+      bonus2 bResEff,Eff_Bleeding,1000;
+  - Id: 490506
+    AegisName: Epic_Defense_Ring
+    Name: "[Epic] Defense Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHPrate,8;
+      bonus2 bResEff,Eff_Stun,1000;
+      bonus2 bResEff,Eff_Freeze,1000;
+      bonus2 bResEff,Eff_Stone,1000;
+      bonus2 bResEff,Eff_Sleep,1000;
+      bonus2 bResEff,Eff_Curse,1000;
+      bonus2 bResEff,Eff_Silence,1000;
+      bonus2 bResEff,Eff_Confusion,1000;
+      bonus2 bResEff,Eff_Blind,1000;
+      bonus2 bResEff,Eff_Poison,1000;
+      bonus2 bResEff,Eff_Bleeding,1000;
+  - Id: 490507
+    AegisName: Legend_Melee_Ring
+    Name: "[Legend] Melee Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,3;
+      bonus bShortAtkRate,10;
+      bonus2 bResEff,Eff_Stun,1500;
+      bonus2 bResEff,Eff_Freeze,1500;
+      bonus2 bResEff,Eff_Stone,1500;
+      bonus2 bResEff,Eff_Sleep,1500;
+      bonus2 bResEff,Eff_Curse,1500;
+      bonus2 bResEff,Eff_Silence,1500;
+      bonus2 bResEff,Eff_Confusion,1500;
+      bonus2 bResEff,Eff_Blind,1500;
+      bonus2 bResEff,Eff_Poison,1500;
+      bonus2 bResEff,Eff_Bleeding,1500;
+  - Id: 490508
+    AegisName: Legend_Ranged_Ring
+    Name: "[Legend] Ranged Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,3;
+      bonus bLongAtkRate,10;
+      bonus2 bResEff,Eff_Stun,1500;
+      bonus2 bResEff,Eff_Freeze,1500;
+      bonus2 bResEff,Eff_Stone,1500;
+      bonus2 bResEff,Eff_Sleep,1500;
+      bonus2 bResEff,Eff_Curse,1500;
+      bonus2 bResEff,Eff_Silence,1500;
+      bonus2 bResEff,Eff_Confusion,1500;
+      bonus2 bResEff,Eff_Blind,1500;
+      bonus2 bResEff,Eff_Poison,1500;
+      bonus2 bResEff,Eff_Bleeding,1500;
+  - Id: 490509
+    AegisName: Legend_Magic_Ring
+    Name: "[Legend] Magic Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,3;
+      bonus bMatkRate,10;
+      bonus2 bResEff,Eff_Stun,1500;
+      bonus2 bResEff,Eff_Freeze,1500;
+      bonus2 bResEff,Eff_Stone,1500;
+      bonus2 bResEff,Eff_Sleep,1500;
+      bonus2 bResEff,Eff_Curse,1500;
+      bonus2 bResEff,Eff_Silence,1500;
+      bonus2 bResEff,Eff_Confusion,1500;
+      bonus2 bResEff,Eff_Blind,1500;
+      bonus2 bResEff,Eff_Poison,1500;
+      bonus2 bResEff,Eff_Bleeding,1500;
+  - Id: 490510
+    AegisName: Legend_Defense_Ring
+    Name: "[Legend] Defense Ring"
+    Type: Armor
+    Weight: 10
+    Defense: 0
+    Slots: 1
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Script: |-
+      bonus bAllStats,3;
+      bonus bMaxHPrate,10;
+      bonus2 bResEff,Eff_Stun,1500;
+      bonus2 bResEff,Eff_Freeze,1500;
+      bonus2 bResEff,Eff_Stone,1500;
+      bonus2 bResEff,Eff_Sleep,1500;
+      bonus2 bResEff,Eff_Curse,1500;
+      bonus2 bResEff,Eff_Silence,1500;
+      bonus2 bResEff,Eff_Confusion,1500;
+      bonus2 bResEff,Eff_Blind,1500;
+      bonus2 bResEff,Eff_Poison,1500;
+      bonus2 bResEff,Eff_Bleeding,1500;
