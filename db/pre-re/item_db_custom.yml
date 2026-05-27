@@ -270,142 +270,375 @@ Body:
     AegisName: Golden_Bug_Egg
     Name: "[Normal] Golden Bug Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bShortAtkRate,1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9265
     AegisName: Maya_Egg
     Name: "[Normal] Maya Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bAspdRate,1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9266
     AegisName: Eddga_Egg
     Name: "[Normal] Eddga Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bDelayrate,-1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9267
     AegisName: Dark_Lord_Egg
     Name: "[Normal] Dark Lord Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bCritical,5;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9268
     AegisName: Baphomet_Egg
     Name: "[Normal] Baphomet Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bDropAddClass_C,Class_All,10;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9269
     AegisName: Orc_Lord_Egg
     Name: "[Normal] Orc Lord Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bMaxSP,100;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9270
     AegisName: Lady_Tanee_Egg
     Name: "[Normal] Lady Tanee Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bCritAtkRate,5;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9271
     AegisName: Phreeoni_Egg
     Name: "[Normal] Phreeoni Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bFlee2,5;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9272
     AegisName: Orc_Hero_Egg
     Name: "[Normal] Orc Hero Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bAddClass,Class_All,1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9273
     AegisName: Amon_Ra_Egg
     Name: "[Normal] Amon Ra Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bMagicAddClass,Class_All,1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9274
     AegisName: Pharaoh_Egg
     Name: "[Rare] Pharaoh Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Freeze,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9275
     AegisName: Osiris_Egg
     Name: "[Rare] Osiris Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Stone,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9276
     AegisName: Dracula_Egg
     Name: "[Rare] Dracula Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Sleep,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9277
     AegisName: Doppelganger_Egg
     Name: "[Rare] Doppelganger Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Silence,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9278
     AegisName: Mistress_Egg
     Name: "[Rare] Mistress Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Curse,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9279
     AegisName: Moonlight_Egg
     Name: "[Rare] Moonlight Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Confusion,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9280
     AegisName: Drake_Egg
     Name: "[Rare] Drake Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      skill "AL_INCAGI",10;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9281
     AegisName: Knight_Of_Windstorm_Egg
     Name: "[Rare] Stormy Knight Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      skill "PR_IMPOSITIO",5;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9282
     AegisName: Lord_Of_Death_Egg
     Name: "[Rare] Lord of Death Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      skill "AL_BLESSING",10;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9283
     AegisName: B_Seyren_Egg
     Name: "[Epic] Seyren Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bAllStats,2;
+      bonus bAspd,1;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9284
     AegisName: B_Eremes_Egg
     Name: "[Epic] Eremes Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bAllStats,2;
+      bonus bFlee,30;
+      bonus bHit,30;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9285
     AegisName: B_Harword_Egg
     Name: "[Epic] Howard Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bAllStats,1;
+      bonus bAspdRate,10;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9286
     AegisName: B_Magaleta_Egg
     Name: "[Epic] Margaretha Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bResEff,Eff_Stun,5000;
+      bonus2 bAddEff,Eff_Freeze,10000;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9287
     AegisName: B_Shecil_Egg
     Name: "[Epic] Cecil Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bAddClass,Class_Boss,35;
+      bonus2 bAddEff,Eff_Curse,10000;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9288
     AegisName: B_Katrinn_Egg
     Name: "[Epic] Kathryne Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bShortWeaponDamageReturn,-100;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9289
     AegisName: B_Randel_Egg
     Name: "[Epic] Randel Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bMagicDamageReturn,100;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9290
     AegisName: B_Flamel_Egg
     Name: "[Epic] Flamel Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      sc_start SC_ENDURE,INFINITE_TICK,1;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9291
     AegisName: B_Celia_Egg
     Name: "[Epic] Celia Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bNoGemStone;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9292
     AegisName: B_Chen_Egg
     Name: "[Epic] Chen Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus2 bAddEff,Eff_Stun,1000;
+      bonus2 bAddEff,Eff_Curse,1000;
+      bonus2 bAddEff,Eff_Silence,1000;
+      bonus2 bAddEff,Eff_Poison,1000;
+      bonus2 bAddEff,Eff_Bleeding,1000;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9293
     AegisName: Medjay_Egg
     Name: "[Legend] MedJay Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9294
     AegisName: Cp_Heka_Egg
     Name: "[Legend] MedJee Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9295
     AegisName: Medjed_Egg
     Name: "[Legend] MedJed Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bCritical,50;
+      bonus bCritAtkRate,20;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9296
     AegisName: Spirit_R_Flame_Sl_Egg
     Name: "[Legend] Spirit Flame Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bBaseAtk,70;
+      bonus bShortAtkRate,3;
+      bonus bLongAtkRate,3;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9297
     AegisName: Spirit_I_Water_M_Egg
     Name: "[Legend] Spirit Water Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bMatk,150;
+      bonus bMatkRate,10;
+      bonus bVariableCastrate,-20;
+      bonus bDelayrate,-20;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9298
     AegisName: Spirit_S_Wind_M_Egg
     Name: "[Legend] Spirit Wind Egg"
     Type: PetEgg
+    Flags:
+      Collection: true
+    CollectionScript: |-
+      bonus bMaxHPrate,50;
+      bonus bDef,100;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 55000
     AegisName: "22266"
     Name: Fire Red Storm Sword
