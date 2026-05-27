@@ -1,0 +1,2200 @@
+# Generated from HICLASS sheet "Barter - NPCคราฟของNew" (gid 1616770677).
+# Source layout: C/D = crafted item name/id, F/G = required item name/id.
+# MAX_BARTER_REQUIREMENTS must be 6 for this sheet because each recipe uses up to six materials.
+
+Header:
+  Type: BARTER_DB
+  Version: 1
+
+Body:
+  - Name: "NPCคราฟอาวุธ"
+    Map: morocc
+    X: 139
+    Y: 156
+    Direction: South
+    Sprite: 4_M_05
+    CraftBarter: true
+    WaitingRoom: "> NPCคราฟอาวุธ <"
+    Items:
+      - Index: 0
+        Item: Up_Shiver_Katar_K # [Rare] Assassin Cross Weapon (610008)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Katar # [Rookie] Katar +7 (1292)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 1
+        Item: Up_Avenger # [Rare] Mastersmith Weapon (620004)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Two_Handed_Axe # [Rookie] Two-handed Axe +7 (1394)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 2
+        Item: Up_Undine_Spear_K # [Rare] Paladin Weapon (530006)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Lance # [Rookie] Spear +7 (1491)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 3
+        Item: Up_Demon_Hunting_Bible # [Rare] Scholar Weapon (540011)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Book # [Rookie] Book +7 (1585)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 4
+        Item: Up_OneSkyOneSun # [Rare] TaeKwon Master Weapon (540010)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Book # [Rookie] Book +7 (1585)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 5
+        Item: Up_Humma_Clear # [Rare] Kagerou / Oboro Weapon (650004)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Huuma_Shuriken # [Rookie] Huuma Shuriken +7 (13316)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 6
+        Item: Up_Dragonic_Slayer # [Rare] Lord Knight Weapon (21058)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Twohand_Sword # [Rookie] Two-handed Sword +7 (21000)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 7
+        Item: Up_Sword_Of_Bluefire # [Rare] Biochemist Weapon (500013)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Twohand_Sword # [Rookie] Two-handed Sword +7 (21000)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 8
+        Item: Up_Saint_Hall # [Rare] High Priest Weapon (590012)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Mace # [Rookie] Mace +7 (16019)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 9
+        Item: Up_Iron_Nail_K # [Rare] Champion Weapon (560008)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Mace # [Rookie] Mace +7 (16019)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 10
+        Item: Up_Royal_Bow_K # [Rare] Sniper Weapon (700018)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Bow # [Rookie] Bow +7 (18112)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 11
+        Item: Up_Magic_Sword # [Rare] Stalker Weapon (510019)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Dagger # [Rookie] Dagger +7 (13071)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 12
+        Item: Up_Crimson_Rose # [Rare] Rebel Weapon (800002)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Revolver # [Rookie] Revolver +7 (13115)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 13
+        Item: Up_Blessed_Knife # [Rare] Super Novice Weapon (510071)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Mace # [Rookie] Mace +7 (16019)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 14
+        Item: Up_Blue_Crystal_Staff # [Rare] High Wizard Weapon (640012)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Staff # [Rookie] Staff +7 (2015)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 15
+        Item: Up_SoulWeight # [Rare] Soul Linker Weapon (550015)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Staff # [Rookie] Staff +7 (2015)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 16
+        Item: Up_Trumpet_Shell_K # [Rare] Minstrel Weapon (570009)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Bow # [Rookie] Bow +7 (18112)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 17
+        Item: Up_Barb_Wire_K # [Rare] Gypsy Weapon (580009)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Bow # [Rookie] Bow +7 (18112)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 18
+        Item: Adulter_F_T_Sword # [Epic] Lord Knight Weapon (600017)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Dragonic_Slayer # [Rare] Lord Knight Weapon +7 (21058)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 19
+        Item: Adulter_F_Lance # [Epic] Paladin Weapon (630012)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Undine_Spear_K # [Rare] Paladin Weapon +7 (530006)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 20
+        Item: Adulter_F_Rod # [Epic] High Wizard Weapon (640020)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Blue_Crystal_Staff # [Rare] High Wizard Weapon +7 (640012)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 21
+        Item: Adulter_F_P_Book # [Epic] Scholar Weapon (540020)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Demon_Hunting_Bible # [Rare] Scholar Weapon +7 (540011)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 22
+        Item: Adulter_F_Axe # [Epic] Mastersmith Weapon (520008)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Avenger # [Rare] Mastersmith Weapon +7 (620004)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 23
+        Item: Adulter_F_Lapier # [Epic] Biochemist Weapon (500026)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Sword_Of_Bluefire # [Rare] Biochemist Weapon +7 (500013)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 24
+        Item: Adulter_F_Wand # [Epic] High Priest Weapon (550024)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Saint_Hall # [Rare] High Priest Weapon +7 (590012)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 25
+        Item: Adulter_F_Knuckle # [Epic] Champion Weapon (560018)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Iron_Nail_K # [Rare] Champion Weapon +7 (560008)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 26
+        Item: Adulter_F_Katar # [Epic] Assassin Cross Weapon (610021)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Shiver_Katar_K # [Rare] Assassin Cross Weapon +7 (610008)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 27
+        Item: Adulter_F_Dagger # [Epic] Stalker Weapon (510032)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Magic_Sword # [Rare] Stalker Weapon +7 (510019)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 28
+        Item: Adulter_F_A_Bow # [Epic] Sniper Weapon (700032)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Royal_Bow_K # [Rare] Sniper Weapon +7 (700018)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 29
+        Item: Adulter_F_Harp # [Epic] Minstrel Weapon (570018)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Trumpet_Shell_K # [Rare] Minstrel Weapon +7 (570009)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 30
+        Item: Adulter_F_C_Rope # [Epic] Gypsy Weapon (580017)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Barb_Wire_K # [Rare] Gypsy Weapon +7 (580009)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 31
+        Item: Adulter_F_Star_B # [Epic] TaeKwon Master Weapon (540023)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_OneSkyOneSun # [Rare] TaeKwon Master Weapon +7 (540010)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 32
+        Item: Adulter_F_D_Wand # [Epic] Soul Linker Weapon (550026)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_SoulWeight # [Rare] Soul Linker Weapon +7 (550015)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 33
+        Item: Adulter_F_C_Humma # [Epic] Kagerou / Oboro Weapon (650009)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Humma_Clear # [Rare] Kagerou / Oboro Weapon +7 (650004)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 34
+        Item: Adulter_F_Revolver # [Epic] Rebel Weapon (800003)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Crimson_Rose # [Rare] Rebel Weapon +7 (800002)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 35
+        Item: Adulter_F_G_Sword # [Epic] Super Novice Weapon (500025)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Up_Blessed_Knife # [Rare] Super Novice Weapon +7 (510071)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 36
+        Item: Sinister_Twohand_Sword # [Legend] Lord Knight Weapon (21016)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_T_Sword # [Epic] Lord Knight Weapon +11 (600017)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 37
+        Item: Sinister_Lance # [Legend] Paladin Weapon (1450)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Lance # [Epic] Paladin Weapon +11 (630012)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 38
+        Item: Sinister_Rod # [Legend] High Wizard Weapon (1600)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Rod # [Epic] High Wizard Weapon +11 (640020)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 39
+        Item: Sinister_Book # [Legend] Scholar Weapon (28605)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_P_Book # [Epic] Scholar Weapon +11 (540020)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 40
+        Item: Sinister_Twohand_Axe # [Legend] Mastersmith Weapon (28107)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Axe # [Epic] Mastersmith Weapon +11 (520008)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 41
+        Item: Sinister_Saber # [Legend] Biochemist Weapon (13455)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Lapier # [Epic] Biochemist Weapon +11 (500026)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 42
+        Item: Sinister_Mace # [Legend] High Priest Weapon (16041)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Wand # [Epic] High Priest Weapon +11 (550024)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 43
+        Item: Sinister_Fist # [Legend] Champion Weapon (1800)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Knuckle # [Epic] Champion Weapon +11 (560018)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 44
+        Item: Sinister_Katar # [Legend] Assassin Cross Weapon (28008)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Katar # [Epic] Assassin Cross Weapon +11 (610021)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 45
+        Item: Sinister_Dagger # [Legend] Stalker Weapon (28706)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Dagger # [Epic] Stalker Weapon +11 (510032)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 46
+        Item: Sinister_Bow # [Legend] Sniper Weapon (18121)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_A_Bow # [Epic] Sniper Weapon +11 (700032)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 47
+        Item: Sinister_Viollin # [Legend] Minstrel Weapon (1900)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Harp # [Epic] Minstrel Weapon +11 (570018)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 48
+        Item: Sinister_Wire # [Legend] Gypsy Weapon (1996)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_C_Rope # [Epic] Gypsy Weapon +11 (580017)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 49
+        Item: Sinister_Book_PR105 # [Legend] TaeKwon Master Weapon (1029019)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Star_B # [Epic] TaeKwon Master Weapon +11 (540023)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 50
+        Item: Sinister_Staff # [Legend] Soul Linker Weapon (2026)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_D_Wand # [Epic] Soul Linker Weapon +11 (550026)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 51
+        Item: Sinister_Huuma # [Legend] Kagerou / Oboro Weapon (13328)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_C_Humma # [Epic] Kagerou / Oboro Weapon +11 (650009)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 52
+        Item: Sinister_Revolver # [Legend] Rebel Weapon (13128)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_Revolver # [Epic] Rebel Weapon +11 (800003)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 53
+        Item: Sinister_Saber_J # [Legend] Super Novice Weapon (13468)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Adulter_F_G_Sword # [Epic] Super Novice Weapon +11 (500025)
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+
+  - Name: "NPCคราฟของสวมใส่"
+    Map: morocc
+    X: 139
+    Y: 153
+    Direction: South
+    Sprite: 4_F_SHAMAN
+    CraftBarter: true
+    WaitingRoom: "> NPCคราฟของสวมใส่ <"
+    Items:
+      - Index: 0
+        Item: Rare_Melee_Armor # [Rare] Melee Armor +7 (452025)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Adv_Suit # [Rookie] Adventure Suit +7 (15015)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 1
+        Item: Rare_Ranged_Armor # [Rare] Ranged Armor +7 (452026)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Adv_Suit # [Rookie] Adventure Suit +7 (15015)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 2
+        Item: Rare_Magic_Armor # [Rare] Magic Armor +7 (452027)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Adv_Suit # [Rookie] Adventure Suit +7 (15015)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 3
+        Item: Rare_Defense_Armor # [Rare] Defense Armor +7 (452028)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Adv_Suit # [Rookie] Adventure Suit +7 (15015)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 4
+        Item: Rare_Melee_Muffler # [Rare] Melee Muffler +7 (480421)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Muffler # [Rookie] Muffler +7 (2562)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 5
+        Item: Rare_Ranged_Muffler # [Rare] Ranged Muffler +7 (480422)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Muffler # [Rookie] Muffler +7 (2562)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 6
+        Item: Rare_Magic_Muffler # [Rare] Magic Muffler +7 (480423)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Muffler # [Rookie] Muffler +7 (2562)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 7
+        Item: Rare_Defense_Muffler # [Rare] Defense Muffler +7 (480424)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Muffler # [Rookie] Muffler +7 (2562)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 8
+        Item: Rare_Melee_Boots # [Rare] Melee Boots +7 (470278)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Boots # [Rookie] Boots +7 (2460)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 9
+        Item: Rare_Ranged_Boots # [Rare] Ranged Boots +7 (470279)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Boots # [Rookie] Boots +7 (2460)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 10
+        Item: Rare_Magic_Boots # [Rare] Magic Boots +7 (470280)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Boots # [Rookie] Boots +7 (2460)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 11
+        Item: Rare_Defense_Boots # [Rare] Defense Boots +7 (470281)
+        Rate: 10000
+        Refine: 7
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Boots # [Rookie] Boots +7 (2460)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 12
+        Item: Epic_Melee_Armor # [Epic] Melee Armor (452029)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Melee_Armor # [Rare] Melee Armor +7 (452025)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 13
+        Item: Epic_Ranged_Armor # [Epic] Ranged Armor (452030)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Ranged_Armor # [Rare] Ranged Armor +7 (452026)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 14
+        Item: Epic_Magic_Armor # [Epic] Magic Armor (452031)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Magic_Armor # [Rare] Magic Armor +7 (452027)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 15
+        Item: Epic_Defense_Armor # [Epic] Defense Armor (452032)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Defense_Armor # [Rare] Defense Armor +7 (452028)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 16
+        Item: Epic_Melee_Muffler # [Epic] Melee Muffler (480425)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Melee_Muffler # [Rare] Melee Muffler +7 (480421)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 17
+        Item: Epic_Ranged_Muffler # [Epic] Ranged Muffler (480426)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Ranged_Muffler # [Rare] Ranged Muffler +7 (480422)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 18
+        Item: Epic_Magic_Muffler # [Epic] Magic Muffler (480427)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Magic_Muffler # [Rare] Magic Muffler +7 (480423)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 19
+        Item: Epic_Defense_Muffler # [Epic] Defense Muffler (480428)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Defense_Muffler # [Rare] Defense Muffler +7 (480424)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 20
+        Item: Epic_Melee_Boots # [Epic] Melee Boots (470282)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Melee_Boots # [Rare] Melee Boots +7 (470278)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 21
+        Item: Epic_Ranged_Boots # [Epic] Ranged Boots (470283)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Ranged_Boots # [Rare] Ranged Boots +7 (470279)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 22
+        Item: Epic_Magic_Boots # [Epic] Magic Boots (470284)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Magic_Boots # [Rare] Magic Boots +7 (470280)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 23
+        Item: Epic_Defense_Boots # [Epic] Defense Boots (470285)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Defense_Boots # [Rare] Defense Boots +7 (470281)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 24
+        Item: Legend_Melee_Armor # [Legend] Melee Armor (452033)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Melee_Armor # [Epic] Melee Armor +7 (452029)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 25
+        Item: Legend_Ranged_Armor # [Legend] Ranged Armor (452034)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Ranged_Armor # [Epic] Ranged Armor +7 (452030)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 26
+        Item: Legend_Magic_Armor # [Legend] Magic Armor (452035)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Magic_Armor # [Epic] Magic Armor +7 (452031)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 27
+        Item: Legend_Defense_Armor # [Legend] Defense Armor (452036)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Defense_Armor # [Epic] Defense Armor +7 (452032)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 28
+        Item: Legend_Melee_Muffler # [Legend] Melee Muffler (480429)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Melee_Muffler # [Epic] Melee Muffler +7 (480425)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 29
+        Item: Legend_Ranged_Muffler # [Legend] Ranged Muffler (480430)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Ranged_Muffler # [Epic] Ranged Muffler +7 (480426)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 30
+        Item: Legend_Magic_Muffler # [Legend] Magic Muffler (480431)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Magic_Muffler # [Epic] Magic Muffler +7 (480427)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 31
+        Item: Legend_Defense_Muffler # [Legend] Defense Muffler (480432)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Defense_Muffler # [Epic] Defense Muffler +7 (480428)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 32
+        Item: Legend_Melee_Boots # [Legend] Melee Boots (470286)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Melee_Boots # [Epic] Melee Boots +7 (470282)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 33
+        Item: Legend_Ranged_Boots # [Legend] Ranged Boots (470287)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Ranged_Boots # [Epic] Ranged Boots +7 (470283)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 34
+        Item: Legend_Magic_Boots # [Legend] Magic Boots (470288)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Magic_Boots # [Epic] Magic Boots +7 (470284)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 35
+        Item: Legend_Defense_Boots # [Legend] Defense Boots (470289)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Defense_Boots # [Epic] Defense Boots +7 (470285)
+            Amount: 1
+            Refine: 7
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
