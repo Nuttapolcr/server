@@ -268,103 +268,143 @@ Body:
     Type: PetEgg
   - Id: 9264
     AegisName: Golden_Bug_Egg
-    Name: Golden Thief Bug Egg
+    Name: "[Normal] Golden Bug Egg"
     Type: PetEgg
   - Id: 9265
     AegisName: Maya_Egg
-    Name: Maya Egg
+    Name: "[Normal] Maya Egg"
     Type: PetEgg
   - Id: 9266
     AegisName: Eddga_Egg
-    Name: Eddga Egg
+    Name: "[Normal] Eddga Egg"
     Type: PetEgg
   - Id: 9267
     AegisName: Dark_Lord_Egg
-    Name: Dark Lord Egg
+    Name: "[Normal] Dark Lord Egg"
     Type: PetEgg
   - Id: 9268
     AegisName: Baphomet_Egg
-    Name: Baphomet Egg
+    Name: "[Normal] Baphomet Egg"
     Type: PetEgg
   - Id: 9269
     AegisName: Orc_Lord_Egg
-    Name: Orc Lord Egg
+    Name: "[Normal] Orc Lord Egg"
     Type: PetEgg
   - Id: 9270
     AegisName: Lady_Tanee_Egg
-    Name: Lady Tanee Egg
+    Name: "[Normal] Lady Tanee Egg"
     Type: PetEgg
   - Id: 9271
     AegisName: Phreeoni_Egg
-    Name: Phreeoni Egg
+    Name: "[Normal] Phreeoni Egg"
     Type: PetEgg
   - Id: 9272
     AegisName: Orc_Hero_Egg
-    Name: Orc Hero Egg
+    Name: "[Normal] Orc Hero Egg"
     Type: PetEgg
   - Id: 9273
     AegisName: Amon_Ra_Egg
-    Name: Amon Ra Egg
+    Name: "[Normal] Amon Ra Egg"
     Type: PetEgg
   - Id: 9274
     AegisName: Pharaoh_Egg
-    Name: Pharaoh Egg
+    Name: "[Rare] Pharaoh Egg"
     Type: PetEgg
   - Id: 9275
     AegisName: Osiris_Egg
-    Name: Osiris Egg
+    Name: "[Rare] Osiris Egg"
     Type: PetEgg
   - Id: 9276
     AegisName: Dracula_Egg
-    Name: Dracula Egg
+    Name: "[Rare] Dracula Egg"
     Type: PetEgg
   - Id: 9277
     AegisName: Doppelganger_Egg
-    Name: Doppelganger Egg
+    Name: "[Rare] Doppelganger Egg"
     Type: PetEgg
   - Id: 9278
     AegisName: Mistress_Egg
-    Name: Mistress Egg
+    Name: "[Rare] Mistress Egg"
     Type: PetEgg
   - Id: 9279
     AegisName: Moonlight_Egg
-    Name: Moonlight Flower Egg
+    Name: "[Rare] Moonlight Egg"
     Type: PetEgg
   - Id: 9280
     AegisName: Drake_Egg
-    Name: Drake Egg
+    Name: "[Rare] Drake Egg"
     Type: PetEgg
   - Id: 9281
     AegisName: Knight_Of_Windstorm_Egg
-    Name: Stormy Knight Egg
+    Name: "[Rare] Stormy Knight Egg"
     Type: PetEgg
   - Id: 9282
     AegisName: Lord_Of_Death_Egg
-    Name: Lord of Death Egg
+    Name: "[Rare] Lord of Death Egg"
     Type: PetEgg
   - Id: 9283
     AegisName: B_Seyren_Egg
-    Name: Seyren Windsor Egg
+    Name: "[Epic] Seyren Egg"
     Type: PetEgg
   - Id: 9284
     AegisName: B_Eremes_Egg
-    Name: Eremes Guile Egg
+    Name: "[Epic] Eremes Egg"
     Type: PetEgg
   - Id: 9285
     AegisName: B_Harword_Egg
-    Name: Howard Alt-Eisen Egg
+    Name: "[Epic] Howard Egg"
     Type: PetEgg
   - Id: 9286
     AegisName: B_Magaleta_Egg
-    Name: Margaretha Sorin Egg
+    Name: "[Epic] Margaretha Egg"
     Type: PetEgg
   - Id: 9287
     AegisName: B_Shecil_Egg
-    Name: Shecil Damon Egg
+    Name: "[Epic] Cecil Egg"
     Type: PetEgg
   - Id: 9288
     AegisName: B_Katrinn_Egg
-    Name: Katrinn Keyron Egg
+    Name: "[Epic] Kathryne Egg"
+    Type: PetEgg
+  - Id: 9289
+    AegisName: B_Randel_Egg
+    Name: "[Epic] Randel Egg"
+    Type: PetEgg
+  - Id: 9290
+    AegisName: B_Flamel_Egg
+    Name: "[Epic] Flamel Egg"
+    Type: PetEgg
+  - Id: 9291
+    AegisName: B_Celia_Egg
+    Name: "[Epic] Celia Egg"
+    Type: PetEgg
+  - Id: 9292
+    AegisName: B_Chen_Egg
+    Name: "[Epic] Chen Egg"
+    Type: PetEgg
+  - Id: 9293
+    AegisName: Medjay_Egg
+    Name: "[Legend] MedJay Egg"
+    Type: PetEgg
+  - Id: 9294
+    AegisName: Cp_Heka_Egg
+    Name: "[Legend] MedJee Egg"
+    Type: PetEgg
+  - Id: 9295
+    AegisName: Medjed_Egg
+    Name: "[Legend] MedJed Egg"
+    Type: PetEgg
+  - Id: 9296
+    AegisName: Spirit_R_Flame_Sl_Egg
+    Name: "[Legend] Spirit Flame Egg"
+    Type: PetEgg
+  - Id: 9297
+    AegisName: Spirit_I_Water_M_Egg
+    Name: "[Legend] Spirit Water Egg"
+    Type: PetEgg
+  - Id: 9298
+    AegisName: Spirit_S_Wind_M_Egg
+    Name: "[Legend] Spirit Wind Egg"
     Type: PetEgg
   - Id: 55000
     AegisName: "22266"
@@ -19634,7 +19674,7 @@ Body:
        } else {
       getitem 64383,1;
       specialeffect2 EF_FIREWORK;
-      announce strcharinfo(0)+" เปิดไข่ได้ของแรร์!",bc_all;
+      announce strcharinfo(0)+" เ��ิด��������ด����อ����รร��!",bc_all;
       }
   - Id: 1001005
     AegisName: aegis_1001005
@@ -21241,10 +21281,9 @@ Body:
     Name: "[Rare] Lord Knight Weapon"
     Type: Weapon
     SubType: 2hSword
-    Weight: 2000
-    Attack: 200
+    Attack: 150
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Knight: true
     Classes:
@@ -21252,25 +21291,19 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHPrate,.@r/2*5;
-      bonus bMaxSPrate,.@r/2*5;
-      bonus2 bSkillAtk,"RK_DRAGONBREATH",.@r/3*5;
-      bonus2 bSkillAtk,"RK_DRAGONBREATH_WATER",.@r/3*5;
+      bonus bStr,3;
+      bonus bDex,3;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",10;
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*2;
       if (.@r>=7) {
-         bonus bDelayrate,-10;
-         bonus bVariableCastrate,-10;
-      }
-      if (.@r>=9) {
-         bonus bLongAtkRate,10;
-      }
-      if (.@r>=11) {
-         bonus bDelayrate,-7;
-         bonus bMaxSPrate,5;
+         bonus bAtkRate,5;
       }
   - Id: 530006
     AegisName: Up_Undine_Spear_K
@@ -21278,10 +21311,10 @@ Body:
     Type: Weapon
     SubType: 1hSpear
     Buy: 20
-    Weight: 1400
-    Attack: 195
+    Weight: 2100
+    Attack: 200
     Range: 3
-    Slots: 2
+    Slots: 1
     Jobs:
       Crusader: true
     Classes:
@@ -21289,36 +21322,28 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,.@r/2*15;
-      bonus bLongAtkRate,.@r/3*4;
+      bonus bVit,6;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bMaxHPrate,5;
+      bonus2 bSkillAtk,"PA_SHIELDCHAIN",14;
+      bonus2 bSkillAtk,"PA_SHIELDCHAIN",.@r/3*2;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"LG_CANNONSPEAR",15;
-         bonus2 bSkillAtk,"LG_BANISHINGPOINT",15;
-         bonus bAspdRate,10;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"LG_CANNONSPEAR",20;
-         bonus2 bSkillAtk,"LG_BANISHINGPOINT",20;
-      }
-      if (.@r>=11) {
-         bonus bPerfectHitAddRate,7;
-         bonus bMaxSPrate,5;
+         bonus bAtkRate,5;
       }
   - Id: 640012
     AegisName: Up_Blue_Crystal_Staff
     Name: "[Rare] High Wizard Weapon"
     Type: Weapon
-    SubType: 2hStaff
-    Weight: 1000
-    Attack: 100
-    MagicAttack: 235
+    SubType: Staff
+    Weight: 1200
+    MagicAttack: 150
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Wizard: true
     Classes:
@@ -21326,26 +21351,17 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
-      bonus bUnbreakableWeapon;
       .@r = getrefine();
-      bonus bMatk,.@r/2*15;
-      bonus2 bSkillAtk,"WL_JACKFROST",.@r/3*12;
+      bonus bInt,6;
+      bonus bMatkRate,12;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-         bonus bVariableCastrate,-10;
-         bonus2 bMagicAtkEle,Ele_Water,15;
-         bonus2 bMagicAtkEle,Ele_Wind,15;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillCooldown,"WL_JACKFROST",-1000;
-         bonus bDelayrate,-5;
-      }
-      if (.@r>=11) {
-         bonus2 bMagicAddSize,Size_All,15;
-         bonus2 bSkillAtk,"WL_CHAINLIGHTNING_ATK",15;
+         bonus bMatkRate,5;
       }
   - Id: 540011
     AegisName: Up_Demon_Hunting_Bible
@@ -21353,11 +21369,10 @@ Body:
     Type: Weapon
     SubType: Book
     Buy: 20
-    Weight: 700
-    Attack: 205
-    MagicAttack: 190
+    Weight: 1000
+    MagicAttack: 160
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Priest: true
     Classes:
@@ -21365,38 +21380,28 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,.@r/2*10;
-      bonus bMatk,.@r/2*10;
-      bonus2 bSkillAtk,"AB_DUPLELIGHT_MELEE",25*(.@r/3);
-      bonus2 bSkillAtk,"AB_DUPLELIGHT_MAGIC",25*(.@r/3);
-      bonus2 bSkillAtk,"AB_JUDEX",25*(.@r/3);
+      bonus bDex,6;
+      bonus bMatkRate,12;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bVariableCastrate,-(.@r/3*1);
+      bonus bDelayrate,-(.@r/3*1);
       if (.@r>=7) {
-         bonus bAspdRate,10;
-         bonus2 bMagicAtkEle,Ele_Holy,15;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"AB_DUPLELIGHT_MELEE",30;
-         bonus2 bSkillAtk,"AB_DUPLELIGHT_MAGIC",30;
-         bonus2 bSkillAtk,"AB_JUDEX",30;
-      }
-      if (.@r>=11) {
-         .@i = getskilllv("AB_JUDEX");
-         bonus3 bAutoSpell,"AB_JUDEX",(.@i > 5 ? .@i : 5),100;
+         bonus bMatkRate,5;
       }
   - Id: 620004
     AegisName: Up_Avenger
     Name: "[Rare] Mastersmith Weapon"
     Type: Weapon
     SubType: 2hAxe
-    Weight: 7000
-    Attack: 290
+    Weight: 3000
+    Attack: 230
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Blacksmith: true
     Classes:
@@ -21404,33 +21409,29 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bUnbreakableWeapon;
-      bonus bBaseAtk,.@r/2*15;
-      bonus2 bSkillAtk,"NC_AXETORNADO",10*(.@r/3);
+      bonus bStr,5;
+      bonus bAgi,5;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",50;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"NC_AXEBOOMERANG",40;
-         bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
-      }
-      if (.@r>=9) {
-         bonus2 bAddSize,Size_All,15;
-      }
-      if (.@r>=11) {
-         bonus2 bSubEle,Ele_All,20;
+         bonus bAtkRate,7;
       }
   - Id: 500013
     AegisName: Up_Sword_Of_Bluefire
     Name: "[Rare] Biochemist Weapon"
     Type: Weapon
     SubType: 1hSword
-    Weight: 1000
-    Attack: 200
+    Weight: 1500
+    Attack: 180
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Alchemist: true
     Classes:
@@ -21438,34 +21439,30 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,.@r/2*15;
-      bonus bLongAtkRate,.@r/3*4;
+      bonus bDex,3;
+      bonus bInt,3;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",15;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*3;
       if (.@r>=7) {
-         bonus2 bSkillUseSPrate,"GN_CARTCANNON",10;
-         bonus bVariableCastrate,-7;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"GN_CARTCANNON",20;
-      }
-      if (.@r>=11) {
-         bonus bVariableCastrate,-5;
-         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",10;
+         bonus bDex,3;
+         bonus bInt,3;
       }
   - Id: 590012
     AegisName: Up_Saint_Hall
     Name: "[Rare] High Priest Weapon"
     Type: Weapon
     SubType: Mace
-    Weight: 1000
-    Attack: 170
-    MagicAttack: 200
+    Weight: 1400
+    MagicAttack: 150
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Priest: true
     Classes:
@@ -21473,34 +21470,32 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
-      bonus bUnbreakableWeapon;
-      bonus bMatkRate,3;
       .@r = getrefine();
-      bonus2 bMagicAtkEle,Ele_Holy,.@r/2;
-      bonus2 bSkillAtk,"AB_ADORAMUS",.@r/3*5;
+      bonus bDex,3;
+      bonus bVit,8;
+      bonus bInt,3;
+      bonus bHealPower,20;
+      bonus2 bSkillAtk,"AL_HOLYLIGHT",25;
+      bonus bAspdRate,3;
+      bonus bFlee,10;
+      bonus bHealPower,.@r/3*7;
       if (.@r>=7) {
-         bonus bVariableCastrate,-10;
-         bonus2 bMagicAtkEle,Ele_Holy,10;
-      }
-      if (.@r>=9) {
-         bonus2 bMagicAddRace,RC_All,15;
-      }
-      if (.@r>=11) {
-         bonus2 bSkillAtk,"AB_ADORAMUS",15;
+         bonus bDex,3;
+         bonus bInt,3;
       }
   - Id: 560008
     AegisName: Up_Iron_Nail_K
     Name: "[Rare] Champion Weapon"
     Type: Weapon
     SubType: Knuckle
-    Weight: 1200
-    Attack: 205
+    Weight: 1800
+    Attack: 170
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Monk: true
     Classes:
@@ -21508,35 +21503,30 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,.@r/2*15;
-      bonus bLongAtkRate,.@r/3*4;
+      bonus bStr,3;
+      bonus bDex,3;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus bMaxSPrate,10;
+      bonus2 bSkillAtk,"MO_EXTREMITYFIST",10;
+      bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*3;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"SR_RAMPAGEBLASTER",10;
-         bonus2 bSkillAtk,"SR_RIDEINLIGHTNING",10;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillCooldown,"SR_RAMPAGEBLASTER",-1000;
-         bonus2 bSkillCooldown,"SR_EARTHSHAKER",-1000;
-      }
-      if (.@r>=11) {
-         bonus2 bSkillAtk,"SR_RAMPAGEBLASTER",15;
-         bonus2 bSkillAtk,"SR_RIDEINLIGHTNING",15;
-         bonus2 bSkillUseSPrate,"SR_RAMPAGEBLASTER",15;
+         bonus bAtkRate,5;
       }
   - Id: 610008
     AegisName: Up_Shiver_Katar_K
     Name: "[Rare] Assassin Cross Weapon"
     Type: Weapon
     SubType: Katar
-    Weight: 1400
-    Attack: 255
+    Weight: 1500
+    Attack: 170
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Assassin: true
     Classes:
@@ -21544,37 +21534,31 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,.@r/2*15;
-      bonus2 bSkillAtk,"GC_CROSSIMPACT",.@r/3*10;
+      bonus bStr,3;
+      bonus bLuk,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bCritical,5;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"AS_SONICBLOW",10;
+      bonus bCritAtkRate,.@r/3*3;
+      bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*5;
       if (.@r>=7) {
-         bonus bCritAtkRate,15;
-         bonus bAspdRate,10;
-      }
-      if (.@r>=9) {
-         bonus2 bAddRace,RC_Brute,25;
-         bonus2 bAddRace,RC_DemiHuman,25;
-         bonus2 bAddRace,RC_Player_Human,25;
-         bonus2 bAddRace,RC_Player_Doram,25;
-      }
-      if (.@r>=11) {
-         bonus bCritical,15;
-         bonus2 bSkillCooldown,"GC_DARKCROW",-10000;
+         bonus bAtkRate,5;
       }
   - Id: 510019
     AegisName: Up_Magic_Sword
     Name: "[Rare] Stalker Weapon"
     Type: Weapon
     SubType: Dagger
-    Weight: 800
-    Attack: 150
-    MagicAttack: 195
+    Weight: 1200
+    Attack: 100
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Rogue: true
     Classes:
@@ -21582,31 +21566,32 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMatk,.@r/2*15;
-      bonus bAspdRate,(.@r/3*2);
+      bonus bStr,3;
+      bonus bLuk,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bCritical,10;
+      bonus bAspdRate,4;
+      bonus2 bSkillAtk,"RG_BACKSTAP",10;
+      bonus bCritical,.@r/3*3;
+      bonus bCritAtkRate,.@r/3*3;
+      bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*6;
       if (.@r>=7) {
-         bonus5 bAutoSpell,"WZ_METEOR",7,100,BF_SHORT,1;
-      }
-      if (.@r>=9) {
-         bonus2 bMagicAtkEle,Ele_All,15;
-      }
-      if (.@r>=11) {
-         bonus5 bAutoSpell,"SO_PSYCHIC_WAVE",4,100,BF_SHORT,1;
+         bonus bAtkRate,5;
       }
   - Id: 700018
     AegisName: Up_Royal_Bow_K
     Name: "[Rare] Sniper Weapon"
     Type: Weapon
     SubType: Bow
-    Weight: 1200
-    Attack: 205
+    Weight: 1800
+    Attack: 150
     Range: 5
-    Slots: 2
+    Slots: 1
     Jobs:
       Hunter: true
       Rogue: true
@@ -21615,35 +21600,29 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,.@r/2*15;
-      bonus2 bSkillAtk,"RA_ARROWSTORM",12*(.@r/3);
+      bonus bDex,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus2 bSkillAtk,"AC_DOUBLE",10;
+      bonus bDex,.@r/3*1;
+      bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*7;
       if (.@r>=7) {
-         bonus bAspdRate,10;
-         bonus2 bWeaponDamageRate,W_BOW,15;
-      }
-      if (.@r>=9) {
-         bonus bLongAtkRate,12;
-         bonus bCritAtkRate,10;
-      }
-      if (.@r>=11) {
-         bonus2 bSkillAtk,"SN_SHARPSHOOTING",20;
-         bonus bDelayrate,-10;
+         bonus bAtkRate,5;
       }
   - Id: 570009
     AegisName: Up_Trumpet_Shell_K
     Name: "[Rare] Minstrel Weapon"
     Type: Weapon
     SubType: Musical
-    Weight: 1000
-    Attack: 160
-    MagicAttack: 230
+    Weight: 1300
+    Attack: 100
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       BardDancer: true
     Classes:
@@ -21652,35 +21631,29 @@ Body:
     Gender: Male
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMatk,.@r/2*15;
-      bonus2 bMagicAtkEle,Ele_All,.@r/3*4;
+      bonus bDex,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",10;
+      bonus bDex,.@r/3*1;
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"WM_REVERBERATION",10;
-         bonus2 bSkillAtk,"WM_METALICSOUND",10;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillFixedCast,WM_REVERBERATION,-500;
-      }
-      if (.@r>=11) {
-         bonus bMatkRate,7;
-         bonus2 bSkillAtk,"WM_REVERBERATION",15;
-         bonus2 bSkillAtk,"WM_METALICSOUND",15;
+         bonus bAtkRate,5;
       }
   - Id: 580009
     AegisName: Up_Barb_Wire_K
     Name: "[Rare] Gypsy Weapon"
     Type: Weapon
     SubType: Whip
-    Weight: 1000
-    Attack: 160
-    MagicAttack: 230
+    Weight: 1300
+    Attack: 100
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       BardDancer: true
     Classes:
@@ -21689,34 +21662,29 @@ Body:
     Gender: Female
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMatk,.@r/2*15;
-      bonus2 bMagicAtkEle,Ele_All,.@r/3*4;
+      bonus bDex,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus2 bSkillAtk,"DC_THROWARROW",10;
+      bonus bDex,.@r/3*1;
+      bonus2 bSkillAtk,"DC_THROWARROW",.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"WM_REVERBERATION",10;
-         bonus2 bSkillAtk,"WM_METALICSOUND",10;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillFixedCast,WM_REVERBERATION,-500;
-      }
-      if (.@r>=11) {
-         bonus bMatkRate,7;
-         bonus2 bSkillAtk,"WM_REVERBERATION",15;
-         bonus2 bSkillAtk,"WM_METALICSOUND",15;
+         bonus bAtkRate,5;
       }
   - Id: 540010
     AegisName: Up_OneSkyOneSun
     Name: "[Rare] TaeKwon Master Weapon"
     Type: Weapon
     SubType: Book
-    Weight: 1100
-    Attack: 200
+    Weight: 900
+    Attack: 140
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       StarGladiator: true
     Classes:
@@ -21724,33 +21692,29 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,.@r/2*15;
-      bonus bShortAtkRate,4*(.@r/3);
+      bonus bStr,6;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus2 bSkillAtk,"TK_JUMPKICK",20;
+      bonus bStr,.@r/3*1;
+      bonus2 bSkillAtk,"TK_JUMPKICK",.@r/3*5;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"SJ_PROMINENCEKICK",20;
-         bonus bAspdRate,10;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"SJ_SOLARBURST",25;
-      }
-      if (.@r>=11) {
-         bonus2 bAddSize,Size_All,15;
+         bonus bAtkRate,5;
       }
   - Id: 550015
     AegisName: Up_SoulWeight
     Name: "[Rare] Soul Linker Weapon"
     Type: Weapon
-    SubType: Staff
-    Weight: 1200
-    Attack: 70
-    MagicAttack: 190
+    SubType: Mace
+    Weight: 1000
+    MagicAttack: 100
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       SoulLinker: true
     Classes:
@@ -21758,22 +21722,23 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMatk,15*(.@r/2);
-      bonus2 bMagicAtkEle,Ele_All,2*(.@r/3);
+      bonus bDex,3;
+      bonus bVit,5;
+      bonus bInt,3;
+      bonus2 bIgnoreMdefRaceRate,RC_All,10;
+      bonus2 bSkillAtk,"SL_SMA",15;
+      bonus bAspdRate,3;
+      bonus bFlee,10;
+      bonus bHit,10;
+      bonus2 bSkillAtk,"SL_SMA",.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"SP_SPA",15;
-         bonus bVariableCastrate,-10;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"SP_SWHOO",25;
-      }
-      if (.@r>=11) {
-         autobonus "{ bonus2 bSPRegenRate,230,10000; }",70,10000,BF_MAGIC;
+         bonus bDex,3;
+         bonus bInt,3;
       }
   - Id: 650004
     AegisName: Up_Humma_Clear
@@ -21781,37 +21746,30 @@ Body:
     Type: Weapon
     SubType: Huuma
     Buy: 20
-    Weight: 2300
-    Attack: 290
+    Weight: 1600
+    Attack: 120
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       KagerouOboro: true
       Ninja: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
-      bonus bUnbreakableWeapon;
       .@r = getrefine();
-      bonus bBaseAtk,15*(.@r/2);
-      bonus bLongAtkRate,.@r/3*2;
+      bonus bStr,3;
+      bonus bDex,3;
+      bonus bVariableCastrate,-10;
+      bonus2 bSkillAtk,"NJ_HUUMA",15;
+      bonus bAspdRate,3;
+      bonus bDelayrate,-10;
+      bonus2 bSkillAtk,"NJ_HUUMA",.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"KO_HUUMARANKA",30;
-         bonus bVariableCastrate,-10;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillCooldown,"KO_HUUMARANKA",-1000;
-      }
-      if (.@r>=11) {
-         bonus2 bAddEle,Ele_Fire,20;
-         bonus2 bAddEle,Ele_Dark,20;
-         bonus2 bAddEle,Ele_Holy,20;
-         bonus2 bAddRace,RC_Undead,20;
-         bonus2 bAddRace,RC_Demon,20;
-         bonus2 bAddRace,RC_Angel,20;
+         bonus bStr,3;
+         bonus bDex,3;
       }
   - Id: 800002
     AegisName: Up_Crimson_Rose
@@ -21819,74 +21777,76 @@ Body:
     Type: Weapon
     SubType: Revolver
     Buy: 20
-    Weight: 1000
-    Attack: 200
+    Weight: 600
+    Attack: 130
     Range: 7
-    Slots: 2
+    Slots: 1
     Jobs:
       Rebellion: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,.@r/2*10;
-      bonus2 bSkillAtk,"RL_FIREDANCE",.@r/3*2;
+      bonus bDex,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus bHit,15;
+      bonus2 bSkillAtk,"GS_DESPERADO",10;
+      bonus bDex,.@r/3*1;
+      bonus bHit,.@r/3*2;
+      bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*5;
       if (.@r>=7) {
          bonus bAtkRate,5;
-         bonus bLongAtkRate,10;
-      }
-      if (.@r>=9) {
-         bonus2 bSkillAtk,"RL_FIREDANCE",25;
-         autobonus3 "{ bonus bLongAtkRate,20; }",1000,60000,"RL_HEAT_BARREL";
-      }
-      if (.@r>=11) {
-         bonus bDelayrate,-10;
       }
   - Id: 510071
     AegisName: Up_Blessed_Knife
     Name: "[Rare] Super Novice Weapon"
     Type: Weapon
-    SubType: Dagger
-    Weight: 1200
-    Attack: 210
+    SubType: 1hSword
+    Weight: 1500
+    Attack: 120
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Novice: true
       SuperNovice: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 150
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bBaseAtk,15*(.@r/2);
-      bonus2 bSkillAtk,"RG_BACKSTAP",25*(.@r/3);
+      bonus bStr,6;
+      bonus bAgi,6;
+      bonus bVit,6;
+      bonus bInt,6;
+      bonus bDex,6;
+      bonus bLuk,6;
+      bonus bAtkRate,6;
+      bonus bMatkRate,6;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus bVariableCastrate,-3;
+      bonus bDelayrate,-6;
+      bonus bVariableCastrate,-(.@r/3*1);
+      bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-         skill "SC_FATALMENACE",10;
-         bonus2 bAddEle,Ele_All,15;
-         if (.@r>=9) {
-            bonus bAspdRate,10;
-            bonus2 bSkillAtk,"SC_FATALMENACE",10;
-            if (.@r>=11) {
-               bonus bShortAtkRate,15;
-               bonus bDelayrate,-5;
-            }
-         }
+         bonus bAtkRate,5;
       }
+    MagicAttack: 120
   - Id: 600017
     AegisName: Adulter_F_T_Sword
     Name: "[Epic] Lord Knight Weapon"
     Type: Weapon
     SubType: 2hSword
-    Weight: 4000
-    Attack: 300
+    Weight: 2200
+    Attack: 200
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Knight: true
     Classes:
@@ -21894,34 +21854,35 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"RK_WINDCUTTER",10;
-      bonus bBaseAtk,18*(.@r/3);
+      bonus bStr,3;
+      bonus bDex,3;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",10;
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*2;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"RK_WINDCUTTER",20;
-         if (.@r>=9) {
-            bonus bDelayrate,-10;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"RK_WINDCUTTER",25;
-               if (.@r>=12) {
-                  bonus bShortAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
       }
   - Id: 630012
     AegisName: Adulter_F_Lance
     Name: "[Epic] Paladin Weapon"
     Type: Weapon
     SubType: 2hSpear
-    Weight: 3800
-    Attack: 270
+    Weight: 2100
+    Attack: 240
     Range: 3
-    Slots: 2
+    Slots: 1
     Jobs:
       Knight: true
     Classes:
@@ -21929,35 +21890,34 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"RK_HUNDREDSPEAR",10;
-      bonus bBaseAtk,18*(.@r/3);
+      bonus bVit,6;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bMaxHPrate,5;
+      bonus2 bSkillAtk,"PA_SHIELDCHAIN",14;
+      bonus2 bSkillAtk,"PA_SHIELDCHAIN",.@r/3*2;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"RK_HUNDREDSPEAR",20;
-         if (.@r>=9) {
-            bonus2 bSkillCooldown,"RK_HUNDREDSPEAR",-1500;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"RK_HUNDREDSPEAR",25;
-               if (.@r>=12) {
-                  bonus bLongAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
       }
   - Id: 640020
     AegisName: Adulter_F_Rod
     Name: "[Epic] High Wizard Weapon"
     Type: Weapon
-    SubType: 2hStaff
-    Weight: 1900
-    Attack: 200
-    MagicAttack: 340
+    SubType: Staff
+    Weight: 1200
+    MagicAttack: 190
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Wizard: true
     Classes:
@@ -21965,36 +21925,36 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bUnbreakableWeapon;
-      bonus2 bSkillAtk,"WL_SOULEXPANSION",10;
-      bonus bMatk,18*(.@r/3);
+      bonus bInt,6;
+      bonus bMatkRate,12;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-         bonus2 bSkillAtk,"WL_SOULEXPANSION",20;
-         if (.@r>=9) {
-            bonus2 bMagicAddSize,Size_All,15;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"WL_SOULEXPANSION",25;
-               if (.@r>=12) {
-                  bonus2 bMagicAtkEle,Ele_Ghost,15;
-               }
-            }
-         }
+         bonus bMatkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,10;
+         bonus bDelayrate,-2;
+      }
+      if (.@r>=11) {
+         bonus bDex,6;
+         bonus bInt,4;
+         bonus bDelayrate,-5;
       }
   - Id: 540020
     AegisName: Adulter_F_P_Book
     Name: "[Epic] Scholar Weapon"
     Type: Weapon
     SubType: Book
-    Weight: 1300
-    Attack: 170
+    Weight: 1000
     MagicAttack: 200
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Sage: true
     Classes:
@@ -22002,34 +21962,37 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"SO_POISON_BUSTER",10;
-      bonus bMatk,12*(.@r/3);
+      bonus bDex,6;
+      bonus bMatkRate,12;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bVariableCastrate,-(.@r/3*1);
+      bonus bDelayrate,-(.@r/3*1);
       if (.@r>=7) {
-         bonus2 bSkillAtk,"SO_POISON_BUSTER",20;
-         if (.@r>=9) {
-            bonus2 bSkillCooldown,"SO_POISON_BUSTER",-1000;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"SO_POISON_BUSTER",25;
-               if (.@r>=12) {
-                  bonus2 bMagicAtkEle,Ele_Poison,15;
-               }
-            }
-         }
+         bonus bMatkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,10;
+         bonus bDelayrate,-2;
+      }
+      if (.@r>=11) {
+         bonus bDex,6;
+         bonus bInt,4;
+         bonus bDelayrate,-5;
       }
   - Id: 520008
     AegisName: Adulter_F_Axe
     Name: "[Epic] Mastersmith Weapon"
     Type: Weapon
-    SubType: 1hAxe
-    Weight: 7500
-    Attack: 270
+    SubType: 2hAxe
+    Weight: 3000
+    Attack: 300
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Blacksmith: true
     Classes:
@@ -22037,35 +22000,35 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bUnbreakableWeapon;
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",10;
-      bonus bBaseAtk,12*(.@r/3);
+      bonus bStr,5;
+      bonus bAgi,5;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",50;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"NC_AXEBOOMERANG",20;
-         if (.@r>=9) {
-            bonus2 bAddSize,Size_All,15;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"NC_AXEBOOMERANG",25;
-               if (.@r>=12) {
-                  bonus bLongAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
       }
   - Id: 500026
     AegisName: Adulter_F_Lapier
     Name: "[Epic] Biochemist Weapon"
     Type: Weapon
     SubType: 1hSword
-    Weight: 2000
-    Attack: 210
+    Weight: 1500
+    Attack: 260
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Alchemist: true
     Classes:
@@ -22073,35 +22036,37 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"GN_CARTCANNON",10;
-      bonus bBaseAtk,12*(.@r/3);
+      bonus bDex,3;
+      bonus bInt,3;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",15;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*3;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"GN_CARTCANNON",20;
-         if (.@r>=9) {
-            bonus bVariableCastrate,-10;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"GN_CARTCANNON",25;
-               if (.@r>=12) {
-                  bonus bLongAtkRate,15;
-               }
-            }
-         }
+         bonus bDex,3;
+         bonus bInt,3;
+      }
+      if (.@r>=9) {
+         bonus bDex,4;
+         bonus bInt,4;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
       }
   - Id: 550024
     AegisName: Adulter_F_Wand
     Name: "[Epic] High Priest Weapon"
     Type: Weapon
-    SubType: Staff
-    Weight: 1500
-    Attack: 160
-    MagicAttack: 210
+    SubType: Mace
+    Weight: 1400
+    MagicAttack: 200
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Priest: true
     Classes:
@@ -22109,35 +22074,39 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bUnbreakableWeapon;
-      bonus2 bSkillAtk,"AB_ADORAMUS",10;
-      bonus bMatk,12*(.@r/3);
+      bonus bDex,3;
+      bonus bVit,8;
+      bonus bInt,3;
+      bonus bHealPower,20;
+      bonus2 bSkillAtk,"AL_HOLYLIGHT",25;
+      bonus bAspdRate,3;
+      bonus bFlee,10;
+      bonus bHealPower,.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"AB_ADORAMUS",20;
-         if (.@r>=9) {
-            bonus2 bMagicAddSize,Size_All,15;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"AB_ADORAMUS",25;
-               if (.@r>=12) {
-                  bonus2 bMagicAtkEle,Ele_Holy,15;
-               }
-            }
-         }
+         bonus bDex,3;
+         bonus bInt,3;
+      }
+      if (.@r>=9) {
+         bonus bDex,4;
+         bonus bInt,4;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,6;
       }
   - Id: 560018
     AegisName: Adulter_F_Knuckle
     Name: "[Epic] Champion Weapon"
     Type: Weapon
     SubType: Knuckle
-    Weight: 1000
+    Weight: 1800
     Attack: 210
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Monk: true
     Classes:
@@ -22145,34 +22114,36 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"SR_TIGERCANNON",10;
-      bonus bBaseAtk,12*(.@r/3);
+      bonus bStr,3;
+      bonus bDex,3;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus bMaxSPrate,10;
+      bonus2 bSkillAtk,"MO_EXTREMITYFIST",10;
+      bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*3;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"SR_TIGERCANNON",20;
-         if (.@r>=9) {
-            bonus2 bSkillCooldown,"SR_TIGERCANNON",-500;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"SR_TIGERCANNON",25;
-               if (.@r>=12) {
-                  bonus bShortAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,7;
       }
   - Id: 610021
     AegisName: Adulter_F_Katar
     Name: "[Epic] Assassin Cross Weapon"
     Type: Weapon
     SubType: Katar
-    Weight: 1700
-    Attack: 230
+    Weight: 1500
+    Attack: 220
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Assassin: true
     Classes:
@@ -22180,24 +22151,27 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"GC_COUNTERSLASH",10;
-      bonus bBaseAtk,18*(.@r/3);
+      bonus bStr,3;
+      bonus bLuk,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bCritical,5;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"AS_SONICBLOW",10;
+      bonus bCritAtkRate,.@r/3*3;
+      bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*5;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"GC_COUNTERSLASH",20;
-         if (.@r>=9) {
-            bonus bDelayrate,-10;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"GC_COUNTERSLASH",25;
-               if (.@r>=12) {
-                  bonus bShortAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,7;
       }
   - Id: 510032
     AegisName: Adulter_F_Dagger
@@ -22205,9 +22179,9 @@ Body:
     Type: Weapon
     SubType: Dagger
     Weight: 1200
-    Attack: 210
+    Attack: 120
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Rogue: true
     Classes:
@@ -22215,34 +22189,38 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"SC_FATALMENACE",10;
-      bonus bBaseAtk,12*(.@r/3);
+      bonus bStr,3;
+      bonus bLuk,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bCritical,10;
+      bonus bAspdRate,4;
+      bonus2 bSkillAtk,"RG_BACKSTAP",10;
+      bonus bCritical,.@r/3*3;
+      bonus bCritAtkRate,.@r/3*3;
+      bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*6;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"SC_FATALMENACE",20;
-         if (.@r>=9) {
-            bonus2 bAddSize,Size_All,15;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"SC_FATALMENACE",25;
-               if (.@r>=12) {
-                  bonus bShortAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,7;
       }
   - Id: 700032
     AegisName: Adulter_F_A_Bow
     Name: "[Epic] Sniper Weapon"
     Type: Weapon
     SubType: Bow
-    Weight: 1500
-    Attack: 230
+    Weight: 1800
+    Attack: 190
     Range: 5
-    Slots: 2
+    Slots: 1
     Jobs:
       Hunter: true
     Classes:
@@ -22250,35 +22228,35 @@ Body:
       Fourth: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"RA_AIMEDBOLT",10;
-      bonus bBaseAtk,18*(.@r/3);
+      bonus bDex,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus2 bSkillAtk,"AC_DOUBLE",10;
+      bonus bDex,.@r/3*1;
+      bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"RA_AIMEDBOLT",20;
-         if (.@r>=9) {
-            bonus bDelayrate,-10;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"RA_AIMEDBOLT",25;
-               if (.@r>=12) {
-                  bonus bLongAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,8;
       }
   - Id: 570018
     AegisName: Adulter_F_Harp
     Name: "[Epic] Minstrel Weapon"
     Type: Weapon
     SubType: Musical
-    Weight: 1000
-    Attack: 100
-    MagicAttack: 210
+    Weight: 1300
+    Attack: 120
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       BardDancer: true
     Classes:
@@ -22287,34 +22265,35 @@ Body:
     Gender: Male
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"WM_METALICSOUND",10;
-      bonus bMatk,12*(.@r/3);
+      bonus bDex,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",10;
+      bonus bDex,.@r/3*1;
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"WM_METALICSOUND",20;
-         if (.@r>=9) {
-            bonus2 bSkillCooldown,"WM_METALICSOUND",-2000;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"WM_METALICSOUND",25;
-               if (.@r>=12) {
-                  bonus2 bMagicAtkEle,Ele_Neutral,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,8;
       }
   - Id: 580017
     AegisName: Adulter_F_C_Rope
     Name: "[Epic] Gypsy Weapon"
     Type: Weapon
     SubType: Whip
-    Weight: 1200
-    Attack: 170
+    Weight: 1300
+    Attack: 120
     Range: 2
-    Slots: 2
+    Slots: 1
     Jobs:
       BardDancer: true
     Classes:
@@ -22323,172 +22302,178 @@ Body:
     Gender: Female
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"WM_SEVERE_RAINSTORM_MELEE",10;
-      bonus bBaseAtk,12*(.@r/3);
+      bonus bDex,8;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus2 bSkillAtk,"DC_THROWARROW",10;
+      bonus bDex,.@r/3*1;
+      bonus2 bSkillAtk,"DC_THROWARROW",.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"WM_SEVERE_RAINSTORM_MELEE",20;
-         if (.@r>=9) {
-            bonus2 bSkillCooldown,"WM_SEVERE_RAINSTORM",-2500;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"WM_SEVERE_RAINSTORM_MELEE",25;
-               if (.@r>=12) {
-                  bonus bLongAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,8;
       }
   - Id: 540023
     AegisName: Adulter_F_Star_B
     Name: "[Epic] TaeKwon Master Weapon"
     Type: Weapon
     SubType: Book
-    Weight: 1000
-    Attack: 240
+    Weight: 900
+    Attack: 180
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       StarGladiator: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"SJ_FALLINGSTAR_ATK",10;
-      bonus2 bSkillAtk,"SJ_FALLINGSTAR_ATK2",10;
-      bonus bBaseAtk,12*(.@r/3);
+      bonus bStr,6;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus2 bSkillAtk,"TK_JUMPKICK",20;
+      bonus bStr,.@r/3*1;
+      bonus2 bSkillAtk,"TK_JUMPKICK",.@r/3*5;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"SJ_FALLINGSTAR_ATK",20;
-         bonus2 bSkillAtk,"SJ_FALLINGSTAR_ATK2",20;
-         if (.@r>=9) {
-            bonus2 bAddSize,Size_All,15;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"SJ_FALLINGSTAR_ATK",25;
-               bonus2 bSkillAtk,"SJ_FALLINGSTAR_ATK2",25;
-               if (.@r>=12) {
-                  bonus bShortAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,7;
       }
   - Id: 550026
     AegisName: Adulter_F_D_Wand
     Name: "[Epic] Soul Linker Weapon"
     Type: Weapon
-    SubType: Staff
-    Weight: 1600
-    Attack: 160
-    MagicAttack: 220
+    SubType: Mace
+    Weight: 1000
+    MagicAttack: 100
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       SoulLinker: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bUnbreakableWeapon;
-      bonus2 bSkillAtk,"SP_CURSEEXPLOSION",10;
-      bonus bMatk,12*(.@r/3);
+      bonus bDex,3;
+      bonus bVit,5;
+      bonus bInt,3;
+      bonus2 bIgnoreMdefRaceRate,RC_All,10;
+      bonus2 bSkillAtk,"SL_SMA",15;
+      bonus bAspdRate,3;
+      bonus bFlee,10;
+      bonus bHit,10;
+      bonus2 bSkillAtk,"SL_SMA",.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"SP_CURSEEXPLOSION",20;
-         if (.@r>=9) {
-            bonus2 bMagicAddSize,Size_All,15;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"SP_CURSEEXPLOSION",25;
-               if (.@r>=12) {
-                  bonus2 bMagicAtkEle,Ele_Dark,15;
-               }
-            }
-         }
+         bonus bDex,3;
+         bonus bInt,3;
+      }
+      if (.@r>=9) {
+         bonus bDex,4;
+         bonus bInt,4;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,7;
       }
   - Id: 650009
     AegisName: Adulter_F_C_Humma
     Name: "[Epic] Kagerou / Oboro Weapon"
     Type: Weapon
     SubType: Huuma
-    Weight: 2200
-    Attack: 360
+    Weight: 1600
+    Attack: 140
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       KagerouOboro: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bUnbreakableWeapon;
-      bonus2 bSkillAtk,"KO_JYUMONJIKIRI",10;
-      bonus bBaseAtk,18*(.@r/3);
+      bonus bStr,3;
+      bonus bDex,3;
+      bonus bVariableCastrate,-10;
+      bonus2 bSkillAtk,"NJ_HUUMA",15;
+      bonus bAspdRate,3;
+      bonus bDelayrate,-10;
+      bonus2 bSkillAtk,"NJ_HUUMA",.@r/3*7;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"KO_JYUMONJIKIRI",20;
-         if (.@r>=9) {
-            bonus2 bSkillCooldown,"KO_JYUMONJIKIRI",-2000;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"KO_JYUMONJIKIRI",25;
-               if (.@r>=12) {
-                  bonus bLongAtkRate,15;
-               }
-            }
-         }
+         bonus bStr,3;
+         bonus bDex,3;
+      }
+      if (.@r>=9) {
+         bonus bStr,4;
+         bonus bDex,4;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,7;
       }
   - Id: 800003
     AegisName: Adulter_F_Revolver
     Name: "[Epic] Rebel Weapon"
     Type: Weapon
     SubType: Revolver
-    Weight: 1200
-    Attack: 210
+    Weight: 600
+    Attack: 150
     Range: 7
-    Slots: 2
+    Slots: 1
     Jobs:
       Rebellion: true
     Locations:
       Both_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bUnbreakableWeapon;
-      bonus2 bSkillAtk,"RL_FIREDANCE",10;
-      bonus bBaseAtk,18*(.@r/3);
+      bonus bDex,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus bHit,15;
+      bonus2 bSkillAtk,"GS_DESPERADO",10;
+      bonus bDex,.@r/3*1;
+      bonus bHit,.@r/3*2;
+      bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*5;
       if (.@r>=7) {
-         bonus2 bSkillAtk,"RL_FIREDANCE",20;
-         if (.@r>=9) {
-            bonus2 bSubRace,RC_All,15;
-            bonus2 bSubRace,RC_Player_Human,-15;
-            bonus2 bSubRace,RC_Player_Doram,-15;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"RL_FIREDANCE",25;
-               if (.@r>=12) {
-                  bonus bLongAtkRate,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,7;
       }
   - Id: 500025
     AegisName: Adulter_F_G_Sword
     Name: "[Epic] Super Novice Weapon"
     Type: Weapon
     SubType: 1hSword
-    Weight: 2000
-    Attack: 200
-    MagicAttack: 220
+    Weight: 1500
+    Attack: 150
+    MagicAttack: 150
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Crusader: true
     Classes:
@@ -22496,25 +22481,33 @@ Body:
       Fourth: true
     Locations:
       Right_Hand: true
-    WeaponLevel: 4
+    WeaponLevel: 3
     EquipLevelMin: 180
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"LG_RAYOFGENESIS",10;
-      bonus bMatk,12*(.@r/3);
+      bonus bStr,6;
+      bonus bAgi,6;
+      bonus bVit,6;
+      bonus bInt,6;
+      bonus bDex,6;
+      bonus bLuk,6;
+      bonus bAtkRate,6;
+      bonus bMatkRate,6;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus bAspdRate,3;
+      bonus bVariableCastrate,-3;
+      bonus bDelayrate,-6;
+      bonus bVariableCastrate,-(.@r/3*1);
+      bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-         bonus2 bSkillAtk,"LG_RAYOFGENESIS",20;
-         if (.@r>=9) {
-            bonus2 bSkillCooldown,"LG_RAYOFGENESIS",-500;
-            if (.@r>=11) {
-               bonus2 bSkillAtk,"LG_RAYOFGENESIS",25;
-               if (.@r>=12) {
-                  bonus2 bMagicAtkEle,Ele_Neutral,15;
-                  bonus2 bMagicAtkEle,Ele_Holy,15;
-               }
-            }
-         }
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,7;
       }
   - Id: 1000373
     AegisName: Meteorite_Fragment
@@ -22582,6 +22575,13 @@ Body:
   - Id: 1000427
     AegisName: Acc_Ore_2
     Name: "[Legend] Accessory Stone (NT)"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 1000429
+    AegisName: Acc_Ore_4
+    Name: "[Epic] Accessory Stone (NT)"
     Type: Etc
     Flags:
       BuyingStore: true
@@ -22826,8 +22826,8 @@ Body:
     Type: Weapon
     SubType: Book
     Buy: 20
-    Weight: 950
-    Attack: 95
+    Weight: 900
+    Attack: 280
     Range: 1
     Slots: 1
     Jobs:
@@ -22840,6 +22840,2933 @@ Body:
     EquipLevelMin: 160
     Refineable: true
     Script: |
-      bonus bBaseAtk,pow(min(getrefine(),15),2);
-      bonus bMatk,pow(min(getrefine(),15),2);
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,10;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"TK_JUMPKICK",20;
+      bonus bStr,.@r/3*1;
+      bonus2 bSkillAtk,"TK_JUMPKICK",.@r/3*10;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bStr,.@r/3*1;
+         bonus2 bSkillAtk,"TK_JUMPKICK",.@r/3*10;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bStr,.@r/2*1;
+         bonus2 bSkillAtk,"TK_JUMPKICK",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bStr,.@r/2*1;
+         bonus2 bSkillAtk,"TK_JUMPKICK",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bStr,.@r/2*1;
+         bonus2 bSkillAtk,"TK_JUMPKICK",.@r/2*10;
+      }
+  - Id: 1394
+    AegisName: Upg_Two_Handed_Axe
+    Name: "[Rookie] Two-handed Axe"
+    Type: Weapon
+    SubType: 2hAxe
+    Buy: 20
+    Weight: 2000
+    Attack: 110
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bBaseAtk,(getrefine()*14);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
       bonus bUnbreakableWeapon;
+  - Id: 1491
+    AegisName: Upg_Lance
+    Name: "[Rookie] Spear"
+    Type: Weapon
+    SubType: 2hSpear
+    Buy: 20
+    Weight: 1500
+    Attack: 105
+    Range: 3
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bBaseAtk,(getrefine()*12);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+  - Id: 1585
+    AegisName: Upg_Book
+    Name: "[Rookie] Book"
+    Type: Weapon
+    SubType: Book
+    Buy: 20
+    Weight: 600
+    Attack: 45
+    MagicAttack: 20
+    Range: 1
+    Slots: 1
+    Jobs:
+      Priest: true
+      Sage: true
+      StarGladiator: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*10);
+      bonus bMatk,(.@r*5);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+  - Id: 2015
+    AegisName: Upg_Staff
+    Name: "[Rookie] Staff"
+    Type: Weapon
+    SubType: 2hStaff
+    Buy: 20
+    Weight: 1000
+    Attack: 50
+    MagicAttack: 70
+    Range: 1
+    Slots: 1
+    Jobs:
+      Acolyte: true
+      Mage: true
+      Monk: true
+      Priest: true
+      Sage: true
+      SoulLinker: true
+      Wizard: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bMatk,(.@r*10);
+      bonus bHealPower,.@r;
+      if (BaseJob == Job_Wizard)
+         bonus bMatk,30;
+      else if (BaseJob == Job_Sage)
+         bonus bMatk,20;
+      if (BaseLevel>70)
+         bonus bMatk,(((BaseLevel-70)/10)*10);
+  - Id: 13071
+    AegisName: Upg_Dagger
+    Name: "[Rookie] Dagger"
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 600
+    Attack: 55
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Archer: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      KagerouOboro: true
+      Knight: true
+      Mage: true
+      Merchant: true
+      Ninja: true
+      Novice: true
+      Rogue: true
+      Sage: true
+      SoulLinker: true
+      SuperNovice: true
+      Swordman: true
+      Thief: true
+      Wizard: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*10);
+      bonus bMatk,(.@r*5);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+  - Id: 13115
+    AegisName: Upg_Revolver
+    Name: "[Rookie] Revolver"
+    Type: Weapon
+    SubType: Revolver
+    Buy: 20
+    Weight: 500
+    Attack: 35
+    Range: 7
+    Slots: 1
+    Jobs:
+      Gunslinger: true
+      Rebellion: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*5);
+      bonus bLongAtkRate,(.@r*2);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+  - Id: 21000
+    AegisName: Upg_Twohand_Sword
+    Name: "[Rookie] Two-handed Sword"
+    Type: Weapon
+    SubType: 2hSword
+    Buy: 20
+    Weight: 1500
+    Attack: 100
+    Range: 1
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*12);
+      bonus bMatk,(.@r*5);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+  - Id: 16019
+    AegisName: Upg_Mace
+    Name: "[Rookie] Mace"
+    Type: Weapon
+    SubType: Mace
+    Buy: 20
+    Weight: 800
+    Attack: 80
+    Range: 1
+    Slots: 1
+    Jobs:
+      Acolyte: true
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Monk: true
+      Novice: true
+      Priest: true
+      SuperNovice: true
+      Swordman: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*10);
+      bonus bHealPower,.@r;
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+  - Id: 18112
+    AegisName: Upg_Bow
+    Name: "[Rookie] Bow"
+    Type: Weapon
+    SubType: Bow
+    Buy: 20
+    Weight: 600
+    Attack: 60
+    Range: 5
+    Slots: 1
+    Jobs:
+      Archer: true
+      BardDancer: true
+      Hunter: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*7);
+      bonus bLongAtkRate,(.@r*2);
+      if (BaseJob == Job_Hunter)
+         bonus bBaseAtk,20;
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+  - Id: 13316
+    AegisName: Upg_Huuma_Shuriken
+    Name: "[Rookie] Huuma Shuriken"
+    Type: Weapon
+    SubType: Huuma
+    Buy: 20
+    Weight: 1500
+    Attack: 55
+    Range: 1
+    Slots: 1
+    Jobs:
+      KagerouOboro: true
+      Ninja: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,(.@r*10);
+      bonus bMatk,(.@r*5);
+      bonus bLongAtkRate,(.@r);
+      if (BaseLevel>70)
+         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+      bonus bUnbreakableWeapon;
+  - Id: 15015
+    AegisName: Upg_Adv_Suit
+    Name: "[Rookie] Adventure Suit"
+    Type: Armor
+    Buy: 20
+    Weight: 150
+    Defense: 25
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bMaxHPrate,3;
+  - Id: 2149
+    AegisName: Upg_Guard
+    Name: "[Rookie] Guard"
+    Type: Armor
+    Buy: 20
+    Weight: 150
+    Defense: 25
+    Slots: 1
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    View: 1
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bMaxHPrate,3;
+  - Id: 2560
+    AegisName: Para_Team_Manteau
+    Name: "[Rookie] Boots"
+    Type: Armor
+    Defense: 14
+    Locations:
+      Garment: true
+    ArmorLevel: 1
+    EquipLevelMin: 7
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus2 bSubEle,Ele_Neutral,10;
+  - Id: 2562
+    AegisName: Upg_Muffler
+    Name: "[Rookie] Muffler"
+    Type: Armor
+    Buy: 20
+    Weight: 200
+    Defense: 13
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Locations:
+      Garment: true
+    ArmorLevel: 1
+    Refineable: true
+    Trade:
+      NoDrop: true
+    Script: |
+      bonus bMaxHPrate,3;
+  - Id: 452025
+    AegisName: Rare_Melee_Armor
+    Name: "[Rare] Melee Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bStr,1;
+      bonus bShortAtkRate,5;
+      bonus bAspdRate,5;
+      bonus bShortAtkRate,.@r/3*1;
+      if (.@r>=7) {
+         bonus bAtkRate,5;
+      }
+  - Id: 452026
+    AegisName: Rare_Ranged_Armor
+    Name: "[Rare] Ranged Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,1;
+      bonus bLongAtkRate,5;
+      bonus bAspdRate,5;
+      bonus bLongAtkRate,.@r/3*1;
+      if (.@r>=7) {
+         bonus bAtkRate,5;
+      }
+  - Id: 452027
+    AegisName: Rare_Magic_Armor
+    Name: "[Rare] Magic Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,1;
+      bonus bInt,1;
+      bonus bMatkRate,5;
+      bonus bDelayrate,-(.@r/3*2);
+      if (.@r>=7) {
+         bonus bMatkRate,5;
+      }
+  - Id: 452028
+    AegisName: Rare_Defense_Armor
+    Name: "[Rare] Defense Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,100;
+      bonus bDef,10;
+      bonus bMdef,5;
+      bonus bMaxHPrate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+      }
+  - Id: 452029
+    AegisName: Epic_Melee_Armor
+    Name: "[Epic] Melee Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bStr,1;
+      bonus bShortAtkRate,10;
+      bonus bAspdRate,5;
+      bonus bShortAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+  - Id: 452030
+    AegisName: Epic_Ranged_Armor
+    Name: "[Epic] Ranged Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,2;
+      bonus bLongAtkRate,10;
+      bonus bAspdRate,7;
+      bonus bLongAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+  - Id: 452031
+    AegisName: Epic_Magic_Armor
+    Name: "[Epic] Magic Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,3;
+      bonus bInt,2;
+      bonus bMatkRate,10;
+      bonus bDelayrate,-(.@r/3*3);
+      if (.@r>=7) {
+         bonus bMatkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,7;
+         bonus bDelayrate,-2;
+      }
+      if (.@r>=11) {
+         bonus bDex,8;
+         bonus bInt,4;
+         bonus bDelayrate,-5;
+      }
+  - Id: 452032
+    AegisName: Epic_Defense_Armor
+    Name: "[Epic] Defense Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,100;
+      bonus bDef,10;
+      bonus bMdef,5;
+      bonus bMaxHPrate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+      }
+      if (.@r>=9) {
+         bonus bMaxHPrate,6;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+      if (.@r>=11) {
+         bonus bMaxHP,2000;
+         bonus bDef,10;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+  - Id: 452033
+    AegisName: Legend_Melee_Armor
+    Name: "[Legend] Melee Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,3;
+      bonus bShortAtkRate,15;
+      bonus bAspdRate,7;
+      bonus bShortAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/2*2;
+      }
+  - Id: 452034
+    AegisName: Legend_Ranged_Armor
+    Name: "[Legend] Ranged Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,3;
+      bonus bLongAtkRate,15;
+      bonus bAspdRate,7;
+      bonus bLongAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/2*2;
+      }
+  - Id: 452035
+    AegisName: Legend_Magic_Armor
+    Name: "[Legend] Magic Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,5;
+      bonus bInt,5;
+      bonus bMatkRate,10;
+      bonus bDelayrate,-(.@r/3*3);
+      if (.@r>=7) {
+         bonus bMatkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,7;
+         bonus bDelayrate,-2;
+      }
+      if (.@r>=11) {
+         bonus bDex,10;
+         bonus bInt,5;
+         bonus bDelayrate,-5;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/3*2);
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+  - Id: 452036
+    AegisName: Legend_Defense_Armor
+    Name: "[Legend] Defense Armor"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,500;
+      bonus bDef,15;
+      bonus bMdef,5;
+      bonus bMaxHPrate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+      }
+      if (.@r>=9) {
+         bonus bMaxHPrate,6;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+      if (.@r>=11) {
+         bonus bMaxHP,2000;
+         bonus bDef,10;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+  - Id: 480421
+    AegisName: Rare_Melee_Muffler
+    Name: "[Rare] Melee Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bStr,1;
+      bonus bShortAtkRate,5;
+      bonus bAspdRate,5;
+      bonus bShortAtkRate,.@r/3*1;
+      if (.@r>=7) {
+         bonus bAtkRate,5;
+      }
+  - Id: 480422
+    AegisName: Rare_Ranged_Muffler
+    Name: "[Rare] Ranged Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,1;
+      bonus bLongAtkRate,5;
+      bonus bAspdRate,5;
+      bonus bLongAtkRate,.@r/3*1;
+      if (.@r>=7) {
+         bonus bAtkRate,5;
+      }
+  - Id: 480423
+    AegisName: Rare_Magic_Muffler
+    Name: "[Rare] Magic Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,1;
+      bonus bInt,1;
+      bonus bMatkRate,5;
+      bonus bDelayrate,-(.@r/3*2);
+      if (.@r>=7) {
+         bonus bMatkRate,5;
+      }
+  - Id: 480424
+    AegisName: Rare_Defense_Muffler
+    Name: "[Rare] Defense Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,100;
+      bonus bDef,10;
+      bonus bMdef,5;
+      bonus bMaxHPrate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+      }
+  - Id: 480425
+    AegisName: Epic_Melee_Muffler
+    Name: "[Epic] Melee Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bStr,1;
+      bonus bShortAtkRate,10;
+      bonus bAspdRate,5;
+      bonus bShortAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+  - Id: 480426
+    AegisName: Epic_Ranged_Muffler
+    Name: "[Epic] Ranged Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,2;
+      bonus bLongAtkRate,10;
+      bonus bAspdRate,7;
+      bonus bLongAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+  - Id: 480427
+    AegisName: Epic_Magic_Muffler
+    Name: "[Epic] Magic Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,3;
+      bonus bInt,2;
+      bonus bMatkRate,10;
+      bonus bDelayrate,-(.@r/3*3);
+      if (.@r>=7) {
+         bonus bMatkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,7;
+         bonus bDelayrate,-2;
+      }
+      if (.@r>=11) {
+         bonus bDex,8;
+         bonus bInt,4;
+         bonus bDelayrate,-5;
+      }
+  - Id: 480428
+    AegisName: Epic_Defense_Muffler
+    Name: "[Epic] Defense Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,100;
+      bonus bDef,10;
+      bonus bMdef,5;
+      bonus bMaxHPrate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+      }
+      if (.@r>=9) {
+         bonus bMaxHPrate,6;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+      if (.@r>=11) {
+         bonus bMaxHP,2000;
+         bonus bDef,10;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+  - Id: 480429
+    AegisName: Legend_Melee_Muffler
+    Name: "[Legend] Melee Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,3;
+      bonus bShortAtkRate,15;
+      bonus bAspdRate,7;
+      bonus bShortAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/2*2;
+      }
+  - Id: 480430
+    AegisName: Legend_Ranged_Muffler
+    Name: "[Legend] Ranged Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,3;
+      bonus bLongAtkRate,15;
+      bonus bAspdRate,7;
+      bonus bLongAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/2*2;
+      }
+  - Id: 480431
+    AegisName: Legend_Magic_Muffler
+    Name: "[Legend] Magic Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,5;
+      bonus bInt,5;
+      bonus bMatkRate,10;
+      bonus bDelayrate,-(.@r/3*3);
+      if (.@r>=7) {
+         bonus bMatkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,7;
+         bonus bDelayrate,-2;
+      }
+      if (.@r>=11) {
+         bonus bDex,10;
+         bonus bInt,5;
+         bonus bDelayrate,-5;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/3*2);
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+  - Id: 480432
+    AegisName: Legend_Defense_Muffler
+    Name: "[Legend] Defense Muffler"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,500;
+      bonus bDef,15;
+      bonus bMdef,5;
+      bonus bMaxHPrate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+      }
+      if (.@r>=9) {
+         bonus bMaxHPrate,6;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+      if (.@r>=11) {
+         bonus bMaxHP,2000;
+         bonus bDef,10;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+  - Id: 470278
+    AegisName: Rare_Melee_Boots
+    Name: "[Rare] Melee Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bStr,1;
+      bonus bShortAtkRate,5;
+      bonus bAspdRate,5;
+      bonus bShortAtkRate,.@r/3*1;
+      if (.@r>=7) {
+         bonus bAtkRate,5;
+      }
+  - Id: 470279
+    AegisName: Rare_Ranged_Boots
+    Name: "[Rare] Ranged Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,1;
+      bonus bLongAtkRate,5;
+      bonus bAspdRate,5;
+      bonus bLongAtkRate,.@r/3*1;
+      if (.@r>=7) {
+         bonus bAtkRate,5;
+      }
+  - Id: 470280
+    AegisName: Rare_Magic_Boots
+    Name: "[Rare] Magic Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,1;
+      bonus bInt,1;
+      bonus bMatkRate,5;
+      bonus bDelayrate,-(.@r/3*2);
+      if (.@r>=7) {
+         bonus bMatkRate,5;
+      }
+  - Id: 470281
+    AegisName: Rare_Defense_Boots
+    Name: "[Rare] Defense Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,100;
+      bonus bDef,10;
+      bonus bMdef,5;
+      bonus bMaxHPrate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+      }
+  - Id: 470282
+    AegisName: Epic_Melee_Boots
+    Name: "[Epic] Melee Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bStr,1;
+      bonus bShortAtkRate,10;
+      bonus bAspdRate,5;
+      bonus bShortAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+  - Id: 470283
+    AegisName: Epic_Ranged_Boots
+    Name: "[Epic] Ranged Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,2;
+      bonus bLongAtkRate,10;
+      bonus bAspdRate,7;
+      bonus bLongAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+  - Id: 470284
+    AegisName: Epic_Magic_Boots
+    Name: "[Epic] Magic Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bDex,3;
+      bonus bInt,2;
+      bonus bMatkRate,10;
+      bonus bDelayrate,-(.@r/3*3);
+      if (.@r>=7) {
+         bonus bMatkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,7;
+         bonus bDelayrate,-2;
+      }
+      if (.@r>=11) {
+         bonus bDex,8;
+         bonus bInt,4;
+         bonus bDelayrate,-5;
+      }
+  - Id: 470285
+    AegisName: Epic_Defense_Boots
+    Name: "[Epic] Defense Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,100;
+      bonus bDef,10;
+      bonus bMdef,5;
+      bonus bMaxHPrate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+      }
+      if (.@r>=9) {
+         bonus bMaxHPrate,6;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+      if (.@r>=11) {
+         bonus bMaxHP,2000;
+         bonus bDef,10;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+  - Id: 470286
+    AegisName: Legend_Melee_Boots
+    Name: "[Legend] Melee Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,3;
+      bonus bShortAtkRate,15;
+      bonus bAspdRate,7;
+      bonus bShortAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bShortAtkRate,.@r/2*2;
+      }
+  - Id: 470287
+    AegisName: Legend_Ranged_Boots
+    Name: "[Legend] Ranged Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,3;
+      bonus bLongAtkRate,15;
+      bonus bAspdRate,7;
+      bonus bLongAtkRate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/2*2;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bLongAtkRate,.@r/2*2;
+      }
+  - Id: 470288
+    AegisName: Legend_Magic_Boots
+    Name: "[Legend] Magic Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,5;
+      bonus bInt,5;
+      bonus bMatkRate,10;
+      bonus bDelayrate,-(.@r/3*3);
+      if (.@r>=7) {
+         bonus bMatkRate,5;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,7;
+         bonus bDelayrate,-2;
+      }
+      if (.@r>=11) {
+         bonus bDex,10;
+         bonus bInt,5;
+         bonus bDelayrate,-5;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/3*2);
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,5;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+  - Id: 470289
+    AegisName: Legend_Defense_Boots
+    Name: "[Legend] Defense Boots"
+    Type: Armor
+    Weight: 10
+    Defense: 10
+    Slots: 1
+    Locations:
+      Shoes: true
+    ArmorLevel: 2
+    Refineable: true
+    Gradable: true
+    Script: |-
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,500;
+      bonus bDef,15;
+      bonus bMdef,5;
+      bonus bMaxHPrate,.@r/3*2;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+      }
+      if (.@r>=9) {
+         bonus bMaxHPrate,6;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+      if (.@r>=11) {
+         bonus bMaxHP,2000;
+         bonus bDef,10;
+         bonus2 bSubEle,Ele_Neutral,5;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,.@r/3*2;
+      }
+  - Id: 21016
+    AegisName: Sinister_Twohand_Sword
+    Name: "[Legend] Lord Knight Weapon"
+    Type: Weapon
+    SubType: 2hSword
+    Buy: 20
+    Weight: 2200
+    Attack: 300
+    Range: 1
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,5;
+      bonus bDex,5;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",20;
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*3;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,15;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*3;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*3;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*3;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*3;
+      }
+  - Id: 1450
+    AegisName: Sinister_Lance
+    Name: "[Legend] Paladin Weapon"
+    Type: Weapon
+    SubType: 2hSpear
+    Buy: 20
+    Weight: 2100
+    Attack: 340
+    Range: 3
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bVit,10;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bMaxHPrate,5;
+      bonus2 bSkillAtk,"PA_SHIELDCHAIN",25;
+      bonus2 bSkillAtk,"PA_SHIELDCHAIN",.@r/3*3;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,15;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"PA_SHIELDCHAIN",.@r/3*3;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"PA_SHIELDCHAIN",.@r/2*3;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"PA_SHIELDCHAIN",.@r/2*3;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"PA_SHIELDCHAIN",.@r/2*3;
+      }
+  - Id: 1600
+    AegisName: Sinister_Rod
+    Name: "[Legend] High Wizard Weapon"
+    Type: Weapon
+    SubType: Staff
+    Buy: 20
+    Weight: 1200
+    MagicAttack: 290
+    Range: 1
+    Slots: 1
+    Jobs:
+      Acolyte: true
+      Mage: true
+      Monk: true
+      Novice: true
+      Priest: true
+      Sage: true
+      SoulLinker: true
+      SuperNovice: true
+      Wizard: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bInt,10;
+      bonus bMatkRate,20;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bDelayrate,-(.@r/3*2);
+      if (.@r>=7) {
+         bonus bMatkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,10;
+         bonus bDelayrate,-3;
+      }
+      if (.@r>=11) {
+         bonus bDex,10;
+         bonus bInt,6;
+         bonus bDelayrate,-8;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDelayrate,-(.@r/3*2);
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+  - Id: 28605
+    AegisName: Sinister_Book
+    Name: "[Legend] Scholar Weapon"
+    Type: Weapon
+    SubType: Book
+    Buy: 20
+    Weight: 1000
+    Range: 1
+    Slots: 1
+    Jobs:
+      Priest: true
+      Sage: true
+      StarGladiator: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,10;
+      bonus bMatkRate,20;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bVariableCastrate,-(.@r/3*1);
+      bonus bDelayrate,-(.@r/3*2);
+      if (.@r>=7) {
+         bonus bMatkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bMatkRate,10;
+         bonus bDelayrate,-3;
+      }
+      if (.@r>=11) {
+         bonus bDex,10;
+         bonus bInt,6;
+         bonus bDelayrate,-8;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDelayrate,-(.@r/3*2);
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bMatkRate,5;
+         bonus bMatk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDelayrate,-(.@r/2*2);
+      }
+    MagicAttack: 300
+  - Id: 28107
+    AegisName: Sinister_Twohand_Axe
+    Name: "[Legend] Mastersmith Weapon"
+    Type: Weapon
+    SubType: 2hAxe
+    Buy: 20
+    Weight: 3000
+    Attack: 420
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,5;
+      bonus bAgi,5;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",50;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
+      }
+  - Id: 13455
+    AegisName: Sinister_Saber
+    Name: "[Legend] Biochemist Weapon"
+    Type: Weapon
+    SubType: 1hSword
+    Buy: 20
+    Weight: 1500
+    Attack: 360
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Assassin: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Novice: true
+      Rogue: true
+      SuperNovice: true
+      Swordman: true
+      Thief: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,5;
+      bonus bInt,5;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",30;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*5;
+      if (.@r>=7) {
+         bonus bDex,5;
+         bonus bInt,5;
+      }
+      if (.@r>=9) {
+         bonus bDex,5;
+         bonus bInt,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bDex,5;
+         bonus bInt,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*5;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bDex,5;
+         bonus bInt,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/2*5;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bDex,5;
+         bonus bInt,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/2*5;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bDex,5;
+         bonus bInt,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/2*5;
+      }
+  - Id: 16041
+    AegisName: Sinister_Mace
+    Name: "[Legend] High Priest Weapon"
+    Type: Weapon
+    SubType: Mace
+    Buy: 20
+    Weight: 1400
+    Range: 1
+    Slots: 1
+    Jobs:
+      Acolyte: true
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Monk: true
+      Novice: true
+      Priest: true
+      SuperNovice: true
+      Swordman: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,5;
+      bonus bVit,10;
+      bonus bInt,5;
+      bonus bHealPower,30;
+      bonus2 bSkillAtk,"AL_HOLYLIGHT",50;
+      bonus bAspdRate,5;
+      bonus bFlee,20;
+      bonus bHealPower,.@r/3*10;
+      if (.@r>=7) {
+         bonus bDex,5;
+         bonus bInt,5;
+      }
+      if (.@r>=9) {
+         bonus bDex,5;
+         bonus bInt,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bDex,5;
+         bonus bInt,5;
+         bonus bMaxHPrate,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bHealPower,.@r/3*10;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bDex,5;
+         bonus bInt,5;
+         bonus bMaxHPrate,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bHealPower,.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bDex,5;
+         bonus bInt,5;
+         bonus bMaxHPrate,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bHealPower,.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bDex,5;
+         bonus bInt,5;
+         bonus bMaxHPrate,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bHealPower,.@r/2*10;
+      }
+    MagicAttack: 300
+  - Id: 1800
+    AegisName: Sinister_Fist
+    Name: "[Legend] Champion Weapon"
+    Type: Weapon
+    SubType: Knuckle
+    Buy: 20
+    Weight: 1800
+    Attack: 310
+    Range: 1
+    Slots: 1
+    Jobs:
+      Monk: true
+      Priest: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,5;
+      bonus bDex,5;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bAspdRate,5;
+      bonus bMaxSPrate,20;
+      bonus2 bSkillAtk,"MO_EXTREMITYFIST",15;
+      bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*5;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,15;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAspdRate,5;
+         bonus bMaxSPrate,10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*5;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAspdRate,5;
+         bonus bMaxSPrate,10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/2*5;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAspdRate,5;
+         bonus bMaxSPrate,10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/2*5;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAspdRate,5;
+         bonus bMaxSPrate,10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/2*5;
+      }
+  - Id: 28008
+    AegisName: Sinister_Katar
+    Name: "[Legend] Assassin Cross Weapon"
+    Type: Weapon
+    SubType: Katar
+    Buy: 20
+    Weight: 1500
+    Attack: 320
+    Range: 1
+    Slots: 1
+    Jobs:
+      Assassin: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,5;
+      bonus bLuk,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bCritical,10;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"AS_SONICBLOW",20;
+      bonus bCritAtkRate,.@r/3*5;
+      bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bCritAtkRate,.@r/3*5;
+         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bCritAtkRate,.@r/2*5;
+         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bCritAtkRate,.@r/2*5;
+         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bCritAtkRate,.@r/2*5;
+         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
+      }
+  - Id: 28706
+    AegisName: Sinister_Dagger
+    Name: "[Legend] Stalker Weapon"
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 1200
+    Attack: 220
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Archer: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      KagerouOboro: true
+      Knight: true
+      Mage: true
+      Merchant: true
+      Ninja: true
+      Novice: true
+      Rogue: true
+      Sage: true
+      SoulLinker: true
+      SuperNovice: true
+      Swordman: true
+      Thief: true
+      Wizard: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,5;
+      bonus bLuk,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bCritical,20;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"RG_BACKSTAP",20;
+      bonus bCritical,.@r/3*5;
+      bonus bCritAtkRate,.@r/3*5;
+      bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*10;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bShortAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus bCritical,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bCritAtkRate,.@r/3*5;
+         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*10;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus bCritical,10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bCritAtkRate,.@r/2*5;
+         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus bCritical,15;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bCritAtkRate,.@r/2*5;
+         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus bCritical,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bCritAtkRate,.@r/2*5;
+         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
+      }
+  - Id: 18121
+    AegisName: Sinister_Bow
+    Name: "[Legend] Sniper Weapon"
+    Type: Weapon
+    SubType: Bow
+    Buy: 20
+    Weight: 1800
+    Attack: 290
+    Range: 5
+    Slots: 1
+    Jobs:
+      Archer: true
+      BardDancer: true
+      Hunter: true
+      Rogue: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"AC_DOUBLE",20;
+      bonus bDex,.@r/3*2;
+      bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*10;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus bCritical,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/3*2;
+         bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*10;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus2 bSkillAtk,"AC_DOUBLE",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus2 bSkillAtk,"AC_DOUBLE",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus2 bSkillAtk,"AC_DOUBLE",.@r/2*10;
+      }
+  - Id: 1900
+    AegisName: Sinister_Viollin
+    Name: "[Legend] Minstrel Weapon"
+    Type: Weapon
+    SubType: Musical
+    Buy: 20
+    Weight: 1300
+    Attack: 220
+    Range: 1
+    Slots: 1
+    Jobs:
+      BardDancer: true
+    Gender: Male
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",20;
+      bonus bDex,.@r/3*2;
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",.@r/3*10;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/3*2;
+         bonus2 bSkillAtk,"CG_ARROWVULCAN",.@r/3*10;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus2 bSkillAtk,"CG_ARROWVULCAN",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus2 bSkillAtk,"CG_ARROWVULCAN",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus2 bSkillAtk,"CG_ARROWVULCAN",.@r/2*10;
+      }
+  - Id: 1996
+    AegisName: Sinister_Wire
+    Name: "[Legend] Gypsy Weapon"
+    Type: Weapon
+    SubType: Whip
+    Buy: 20
+    Weight: 1300
+    Attack: 220
+    Range: 2
+    Slots: 1
+    Jobs:
+      BardDancer: true
+    Gender: Female
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bAspdRate,5;
+      bonus2 bSkillAtk,"DC_THROWARROW",20;
+      bonus bDex,.@r/3*2;
+      bonus2 bSkillAtk,"DC_THROWARROW",.@r/3*10;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/3*2;
+         bonus2 bSkillAtk,"DC_THROWARROW",.@r/3*10;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus2 bSkillAtk,"DC_THROWARROW",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus2 bSkillAtk,"DC_THROWARROW",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus2 bSkillAtk,"DC_THROWARROW",.@r/2*10;
+      }
+  - Id: 2026
+    AegisName: Sinister_Staff
+    Name: "[Legend] Soul Linker Weapon"
+    Type: Weapon
+    SubType: Mace
+    Buy: 20
+    Weight: 1000
+    MagicAttack: 300
+    Range: 1
+    Slots: 1
+    Jobs:
+      Mage: true
+      Sage: true
+      SoulLinker: true
+      Wizard: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,5;
+      bonus bVit,10;
+      bonus bInt,5;
+      bonus2 bIgnoreMdefRaceRate,RC_All,20;
+      bonus2 bSkillAtk,"SL_SMA",30;
+      bonus bAspdRate,5;
+      bonus bFlee,20;
+      bonus bHit,20;
+      bonus2 bSkillAtk,"SL_SMA",.@r/3*10;
+      if (.@r>=7) {
+         bonus bDex,5;
+         bonus bInt,5;
+      }
+      if (.@r>=9) {
+         bonus bDex,5;
+         bonus bInt,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bInt,5;
+         bonus2 bSkillAtk,"SL_SMA",10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/3*2;
+         bonus bVariableCastrate,-(.@r/3*1);
+         bonus bDelayrate,-(.@r/3*2);
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bInt,5;
+         bonus2 bSkillAtk,"SL_SMA",10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus bVariableCastrate,-(.@r/2*1);
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bInt,5;
+         bonus2 bSkillAtk,"SL_SMA",10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus bVariableCastrate,-(.@r/2*1);
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bInt,5;
+         bonus2 bSkillAtk,"SL_SMA",10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus bVariableCastrate,-(.@r/2*1);
+         bonus bDelayrate,-(.@r/2*2);
+      }
+  - Id: 13328
+    AegisName: Sinister_Huuma
+    Name: "[Legend] Kagerou / Oboro Weapon"
+    Type: Weapon
+    SubType: Huuma
+    Buy: 20
+    Weight: 1600
+    Attack: 240
+    Range: 1
+    Slots: 1
+    Jobs:
+      KagerouOboro: true
+      Ninja: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,5;
+      bonus bDex,5;
+      bonus bVariableCastrate,-15;
+      bonus2 bSkillAtk,"NJ_HUUMA",30;
+      bonus bAspdRate,5;
+      bonus bDelayrate,-15;
+      bonus2 bSkillAtk,"NJ_HUUMA",.@r/3*10;
+      if (.@r>=7) {
+         bonus bStr,5;
+         bonus bDex,5;
+      }
+      if (.@r>=9) {
+         bonus bStr,5;
+         bonus bDex,5;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bDex,3;
+         bonus2 bSkillAtk,"NJ_HUUMA",10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/3*2;
+         bonus bVariableCastrate,-(.@r/3*1);
+         bonus bDelayrate,-(.@r/3*2);
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bDex,3;
+         bonus2 bSkillAtk,"NJ_HUUMA",10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus bVariableCastrate,-(.@r/2*1);
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bDex,3;
+         bonus2 bSkillAtk,"NJ_HUUMA",10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus bVariableCastrate,-(.@r/2*1);
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bDex,3;
+         bonus2 bSkillAtk,"NJ_HUUMA",10;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus bVariableCastrate,-(.@r/2*1);
+         bonus bDelayrate,-(.@r/2*2);
+      }
+  - Id: 13128
+    AegisName: Sinister_Revolver
+    Name: "[Legend] Rebel Weapon"
+    Type: Weapon
+    SubType: Revolver
+    Buy: 20
+    Weight: 600
+    Attack: 250
+    Range: 7
+    Slots: 1
+    Jobs:
+      Gunslinger: true
+      Rebellion: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 160
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bDex,15;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bAspdRate,5;
+      bonus bHit,30;
+      bonus2 bSkillAtk,"GS_DESPERADO",20;
+      bonus bDex,.@r/3*2;
+      bonus bHit,.@r/3*5;
+      bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*10;
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus bCritical,5;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/3*2;
+         bonus bHit,.@r/3*5;
+         bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*10;
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus bHit,.@r/2*5;
+         bonus2 bSkillAtk,"GS_DESPERADO",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus bHit,.@r/2*5;
+         bonus2 bSkillAtk,"GS_DESPERADO",.@r/2*10;
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bBaseAtk,20;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bDex,.@r/2*2;
+         bonus bHit,.@r/2*5;
+         bonus2 bSkillAtk,"GS_DESPERADO",.@r/2*10;
+      }
+  - Id: 13468
+    AegisName: Sinister_Saber_J
+    Name: "[Legend] Super Novice Weapon"
+    Type: Weapon
+    SubType: 1hSword
+    Buy: 100000
+    Weight: 1500
+    Attack: 250
+    Range: 1
+    Jobs:
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 100
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      .@g = getenchantgrade();
+      bonus bStr,10;
+      bonus bAgi,10;
+      bonus bVit,10;
+      bonus bInt,10;
+      bonus bDex,10;
+      bonus bLuk,10;
+      bonus bAtkRate,10;
+      bonus bMatkRate,10;
+      bonus2 bAddClass,Class_Boss,20;
+      bonus bAspdRate,5;
+      bonus bVariableCastrate,-5;
+      bonus bDelayrate,-10;
+      bonus bStr,.@r/3*1;
+      bonus bAgi,.@r/3*1;
+      bonus bVit,.@r/3*1;
+      bonus bInt,.@r/3*1;
+      bonus bDex,.@r/3*1;
+      bonus bLuk,.@r/3*1;
+      bonus bVariableCastrate,-(.@r/3*1);
+      bonus bDelayrate,-(.@r/3*2);
+      if (.@r>=7) {
+         bonus bAtkRate,7;
+      }
+      if (.@r>=9) {
+         bonus bLongAtkRate,10;
+      }
+      if (.@r>=11) {
+         bonus bAspdRate,10;
+      }
+      if (.@g >= ENCHANTGRADE_D) {
+         bonus bAtkRate,5;
+         bonus bMaxHP,1000;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bStr,.@r/3*1;
+         bonus bAgi,.@r/3*1;
+         bonus bVit,.@r/3*1;
+         bonus bInt,.@r/3*1;
+         bonus bDex,.@r/3*1;
+         bonus bLuk,.@r/3*1;
+         bonus bVariableCastrate,-(.@r/3*1);
+         bonus bDelayrate,-(.@r/3*2);
+      }
+      if (.@g >= ENCHANTGRADE_C) {
+         bonus bAtkRate,5;
+         bonus bMaxHP,1000;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bStr,.@r/2*1;
+         bonus bAgi,.@r/2*1;
+         bonus bVit,.@r/2*1;
+         bonus bInt,.@r/2*1;
+         bonus bDex,.@r/2*1;
+         bonus bLuk,.@r/2*1;
+         bonus bVariableCastrate,-(.@r/2*1);
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_B) {
+         bonus bAtkRate,5;
+         bonus bMaxHP,1000;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bStr,.@r/2*1;
+         bonus bAgi,.@r/2*1;
+         bonus bVit,.@r/2*1;
+         bonus bInt,.@r/2*1;
+         bonus bDex,.@r/2*1;
+         bonus bLuk,.@r/2*1;
+         bonus bVariableCastrate,-(.@r/2*1);
+         bonus bDelayrate,-(.@r/2*2);
+      }
+      if (.@g >= ENCHANTGRADE_A) {
+         bonus bAtkRate,5;
+         bonus bMaxHP,1000;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus bStr,.@r/2*1;
+         bonus bAgi,.@r/2*1;
+         bonus bVit,.@r/2*1;
+         bonus bInt,.@r/2*1;
+         bonus bDex,.@r/2*1;
+         bonus bLuk,.@r/2*1;
+         bonus bVariableCastrate,-(.@r/2*1);
+         bonus bDelayrate,-(.@r/2*2);
+      }
+    MagicAttack: 250
+    Slots: 1
+  - Id: 9299
+    AegisName: Guide_of_Dead_I_Egg
+    Name: "[Legendaly] Guide of Dead I Egg"
+    Type: PetEgg
+  - Id: 9300
+    AegisName: Guide_of_Dead_II_Egg
+    Name: "[Legendaly] Guide of Dead II Egg"
+    Type: PetEgg
+  - Id: 9301
+    AegisName: Guide_of_Dead_III_Egg
+    Name: "[Legendaly] Guide of Dead III Egg"
+    Type: PetEgg
+  - Id: 9302
+    AegisName: Guide_of_Dead_IV_Egg
+    Name: "[Legendaly] Guide of Dead IV Egg"
+    Type: PetEgg
+  - Id: 9303
+    AegisName: Guide_of_Dead_V_Egg
+    Name: "[Legendaly] Guide of Dead V  Egg"
+    Type: PetEgg
+  - Id: 9304
+    AegisName: Lasgand_I_Egg
+    Name: "[Legendaly] Lasgand I Egg"
+    Type: PetEgg
+  - Id: 9305
+    AegisName: Lasgand_II_Egg
+    Name: "[Legendaly] Lasgand II Egg"
+    Type: PetEgg
+  - Id: 9306
+    AegisName: Lasgand_III_Egg
+    Name: "[Legendaly] Lasgand III Egg"
+    Type: PetEgg
+  - Id: 9307
+    AegisName: Lasgand_IV_Egg
+    Name: "[Legendaly] Lasgand IV Egg"
+    Type: PetEgg
+  - Id: 9308
+    AegisName: Lasgand_V_Egg
+    Name: "[Legendaly] Lasgand V  Egg"
+    Type: PetEgg
+  - Id: 9309
+    AegisName: Pegasus_I_Egg
+    Name: "[Legendaly] Pegasus I Egg"
+    Type: PetEgg
+  - Id: 9310
+    AegisName: Pegasus_II_Egg
+    Name: "[Legendaly] Pegasus II Egg"
+    Type: PetEgg
+  - Id: 9311
+    AegisName: Pegasus_III_Egg
+    Name: "[Legendaly] Pegasus III Egg"
+    Type: PetEgg
+  - Id: 9312
+    AegisName: Pegasus_IV_Egg
+    Name: "[Legendaly] Pegasus IV Egg"
+    Type: PetEgg
+  - Id: 9313
+    AegisName: Pegasus_V_Egg
+    Name: "[Legendaly] Pegasus V  Egg"
+    Type: PetEgg

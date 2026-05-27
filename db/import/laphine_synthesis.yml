@@ -37,3 +37,61 @@ Header:
   Version: 1
 
 Body:
+  - Item: Combine_Common_Pet_Laphine
+    RewardGroup: PET_COMBINATION_COMMON_REWARD
+    RequiredRequirementsCount: 4
+    Requirements:
+      - Item: Golden_Bug_Egg
+      - Item: Maya_Egg
+      - Item: Eddga_Egg
+      - Item: Dark_Lord_Egg
+      - Item: Baphomet_Egg
+      - Item: Orc_Lord_Egg
+      - Item: Lady_Tanee_Egg
+      - Item: Phreeoni_Egg
+      - Item: Orc_Hero_Egg
+      - Item: Amon_Ra_Egg
+  - Item: Combine_Rare_Pet_Laphine
+    RewardGroup: PET_COMBINATION_RARE_REWARD
+    RequiredRequirementsCount: 4
+    Requirements:
+      - Item: Pharaoh_Egg
+      - Item: Bacsojin_Egg
+      - Item: Osiris_Egg
+      - Item: Dracula_Egg
+      - Item: Doppelganger_Egg
+      - Item: Mistress_Egg
+      - Item: Moonlight_Egg
+      - Item: Drake_Egg
+      - Item: Knight_Of_Windstorm_Egg
+      - Item: Lord_Of_Death_Egg
+  - Item: Combine_Rare_Weapon_Stone_Laphine
+    RewardGroup: WEAPON_STONE_COMBINATION_RARE_REWARD
+    RequiredRequirementsCount: 4
+    Requirements:
+      - Item: Weapon_Ore_1
+  - Item: Combine_Epic_Weapon_Stone_Laphine
+    RewardGroup: WEAPON_STONE_COMBINATION_EPIC_REWARD
+    RequiredRequirementsCount: 4
+    Requirements:
+      - Item: Weapon_Ore_4
+  - Item: Combine_Rare_Armor_Stone_Laphine
+    RewardGroup: ARMOR_STONE_COMBINATION_RARE_REWARD
+    RequiredRequirementsCount: 4
+    Requirements:
+      - Item: Armor_Ore_1
+  - Item: Combine_Epic_Armor_Stone_Laphine
+    RewardGroup: ARMOR_STONE_COMBINATION_EPIC_REWARD
+    RequiredRequirementsCount: 4
+    Requirements:
+      - Item: Armor_Ore_4
+  - Item: Combine_Rare_Acc_Stone_Laphine
+    RewardGroup: ACC_STONE_COMBINATION_RARE_REWARD
+    RequiredRequirementsCount: 4
+    Requirements:
+      - Item: Acc_Ore_1
+  - Item: Combine_Epic_Acc_Stone_Laphine
+    RewardGroup: ACC_STONE_COMBINATION_EPIC_REWARD
+    RequiredRequirementsCount: 4
+    Requirements:
+      - Item: Acc_Ore_4

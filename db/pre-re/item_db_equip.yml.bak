@@ -4595,7 +4595,7 @@ Body:
       bonus2 bAddSize,Size_All,40;
   - Id: 1292
     AegisName: Upg_Katar
-    Name: Upg Katar
+    Name: "[Rookie] Katar"
     Type: Weapon
     SubType: Katar
     Buy: 20
@@ -36312,7 +36312,7 @@ Body:
     Buy: 20
   - Id: 9039
     AegisName: Bacsojin_Egg
-    Name: Bacsojin Egg
+    Name: "[Rare] Bacsojin Egg"
     Type: PetEgg
     Buy: 20
   - Id: 9040

@@ -53523,3 +53523,265 @@ Body:
       - Item: Miyabi_Ningyo_Card
         Rate: 5
         StealProtected: true
+  - Id: 2235
+    AegisName: B_RANDEL
+    Name: Paladin Randel
+    Level: 160
+    Hp: 6870000
+    BaseExp: 3674489
+    JobExp: 2149566
+    MvpExp: 1837244
+    Attack: 5537
+    Attack2: 3017
+    Defense: 667
+    MagicDefense: 151
+    Str: 291
+    Agi: 155
+    Vit: 201
+    Int: 101
+    Dex: 265
+    Luk: 66
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demihuman
+    RaceGroups:
+      Biolab: true
+    Element: Holy
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 76
+    AttackMotion: 864
+    DamageMotion: 288
+    DamageTaken: 10
+    Ai: 21
+    Class: Boss
+    Modes:
+      Mvp: true
+  - Id: 2236
+    AegisName: B_FLAMEL
+    Name: Creator Flamel
+    Level: 160
+    Hp: 4230000
+    BaseExp: 2611785
+    JobExp: 1446694
+    MvpExp: 1305892
+    Attack: 2355
+    Attack2: 2514
+    Defense: 253
+    MagicDefense: 113
+    Str: 159
+    Agi: 175
+    Vit: 157
+    Int: 170
+    Dex: 237
+    Luk: 71
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demihuman
+    RaceGroups:
+      Biolab: true
+    Element: Fire
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 1152
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Modes:
+      Mvp: true
+  - Id: 2237
+    AegisName: B_CELIA
+    Name: Professor Celia
+    Level: 160
+    Hp: 3847804
+    BaseExp: 2513654
+    JobExp: 1380385
+    MvpExp: 1256827
+    Attack: 2481
+    Attack2: 3114
+    Defense: 201
+    MagicDefense: 543
+    Str: 165
+    Agi: 148
+    Vit: 171
+    Int: 155
+    Dex: 267
+    Luk: 85
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demihuman
+    RaceGroups:
+      Biolab: true
+    Element: Ghost
+    ElementLevel: 3
+    WalkSpeed: 100
+    AttackDelay: 1152
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Modes:
+      Mvp: true
+  - Id: 2238
+    AegisName: B_CHEN
+    Name: Champion Chen
+    Level: 160
+    Hp: 4249350
+    Sp: 1553
+    BaseExp: 2556784
+    JobExp: 1614235
+    MvpExp: 1278392
+    Attack: 3617
+    Attack2: 1947
+    Defense: 216
+    MagicDefense: 134
+    Str: 180
+    Agi: 165
+    Vit: 165
+    Int: 50
+    Dex: 298
+    Luk: 66
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demon
+    RaceGroups:
+      Biolab: true
+    Element: Water
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 76
+    AttackMotion: 768
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Modes:
+      Mvp: true
+  - Id: 22201
+    AegisName: SPIRIT_S_WIND_M
+    Name: Spirit of Wind
+    Level: 1
+    Hp: 1
+    Attack: 1
+    Attack2: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Wind
+    ElementLevel: 1
+    WalkSpeed: 100
+    AttackDelay: 1000
+    AttackMotion: 500
+    DamageMotion: 500
+    Ai: 21
+    Class: Boss
+  - Id: 22205
+    AegisName: SPIRIT_I_WATER_M
+    Name: Spirit of Water
+    Level: 1
+    Hp: 1
+    Attack: 1
+    Attack2: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Water
+    ElementLevel: 1
+    WalkSpeed: 100
+    AttackDelay: 1000
+    AttackMotion: 500
+    DamageMotion: 500
+    Ai: 21
+    Class: Boss
+  - Id: 22227
+    AegisName: SPIRIT_R_FLAME_SL
+    Name: Spirit of Flame
+    Level: 1
+    Hp: 1
+    Attack: 1
+    Attack2: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Fire
+    ElementLevel: 1
+    WalkSpeed: 100
+    AttackDelay: 1000
+    AttackMotion: 500
+    DamageMotion: 500
+    Ai: 21
+    Class: Boss
+  - Id: 22395
+    AegisName: MEDJED
+    Name: Medjed
+    Level: 1
+    Hp: 1
+    Attack: 1
+    Attack2: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 100
+    AttackDelay: 1000
+    AttackMotion: 500
+    DamageMotion: 500
+    Ai: 21
+    Class: Boss
+  - Id: 22397
+    AegisName: MEDJAY
+    Name: Medjay
+    Level: 1
+    Hp: 1
+    Attack: 1
+    Attack2: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 100
+    AttackDelay: 1000
+    AttackMotion: 500
+    DamageMotion: 500
+    Ai: 21
+    Class: Boss
+  - Id: 22402
+    AegisName: CP_HEKA
+    Name: CP Heka
+    Level: 1
+    Hp: 1
+    Attack: 1
+    Attack2: 1
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 100
+    AttackDelay: 1000
+    AttackMotion: 500
+    DamageMotion: 500
+    Ai: 21
+    Class: Boss

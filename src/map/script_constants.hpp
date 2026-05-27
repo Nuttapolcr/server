@@ -8078,6 +8078,14 @@
 	export_constant(IG_COSTUMEMILEPACK_34_2);
 	export_constant(IG_COSTUMEMILEPACK_34_3);
 	export_constant(IG_WoeCardAlbum);
+	export_constant(IG_PET_COMBINATION_COMMON_REWARD);
+	export_constant(IG_PET_COMBINATION_RARE_REWARD);
+	export_constant(IG_WEAPON_STONE_COMBINATION_RARE_REWARD);
+	export_constant(IG_WEAPON_STONE_COMBINATION_EPIC_REWARD);
+	export_constant(IG_ARMOR_STONE_COMBINATION_RARE_REWARD);
+	export_constant(IG_ARMOR_STONE_COMBINATION_EPIC_REWARD);
+	export_constant(IG_ACC_STONE_COMBINATION_RARE_REWARD);
+	export_constant(IG_ACC_STONE_COMBINATION_EPIC_REWARD);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);

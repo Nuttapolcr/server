@@ -48,3 +48,259 @@ Header:
   Version: 3
 
 Body:
+  - Group: PET_COMBINATION_COMMON_REWARD
+    AnnounceBoxItemId: 1500000
+    SubGroups:
+      - SubGroup: 1
+        AutoIndex: true
+        List:
+          - Index: 1 
+            Item: Golden_Bug_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 2
+            Item: Maya_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 3
+            Item: Eddga_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 4
+            Item: Dark_Lord_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 5
+            Item: Baphomet_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 6
+            Item: Orc_Lord_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 7
+            Item: Lady_Tanee_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 8
+            Item: Phreeoni_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 9
+            Item: Orc_Hero_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 10
+            Item: Amon_Ra_Egg
+            Rate: 80
+            Amount: 1
+          - Index: 11
+            Item: Pharaoh_Egg
+            Rate: 20
+            Amount: 1
+          - Index: 12
+            Item: Bacsojin_Egg
+            Rate: 20
+            Amount: 1
+          - Index: 13
+            Item: Osiris_Egg
+            Rate: 20
+            Amount: 1
+          - Index: 14
+            Item: Dracula_Egg
+            Rate: 20
+            Amount: 1
+          - Index: 15
+            Item: Doppelganger_Egg
+            Rate: 20
+            Amount: 1
+          - Index: 16
+            Item: Mistress_Egg
+            Rate: 20
+            Amount: 1
+          - Index: 17
+            Item: Moonlight_Egg
+            Rate: 20
+            Amount: 1
+          - Index: 18
+            Item: Drake_Egg
+            Rate: 20
+            Amount: 1
+          - Index: 19
+            Item: Knight_Of_Windstorm_Egg
+            Rate: 20
+            Amount: 1
+          - Index: 20
+            Item: Lord_Of_Death_Egg
+            Rate: 20
+            Amount: 1
+  - Group: PET_COMBINATION_RARE_REWARD
+    AnnounceBoxItemId: 1500001
+    SubGroups:
+      - SubGroup: 1
+        AutoIndex: true
+        List:
+          - Index: 1
+            Item: Pharaoh_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 2
+            Item: Bacsojin_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 3
+            Item: Osiris_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 4
+            Item: Dracula_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 5
+            Item: Doppelganger_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 6
+            Item: Mistress_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 7
+            Item: Moonlight_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 8
+            Item: Drake_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 9
+            Item: Knight_Of_Windstorm_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 10
+            Item: Lord_Of_Death_Egg
+            Rate: 95
+            Amount: 1
+          - Index: 11
+            Item: B_Seyren_Egg
+            Rate: 5
+            Amount: 1
+          - Index: 12
+            Item: B_Eremes_Egg
+            Rate: 5
+            Amount: 1
+          - Index: 13
+            Item: B_Harword_Egg
+            Rate: 5
+            Amount: 1
+          - Index: 14
+            Item: B_Magaleta_Egg
+            Rate: 5
+            Amount: 1
+          - Index: 15
+            Item: B_Shecil_Egg
+            Rate: 5
+            Amount: 1
+          - Index: 16
+            Item: B_Katrinn_Egg
+            Rate: 5
+            Amount: 1
+          - Index: 17
+            Item: B_Randel_Egg
+            Rate: 5
+            Amount: 1
+          - Index: 18
+            Item: B_Flamel_Egg
+            Rate: 5
+            Amount: 1
+          - Index: 19
+            Item: B_Celia_Egg
+            Rate: 5
+            Amount: 1
+          - Index: 20
+            Item: B_Chen_Egg
+            Rate: 5
+            Amount: 1
+  - Group: WEAPON_STONE_COMBINATION_RARE_REWARD
+    AnnounceBoxItemId: 1500002
+    SubGroups:
+      - SubGroup: 1
+        AutoIndex: true
+        List:
+          - Index: 1
+            Item: Weapon_Ore_1
+            Rate: 95
+            Amount: 1
+          - Index: 2
+            Item: Weapon_Ore_4
+            Rate: 5
+            Amount: 1
+  - Group: WEAPON_STONE_COMBINATION_EPIC_REWARD
+    AnnounceBoxItemId: 1500003
+    SubGroups:
+      - SubGroup: 1
+        AutoIndex: true
+        List:
+          - Index: 1
+            Item: Weapon_Ore_4
+            Rate: 95
+            Amount: 1
+          - Index: 2
+            Item: Weapon_Ore_2
+            Rate: 5
+            Amount: 1
+  - Group: ARMOR_STONE_COMBINATION_RARE_REWARD
+    AnnounceBoxItemId: 1500004
+    SubGroups:
+      - SubGroup: 1
+        AutoIndex: true
+        List:
+          - Index: 1
+            Item: Armor_Ore_1
+            Rate: 95
+            Amount: 1
+          - Index: 2
+            Item: Armor_Ore_4
+            Rate: 5
+            Amount: 1
+  - Group: ARMOR_STONE_COMBINATION_EPIC_REWARD
+    AnnounceBoxItemId: 1500005
+    SubGroups:
+      - SubGroup: 1
+        AutoIndex: true
+        List:
+          - Index: 1
+            Item: Armor_Ore_4
+            Rate: 95
+            Amount: 1
+          - Index: 2
+            Item: Armor_Ore_2
+            Rate: 5
+            Amount: 1
+  - Group: ACC_STONE_COMBINATION_RARE_REWARD
+    AnnounceBoxItemId: 1500006
+    SubGroups:
+      - SubGroup: 1
+        AutoIndex: true
+        List:
+          - Index: 1
+            Item: Acc_Ore_1
+            Rate: 95
+            Amount: 1
+          - Index: 2
+            Item: Acc_Ore_4
+            Rate: 5
+            Amount: 1
+  - Group: ACC_STONE_COMBINATION_EPIC_REWARD
+    AnnounceBoxItemId: 1500007
+    SubGroups:
+      - SubGroup: 1
+        AutoIndex: true
+        List:
+          - Index: 1
+            Item: Acc_Ore_4
+            Rate: 95
+            Amount: 1
+          - Index: 2
+            Item: Acc_Ore_2
+            Rate: 5
+            Amount: 1
