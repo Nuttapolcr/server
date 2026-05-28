@@ -33,3 +33,117 @@ Header:
   Version: 1
 
 Body:
+  - Tab: New
+    Items:
+      - Item: Easter_Egg
+        Price: 1
+      - Item: Hero_Token_Box
+        Price: 1
+      - Item: Cru_Scroll
+        Price: 1
+      - Item: Munin_Egg01
+        Price: 1
+      - Item: aegis_1001012
+        Price: 1
+  - Tab: Hot
+    Items:
+      - Item: HD_Elunium
+        Price: 1
+      - Item: HD_Oridecon
+        Price: 1
+      - Item: Blacksmith_Blessing
+        Price: 1
+  - Tab: Permanent
+    Items:
+      - Item: Upg_Katar
+        Price: 1
+      - Item: Upg_Two_Handed_Axe
+        Price: 1
+      - Item: Upg_Lance
+        Price: 1
+      - Item: Upg_Book
+        Price: 1
+      - Item: Upg_Staff
+        Price: 1
+      - Item: Upg_Dagger
+        Price: 1
+      - Item: Upg_Revolver
+        Price: 1
+      - Item: Upg_Twohand_Sword
+        Price: 1
+      - Item: Upg_Mace
+        Price: 1
+      - Item: Upg_Bow
+        Price: 1
+      - Item: Upg_Huuma_Shuriken
+        Price: 1
+      - Item: Upg_Adv_Suit
+        Price: 1
+      - Item: Upg_Guard
+        Price: 1
+      - Item: Upg_Boots
+        Price: 1
+      - Item: Upg_Muffler
+        Price: 1
+  - Tab: Consumables
+    Items:
+      - Item: Bubble_Gum
+        Price: 1
+      - Item: Bubble_Gum_Box
+        Price: 1
+      - Item: Str_Dish10_
+        Price: 1
+      - Item: Agi_Dish10_
+        Price: 1
+      - Item: Int_Dish10_
+        Price: 1
+      - Item: Dex_Dish10_
+        Price: 1
+      - Item: Luk_Dish10_
+        Price: 1
+      - Item: Vit_Dish10_
+        Price: 1
+      - Item: Blessing_10_Scroll
+        Price: 1
+      - Item: Inc_Agi_10_Scroll
+        Price: 1
+      - Item: Aspersio_5_Scroll
+        Price: 1
+      - Item: Megaphone_
+        Price: 1
+      - Item: Kafra_Card
+        Price: 1
+      - Item: Tasty_Colonel
+        Price: 1
+      - Item: Tasty_Major
+        Price: 1
+      - Item: Gold_Pill_1
+        Price: 1
+      - Item: Abrasive
+        Price: 1
+      - Item: Max_Weight_Up_Scroll
+        Price: 1
+      - Item: Elemental_Fire
+        Price: 1
+      - Item: Elemental_Water
+        Price: 1
+      - Item: Elemental_Earth
+        Price: 1
+      - Item: Elemental_Wind
+        Price: 1
+      - Item: Water_Of_Darkness
+        Price: 1
+      - Item: Resist_Fire
+        Price: 1
+      - Item: Resist_Water
+        Price: 1
+      - Item: Resist_Earth
+        Price: 1
+      - Item: Resist_Wind
+        Price: 1
+      - Item: Sesame_Pastry
+        Price: 1
+      - Item: Honey_Pastry
+        Price: 1
+      - Item: F_Token_Of_Siegfried
+        Price: 1
