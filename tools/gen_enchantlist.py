@@ -383,10 +383,14 @@ def render_entry(entry):
             )
         if "Chance" in slot:
             lines.append(f"Table[{entry_id}].Slot[{slot_id}]:SetSuccessRate({int(slot.get('Chance') or 0)})")
-        for bonus in slot.get("EnchantgradeBonus", []):
+        bonus_chance = {
+            int(bonus.get("Enchantgrade") or 0): int(bonus.get("Chance") or 0)
+            for bonus in slot.get("EnchantgradeBonus", [])
+        }
+        for grade in (1, 2, 3):
             lines.append(
                 f"Table[{entry_id}].Slot[{slot_id}]:SetGradeBonus("
-                f"{int(bonus.get('Enchantgrade') or 0)}, {int(bonus.get('Chance') or 0)})"
+                f"{grade}, {bonus_chance.get(grade, 0)})"
             )
         for group in slot.get("Enchants", []):
             grade = int(group.get("Enchantgrade") or 0)
