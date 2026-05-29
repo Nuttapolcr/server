@@ -11,6 +11,12 @@ import argparse
 import re
 from pathlib import Path
 
+from _itemdb_lub import (
+    add_missing_names,
+    build_item_catalog,
+    existing_namelist,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -441,6 +447,61 @@ def merge_output(existing_text, entries, replace_all=False):
     return "\n\n".join(rendered).rstrip() + "\n", removed
 
 
+def collect_aegis_names(entries):
+    """Yield every AegisName the rendered EnchantList.lub will reference."""
+    for entry in entries:
+        for target in entry.get("TargetItems", []):
+            yield target
+        for material in (entry.get("Reset") or {}).get("Materials", []):
+            yield material["Material"]
+        for slot in entry.get("Slots", []):
+            for material in slot.get("Materials", []):
+                yield material["Material"]
+            for group in slot.get("Enchants", []):
+                for item in group.get("Items", []):
+                    yield item["Item"]
+            for perfect in slot.get("PerfectEnchants", []):
+                yield perfect["Item"]
+                for material in perfect.get("Materials", []):
+                    yield material["Material"]
+            for upgrade in slot.get("Upgrades", []):
+                yield upgrade["Enchant"]
+                if upgrade.get("Upgrade"):
+                    yield upgrade["Upgrade"]
+                for material in upgrade.get("Materials", []):
+                    yield material["Material"]
+
+
+def sync_item_name_table(entries):
+    """Add missing AegisNames to ItemDBNameTbl.lub so the client can resolve them."""
+    existing = existing_namelist()
+    pending = []
+    seen = set()
+    for name in collect_aegis_names(entries):
+        if name in existing or name in seen:
+            continue
+        seen.add(name)
+        pending.append(name)
+
+    if not pending:
+        return []
+
+    catalog = build_item_catalog()
+    additions = []
+    unresolved = []
+    for name in pending:
+        info = catalog.get(name)
+        if info is None:
+            unresolved.append(name)
+            continue
+        additions.append((name, info.item_id))
+
+    if unresolved:
+        print("warning: cannot resolve item id for: " + ", ".join(sorted(unresolved)))
+
+    return add_missing_names(additions)
+
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Generate data/Lua Files/Enchant/EnchantList.lub from item_enchant.yml."
@@ -474,6 +535,11 @@ def main():
 
     write_text(args.output, merged, encoding="latin-1")
     print(f"wrote={args.output}")
+
+    added = sync_item_name_table(entries)
+    if added:
+        joined = ", ".join(name for name, _ in added)
+        print(f"ItemDBNameTbl.lub: added {len(added)} entries ({joined})")
 
 
 if __name__ == "__main__":

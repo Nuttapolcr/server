@@ -10,33 +10,25 @@ import argparse
 import re
 from pathlib import Path
 
+from _itemdb_lub import (
+    DEFAULT_ITEM_DBS,
+    ItemInfo,
+    add_missing_names,
+    build_item_catalog,
+    existing_namelist,
+    parse_item_db,
+)
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_SYNTHESIS_DB = ROOT / "db/import/laphine_synthesis.yml"
 DEFAULT_OUTPUT = ROOT / "data/Lua Files/datainfo/lapineddukddakbox.lub"
-DEFAULT_ITEM_DBS = [
-    ROOT / "db/import/item_db.yml",
-    ROOT / "db/pre-re/item_db_custom.yml",
-    ROOT / "db/pre-re/item_db_etc.yml",
-    ROOT / "db/pre-re/item_db_equip.yml",
-    ROOT / "db/pre-re/item_db_usable.yml",
-    ROOT / "db/re/item_db_etc.yml",
-    ROOT / "db/re/item_db_equip.yml",
-    ROOT / "db/re/item_db_usable.yml",
-]
 
 NEED_SOURCE_OVERRIDES = {
     "Combine_Common_Pet_Laphine": "Uncommon Pet Eggs",
     "Combine_Rare_Pet_Laphine": "Rare Pet Eggs",
 }
-
-
-class ItemInfo:
-    def __init__(self, item_id, aegis_name, display_name):
-        self.item_id = item_id
-        self.aegis_name = aegis_name
-        self.display_name = display_name
 
 
 class Requirement:
@@ -95,51 +87,6 @@ def parse_int(value, default=0):
     if value == "":
         return default
     return int(value, 0)
-
-
-def parse_item_db(path):
-    if not path.exists():
-        return {}
-
-    items = {}
-    current = None
-
-    def finish():
-        if not current:
-            return
-        if "Id" not in current or "AegisName" not in current:
-            return
-        aegis_name = current["AegisName"]
-        items[aegis_name] = ItemInfo(
-            item_id=int(current["Id"], 0),
-            aegis_name=aegis_name,
-            display_name=current.get("Name", aegis_name),
-        )
-
-    for raw_line in read_text(path).splitlines():
-        id_match = re.match(r"^\s*-\s+Id:\s*(.+?)\s*$", raw_line)
-        if id_match:
-            finish()
-            current = {"Id": parse_scalar(id_match.group(1))}
-            continue
-
-        if current is None:
-            continue
-
-        field_match = re.match(r"^\s{4}(AegisName|Name):\s*(.+?)\s*$", raw_line)
-        if field_match:
-            current[field_match.group(1)] = parse_scalar(field_match.group(2))
-
-    finish()
-    return items
-
-
-def build_item_catalog(paths):
-    catalog = {}
-    for path in paths:
-        for aegis_name, info in parse_item_db(path).items():
-            catalog.setdefault(aegis_name, info)
-    return catalog
 
 
 def parse_laphine_synthesis(path):
@@ -284,6 +231,30 @@ def update_lub(output_path, entries, catalog):
     return True
 
 
+def sync_item_name_table(entries, catalog):
+    """Add any synthesized/required items missing from ItemDBNameTbl.lub."""
+    existing = existing_namelist()
+    additions = []
+    chosen = set()
+    unresolved = []
+    for entry in entries:
+        candidates = [entry.item] + [req.item for req in entry.requirements]
+        for aegis_name in candidates:
+            if aegis_name in existing or aegis_name in chosen:
+                continue
+            chosen.add(aegis_name)
+            info = catalog.get(aegis_name)
+            if info is None:
+                unresolved.append(aegis_name)
+                continue
+            additions.append((aegis_name, info.item_id))
+
+    if unresolved:
+        print("warning: cannot resolve item id for: " + ", ".join(sorted(unresolved)))
+
+    return add_missing_names(additions)
+
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Update data/Lua Files/datainfo/lapineddukddakbox.lub from laphine_synthesis.yml."
@@ -324,6 +295,11 @@ def main():
     changed = update_lub(args.output, entries, catalog)
     status = "Updated" if changed else "Already up to date"
     print(f"{status}: {args.output} ({len(entries)} entries)")
+
+    added = sync_item_name_table(entries, catalog)
+    if added:
+        joined = ", ".join(name for name, _ in added)
+        print(f"ItemDBNameTbl.lub: added {len(added)} entries ({joined})")
     return 0
 
 
