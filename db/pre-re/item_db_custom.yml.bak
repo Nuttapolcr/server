@@ -270,409 +270,142 @@ Body:
     AegisName: Golden_Bug_Egg
     Name: "[Normal] Golden Bug Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bShortAtkRate,1;
-      bonus2 bDropAddClass,Class_All,2;
-    CollectionEffectStack: 5
   - Id: 9265
     AegisName: Maya_Egg
     Name: "[Normal] Maya Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bAspdRate,1;
-      bonus2 bDropAddClass,Class_All,2;
-    CollectionEffectStack: 5
   - Id: 9266
     AegisName: Eddga_Egg
     Name: "[Normal] Eddga Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bDelayrate,-1;
-      bonus2 bDropAddClass,Class_All,2;
-    CollectionEffectStack: 5
   - Id: 9267
     AegisName: Dark_Lord_Egg
     Name: "[Normal] Dark Lord Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bCritical,5;
-      bonus2 bDropAddClass,Class_All,2;
-    CollectionEffectStack: 5
   - Id: 9268
     AegisName: Baphomet_Egg
     Name: "[Normal] Baphomet Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bDropAddClass_C,Class_All,10;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9269
     AegisName: Orc_Lord_Egg
     Name: "[Normal] Orc Lord Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bMaxSP,100;
-      bonus2 bDropAddClass,Class_All,2;
-    CollectionEffectStack: 5
   - Id: 9270
     AegisName: Lady_Tanee_Egg
     Name: "[Normal] Lady Tanee Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bCritAtkRate,5;
-      bonus2 bDropAddClass,Class_All,2;
-    CollectionEffectStack: 5
   - Id: 9271
     AegisName: Phreeoni_Egg
     Name: "[Normal] Phreeoni Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bFlee2,5;
-      bonus2 bDropAddClass,Class_All,2;
-    CollectionEffectStack: 5
   - Id: 9272
     AegisName: Orc_Hero_Egg
     Name: "[Normal] Orc Hero Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bAddClass,Class_All,1;
-      bonus2 bDropAddClass,Class_All,2;
-    CollectionEffectStack: 5
   - Id: 9273
     AegisName: Amon_Ra_Egg
     Name: "[Normal] Amon Ra Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bMagicAddClass,Class_All,1;
-      bonus2 bDropAddClass,Class_All,2;
-    CollectionEffectStack: 5
   - Id: 9274
     AegisName: Pharaoh_Egg
     Name: "[Rare] Pharaoh Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Freeze,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
-    CollectionEffectStack: 5
   - Id: 9275
     AegisName: Osiris_Egg
     Name: "[Rare] Osiris Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Stone,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
-    CollectionEffectStack: 5
   - Id: 9276
     AegisName: Dracula_Egg
     Name: "[Rare] Dracula Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Sleep,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
-    CollectionEffectStack: 5
   - Id: 9277
     AegisName: Doppelganger_Egg
     Name: "[Rare] Doppelganger Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Silence,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
-    CollectionEffectStack: 5
   - Id: 9278
     AegisName: Mistress_Egg
     Name: "[Rare] Mistress Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Curse,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
-    CollectionEffectStack: 5
   - Id: 9279
     AegisName: Moonlight_Egg
     Name: "[Rare] Moonlight Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Confusion,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
-    CollectionEffectStack: 5
   - Id: 9280
     AegisName: Drake_Egg
     Name: "[Rare] Drake Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      skill "AL_INCAGI",10;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
-    CollectionEffectStack: 5
   - Id: 9281
     AegisName: Knight_Of_Windstorm_Egg
     Name: "[Rare] Stormy Knight Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      skill "PR_IMPOSITIO",5;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
-    CollectionEffectStack: 5
   - Id: 9282
     AegisName: Lord_Of_Death_Egg
     Name: "[Rare] Lord of Death Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      skill "AL_BLESSING",10;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
-    CollectionEffectStack: 5
   - Id: 9283
     AegisName: B_Seyren_Egg
     Name: "[Epic] Seyren Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bAllStats,2;
-      bonus bAspd,1;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 5
   - Id: 9284
     AegisName: B_Eremes_Egg
     Name: "[Epic] Eremes Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bAllStats,2;
-      bonus bFlee,30;
-      bonus bHit,30;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 5
   - Id: 9285
     AegisName: B_Harword_Egg
     Name: "[Epic] Howard Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bAllStats,1;
-      bonus bAspdRate,10;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 5
   - Id: 9286
     AegisName: B_Magaleta_Egg
     Name: "[Epic] Margaretha Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bResEff,Eff_Stun,5000;
-      bonus2 bAddEff,Eff_Freeze,10000;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 5
   - Id: 9287
     AegisName: B_Shecil_Egg
     Name: "[Epic] Cecil Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bAddClass,Class_Boss,35;
-      bonus2 bAddEff,Eff_Curse,10000;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 5
   - Id: 9288
     AegisName: B_Katrinn_Egg
     Name: "[Epic] Kathryne Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bShortWeaponDamageReturn,-100;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 5
   - Id: 9289
     AegisName: B_Randel_Egg
     Name: "[Epic] Randel Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bMagicDamageReturn,100;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 5
   - Id: 9290
     AegisName: B_Flamel_Egg
     Name: "[Epic] Flamel Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      sc_start SC_ENDURE,INFINITE_TICK,1;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 5
   - Id: 9291
     AegisName: B_Celia_Egg
     Name: "[Epic] Celia Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bNoGemStone;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 5
   - Id: 9292
     AegisName: B_Chen_Egg
     Name: "[Epic] Chen Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus2 bAddEff,Eff_Stun,1000;
-      bonus2 bAddEff,Eff_Curse,1000;
-      bonus2 bAddEff,Eff_Silence,1000;
-      bonus2 bAddEff,Eff_Poison,1000;
-      bonus2 bAddEff,Eff_Bleeding,1000;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
-    CollectionEffectStack: 2
   - Id: 9293
     AegisName: Medjay_Egg
     Name: "[Legend] MedJay Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
-    CollectionEffectStack: 2
   - Id: 9294
     AegisName: Cp_Heka_Egg
     Name: "[Legend] MedJee Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
-    CollectionEffectStack: 2
   - Id: 9295
     AegisName: Medjed_Egg
     Name: "[Legend] MedJed Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bCritical,50;
-      bonus bCritAtkRate,20;
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
-    CollectionEffectStack: 2
   - Id: 9296
     AegisName: Spirit_R_Flame_Sl_Egg
     Name: "[Legend] Spirit Flame Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bBaseAtk,70;
-      bonus bShortAtkRate,3;
-      bonus bLongAtkRate,3;
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
-    CollectionEffectStack: 2
   - Id: 9297
     AegisName: Spirit_I_Water_M_Egg
     Name: "[Legend] Spirit Water Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bMatk,150;
-      bonus bMatkRate,10;
-      bonus bVariableCastrate,-20;
-      bonus bDelayrate,-20;
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
-    CollectionEffectStack: 2
   - Id: 9298
     AegisName: Spirit_S_Wind_M_Egg
     Name: "[Legend] Spirit Wind Egg"
     Type: PetEgg
-    Flags:
-      Collection: true
-    CollectionScript: |-
-      bonus bMaxHPrate,50;
-      bonus bDef,100;
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
-    CollectionEffectStack: 2
   - Id: 55000
     AegisName: "22266"
     Name: Fire Red Storm Sword
@@ -28596,12 +28329,12 @@ Body:
       bonus bBaseAtk,15;
   - Id: 1000602
     AegisName: aegis_1000602
-    Name: ��ัตรวา����อส
+    Name: ��ัตรวา����อส
     Type: Etc
     Weight: 0
   - Id: 1000603
     AegisName: aegis_1000603
-    Name: ��ัตรวา����อส (NT)
+    Name: ��ัตรวา����อส (NT)
     Type: Etc
     Weight: 0
     Trade:
@@ -28624,8 +28357,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bShortAtkRate,1; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bShortAtkRate,1;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001726
     AegisName: Col_Maya
     Name: "[ Collection ] Maya"
@@ -28634,8 +28369,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bMagicAtkRate,1; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bAspdRate,1;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001727
     AegisName: Col_Eddga
     Name: "[ Collection ] Eddga"
@@ -28644,8 +28381,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bWeaponAtk,W_FIST,25; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bDelayrate,-1;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001728
     AegisName: Col_Dark_Lord
     Name: "[ Collection ] Dark Lord"
@@ -28654,8 +28393,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bWeaponAtk,W_BOW,25; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bCritical,5;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001729
     AegisName: Col_Baphomet
     Name: "[ Collection ] Baphomet"
@@ -28664,8 +28405,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bDropAddClass_C,Class_All,2; bonus2 bExpAddClass,Class_All,5;
+    CollectionScript: |-
+      bonus2 bDropAddClass_C,Class_All,10;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001730
     AegisName: Col_Orc_Lord
     Name: "[ Collection ] Orc Lord"
@@ -28674,8 +28417,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bStr,3; bonus bVit,3; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bMaxSP,100;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001731
     AegisName: Col_Lady_Tanee
     Name: "[ Collection ] Lady Tanee"
@@ -28684,8 +28429,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bAgi,3; bonus bLuk,3; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bCritAtkRate,5;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001732
     AegisName: Col_Phreeoni
     Name: "[ Collection ] Phreeoni"
@@ -28694,8 +28441,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bDex,3; bonus bInt,3; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bFlee2,5;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001733
     AegisName: Col_Orc_Hero
     Name: "[ Collection ] Orc Hero"
@@ -28704,8 +28453,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bMaxHPrate,5; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddClass,Class_All,1;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001734
     AegisName: Col_Amon_Ra
     Name: "[ Collection ] Amon Ra"
@@ -28714,8 +28465,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bMaxSPrate,5; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bMagicAddClass,Class_All,1;
+      bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001735
     AegisName: Col_Pharaoh
     Name: "[ Collection ] Pharaoh"
@@ -28724,8 +28477,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bExpAddClass,Class_All,10; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Freeze,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001736
     AegisName: Col_Bacsojin
     Name: "[ Collection ] Bacsojin"
@@ -28734,8 +28490,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bMdef,5; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Stun,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001737
     AegisName: Col_Osiris
     Name: "[ Collection ] Osiris"
@@ -28744,8 +28503,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bDef,5; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Stone,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001738
     AegisName: Col_Dracula
     Name: "[ Collection ] Dracula"
@@ -28754,8 +28516,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bMaxHPrate,5; bonus bMaxSPrate,5; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Sleep,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001739
     AegisName: Col_Doppelganger
     Name: "[ Collection ] Doppelganger"
@@ -28764,8 +28529,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bAspdRate,3; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Silence,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001740
     AegisName: Col_Mistress
     Name: "[ Collection ] Mistress"
@@ -28774,8 +28542,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bSubSkill,NV_BASIC,30; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Curse,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001741
     AegisName: Col_Moonlight
     Name: "[ Collection ] Moonlight"
@@ -28784,8 +28555,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bShortAtkRate,1; bonus bMagicAtkRate,1; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Confusion,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001742
     AegisName: Col_Drake
     Name: "[ Collection ] Drake"
@@ -28794,8 +28568,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddSize,Size_All,5; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      skill "AL_INCAGI",10;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001743
     AegisName: Col_Stormy_Knight
     Name: "[ Collection ] Stormy Knight"
@@ -28804,8 +28581,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddRace,RC_All,5; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      skill "PR_IMPOSITIO",5;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001744
     AegisName: Col_Lord_of_Death
     Name: "[ Collection ] Lord of Death"
@@ -28814,8 +28594,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddEle,Ele_All,5; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      skill "AL_BLESSING",10;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001745
     AegisName: Col_Seyren
     Name: "[ Collection ] Seyren"
@@ -28824,8 +28607,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bAtk,30; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bAllStats,2;
+      bonus bAspd,1;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001746
     AegisName: Col_Eremes
     Name: "[ Collection ] Eremes"
@@ -28834,8 +28622,14 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bCritical,15; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bAllStats,2;
+      bonus bFlee,30;
+      bonus bHit,30;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001747
     AegisName: Col_Howard
     Name: "[ Collection ] Howard"
@@ -28844,8 +28638,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bMatk,30; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bAllStats,1;
+      bonus bAspdRate,10;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001748
     AegisName: Col_Margaretha
     Name: "[ Collection ] Margaretha"
@@ -28854,8 +28653,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bHealPower,10; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bResEff,Eff_Stun,5000;
+      bonus2 bAddEff,Eff_Freeze,10000;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001749
     AegisName: Col_Cecil
     Name: "[ Collection ] Cecil"
@@ -28864,8 +28668,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddRace,RC_Undead,15; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddClass,Class_Boss,35;
+      bonus2 bAddEff,Eff_Curse,10000;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001750
     AegisName: Col_Kathryne
     Name: "[ Collection ] Kathryne"
@@ -28874,8 +28683,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddEle,Ele_Wind,15; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bShortWeaponDamageReturn,-100;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001751
     AegisName: Col_Randel
     Name: "[ Collection ] Randel"
@@ -28884,8 +28697,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddRace,RC_DemiHuman,15; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bMagicDamageReturn,100;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001752
     AegisName: Col_Flamel
     Name: "[ Collection ] Flamel"
@@ -28894,8 +28711,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddEle,Ele_Fire,15; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      sc_start SC_ENDURE,INFINITE_TICK,1;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001753
     AegisName: Col_Celia
     Name: "[ Collection ] Celia"
@@ -28904,8 +28725,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddEle,Ele_Holy,15; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus bNoGemStone;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001754
     AegisName: Col_Chen
     Name: "[ Collection ] Chen"
@@ -28914,8 +28739,16 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddRace,RC_Brute,15; bonus2 bDropAddClass,Class_All,2;
+    CollectionScript: |-
+      bonus2 bAddEff,Eff_Stun,1000;
+      bonus2 bAddEff,Eff_Curse,1000;
+      bonus2 bAddEff,Eff_Silence,1000;
+      bonus2 bAddEff,Eff_Poison,1000;
+      bonus2 bAddEff,Eff_Bleeding,1000;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001755
     AegisName: Col_MedJay
     Name: "[ Collection ] MedJay"
@@ -28924,8 +28757,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddRace,RC_All,10; bonus2 bDropAddClass,Class_All,2; bonus2 bExpAddRace,RC_All,10;
+    CollectionScript: |-
+      autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001756
     AegisName: Col_MedJee
     Name: "[ Collection ] MedJee"
@@ -28934,8 +28771,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddSize,Size_All,10; bonus2 bDropAddClass,Class_All,2; bonus2 bExpAddClass,Class_All,10;
+    CollectionScript: |-
+      autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001757
     AegisName: Col_MedJed
     Name: "[ Collection ] MedJed"
@@ -28944,8 +28785,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus2 bAddEle,Ele_All,10; bonus2 bDropAddClass,Class_All,2; bonus2 bExpAddClass,Class_All,10;
+    CollectionScript: |-
+      bonus bCritical,50;
+      bonus bCritAtkRate,20;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001758
     AegisName: Col_Spirit_Flame
     Name: "[ Collection ] Spirit Flame"
@@ -28954,8 +28800,14 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bAtk,50; bonus bMatk,50; bonus2 bDropAddClass,Class_All,3; bonus2 bExpAddClass,Class_All,10;
+    CollectionScript: |-
+      bonus bBaseAtk,70;
+      bonus bShortAtkRate,3;
+      bonus bLongAtkRate,3;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001759
     AegisName: Col_Spirit_Water
     Name: "[ Collection ] Spirit Water"
@@ -28964,8 +28816,15 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bMaxHPrate,10; bonus bMaxSPrate,10; bonus2 bDropAddClass,Class_All,3; bonus2 bExpAddClass,Class_All,10;
+    CollectionScript: |-
+      bonus bMatk,150;
+      bonus bMatkRate,10;
+      bonus bVariableCastrate,-20;
+      bonus bDelayrate,-20;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001760
     AegisName: Col_Spirit_Wind
     Name: "[ Collection ] Spirit Wind"
@@ -28974,5 +28833,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |
-      bonus bAllStats,5; bonus2 bDropAddClass,Class_All,3; bonus2 bExpAddClass,Class_All,10;
+    CollectionScript: |-
+      bonus bMaxHPrate,50;
+      bonus bDef,100;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
