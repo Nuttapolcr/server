@@ -10743,3 +10743,157 @@ Body:
           - Index: 16
             Item: F_Enriched_Elunium
             Rate: 300
+
+  - Group: EASTER_EGG
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Golden_Bug_Egg
+            Rate: 19200
+          - Index: 1
+            Item: Maya_Egg
+            Rate: 19200
+          - Index: 2
+            Item: Eddga_Egg
+            Rate: 19200
+          - Index: 3
+            Item: Dark_Lord_Egg
+            Rate: 19200
+          - Index: 4
+            Item: Baphomet_Egg
+            Rate: 19200
+          - Index: 5
+            Item: Orc_Lord_Egg
+            Rate: 19200
+          - Index: 6
+            Item: Lady_Tanee_Egg
+            Rate: 19200
+          - Index: 7
+            Item: Phreeoni_Egg
+            Rate: 19200
+          - Index: 8
+            Item: Orc_Hero_Egg
+            Rate: 19200
+          - Index: 9
+            Item: Amon_Ra_Egg
+            Rate: 19200
+          - Index: 10
+            Item: Bacsojin_Egg
+            Rate: 790
+          - Index: 11
+            Item: Pharaoh_Egg
+            Rate: 790
+          - Index: 12
+            Item: Osiris_Egg
+            Rate: 790
+          - Index: 13
+            Item: Dracula_Egg
+            Rate: 790
+          - Index: 14
+            Item: Doppelganger_Egg
+            Rate: 790
+          - Index: 15
+            Item: Mistress_Egg
+            Rate: 790
+          - Index: 16
+            Item: Moonlight_Egg
+            Rate: 790
+          - Index: 17
+            Item: Drake_Egg
+            Rate: 790
+          - Index: 18
+            Item: Knight_Of_Windstorm_Egg
+            Rate: 790
+          - Index: 19
+            Item: Lord_Of_Death_Egg
+            Rate: 790
+          - Index: 20
+            Item: B_Seyren_Egg
+            Rate: 10
+          - Index: 21
+            Item: B_Eremes_Egg
+            Rate: 10
+          - Index: 22
+            Item: B_Harword_Egg
+            Rate: 10
+          - Index: 23
+            Item: B_Magaleta_Egg
+            Rate: 10
+          - Index: 24
+            Item: B_Shecil_Egg
+            Rate: 10
+          - Index: 25
+            Item: B_Katrinn_Egg
+            Rate: 10
+          - Index: 26
+            Item: B_Randel_Egg
+            Rate: 10
+          - Index: 27
+            Item: B_Flamel_Egg
+            Rate: 10
+          - Index: 28
+            Item: B_Celia_Egg
+            Rate: 10
+          - Index: 29
+            Item: B_Chen_Egg
+            Rate: 10
+
+  - Group: HERO_TOKEN_BOX
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Weapon_Ore_1
+            Rate: 9800
+          - Index: 1
+            Item: Weapon_Ore_4
+            Rate: 190
+          - Index: 2
+            Item: Weapon_Ore_2
+            Rate: 10
+
+  - Group: CRU_SCROLL
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Armor_Ore_1
+            Rate: 9800
+          - Index: 1
+            Item: Armor_Ore_4
+            Rate: 190
+          - Index: 2
+            Item: Armor_Ore_2
+            Rate: 10
+
+  - Group: MUNIN_EGG01
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Acc_Ore_1
+            Rate: 9800
+          - Index: 1
+            Item: Acc_Ore_3
+            Rate: 190
+          - Index: 2
+            Item: Acc_Ore_2
+            Rate: 10
+
+  - Group: MAUTOSPELL_SELECT_BOX
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Meteorite_Fragment
+            Rate: 800
+            Amount: 5
+          - Index: 1
+            Item: Meteorite_Fragment
+            Rate: 150
+            Amount: 10
+          - Index: 2
+            Item: Meteorite_Fragment
+            Rate: 50
+            Amount: 15

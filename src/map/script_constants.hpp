@@ -7869,6 +7869,8 @@
 	export_constant(IG_MAUTOSPELL_PENDANT_BOX);
 	export_constant(IG_MAUTOSPELL_ARMOR_BOX);
 	export_constant(IG_MAUTOSPELL_SHOES_BOX);
+	export_constant(IG_MUNIN_EGG01);
+	export_constant(IG_MAUTOSPELL_SELECT_BOX);
 	export_constant(IG_INFINITY_WEAPON_BOX);
 	export_constant(IG_INFINITY_SHIELD_BOX);
 	export_constant(IG_LUXURIOUS_BLUE_BOX);
