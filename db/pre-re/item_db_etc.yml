@@ -9654,7 +9654,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,1;
   - Id: 4701
@@ -9663,7 +9663,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,2;
   - Id: 4702
@@ -9672,7 +9672,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,3;
   - Id: 4703
@@ -9681,7 +9681,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,4;
   - Id: 4704
@@ -9690,7 +9690,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,5;
   - Id: 4705
@@ -9699,7 +9699,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,6;
   - Id: 4706
@@ -9708,7 +9708,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,7;
   - Id: 4707
@@ -9717,7 +9717,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,8;
   - Id: 4708
@@ -9726,7 +9726,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,9;
   - Id: 4709
@@ -9735,7 +9735,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bStr,10;
   - Id: 4710
@@ -9744,7 +9744,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,1;
   - Id: 4711
@@ -9753,7 +9753,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,2;
   - Id: 4712
@@ -9762,7 +9762,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,3;
   - Id: 4713
@@ -9771,7 +9771,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,4;
   - Id: 4714
@@ -9780,7 +9780,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,5;
   - Id: 4715
@@ -9789,7 +9789,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,6;
   - Id: 4716
@@ -9798,7 +9798,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,7;
   - Id: 4717
@@ -9807,7 +9807,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,8;
   - Id: 4718
@@ -9816,7 +9816,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,9;
   - Id: 4719
@@ -9825,7 +9825,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bInt,10;
   - Id: 4720
@@ -9834,7 +9834,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,1;
   - Id: 4721
@@ -9843,7 +9843,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,2;
   - Id: 4722
@@ -9852,7 +9852,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,3;
   - Id: 4723
@@ -9861,7 +9861,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,4;
   - Id: 4724
@@ -9870,7 +9870,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,5;
   - Id: 4725
@@ -9879,7 +9879,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,6;
   - Id: 4726
@@ -9888,7 +9888,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,7;
   - Id: 4727
@@ -9897,7 +9897,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,8;
   - Id: 4728
@@ -9906,7 +9906,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,9;
   - Id: 4729
@@ -9915,7 +9915,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bDex,10;
   - Id: 4730
@@ -9924,7 +9924,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,1;
   - Id: 4731
@@ -9933,7 +9933,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,2;
   - Id: 4732
@@ -9942,7 +9942,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,3;
   - Id: 4733
@@ -9951,7 +9951,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,4;
   - Id: 4734
@@ -9960,7 +9960,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,5;
   - Id: 4735
@@ -9969,7 +9969,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,6;
   - Id: 4736
@@ -9978,7 +9978,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,7;
   - Id: 4737
@@ -9987,7 +9987,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,8;
   - Id: 4738
@@ -9996,7 +9996,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,9;
   - Id: 4739
@@ -10005,7 +10005,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bAgi,10;
   - Id: 4740
@@ -10014,7 +10014,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,1;
   - Id: 4741
@@ -10023,7 +10023,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,2;
   - Id: 4742
@@ -10032,7 +10032,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,3;
   - Id: 4743
@@ -10041,7 +10041,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,4;
   - Id: 4744
@@ -10050,7 +10050,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,5;
   - Id: 4745
@@ -10059,7 +10059,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,6;
   - Id: 4746
@@ -10068,7 +10068,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,7;
   - Id: 4747
@@ -10077,7 +10077,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,8;
   - Id: 4748
@@ -10086,7 +10086,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,9;
   - Id: 4749
@@ -10095,7 +10095,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bVit,10;
   - Id: 4750
@@ -10104,7 +10104,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,1;
   - Id: 4751
@@ -10113,7 +10113,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,2;
   - Id: 4752
@@ -10122,7 +10122,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,3;
   - Id: 4753
@@ -10131,7 +10131,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,4;
   - Id: 4754
@@ -10140,7 +10140,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,5;
   - Id: 4755
@@ -10149,7 +10149,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,6;
   - Id: 4756
@@ -10158,7 +10158,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,7;
   - Id: 4757
@@ -10167,7 +10167,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,8;
   - Id: 4758
@@ -10176,7 +10176,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,9;
   - Id: 4759
@@ -10185,7 +10185,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 20
-    Weight: 10
+    Weight: 0
     Script: |
       bonus bLuk,10;
   - Id: 4760
@@ -10601,37 +10601,41 @@ Body:
       bonus bHit,2;
   - Id: 4812
     AegisName: Spell4
-    Name: Spell4
+    Name: Spell Lv4
     Type: Card
     SubType: Enchant
     Buy: 20
+    Weight: 0
     Script: |
       bonus bMatk,15;
       bonus bVariableCastrate,-10;
   - Id: 4813
     AegisName: Spell3
-    Name: Spell3
+    Name: Spell Lv3
     Type: Card
     SubType: Enchant
     Buy: 20
+    Weight: 0
     Script: |
       bonus bMatk,12;
       bonus bVariableCastrate,-8;
   - Id: 4814
     AegisName: Spell2
-    Name: Spell2
+    Name: Spell Lv2
     Type: Card
     SubType: Enchant
     Buy: 20
+    Weight: 0
     Script: |
       bonus bMatk,9;
       bonus bVariableCastrate,-6;
   - Id: 4815
     AegisName: Spell1
-    Name: Spell1
+    Name: Spell Lv1
     Type: Card
     SubType: Enchant
     Buy: 20
+    Weight: 0
     Script: |
       bonus bMatk,6;
       bonus bVariableCastrate,-4;
@@ -10726,10 +10730,11 @@ Body:
       bonus bHit,15;
   - Id: 4826
     AegisName: Spell5
-    Name: Spell5
+    Name: Spell Lv5
     Type: Card
     SubType: Enchant
     Buy: 20
+    Weight: 0
     Script: |
       bonus bMatk,18;
       bonus bVariableCastrate,-10;
@@ -10910,10 +10915,11 @@ Body:
       bonus bMatk,10;
   - Id: 4848
     AegisName: Immuned1
-    Name: Immune Level 1
+    Name: Immune Lv1
     Type: Card
     SubType: Enchant
     Buy: 20
+    Weight: 0
     Script: |
       bonus2 bSubEle,Ele_Neutral,5;
   - Id: 4849
@@ -11152,10 +11158,11 @@ Body:
       bonus bMaxHPrate,4;
   - Id: 4869
     AegisName: Attack_Delay_1
-    Name: DelayafterAttack1Lv
+    Name: After Attack Delay Lv1
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus bAspdRate,4;
   - Id: 4870
@@ -11176,18 +11183,20 @@ Body:
       bonus bMaxSP,75;
   - Id: 4872
     AegisName: Attack_Delay_2
-    Name: DelayafterAttack2Lv
+    Name: After Attack Delay Lv2
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus bAspdRate,6;
   - Id: 4873
     AegisName: Attack_Delay_3
-    Name: DelayafterAttack3Lv
+    Name: After Attack Delay Lv3
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus bAspdRate,8;
   - Id: 4874
@@ -11200,6 +11209,7 @@ Body:
     Name: Bear's Power
     Type: Card
     SubType: Enchant
+    Weight: 0
     Script: |
       autobonus2 "{ bonus bStr,200; bonus2 bHPLossRate,500,1000; }",20,5000,BF_WEAPON,"{ active_transform 1060,5000; specialeffect2 EF_POTION_BERSERK; showscript \"Bigfoot Power !\"; }";
     UnEquipScript: |
@@ -11209,6 +11219,7 @@ Body:
     Name: Runaway Magic
     Type: Card
     SubType: Enchant
+    Weight: 0
     Script: |
       autobonus "{ bonus bInt,200; bonus2 bSPLossRate,200,1000; }",15,10000,BF_MAGIC,"{ specialeffect2 EF_LAMADAN; }";
     UnEquipScript: |
@@ -11218,6 +11229,7 @@ Body:
     Name: Speed of Light
     Type: Card
     SubType: Enchant
+    Weight: 0
     Script: |
       autobonus "{ bonus bAspdRate,100; bonus bFlee,100; bonus2 bSPLossRate,50,1000; }",10,5000,BF_WEAPON,"{ specialeffect2 EF_FLASHER; }";
     UnEquipScript: |
@@ -11227,15 +11239,17 @@ Body:
     Name: Muscle Fool
     Type: Card
     SubType: Enchant
+    Weight: 0
     Script: |
       autobonus2 "{ bonus bDef,1000; bonus2 bSPLossRate,50,1000; }",20,5000,BF_WEAPON,"{ specialeffect2 EF_MAGNUMBREAK; }";
     UnEquipScript: |
       heal 0,-300;
   - Id: 4879
     AegisName: Hawkeye
-    Name: Hawkeye
+    Name: Hawk Eye
     Type: Card
     SubType: Enchant
+    Weight: 0
     Script: |
       autobonus "{ bonus bDex,200; bonus2 bSPLossRate,50,1000; }",30,5000,BF_WEAPON,"{ specialeffect2 EF_FLASHER; }";
     UnEquipScript: |
@@ -11245,6 +11259,7 @@ Body:
     Name: Lucky Day
     Type: Card
     SubType: Enchant
+    Weight: 0
     Script: |
       autobonus "{ bonus bLuk,200; bonus2 bAddMonsterDropItem,7444,10; }",15,5000,BF_WEAPON|BF_MAGIC,"{ specialeffect2 EF_MVP; showscript \"LUCKY MAX !!\"; }";
       autobonus2 "{ bonus bLuk,200; bonus2 bAddMonsterDropItem,7444,1; }",1,5000,BF_WEAPON|BF_MAGIC,"{ specialeffect2 EF_MVP; showscript \"LUCKY MAX !!\"; }";
@@ -11252,10 +11267,11 @@ Body:
       heal 0,-300;
   - Id: 4881
     AegisName: Attack_Delay_4
-    Name: Attack Delay 4
+    Name: After Attack Delay Lv4
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus bAspdRate,10;
   - Id: 4882
@@ -11890,6 +11906,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus2 bSubEle,Ele_Neutral,1;
   - Id: 4934
@@ -11898,6 +11915,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus2 bSubEle,Ele_Neutral,2;
   - Id: 4935
@@ -11906,6 +11924,7 @@ Body:
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus2 bSubEle,Ele_Neutral,3;
   - Id: 4936
@@ -12006,26 +12025,29 @@ Body:
       bonus bUseSPrate,-6;
   - Id: 4948
     AegisName: Skill_Delay1
-    Name: After Skill Delay Lv1
+    Name: AfterSkillDelay Lv1
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus bDelayrate,-2;
   - Id: 4949
     AegisName: Skill_Delay2
-    Name: After Skill Delay Lv2
+    Name: AfterSkillDelay Lv2
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus bDelayrate,-4;
   - Id: 4950
     AegisName: Skill_Delay3
-    Name: After Skill Delay Lv3
+    Name: AfterSkillDelay Lv3
     Type: Card
     SubType: Enchant
     Buy: 10
+    Weight: 0
     Script: |
       bonus bDelayrate,-6;
   - Id: 4951
@@ -23939,7 +23961,7 @@ Body:
     Name: Blacksmith Blessing
     Type: Etc
     Buy: 20
-    Weight: 10
+    Weight: 0
   - Id: 70003
     AegisName: Changebase_Knight_Class3
     Name: Changebase Knight Class3

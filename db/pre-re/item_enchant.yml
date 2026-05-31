@@ -26,7 +26,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -87,7 +87,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -162,7 +162,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -242,7 +242,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -291,7 +291,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -348,7 +348,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -416,7 +416,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -449,7 +449,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -494,7 +494,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -583,7 +583,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -654,7 +654,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -711,7 +711,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -789,7 +789,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -846,7 +846,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -889,7 +889,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -955,7 +955,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -990,7 +990,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -1017,7 +1017,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -1587,7 +1587,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -1650,7 +1650,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -1707,7 +1707,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -1795,7 +1795,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -1850,7 +1850,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -1897,7 +1897,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -1983,7 +1983,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -2024,7 +2024,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -2051,7 +2051,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -2195,7 +2195,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -2260,7 +2260,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -2313,7 +2313,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -2391,7 +2391,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -2446,7 +2446,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -2485,7 +2485,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50
@@ -2559,7 +2559,7 @@ Body:
       - Slot: 3
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 10
@@ -2588,7 +2588,7 @@ Body:
       - Slot: 2
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 30
@@ -2613,7 +2613,7 @@ Body:
       - Slot: 1
         Price: 0
         Materials:
-          - Material: Hiclass_Option_Ticket
+          - Material: Option_Ticket
             Amount: 1
           - Material: Meteorite_Fragment
             Amount: 50

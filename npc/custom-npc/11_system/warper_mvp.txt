@@ -1,0 +1,64 @@
+// Boss warp NPCs generated from the HICLASS boss-warp sheet.
+// Destination coordinates use 0,0 so rAthena picks a random walkable cell.
+
+function	script	F_BossWarp	{
+	.@boss$ = getarg(0);
+	.@map_count = getargcount() - 1;
+
+	mes "[Boss Warp]";
+	mes "Boss: ^FF0000" + .@boss$ + "^000000";
+	mes "Select a destination map.";
+	next;
+
+	.@menu$ = "";
+	for (.@i = 1; .@i <= .@map_count; ++.@i)
+		.@menu$ += getarg(.@i) + ":";
+	.@menu$ += "Cancel";
+
+	.@choice = select(.@menu$);
+	if (.@choice > .@map_count)
+		close;
+
+	warp getarg(.@choice), 0, 0;
+	end;
+}
+
+morocc,145,186,4	script	Orc Hero::BossWarp#orc_hero	1087,{ callfunc "F_BossWarp", "Orc Hero", "gef_fild14"; }
+morocc,145,181,4	script	Maya::BossWarp#maya	1147,{ callfunc "F_BossWarp", "Maya", "anthell02"; }
+morocc,145,176,4	script	Orc Lord::BossWarp#orc_lord	1190,{ callfunc "F_BossWarp", "Orc Lord", "gef_fild10"; }
+morocc,145,171,4	script	Eddga::BossWarp#eddga	1115,{ callfunc "F_BossWarp", "Eddga", "pay_fild11"; }
+morocc,145,166,4	script	Golden Thief Bug::BossWarp#golden_thief_bug	1086,{ callfunc "F_BossWarp", "Golden Thief Bug", "prt_sewb4"; }
+morocc,145,161,4	script	Osiris::BossWarp#osiris	1038,{ callfunc "F_BossWarp", "Osiris", "moc_pryd04"; }
+morocc,150,186,4	script	Amon Ra::BossWarp#amon_ra	1511,{ callfunc "F_BossWarp", "Amon Ra", "moc_pryd06"; }
+morocc,150,181,4	script	Phreeoni::BossWarp#phreeoni	1159,{ callfunc "F_BossWarp", "Phreeoni", "moc_fild17"; }
+morocc,150,176,4	script	Dracula::BossWarp#dracula	1389,{ callfunc "F_BossWarp", "Dracula", "gef_dun01"; }
+morocc,150,171,4	script	Doppelganger::BossWarp#doppelganger	1046,{ callfunc "F_BossWarp", "Doppelganger", "gef_dun02"; }
+morocc,150,166,4	script	Mistress::BossWarp#mistress	1059,{ callfunc "F_BossWarp", "Mistress", "mjolnir_04"; }
+morocc,150,161,4	script	Moonlight Flower::BossWarp#moonlight_flower	1150,{ callfunc "F_BossWarp", "Moonlight Flower", "pay_dun04"; }
+morocc,155,186,4	script	Lady Tanee::BossWarp#lady_tanee	1688,{ callfunc "F_BossWarp", "Lady Tanee", "ayo_dun02"; }
+morocc,155,181,4	script	Baphomet::BossWarp#baphomet	1039,{ callfunc "F_BossWarp", "Baphomet", "prt_maze03"; }
+morocc,155,176,4	script	Pharaoh::BossWarp#pharaoh	1157,{ callfunc "F_BossWarp", "Pharaoh", "in_sphinx5"; }
+morocc,155,171,4	script	Drake::BossWarp#drake	1112,{ callfunc "F_BossWarp", "Drake", "treasure02"; }
+morocc,155,166,4	script	Stormy Knight::BossWarp#stormy_knight	1251,{ callfunc "F_BossWarp", "Stormy Knight", "xmas_dun02"; }
+morocc,155,161,4	script	Boitata::BossWarp#boitata	2068,{ callfunc "F_BossWarp", "Boitata", "bra_dun02"; }
+morocc,160,186,4	script	Lord of the Dead::BossWarp#lord_of_the_dead	1373,{ callfunc "F_BossWarp", "Lord of the Dead", "niflheim"; }
+morocc,160,181,4	script	Dark Lord::BossWarp#dark_lord	1272,{ callfunc "F_BossWarp", "Dark Lord", "gl_chyard"; }
+morocc,160,176,4	script	Gopinich::BossWarp#gopinich	1885,{ callfunc "F_BossWarp", "Gopinich", "mosk_dun03"; }
+morocc,160,171,4	script	White Lady::BossWarp#white_lady	1630,{ callfunc "F_BossWarp", "White Lady", "lou_dun03"; }
+morocc,160,166,4	script	Hatii::BossWarp#hatii	1252,{ callfunc "F_BossWarp", "Hatii", "xmas_fild01"; }
+morocc,160,161,4	script	Ktullanux::BossWarp#ktullanux	1779,{ callfunc "F_BossWarp", "Ktullanux", "ice_dun03"; }
+morocc,165,186,4	script	RSX-0806::BossWarp#rsx_0806	1623,{ callfunc "F_BossWarp", "RSX-0806", "ein_dun02"; }
+morocc,165,181,4	script	Samurai Specter::BossWarp#samurai_specter	1492,{ callfunc "F_BossWarp", "Samurai Specter", "ama_dun03"; }
+morocc,165,176,4	script	Evil Snake Lord::BossWarp#evil_snake_lord	1418,{ callfunc "F_BossWarp", "Evil Snake Lord", "gon_dun03"; }
+morocc,165,171,4	script	Tao Gunka::BossWarp#tao_gunka	1583,{ callfunc "F_BossWarp", "Tao Gunka", "beach_dun"; }
+morocc,165,166,4	script	Turtle General::BossWarp#turtle_general	1312,{ callfunc "F_BossWarp", "Turtle General", "tur_dun04"; }
+morocc,165,161,4	script	Atroce::BossWarp#atroce	1785,{ callfunc "F_BossWarp", "Atroce", "ra_fild02", "ra_fild03", "ra_fild04", "ve_fild01", "ve_fild02"; }
+morocc,170,186,4	script	Kiel D-01::BossWarp#kiel_d_01	1734,{ callfunc "F_BossWarp", "Kiel D-01", "kh_dun02"; }
+morocc,170,181,4	script	Vesper::BossWarp#vesper	1685,{ callfunc "F_BossWarp", "Vesper", "jupe_core"; }
+morocc,170,176,4	script	Detardeurus::BossWarp#detardeurus	1719,{ callfunc "F_BossWarp", "Detardeurus", "abyss_03"; }
+morocc,170,171,4	script	Falling Bishop::BossWarp#falling_bishop	1871,{ callfunc "F_BossWarp", "Falling Bishop", "abbey02"; }
+morocc,170,166,4	script	Gloom Under Night::BossWarp#gloom_under_night	1768,{ callfunc "F_BossWarp", "Gloom Under Night", "ra_san05"; }
+morocc,170,161,4	script	Valkyrie Randgris::BossWarp#valkyrie_randgris	1751,{ callfunc "F_BossWarp", "Valkyrie Randgris", "odin_tem03"; }
+morocc,175,186,4	script	Ifrit::BossWarp#ifrit	1832,{ callfunc "F_BossWarp", "Ifrit", "thor_v03"; }
+morocc,175,181,4	script	Beelzebub::BossWarp#beelzebub	1873,{ callfunc "F_BossWarp", "Beelzebub", "abbey03"; }
+morocc,175,176,4	script	Wounded Morocc::BossWarp#wounded_morocc	1917,{ callfunc "F_BossWarp", "Wounded Morocc", "moc_fild22"; }

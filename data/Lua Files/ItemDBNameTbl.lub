@@ -4620,6 +4620,7 @@ ItemDBNameTbl = {
 	Legend_Defense_Ring = 490510,
 	Hiclass_Skill_Delay_15Pct = 313544,
 	Spell5 = 4826,
+	Option_Ticket = 1001718,
 }
 ItemDB_To_ItemID = function(in_ItemDB)
 	if ItemDBNameTbl[in_ItemDB] == nil then

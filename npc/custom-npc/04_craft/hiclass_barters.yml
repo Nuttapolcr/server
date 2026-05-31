@@ -13,7 +13,7 @@ Body:
     Y: 156
     Direction: South
     Sprite: 4_M_05
-    CraftBarter: true
+    CraftBarter: false
     WaitingRoom: "> NPCคราฟอาวุธ <"
     Items:
       - Index: 0
@@ -1319,7 +1319,7 @@ Body:
     Y: 153
     Direction: South
     Sprite: 4_F_SHAMAN
-    CraftBarter: true
+    CraftBarter: false
     WaitingRoom: "> NPCคราฟของสวมใส่ <"
     Items:
       - Index: 0

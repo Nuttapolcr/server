@@ -20226,6 +20226,7 @@ Body:
     Type: Etc
     Buy: 0
     Sell: 0
+    Weight: 0
   - Id: 1001501
     AegisName: aegis_1001501
     Name: C Evil Scythe
@@ -21904,6 +21905,8 @@ Body:
     Attack: 240
     Range: 3
     Slots: 1
+    Jobs:
+      Crusader: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
@@ -21925,8 +21928,6 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
-    Jobs:
-      Crusader: true
   - Id: 640020
     AegisName: Adulter_F_Rod
     Name: "[Epic] High Wizard Weapon"
@@ -22459,6 +22460,9 @@ Body:
     MagicAttack: 150
     Range: 1
     Slots: 1
+    Jobs:
+      Novice: true
+      SuperNovice: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
@@ -22489,14 +22493,11 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,7;
       }
-    Jobs:
-      Novice: true
-      SuperNovice: true
   - Id: 1000373
     AegisName: Meteorite_Fragment
     Name: Fragment Stone
     Type: Etc
-    Weight: 10
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1000419
@@ -22506,6 +22507,7 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Weight: 1
   - Id: 1000422
     AegisName: Weapon_Ore_4
     Name: "[Epic] Weapon Stone (NT)"
@@ -22513,6 +22515,7 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Weight: 1
   - Id: 1000420
     AegisName: Weapon_Ore_2
     Name: "[Legend] Weapon Stone (NT)"
@@ -22520,6 +22523,7 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Weight: 1
   - Id: 1000423
     AegisName: Armor_Ore_1
     Name: "[Rare] Armor Stone (NT)"
@@ -22527,6 +22531,7 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Weight: 1
   - Id: 1000425
     AegisName: Armor_Ore_4
     Name: "[Epic] Armor Stone (NT)"
@@ -22534,6 +22539,7 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Weight: 1
   - Id: 1000424
     AegisName: Armor_Ore_2
     Name: "[Legend] Armor Stone (NT)"
@@ -22541,6 +22547,7 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Weight: 1
   - Id: 1000426
     AegisName: Acc_Ore_1
     Name: "[Rare] Accessory Stone (NT)"
@@ -22548,6 +22555,7 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Weight: 1
   - Id: 1000428
     AegisName: Acc_Ore_3
     Name: "[Epic] Accessory Stone (NT)"
@@ -22555,6 +22563,7 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Weight: 1
   - Id: 1000427
     AegisName: Acc_Ore_2
     Name: "[Legend] Accessory Stone (NT)"
@@ -22562,6 +22571,7 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Weight: 1
   - Id: 1000429
     AegisName: Acc_Ore_4
     Name: "[Epic] Accessory Stone (NT)"
@@ -22573,42 +22583,42 @@ Body:
     AegisName: Crt_Meteorite_Dust_NT
     Name: "[Rare] Jewel (NT)"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1000398
     AegisName: Pow_Meteorite_Dust
     Name: "[Epic] Jewel"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1001686
     AegisName: Pow_Meteorite_Dust_NT
     Name: "[Epic] Jewel (NT)"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1000403
     AegisName: Wis_Meteorite_Dust
     Name: "[Legend] Jewel"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1001687
     AegisName: Wis_Meteorite_Dust_NT
     Name: "[Legend] Jewel (NT)"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1001140
     AegisName: Barmund_Ice_Essence
     Name: "[Rare] Essence"
     Type: Etc
-    Weight: 10
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
@@ -22616,7 +22626,7 @@ Body:
     AegisName: Barmund_Ice_Essence_NT
     Name: "[Rare] Essence (NT)"
     Type: Etc
-    Weight: 10
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
@@ -22624,7 +22634,7 @@ Body:
     AegisName: Barmund_Flame_Essence
     Name: "[Epic] Essence"
     Type: Etc
-    Weight: 10
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
@@ -22632,7 +22642,7 @@ Body:
     AegisName: Barmund_Flame_Essence_NT
     Name: "[Epic] Essence (NT)"
     Type: Etc
-    Weight: 10
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
@@ -22640,7 +22650,7 @@ Body:
     AegisName: Barmund_Death_Essence
     Name: "[Legend] Essence"
     Type: Etc
-    Weight: 10
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
@@ -22648,7 +22658,7 @@ Body:
     AegisName: Barmund_Death_Essence_NT
     Name: "[Legend] Essence (NT)"
     Type: Etc
-    Weight: 10
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
@@ -22656,42 +22666,42 @@ Body:
     AegisName: Crt_Meteorite_Fragment
     Name: "[Rare] Fragment"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1001691
     AegisName: Crt_Meteorite_Fragment_NT
     Name: "[Rare] Fragment (NT)"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1000442
     AegisName: Pow_Meteorite_Fragment
     Name: "[Epic] Fragment"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1001692
     AegisName: Pow_Meteorite_Fragment_NT
     Name: "[Epic] Fragment (NT)"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1000447
     AegisName: Wis_Meteorite_Fragment
     Name: "[Legend] Fragment"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1001693
     AegisName: Wis_Meteorite_Fragment_NT
     Name: "[Legend] Fragment (NT)"
     Type: Etc
-    Weight: 1
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 22571
@@ -25126,6 +25136,8 @@ Body:
     Attack: 220
     Range: 1
     Slots: 1
+    Jobs:
+      Rogue: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
@@ -25184,8 +25196,6 @@ Body:
          bonus bCritAtkRate,.@r/2*5;
          bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
       }
-    Jobs:
-      Rogue: true
   - Id: 18121
     AegisName: Sinister_Bow
     Name: "[Legend] Sniper Weapon"
@@ -26327,7 +26337,7 @@ Body:
     Name: Coagulated Spell
     Type: Etc
     Buy: 20
-    Weight: 10
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 29509
@@ -26348,11 +26358,11 @@ Body:
       /*Unknow Rate*/
   - Id: 29436
     AegisName: Dynast
-    Name: Supreme King
+    Name: Overlord
     Type: Card
     SubType: Enchant
     Script: |
-      autobonus "{ bonus bStr,200; }",100,5000,BF_WEAPON,"{ active_transform 2221,5000; }";
+      autobonus "{ bonus bStr,100; }",100,5000,BF_WEAPON,"{ active_transform 2221,5000; }";
       /*Unknow Rate*/
   - Id: 29724
     AegisName: Murderous_Grudge
@@ -26435,34 +26445,46 @@ Body:
       bonus2 bSubRace,RC_Player_Doram,7;
   - Id: 29587
     AegisName: Gh_md_agi
-    Name: Flash
+    Name: Speed of Flash
     Type: Card
     SubType: Enchant
+    Script: |
+      if (isequipped(4877)) { bonus bCritAtkRate,30; }
   - Id: 29588
     AegisName: Gh_md_str
-    Name: Power
+    Name: The Strong
     Type: Card
     SubType: Enchant
+    Script: |
+      if (isequipped(4875)) { bonus2 bAddSize,Size_All,25; }
   - Id: 29589
     AegisName: Gh_md_dex
-    Name: Celestial
+    Name: Divine Arrow
     Type: Card
     SubType: Enchant
+    Script: |
+      if (isequipped(4879)) { bonus bAtkRate,10; }
   - Id: 29590
     AegisName: Gh_md_int
-    Name: Divine Power
+    Name: New History
     Type: Card
     SubType: Enchant
+    Script: |
+      if (isequipped(4876)) { bonus2 bMagicAtkEle,Ele_All,15; }
   - Id: 29591
     AegisName: Gh_md_vit
     Name: Rigid Body
     Type: Card
     SubType: Enchant
+    Script: |
+      if (isequipped(4878)) { bonus bDelayrate,-10; }
   - Id: 29592
     AegisName: Gh_md_luk
-    Name: Hundred Lucks
+    Name: White Cloud
     Type: Card
     SubType: Enchant
+    Script: |
+      if (isequipped(4880)) { bonus bAspd,2; bonus bCritical,50; }
   - Id: 313500
     AegisName: Hiclass_All_StatsPlus1
     Name: All Stats+1
@@ -26823,3 +26845,1538 @@ Body:
     Buy: 10
     Script: |
       bonus bDelayrate,-15;
+  - Id: 1001718
+    AegisName: aegis_1001718
+    Name: Option Ticket
+    Type: Etc
+    Weight: 1
+  - Id: 1001719
+    AegisName: aegis_1001719
+    Name: "[Legend] Option Ticket"
+    Type: Etc
+    Weight: 1
+  - Id: 313144
+    AegisName: aegis_313144
+    Name: All Stats+1
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,1;
+  - Id: 313145
+    AegisName: aegis_313145
+    Name: All Stats+2
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,2;
+  - Id: 313146
+    AegisName: aegis_313146
+    Name: All Stats+3
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,3;
+  - Id: 313147
+    AegisName: aegis_313147
+    Name: All Stats+4
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,4;
+  - Id: 313148
+    AegisName: aegis_313148
+    Name: All Stats+5
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,5;
+  - Id: 313149
+    AegisName: aegis_313149
+    Name: All Stats+6
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,6;
+  - Id: 313150
+    AegisName: aegis_313150
+    Name: All Stats+7
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,7;
+  - Id: 313151
+    AegisName: aegis_313151
+    Name: All Stats+8
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,8;
+  - Id: 313152
+    AegisName: aegis_313152
+    Name: All Stats+9
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,9;
+  - Id: 313153
+    AegisName: aegis_313153
+    Name: All Stats+10
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAllStats,10;
+  - Id: 313154
+    AegisName: aegis_313154
+    Name: ATK+1%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,1;
+  - Id: 313155
+    AegisName: aegis_313155
+    Name: ATK+2%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,2;
+  - Id: 313156
+    AegisName: aegis_313156
+    Name: ATK+3%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,3;
+  - Id: 313157
+    AegisName: aegis_313157
+    Name: ATK+4%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,4;
+  - Id: 313158
+    AegisName: aegis_313158
+    Name: ATK+5%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,5;
+  - Id: 313159
+    AegisName: aegis_313159
+    Name: ATK+6%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,6;
+  - Id: 313160
+    AegisName: aegis_313160
+    Name: ATK+7%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,7;
+  - Id: 313161
+    AegisName: aegis_313161
+    Name: ATK+8%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,8;
+  - Id: 313162
+    AegisName: aegis_313162
+    Name: ATK+9%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,9;
+  - Id: 313163
+    AegisName: aegis_313163
+    Name: ATK+10%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkRate,10;
+  - Id: 313164
+    AegisName: aegis_313164
+    Name: MATK+1%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,1;
+  - Id: 313165
+    AegisName: aegis_313165
+    Name: MATK+2%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,2;
+  - Id: 313166
+    AegisName: aegis_313166
+    Name: MATK+3%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,3;
+  - Id: 313167
+    AegisName: aegis_313167
+    Name: MATK+4%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,4;
+  - Id: 313168
+    AegisName: aegis_313168
+    Name: MATK+5%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,5;
+  - Id: 313169
+    AegisName: aegis_313169
+    Name: MATK+6%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,6;
+  - Id: 313170
+    AegisName: aegis_313170
+    Name: MATK+7%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,7;
+  - Id: 313171
+    AegisName: aegis_313171
+    Name: MATK+8%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,8;
+  - Id: 313172
+    AegisName: aegis_313172
+    Name: MATK+9%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,9;
+  - Id: 313173
+    AegisName: aegis_313173
+    Name: MATK+10%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMatkRate,10;
+  - Id: 313174
+    AegisName: aegis_313174
+    Name: MaxHP+1%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,1;
+  - Id: 313175
+    AegisName: aegis_313175
+    Name: MaxHP+2%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,2;
+  - Id: 313176
+    AegisName: aegis_313176
+    Name: MaxHP+3%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,3;
+  - Id: 313177
+    AegisName: aegis_313177
+    Name: MaxHP+4%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,4;
+  - Id: 313178
+    AegisName: aegis_313178
+    Name: MaxHP+5%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,5;
+  - Id: 313179
+    AegisName: aegis_313179
+    Name: MaxHP+6%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,6;
+  - Id: 313180
+    AegisName: aegis_313180
+    Name: MaxHP+7%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,7;
+  - Id: 313181
+    AegisName: aegis_313181
+    Name: MaxHP+8%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,8;
+  - Id: 313182
+    AegisName: aegis_313182
+    Name: MaxHP+9%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,9;
+  - Id: 313183
+    AegisName: aegis_313183
+    Name: MaxHP+10%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHPrate,10;
+  - Id: 313184
+    AegisName: aegis_313184
+    Name: HP +50
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,50;
+  - Id: 313185
+    AegisName: aegis_313185
+    Name: HP +100
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,100;
+  - Id: 313186
+    AegisName: aegis_313186
+    Name: HP +150
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,150;
+  - Id: 313187
+    AegisName: aegis_313187
+    Name: HP +200
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,200;
+  - Id: 313188
+    AegisName: aegis_313188
+    Name: HP +250
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,250;
+  - Id: 313189
+    AegisName: aegis_313189
+    Name: HP +300
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,300;
+  - Id: 313190
+    AegisName: aegis_313190
+    Name: HP +350
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,350;
+  - Id: 313191
+    AegisName: aegis_313191
+    Name: HP +400
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,400;
+  - Id: 313192
+    AegisName: aegis_313192
+    Name: HP +450
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,450;
+  - Id: 313193
+    AegisName: aegis_313193
+    Name: HP +500
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxHP,500;
+  - Id: 313194
+    AegisName: aegis_313194
+    Name: Max SP+1%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,1;
+  - Id: 313195
+    AegisName: aegis_313195
+    Name: Max SP+2%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,2;
+  - Id: 313196
+    AegisName: aegis_313196
+    Name: Max SP+3%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,3;
+  - Id: 313197
+    AegisName: aegis_313197
+    Name: Max SP+4%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,4;
+  - Id: 313198
+    AegisName: aegis_313198
+    Name: Max SP+5%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,5;
+  - Id: 313199
+    AegisName: aegis_313199
+    Name: Max SP+6%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,6;
+  - Id: 313200
+    AegisName: aegis_313200
+    Name: Max SP+7%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,7;
+  - Id: 313201
+    AegisName: aegis_313201
+    Name: Max SP+8%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,8;
+  - Id: 313202
+    AegisName: aegis_313202
+    Name: Max SP+9%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,9;
+  - Id: 313203
+    AegisName: aegis_313203
+    Name: Max SP+10%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSPrate,10;
+  - Id: 313204
+    AegisName: aegis_313204
+    Name: SP+10
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,10;
+  - Id: 313205
+    AegisName: aegis_313205
+    Name: SP+20
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,20;
+  - Id: 313206
+    AegisName: aegis_313206
+    Name: SP+30
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,30;
+  - Id: 313207
+    AegisName: aegis_313207
+    Name: SP+40
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,40;
+  - Id: 313208
+    AegisName: aegis_313208
+    Name: SP+50
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,50;
+  - Id: 313209
+    AegisName: aegis_313209
+    Name: SP+60
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,60;
+  - Id: 313210
+    AegisName: aegis_313210
+    Name: SP+70
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,70;
+  - Id: 313211
+    AegisName: aegis_313211
+    Name: SP+80
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,80;
+  - Id: 313212
+    AegisName: aegis_313212
+    Name: SP+90
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,90;
+  - Id: 313213
+    AegisName: aegis_313213
+    Name: SP+100
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bMaxSP,100;
+  - Id: 313214
+    AegisName: aegis_313214
+    Name: FLEE+3
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,3;
+  - Id: 313215
+    AegisName: aegis_313215
+    Name: FLEE+6
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,6;
+  - Id: 313216
+    AegisName: aegis_313216
+    Name: FLEE+9
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,9;
+  - Id: 313217
+    AegisName: aegis_313217
+    Name: FLEE+12
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,12;
+  - Id: 313218
+    AegisName: aegis_313218
+    Name: FLEE+15
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,15;
+  - Id: 313219
+    AegisName: aegis_313219
+    Name: FLEE+18
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,18;
+  - Id: 313220
+    AegisName: aegis_313220
+    Name: FLEE+21
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,21;
+  - Id: 313221
+    AegisName: aegis_313221
+    Name: FLEE+24
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,24;
+  - Id: 313222
+    AegisName: aegis_313222
+    Name: FLEE+27
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,27;
+  - Id: 313223
+    AegisName: aegis_313223
+    Name: FLEE+30
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee,30;
+  - Id: 313224
+    AegisName: aegis_313224
+    Name: HIT+3
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,3;
+  - Id: 313225
+    AegisName: aegis_313225
+    Name: HIT+6
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,6;
+  - Id: 313226
+    AegisName: aegis_313226
+    Name: HIT+9
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,9;
+  - Id: 313227
+    AegisName: aegis_313227
+    Name: HIT+12
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,12;
+  - Id: 313228
+    AegisName: aegis_313228
+    Name: HIT+15
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,15;
+  - Id: 313229
+    AegisName: aegis_313229
+    Name: HIT+18
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,18;
+  - Id: 313230
+    AegisName: aegis_313230
+    Name: HIT+21
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,21;
+  - Id: 313231
+    AegisName: aegis_313231
+    Name: HIT+24
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,24;
+  - Id: 313232
+    AegisName: aegis_313232
+    Name: HIT+27
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,27;
+  - Id: 313233
+    AegisName: aegis_313233
+    Name: HIT+30
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHit,30;
+  - Id: 313234
+    AegisName: aegis_313234
+    Name: CRIRATE +2
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,2;
+  - Id: 313235
+    AegisName: aegis_313235
+    Name: CRIRATE +4
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,4;
+  - Id: 313236
+    AegisName: aegis_313236
+    Name: CRIRATE +6
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,6;
+  - Id: 313237
+    AegisName: aegis_313237
+    Name: CRIRATE +8
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,8;
+  - Id: 313238
+    AegisName: aegis_313238
+    Name: CRIRATE +10
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,10;
+  - Id: 313239
+    AegisName: aegis_313239
+    Name: CRIRATE +12
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,12;
+  - Id: 313240
+    AegisName: aegis_313240
+    Name: CRIRATE +14
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,14;
+  - Id: 313241
+    AegisName: aegis_313241
+    Name: CRIRATE +16
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,16;
+  - Id: 313242
+    AegisName: aegis_313242
+    Name: CRIRATE +18
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,18;
+  - Id: 313243
+    AegisName: aegis_313243
+    Name: CRIRATE +20
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bCritical,20;
+  - Id: 313244
+    AegisName: aegis_313244
+    Name: Perfect Dodge +1
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,1;
+  - Id: 313245
+    AegisName: aegis_313245
+    Name: Perfect Dodge +2
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,2;
+  - Id: 313246
+    AegisName: aegis_313246
+    Name: Perfect Dodge +3
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,3;
+  - Id: 313247
+    AegisName: aegis_313247
+    Name: Perfect Dodge +4
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,4;
+  - Id: 313248
+    AegisName: aegis_313248
+    Name: Perfect Dodge +5
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,5;
+  - Id: 313249
+    AegisName: aegis_313249
+    Name: Perfect Dodge +6
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,6;
+  - Id: 313250
+    AegisName: aegis_313250
+    Name: Perfect Dodge +7
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,7;
+  - Id: 313251
+    AegisName: aegis_313251
+    Name: Perfect Dodge +8
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,8;
+  - Id: 313252
+    AegisName: aegis_313252
+    Name: Perfect Dodge +9
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,9;
+  - Id: 313253
+    AegisName: aegis_313253
+    Name: Perfect Dodge +10
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,10;
+  - Id: 313254
+    AegisName: aegis_313254
+    Name: Perfect Dodge +11
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,11;
+  - Id: 313255
+    AegisName: aegis_313255
+    Name: Perfect Dodge +12
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,12;
+  - Id: 313256
+    AegisName: aegis_313256
+    Name: Perfect Dodge +13
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,13;
+  - Id: 313257
+    AegisName: aegis_313257
+    Name: Perfect Dodge +14
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,14;
+  - Id: 313258
+    AegisName: aegis_313258
+    Name: Perfect Dodge +15
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,15;
+  - Id: 313259
+    AegisName: aegis_313259
+    Name: Perfect Dodge +16
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,16;
+  - Id: 313260
+    AegisName: aegis_313260
+    Name: Perfect Dodge +17
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,17;
+  - Id: 313261
+    AegisName: aegis_313261
+    Name: Perfect Dodge +18
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,18;
+  - Id: 313262
+    AegisName: aegis_313262
+    Name: Perfect Dodge +19
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,19;
+  - Id: 313263
+    AegisName: aegis_313263
+    Name: Perfect Dodge +20
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bFlee2,20;
+  - Id: 311061
+    AegisName: Gear_TR1
+    Name: Water Element Weapon
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkEle,Ele_Water;
+  - Id: 311031
+    AegisName: Gear_MT1
+    Name: Earth Element Weapon
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkEle,Ele_Earth;
+  - Id: 311029
+    AegisName: Gear_DN1
+    Name: Fire Element Weapon
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkEle,Ele_Fire;
+  - Id: 311051
+    AegisName: Gear_SKE1
+    Name: Wind Element Weapon
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkEle,Ele_Wind;
+  - Id: 311053
+    AegisName: Gear_SOA1
+    Name: Poison Element Weapon
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkEle,Ele_Poison;
+  - Id: 311041
+    AegisName: Gear_EM1
+    Name: Holy Element Weapon
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkEle,Ele_Holy;
+  - Id: 311039
+    AegisName: Gear_ABC1
+    Name: Dark Element Weapon
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkEle,Ele_Dark;
+  - Id: 311049
+    AegisName: Gear_CD1
+    Name: Ghost Element Weapon
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkEle,Ele_Ghost;
+  - Id: 311059
+    AegisName: Gear_SS1
+    Name: Undead Element Weapon
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAtkEle,Ele_Undead;
+  - Id: 16051
+    AegisName: Valkyrie_Hammer
+    Name: Ruler of the End
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bHPGainValue,100;
+      bonus bSPGainValue,10;
+  - Id: 313264
+    AegisName: aegis_313264
+    Name: Player Resistance 2
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,2;
+      bonus2 bSubRace,RC_Player_Doram,2;
+  - Id: 313265
+    AegisName: aegis_313265
+    Name: Player Resistance 3
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,3;
+      bonus2 bSubRace,RC_Player_Doram,3;
+  - Id: 313266
+    AegisName: aegis_313266
+    Name: Player Resistance 4
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,4;
+      bonus2 bSubRace,RC_Player_Doram,4;
+  - Id: 313267
+    AegisName: aegis_313267
+    Name: Player Resistance 5
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
+  - Id: 313268
+    AegisName: aegis_313268
+    Name: Player Resistance 6
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,6;
+      bonus2 bSubRace,RC_Player_Doram,6;
+  - Id: 313269
+    AegisName: aegis_313269
+    Name: Player Resistance 7
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,7;
+      bonus2 bSubRace,RC_Player_Doram,7;
+  - Id: 313270
+    AegisName: aegis_313270
+    Name: Player Resistance 8
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,8;
+      bonus2 bSubRace,RC_Player_Doram,8;
+  - Id: 313271
+    AegisName: aegis_313271
+    Name: Player Resistance 9
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,9;
+      bonus2 bSubRace,RC_Player_Doram,9;
+  - Id: 313272
+    AegisName: aegis_313272
+    Name: Player Resistance 10
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,10;
+      bonus2 bSubRace,RC_Player_Doram,10;
+  - Id: 313273
+    AegisName: aegis_313273
+    Name: Player Resistance 11
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,11;
+      bonus2 bSubRace,RC_Player_Doram,11;
+  - Id: 313274
+    AegisName: aegis_313274
+    Name: Player Resistance 12
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,12;
+      bonus2 bSubRace,RC_Player_Doram,12;
+  - Id: 313275
+    AegisName: aegis_313275
+    Name: Player Resistance 13
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,13;
+      bonus2 bSubRace,RC_Player_Doram,13;
+  - Id: 313276
+    AegisName: aegis_313276
+    Name: Player Resistance 14
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,14;
+      bonus2 bSubRace,RC_Player_Doram,14;
+  - Id: 313277
+    AegisName: aegis_313277
+    Name: Player Resistance 15
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bSubRace,RC_Player_Human,15;
+      bonus2 bSubRace,RC_Player_Doram,15;
+  - Id: 311284
+    AegisName: Kings_Magic
+    Name: Extreme Magic
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+  - Id: 1001720
+    AegisName: aegis_1001720
+    Name: Premium Service 1Day [NT]
+    Type: Usable
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+    Script: |
+      rentitem 23165,86400;
+      #PREMIUMSERVICE_TIME = gettimetick(2)+86400;
+      sc_start SC_PREMIUMSERVICE,86400000,1;
+      sc_start SC_PREMIUMSERVICE_EXPBOOST_A,86400000,20;
+      sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,86400000,20;
+      sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,86400000,30;
+  - Id: 1001721
+    AegisName: aegis_1001721
+    Name: Premium Service 3Day [NT]
+    Type: Usable
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+    Script: |
+      rentitem 23165,259200;
+      #PREMIUMSERVICE_TIME = gettimetick(2)+259200;
+      sc_start SC_PREMIUMSERVICE,259200000,3;
+      sc_start SC_PREMIUMSERVICE_EXPBOOST_A,259200000,20;
+      sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,259200000,20;
+      sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,259200000,30;
+  - Id: 1001722
+    AegisName: aegis_1001722
+    Name: Premium Service 7Day
+    Type: Usable
+    Weight: 0
+    Script: |
+      rentitem 23165,604800;
+      #PREMIUMSERVICE_TIME = gettimetick(2)+604800;
+      sc_start SC_PREMIUMSERVICE,604800000,7;
+      sc_start SC_PREMIUMSERVICE_EXPBOOST_A,604800000,20;
+      sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,604800000,20;
+      sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,604800000,30;
+  - Id: 1001723
+    AegisName: aegis_1001723
+    Name: Premium Service 15Day
+    Type: Usable
+    Weight: 0
+    Script: |
+      rentitem 23165,1296000;
+      #PREMIUMSERVICE_TIME = gettimetick(2)+1296000;
+      sc_start SC_PREMIUMSERVICE,1296000000,15;
+      sc_start SC_PREMIUMSERVICE_EXPBOOST_A,1296000000,20;
+      sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,1296000000,20;
+      sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,1296000000,30;
+  - Id: 1001724
+    AegisName: aegis_1001724
+    Name: Premium Service 30Day
+    Type: Usable
+    Weight: 0
+    Script: |
+      rentitem 23165,2592000;
+      #PREMIUMSERVICE_TIME = gettimetick(2)+2592000;
+      sc_start SC_PREMIUMSERVICE,2592000000,30;
+      sc_start SC_PREMIUMSERVICE_EXPBOOST_A,2592000000,20;
+      sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,2592000000,20;
+      sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,2592000000,30;
+  - Id: 1001700
+    AegisName: aegis_1001700
+    Name: Drop V.1
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bDropAddClass,Class_All,2;
+  - Id: 1001701
+    AegisName: aegis_1001701
+    Name: Drop V.2
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bDropAddClass,Class_All,4;
+  - Id: 1001702
+    AegisName: aegis_1001702
+    Name: Drop V.3
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bDropAddClass,Class_All,6;
+  - Id: 1001703
+    AegisName: aegis_1001703
+    Name: Drop V.4
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bDropAddClass,Class_All,8;
+  - Id: 1001704
+    AegisName: aegis_1001704
+    Name: Drop V.5
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus2 bDropAddClass,Class_All,12;
+      bonus2 bAddSize,Size_All,1;
+  - Id: 1001705
+    AegisName: aegis_1001705
+    Name: Drop V.6
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus2 bDropAddClass,Class_All,20;
+      bonus2 bAddSize,Size_All,2;
+  - Id: 1001706
+    AegisName: aegis_1001706
+    Name: Card V.1
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bDropAddClass_C,Class_All,3;
+  - Id: 1001707
+    AegisName: aegis_1001707
+    Name: Card V.2
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bDropAddClass_C,Class_All,6;
+  - Id: 1001708
+    AegisName: aegis_1001708
+    Name: Card V.3
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bDropAddClass_C,Class_All,9;
+  - Id: 1001709
+    AegisName: aegis_1001709
+    Name: Card V.4
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus2 bDropAddClass_C,Class_All,12;
+  - Id: 1001710
+    AegisName: aegis_1001710
+    Name: Card V.5
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus2 bDropAddClass_C,Class_All,18;
+      bonus2 bSubEle,Ele_All,1;
+  - Id: 1001711
+    AegisName: aegis_1001711
+    Name: Card V.6
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus2 bDropAddClass_C,Class_All,25;
+      bonus2 bSubEle,Ele_All,2;
+  - Id: 1001712
+    AegisName: aegis_1001712
+    Name: Gym V.1
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAddMaxWeight,1000;
+  - Id: 1001713
+    AegisName: aegis_1001713
+    Name: Gym V.2
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAddMaxWeight,2000;
+  - Id: 1001714
+    AegisName: aegis_1001714
+    Name: Gym V.3
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAddMaxWeight,3000;
+  - Id: 1001715
+    AegisName: aegis_1001715
+    Name: Gym V.4
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bAddMaxWeight,4000;
+  - Id: 1001716
+    AegisName: aegis_1001716
+    Name: Gym V.5
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus bAddMaxWeight,6000;
+      bonus2 bSubRace,RC_All,1;
+  - Id: 1001717
+    AegisName: aegis_1001717
+    Name: Gym V.6
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus bAddMaxWeight,10000;
+      bonus2 bSubRace,RC_All,2;
+  - Id: 313278
+    AegisName: aegis_313278
+    Name: Skill Delay - 8%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bDelayrate,-8;
+  - Id: 313279
+    AegisName: aegis_313279
+    Name: Skill Delay - 15%
+    Type: Card
+    SubType: Enchant
+    Weight: 0
+    Script: |
+      bonus bDelayrate,-15;
+  - Id: 24584
+    AegisName: S_Booster_Armor
+    Name: Booster Shadow  Armor
+    Type: ShadowGear
+    Locations:
+      Shadow_Armor: true
+    EquipLevelMin: 100
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bMaxHP,100;
+      bonus bAspd,1;
+  - Id: 24585
+    AegisName: S_Booster_Shield
+    Name: Booster Shadow Shield
+    Type: ShadowGear
+    Locations:
+      Shadow_Shield: true
+    EquipLevelMin: 100
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bMaxHP,100;
+      bonus bVariableCastrate,-10;
+  - Id: 24586
+    AegisName: S_Booster_Shoes
+    Name: Booster Shadow Shoes
+    Type: ShadowGear
+    Locations:
+      Shadow_Shoes: true
+    EquipLevelMin: 100
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bMaxHP,100;
+      bonus bAspdRate,7;
+  - Id: 24587
+    AegisName: S_Booster_Earing
+    Name: Booster Shadow Earring
+    Type: ShadowGear
+    Locations:
+      Shadow_Right_Accessory: true
+    EquipLevelMin: 100
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bMatk,15;
+      bonus bMaxHP,100;
+  - Id: 24588
+    AegisName: S_Booster_Pandent
+    Name: Booster Shadow Pendant
+    Type: ShadowGear
+    Locations:
+      Shadow_Left_Accessory: true
+    EquipLevelMin: 100
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bMaxHP,100;
+      bonus bBaseAtk,15;
+  - Id: 1000602
+    AegisName: aegis_1000602
+    Name: บัตรวาปบอส
+    Type: Etc
+    Weight: 0
+  - Id: 1000603
+    AegisName: aegis_1000603
+    Name: บัตรวาปบอส (NT)
+    Type: Etc
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+  - Id: 6755
+    AegisName: Polluted_Spell
+    Name: Contaminated Magic
+    Type: Etc
+    Buy: 20
+    Weight: 0
+    Flags:
+      BuyingStore: true
