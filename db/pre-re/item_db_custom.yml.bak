@@ -22947,10 +22947,13 @@ Body:
   - Id: 1001600
     AegisName: MAutoSpell_Select_Box
     Name: Fragment Stone Box
-    Type: DelayConsume
+    Type: Usable
     Weight: 10
     Flags:
       BuyingStore: true
+      Container: true
+    Script: |
+      getgroupitem(IG_MAUTOSPELL_SELECT_BOX);
   - Id: 12698
     AegisName: Old_C_Album_Weapon
     Name: Boss Card Album
@@ -28593,12 +28596,12 @@ Body:
       bonus bBaseAtk,15;
   - Id: 1000602
     AegisName: aegis_1000602
-    Name: บัตรวาปบอส
+    Name: ��ัตรวา����อส
     Type: Etc
     Weight: 0
   - Id: 1000603
     AegisName: aegis_1000603
-    Name: บัตรวาปบอส (NT)
+    Name: ��ัตรวา����อส (NT)
     Type: Etc
     Weight: 0
     Trade:
