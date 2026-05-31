@@ -34,7 +34,7 @@ struct s_random_opt_group;
 #ifdef RENEWAL
 #	define MAX_REFINE 20
 #else
-#	define MAX_REFINE 11
+#	define MAX_REFINE 16
 #endif
 
 /// Refine type
