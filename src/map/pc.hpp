@@ -2090,6 +2090,7 @@ extern std::vector<uint16> no_pk_maps;
 
 int pc_premium_storage_exists(map_session_data *sd, t_itemid id);
 int pc_premium_storage_count(map_session_data *sd, t_itemid id);
+int pc_premium_storage_total(map_session_data *sd, t_itemid id);
 void pc_check_collection_combo(map_session_data *sd, item_data *data);
 void pc_collection_combo_script(map_session_data *sd);
 TIMER_FUNC(pc_cal_status_timer);

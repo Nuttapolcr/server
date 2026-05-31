@@ -3191,6 +3191,7 @@ struct item_data
 	bool isStackable();
 	int inventorySlotNeeded(int quantity);
 	int collection_stack;
+	int collection_amount;
 	int max_charm_stack;
 	int max_charm_upgrade_stack;
 	bool charm_upgrade_stack_script;

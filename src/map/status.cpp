@@ -4362,8 +4362,12 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 				}
 
 				pc_check_collection_combo(sd, collection_info);
-				for (int j = 0; j < maxEffect; j++)
-					run_script(collection_info->collection_script, 0, sd->bl.id, 0);
+
+				// CollectionAmount gate: ต้องมีครบเกณฑ์ก่อน script ถึงทำงาน (นับรวมทุก slot)
+				if (pc_premium_storage_total(sd, sd->collectionStorage.u.items_storage[i].nameid) >= collection_info->collection_amount){
+					for (int j = 0; j < maxEffect; j++)
+						run_script(collection_info->collection_script, 0, sd->bl.id, 0);
+				}
 			}
 		}
 

@@ -1217,6 +1217,22 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		item->collection_stack = 1;
 	}
 
+	if (this->nodeExists(node, "CollectionAmount")) {
+		uint32 amount;
+
+		if (!this->asUInt32(node, "CollectionAmount", amount))
+			return 0;
+
+		if (amount < 1) {
+			this->invalidWarning(node["CollectionAmount"], "item %u CollectionAmount cannot go below 1, defaulting to 1.\n", item->nameid);
+			amount = 1;
+		}
+		item->collection_amount = amount;
+	} else {
+		if (!exists)
+			item->collection_amount = 1;
+	}
+
 	item->max_charm_stack = 1;
 	if (this->nodeExists(node, "CharmMaxEffect")) {
 		uint32 max_effect;

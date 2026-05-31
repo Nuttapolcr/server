@@ -12923,6 +12923,17 @@ int pc_premium_storage_count(map_session_data *sd, t_itemid id) {
 	return 0;
 }
 
+// นับจำนวนรวมของ item id ทุก slot ใน collection storage
+int pc_premium_storage_total(map_session_data *sd, t_itemid id) {
+	int total = 0;
+	for (int i = 0; i < battle_config.max_collection_count; i++){
+		if (sd->collectionStorage.u.items_storage[i].nameid == id)
+			total += sd->collectionStorage.u.items_storage[i].amount;
+	}
+
+	return total;
+}
+
 /**
  * Called when an item with combo is worn
  * @param sd: Player data

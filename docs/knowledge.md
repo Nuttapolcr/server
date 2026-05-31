@@ -380,6 +380,25 @@ Sheet mobs without matching `db/pre-re/mob_db.yml` entries:
 - การ set `subrace[]` ตรงๆ ข้าม cap `battle_config.limit_race_def` (path script ปกติจะ cap) แต่ค่าน้อยมากจึงไม่มีปัญหา
 - ถ้าอนาคตเปิด renewal / เพิ่ม `MAX_REFINE` ค่อยเพิ่ม tier +12~+15 ตาม spreadsheet เดิม
 
+### Collection System — CollectionAmount gate
+
+ระบบ collection: item ที่มี `Flags: Collection: true` เก็บใน collection storage ได้
+ถ้ามี `CollectionScript` จะถูก run ตอนคำนวณ stat (`status_calc_pc_additional` ใน `src/map/status.cpp`)
+
+**Tag ระดับ item (sibling ของ Script, ไม่อยู่ใต้ Flags):**
+
+| Tag | ความหมาย | default |
+|---|---|---|
+| `CollectionScript` | script ที่ run เมื่อ item อยู่ใน collection | — |
+| `CollectionEffectStack` | คุมจำนวนครั้งสูงสุดที่ script run ตาม amount (เฉพาะ item แบบ stack) | 1 |
+| `CollectionAmount` | **เกณฑ์ขั้นต่ำ**: ต้องมี item นี้ใน collection ครบจำนวน (นับรวมทุก slot) ก่อน `CollectionScript` ถึงทำงาน — gate อย่างเดียว ไม่กระทบ combo | 1 |
+
+**จุด hook:**
+- parse: `ItemDatabase::parseBodyNode` ใน `src/map/itemdb.cpp` (ถัดจาก block `CollectionEffectStack`); ค่า < 1 -> warning + default 1
+- field: `item_data::collection_amount` (`src/map/itemdb.hpp`)
+- helper นับยอดรวม: `pc_premium_storage_total(sd, id)` ใน `src/map/pc.cpp` (บวก amount ทุก slot — ต่างจาก `pc_premium_storage_count` ที่คืน slot แรก)
+- gate การ run: `status.cpp` — `if (pc_premium_storage_total(...) >= collection_info->collection_amount)` ครอบ loop `run_script` (ยังเรียก `pc_check_collection_combo` ก่อน gate เสมอ)
+
 ---
 
 ## Item Categories
