@@ -22504,74 +22504,74 @@ Body:
     AegisName: Weapon_Ore_1
     Name: "[Rare] Weapon Stone (NT)"
     Type: Etc
+    Weight: 1
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Weight: 1
   - Id: 1000422
     AegisName: Weapon_Ore_4
     Name: "[Epic] Weapon Stone (NT)"
     Type: Etc
+    Weight: 1
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Weight: 1
   - Id: 1000420
     AegisName: Weapon_Ore_2
     Name: "[Legend] Weapon Stone (NT)"
     Type: Etc
+    Weight: 1
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Weight: 1
   - Id: 1000423
     AegisName: Armor_Ore_1
     Name: "[Rare] Armor Stone (NT)"
     Type: Etc
+    Weight: 1
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Weight: 1
   - Id: 1000425
     AegisName: Armor_Ore_4
     Name: "[Epic] Armor Stone (NT)"
     Type: Etc
+    Weight: 1
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Weight: 1
   - Id: 1000424
     AegisName: Armor_Ore_2
     Name: "[Legend] Armor Stone (NT)"
     Type: Etc
+    Weight: 1
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Weight: 1
   - Id: 1000426
     AegisName: Acc_Ore_1
     Name: "[Rare] Accessory Stone (NT)"
     Type: Etc
+    Weight: 1
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Weight: 1
   - Id: 1000428
     AegisName: Acc_Ore_3
     Name: "[Epic] Accessory Stone (NT)"
     Type: Etc
+    Weight: 1
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Weight: 1
   - Id: 1000427
     AegisName: Acc_Ore_2
     Name: "[Legend] Accessory Stone (NT)"
     Type: Etc
+    Weight: 1
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Weight: 1
   - Id: 1000429
     AegisName: Acc_Ore_4
     Name: "[Epic] Accessory Stone (NT)"
@@ -26846,7 +26846,7 @@ Body:
     Script: |
       bonus bDelayrate,-15;
   - Id: 1001718
-    AegisName: aegis_1001718
+    AegisName: Option_Ticket
     Name: Option Ticket
     Type: Etc
     Weight: 1
