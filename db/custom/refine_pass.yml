@@ -9,57 +9,77 @@ Header:
   Version: 1
 
 Body:
-  - RefineLevel: 5
-    Icon: EFST_REFINE_PASS_LVL_5
-    Script: |
-      bonus2 bDropAddClass,Class_All,1;
-      bonus2 bExpAddClass,Class_All,1;
-      bonus bAddMaxWeight,500;
-
-  - RefineLevel: 6
-    Icon: EFST_REFINE_PASS_LVL_6
-    Script: |
-      bonus2 bDropAddClass,Class_All,2;
-      bonus2 bExpAddClass,Class_All,2;
-      bonus bAddMaxWeight,1000;
-
   - RefineLevel: 7
     Icon: EFST_REFINE_PASS_LVL_7
     Script: |
-      bonus2 bDropAddClass,Class_All,5;
-      bonus2 bExpAddClass,Class_All,5;
-      bonus2 bAddClass,Class_All,1;
-      bonus bMatkRate,1;
+      bonus2 bDropAddClass,Class_All,10;
       bonus bAddMaxWeight,2000;
-      bonus bSPrecovRate,5;
+      bonus bMaxHP,500;
 
   - RefineLevel: 8
     Icon: EFST_REFINE_PASS_LVL_8
     Script: |
-      bonus2 bDropAddClass,Class_All,7;
-      bonus2 bExpAddClass,Class_All,7;
-      bonus2 bAddClass,Class_All,2;
-      bonus bMatkRate,2;
-      bonus bAddMaxWeight,5000;
-      bonus bSPrecovRate,10;
+      bonus2 bDropAddClass,Class_All,15;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,700;
 
   - RefineLevel: 9
     Icon: EFST_REFINE_PASS_LVL_9
     Script: |
-      bonus2 bDropAddClass,Class_All,8;
-      bonus2 bExpAddClass,Class_All,8;
-      bonus2 bAddClass,Class_All,2;
-      bonus bMatkRate,2;
-      bonus bAddMaxWeight,6000;
-      bonus bSPrecovRate,15;
-      
+      bonus2 bDropAddClass,Class_All,20;
+      bonus bAddMaxWeight,4000;
+      bonus bMaxHP,900;
+
   - RefineLevel: 10
     Icon: EFST_REFINE_PASS_LVL_10
     Script: |
-      bonus2 bDropAddClass,Class_All,10;
-      bonus2 bExpAddClass,Class_All,10;
-      bonus2 bAddClass,Class_All,2;
-      bonus bMatkRate,2;
-      bonus bAddMaxWeight,7000;
-      bonus bSPrecovRate,15;
+      bonus2 bDropAddClass,Class_All,25;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1200;
       bonus2 bSubEle,Ele_Neutral,1;
+      bonus2 bAddClass,Class_All,1;
+
+  - RefineLevel: 11
+    Icon: EFST_REFINE_PASS_LVL_11
+    Script: |
+      bonus2 bDropAddClass,Class_All,25;
+      bonus bAddMaxWeight,6000;
+      bonus bMaxHP,1500;
+      bonus2 bSubEle,Ele_Neutral,2;
+      bonus2 bAddClass,Class_All,1;
+
+  - RefineLevel: 12
+    Icon: EFST_REFINE_PASS_LVL_12
+    Script: |
+      bonus2 bDropAddClass,Class_All,25;
+      bonus bAddMaxWeight,7000;
+      bonus bMaxHP,1500;
+      bonus2 bSubEle,Ele_Neutral,3;
+      bonus2 bAddClass,Class_All,1;
+
+  - RefineLevel: 13
+    Icon: EFST_REFINE_PASS_LVL_13
+    Script: |
+      bonus2 bDropAddClass,Class_All,30;
+      bonus bAddMaxWeight,8000;
+      bonus bMaxHP,1500;
+      bonus2 bSubEle,Ele_Neutral,3;
+      bonus2 bAddClass,Class_All,2;
+
+  - RefineLevel: 14
+    Icon: EFST_REFINE_PASS_LVL_14
+    Script: |
+      bonus2 bDropAddClass,Class_All,35;
+      bonus bAddMaxWeight,9000;
+      bonus bMaxHP,1500;
+      bonus2 bSubEle,Ele_Neutral,4;
+      bonus2 bAddClass,Class_All,3;
+
+  - RefineLevel: 15
+    Icon: EFST_REFINE_PASS_LVL_15
+    Script: |
+      bonus2 bDropAddClass,Class_All,40;
+      bonus bAddMaxWeight,10000;
+      bonus bMaxHP,1500;
+      bonus2 bSubEle,Ele_Neutral,4;
+      bonus2 bAddClass,Class_All,4;
