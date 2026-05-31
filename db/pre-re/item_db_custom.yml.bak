@@ -23352,6 +23352,7 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
+    EquipLevelMin: 1
   - Id: 452026
     AegisName: Rare_Ranged_Armor
     Name: "[Rare] Ranged Armor"
@@ -23373,6 +23374,7 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
+    EquipLevelMin: 1
   - Id: 452027
     AegisName: Rare_Magic_Armor
     Name: "[Rare] Magic Armor"
@@ -23394,6 +23396,7 @@ Body:
       if (.@r>=7) {
          bonus bMatkRate,5;
       }
+    EquipLevelMin: 1
   - Id: 452028
     AegisName: Rare_Defense_Armor
     Name: "[Rare] Defense Armor"
@@ -23416,6 +23419,7 @@ Body:
       if (.@r>=7) {
          bonus bMaxHP,1000;
       }
+    EquipLevelMin: 1
   - Id: 452029
     AegisName: Epic_Melee_Armor
     Name: "[Epic] Melee Armor"
@@ -23443,6 +23447,7 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
+    EquipLevelMin: 1
   - Id: 452030
     AegisName: Epic_Ranged_Armor
     Name: "[Epic] Ranged Armor"
@@ -23470,6 +23475,7 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
+    EquipLevelMin: 1
   - Id: 452031
     AegisName: Epic_Magic_Armor
     Name: "[Epic] Magic Armor"
@@ -23500,6 +23506,7 @@ Body:
          bonus bInt,4;
          bonus bDelayrate,-5;
       }
+    EquipLevelMin: 1
   - Id: 452032
     AegisName: Epic_Defense_Armor
     Name: "[Epic] Defense Armor"
@@ -23531,6 +23538,7 @@ Body:
          bonus bDef,10;
          bonus2 bSubEle,Ele_Neutral,5;
       }
+    EquipLevelMin: 1
   - Id: 452033
     AegisName: Legend_Melee_Armor
     Name: "[Legend] Melee Armor"
@@ -23583,6 +23591,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bShortAtkRate,.@r/2*2;
       }
+    EquipLevelMin: 1
   - Id: 452034
     AegisName: Legend_Ranged_Armor
     Name: "[Legend] Ranged Armor"
@@ -23635,6 +23644,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bLongAtkRate,.@r/2*2;
       }
+    EquipLevelMin: 1
   - Id: 452035
     AegisName: Legend_Magic_Armor
     Name: "[Legend] Magic Armor"
@@ -23690,6 +23700,7 @@ Body:
          bonus2 bAddClass,Class_Boss,5;
          bonus bDelayrate,-(.@r/2*2);
       }
+    EquipLevelMin: 1
   - Id: 452036
     AegisName: Legend_Defense_Armor
     Name: "[Legend] Defense Armor"
@@ -23746,6 +23757,7 @@ Body:
          bonus2 bSubEle,Ele_Neutral,1;
          bonus bMaxHPrate,.@r/3*2;
       }
+    EquipLevelMin: 1
   - Id: 480421
     AegisName: Rare_Melee_Muffler
     Name: "[Rare] Melee Muffler"
@@ -23767,6 +23779,7 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
+    EquipLevelMin: 1
   - Id: 480422
     AegisName: Rare_Ranged_Muffler
     Name: "[Rare] Ranged Muffler"
@@ -23788,6 +23801,7 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
+    EquipLevelMin: 1
   - Id: 480423
     AegisName: Rare_Magic_Muffler
     Name: "[Rare] Magic Muffler"
@@ -23809,6 +23823,7 @@ Body:
       if (.@r>=7) {
          bonus bMatkRate,5;
       }
+    EquipLevelMin: 1
   - Id: 480424
     AegisName: Rare_Defense_Muffler
     Name: "[Rare] Defense Muffler"
@@ -23831,6 +23846,7 @@ Body:
       if (.@r>=7) {
          bonus bMaxHP,1000;
       }
+    EquipLevelMin: 1
   - Id: 480425
     AegisName: Epic_Melee_Muffler
     Name: "[Epic] Melee Muffler"
@@ -23858,6 +23874,7 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
+    EquipLevelMin: 1
   - Id: 480426
     AegisName: Epic_Ranged_Muffler
     Name: "[Epic] Ranged Muffler"
@@ -23885,6 +23902,7 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
+    EquipLevelMin: 1
   - Id: 480427
     AegisName: Epic_Magic_Muffler
     Name: "[Epic] Magic Muffler"
@@ -23915,6 +23933,7 @@ Body:
          bonus bInt,4;
          bonus bDelayrate,-5;
       }
+    EquipLevelMin: 1
   - Id: 480428
     AegisName: Epic_Defense_Muffler
     Name: "[Epic] Defense Muffler"
@@ -23946,6 +23965,7 @@ Body:
          bonus bDef,10;
          bonus2 bSubEle,Ele_Neutral,5;
       }
+    EquipLevelMin: 1
   - Id: 480429
     AegisName: Legend_Melee_Muffler
     Name: "[Legend] Melee Muffler"
@@ -23998,6 +24018,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bShortAtkRate,.@r/2*2;
       }
+    EquipLevelMin: 1
   - Id: 480430
     AegisName: Legend_Ranged_Muffler
     Name: "[Legend] Ranged Muffler"
@@ -24050,6 +24071,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bLongAtkRate,.@r/2*2;
       }
+    EquipLevelMin: 1
   - Id: 480431
     AegisName: Legend_Magic_Muffler
     Name: "[Legend] Magic Muffler"
@@ -24105,6 +24127,7 @@ Body:
          bonus2 bAddClass,Class_Boss,5;
          bonus bDelayrate,-(.@r/2*2);
       }
+    EquipLevelMin: 1
   - Id: 480432
     AegisName: Legend_Defense_Muffler
     Name: "[Legend] Defense Muffler"
@@ -24161,6 +24184,7 @@ Body:
          bonus2 bSubEle,Ele_Neutral,1;
          bonus bMaxHPrate,.@r/3*2;
       }
+    EquipLevelMin: 1
   - Id: 470278
     AegisName: Rare_Melee_Boots
     Name: "[Rare] Melee Boots"
@@ -24182,6 +24206,7 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
+    EquipLevelMin: 1
   - Id: 470279
     AegisName: Rare_Ranged_Boots
     Name: "[Rare] Ranged Boots"
@@ -24203,6 +24228,7 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
+    EquipLevelMin: 1
   - Id: 470280
     AegisName: Rare_Magic_Boots
     Name: "[Rare] Magic Boots"
@@ -24224,6 +24250,7 @@ Body:
       if (.@r>=7) {
          bonus bMatkRate,5;
       }
+    EquipLevelMin: 1
   - Id: 470281
     AegisName: Rare_Defense_Boots
     Name: "[Rare] Defense Boots"
@@ -24246,6 +24273,7 @@ Body:
       if (.@r>=7) {
          bonus bMaxHP,1000;
       }
+    EquipLevelMin: 1
   - Id: 470282
     AegisName: Epic_Melee_Boots
     Name: "[Epic] Melee Boots"
@@ -24273,6 +24301,7 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
+    EquipLevelMin: 1
   - Id: 470283
     AegisName: Epic_Ranged_Boots
     Name: "[Epic] Ranged Boots"
@@ -24300,6 +24329,7 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
+    EquipLevelMin: 1
   - Id: 470284
     AegisName: Epic_Magic_Boots
     Name: "[Epic] Magic Boots"
@@ -24330,6 +24360,7 @@ Body:
          bonus bInt,4;
          bonus bDelayrate,-5;
       }
+    EquipLevelMin: 1
   - Id: 470285
     AegisName: Epic_Defense_Boots
     Name: "[Epic] Defense Boots"
@@ -24361,6 +24392,7 @@ Body:
          bonus bDef,10;
          bonus2 bSubEle,Ele_Neutral,5;
       }
+    EquipLevelMin: 1
   - Id: 470286
     AegisName: Legend_Melee_Boots
     Name: "[Legend] Melee Boots"
@@ -24413,6 +24445,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bShortAtkRate,.@r/2*2;
       }
+    EquipLevelMin: 1
   - Id: 470287
     AegisName: Legend_Ranged_Boots
     Name: "[Legend] Ranged Boots"
@@ -24465,6 +24498,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bLongAtkRate,.@r/2*2;
       }
+    EquipLevelMin: 1
   - Id: 470288
     AegisName: Legend_Magic_Boots
     Name: "[Legend] Magic Boots"
@@ -24520,6 +24554,7 @@ Body:
          bonus2 bAddClass,Class_Boss,5;
          bonus bDelayrate,-(.@r/2*2);
       }
+    EquipLevelMin: 1
   - Id: 470289
     AegisName: Legend_Defense_Boots
     Name: "[Legend] Defense Boots"
@@ -24576,6 +24611,7 @@ Body:
          bonus2 bSubEle,Ele_Neutral,1;
          bonus bMaxHPrate,.@r/3*2;
       }
+    EquipLevelMin: 1
   - Id: 21016
     AegisName: Sinister_Twohand_Sword
     Name: "[Legend] Lord Knight Weapon"

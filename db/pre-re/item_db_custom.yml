@@ -272,210 +272,373 @@ Body:
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bShortAtkRate,1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9265
     AegisName: Maya_Egg
     Name: "[Normal] Maya Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bAspdRate,1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9266
     AegisName: Eddga_Egg
     Name: "[Normal] Eddga Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bDelayrate,-1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9267
     AegisName: Dark_Lord_Egg
     Name: "[Normal] Dark Lord Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bCritical,5;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9268
     AegisName: Baphomet_Egg
     Name: "[Normal] Baphomet Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bDropAddClass_C,Class_All,10;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9269
     AegisName: Orc_Lord_Egg
     Name: "[Normal] Orc Lord Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bMaxSP,100;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9270
     AegisName: Lady_Tanee_Egg
     Name: "[Normal] Lady Tanee Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bCritAtkRate,5;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9271
     AegisName: Phreeoni_Egg
     Name: "[Normal] Phreeoni Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bFlee2,5;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9272
     AegisName: Orc_Hero_Egg
     Name: "[Normal] Orc Hero Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bAddClass,Class_All,1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9273
     AegisName: Amon_Ra_Egg
     Name: "[Normal] Amon Ra Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bMagicAddClass,Class_All,1;
+      bonus2 bDropAddClass,Class_All,2;
   - Id: 9274
     AegisName: Pharaoh_Egg
     Name: "[Rare] Pharaoh Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Freeze,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9275
     AegisName: Osiris_Egg
     Name: "[Rare] Osiris Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Stone,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9276
     AegisName: Dracula_Egg
     Name: "[Rare] Dracula Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Sleep,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9277
     AegisName: Doppelganger_Egg
     Name: "[Rare] Doppelganger Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Silence,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9278
     AegisName: Mistress_Egg
     Name: "[Rare] Mistress Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Curse,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9279
     AegisName: Moonlight_Egg
     Name: "[Rare] Moonlight Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bAddEffWhenHit,Eff_Confusion,200;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9280
     AegisName: Drake_Egg
     Name: "[Rare] Drake Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      skill "AL_INCAGI",10;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9281
     AegisName: Knight_Of_Windstorm_Egg
     Name: "[Rare] Stormy Knight Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      skill "PR_IMPOSITIO",5;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9282
     AegisName: Lord_Of_Death_Egg
     Name: "[Rare] Lord of Death Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      skill "AL_BLESSING",10;
+      bonus bAddMaxWeight,1000;
+      bonus2 bDropAddClass,Class_All,3;
   - Id: 9283
     AegisName: B_Seyren_Egg
     Name: "[Epic] Seyren Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bAllStats,2;
+      bonus bAspd,1;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9284
     AegisName: B_Eremes_Egg
     Name: "[Epic] Eremes Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bAllStats,2;
+      bonus bFlee,30;
+      bonus bHit,30;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9285
     AegisName: B_Harword_Egg
     Name: "[Epic] Howard Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bAllStats,1;
+      bonus bAspdRate,10;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9286
     AegisName: B_Magaleta_Egg
     Name: "[Epic] Margaretha Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bResEff,Eff_Stun,5000;
+      bonus2 bAddEff,Eff_Freeze,10000;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9287
     AegisName: B_Shecil_Egg
     Name: "[Epic] Cecil Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bAddClass,Class_Boss,35;
+      bonus2 bAddEff,Eff_Curse,10000;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9288
     AegisName: B_Katrinn_Egg
     Name: "[Epic] Kathryne Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bShortWeaponDamageReturn,-100;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9289
     AegisName: B_Randel_Egg
     Name: "[Epic] Randel Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bMagicDamageReturn,100;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9290
     AegisName: B_Flamel_Egg
     Name: "[Epic] Flamel Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      sc_start SC_ENDURE,INFINITE_TICK,1;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9291
     AegisName: B_Celia_Egg
     Name: "[Epic] Celia Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bNoGemStone;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9292
     AegisName: B_Chen_Egg
     Name: "[Epic] Chen Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus2 bAddEff,Eff_Stun,1000;
+      bonus2 bAddEff,Eff_Curse,1000;
+      bonus2 bAddEff,Eff_Silence,1000;
+      bonus2 bAddEff,Eff_Poison,1000;
+      bonus2 bAddEff,Eff_Bleeding,1000;
+      bonus bAddMaxWeight,3000;
+      bonus bMaxHP,500;
+      bonus2 bDropAddClass,Class_All,10;
   - Id: 9293
     AegisName: Medjay_Egg
     Name: "[Legend] MedJay Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9294
     AegisName: Cp_Heka_Egg
     Name: "[Legend] MedJee Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9295
     AegisName: Medjed_Egg
     Name: "[Legend] MedJed Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bCritical,50;
+      bonus bCritAtkRate,20;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9296
     AegisName: Spirit_R_Flame_Sl_Egg
     Name: "[Legend] Spirit Flame Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bBaseAtk,70;
+      bonus bShortAtkRate,3;
+      bonus bLongAtkRate,3;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9297
     AegisName: Spirit_I_Water_M_Egg
     Name: "[Legend] Spirit Water Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bMatk,150;
+      bonus bMatkRate,10;
+      bonus bVariableCastrate,-20;
+      bonus bDelayrate,-20;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 9298
     AegisName: Spirit_S_Wind_M_Egg
     Name: "[Legend] Spirit Wind Egg"
     Type: PetEgg
     Flags:
       Collection: true
+    CollectionScript: |-
+      bonus bMaxHPrate,50;
+      bonus bDef,100;
+      bonus bAddMaxWeight,5000;
+      bonus bMaxHP,1000;
+      bonus2 bDropAddClass,Class_All,20;
   - Id: 55000
     AegisName: "22266"
     Name: Fire Red Storm Sword
@@ -23341,6 +23504,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23352,7 +23516,6 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
-    EquipLevelMin: 1
   - Id: 452026
     AegisName: Rare_Ranged_Armor
     Name: "[Rare] Ranged Armor"
@@ -23363,6 +23526,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23374,7 +23538,6 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
-    EquipLevelMin: 1
   - Id: 452027
     AegisName: Rare_Magic_Armor
     Name: "[Rare] Magic Armor"
@@ -23385,6 +23548,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23396,7 +23560,6 @@ Body:
       if (.@r>=7) {
          bonus bMatkRate,5;
       }
-    EquipLevelMin: 1
   - Id: 452028
     AegisName: Rare_Defense_Armor
     Name: "[Rare] Defense Armor"
@@ -23407,6 +23570,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23419,7 +23583,6 @@ Body:
       if (.@r>=7) {
          bonus bMaxHP,1000;
       }
-    EquipLevelMin: 1
   - Id: 452029
     AegisName: Epic_Melee_Armor
     Name: "[Epic] Melee Armor"
@@ -23430,6 +23593,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23447,7 +23611,6 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
-    EquipLevelMin: 1
   - Id: 452030
     AegisName: Epic_Ranged_Armor
     Name: "[Epic] Ranged Armor"
@@ -23458,6 +23621,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23475,7 +23639,6 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
-    EquipLevelMin: 1
   - Id: 452031
     AegisName: Epic_Magic_Armor
     Name: "[Epic] Magic Armor"
@@ -23486,6 +23649,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23506,7 +23670,6 @@ Body:
          bonus bInt,4;
          bonus bDelayrate,-5;
       }
-    EquipLevelMin: 1
   - Id: 452032
     AegisName: Epic_Defense_Armor
     Name: "[Epic] Defense Armor"
@@ -23517,6 +23680,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23538,7 +23702,6 @@ Body:
          bonus bDef,10;
          bonus2 bSubEle,Ele_Neutral,5;
       }
-    EquipLevelMin: 1
   - Id: 452033
     AegisName: Legend_Melee_Armor
     Name: "[Legend] Melee Armor"
@@ -23549,6 +23712,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23591,7 +23755,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bShortAtkRate,.@r/2*2;
       }
-    EquipLevelMin: 1
   - Id: 452034
     AegisName: Legend_Ranged_Armor
     Name: "[Legend] Ranged Armor"
@@ -23602,6 +23765,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23644,7 +23808,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bLongAtkRate,.@r/2*2;
       }
-    EquipLevelMin: 1
   - Id: 452035
     AegisName: Legend_Magic_Armor
     Name: "[Legend] Magic Armor"
@@ -23655,6 +23818,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23700,7 +23864,6 @@ Body:
          bonus2 bAddClass,Class_Boss,5;
          bonus bDelayrate,-(.@r/2*2);
       }
-    EquipLevelMin: 1
   - Id: 452036
     AegisName: Legend_Defense_Armor
     Name: "[Legend] Defense Armor"
@@ -23711,6 +23874,7 @@ Body:
     Locations:
       Armor: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23757,7 +23921,6 @@ Body:
          bonus2 bSubEle,Ele_Neutral,1;
          bonus bMaxHPrate,.@r/3*2;
       }
-    EquipLevelMin: 1
   - Id: 480421
     AegisName: Rare_Melee_Muffler
     Name: "[Rare] Melee Muffler"
@@ -23768,6 +23931,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23779,7 +23943,6 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
-    EquipLevelMin: 1
   - Id: 480422
     AegisName: Rare_Ranged_Muffler
     Name: "[Rare] Ranged Muffler"
@@ -23790,6 +23953,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23801,7 +23965,6 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
-    EquipLevelMin: 1
   - Id: 480423
     AegisName: Rare_Magic_Muffler
     Name: "[Rare] Magic Muffler"
@@ -23812,6 +23975,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23823,7 +23987,6 @@ Body:
       if (.@r>=7) {
          bonus bMatkRate,5;
       }
-    EquipLevelMin: 1
   - Id: 480424
     AegisName: Rare_Defense_Muffler
     Name: "[Rare] Defense Muffler"
@@ -23834,6 +23997,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23846,7 +24010,6 @@ Body:
       if (.@r>=7) {
          bonus bMaxHP,1000;
       }
-    EquipLevelMin: 1
   - Id: 480425
     AegisName: Epic_Melee_Muffler
     Name: "[Epic] Melee Muffler"
@@ -23857,6 +24020,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23874,7 +24038,6 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
-    EquipLevelMin: 1
   - Id: 480426
     AegisName: Epic_Ranged_Muffler
     Name: "[Epic] Ranged Muffler"
@@ -23885,6 +24048,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23902,7 +24066,6 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
-    EquipLevelMin: 1
   - Id: 480427
     AegisName: Epic_Magic_Muffler
     Name: "[Epic] Magic Muffler"
@@ -23913,6 +24076,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23933,7 +24097,6 @@ Body:
          bonus bInt,4;
          bonus bDelayrate,-5;
       }
-    EquipLevelMin: 1
   - Id: 480428
     AegisName: Epic_Defense_Muffler
     Name: "[Epic] Defense Muffler"
@@ -23944,6 +24107,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -23965,7 +24129,6 @@ Body:
          bonus bDef,10;
          bonus2 bSubEle,Ele_Neutral,5;
       }
-    EquipLevelMin: 1
   - Id: 480429
     AegisName: Legend_Melee_Muffler
     Name: "[Legend] Melee Muffler"
@@ -23976,6 +24139,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24018,7 +24182,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bShortAtkRate,.@r/2*2;
       }
-    EquipLevelMin: 1
   - Id: 480430
     AegisName: Legend_Ranged_Muffler
     Name: "[Legend] Ranged Muffler"
@@ -24029,6 +24192,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24071,7 +24235,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bLongAtkRate,.@r/2*2;
       }
-    EquipLevelMin: 1
   - Id: 480431
     AegisName: Legend_Magic_Muffler
     Name: "[Legend] Magic Muffler"
@@ -24082,6 +24245,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24127,7 +24291,6 @@ Body:
          bonus2 bAddClass,Class_Boss,5;
          bonus bDelayrate,-(.@r/2*2);
       }
-    EquipLevelMin: 1
   - Id: 480432
     AegisName: Legend_Defense_Muffler
     Name: "[Legend] Defense Muffler"
@@ -24138,6 +24301,7 @@ Body:
     Locations:
       Garment: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24184,7 +24348,6 @@ Body:
          bonus2 bSubEle,Ele_Neutral,1;
          bonus bMaxHPrate,.@r/3*2;
       }
-    EquipLevelMin: 1
   - Id: 470278
     AegisName: Rare_Melee_Boots
     Name: "[Rare] Melee Boots"
@@ -24195,6 +24358,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24206,7 +24370,6 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
-    EquipLevelMin: 1
   - Id: 470279
     AegisName: Rare_Ranged_Boots
     Name: "[Rare] Ranged Boots"
@@ -24217,6 +24380,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24228,7 +24392,6 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
-    EquipLevelMin: 1
   - Id: 470280
     AegisName: Rare_Magic_Boots
     Name: "[Rare] Magic Boots"
@@ -24239,6 +24402,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24250,7 +24414,6 @@ Body:
       if (.@r>=7) {
          bonus bMatkRate,5;
       }
-    EquipLevelMin: 1
   - Id: 470281
     AegisName: Rare_Defense_Boots
     Name: "[Rare] Defense Boots"
@@ -24261,6 +24424,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24273,7 +24437,6 @@ Body:
       if (.@r>=7) {
          bonus bMaxHP,1000;
       }
-    EquipLevelMin: 1
   - Id: 470282
     AegisName: Epic_Melee_Boots
     Name: "[Epic] Melee Boots"
@@ -24284,6 +24447,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24301,7 +24465,6 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
-    EquipLevelMin: 1
   - Id: 470283
     AegisName: Epic_Ranged_Boots
     Name: "[Epic] Ranged Boots"
@@ -24312,6 +24475,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24329,7 +24493,6 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
-    EquipLevelMin: 1
   - Id: 470284
     AegisName: Epic_Magic_Boots
     Name: "[Epic] Magic Boots"
@@ -24340,6 +24503,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24360,7 +24524,6 @@ Body:
          bonus bInt,4;
          bonus bDelayrate,-5;
       }
-    EquipLevelMin: 1
   - Id: 470285
     AegisName: Epic_Defense_Boots
     Name: "[Epic] Defense Boots"
@@ -24371,6 +24534,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24392,7 +24556,6 @@ Body:
          bonus bDef,10;
          bonus2 bSubEle,Ele_Neutral,5;
       }
-    EquipLevelMin: 1
   - Id: 470286
     AegisName: Legend_Melee_Boots
     Name: "[Legend] Melee Boots"
@@ -24403,6 +24566,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24445,7 +24609,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bShortAtkRate,.@r/2*2;
       }
-    EquipLevelMin: 1
   - Id: 470287
     AegisName: Legend_Ranged_Boots
     Name: "[Legend] Ranged Boots"
@@ -24456,6 +24619,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24498,7 +24662,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bLongAtkRate,.@r/2*2;
       }
-    EquipLevelMin: 1
   - Id: 470288
     AegisName: Legend_Magic_Boots
     Name: "[Legend] Magic Boots"
@@ -24509,6 +24672,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24554,7 +24718,6 @@ Body:
          bonus2 bAddClass,Class_Boss,5;
          bonus bDelayrate,-(.@r/2*2);
       }
-    EquipLevelMin: 1
   - Id: 470289
     AegisName: Legend_Defense_Boots
     Name: "[Legend] Defense Boots"
@@ -24565,6 +24728,7 @@ Body:
     Locations:
       Shoes: true
     ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
     Gradable: true
     Script: |-
@@ -24611,7 +24775,6 @@ Body:
          bonus2 bSubEle,Ele_Neutral,1;
          bonus bMaxHPrate,.@r/3*2;
       }
-    EquipLevelMin: 1
   - Id: 21016
     AegisName: Sinister_Twohand_Sword
     Name: "[Legend] Lord Knight Weapon"
