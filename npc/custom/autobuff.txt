@@ -5,7 +5,7 @@ end;
 
 main_menu:
 	set @eac, eaclass();
-	.@menu$ = "[ระบบ Auto Buff]";
+	.@menu$ = "[�к� Auto Buff]";
 	mes .@menu$;
 	
 	if((@eac&EAJ_BASEMASK) != EAJ_ACOLYTE
@@ -13,79 +13,79 @@ main_menu:
 		&& (@eac&EAJ_UPPERMASK) != EAJ_CRUSADER
 		&& (@eac&EAJ_UPPERMASK) != EAJ_BARDDANCER
 		) {
-		mes "ระบบนี้ใช้ได้เฉพาะอาชีพ Acolyte, Crusader, Bard, Dancer และ Alchemist เท่านั้น";
+		mes "�к��������੾���Ҫվ Acolyte, Crusader, Bard, Dancer ��� Alchemist ��ҹ��";
 		close;
 	}
 
 	if(getcharid(1) == 0){
-		mes "คุณต้องอยู่ในปาร์ตี้ก่อนจึงจะใช้ระบบ AutoBuff ได้";
+		mes "�س��ͧ����㹻������͹�֧�����к� AutoBuff ��";
 		close;
 	}
 
-	mes "^777777==สถานะปัจจุบัน ==^000000";
-	mes "^777777---------- การฟื้นฟู ----------^000000";
+	mes "^777777==ʶҹлѨ�غѹ ==^000000";
+	mes "^777777---------- ��ÿ�鹿� ----------^000000";
 
-	mes "รักษาอัตโนมัติ: " + (ab_getautobuffint(0,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "�ѡ���ѵ��ѵ�: " + (ab_getautobuffint(0,0) > 0 ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
-	mes "ยา HP/SP    : " + (ab_getautobuffint(1,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "�� HP/SP    : " + (ab_getautobuffint(1,0) > 0 ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
-	// Potion Pitcher (เฉพาะ Alchemist)
+	// Potion Pitcher (੾�� Alchemist)
 	if((@eac&EAJ_UPPERMASK) == EAJ_ALCHEMIST){
-		mes "Potion Pitchr: " + (ab_getautobuffint(14,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+		mes "Potion Pitchr: " + (ab_getautobuffint(14,0) > 0 ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 	}
 
 	mes " ";
-	mes "^777777---------- การบัฟ ----------^000000";
+	mes "^777777---------- ��úѿ ----------^000000";
 
-	mes "สกิลบัฟ     : " + (ab_getautobuffint(3,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "ʡ�źѿ     : " + (ab_getautobuffint(3,0) > 0 ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
-	// ไอเทมบัฟ
-	mes "ไอเทมบัฟ    : " + (ab_getautobuffint(5,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	// �����ѿ
+	mes "�����ѿ    : " + (ab_getautobuffint(5,0) > 0 ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
-	// ให้ความสำคัญบัฟก่อน
-	mes "บัฟก่อนเสมอ : " + (ab_getautobuffint(9,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	// �������Ӥѭ�ѿ��͹
+	mes "�ѿ��͹���� : " + (ab_getautobuffint(9,0) ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
-	// คืนชีพ (เฉพาะ Priest)
+	// �׹�վ (੾�� Priest)
 	if(BaseJob == Job_Priest || Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == Job_Baby_Arch_Bishop || Class == Job_Cardinal){
-		mes "คืนชีพ      : " + (ab_getautobuffint(2,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+		mes "�׹�վ      : " + (ab_getautobuffint(2,0) ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 	}
 
 	mes " ";
-	mes "^777777---------- ปาร์ตี้ & ติดตาม ----------^000000";
+	mes "^777777---------- ������ & �Դ��� ----------^000000";
 
-	// ติดตาม
-	mes "ติดตาม      : " + (ab_getautobuffint(4,0) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	// �Դ���
+	mes "�Դ���      : " + (ab_getautobuffint(4,0) > 0 ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
-	// รับเข้าปาร์ตี้
-	mes "รับปาร์ตี้   : " + (ab_getautobuffint(8,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	// �Ѻ��һ�����
+	mes "�Ѻ������   : " + (ab_getautobuffint(8,0) ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
-	// คำสั่ง PM
+	// ����� PM
 	switch(ab_getautobuffint(5,0)){
-		case 0: mes "คำสั่ง PM   : ^008000ทั้งปาร์ตี้^000000"; break;
-		case 1: mes "คำสั่ง PM   : ^FFAA00หัวหน้าเท่านั้น^000000"; break;
-		case 2: mes "คำสั่ง PM   : ^FF0000ปิด^000000"; break;
-		case 3: mes "คำสั่ง PM   : ^FFAA00เฉพาะสมาชิก^000000"; break;
+		case 0: mes "����� PM   : ^008000��駻�����^000000"; break;
+		case 1: mes "����� PM   : ^FFAA00���˹����ҹ��^000000"; break;
+		case 2: mes "����� PM   : ^FF0000�Դ^000000"; break;
+		case 3: mes "����� PM   : ^FFAA00੾����Ҫԡ^000000"; break;
 	}
 
 	mes " ";
-	mes "^777777---------- อื่นๆ ----------^000000";
+	mes "^777777---------- ���� ----------^000000";
 
-	// ซื้ออัตโนมัติ
-	mes "ซื้ออัตโนมัติ : " + (ab_getautobuffint(13,1) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	// �����ѵ��ѵ�
+	mes "�����ѵ��ѵ� : " + (ab_getautobuffint(13,1) > 0 ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
-	// ขายอัตโนมัติ
-	mes "ขายอัตโนมัติ : " + (ab_getautobuffint(11,0) > 0 ? "^008000เปิด (" + ab_getautobuffint(11,0) + " รายการ)^000000" : "^FF0000ปิด^000000");
+	// ����ѵ��ѵ�
+	mes "����ѵ��ѵ� : " + (ab_getautobuffint(11,0) > 0 ? "^008000�Դ (" + ab_getautobuffint(11,0) + " ��¡��)^000000" : "^FF0000�Դ^000000");
 
-	// กลับจุดเซฟ
-	mes "กลับจุดเซฟ  : " + (ab_getautobuffint(6,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	// ��Ѻ�ش૿
+	mes "��Ѻ�ش૿  : " + (ab_getautobuffint(6,0) ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
 	// Token of Siegfried
-	mes "Token Siegfrd: " + (ab_getautobuffint(7,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "Token Siegfrd: " + (ab_getautobuffint(7,0) ? "^008000�Դ^000000" : "^FF0000�Դ^000000");
 
 	mes "^777777=====================================^000000";
 	mes " ";
 
-	.@main_menu = select(ab_getstate()?"[หยุด]":"[เริ่ม]","[ตั้งค่า]","[ยกเลิก]");
+	.@main_menu = select(ab_getstate()?"[��ش]":"[�����]","[��駤��]","[¡��ԡ]");
 	switch(.@main_menu){
 		case 1:
 			if(ab_getstate())
@@ -101,41 +101,41 @@ main_menu:
 
 config_menu:
 	clear;
-	.@menu$ = "[ระบบ Auto Buff]";
+	.@menu$ = "[�к� Auto Buff]";
 	mes .@menu$;
 
 
 	if(BaseClass == Job_Acolyte){ // Acolyte base job
 	// To disable an option, comment the line
-	menu	"กลับ",main_menu,
-			" ~ การฟื้นฟู",regeneration_menu,
-			" ~ สกิลบัฟ",buffskills_menu,
-			" ~ ไอเทมบัฟ",buffitems_menu,
-			" ~ ติดตาม",follow_menu,
-			" ~ คืนชีพ",resurection_menu,
-			" ~ คำสั่ง PM",pm_menu,
-			" ~ ปาร์ตี้",party_menu,
-			" ~ ซื้อไอเทมอัตโนมัติ",autobuy_menu2,
-			" ~ ขายไอเทมอัตโนมัติ",autosell_menu2,
-			" ~ กลับจุดเซฟ",save_point_menu,
+	menu	"��Ѻ",main_menu,
+			" ~ ��ÿ�鹿�",regeneration_menu,
+			" ~ ʡ�źѿ",buffskills_menu,
+			" ~ �����ѿ",buffitems_menu,
+			" ~ �Դ���",follow_menu,
+			" ~ �׹�վ",resurection_menu,
+			" ~ ����� PM",pm_menu,
+			" ~ ������",party_menu,
+			" ~ ���������ѵ��ѵ�",autobuy_menu2,
+			" ~ ��������ѵ��ѵ�",autosell_menu2,
+			" ~ ��Ѻ�ش૿",save_point_menu,
 			" ~ Token of Siegfried",siegfried_menu,
-			" ~ ให้ความสำคัญบัฟก่อน",priorizebuff_menu,
-			" ~ รีเซ็ตทั้งหมด",reset_all;
+			" ~ �������Ӥѭ�ѿ��͹",priorizebuff_menu,
+			" ~ ���絷�����",reset_all;
 	} else {
 	// To disable an option, comment the line
-	menu	"กลับ",main_menu,
-			" ~ การฟื้นฟู",regeneration_menu,
-			" ~ สกิลบัฟ",buffskills_menu,
-			" ~ ไอเทมบัฟ",buffitems_menu,
-			" ~ ติดตาม",follow_menu,
-			" ~ คำสั่ง PM",pm_menu,
-			" ~ ปาร์ตี้",party_menu,
-			" ~ ซื้อไอเทมอัตโนมัติ",autobuy_menu2,
-			" ~ ขายไอเทมอัตโนมัติ",autosell_menu2,
-			" ~ กลับจุดเซฟ",save_point_menu,
+	menu	"��Ѻ",main_menu,
+			" ~ ��ÿ�鹿�",regeneration_menu,
+			" ~ ʡ�źѿ",buffskills_menu,
+			" ~ �����ѿ",buffitems_menu,
+			" ~ �Դ���",follow_menu,
+			" ~ ����� PM",pm_menu,
+			" ~ ������",party_menu,
+			" ~ ���������ѵ��ѵ�",autobuy_menu2,
+			" ~ ��������ѵ��ѵ�",autosell_menu2,
+			" ~ ��Ѻ�ش૿",save_point_menu,
 			" ~ Token of Siegfried",siegfried_menu,
-			" ~ ให้ความสำคัญบัฟก่อน",priorizebuff_menu,
-			" ~ รีเซ็ตทั้งหมด",reset_all;
+			" ~ �������Ӥѭ�ѿ��͹",priorizebuff_menu,
+			" ~ ���絷�����",reset_all;
 	}
 	
 	end;
@@ -143,28 +143,28 @@ config_menu:
 
 autobuy_menu2:
 	clear;
-	.@menu$ = "[ซื้อไอเทมอัตโนมัติ]";
+	.@menu$ = "[���������ѵ��ѵ�]";
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
-	mes "เลือกไอเทมที่ต้องการซื้ออัตโนมัติ";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
+	mes "���͡��������ͧ��ë����ѵ��ѵ�";
 	mes ab_getautobuffstring(13,0);
-	.@autobuy_menu = select("เพิ่ม/แก้ไขไอเทม","ลบไอเทม","ล้างรายการ","[ยกเลิก]");
+	.@autobuy_menu = select("����/�������","ź����","��ҧ��¡��","[¡��ԡ]");
 	switch(.@autobuy_menu){
 		case 1:
 			clear;
 			mes .@menu$;
-			mes "--- รายการไอเทมที่สามารถซื้อได้ ---";
+			mes "--- ��¡�������������ö������ ---";
 			mes ab_getautobuffstring(13,-1);
 			
 			if(getarraysize(.@buy_add_menu_ids) == 0){
 				clear;
 				mes .@menu$;
-				mes "ขออภัย ไม่มีไอเทมที่สามารถซื้อได้";
+				mes "������ ����������������ö������";
 				next;
 				goto(autobuy_menu2);
 			}
 			
-			.@buy_add_menu_list$ = .@buy_add_menu_list$ + ":[ยกเลิก]";
+			.@buy_add_menu_list$ = .@buy_add_menu_list$ + ":[¡��ԡ]";
 			.@i = select(.@buy_add_menu_list$);
 			
 			if(.@i > getarraysize(.@buy_add_menu_ids))
@@ -176,14 +176,14 @@ autobuy_menu2:
 			do {
 				clear;
 				mes .@menu$;
-				mes "ระบุจำนวนที่ต้องการซื้อ (1-1000)";
+				mes "�кبӹǹ����ͧ��ë��� (1-1000)";
 				input .@buy_quantity;
 			} while(.@buy_quantity < 1 || .@buy_quantity > 1000);
 			
 			do {
 				clear;
 				mes .@menu$;
-				mes "ซื้อเมื่อไอเทมเหลือน้อยกว่า (0-999)";
+				mes "�����������������͹��¡��� (0-999)";
 				input .@buy_trigger;
 			} while(.@buy_trigger < 0 || .@buy_trigger > 999);
 			
@@ -193,19 +193,19 @@ autobuy_menu2:
 		case 2:
 			clear;
 			mes .@menu$;
-			mes "--- เลือกไอเทมที่ต้องการลบ ---";
+			mes "--- ���͡��������ͧ���ź ---";
 			mes ab_getautobuffstring(13,0);
 			
 			if (getarraysize(.@buy_menu_ids) == 0) {
 				clear;
 				mes .@menu$;
-				mes "ไม่มีไอเทมในรายการซื้ออัตโนมัติ";
+				mes "������������¡�ë����ѵ��ѵ�";
 				next;
 				goto(autobuy_menu2);
 			}
 			
-			// แสดง menu
-			.@buy_menu_list$ = .@buy_menu_list$ + ":[ยกเลิก]";
+			// �ʴ� menu
+			.@buy_menu_list$ = .@buy_menu_list$ + ":[¡��ԡ]";
 			.@i = select(.@buy_menu_list$);
 			
 			if(.@i > getarraysize(.@buy_menu_ids))
@@ -228,42 +228,42 @@ autobuy_menu2:
 
 autosell_menu2:
 	clear;
-	.@menu$ = "[ขายไอเทมอัตโนมัติ ..]";
+	.@menu$ = "[��������ѵ��ѵ� ..]";
 	mes .@menu$;
-	mes "ขายอัตโนมัติ ^FF0000(สูงสุด 10 รายการ)^000000";
+	mes "����ѵ��ѵ� ^FF0000(�٧�ش 10 ��¡��)^000000";
 	mes ab_getautobuffstring(14,0);
-	.@autosell_menu = select("เพิ่มไอเทม","ลบไอเทม","ล้างรายการ","[ยกเลิก]");
+	.@autosell_menu = select("��������","ź����","��ҧ��¡��","[¡��ԡ]");
 	switch(.@autosell_menu){
 		case 1:
-			// ตรวจสอบจำนวนก่อนเพิ่ม
+			// ��Ǩ�ͺ�ӹǹ��͹����
 			if(ab_getautobuffint(11,0) >= 10){
 				clear;
 				mes .@menu$;
-				mes "รายการขายอัตโนมัติเต็มแล้ว (สูงสุด 10 รายการ)";
+				mes "��¡�â���ѵ��ѵ�������� (�٧�ش 10 ��¡��)";
 				next;
 				goto(autosell_menu2);
 			}
 			
 			clear;
 			mes .@menu$;
-			.@add_method = select("เลือกจากกระเป๋า","ป้อน Item ID","[ยกเลิก]");
+			.@add_method = select("���͡�ҡ������","��͹ Item ID","[¡��ԡ]");
 			
 			switch(.@add_method){
 				case 1:
 					clear;
 					mes .@menu$;
-					mes "--- รายการไอเทมในกระเป๋า (ETC, HEALING) ---";
+					mes "--- ��¡������㹡����� (ETC, HEALING) ---";
 					mes ab_getautobuffstring(14,-1);
 					
 					if(getarraysize(.@sell_add_menu_ids) == 0){
 						clear;
 						mes .@menu$;
-						mes "ขออภัย ไม่มีไอเทมที่สามารถขายได้ในกระเป๋า";
+						mes "������ ����������������ö�����㹡�����";
 						next;
 						goto(autosell_menu2);
 					}
 					
-					.@sell_add_menu_list$ = .@sell_add_menu_list$ + ":[ยกเลิก]";
+					.@sell_add_menu_list$ = .@sell_add_menu_list$ + ":[¡��ԡ]";
 					.@i = select(.@sell_add_menu_list$);
 					
 					if(.@i > getarraysize(.@sell_add_menu_ids))
@@ -276,7 +276,7 @@ autosell_menu2:
 				case 2:
 					clear;
 					mes .@menu$;
-					mes "ใส่ ID ของไอเทมที่ต้องการขายอัตโนมัติ (0 เพื่อยกเลิก)";
+					mes "��� ID �ͧ��������ͧ��â���ѵ��ѵ� (0 ����¡��ԡ)";
 					input .@item_id;
 					
 					if(.@item_id == 0)
@@ -294,19 +294,19 @@ autosell_menu2:
 		case 2:
 			clear;
 			mes .@menu$;
-			mes "--- เลือกไอเทมที่ต้องการลบ ---";
+			mes "--- ���͡��������ͧ���ź ---";
 			mes ab_getautobuffstring(14,0);
 			
 			if (getarraysize(.@sell_menu_ids) == 0) {
 				clear;
 				mes .@menu$;
-				mes "ไม่มีไอเทมในรายการขายอัตโนมัติ";
+				mes "������������¡�â���ѵ��ѵ�";
 				next;
 				goto(autosell_menu2);
 			}
 			
-			// แสดง menu
-			.@sell_menu_list$ = .@sell_menu_list$ + ":[ยกเลิก]";
+			// �ʴ� menu
+			.@sell_menu_list$ = .@sell_menu_list$ + ":[¡��ԡ]";
 			.@i = select(.@sell_menu_list$);
 			
 			if(.@i > getarraysize(.@sell_menu_ids))
@@ -330,13 +330,13 @@ autosell_menu2:
 	
 priorizebuff_menu:
 	clear;
-	.@menu$ = "[ให้ความสำคัญบัฟก่อน]";
+	.@menu$ = "[�������Ӥѭ�ѿ��͹]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
 	mes ab_getautobuffstring(11,0);
 
-	.@priorizebuff_menu = select(ab_getautobuffint(9,0)?"ปิด":"เปิด","[ยกเลิก]");
+	.@priorizebuff_menu = select(ab_getautobuffint(9,0)?"�Դ":"�Դ","[¡��ԡ]");
 	switch(.@priorizebuff_menu){
 		case 1:
 			if(ab_getautobuffint(9,0))
@@ -357,10 +357,10 @@ siegfried_menu:
 	.@menu$ = "[Token of Siegfried]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
 	mes ab_getautobuffstring(9,0);
 
-	.@siegfried_menu = select(ab_getautobuffint(7,0)?"ปิด":"เปิด","[ยกเลิก]");
+	.@siegfried_menu = select(ab_getautobuffint(7,0)?"�Դ":"�Դ","[¡��ԡ]");
 	switch(.@siegfried_menu){
 		case 1:
 			if(ab_getautobuffint(7,0))
@@ -378,13 +378,13 @@ siegfried_menu:
 
 save_point_menu:
 	clear;
-	.@menu$ = "[กลับจุดเซฟ]";
+	.@menu$ = "[��Ѻ�ش૿]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
 	mes ab_getautobuffstring(8,0);
 
-	.@save_point_menu = select(ab_getautobuffint(6,0)?"ปิด":"เปิด","[ยกเลิก]");
+	.@save_point_menu = select(ab_getautobuffint(6,0)?"�Դ":"�Դ","[¡��ԡ]");
 	switch(.@save_point_menu){
 		case 1:
 			if(ab_getautobuffint(6,0))
@@ -402,13 +402,13 @@ save_point_menu:
 
 party_menu:
 	clear;
-	.@menu$ = "[ปาร์ตี้]";
+	.@menu$ = "[������]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
 	mes ab_getautobuffstring(10,0);
 
-	.@party_menu = select(ab_getautobuffint(8,0)?"ปิด":"เปิด","[ยกเลิก]");
+	.@party_menu = select(ab_getautobuffint(8,0)?"�Դ":"�Դ","[¡��ԡ]");
 	switch(.@party_menu){
 		case 1:
 			if(ab_getautobuffint(8,0))
@@ -426,13 +426,13 @@ party_menu:
 
 pm_menu:
 	clear;
-	.@menu$ = "[คำสั่ง PM]";
+	.@menu$ = "[����� PM]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
 	mes ab_getautobuffstring(6,0);
 
-	.@pm_menu = select("เปิดให้ทั้งปาร์ตี้","เปิดให้หัวหน้าเท่านั้น","เลือกสมาชิกเฉพาะ","ปิด","[ยกเลิก]");
+	.@pm_menu = select("�Դ����駻�����","�Դ������˹����ҹ��","���͡��Ҫԡ੾��","�Դ","[¡��ԡ]");
 	switch(.@pm_menu){
 		case 1:
 			ab_setautobuff("7;0");
@@ -453,7 +453,7 @@ pm_menu:
 			
 			if(getarraysize(.@player_pm_ids) == 0){
 				mes .@menu$;
-				mes "ขออภัย คุณเป็นคนเดียวในปาร์ตี้";
+				mes "������ �س�繤�����㹻�����";
 				next;
 				goto(pm_menu);
 			}
@@ -480,19 +480,19 @@ pm_menu:
 	
 resurection_menu:
 	clear;
-	.@menu$ = "[คืนชีพ]";
+	.@menu$ = "[�׹�վ]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
 	
 	if (BaseJob != Job_Priest && !(Class == Job_Arch_Bishop || Class == Job_Arch_Bishop_T || Class == Job_Baby_Arch_Bishop) && Class != Job_Cardinal) {
-		mes "ระบบนี้ใช้ได้เฉพาะอาชีพ Priest เท่านั้น";
+		mes "�к��������੾���Ҫվ Priest ��ҹ��";
 		close;
 	}
 
 	mes ab_getautobuffstring(2,0);
 
-	.@resu_menu = select(ab_getautobuffint(2,0)?"ปิด":"เปิด","[ยกเลิก]");
+	.@resu_menu = select(ab_getautobuffint(2,0)?"�Դ":"�Դ","[¡��ԡ]");
 	switch(.@resu_menu){
 		case 1:
 			if(ab_getautobuffint(2,0))
@@ -510,23 +510,23 @@ resurection_menu:
 	
 follow_menu:
 	clear;
-	.@menu$ = "[ติดตาม]";
+	.@menu$ = "[�Դ���]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
 	mes "test";
 	mes ab_getautobuffstring(4,0);
 	.@distance_menu$ = "";
 	.@player_follow_list$ = "";
 
-	.@follow_menu = select("เปลี่ยนระยะห่างจากผู้ถูกติดตาม","เปลี่ยนผู้เล่นที่จะติดตาม","[ยกเลิก]");
+	.@follow_menu = select("����¹������ҧ�ҡ���١�Դ���","����¹�����蹷��еԴ���","[¡��ԡ]");
 	if( .@follow_menu == 1 ){
 		clear;
 		mes .@menu$;
-		mes "ตั้งค่าระยะห่างจากผู้ถูกติดตาม (ต่ำสุด 2, สูงสุด 8)";
+		mes "��駤��������ҧ�ҡ���١�Դ��� (����ش 2, �٧�ش 8)";
 
 		for (.@i = 2; .@i <= 8; .@i++)
-			.@distance_menu$ = .@distance_menu$ + (.@i > 2 ? ":" : "") + (.@follow_distance_value[0] == .@i ? "^008000* " + .@i + " ช่อง^000000" : .@i + " ช่อง");
+			.@distance_menu$ = .@distance_menu$ + (.@i > 2 ? ":" : "") + (.@follow_distance_value[0] == .@i ? "^008000* " + .@i + " ��ͧ^000000" : .@i + " ��ͧ");
 
 		.@j = select(.@distance_menu$) +1;
 		ab_setautobuff("4;"+ .@j);
@@ -540,7 +540,7 @@ follow_menu:
 
 		clear;
 		mes .@menu$;
-		mes "เลือกชื่อผู้เล่นที่จะติดตาม";
+		mes "���͡���ͼ����蹷��еԴ���";
 		mes ab_getautobuffstring(4,1);
 		
 		if(getarraysize(.@player_follow_ids) == 0){
@@ -558,10 +558,10 @@ follow_menu:
 
 reset_all:
 	clear;
-	.@menu$ = "[รีเซ็ตการตั้งค่า]";
+	.@menu$ = "[���絡�õ�駤��]";
 	mes .@menu$;
 	
-	.@reset_menu = select("ยืนยันการรีเซ็ตทั้งหมด","[ยกเลิก]");
+	.@reset_menu = select("�׹�ѹ������絷�����","[¡��ԡ]");
 
 	switch(.@reset_menu){
 		case 1:
@@ -575,19 +575,19 @@ reset_all:
 regeneration_menu:
 	mes "Clear menu";
 	clear;
-	.@menu$ = "[การฟื้นฟู]";
+	.@menu$ = "[��ÿ�鹿�]";
 	
 	mes .@menu$;
 	if ((@eac&EAJ_UPPERMASK) != EAJ_ALCHEMIST){
-		menu	"กลับ",config_menu,
-				" ~ รักษาอัตโนมัติ",heal_menu,
-				" ~ ยา HP / SP",potion_menu;
+		menu	"��Ѻ",config_menu,
+				" ~ �ѡ���ѵ��ѵ�",heal_menu,
+				" ~ �� HP / SP",potion_menu;
 	} else {
-		menu	"กลับ",config_menu,
-				" ~ รักษาอัตโนมัติ",heal_menu,
+		menu	"��Ѻ",config_menu,
+				" ~ �ѡ���ѵ��ѵ�",heal_menu,
 				" ~ Potion Pitcher",potion_pitcher_menu,
 				" ~ Slim Potion Pitcher",slim_potion_pitcher_menu,
-				" ~ ยา HP / SP",potion_menu;
+				" ~ �� HP / SP",potion_menu;
 	}
 	end;
 
@@ -596,8 +596,8 @@ potion_pitcher_menu:
 	.@menu$ = "[Potion Pitcher]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
-	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบสกิลต่อไปนี้";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
+	mes "�س����ö���� / ��� ����źʡ�ŵ��仹��";
 	
 	setarray .@lheal_skill[0],231;
 
@@ -611,7 +611,7 @@ potion_pitcher_menu:
 	if(getarraysize(.@lheal_skill2) == 0){
 		clear;
 		mes .@menu$;
-		mes "ขออภัย คุณไม่มีสกิลรักษาที่ได้รับอนุญาต";
+		mes "������ �س�����ʡ���ѡ�ҷ�����Ѻ͹حҵ";
 		next;
 		goto(regeneration_menu);
 	}
@@ -619,7 +619,7 @@ potion_pitcher_menu:
 	for (.@i = 0; .@i < getarraysize(.@lheal_skill2); .@i++)
 		.@healskill_menu1$ = .@healskill_menu1$ + (.@i > 0 ? ":" : "") + ab_getautobuffstring(12,.@lheal_skill2[.@i],1,.@i);
 
-	.@healskill_menu1$ = "[ยกเลิก]:" + .@healskill_menu1$;
+	.@healskill_menu1$ = "[¡��ԡ]:" + .@healskill_menu1$;
 	.@i = select(.@healskill_menu1$);
 
 	if(.@i == 1)
@@ -630,24 +630,24 @@ potion_pitcher_menu:
 	.@heal_skilllv = .@i + 1;
 
 	if(.@skill_menu_state[.@heal_skilllv]){
-		.@heal_menu = select("แก้ไข","ปิด","[ยกเลิก]");
+		.@heal_menu = select("���","�Դ","[¡��ԡ]");
 		switch(.@heal_menu){
 			case 1 :	
 				do {
 					clear;
 					mes .@menu$;
 					if(.@heal_skilllv == 5)
-						mes "เลือกค่า SP % ที่จะใช้สกิล (เช่น: 10 = ใช้สกิลเมื่อ SP ต่ำกว่า 10%)";
+						mes "���͡��� SP % ������ʡ�� (��: 10 = ��ʡ������� SP ��ӡ��� 10%)";
 					else
-						mes "เลือกค่า HP % ที่จะใช้สกิล (เช่น: 10 = ใช้สกิลเมื่อ HP ต่ำกว่า 10%)";
-					mes "ค่าต่ำสุด 5, ค่าสูงสุด 90";
+						mes "���͡��� HP % ������ʡ�� (��: 10 = ��ʡ������� HP ��ӡ��� 10%)";
+					mes "��ҵ���ش 5, ����٧�ش 90";
 					input .@heal_minhpvalue;
 				} while(.@heal_minhpvalue < 5 || .@heal_minhpvalue > 90);
 
 				clear;
 				mes .@menu$;
-				mes "เลือกการตั้งค่า Potion Pitcher";
-				.@heal_prio = select("ใช้กับตัวเองเท่านั้น","ใช้กับหัวหน้าเท่านั้น","เลือกสมาชิกเฉพาะ","ใช้กับทุกคนยกเว้นตัวเอง","ใช้กับทั้งปาร์ตี้","[ยกเลิก]");
+				mes "���͡��õ�駤�� Potion Pitcher";
+				.@heal_prio = select("��Ѻ����ͧ��ҹ��","��Ѻ���˹����ҹ��","���͡��Ҫԡ੾��","��Ѻ�ء��¡��鹵���ͧ","��Ѻ��駻�����","[¡��ԡ]");
 
 				switch(.@heal_prio){
 					case 1:
@@ -666,7 +666,7 @@ potion_pitcher_menu:
 
 							if(getarraysize(.@player_heal_ids) == 0){
 								mes .@menu$;
-								mes "ขออภัย คุณเป็นคนเดียวในปาร์ตี้";
+								mes "������ �س�繤�����㹻�����";
 								next;
 								goto(potion_pitcher_menu);
 							}
@@ -681,7 +681,7 @@ potion_pitcher_menu:
 							clear;
 							mes ab_getautobuffstring(12,0,.@lheal_skill2[.@i],.@heal_skilllv);
 							
-							.@l = select("เปลี่ยนผู้เล่นอื่น","[ยกเลิก]");
+							.@l = select("����¹���������","[¡��ԡ]");
 							if(.@l == 2)
 								goto(potion_pitcher_menu);
 
@@ -706,24 +706,24 @@ potion_pitcher_menu:
 				break;
 		}
 	} else {
-		.@heal_menu = select("เปิด","[ยกเลิก]");
+		.@heal_menu = select("�Դ","[¡��ԡ]");
 		switch(.@heal_menu){
 			case 1 :
 				do {
 					clear;
 					mes .@menu$;
 					if(.@heal_skilllv == 5)
-						mes "เลือกค่า SP % ที่จะใช้สกิล (เช่น: 10 = ใช้สกิลเมื่อ SP ต่ำกว่า 10%)";
+						mes "���͡��� SP % ������ʡ�� (��: 10 = ��ʡ������� SP ��ӡ��� 10%)";
 					else
-						mes "เลือกค่า HP % ที่จะใช้สกิล (เช่น: 10 = ใช้สกิลเมื่อ HP ต่ำกว่า 10%)";
-					mes "ค่าต่ำสุด 5, ค่าสูงสุด 90";
+						mes "���͡��� HP % ������ʡ�� (��: 10 = ��ʡ������� HP ��ӡ��� 10%)";
+					mes "��ҵ���ش 5, ����٧�ش 90";
 					input .@heal_minhpvalue;
 				} while(.@heal_minhpvalue < 5 || .@heal_minhpvalue > 90);
 
 				clear;
 				mes .@menu$;
-				mes "เลือกการตั้งค่า Potion Pitcher";
-				.@heal_prio = select("ใช้กับตัวเองเท่านั้น","ใช้กับหัวหน้าเท่านั้น","เลือกสมาชิกเฉพาะ","ใช้กับทุกคนยกเว้นตัวเอง","ใช้กับทั้งปาร์ตี้","[ยกเลิก]");
+				mes "���͡��õ�駤�� Potion Pitcher";
+				.@heal_prio = select("��Ѻ����ͧ��ҹ��","��Ѻ���˹����ҹ��","���͡��Ҫԡ੾��","��Ѻ�ء��¡��鹵���ͧ","��Ѻ��駻�����","[¡��ԡ]");
 
 				switch(.@heal_prio){
 					case 1:
@@ -742,7 +742,7 @@ potion_pitcher_menu:
 
 							if(getarraysize(.@player_heal_ids) == 0){
 								mes .@menu$;
-								mes "ขออภัย คุณเป็นคนเดียวในปาร์ตี้";
+								mes "������ �س�繤�����㹻�����";
 								next;
 								goto(potion_pitcher_menu);
 							}
@@ -756,7 +756,7 @@ potion_pitcher_menu:
 							
 							clear;
 							mes ab_getautobuffstring(12,0,.@lheal_skill2[.@i],.@heal_skilllv);
-							.@l = select("เปลี่ยนผู้เล่นอื่น","[ยกเลิก]");
+							.@l = select("����¹���������","[¡��ԡ]");
 							if(.@l == 2)
 								goto(potion_pitcher_menu);
 
@@ -786,8 +786,8 @@ slim_potion_pitcher_menu:
 	.@menu$ = "[Slim Potion Pitcher]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
-	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบสกิลต่อไปนี้";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
+	mes "�س����ö���� / ��� ����źʡ�ŵ��仹��";
 	
 	setarray .@lheal_skill[0],478;
 
@@ -801,7 +801,7 @@ slim_potion_pitcher_menu:
 	if(getarraysize(.@lheal_skill2) == 0){
 		clear;
 		mes .@menu$;
-		mes "ขออภัย คุณไม่มีสกิลรักษาที่ได้รับอนุญาต";
+		mes "������ �س�����ʡ���ѡ�ҷ�����Ѻ͹حҵ";
 		next;
 		goto(regeneration_menu);
 	}
@@ -809,7 +809,7 @@ slim_potion_pitcher_menu:
 	for (.@i = 0; .@i < getarraysize(.@lheal_skill2); .@i++)
 		.@healskill_menu1$ = .@healskill_menu1$ + (.@i > 0 ? ":" : "") + ab_getautobuffstring(12,.@lheal_skill2[.@i],1,.@i);
 
-	.@healskill_menu1$ = "[ยกเลิก]:" + .@healskill_menu1$;
+	.@healskill_menu1$ = "[¡��ԡ]:" + .@healskill_menu1$;
 	.@i = select(.@healskill_menu1$);
 
 	if(.@i == 1)
@@ -820,21 +820,21 @@ slim_potion_pitcher_menu:
 	.@heal_skilllv = .@i + 1;
 
 	if(.@skill_menu_state[.@heal_skilllv]){
-		.@heal_menu = select("แก้ไข","ปิด","[ยกเลิก]");
+		.@heal_menu = select("���","�Դ","[¡��ԡ]");
 		switch(.@heal_menu){
 			case 1 :	
 				do {
 					clear;
 					mes .@menu$;
-					mes "เลือกค่า HP % ที่จะใช้สกิล (เช่น: 10 = ใช้สกิลเมื่อ HP ต่ำกว่า 10%)";
-					mes "ค่าต่ำสุด 5, ค่าสูงสุด 90";
+					mes "���͡��� HP % ������ʡ�� (��: 10 = ��ʡ������� HP ��ӡ��� 10%)";
+					mes "��ҵ���ش 5, ����٧�ش 90";
 					input .@heal_minhpvalue;
 				} while(.@heal_minhpvalue < 5 || .@heal_minhpvalue > 90);
 
 				clear;
 				mes .@menu$;
-				mes "เลือกการตั้งค่า Potion Pitcher";
-				.@heal_prio = select("ใช้กับตัวเองเท่านั้น","ใช้กับหัวหน้าเท่านั้น","เลือกสมาชิกเฉพาะ","ใช้กับทุกคนยกเว้นตัวเอง","ใช้กับทั้งปาร์ตี้","[ยกเลิก]");
+				mes "���͡��õ�駤�� Potion Pitcher";
+				.@heal_prio = select("��Ѻ����ͧ��ҹ��","��Ѻ���˹����ҹ��","���͡��Ҫԡ੾��","��Ѻ�ء��¡��鹵���ͧ","��Ѻ��駻�����","[¡��ԡ]");
 
 				switch(.@heal_prio){
 					case 1:
@@ -853,7 +853,7 @@ slim_potion_pitcher_menu:
 
 							if(getarraysize(.@player_heal_ids) == 0){
 								mes .@menu$;
-								mes "ขออภัย คุณเป็นคนเดียวในปาร์ตี้";
+								mes "������ �س�繤�����㹻�����";
 								next;
 								goto(slim_potion_pitcher_menu);
 							}
@@ -868,7 +868,7 @@ slim_potion_pitcher_menu:
 							clear;
 							mes ab_getautobuffstring(12,0,.@lheal_skill2[.@i],.@heal_skilllv);
 							
-							.@l = select("เปลี่ยนผู้เล่นอื่น","[ยกเลิก]");
+							.@l = select("����¹���������","[¡��ԡ]");
 							if(.@l == 2)
 								goto(slim_potion_pitcher_menu);
 
@@ -893,21 +893,21 @@ slim_potion_pitcher_menu:
 				break;
 		}
 	} else {
-		.@heal_menu = select("เปิด","[ยกเลิก]");
+		.@heal_menu = select("�Դ","[¡��ԡ]");
 		switch(.@heal_menu){
 			case 1 :
 				do {
 					clear;
 					mes .@menu$;
-					mes "เลือกค่า HP % ที่จะใช้สกิล (เช่น: 10 = ใช้สกิลเมื่อ HP ต่ำกว่า 10%)";
-					mes "ค่าต่ำสุด 5, ค่าสูงสุด 90";
+					mes "���͡��� HP % ������ʡ�� (��: 10 = ��ʡ������� HP ��ӡ��� 10%)";
+					mes "��ҵ���ش 5, ����٧�ش 90";
 					input .@heal_minhpvalue;
 				} while(.@heal_minhpvalue < 5 || .@heal_minhpvalue > 90);
 
 				clear;
 				mes .@menu$;
-				mes "เลือกการตั้งค่า Potion Pitcher";
-				.@heal_prio = select("ใช้กับตัวเองเท่านั้น","ใช้กับหัวหน้าเท่านั้น","เลือกสมาชิกเฉพาะ","ใช้กับทุกคนยกเว้นตัวเอง","ใช้กับทั้งปาร์ตี้","[ยกเลิก]");
+				mes "���͡��õ�駤�� Potion Pitcher";
+				.@heal_prio = select("��Ѻ����ͧ��ҹ��","��Ѻ���˹����ҹ��","���͡��Ҫԡ੾��","��Ѻ�ء��¡��鹵���ͧ","��Ѻ��駻�����","[¡��ԡ]");
 
 				switch(.@heal_prio){
 					case 1:
@@ -926,7 +926,7 @@ slim_potion_pitcher_menu:
 
 							if(getarraysize(.@player_heal_ids) == 0){
 								mes .@menu$;
-								mes "ขออภัย คุณเป็นคนเดียวในปาร์ตี้";
+								mes "������ �س�繤�����㹻�����";
 								next;
 								goto(slim_potion_pitcher_menu);
 							}
@@ -940,7 +940,7 @@ slim_potion_pitcher_menu:
 							
 							clear;
 							mes ab_getautobuffstring(12,0,.@lheal_skill2[.@i],.@heal_skilllv);
-							.@l = select("เปลี่ยนผู้เล่นอื่น","[ยกเลิก]");
+							.@l = select("����¹���������","[¡��ԡ]");
 							if(.@l == 2)
 								goto(slim_potion_pitcher_menu);
 
@@ -967,11 +967,11 @@ slim_potion_pitcher_menu:
 
 heal_menu:
 	clear;
-	.@menu$ = "[รักษาอัตโนมัติ]";
+	.@menu$ = "[�ѡ���ѵ��ѵ�]";
 
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
-	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบสกิลต่อไปนี้";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
+	mes "�س����ö���� / ��� ����źʡ�ŵ��仹��";
 	
 	if(BaseClass == Job_Acolyte)
 		setarray .@lheal_skill[0],28,2051,2043,70;
@@ -990,7 +990,7 @@ heal_menu:
 	if(getarraysize(.@lheal_skill2) == 0){
 		clear;
 		mes .@menu$;
-		mes "ขออภัย คุณไม่มีสกิลรักษาที่ได้รับอนุญาต";
+		mes "������ �س�����ʡ���ѡ�ҷ�����Ѻ͹حҵ";
 		next;
 		goto(regeneration_menu);
 	}
@@ -998,7 +998,7 @@ heal_menu:
 	for (.@i = 0; .@i < getarraysize(.@lheal_skill2); .@i++)
 		.@healskill_menu1$ = .@healskill_menu1$ + (.@i > 0 ? ":" : "") + ab_getautobuffstring(0,.@lheal_skill2[.@i],1);
 
-	.@healskill_menu1$ = "[ยกเลิก]:" + .@healskill_menu1$;
+	.@healskill_menu1$ = "[¡��ԡ]:" + .@healskill_menu1$;
 	.@i = select(.@healskill_menu1$);
 
 	if(.@i == 1)
@@ -1007,18 +1007,18 @@ heal_menu:
 		.@i = .@i - 2;
 
 	if(.@skill_menu_state[.@lheal_skill2[.@i]]){
-		.@heal_menu = select("แก้ไข","ปิด","[ยกเลิก]");
+		.@heal_menu = select("���","�Դ","[¡��ԡ]");
 		switch(.@heal_menu){
 			case 1 :
 				clear;
 				mes .@menu$;
-				mes "เลือกเลเวลสกิลที่จะใช้";
-				mes "เลเวลสูงสุด: " + getskilllv(.@lheal_skill2[.@i]);
+				mes "���͡�����ʡ�ŷ�����";
+				mes "������٧�ش: " + getskilllv(.@lheal_skill2[.@i]);
 				mes "";
-				mes "การตั้งค่าปัจจุบัน:";
+				mes "��õ�駤�һѨ�غѹ:";
 				mes ab_getautobuffstring(0,.@lheal_skill2[.@i],0);
 				
-				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				// ���ҧ���� Level �������������
 				.@max_lv = getskilllv(.@lheal_skill2[.@i]);
 				.@skill_lv_menu$ = "";
 				for(.@k = 1; .@k <= .@max_lv; .@k++){
@@ -1030,7 +1030,7 @@ heal_menu:
 
 				clear;
 				mes .@menu$;
-				mes "เลือกค่า HP % ที่จะใช้สกิล";
+				mes "���͡��� HP % ������ʡ��";
 				.@hp_select = select("30%:50%:70%:90%");
 				switch(.@hp_select){
 					case 1: .@heal_minhpvalue = 30; break;
@@ -1041,8 +1041,8 @@ heal_menu:
 
 				clear;
 				mes .@menu$;
-				mes "เลือกการตั้งค่าการรักษา";
-				.@heal_prio = select("รักษาตัวเองเท่านั้น","รักษาหัวหน้าเท่านั้น","เลือกสมาชิกเฉพาะ","รักษาทุกคนยกเว้นตัวเอง","รักษาทั้งปาร์ตี้","[ยกเลิก]");
+				mes "���͡��õ�駤�ҡ���ѡ��";
+				.@heal_prio = select("�ѡ�ҵ���ͧ��ҹ��","�ѡ�����˹����ҹ��","���͡��Ҫԡ੾��","�ѡ�ҷء��¡��鹵���ͧ","�ѡ�ҷ�駻�����","[¡��ԡ]");
 
 				switch(.@heal_prio){
 					case 1:
@@ -1061,7 +1061,7 @@ heal_menu:
 
 							if(getarraysize(.@player_heal_ids) == 0){
 								mes .@menu$;
-								mes "ขออภัย คุณเป็นคนเดียวในปาร์ตี้";
+								mes "������ �س�繤�����㹻�����";
 								next;
 								goto(heal_menu);
 							}
@@ -1076,7 +1076,7 @@ heal_menu:
 							clear;
 							mes ab_getautobuffstring(0,0,.@lheal_skill2[.@i]);
 							
-							.@l = select("เปลี่ยนผู้เล่นอื่น","[ยกเลิก]");
+							.@l = select("����¹���������","[¡��ԡ]");
 							if(.@l == 2)
 								goto(heal_menu);
 
@@ -1101,18 +1101,18 @@ heal_menu:
 				break;
 		}
 	} else {
-		.@heal_menu = select("เปิด","[ยกเลิก]");
+		.@heal_menu = select("�Դ","[¡��ԡ]");
 		switch(.@heal_menu){
 			case 1 :
 				clear;
 				mes .@menu$;
-				mes "เลือกเลเวลสกิลที่จะใช้";
-				mes "เลเวลสูงสุด: " + getskilllv(.@lheal_skill2[.@i]);
+				mes "���͡�����ʡ�ŷ�����";
+				mes "������٧�ش: " + getskilllv(.@lheal_skill2[.@i]);
 				mes "";
-				mes "การตั้งค่าปัจจุบัน:";
+				mes "��õ�駤�һѨ�غѹ:";
 				mes ab_getautobuffstring(0,.@lheal_skill2[.@i],0);
 				
-				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				// ���ҧ���� Level �������������
 				.@max_lv = getskilllv(.@lheal_skill2[.@i]);
 				.@skill_lv_menu$ = "";
 				for(.@k = 1; .@k <= .@max_lv; .@k++){
@@ -1124,7 +1124,7 @@ heal_menu:
 
 				clear;
 				mes .@menu$;
-				mes "เลือกค่า HP % ที่จะใช้สกิล";
+				mes "���͡��� HP % ������ʡ��";
 				.@hp_select = select("30%:50%:70%:90%");
 				switch(.@hp_select){
 					case 1: .@heal_minhpvalue = 30; break;
@@ -1135,8 +1135,8 @@ heal_menu:
 
 				clear;
 				mes .@menu$;
-				mes "เลือกการตั้งค่าการรักษา";
-				.@heal_prio = select("รักษาตัวเองเท่านั้น","รักษาหัวหน้าเท่านั้น","เลือกสมาชิกเฉพาะ","รักษาทุกคนยกเว้นตัวเอง","รักษาทั้งปาร์ตี้","[ยกเลิก]");
+				mes "���͡��õ�駤�ҡ���ѡ��";
+				.@heal_prio = select("�ѡ�ҵ���ͧ��ҹ��","�ѡ�����˹����ҹ��","���͡��Ҫԡ੾��","�ѡ�ҷء��¡��鹵���ͧ","�ѡ�ҷ�駻�����","[¡��ԡ]");
 
 				switch(.@heal_prio){
 					case 1:
@@ -1155,7 +1155,7 @@ heal_menu:
 
 							if(getarraysize(.@player_heal_ids) == 0){
 								mes .@menu$;
-								mes "ขออภัย คุณเป็นคนเดียวในปาร์ตี้";
+								mes "������ �س�繤�����㹻�����";
 								next;
 								goto(heal_menu);
 							}
@@ -1169,7 +1169,7 @@ heal_menu:
 							
 							clear;
 							mes ab_getautobuffstring(0,0,.@lheal_skill2[.@i]);
-							.@l = select("เปลี่ยนผู้เล่นอื่น","[ยกเลิก]");
+							.@l = select("����¹���������","[¡��ԡ]");
 							if(.@l == 2)
 								goto(heal_menu);
 
@@ -1197,22 +1197,22 @@ heal_menu:
 
 potion_menu:
 	clear;
-	.@menu$ = "[ยา HP / SP]";
+	.@menu$ = "[�� HP / SP]";
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
-	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบยาต่อไปนี้";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
+	mes "�س����ö���� / ��� ����ź�ҵ��仹��";
 	
 	mes ab_getautobuffstring(1,0);
 	
 	if(getarraysize(.@potion_menu_ids) == 0){
 		clear;
 		mes .@menu$;
-		mes "ขออภัย คุณไม่มียารักษา";
+		mes "������ �س��������ѡ��";
 		next;
 		goto(regeneration_menu);
 	}
 	
-	.@potion_menu_list$ = "[ยกเลิก]:" + .@potion_menu_list$;
+	.@potion_menu_list$ = "[¡��ԡ]:" + .@potion_menu_list$;
 	.@i = select( .@potion_menu_list$ );
 	
 	if(.@i == 1)
@@ -1221,13 +1221,13 @@ potion_menu:
 		.@i--;
 	
 	if(.@potion_menu_state[.@potion_menu_ids[.@i]]){
-		.@potion_menu2 = select("แก้ไข","ปิด","[ยกเลิก]");
+		.@potion_menu2 = select("���","�Դ","[¡��ԡ]");
 		switch(.@potion_menu2){
 			case 1:
 				clear;
 				mes .@menu$;
-				mes "เลือกค่า HP % ที่จะใช้ยา";
-				.@hp_select = select("ปิด (0%):30%:50%:70%:90%");
+				mes "���͡��� HP % ��������";
+				.@hp_select = select("�Դ (0%):30%:50%:70%:90%");
 				switch(.@hp_select){
 					case 1: .@potion_minhpvalue = 0; break;
 					case 2: .@potion_minhpvalue = 30; break;
@@ -1238,8 +1238,8 @@ potion_menu:
 				
 				clear;
 				mes .@menu$;
-				mes "เลือกค่า SP % ที่จะใช้ยา";
-				.@sp_select = select("ปิด (0%):30%:50%:70%:90%");
+				mes "���͡��� SP % ��������";
+				.@sp_select = select("�Դ (0%):30%:50%:70%:90%");
 				switch(.@sp_select){
 					case 1: .@potion_minspvalue = 0; break;
 					case 2: .@potion_minspvalue = 30; break;
@@ -1261,13 +1261,13 @@ potion_menu:
 		}
 	}
 	else{
-		.@potion_menu2 = select("เพิ่ม","[ยกเลิก]");
+		.@potion_menu2 = select("����","[¡��ԡ]");
 		switch(.@potion_menu2){
 			case 1:
 				clear;
 				mes .@menu$;
-				mes "เลือกค่า HP % ที่จะใช้ยา";
-				.@hp_select = select("ปิด (0%):30%:50%:70%:90%");
+				mes "���͡��� HP % ��������";
+				.@hp_select = select("�Դ (0%):30%:50%:70%:90%");
 				switch(.@hp_select){
 					case 1: .@potion_minhpvalue = 0; break;
 					case 2: .@potion_minhpvalue = 30; break;
@@ -1278,8 +1278,8 @@ potion_menu:
 				
 				clear;
 				mes .@menu$;
-				mes "เลือกค่า SP % ที่จะใช้ยา";
-				.@sp_select = select("ปิด (0%):30%:50%:70%:90%");
+				mes "���͡��� SP % ��������";
+				.@sp_select = select("�Դ (0%):30%:50%:70%:90%");
 				switch(.@sp_select){
 					case 1: .@potion_minspvalue = 0; break;
 					case 2: .@potion_minspvalue = 30; break;
@@ -1302,21 +1302,21 @@ potion_menu:
 
 buffskills_menu:
 	clear;
-	.@menu$ = "[สกิลบัฟ]";
+	.@menu$ = "[ʡ�źѿ]";
 	
 	mes .@menu$;
-	mes "--- การตั้งค่าปัจจุบัน ---";
-	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบสกิลต่อไปนี้";
+	mes "--- ��õ�駤�һѨ�غѹ ---";
+	mes "�س����ö���� / ��� ����źʡ�ŵ��仹��";
 	mes ab_getautobuffstring(3,0);
 	
 	if(getarraysize(.@skill_menu_ids) == 0){
 		mes .@menu$;
-		mes "ขออภัย คุณไม่มีสกิลบัฟ";
+		mes "������ �س�����ʡ�źѿ";
 		next;
 		goto(config_menu);
 	}
 	
-	.@skill_menu_list$ = "[ยกเลิก]:" + .@skill_menu_list$;
+	.@skill_menu_list$ = "[¡��ԡ]:" + .@skill_menu_list$;
 	.@i = select( .@skill_menu_list$ );
 
 	if(.@i == 1)
@@ -1325,18 +1325,18 @@ buffskills_menu:
 		.@i--;
 	
 	if(.@skill_menu_state[.@skill_menu_ids[.@i]]){
-		.@skill_menu2 = select("แก้ไข","ปิด","[ยกเลิก]");
+		.@skill_menu2 = select("���","�Դ","[¡��ԡ]");
 		switch(.@skill_menu2){
 			case 1:
 				clear;
 				mes .@menu$;
-				mes "เลือกเลเวลสกิลที่จะใช้";
-				mes "เลเวลสูงสุด: " + getskilllv(.@skill_menu_ids[.@i]);
+				mes "���͡�����ʡ�ŷ�����";
+				mes "������٧�ش: " + getskilllv(.@skill_menu_ids[.@i]);
 				mes "";
-				mes "การตั้งค่าปัจจุบัน:";
+				mes "��õ�駤�һѨ�غѹ:";
 				mes ab_getautobuffstring(3,.@skill_menu_ids[.@i],1);
 				
-				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				// ���ҧ���� Level �������������
 				.@max_lv = getskilllv(.@skill_menu_ids[.@i]);
 				.@skill_lv_menu$ = "";
 				for(.@k = 1; .@k <= .@max_lv; .@k++){
@@ -1348,14 +1348,14 @@ buffskills_menu:
 
 				clear;
 				mes .@menu$;
-				mes "เลือกการตั้งค่าบัฟ";
+				mes "���͡��õ�駤�Һѿ";
 
-				.@buff_prio = select("[ยกเลิก]","บัฟตัวเองเท่านั้น","บัฟหัวหน้าเท่านั้น","เลือกสมาชิกเฉพาะ","บัฟทุกคนยกเว้นตัวเอง","บัฟทั้งปาร์ตี้");
+				.@buff_prio = select("[¡��ԡ]","�ѿ����ͧ��ҹ��","�ѿ���˹����ҹ��","���͡��Ҫԡ੾��","�ѿ�ء��¡��鹵���ͧ","�ѿ��駻�����");
 
 				switch(.@buff_prio){
 					case 2:
 						if(ab_skillinfo(1,.@skill_menu_ids[.@i])){
-							mes "คุณไม่สามารถเลือกตัวเองได้สำหรับสกิลนี้";
+							mes "�س�������ö���͡����ͧ������Ѻʡ�Ź��";
 							next;
 							goto(buffskills_menu);
 						}
@@ -1375,7 +1375,7 @@ buffskills_menu:
 
 							if(getarraysize(.@player_buff_ids) == 0){
 								mes .@menu$;
-								mes "ขออภัย คุณเป็นคนเดียวในปาร์ตี้";
+								mes "������ �س�繤�����㹻�����";
 								next;
 								goto(buffskills_menu);
 							}
@@ -1389,7 +1389,7 @@ buffskills_menu:
 							
 							clear;
 							mes ab_getautobuffstring(3,.@skill_menu_ids[.@i], 1);
-							.@l = select("เปลี่ยนผู้เล่นอื่น","[ยกเลิก]");
+							.@l = select("����¹���������","[¡��ԡ]");
 							if(.@l == 2)
 								goto(buffskills_menu);
 
@@ -1416,18 +1416,18 @@ buffskills_menu:
 		}
 	}
 	else{
-		.@skill_menu2 = select("เพิ่ม","[ยกเลิก]");
+		.@skill_menu2 = select("����","[¡��ԡ]");
 		switch(.@skill_menu2){
 			case 1:
 				clear;
 				mes .@menu$;
-				mes "เลือกเลเวลสกิลที่จะใช้";
-				mes "เลเวลสูงสุด: " + getskilllv(.@skill_menu_ids[.@i]);
+				mes "���͡�����ʡ�ŷ�����";
+				mes "������٧�ش: " + getskilllv(.@skill_menu_ids[.@i]);
 				mes "";
-				mes "การตั้งค่าปัจจุบัน:";
+				mes "��õ�駤�һѨ�غѹ:";
 				mes ab_getautobuffstring(3,.@skill_menu_ids[.@i],1);
 				
-				// สร้างเมนู Level ตามที่ผู้เล่นมี
+				// ���ҧ���� Level �������������
 				.@max_lv = getskilllv(.@skill_menu_ids[.@i]);
 				.@skill_lv_menu$ = "";
 				for(.@k = 1; .@k <= .@max_lv; .@k++){
@@ -1439,14 +1439,14 @@ buffskills_menu:
 
 				clear;
 				mes .@menu$;
-				mes "เลือกการตั้งค่าบัฟ";
+				mes "���͡��õ�駤�Һѿ";
 				
-				.@buff_prio = select("[ยกเลิก]","บัฟตัวเองเท่านั้น","บัฟหัวหน้าเท่านั้น","เลือกสมาชิกเฉพาะ","บัฟทุกคนยกเว้นตัวเอง","บัฟทั้งปาร์ตี้");
+				.@buff_prio = select("[¡��ԡ]","�ѿ����ͧ��ҹ��","�ѿ���˹����ҹ��","���͡��Ҫԡ੾��","�ѿ�ء��¡��鹵���ͧ","�ѿ��駻�����");
 
 				switch(.@buff_prio){
 					case 2:
 						if(ab_skillinfo(1,.@skill_menu_ids[.@i])){
-							mes "คุณไม่สามารถเลือกตัวเองได้สำหรับสกิลนี้";
+							mes "�س�������ö���͡����ͧ������Ѻʡ�Ź��";
 							next;
 							goto(buffskills_menu);
 						}
@@ -1465,7 +1465,7 @@ buffskills_menu:
 
 							if(getarraysize(.@player_buff_ids) == 0){
 								mes .@menu$;
-								mes "ขออภัย คุณเป็นคนเดียวในปาร์ตี้";
+								mes "������ �س�繤�����㹻�����";
 								next;
 								goto(buffskills_menu);
 							}
@@ -1479,7 +1479,7 @@ buffskills_menu:
 							
 							clear;
 							mes ab_getautobuffstring(3,.@skill_menu_ids[.@i], 1);
-							.@l = select("เปลี่ยนผู้เล่นอื่น","[ยกเลิก]");
+							.@l = select("����¹���������","[¡��ԡ]");
 							if(.@l == 2)
 								goto(buffskills_menu);
 
@@ -1507,9 +1507,9 @@ buffskills_menu:
 
 buffitems_menu:
     clear;
-    .@menu$ = "[ไอเทมบัฟ]";
+    .@menu$ = "[�����ѿ]";
     mes .@menu$;
-    mes "--- การตั้งค่าปัจจุบัน ---";
+    mes "--- ��õ�駤�һѨ�غѹ ---";
     
     setarray .@lbuff_item[0],645,656,657,12208,12210;
     setarray .@lbuff_sc[0],SC_ASPDPOTION0,SC_ASPDPOTION1,SC_ASPDPOTION2,SC_EXPBOOST,SC_ITEMBOOST;
@@ -1518,16 +1518,16 @@ buffitems_menu:
     for (.@i = 0; .@i < getarraysize(.@lbuff_item); .@i++)
         .@buffitems_menu1$ = .@buffitems_menu1$ + (.@i > 0 ? ":" : "") + ab_getautobuffstring(5,.@lbuff_item[.@i]);
     
-    .@buffitems_menu1$ = .@buffitems_menu1$ + ":[กลับ]";
+    .@buffitems_menu1$ = .@buffitems_menu1$ + ":[��Ѻ]";
     .@i = select(.@buffitems_menu1$) - 1;
     
     if (.@i >= getarraysize(.@lbuff_item))
         goto(config_menu);
     
     .@buffitems_menu = select(
-        .@buffitem_menu_state[.@lbuff_item[.@i]] ? "ปิด" : "เปิด",
-        "[กลับ]",
-        "[ยกเลิก]"
+        .@buffitem_menu_state[.@lbuff_item[.@i]] ? "�Դ" : "�Դ",
+        "[��Ѻ]",
+        "[¡��ԡ]"
     );
     
     if (.@buffitems_menu == 1) {

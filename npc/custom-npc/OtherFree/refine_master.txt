@@ -9,12 +9,12 @@
 oasis,131,77,5	script	Refine Master	4_M_LGTMAN,{
 	disable_items;
 	mes .npc$,
-		"ข้าสามารถอัพเกรดให้เจ้าได้ทั้งตัวภายในครั้งเดียว",
-		"และจะได้ ^990099+"+ .refine +"^000000 ในทันที",
-		"^FF0000โดยอุปกรณ์ที่ ^990099+"+ .refine +"^000000 ^FF0000ขึ้นไปจะไม่ถูกอัพเกรดซ้ำอีก.^000000";
+		"�������ö�Ѿ�ô���������駵�����㹤�������",
+		"��Ш��� ^990099+"+ .refine +"^000000 㹷ѹ��",
+		"^FF0000���ػ�ó��� ^990099+"+ .refine +"^000000 ^FF0000���仨����١�Ѿ�ô����ա.^000000";
 	next;
 	mes .npc$,
-		"เสร็จเรียบร้อย.";
+		"�������º����.";
 	//= EQI_ACC_L (0) - Accessory 1
 	//= EQI_ACC_R (1) - Accessory 2
 	if ( .refine_acc_all ) {
@@ -72,16 +72,16 @@ oasis,131,77,5	script	Refine Master	4_M_LGTMAN,{
 	
 	OnInit:
 		.npc$ = "[^0000FF "+ strnpcinfo(1) +" ^000000]";
-		.refine = 10;			//= ระดับตีบวก
-		.refine_head_ml = false; //= เปิด | ปิด ตีบวกหมวก กลาง/ล่าง (true:เปิด | false:ปิด).
-		.refine_acc_all = false; //= เปิด | ปิด ตีบวกประดับ (true:เปิด | false:ปิด).
-		.refine_costume = true; //= เปิด | ปิด ตีบวกคอส (true:เปิด | false:ปิด).
-		.refine_shadows = true; //= เปิด | ปิด ตีบวกชาโด้ (true:เปิด | false:ปิด).
+		.refine = 10;			//= �дѺ�պǡ
+		.refine_head_ml = false; //= �Դ | �Դ �պǡ��ǡ ��ҧ/��ҧ (true:�Դ | false:�Դ).
+		.refine_acc_all = false; //= �Դ | �Դ �պǡ��дѺ (true:�Դ | false:�Դ).
+		.refine_costume = true; //= �Դ | �Դ �պǡ��� (true:�Դ | false:�Դ).
+		.refine_shadows = true; //= �Դ | �Դ �պǡ���� (true:�Դ | false:�Դ).
 		setarray .acc_all[0],EQI_ACC_L,EQI_ACC_R;
 		setarray .normal_all[0],EQI_SHOES,EQI_GARMENT,EQI_HEAD_TOP,EQI_ARMOR,EQI_HAND_L,EQI_HAND_R;
 		setarray .head_ml[0],EQI_HEAD_LOW,EQI_HEAD_MID;
 		setarray .costume_all[0],EQI_COSTUME_HEAD_TOP,EQI_COSTUME_HEAD_MID,EQI_COSTUME_HEAD_LOW,EQI_COSTUME_GARMENT;
 		setarray .shadow_all[0],EQI_SHADOW_ARMOR,EQI_SHADOW_WEAPON,EQI_SHADOW_SHIELD,EQI_SHADOW_SHOES,EQI_SHADOW_ACC_R,EQI_SHADOW_ACC_L;
-		waitingroom "# ตี +10 ทั้งตัว",0;
+		waitingroom "# �� +10 ��駵��",0;
 	end;
 }

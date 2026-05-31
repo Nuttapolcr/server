@@ -962,8 +962,6 @@ Body:
     Type: DelayConsume
     Flags:
       NoConsume: true
-    Delay:
-      Duration: 500
     Trade:
       NoDrop: true
       NoTrade: true
@@ -973,6 +971,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 500
     Script: |
       itemskill "AL_TELEPORT",1;
   - Id: 22850
@@ -4685,13 +4685,13 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    Delay:
-      Duration: 60000
-      Status: Reuse_Limit_D
     Trade:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 60000
+      Status: Reuse_Limit_D
     Script: |
       sc_start SC_ITEMBOOST,1800000,100;
   - Id: 12211
@@ -4763,8 +4763,6 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -4773,6 +4771,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       skilleffect "AL_BLESSING",0;
       sc_start SC_BLESSING,900000,10;
@@ -4783,8 +4783,6 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -4793,6 +4791,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       if (Hp>15) {
          skilleffect "AL_INCAGI",0;
@@ -4805,8 +4805,6 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -4815,6 +4813,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       if (countitem(523)>0) {
          skilleffect "PR_ASPERSIO",0;
@@ -4827,8 +4827,6 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -4837,6 +4835,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       sc_start SC_ASSUMPTIO,900000,5;
       skilleffect "HP_ASSUMPTIO",0;
@@ -4847,8 +4847,6 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -4857,6 +4855,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       sc_start4 SC_POEMBRAGI,300000,10,80,60,10;
       sc_start4 SC_SERVICE4U,300000,5,40,40,1; 
@@ -4870,8 +4870,6 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -4880,6 +4878,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       skilleffect "SN_WINDWALK",0;
       sc_start SC_WINDWALK,250000,5;
@@ -4889,8 +4889,6 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -4899,6 +4897,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       set .@type,getiteminfo(getequipid(EQI_HAND_R), ITEMINFO_VIEW);
       if (.@type == W_1HAXE || .@type == W_2HAXE || .@type == W_MACE) {
@@ -5891,8 +5891,6 @@ Body:
     Name: Spray Of Flowers
     Type: Usable
     Weight: 50
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -5900,6 +5898,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       sc_start SC_FLEEFOOD,300000,10;
   - Id: 12311
@@ -5907,8 +5907,6 @@ Body:
     Name: Huge Spray Of Flowers
     Type: DelayConsume
     Weight: 100
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -5916,6 +5914,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       itemskill "ALL_PARTYFLEE",1;
   - Id: 12312
@@ -5928,8 +5928,6 @@ Body:
     AegisName: Protection_Of_Angel
     Name: Guardian Angel
     Type: Usable
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -5938,6 +5936,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       /* itemskill "ALL_ANGEL_PROTECT",1; */
   - Id: 12314
@@ -5999,8 +5999,6 @@ Body:
     AegisName: N_Fly_Wing
     Name: Novice Fly Wing
     Type: DelayConsume
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6010,14 +6008,14 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       itemskill "AL_TELEPORT",1;
   - Id: 12324
     AegisName: N_Butterfly_Wing
     Name: Novice Butterfly Wing
     Type: DelayConsume
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6027,14 +6025,14 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       itemskill "AL_TELEPORT",3;
   - Id: 12325
     AegisName: N_Magnifier
     Name: Novice Magnifier
     Type: DelayConsume
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6044,6 +6042,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       itemskill "MC_IDENTIFY",1;
   - Id: 12326
@@ -6121,9 +6121,6 @@ Body:
     Name: Ancilla
     Type: Usable
     Weight: 10
-    Stack:
-      Amount: 3
-      Inventory: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6133,6 +6130,9 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Stack:
+      Amount: 3
+      Inventory: true
     Script: |
       percentheal 0,15;
   - Id: 12334
@@ -6192,8 +6192,6 @@ Body:
     Name: Chewy Rice Powder
     Type: Usable
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6202,6 +6200,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       pet 1815;
   - Id: 12341
@@ -6356,14 +6356,14 @@ Body:
     Weight: 100
     Flags:
       BuyingStore: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoSell: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       skilleffect "AL_BLESSING",0;
       sc_start SC_BLESSING,120000,5;
@@ -6485,8 +6485,6 @@ Body:
     AegisName: Delicious_Shaved_Ice
     Name: Delicious Shaved Ice
     Type: Usable
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6496,6 +6494,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       pet 1143;
   - Id: 12362
@@ -6514,8 +6514,6 @@ Body:
     AegisName: Fit_Pipe
     Name: Fit Pipe
     Type: Usable
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6525,6 +6523,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       pet 1179;
   - Id: 12364
@@ -6603,8 +6603,6 @@ Body:
     AegisName: Gril's_Naivety
     Name: Girl's Naivety
     Type: Usable
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6614,6 +6612,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       pet 1374;
   - Id: 12371
@@ -6789,8 +6789,6 @@ Body:
     Name: Rhydo Runestone For Apprentice
     Type: DelayConsume
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6800,6 +6798,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       /* if (strcharinfo(3) == "job3_rune02") { itemskill "RK_CRUSHSTRIKE",1; } */
   - Id: 12389
@@ -6807,8 +6807,6 @@ Body:
     Name: Pertz Runestone For Apprentice
     Type: DelayConsume
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6818,6 +6816,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       /* if (strcharinfo(3) == "job3_rune02") { itemskill "RK_STORMBLAST",1; } */
   - Id: 12390
@@ -6825,8 +6825,6 @@ Body:
     Name: Verkana Runestone For Apprentice
     Type: DelayConsume
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -6836,6 +6834,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       /* if (strcharinfo(3) == "job3_rune02") { itemskill "RK_MILLENNIUMSHIELD",1; } */
   - Id: 12391
@@ -6915,12 +6915,12 @@ Body:
     Type: DelayConsume
     Buy: 20
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoSell: true
       NoGuildStorage: true
+    NoUse:
+      Sitting: true
     Script: |
       .@rnd = rand(1,10);
       if (.@rnd == 1) itemskill "AL_TELEPORT",1;
@@ -6939,12 +6939,12 @@ Body:
     Type: DelayConsume
     Buy: 20
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoSell: true
       NoGuildStorage: true
+    NoUse:
+      Sitting: true
     Script: |
       .@rnd = rand(1,10);
       if (.@rnd == 1) itemskill "TF_DETOXIFY",1;
@@ -7566,8 +7566,6 @@ Body:
     Type: Usable
     Buy: 20
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -7575,14 +7573,14 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
   - Id: 12474
     AegisName: RWC_Final_Comp_Box
     Name: RWC Final Comp Box
     Type: Usable
     Buy: 20
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -7590,6 +7588,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
   - Id: 12475
     AegisName: Cure_Free
     Name: Cure Free
@@ -8432,11 +8432,6 @@ Body:
     Weight: 100
     Classes:
       Third: true
-    Stack:
-      Amount: 60
-      Inventory: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -8445,6 +8440,11 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Stack:
+      Amount: 60
+      Inventory: true
+    NoUse:
+      Sitting: true
     Script: |
       if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT)
          unitskilluseid getcharid(3),"RK_REFRESH",1;
@@ -8456,11 +8456,6 @@ Body:
     Weight: 100
     Classes:
       Third: true
-    Stack:
-      Amount: 60
-      Inventory: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -8469,6 +8464,11 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Stack:
+      Amount: 60
+      Inventory: true
+    NoUse:
+      Sitting: true
     Script: |
       if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT)
          unitskilluseid getcharid(3),"RK_CRUSHSTRIKE",1;
@@ -8480,11 +8480,6 @@ Body:
     Weight: 100
     Classes:
       Third: true
-    Stack:
-      Amount: 60
-      Inventory: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -8493,6 +8488,11 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Stack:
+      Amount: 60
+      Inventory: true
+    NoUse:
+      Sitting: true
     Script: |
       if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT)
          unitskilluseid getcharid(3),"RK_MILLENNIUMSHIELD",1;
@@ -8504,11 +8504,6 @@ Body:
     Weight: 100
     Classes:
       Third: true
-    Stack:
-      Amount: 60
-      Inventory: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -8517,6 +8512,11 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Stack:
+      Amount: 60
+      Inventory: true
+    NoUse:
+      Sitting: true
     Script: |
       if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT)
          unitskilluseid getcharid(3),"RK_VITALITYACTIVATION",1;
@@ -8528,8 +8528,6 @@ Body:
     Weight: 100
     Classes:
       Third: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -8538,6 +8536,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT)
          unitskilluseid getcharid(3),"RK_FIGHTINGSPIRIT",1;
@@ -8549,11 +8549,6 @@ Body:
     Weight: 100
     Classes:
       Third: true
-    Stack:
-      Amount: 60
-      Inventory: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -8562,6 +8557,11 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Stack:
+      Amount: 60
+      Inventory: true
+    NoUse:
+      Sitting: true
     Script: |
       if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT)
          unitskilluseid getcharid(3),"RK_ABUNDANCE",1;
@@ -8573,8 +8573,6 @@ Body:
     Weight: 100
     Classes:
       Third: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -8583,6 +8581,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT)
          unitskilluseid getcharid(3),"RK_GIANTGROWTH",1;
@@ -8594,8 +8594,6 @@ Body:
     Weight: 100
     Classes:
       Third: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -8604,6 +8602,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT)
          unitskilluseid getcharid(3),"RK_STORMBLAST",1;
@@ -8615,11 +8615,6 @@ Body:
     Weight: 100
     Classes:
       Third: true
-    Stack:
-      Amount: 60
-      Inventory: true
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -8628,6 +8623,11 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Stack:
+      Amount: 60
+      Inventory: true
+    NoUse:
+      Sitting: true
     Script: |
       if ((eaclass()&EAJ_THIRDMASK) == EAJ_RUNE_KNIGHT)
          unitskilluseid getcharid(3),"RK_STONEHARDSKIN",1;
@@ -19952,8 +19952,6 @@ Body:
     Name: Repair Weapon Scroll
     Type: Usable
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -19962,6 +19960,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       unitskilluseid getcharid(3),"BS_REPAIRWEAPON",1;
   - Id: 14522
@@ -20046,14 +20046,14 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoSell: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       sc_start SC_EXPBOOST,1800000,50;
   - Id: 14533
@@ -20117,9 +20117,6 @@ Body:
     Name: Glass of Illusion
     Type: Usable
     Weight: 10
-    Delay:
-      Duration: 300000
-      Status: Reuse_Limit_A
     Trade:
       NoDrop: true
       NoTrade: true
@@ -20128,6 +20125,9 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 300000
+      Status: Reuse_Limit_A
     Script: |
       specialeffect2 EF_STEAL;
       sc_start SC_INCFLEE2,60000,20;
@@ -20610,20 +20610,18 @@ Body:
     Name: Jumping Candy
     Type: Usable
     Weight: 10
-    Delay:
-      Duration: 180000
-      Status: Reuse_Limit_B
     Trade:
       NoDrop: true
       NoSell: true
       NoGuildStorage: true
+    Delay:
+      Duration: 180000
+      Status: Reuse_Limit_B
   - Id: 14587
     AegisName: Repair_Scroll_
     Name: Equipment Repair Spell Book
     Type: DelayConsume
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -20632,6 +20630,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       itemskill "BS_REPAIRWEAPON",1;
   - Id: 14588
@@ -20699,8 +20699,6 @@ Body:
     Name: Mystical Amplification Scroll
     Type: DelayConsume
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -20709,6 +20707,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       itemskill "HW_MAGICPOWER",10;
   - Id: 14594
@@ -20716,8 +20716,6 @@ Body:
     Name: Quagmire Scroll
     Type: DelayConsume
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -20726,6 +20724,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       itemskill "WZ_QUAGMIRE",5;
   - Id: 14595
@@ -20783,8 +20783,6 @@ Body:
     Name: Greed Scroll
     Type: Usable
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -20793,6 +20791,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
   - Id: 14600
     AegisName: Mental_Potion
     Name: Mental Potion
@@ -20882,8 +20882,6 @@ Body:
     Name: JOB Battle Manual
     Type: Usable
     Weight: 10
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -20892,6 +20890,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    NoUse:
+      Sitting: true
     Script: |
       sc_start SC_JEXPBOOST,1800000,25;
   - Id: 14607
@@ -21006,8 +21006,6 @@ Body:
     AegisName: Service30_AID_Buff
     Name: Premium Service Staff
     Type: DelayConsume
-    Delay:
-      Duration: 30000
     Trade:
       Override: 100
       NoDrop: false
@@ -21018,6 +21016,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 30000
     Script: |
       duplicate_dynamic("premium_service");
   - Id: 23207
@@ -21106,8 +21106,6 @@ Body:
     Type: DelayConsume
     Buy: 20
     Weight: 10
-    Delay:
-      Duration: 100
     Trade:
       NoDrop: true
       NoTrade: true
@@ -21116,6 +21114,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 100
     Script: |
       callfunc "F_autoattacktoggle";
   - Id: 41015
@@ -21154,8 +21154,6 @@ Body:
     Type: DelayConsume
     Flags:
       DropEffect: YELLOW_PILLAR
-    Delay:
-      Duration: 60000
     Trade:
       Override: 100
       NoDrop: true
@@ -21165,6 +21163,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 60000
     Script: |
       callfunc "NT_1d_vip_ticket";
   - Id: 41019
@@ -21173,8 +21173,6 @@ Body:
     Type: DelayConsume
     Flags:
       DropEffect: YELLOW_PILLAR
-    Delay:
-      Duration: 60000
     Trade:
       Override: 100
       NoDrop: true
@@ -21184,6 +21182,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 60000
     Script: |
       callfunc "NT_3d_vip_ticket";
   - Id: 41020
@@ -21192,8 +21192,6 @@ Body:
     Type: DelayConsume
     Flags:
       DropEffect: YELLOW_PILLAR
-    Delay:
-      Duration: 60000
     Trade:
       Override: 100
       NoDrop: true
@@ -21203,6 +21201,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 60000
     Script: |
       callfunc "NT_7d_vip_ticket";
   - Id: 41021
@@ -21241,8 +21241,6 @@ Body:
     Type: DelayConsume
     Flags:
       DropEffect: YELLOW_PILLAR
-    Delay:
-      Duration: 60000
     Trade:
       Override: 100
       NoDrop: true
@@ -21252,6 +21250,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 60000
     Script: |
       callfunc "F_package",2,2,41024;
   - Id: 41025
@@ -21260,8 +21260,6 @@ Body:
     Type: DelayConsume
     Flags:
       DropEffect: YELLOW_PILLAR
-    Delay:
-      Duration: 60000
     Trade:
       Override: 100
       NoDrop: true
@@ -21271,6 +21269,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 60000
     Script: |
       callfunc "F_package",3,2,41025;
   - Id: 41026
@@ -21279,8 +21279,6 @@ Body:
     Type: DelayConsume
     Flags:
       DropEffect: YELLOW_PILLAR
-    Delay:
-      Duration: 60000
     Trade:
       Override: 100
       NoDrop: true
@@ -21290,6 +21288,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 60000
     Script: |
       callfunc "F_package",4,2,41026;
   - Id: 900001
@@ -21629,9 +21629,6 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    Delay:
-      Duration: 60000
-      Status: Reuse_Limit_D
     Trade:
       Override: 100
       NoDrop: true
@@ -21641,6 +21638,9 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 60000
+      Status: Reuse_Limit_D
     Script: |
       sc_start SC_ITEMBOOST,1800000,50;
   - Id: 23304
@@ -21764,9 +21764,6 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
-    Delay:
-      Duration: 60000
-      Status: Reuse_Limit_D
     Trade:
       NoDrop: true
       NoTrade: true
@@ -21776,6 +21773,9 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 60000
+      Status: Reuse_Limit_D
     Script: |
       sc_start SC_ITEMBOOST,1800000,50;
   - Id: 12666
@@ -21836,10 +21836,6 @@ Body:
     Type: DelayConsume
     Buy: 0
     Weight: 1
-    Delay:
-      Duration: 1000
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -21848,6 +21844,10 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 1000
+    NoUse:
+      Sitting: true
     Script: |
       skilleffect "AL_BLESSING",0;
       sc_start SC_BLESSING,180000,10;
@@ -21873,10 +21873,6 @@ Body:
     Type: DelayConsume
     Buy: 0
     Weight: 1
-    Delay:
-      Duration: 1000
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -21885,6 +21881,10 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 1000
+    NoUse:
+      Sitting: true
     Script: |
       skilleffect "AL_INCAGI",0;
       sc_start SC_INCREASEAGI,180000,10;
@@ -21910,10 +21910,6 @@ Body:
     Type: DelayConsume
     Buy: 0
     Weight: 1
-    Delay:
-      Duration: 1000
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -21922,6 +21918,10 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 1000
+    NoUse:
+      Sitting: true
     Script: |
       skilleffect "HP_ASSUMPTIO",0;
       sc_start SC_ASSUMPTIO,180000,5;
@@ -21947,10 +21947,6 @@ Body:
     Type: DelayConsume
     Buy: 0
     Weight: 1
-    Delay:
-      Duration: 1000
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -21959,6 +21955,10 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 1000
+    NoUse:
+      Sitting: true
     Script: |
       specialeffect2 EF_POTION_BERSERK;
       .@time = 1800000;
@@ -21996,10 +21996,6 @@ Body:
     Type: DelayConsume
     Buy: 0
     Weight: 1
-    Delay:
-      Duration: 1000
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -22008,6 +22004,10 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 1000
+    NoUse:
+      Sitting: true
     Script: |
       specialeffect2 EF_HEAL3;
       sc_start2 SC_S_LIFEPOTION,3600000,-5,5;
@@ -22036,10 +22036,6 @@ Body:
     Type: Cash
     Buy: 0
     Weight: 1
-    Delay:
-      Duration: 1000
-    NoUse:
-      Sitting: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -22048,6 +22044,10 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Delay:
+      Duration: 1000
+    NoUse:
+      Sitting: true
     Script: |
       sc_start SC_EXPBOOST,604800000,50;
       sc_start SC_ITEMBOOST,604800000,50;

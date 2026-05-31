@@ -272,373 +272,210 @@ Body:
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bShortAtkRate,1;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9265
     AegisName: Maya_Egg
     Name: "[Normal] Maya Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bAspdRate,1;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9266
     AegisName: Eddga_Egg
     Name: "[Normal] Eddga Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bDelayrate,-1;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9267
     AegisName: Dark_Lord_Egg
     Name: "[Normal] Dark Lord Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bCritical,5;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9268
     AegisName: Baphomet_Egg
     Name: "[Normal] Baphomet Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bDropAddClass_C,Class_All,10;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9269
     AegisName: Orc_Lord_Egg
     Name: "[Normal] Orc Lord Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bMaxSP,100;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9270
     AegisName: Lady_Tanee_Egg
     Name: "[Normal] Lady Tanee Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bCritAtkRate,5;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9271
     AegisName: Phreeoni_Egg
     Name: "[Normal] Phreeoni Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bFlee2,5;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9272
     AegisName: Orc_Hero_Egg
     Name: "[Normal] Orc Hero Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bAddClass,Class_All,1;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9273
     AegisName: Amon_Ra_Egg
     Name: "[Normal] Amon Ra Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bMagicAddClass,Class_All,1;
-      bonus2 bDropAddClass,Class_All,2;
   - Id: 9274
     AegisName: Pharaoh_Egg
     Name: "[Rare] Pharaoh Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Freeze,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
   - Id: 9275
     AegisName: Osiris_Egg
     Name: "[Rare] Osiris Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Stone,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
   - Id: 9276
     AegisName: Dracula_Egg
     Name: "[Rare] Dracula Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Sleep,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
   - Id: 9277
     AegisName: Doppelganger_Egg
     Name: "[Rare] Doppelganger Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Silence,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
   - Id: 9278
     AegisName: Mistress_Egg
     Name: "[Rare] Mistress Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Curse,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
   - Id: 9279
     AegisName: Moonlight_Egg
     Name: "[Rare] Moonlight Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bAddEffWhenHit,Eff_Confusion,200;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
   - Id: 9280
     AegisName: Drake_Egg
     Name: "[Rare] Drake Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      skill "AL_INCAGI",10;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
   - Id: 9281
     AegisName: Knight_Of_Windstorm_Egg
     Name: "[Rare] Stormy Knight Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      skill "PR_IMPOSITIO",5;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
   - Id: 9282
     AegisName: Lord_Of_Death_Egg
     Name: "[Rare] Lord of Death Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      skill "AL_BLESSING",10;
-      bonus bAddMaxWeight,1000;
-      bonus2 bDropAddClass,Class_All,3;
   - Id: 9283
     AegisName: B_Seyren_Egg
     Name: "[Epic] Seyren Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bAllStats,2;
-      bonus bAspd,1;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9284
     AegisName: B_Eremes_Egg
     Name: "[Epic] Eremes Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bAllStats,2;
-      bonus bFlee,30;
-      bonus bHit,30;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9285
     AegisName: B_Harword_Egg
     Name: "[Epic] Howard Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bAllStats,1;
-      bonus bAspdRate,10;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9286
     AegisName: B_Magaleta_Egg
     Name: "[Epic] Margaretha Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bResEff,Eff_Stun,5000;
-      bonus2 bAddEff,Eff_Freeze,10000;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9287
     AegisName: B_Shecil_Egg
     Name: "[Epic] Cecil Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bAddClass,Class_Boss,35;
-      bonus2 bAddEff,Eff_Curse,10000;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9288
     AegisName: B_Katrinn_Egg
     Name: "[Epic] Kathryne Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bShortWeaponDamageReturn,-100;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9289
     AegisName: B_Randel_Egg
     Name: "[Epic] Randel Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bMagicDamageReturn,100;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9290
     AegisName: B_Flamel_Egg
     Name: "[Epic] Flamel Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      sc_start SC_ENDURE,INFINITE_TICK,1;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9291
     AegisName: B_Celia_Egg
     Name: "[Epic] Celia Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bNoGemStone;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9292
     AegisName: B_Chen_Egg
     Name: "[Epic] Chen Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus2 bAddEff,Eff_Stun,1000;
-      bonus2 bAddEff,Eff_Curse,1000;
-      bonus2 bAddEff,Eff_Silence,1000;
-      bonus2 bAddEff,Eff_Poison,1000;
-      bonus2 bAddEff,Eff_Bleeding,1000;
-      bonus bAddMaxWeight,3000;
-      bonus bMaxHP,500;
-      bonus2 bDropAddClass,Class_All,10;
   - Id: 9293
     AegisName: Medjay_Egg
     Name: "[Legend] MedJay Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
   - Id: 9294
     AegisName: Cp_Heka_Egg
     Name: "[Legend] MedJee Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
   - Id: 9295
     AegisName: Medjed_Egg
     Name: "[Legend] MedJed Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bCritical,50;
-      bonus bCritAtkRate,20;
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
   - Id: 9296
     AegisName: Spirit_R_Flame_Sl_Egg
     Name: "[Legend] Spirit Flame Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bBaseAtk,70;
-      bonus bShortAtkRate,3;
-      bonus bLongAtkRate,3;
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
   - Id: 9297
     AegisName: Spirit_I_Water_M_Egg
     Name: "[Legend] Spirit Water Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bMatk,150;
-      bonus bMatkRate,10;
-      bonus bVariableCastrate,-20;
-      bonus bDelayrate,-20;
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
   - Id: 9298
     AegisName: Spirit_S_Wind_M_Egg
     Name: "[Legend] Spirit Wind Egg"
     Type: PetEgg
     Flags:
       Collection: true
-    CollectionScript: |-
-      bonus bMaxHPrate,50;
-      bonus bDef,100;
-      bonus bAddMaxWeight,5000;
-      bonus bMaxHP,1000;
-      bonus2 bDropAddClass,Class_All,20;
   - Id: 55000
     AegisName: "22266"
     Name: Fire Red Storm Sword
@@ -19776,22 +19613,22 @@ Body:
     AegisName: PkPass_Attack
     Name: PK Attack
     Type: Cash
-    Delay:
-      Duration: 900000
     Trade:
       NoDrop: true
       NoSell: true
+    Delay:
+      Duration: 900000
     Script: |
       pkpass("atk",15);
   - Id: 40001
     AegisName: PkPass_Defense
     Name: PK Defense
     Type: Cash
-    Delay:
-      Duration: 1800000
     Trade:
       NoDrop: true
       NoSell: true
+    Delay:
+      Duration: 1800000
     Script: |
       pkpass("def",30);
   - Id: 905026
@@ -21519,13 +21356,10 @@ Body:
     Slots: 1
     Jobs:
       Knight: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21550,13 +21384,10 @@ Body:
     Slots: 1
     Jobs:
       Crusader: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21579,13 +21410,10 @@ Body:
     Slots: 1
     Jobs:
       Wizard: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21608,13 +21436,10 @@ Body:
     Slots: 1
     Jobs:
       Priest: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21637,13 +21462,10 @@ Body:
     Slots: 1
     Jobs:
       Blacksmith: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21667,13 +21489,10 @@ Body:
     Slots: 1
     Jobs:
       Alchemist: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21698,13 +21517,10 @@ Body:
     Slots: 1
     Jobs:
       Priest: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21731,13 +21547,10 @@ Body:
     Slots: 1
     Jobs:
       Monk: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21762,13 +21575,10 @@ Body:
     Slots: 1
     Jobs:
       Assassin: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21794,13 +21604,10 @@ Body:
     Slots: 1
     Jobs:
       Rogue: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21827,14 +21634,10 @@ Body:
     Slots: 1
     Jobs:
       Hunter: true
-      Rogue: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21858,14 +21661,11 @@ Body:
     Slots: 1
     Jobs:
       BardDancer: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Gender: Male
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21889,14 +21689,11 @@ Body:
     Slots: 1
     Jobs:
       BardDancer: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Gender: Female
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21920,13 +21717,10 @@ Body:
     Slots: 1
     Jobs:
       StarGladiator: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21950,13 +21744,10 @@ Body:
     Slots: 1
     Jobs:
       SoulLinker: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -21989,7 +21780,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22019,7 +21810,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22041,15 +21832,16 @@ Body:
     SubType: 1hSword
     Weight: 1500
     Attack: 120
+    MagicAttack: 120
     Range: 1
     Slots: 1
     Jobs:
-      Novice: true
       SuperNovice: true
+      Novice: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 150
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22070,7 +21862,6 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
-    MagicAttack: 120
   - Id: 600017
     AegisName: Adulter_F_T_Sword
     Name: "[Epic] Lord Knight Weapon"
@@ -22082,13 +21873,10 @@ Body:
     Slots: 1
     Jobs:
       Knight: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22116,15 +21904,10 @@ Body:
     Attack: 240
     Range: 3
     Slots: 1
-    Jobs:
-      Knight: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22142,6 +21925,8 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       }
+    Jobs:
+      Crusader: true
   - Id: 640020
     AegisName: Adulter_F_Rod
     Name: "[Epic] High Wizard Weapon"
@@ -22153,13 +21938,10 @@ Body:
     Slots: 1
     Jobs:
       Wizard: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22190,13 +21972,10 @@ Body:
     Slots: 1
     Jobs:
       Sage: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22228,13 +22007,10 @@ Body:
     Slots: 1
     Jobs:
       Blacksmith: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22264,13 +22040,10 @@ Body:
     Slots: 1
     Jobs:
       Alchemist: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22302,13 +22075,10 @@ Body:
     Slots: 1
     Jobs:
       Priest: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22342,13 +22112,10 @@ Body:
     Slots: 1
     Jobs:
       Monk: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22379,13 +22146,10 @@ Body:
     Slots: 1
     Jobs:
       Assassin: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22417,13 +22181,10 @@ Body:
     Slots: 1
     Jobs:
       Rogue: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22456,13 +22217,10 @@ Body:
     Slots: 1
     Jobs:
       Hunter: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22492,14 +22250,11 @@ Body:
     Slots: 1
     Jobs:
       BardDancer: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Gender: Male
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22529,14 +22284,11 @@ Body:
     Slots: 1
     Jobs:
       BardDancer: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Gender: Female
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22569,7 +22321,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22602,7 +22354,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22640,7 +22392,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22676,7 +22428,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22707,15 +22459,10 @@ Body:
     MagicAttack: 150
     Range: 1
     Slots: 1
-    Jobs:
-      Crusader: true
-    Classes:
-      All_Third: true
-      Fourth: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
-    EquipLevelMin: 180
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -22742,11 +22489,14 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,7;
       }
+    Jobs:
+      Novice: true
+      SuperNovice: true
   - Id: 1000373
     AegisName: Meteorite_Fragment
     Name: Fragment Stone
     Type: Etc
-    Weight: 10
+    Weight: 0
     Flags:
       BuyingStore: true
   - Id: 1000419
@@ -23052,7 +22802,7 @@ Body:
     Trade:
       NoDrop: true
     Script: |
-      bonus bMaxHPrate,3;
+      bonus bMaxHPrate,5;
   - Id: 1029019
     AegisName: Sinister_Book_PR105
     Name: "[Legend] TaeKwon Master Weapon"
@@ -23064,13 +22814,11 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Priest: true
-      Sage: true
       StarGladiator: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -23142,11 +22890,19 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
-      bonus bBaseAtk,(getrefine()*14);
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+    Script: |-
+      .@r = getrefine();
       bonus bUnbreakableWeapon;
+      bonus bBaseAtk,20*.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bBaseAtk,30;
+         bonus bAtkRate,15;
+         bonus2 bSubClass,Class_Boss,30;
+      }
   - Id: 1491
     AegisName: Upg_Lance
     Name: "[Rookie] Spear"
@@ -23168,10 +22924,18 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
-      bonus bBaseAtk,(getrefine()*12);
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+    Script: |-
+      .@r = getrefine();
+      bonus bBaseAtk,15*.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bBaseAtk,30;
+         bonus bAtkRate,15;
+         bonus2 bSubClass,Class_Boss,30;
+      }
   - Id: 1585
     AegisName: Upg_Book
     Name: "[Rookie] Book"
@@ -23194,12 +22958,21 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
+    Script: |-
       .@r = getrefine();
-      bonus bBaseAtk,(.@r*10);
-      bonus bMatk,(.@r*5);
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+      bonus bMatk,20;
+      bonus bBaseAtk,10*.@r;
+      bonus bMatkRate,5*.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bBaseAtk,30;
+         bonus bMatk,30;
+         bonus bAtkRate,25;
+         bonus bMatkRate,25;
+      }
   - Id: 2015
     AegisName: Upg_Staff
     Name: "[Rookie] Staff"
@@ -23226,16 +22999,21 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
+    Script: |-
       .@r = getrefine();
-      bonus bMatk,(.@r*10);
+      bonus bMatk,70;
+      bonus bMatkRate,20;
+      bonus bMatk,10*.@r;
       bonus bHealPower,.@r;
-      if (BaseJob == Job_Wizard)
-         bonus bMatk,30;
-      else if (BaseJob == Job_Sage)
-         bonus bMatk,20;
-      if (BaseLevel>70)
-         bonus bMatk,(((BaseLevel-70)/10)*10);
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bMatk,80;
+         bonus bMatkRate,25;
+         bonus2 bSubClass,Class_Boss,30;
+      }
   - Id: 13071
     AegisName: Upg_Dagger
     Name: "[Rookie] Dagger"
@@ -23274,12 +23052,19 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
+    Script: |-
       .@r = getrefine();
-      bonus bBaseAtk,(.@r*10);
-      bonus bMatk,(.@r*5);
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+      bonus bBaseAtk,10*.@r;
+      bonus bMatkRate,5*.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bBaseAtk,30;
+         bonus bCritical,20;
+         bonus bCritAtkRate,20;
+      }
   - Id: 13115
     AegisName: Upg_Revolver
     Name: "[Rookie] Revolver"
@@ -23300,12 +23085,19 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
+    Script: |-
       .@r = getrefine();
-      bonus bBaseAtk,(.@r*5);
-      bonus bLongAtkRate,(.@r*2);
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+      bonus bBaseAtk,5*.@r;
+      bonus bLongAtkRate,2*.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bBaseAtk,30;
+         bonus bLongAtkRate,10;
+         bonus2 bSubClass,Class_Boss,30;
+      }
   - Id: 21000
     AegisName: Upg_Twohand_Sword
     Name: "[Rookie] Two-handed Sword"
@@ -23327,12 +23119,17 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
+    Script: |-
       .@r = getrefine();
-      bonus bBaseAtk,(.@r*12);
-      bonus bMatk,(.@r*5);
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+      bonus bBaseAtk,15*.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bBaseAtk,30;
+         bonus2 bSubClass,Class_Boss,30;
+      }
   - Id: 16019
     AegisName: Upg_Mace
     Name: "[Rookie] Mace"
@@ -23362,12 +23159,21 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
+    Script: |-
       .@r = getrefine();
-      bonus bBaseAtk,(.@r*10);
+      bonus bMatk,80;
+      bonus bMatkRate,20;
+      bonus bMatk,10*.@r;
       bonus bHealPower,.@r;
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bMatk,80;
+         bonus bMatkRate,25;
+         bonus2 bSubClass,Class_Boss,30;
+      }
   - Id: 18112
     AegisName: Upg_Bow
     Name: "[Rookie] Bow"
@@ -23389,14 +23195,20 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
+    Script: |-
       .@r = getrefine();
-      bonus bBaseAtk,(.@r*7);
-      bonus bLongAtkRate,(.@r*2);
-      if (BaseJob == Job_Hunter)
-         bonus bBaseAtk,20;
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*10);
+      bonus bBaseAtk,20;
+      bonus bBaseAtk,10*.@r;
+      bonus bLongAtkRate,2*.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bBaseAtk,30;
+         bonus bLongAtkRate,10;
+         bonus2 bSubClass,Class_Boss,30;
+      }
   - Id: 13316
     AegisName: Upg_Huuma_Shuriken
     Name: "[Rookie] Huuma Shuriken"
@@ -23417,14 +23229,20 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-    Script: |
+    Script: |-
       .@r = getrefine();
-      bonus bBaseAtk,(.@r*10);
-      bonus bMatk,(.@r*5);
-      bonus bLongAtkRate,(.@r);
-      if (BaseLevel>70)
-         bonus bBaseAtk,(((BaseLevel-70)/10)*5);
-      bonus bUnbreakableWeapon;
+      bonus bBaseAtk,20;
+      bonus bBaseAtk,10*.@r;
+      bonus bLongAtkRate,2*.@r;
+      bonus2 bAddClass,Class_Boss,10;
+      if (.@r>=5) {
+         bonus2 bAddClass,Class_Boss,20;
+      }
+      if (.@r>=7) {
+         bonus bBaseAtk,30;
+         bonus bLongAtkRate,10;
+         bonus2 bSubClass,Class_Boss,30;
+      }
   - Id: 15015
     AegisName: Upg_Adv_Suit
     Name: "[Rookie] Adventure Suit"
@@ -23441,7 +23259,12 @@ Body:
     Trade:
       NoDrop: true
     Script: |
-      bonus bMaxHPrate,3;
+      bonus bMaxHPrate,5;
+      if (isequipped(15015,2460,2562)) {
+         bonus bMaxHP,1000;
+         bonus2 bAddClass,Class_Boss,10;
+         bonus2 bSubClass,Class_Boss,10;
+      }
   - Id: 2149
     AegisName: Upg_Guard
     Name: "[Rookie] Guard"
@@ -23458,8 +23281,7 @@ Body:
     View: 1
     Trade:
       NoDrop: true
-    Script: |
-      bonus bMaxHPrate,3;
+    Script: bonus bMaxHPrate,5;
   - Id: 2560
     AegisName: Para_Team_Manteau
     Name: "[Rookie] Boots"
@@ -23498,7 +23320,7 @@ Body:
     Trade:
       NoDrop: true
     Script: |
-      bonus bMaxHPrate,3;
+      bonus bMaxHPrate,5;
   - Id: 452025
     AegisName: Rare_Melee_Armor
     Name: "[Rare] Melee Armor"
@@ -24755,13 +24577,11 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Crusader: true
       Knight: true
-      Swordman: true
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -24817,12 +24637,10 @@ Body:
     Slots: 1
     Jobs:
       Crusader: true
-      Knight: true
-      Swordman: true
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -24876,19 +24694,11 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Acolyte: true
-      Mage: true
-      Monk: true
-      Novice: true
-      Priest: true
-      Sage: true
-      SoulLinker: true
-      SuperNovice: true
       Wizard: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -24940,16 +24750,15 @@ Body:
     SubType: Book
     Buy: 20
     Weight: 1000
+    MagicAttack: 300
     Range: 1
     Slots: 1
     Jobs:
-      Priest: true
       Sage: true
-      StarGladiator: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -24995,7 +24804,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bDelayrate,-(.@r/2*2);
       }
-    MagicAttack: 300
   - Id: 28107
     AegisName: Sinister_Twohand_Axe
     Name: "[Legend] Mastersmith Weapon"
@@ -25007,16 +24815,11 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Alchemist: true
       Blacksmith: true
-      Crusader: true
-      Knight: true
-      Merchant: true
-      Swordman: true
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25072,20 +24875,10 @@ Body:
     Slots: 1
     Jobs:
       Alchemist: true
-      Assassin: true
-      Blacksmith: true
-      Crusader: true
-      Knight: true
-      Merchant: true
-      Novice: true
-      Rogue: true
-      SuperNovice: true
-      Swordman: true
-      Thief: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25138,24 +24931,15 @@ Body:
     SubType: Mace
     Buy: 20
     Weight: 1400
+    MagicAttack: 300
     Range: 1
     Slots: 1
     Jobs:
-      Acolyte: true
-      Alchemist: true
-      Blacksmith: true
-      Crusader: true
-      Knight: true
-      Merchant: true
-      Monk: true
-      Novice: true
       Priest: true
-      SuperNovice: true
-      Swordman: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25207,7 +24991,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bHealPower,.@r/2*10;
       }
-    MagicAttack: 300
   - Id: 1800
     AegisName: Sinister_Fist
     Name: "[Legend] Champion Weapon"
@@ -25220,11 +25003,10 @@ Body:
     Slots: 1
     Jobs:
       Monk: true
-      Priest: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25284,7 +25066,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25344,31 +25126,10 @@ Body:
     Attack: 220
     Range: 1
     Slots: 1
-    Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      KagerouOboro: true
-      Knight: true
-      Mage: true
-      Merchant: true
-      Ninja: true
-      Novice: true
-      Rogue: true
-      Sage: true
-      SoulLinker: true
-      SuperNovice: true
-      Swordman: true
-      Thief: true
-      Wizard: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25423,6 +25184,8 @@ Body:
          bonus bCritAtkRate,.@r/2*5;
          bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
       }
+    Jobs:
+      Rogue: true
   - Id: 18121
     AegisName: Sinister_Bow
     Name: "[Legend] Sniper Weapon"
@@ -25434,14 +25197,11 @@ Body:
     Range: 5
     Slots: 1
     Jobs:
-      Archer: true
-      BardDancer: true
       Hunter: true
-      Rogue: true
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25506,7 +25266,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25570,7 +25330,7 @@ Body:
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25629,14 +25389,11 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Mage: true
-      Sage: true
       SoulLinker: true
-      Wizard: true
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25709,7 +25466,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25780,7 +25537,7 @@ Body:
     Locations:
       Both_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 160
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25843,19 +25600,15 @@ Body:
     Buy: 100000
     Weight: 1500
     Attack: 250
+    MagicAttack: 250
     Range: 1
+    Slots: 1
     Jobs:
-      Alchemist: true
-      Blacksmith: true
-      Crusader: true
-      Knight: true
-    Classes:
-      All_Third: true
-      Fourth: true
+      SuperNovice: true
     Locations:
       Right_Hand: true
     WeaponLevel: 4
-    EquipLevelMin: 100
+    EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
@@ -25941,8 +25694,6 @@ Body:
          bonus bVariableCastrate,-(.@r/2*1);
          bonus bDelayrate,-(.@r/2*2);
       }
-    MagicAttack: 250
-    Slots: 1
   - Id: 9299
     AegisName: Guide_of_Dead_I_Egg
     Name: "[Legendaly] Guide of Dead I Egg"
@@ -26555,9 +26306,6 @@ Body:
       bonus2 bResEff,Eff_Blind,1500;
       bonus2 bResEff,Eff_Poison,1500;
       bonus2 bResEff,Eff_Bleeding,1500;
-
-
-# HICLASS Enchant UI generated entries (gid 1328426605).
   - Id: 1000600
     AegisName: Hiclass_Option_Ticket
     Name: Option Ticket
@@ -26588,7 +26336,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      autobonus "{ bonus bFlee2,100; bonus2 bAddClass,Class_Boss,100; }",50,10000,BF_WEAPON;
+      autobonus "{ bonus bFlee2,100; bonus2 bAddClass,Class_Boss,100; }",100,10000,BF_WEAPON;
       /*Unknow Rate*/
   - Id: 29371
     AegisName: Release_Of_Magic
@@ -26596,7 +26344,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      autobonus "{ bonus bFlee2,100; bonus2 bMagicAddClass,Class_Boss,100; }",50,10000,BF_MAGIC,"{ active_transform 1639,10000; }";
+      autobonus "{ bonus bFlee2,100; bonus2 bMagicAddClass,Class_Boss,100; }",100,10000,BF_MAGIC,"{ active_transform 1639,10000; }";
       /*Unknow Rate*/
   - Id: 29436
     AegisName: Dynast
@@ -26604,7 +26352,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      autobonus "{ bonus bStr,200; }",50,5000,BF_WEAPON,"{ active_transform 2221,5000; }";
+      autobonus "{ bonus bStr,200; }",100,5000,BF_WEAPON,"{ active_transform 2221,5000; }";
       /*Unknow Rate*/
   - Id: 29724
     AegisName: Murderous_Grudge
@@ -26725,7 +26473,7 @@ Body:
       bonus bAllStats,1;
   - Id: 313501
     AegisName: Hiclass_Max_SPPlus2Pct
-    Name: "Max SP+2%"
+    Name: Max SP+2%
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -26837,7 +26585,7 @@ Body:
       bonus bAllStats,2;
   - Id: 313515
     AegisName: Hiclass_Max_SPPlus3Pct
-    Name: "Max SP+3%"
+    Name: Max SP+3%
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -26845,7 +26593,7 @@ Body:
       bonus bMaxSPrate,3;
   - Id: 313516
     AegisName: Hiclass_Max_SPPlus4Pct
-    Name: "Max SP+4%"
+    Name: Max SP+4%
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -26885,7 +26633,7 @@ Body:
       bonus bHit,12;
   - Id: 313521
     AegisName: Hiclass_MaxHPPlus6Pct
-    Name: "MaxHP+6%"
+    Name: MaxHP+6%
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -26917,7 +26665,7 @@ Body:
       bonus bAllStats,4;
   - Id: 313525
     AegisName: Hiclass_Max_SPPlus5Pct
-    Name: "Max SP+5%"
+    Name: Max SP+5%
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -26925,7 +26673,7 @@ Body:
       bonus bMaxSPrate,5;
   - Id: 313526
     AegisName: Hiclass_Max_SPPlus6Pct
-    Name: "Max SP+6%"
+    Name: Max SP+6%
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -27061,7 +26809,7 @@ Body:
       bonus bAtkEle,Ele_Undead;
   - Id: 313543
     AegisName: Hiclass_Skill_Delay_8Pct
-    Name: "Skill Delay - 8%"
+    Name: Skill Delay - 8%
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -27069,7 +26817,7 @@ Body:
       bonus bDelayrate,-8;
   - Id: 313544
     AegisName: Hiclass_Skill_Delay_15Pct
-    Name: "Skill Delay - 15%"
+    Name: Skill Delay - 15%
     Type: Card
     SubType: Enchant
     Buy: 10

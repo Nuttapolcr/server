@@ -2,27 +2,27 @@
 -	script	Auto_RAConfig	-1,{
 OnInit:
 
-  //ตั้งค่าเงินในการ ลงทะเบียนกิล
+  //��駤���Թ㹡�� ŧ����¹���
  set $@feeregistb,500000;
  
-   //ตั้งค่าต่างเกี่ยวกับ Donate	
- set $@tbmaxzeny,10000000; //จำนวนเงินที่โดเนท ได้มากสุดต่อรอบ
- set $@tbmaxelu,100;	//จำนวน Elu ที่โดเนท ได้มากสุดต่อรอบ
- set $@tbmaxori,100;	//จำนวน Ori ที่โดเนท ได้มากสุดต่อรอบ
- set $@tbmaxemp,100;	//จำนวน Vybranium ที่โดเนท ได้มากสุดต่อรอบ
+   //��駤�ҵ�ҧ����ǡѺ Donate	
+ set $@tbmaxzeny,10000000; //�ӹǹ�Թ����๷ ���ҡ�ش����ͺ
+ set $@tbmaxelu,100;	//�ӹǹ Elu ����๷ ���ҡ�ش����ͺ
+ set $@tbmaxori,100;	//�ӹǹ Ori ����๷ ���ҡ�ش����ͺ
+ set $@tbmaxemp,100;	//�ӹǹ Vybranium ����๷ ���ҡ�ش����ͺ
 
  
-   //ตั้งค่าต่างเกี่ยวกับ item 	
- set $@tbvybranium,969;   // Vybramiun Coin( ตอนนี้ใส่เป็นททอง 969 ) 
+   //��駤�ҵ�ҧ����ǡѺ item 	
+ set $@tbvybranium,969;   // Vybramiun Coin( �͹�������繷�ͧ 969 ) 
  
  
-   //ตั้ง item ที่ต้องใช้ในการ Adventure Level
+   //��� item ����ͧ��㹡�� Adventure Level
  //config Lv0 -> Lv1
- set $@rqElu0,10;   // Elu ที่ต้องใช้อัป 
- set $@rqOri0,10;   // Ori ที่ต้องใช้อัป 
- set $@rqVybra0,10; // Vybramiun ที่ต้องใช้อัป  ( ตอนนี้ใส่เป็นททอง 969 ) 
- set $@rqZeny0,1000000; //เงินที่ต้องใช้อัป
- set $@rqAvcoin0,1;    // Adventure Coin ที่ได้จาก ภาระกิจกำจัดมอนเตอร์
+ set $@rqElu0,10;   // Elu ����ͧ���ѻ 
+ set $@rqOri0,10;   // Ori ����ͧ���ѻ 
+ set $@rqVybra0,10; // Vybramiun ����ͧ���ѻ  ( �͹�������繷�ͧ 969 ) 
+ set $@rqZeny0,1000000; //�Թ����ͧ���ѻ
+ set $@rqAvcoin0,1;    // Adventure Coin �����ҡ ���СԨ�ӨѴ�͹����
  
  //config Lv1
  set $@rqElu1,10;
@@ -67,10 +67,10 @@ set $@rqZeny6, 6000000;
 set $@rqAvcoin6,6;
 
 // config Lv7
-set $@rqElu7, 70;    // จำนวน Elunium ที่ต้องใช้สำหรับ Lv7
-set $@rqOri7, 70;    // จำนวน Orihacon ที่ต้องใช้สำหรับ Lv7
-set $@rqVybra7, 70;  // จำนวน Vybranium ที่ต้องใช้สำหรับ Lv7
-set $@rqZeny7, 7000000;  // จำนวน Zeny ที่ต้องใช้สำหรับ Lv7
+set $@rqElu7, 70;    // �ӹǹ Elunium ����ͧ������Ѻ Lv7
+set $@rqOri7, 70;    // �ӹǹ Orihacon ����ͧ������Ѻ Lv7
+set $@rqVybra7, 70;  // �ӹǹ Vybranium ����ͧ������Ѻ Lv7
+set $@rqZeny7, 7000000;  // �ӹǹ Zeny ����ͧ������Ѻ Lv7
 set $@rqAvcoin7,7;
 
 // config Lv8

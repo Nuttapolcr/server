@@ -42,7 +42,7 @@ gl_sew04	mapflag	noicewall
 //beach_dun02	mapflag	noicewall
 moc_ruins	mapflag	noicewall
 pay_arche	mapflag	noicewall
-//==================เมืองหลวง==========================================
+//==================���ͧ��ǧ==========================================
 prontera	mapflag	noicewall
 morocc	mapflag	noicewall
 geffen	mapflag	noicewall

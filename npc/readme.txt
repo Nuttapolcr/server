@@ -1,12 +1,12 @@
 ////////////////////PET Refine////////////////////////
-ให้ไข่ ใบนั้นๆ สามารถตีบวก + ตีเกรดได้
+����� 㺹��� ����ö�պǡ + ���ô��
 Refineable: true
 Gradable: true
-วิธีการใช้งาน
-สำหรับสคริปใน pet_db.yml
-// สำหรับดึงตีบวก
+�Ըա����ҹ
+����Ѻʤ�Ի� pet_db.yml
+// ����Ѻ�֧�պǡ
 .@pr = petrefine();
-// สำหรับดึงเกรด
+// ����Ѻ�֧�ô
 .@pg = petgrade();
 
 ////////////////////////AddMonsterLevelDropItem//////////////////////////////
@@ -26,9 +26,9 @@ MF_NOWUG
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-ตัวอย่าง itemdb
+������ҧ itemdb
 
-    # กำหนดแบบฝากได้แค่ 1 ชิ้น
+    # ��˹�Ẻ�ҡ���� 1 ���
   - Id: 2220
     AegisName: Hat
     Name: Hat
@@ -42,11 +42,11 @@ MF_NOWUG
     Refineable: true
     View: 16
     Flags:
-      Collection: true # << กำหนดให้เป็น collection แบบ 1 ชิ้น
-    CollectionScript: | << โบนัสของ collection
+      Collection: true # << ��˹������ collection Ẻ 1 ���
+    CollectionScript: | << ⺹�ʢͧ collection
       bonus bWis,1;
 
-    # กำหนดแบบฝากได้หลายชิ้น 
+    # ��˹�Ẻ�ҡ�����ª�� 
   - Id: 4001
     AegisName: Poring_Card
     Name: Poring Card
@@ -58,14 +58,14 @@ MF_NOWUG
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-      CollectionStack: true # << สำหรับ collection แบบส่งผลหลายชิ้น
-    CollectionEffectStack: 5 # << กำหนด จำนวน stack ที่จะให้ bonus , เช่น 5 ชิ้น , หากไม่กำหนด จะมีค่าเป็น 1
-    CollectionScript: | << โบนัสของ collection
+      CollectionStack: true # << ����Ѻ collection Ẻ�觼����ª��
+    CollectionEffectStack: 5 # << ��˹� �ӹǹ stack ������� bonus , �� 5 ��� , �ҡ����˹� ���դ���� 1
+    CollectionScript: | << ⺹�ʢͧ collection
       bonus bSpl,1;
 
 ---
 
-คำสั่งเพิ่มเติม สำหรับใช้งาน ใน item script
+������������ ����Ѻ��ҹ � item script
 
-getcolrefine(); สำหรับดึงค่า ตีบวกของไอเท็มนั้นๆออกมา 
-getcolenchantgrade(); สำหรับดึงค่า ระดับ เกรด ของไอเท็มนั้นๆออกมา
+getcolrefine(); ����Ѻ�֧��� �պǡ�ͧ����������͡�� 
+getcolenchantgrade(); ����Ѻ�֧��� �дѺ �ô �ͧ����������͡��

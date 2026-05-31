@@ -1,4 +1,4 @@
-# Generated from HICLASS sheet "Barter - NPCр╕Др╕гр╕▓р╕Яр╕Вр╕нр╕ЗNew" (gid 1616770677).
+# Generated from HICLASS sheet "Barter - NPCд├╥┐в═зNew" (gid 1616770677).
 # Source layout: C/D = crafted item name/id, F/G = required item name/id.
 # MAX_BARTER_REQUIREMENTS must be 6 for this sheet because each recipe uses up to six materials.
 
@@ -7,14 +7,14 @@ Header:
   Version: 1
 
 Body:
-  - Name: "NPCр╕Др╕гр╕▓р╕Яр╕нр╕▓р╕зр╕╕р╕Ш"
+  - Name: "NPCд├╥┐═╥╟╪╕"
     Map: morocc
     X: 139
     Y: 156
     Direction: South
     Sprite: 4_M_05
     CraftBarter: true
-    WaitingRoom: "> NPCр╕Др╕гр╕▓р╕Яр╕нр╕▓р╕зр╕╕р╕Ш <"
+    WaitingRoom: "> NPCд├╥┐═╥╟╪╕ <"
     Items:
       - Index: 0
         Item: Up_Shiver_Katar_K # [Rare] Assassin Cross Weapon (610008)
@@ -1313,14 +1313,14 @@ Body:
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
             Amount: 2000
 
-  - Name: "NPCр╕Др╕гр╕▓р╕Яр╕Вр╕нр╕Зр╕кр╕зр╕бр╣Гр╕кр╣И"
+  - Name: "NPCд├╥┐в═з╩╟┴у╩ш"
     Map: morocc
     X: 139
     Y: 153
     Direction: South
     Sprite: 4_F_SHAMAN
     CraftBarter: true
-    WaitingRoom: "> NPCр╕Др╕гр╕▓р╕Яр╕Вр╕нр╕Зр╕кр╕зр╕бр╣Гр╕кр╣И <"
+    WaitingRoom: "> NPCд├╥┐в═з╩╟┴у╩ш <"
     Items:
       - Index: 0
         Item: Rare_Melee_Armor # [Rare] Melee Armor +7 (452025)

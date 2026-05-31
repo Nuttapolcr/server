@@ -1,7 +1,7 @@
 -	script	#refine_safe	FAKE_NPC,{
 	set .@ref_level, 10;
 	mes "[ Refine Safe]";
-	mes "เธเนเธฒเธชเธฒเธกเธฒเธฃเธ–เธญเธฑเธเน€เธเธฃเธ”เนเธซเนเธเธธเธ“เนเธ”เนเธ—เธฑเนเธเธ•เธฑเธงเธ เธฒเธขเนเธเธเธฃเธฑเนเธเน€เธ”เธตเธขเธง";
+	mes "ข้าสามารถอัพเกรดให้คุณได้ทั้งตัวภายในครั้งเดียว";
 	next;
 	for( .@part = 1; .@part <= 9; .@part++ ) {
 		if( getequipisenableref(.@part) ) {
@@ -11,8 +11,8 @@
 	}
 	end;
 OnInit: 
-	waitingroom "# เธ•เธต +10 เธ—เธฑเนเธเธ•เธฑเธง",0;
+	waitingroom "# ตี +10 ทั้งตัว",0;
 	end;
 }
 
-oasis,131,78,4	duplicate(#refine_safe)	NPC เธ•เธต +10 เธ—เธฑเนเธเธ•เธฑเธง	4_M_LGTMAN
+oasis,131,78,4	duplicate(#refine_safe)	NPC ตี +10 ทั้งตัว	4_M_LGTMAN

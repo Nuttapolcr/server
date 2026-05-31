@@ -1,0 +1,17 @@
+//morocc,157,73,6	script	Craft Master#1	826,{ callfunc "craftcoslower"; }
+//maintown,170,175,4	script	Craft Costume#3	826,{ callfunc "craftcoslower";
+OnInit:
+	Waitingroom "[#] Craft Costume",0;
+    end;
+}
+-	script	craft_Cos_Lower	-1,{
+function Add; function Chk; function Slot;
+
+OnInit:
+	freeloop(1);	
+
+// -----------------------------------------------------------
+//  Basic shop settings.
+// -----------------------------------------------------------
+
+	set .Signer,0;		// 
