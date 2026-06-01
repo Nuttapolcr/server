@@ -89,6 +89,13 @@ Header:
   Version: 3
 
 Body:
+  - Id: 22529
+    AegisName: Shadow_Mix_Recipe
+    Name: Shadow Exchange SynthesisBox
+    Type: Delayconsume
+    Weight: 10
+    Script: |
+      laphine_synthesis();
   - Id: 97001
     AegisName: AUTOATTACK_AI
     Name: AUTOATTACK AI

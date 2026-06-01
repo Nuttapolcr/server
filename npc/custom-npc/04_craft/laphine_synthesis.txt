@@ -1,0 +1,102 @@
+//===== Custom NPC ===========================================
+//= Laphine Synthesis - Dialog เมนูเรียกใช้
+//===== คำอธิบาย =============================================
+//= function script เปิด UI ระบบรวมไอเทม (Laphine Synthesis)
+//= อ้างอิงข้อมูลจาก db/import/laphine_synthesis.yml
+//=
+//= ใช้ laphine_synthesis <item id> เพื่อรัน item script ของ trigger item
+//= (script ภายในคือ laphine_synthesis(); ซึ่งเปิดหน้าต่างรวมไอเทม)
+//= laphine_synthesis จะรัน script โดยไม่ต้องมี/ไม่ลบไอเทมนั้น
+//= รหัส ID ของ trigger item อยู่ใน db/import/item_db.yml (1500000-1500007)
+//=
+//= วิธีเรียกใช้จาก NPC อื่น:
+//=   callfunc "F_LaphineSynthesis";
+//============================================================
+
+function	script	F_LaphineSynthesis	{
+L_Main:
+	mes "[ระบบรวมไอเทม - Laphine]";
+	mes "เลือกประเภทที่ต้องการรวม";
+	mes "(ต้องมีไอเทมส่วนผสมครบตามที่กำหนด)";
+	next;
+	switch( select(
+		"^0055FFรวมไข่สัตว์เลี้ยง (Pet)^000000",
+		"^0055FFรวมหินอาวุธ (Weapon Stone)^000000",
+		"^0055FFรวมหินเกราะ (Armor Stone)^000000",
+		"^0055FFรวมหินเครื่องประดับ (Accessory)^000000",
+		"^777777ยกเลิก^000000" ) ) {
+
+	// ----- สัตว์เลี้ยง -----
+	case 1:
+		mes "[รวมไข่สัตว์เลี้ยง]";
+		mes "เลือกระดับความหายาก";
+		next;
+		switch( select(
+			"Common - รวมไข่ทั่วไป",
+			"Rare - รวมไข่หายาก",
+			"^777777ย้อนกลับ^000000" ) ) {
+			case 1: laphine_synthesis 1500000; end;	// Combine_Common_Pet_Laphine
+			case 2: laphine_synthesis 1500001; end;	// Combine_Rare_Pet_Laphine
+			default: goto L_Main;
+		}
+
+	// ----- หินอาวุธ -----
+	case 2:
+		mes "[รวมหินอาวุธ]";
+		mes "เลือกระดับความหายาก";
+		next;
+		switch( select(
+			"Rare - หินอาวุธหายาก",
+			"Epic - หินอาวุธระดับสูง",
+			"^777777ย้อนกลับ^000000" ) ) {
+			case 1: laphine_synthesis 1500002; end;	// Combine_Rare_Weapon_Stone_Laphine
+			case 2: laphine_synthesis 1500003; end;	// Combine_Epic_Weapon_Stone_Laphine
+			default: goto L_Main;
+		}
+
+	// ----- หินเกราะ -----
+	case 3:
+		mes "[รวมหินเกราะ]";
+		mes "เลือกระดับความหายาก";
+		next;
+		switch( select(
+			"Rare - หินเกราะหายาก",
+			"Epic - หินเกราะระดับสูง",
+			"^777777ย้อนกลับ^000000" ) ) {
+			case 1: laphine_synthesis 1500004; end;	// Combine_Rare_Armor_Stone_Laphine
+			case 2: laphine_synthesis 1500005; end;	// Combine_Epic_Armor_Stone_Laphine
+			default: goto L_Main;
+		}
+
+	// ----- หินเครื่องประดับ -----
+	case 4:
+		mes "[รวมหินเครื่องประดับ]";
+		mes "เลือกระดับความหายาก";
+		next;
+		switch( select(
+			"Rare - หินเครื่องประดับหายาก",
+			"Epic - หินเครื่องประดับระดับสูง",
+			"^777777ย้อนกลับ^000000" ) ) {
+			case 1: laphine_synthesis 1500006; end;	// Combine_Rare_Acc_Stone_Laphine
+			case 2: laphine_synthesis 1500007; end;	// Combine_Epic_Acc_Stone_Laphine
+			default: goto L_Main;
+		}
+
+	// ----- ยกเลิก -----
+	default:
+		mes "[ระบบรวมไอเทม - Laphine]";
+		mes "แล้วเจอกันใหม่นะ";
+		close;
+	}
+	end;
+}
+
+//===== NPC ตัวอย่างที่เรียกใช้ function =======================
+maintown,178,157,4	script	ช่างรวมไอเทม#laphine	95,{
+	callfunc "F_LaphineSynthesis";
+	end;
+
+OnInit:
+	waitingroom "[#] รวมไอเทม Laphine",0;
+	end;
+}

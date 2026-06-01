@@ -14,7 +14,7 @@
 
 //------------------------------------------------------------------------------------------------
 
-morocc,145,180,6	script	Weapon	10032,{
+morocc,165,129,6	script	Weapon	10032,{
 
 	mes "กรุณาเลือกประเภทอาวุธ";
 	switch(select("~ Sword:~ Staff:~ Mace:~ Bow:~ Dagger:~ Katar:~ Spear:~ Axe:~ Knuckle:~ Whip:~ Musical Instrument:ยกเลิก")) {

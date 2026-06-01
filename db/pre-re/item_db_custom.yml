@@ -28845,3 +28845,4 @@ Body:
     Name: iPhone 20
     Type: DelayConsume
     Weight: 0
+    Script: callfunc "F_LaphineSynthesis";

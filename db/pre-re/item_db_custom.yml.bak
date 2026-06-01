@@ -28840,3 +28840,8 @@ Body:
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
     CollectionAmount: 2
+  - Id: 1000619
+    AegisName: aegis_1000619
+    Name: iPhone 20
+    Type: DelayConsume
+    Weight: 0

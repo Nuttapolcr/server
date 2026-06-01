@@ -1,0 +1,447 @@
+# Generated from HICLASS pet egg to ETC sheet (gid 1032965275).
+# A single visible NPC opens these hidden shops through a dialog menu.
+
+Header:
+  Type: BARTER_DB
+  Version: 1
+
+Body:
+  - Name: HICLASS_PET_EGG_TO_COLLECTION
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: Col_Golden_Bug
+        RequiredItems:
+          - Index: 0
+            Item: Golden_Bug_Egg
+            Amount: 1
+      - Index: 1
+        Item: Col_Maya
+        RequiredItems:
+          - Index: 0
+            Item: Maya_Egg
+            Amount: 1
+      - Index: 2
+        Item: Col_Eddga
+        RequiredItems:
+          - Index: 0
+            Item: Eddga_Egg
+            Amount: 1
+      - Index: 3
+        Item: Col_Dark_Lord
+        RequiredItems:
+          - Index: 0
+            Item: Dark_Lord_Egg
+            Amount: 1
+      - Index: 4
+        Item: Col_Baphomet
+        RequiredItems:
+          - Index: 0
+            Item: Baphomet_Egg
+            Amount: 1
+      - Index: 5
+        Item: Col_Orc_Lord
+        RequiredItems:
+          - Index: 0
+            Item: Orc_Lord_Egg
+            Amount: 1
+      - Index: 6
+        Item: Col_Lady_Tanee
+        RequiredItems:
+          - Index: 0
+            Item: Lady_Tanee_Egg
+            Amount: 1
+      - Index: 7
+        Item: Col_Phreeoni
+        RequiredItems:
+          - Index: 0
+            Item: Phreeoni_Egg
+            Amount: 1
+      - Index: 8
+        Item: Col_Orc_Hero
+        RequiredItems:
+          - Index: 0
+            Item: Orc_Hero_Egg
+            Amount: 1
+      - Index: 9
+        Item: Col_Amon_Ra
+        RequiredItems:
+          - Index: 0
+            Item: Amon_Ra_Egg
+            Amount: 1
+      - Index: 10
+        Item: Col_Pharaoh
+        RequiredItems:
+          - Index: 0
+            Item: Pharaoh_Egg
+            Amount: 1
+      - Index: 11
+        Item: Col_Bacsojin
+        RequiredItems:
+          - Index: 0
+            Item: Bacsojin_Egg
+            Amount: 1
+      - Index: 12
+        Item: Col_Osiris
+        RequiredItems:
+          - Index: 0
+            Item: Osiris_Egg
+            Amount: 1
+      - Index: 13
+        Item: Col_Dracula
+        RequiredItems:
+          - Index: 0
+            Item: Dracula_Egg
+            Amount: 1
+      - Index: 14
+        Item: Col_Doppelganger
+        RequiredItems:
+          - Index: 0
+            Item: Doppelganger_Egg
+            Amount: 1
+      - Index: 15
+        Item: Col_Mistress
+        RequiredItems:
+          - Index: 0
+            Item: Mistress_Egg
+            Amount: 1
+      - Index: 16
+        Item: Col_Moonlight
+        RequiredItems:
+          - Index: 0
+            Item: Moonlight_Egg
+            Amount: 1
+      - Index: 17
+        Item: Col_Drake
+        RequiredItems:
+          - Index: 0
+            Item: Drake_Egg
+            Amount: 1
+      - Index: 18
+        Item: Col_Stormy_Knight
+        RequiredItems:
+          - Index: 0
+            Item: Knight_Of_Windstorm_Egg
+            Amount: 1
+      - Index: 19
+        Item: Col_Lord_of_Death
+        RequiredItems:
+          - Index: 0
+            Item: Lord_Of_Death_Egg
+            Amount: 1
+      - Index: 20
+        Item: Col_Seyren
+        RequiredItems:
+          - Index: 0
+            Item: B_Seyren_Egg
+            Amount: 1
+      - Index: 21
+        Item: Col_Eremes
+        RequiredItems:
+          - Index: 0
+            Item: B_Eremes_Egg
+            Amount: 1
+      - Index: 22
+        Item: Col_Howard
+        RequiredItems:
+          - Index: 0
+            Item: B_Harword_Egg
+            Amount: 1
+      - Index: 23
+        Item: Col_Margaretha
+        RequiredItems:
+          - Index: 0
+            Item: B_Magaleta_Egg
+            Amount: 1
+      - Index: 24
+        Item: Col_Cecil
+        RequiredItems:
+          - Index: 0
+            Item: B_Shecil_Egg
+            Amount: 1
+      - Index: 25
+        Item: Col_Kathryne
+        RequiredItems:
+          - Index: 0
+            Item: B_Katrinn_Egg
+            Amount: 1
+      - Index: 26
+        Item: Col_Randel
+        RequiredItems:
+          - Index: 0
+            Item: B_Randel_Egg
+            Amount: 1
+      - Index: 27
+        Item: Col_Flamel
+        RequiredItems:
+          - Index: 0
+            Item: B_Flamel_Egg
+            Amount: 1
+      - Index: 28
+        Item: Col_Celia
+        RequiredItems:
+          - Index: 0
+            Item: B_Celia_Egg
+            Amount: 1
+      - Index: 29
+        Item: Col_Chen
+        RequiredItems:
+          - Index: 0
+            Item: B_Chen_Egg
+            Amount: 1
+      - Index: 30
+        Item: Col_MedJay
+        RequiredItems:
+          - Index: 0
+            Item: Medjay_Egg
+            Amount: 1
+      - Index: 31
+        Item: Col_MedJee
+        RequiredItems:
+          - Index: 0
+            Item: Cp_Heka_Egg
+            Amount: 1
+      - Index: 32
+        Item: Col_MedJed
+        RequiredItems:
+          - Index: 0
+            Item: Medjed_Egg
+            Amount: 1
+      - Index: 33
+        Item: Col_Spirit_Flame
+        RequiredItems:
+          - Index: 0
+            Item: Spirit_R_Flame_Sl_Egg
+            Amount: 1
+      - Index: 34
+        Item: Col_Spirit_Water
+        RequiredItems:
+          - Index: 0
+            Item: Spirit_I_Water_M_Egg
+            Amount: 1
+      - Index: 35
+        Item: Col_Spirit_Wind
+        RequiredItems:
+          - Index: 0
+            Item: Spirit_S_Wind_M_Egg
+            Amount: 1
+
+  - Name: HICLASS_PET_COLLECTION_TO_EGG
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: Golden_Bug_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Golden_Bug
+            Amount: 1
+      - Index: 1
+        Item: Maya_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Maya
+            Amount: 1
+      - Index: 2
+        Item: Eddga_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Eddga
+            Amount: 1
+      - Index: 3
+        Item: Dark_Lord_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Dark_Lord
+            Amount: 1
+      - Index: 4
+        Item: Baphomet_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Baphomet
+            Amount: 1
+      - Index: 5
+        Item: Orc_Lord_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Orc_Lord
+            Amount: 1
+      - Index: 6
+        Item: Lady_Tanee_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Lady_Tanee
+            Amount: 1
+      - Index: 7
+        Item: Phreeoni_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Phreeoni
+            Amount: 1
+      - Index: 8
+        Item: Orc_Hero_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Orc_Hero
+            Amount: 1
+      - Index: 9
+        Item: Amon_Ra_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Amon_Ra
+            Amount: 1
+      - Index: 10
+        Item: Pharaoh_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Pharaoh
+            Amount: 1
+      - Index: 11
+        Item: Bacsojin_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Bacsojin
+            Amount: 1
+      - Index: 12
+        Item: Osiris_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Osiris
+            Amount: 1
+      - Index: 13
+        Item: Dracula_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Dracula
+            Amount: 1
+      - Index: 14
+        Item: Doppelganger_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Doppelganger
+            Amount: 1
+      - Index: 15
+        Item: Mistress_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Mistress
+            Amount: 1
+      - Index: 16
+        Item: Moonlight_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Moonlight
+            Amount: 1
+      - Index: 17
+        Item: Drake_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Drake
+            Amount: 1
+      - Index: 18
+        Item: Knight_Of_Windstorm_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Stormy_Knight
+            Amount: 1
+      - Index: 19
+        Item: Lord_Of_Death_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Lord_of_Death
+            Amount: 1
+      - Index: 20
+        Item: B_Seyren_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Seyren
+            Amount: 1
+      - Index: 21
+        Item: B_Eremes_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Eremes
+            Amount: 1
+      - Index: 22
+        Item: B_Harword_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Howard
+            Amount: 1
+      - Index: 23
+        Item: B_Magaleta_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Margaretha
+            Amount: 1
+      - Index: 24
+        Item: B_Shecil_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Cecil
+            Amount: 1
+      - Index: 25
+        Item: B_Katrinn_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Kathryne
+            Amount: 1
+      - Index: 26
+        Item: B_Randel_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Randel
+            Amount: 1
+      - Index: 27
+        Item: B_Flamel_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Flamel
+            Amount: 1
+      - Index: 28
+        Item: B_Celia_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Celia
+            Amount: 1
+      - Index: 29
+        Item: B_Chen_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Chen
+            Amount: 1
+      - Index: 30
+        Item: Medjay_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_MedJay
+            Amount: 1
+      - Index: 31
+        Item: Cp_Heka_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_MedJee
+            Amount: 1
+      - Index: 32
+        Item: Medjed_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_MedJed
+            Amount: 1
+      - Index: 33
+        Item: Spirit_R_Flame_Sl_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Spirit_Flame
+            Amount: 1
+      - Index: 34
+        Item: Spirit_I_Water_M_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Spirit_Water
+            Amount: 1
+      - Index: 35
+        Item: Spirit_S_Wind_M_Egg
+        RequiredItems:
+          - Index: 0
+            Item: Col_Spirit_Wind
+            Amount: 1

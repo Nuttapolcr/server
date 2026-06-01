@@ -1,4 +1,4 @@
-morocc,151,180,6	script	Accessory::Sample_Shop2 	10032,{
+morocc,165,125,6	script	Accessory::Sample_Shop2 	10032,{
 
 	mes "[CBT Accessory]";
 	mes "ยินดีต้อนรับ! ต้องการซื้ออะไรหรือไม่?";

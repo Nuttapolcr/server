@@ -1,4 +1,4 @@
-morocc,157,187,6	script	Garment::Sample_Shop3 	10032,{
+morocc,154,125,6	script	Garment::Sample_Shop3 	10032,{
 	mes "[CBT Garment]";
 	mes "ยินดีต้อนรับ! ต้องการซื้ออะไรหรือไม่?";
 	next;

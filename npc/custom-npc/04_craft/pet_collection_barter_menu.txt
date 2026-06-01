@@ -1,0 +1,26 @@
+//===== HICLASS Pet Collection Barter ========================
+//= One visible NPC opens the hidden pet collection shops.
+//============================================================
+
+morocc,121,80,4	script	NPCแลกไข่ Collection	4_CAT,{
+	mes "[NPCแลกไข่ Collection]";
+	mes "เลือกประเภทการแลกเปลี่ยนที่ต้องการ";
+	next;
+
+	switch (select("แลกไข่เป็น Collection:แลก Collection เป็นไข่:ยกเลิก")) {
+	case 1:
+		close2;
+		callshop "HICLASS_PET_EGG_TO_COLLECTION",1;
+		end;
+	case 2:
+		close2;
+		callshop "HICLASS_PET_COLLECTION_TO_EGG",1;
+		end;
+	default:
+		close;
+	}
+
+OnInit:
+	waitingroom "NPCแลกไข่ Collection",0;
+	end;
+}
