@@ -9,6 +9,10 @@
 //=   Red    : 10%        -> rand(1,4)   open 20s
 //=   Purple : 1%         -> rand(1,3)   open 30s
 //=
+//= Loyal pet open-time bonuses from the Pet sheet:
+//=   Pharaoh : 20% faster
+//=   Medjay / CP Heka : 60% faster
+//=
 //= Rewards come from item_group_db (db/pre-re/item_group_db.yml):
 //=   IG_MVP_TREASURE_BLUE / _RED / _PURPLE
 //=   SubGroup 1 = Tier-A (A3-A39), SubGroup 2 = Tier-S (A40-A44, adds stones).
@@ -118,6 +122,19 @@ OnSpawn:
 	.@sec = 10; .@bar$ = "0x33B5FF";						// Blue
 	if (.@col$ == "R")      { .@sec = 20; .@bar$ = "0xFF3333"; }	// Red
 	else if (.@col$ == "P") { .@sec = 30; .@bar$ = "0xCC33FF"; }	// Purple
+
+	// Pet bonuses only apply at the same Loyal intimacy used by pet_db.yml.
+	if (getpetinfo(PETINFO_INTIMATE) >= PET_INTIMATE_LOYAL) {
+		.@pet_class = getpetinfo(PETINFO_CLASS);
+		if (.@pet_class == 1157) { // Pharaoh
+			.@sec = .@sec * 80 / 100;
+		}
+		else {
+			setarray .@fast_open_pet[0], 22397,22402;
+			if (inarray(.@fast_open_pet, .@pet_class) >= 0)
+				.@sec = .@sec * 40 / 100;
+		}
+	}
 
 	progressbar .@bar$, .@sec;	// moving -> script ENDs here, chest is kept
 
