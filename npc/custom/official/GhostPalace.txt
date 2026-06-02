@@ -9,7 +9,7 @@
 //============================================================
 
 dali02,43,129,5	script	Unpleasant Royal Guard#	4_M_SAKRAYROYAL,{
-	if (BaseLevel < 120) {
+	if (BaseLevel < 1) {
 		mes "[Unpleasant Royal Guard]";
 		mes "Although I need help with a task, you are not strong enough to assist me, noob~!";
 		next;

@@ -18,7 +18,7 @@ xmas,237,303,3	script	Catherine Jet Johnson	4_F_SKULL06GIRL,{
 		close;
 	}
 
-	if (BaseLevel < 140) {
+	if (BaseLevel < 1) {
 		mes "[Catherine Jet Johnson]";
 		mes "Ah, wait! Please wait. This is not a good place for a promising young "+ ( Sex ? "man" : "woman" ) +" like you!";
 		next;

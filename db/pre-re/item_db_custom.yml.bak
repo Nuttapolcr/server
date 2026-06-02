@@ -21303,6 +21303,7 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
+    Weight: 2000
   - Id: 530006
     AegisName: Up_Undine_Spear_K
     Name: "[Rare] Paladin Weapon"
@@ -22677,6 +22678,8 @@ Body:
     Name: Accessory Stone Egg
     Type: Usable
     Buy: 10
+    Script: |
+      getgroupitem(IG_MUNIN_EGG01);
   - Id: 1001600
     AegisName: MAutoSpell_Select_Box
     Name: Fragment Stone Box
@@ -22697,7 +22700,7 @@ Body:
       BuyingStore: true
       Container: true
     Script: |
-      getgroupitem(IG_CardAlbum_Weapon);
+      getgroupitem(IG_CARDALBUM_BOSS);
   - Id: 22998
     AegisName: C_CatPaw_Ticket
     Name: Option Costume Ticket
@@ -26285,22 +26288,6 @@ Body:
       bonus2 bResEff,Eff_Blind,1500;
       bonus2 bResEff,Eff_Poison,1500;
       bonus2 bResEff,Eff_Bleeding,1500;
-  - Id: 1000600
-    AegisName: Hiclass_Option_Ticket
-    Name: Option Ticket
-    Type: Etc
-    Buy: 10
-    Weight: 10
-    Flags:
-      BuyingStore: true
-  - Id: 1000601
-    AegisName: Hiclass_Legend_Option_Ticket
-    Name: "[Legend] Option Ticket"
-    Type: Etc
-    Buy: 10
-    Weight: 10
-    Flags:
-      BuyingStore: true
   - Id: 6608
     AegisName: Coagulated_Spell
     Name: Coagulated Spell
@@ -26454,376 +26441,6 @@ Body:
     SubType: Enchant
     Script: |
       if (isequipped(4880)) { bonus bAspd,2; bonus bCritical,50; }
-  - Id: 313500
-    AegisName: Hiclass_All_StatsPlus1
-    Name: All Stats+1
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAllStats,1;
-  - Id: 313501
-    AegisName: Hiclass_Max_SPPlus2Pct
-    Name: Max SP+2%
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxSPrate,2;
-  - Id: 313502
-    AegisName: Hiclass_SPPlus20
-    Name: SP+20
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxSP,20;
-  - Id: 313503
-    AegisName: Hiclass_Perfect_Dodge_Plus1
-    Name: Perfect Dodge +1
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,1;
-  - Id: 313504
-    AegisName: Hiclass_Perfect_Dodge_Plus2
-    Name: Perfect Dodge +2
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,2;
-  - Id: 313505
-    AegisName: Hiclass_Perfect_Dodge_Plus3
-    Name: Perfect Dodge +3
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,3;
-  - Id: 313506
-    AegisName: Hiclass_Perfect_Dodge_Plus4
-    Name: Perfect Dodge +4
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,4;
-  - Id: 313507
-    AegisName: Hiclass_Perfect_Dodge_Plus5
-    Name: Perfect Dodge +5
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,5;
-  - Id: 313508
-    AegisName: Hiclass_Perfect_Dodge_Plus6
-    Name: Perfect Dodge +6
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,6;
-  - Id: 313509
-    AegisName: Hiclass_Perfect_Dodge_Plus7
-    Name: Perfect Dodge +7
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,7;
-  - Id: 313510
-    AegisName: Hiclass_HITPlus3
-    Name: HIT+3
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bHit,3;
-  - Id: 313511
-    AegisName: Hiclass_HITPlus6
-    Name: HIT+6
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bHit,6;
-  - Id: 313512
-    AegisName: Hiclass_HP_Plus150
-    Name: HP +150
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxHP,150;
-  - Id: 313513
-    AegisName: Hiclass_CRIRATE_Plus8
-    Name: CRIRATE +8
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bCritical,8;
-  - Id: 313514
-    AegisName: Hiclass_All_StatsPlus2
-    Name: All Stats+2
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAllStats,2;
-  - Id: 313515
-    AegisName: Hiclass_Max_SPPlus3Pct
-    Name: Max SP+3%
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxSPrate,3;
-  - Id: 313516
-    AegisName: Hiclass_Max_SPPlus4Pct
-    Name: Max SP+4%
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxSPrate,4;
-  - Id: 313517
-    AegisName: Hiclass_SPPlus30
-    Name: SP+30
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxSP,30;
-  - Id: 313518
-    AegisName: Hiclass_SPPlus40
-    Name: SP+40
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxSP,40;
-  - Id: 313519
-    AegisName: Hiclass_HITPlus9
-    Name: HIT+9
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bHit,9;
-  - Id: 313520
-    AegisName: Hiclass_HITPlus12
-    Name: HIT+12
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bHit,12;
-  - Id: 313521
-    AegisName: Hiclass_MaxHPPlus6Pct
-    Name: MaxHP+6%
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxHPrate,6;
-  - Id: 313522
-    AegisName: Hiclass_CRIRATE_Plus12
-    Name: CRIRATE +12
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bCritical,12;
-  - Id: 313523
-    AegisName: Hiclass_All_StatsPlus3
-    Name: All Stats+3
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAllStats,3;
-  - Id: 313524
-    AegisName: Hiclass_All_StatsPlus4
-    Name: All Stats+4
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAllStats,4;
-  - Id: 313525
-    AegisName: Hiclass_Max_SPPlus5Pct
-    Name: Max SP+5%
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxSPrate,5;
-  - Id: 313526
-    AegisName: Hiclass_Max_SPPlus6Pct
-    Name: Max SP+6%
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxSPrate,6;
-  - Id: 313527
-    AegisName: Hiclass_SPPlus60
-    Name: SP+60
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bMaxSP,60;
-  - Id: 313528
-    AegisName: Hiclass_HITPlus18
-    Name: HIT+18
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bHit,18;
-  - Id: 313529
-    AegisName: Hiclass_FLEEPlus9
-    Name: FLEE+9
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee,9;
-  - Id: 313530
-    AegisName: Hiclass_FLEEPlus18
-    Name: FLEE+18
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee,18;
-  - Id: 313531
-    AegisName: Hiclass_Perfect_Dodge_Plus8
-    Name: Perfect Dodge +8
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,8;
-  - Id: 313532
-    AegisName: Hiclass_Perfect_Dodge_Plus9
-    Name: Perfect Dodge +9
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,9;
-  - Id: 313533
-    AegisName: Hiclass_Perfect_Dodge_Plus10
-    Name: Perfect Dodge +10
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bFlee2,10;
-  - Id: 313534
-    AegisName: Hiclass_Water_Element_Weapon
-    Name: Water Element Weapon
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAtkEle,Ele_Water;
-  - Id: 313535
-    AegisName: Hiclass_Earth_Element_Weapon
-    Name: Earth Element Weapon
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAtkEle,Ele_Earth;
-  - Id: 313536
-    AegisName: Hiclass_Fire_Element_Weapon
-    Name: Fire Element Weapon
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAtkEle,Ele_Fire;
-  - Id: 313537
-    AegisName: Hiclass_Wind_Element_Weapon
-    Name: Wind Element Weapon
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAtkEle,Ele_Wind;
-  - Id: 313538
-    AegisName: Hiclass_Poison_Element_Weapon
-    Name: Poison Element Weapon
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAtkEle,Ele_Poison;
-  - Id: 313539
-    AegisName: Hiclass_Holy_Element_Weapon
-    Name: Holy Element Weapon
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAtkEle,Ele_Holy;
-  - Id: 313540
-    AegisName: Hiclass_Dark_Element_Weapon
-    Name: Dark Element Weapon
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAtkEle,Ele_Dark;
-  - Id: 313541
-    AegisName: Hiclass_Ghost_Element_Weapon
-    Name: Ghost Element Weapon
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAtkEle,Ele_Ghost;
-  - Id: 313542
-    AegisName: Hiclass_Undead_Element_Weapon
-    Name: Undead Element Weapon
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bAtkEle,Ele_Undead;
-  - Id: 313543
-    AegisName: Hiclass_Skill_Delay_8Pct
-    Name: Skill Delay - 8%
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bDelayrate,-8;
-  - Id: 313544
-    AegisName: Hiclass_Skill_Delay_15Pct
-    Name: Skill Delay - 15%
-    Type: Card
-    SubType: Enchant
-    Buy: 10
-    Script: |
-      bonus bDelayrate,-15;
-  - Id: 1001718
-    AegisName: Option_Ticket
-    Name: Option Ticket
-    Type: Etc
-    Weight: 1
-  - Id: 1001719
-    AegisName: aegis_1001719
-    Name: "[Legend] Option Ticket"
-    Type: Etc
-    Weight: 1
   - Id: 313144
     AegisName: aegis_313144
     Name: All Stats+1
@@ -27997,6 +27614,16 @@ Body:
     Type: Card
     SubType: Enchant
     Weight: 0
+  - Id: 1001718
+    AegisName: Option_Ticket
+    Name: Option Ticket
+    Type: Etc
+    Weight: 1
+  - Id: 1001719
+    AegisName: aegis_1001719
+    Name: "[Legend] Option Ticket"
+    Type: Etc
+    Weight: 1
   - Id: 1001720
     AegisName: aegis_1001720
     Name: Premium Service 1Day [NT]
@@ -28655,7 +28282,7 @@ Body:
       Collection: true
     CollectionScript: |-
       bonus2 bResEff,Eff_Stun,5000;
-      bonus2 bAddEff,Eff_Freeze,10000;
+      bonus2 bAddEff2,Eff_Freeze,10000;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
@@ -28670,7 +28297,8 @@ Body:
       Collection: true
     CollectionScript: |-
       bonus2 bAddClass,Class_Boss,35;
-      bonus2 bAddEff,Eff_Curse,10000;
+      bonus2 bAddEff2,SC_COMA,100;
+      bonus2 bAddEff2,Eff_Curse,10000;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
@@ -28758,7 +28386,7 @@ Body:
     Flags:
       Collection: true
     CollectionScript: |-
-      autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
+      c_autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
@@ -28772,7 +28400,7 @@ Body:
     Flags:
       Collection: true
     CollectionScript: |-
-      autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
+      c_autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;

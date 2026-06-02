@@ -8,7 +8,7 @@
 //============================================================
 
 dali02,97,142,3	script	Professor Bernhard#a1	4_LGTSCIENCE,{
-	if (BaseLevel < 145) {
+	if (BaseLevel < 1) {
 		mes "- You may proceed after reaching level 145 or over -";
 		close;
 	}

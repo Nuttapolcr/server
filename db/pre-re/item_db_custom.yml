@@ -21282,6 +21282,7 @@ Body:
     Name: "[Rare] Lord Knight Weapon"
     Type: Weapon
     SubType: 2hSword
+    Weight: 2000
     Attack: 150
     Range: 1
     Slots: 1
@@ -21303,7 +21304,6 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
-    Weight: 2000
   - Id: 530006
     AegisName: Up_Undine_Spear_K
     Name: "[Rare] Paladin Weapon"
@@ -22681,7 +22681,7 @@ Body:
     Script: |
       getgroupitem(IG_MUNIN_EGG01);
   - Id: 1001600
-    AegisName: MAutoSpell_Select_Box
+    AegisName: 잠긴실버갑옷상자
     Name: Fragment Stone Box
     Type: Usable
     Weight: 10

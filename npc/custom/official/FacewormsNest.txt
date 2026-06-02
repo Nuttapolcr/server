@@ -20,7 +20,7 @@ payon,157,54,5	script	An Old Woman#pa0829	8_F_GRANDMOTHER,{
 		mes "Your belongings are too heavy to continue. Let's try again after reducing the weight.";
 		close;
 	}
-	if (BaseLevel < 140) {
+	if (BaseLevel < 1) {
 		mes "[Jeum-sun]";
 		mes "I am still living in the memory. Make more memories...";
 		next;
