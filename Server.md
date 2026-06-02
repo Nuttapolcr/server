@@ -57,3 +57,9 @@ Requirements:
 ```
 
 4. หลังแก้ไขให้รัน `python3 tools/gen_lapineddukddakbox.py` เพื่อ sync client data
+
+## 6. อัพเดท Collection
+
+1. หลังอัพเดท Collection ให้บันทึก script ที่ใช้งานจริงกลับลงชีต
+2. ไฮไลท์รายการที่อัพเดทเสร็จแล้วเป็นสีฟ้า
+3. ทำขั้นตอนนี้ทุกครั้ง รวมถึงรายการที่ต้องจัดการ script เพิ่มเติม

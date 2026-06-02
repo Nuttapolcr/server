@@ -28282,7 +28282,7 @@ Body:
       Collection: true
     CollectionScript: |-
       bonus2 bResEff,Eff_Stun,5000;
-      bonus2 bAddEff,Eff_Freeze,10000;
+      bonus2 bAddEff2,Eff_Freeze,10000;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
@@ -28297,7 +28297,8 @@ Body:
       Collection: true
     CollectionScript: |-
       bonus2 bAddClass,Class_Boss,35;
-      bonus2 bAddEff,Eff_Curse,10000;
+      bonus2 bAddEff2,SC_COMA,100;
+      bonus2 bAddEff2,Eff_Curse,10000;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
@@ -28385,7 +28386,7 @@ Body:
     Flags:
       Collection: true
     CollectionScript: |-
-      autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
+      c_autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
@@ -28399,7 +28400,7 @@ Body:
     Flags:
       Collection: true
     CollectionScript: |-
-      autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
+      c_autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
