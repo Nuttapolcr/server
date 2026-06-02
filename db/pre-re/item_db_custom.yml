@@ -19745,7 +19745,7 @@ Body:
   - Id: 1001012
     AegisName: aegis_1001012
     Name: Random Drop Box
-    Type: Armor
+    Type: Etc
     Locations:
       Costume_Head_Mid: true
     ArmorLevel: 1
@@ -22704,7 +22704,7 @@ Body:
   - Id: 22998
     AegisName: C_CatPaw_Ticket
     Name: Option Costume Ticket
-    Type: DelayConsume
+    Type: Etc
     Trade:
       NoDrop: true
       NoTrade: true

@@ -912,3 +912,6 @@ function	script	getJobName	{
 
 // Time calculation Function
 // *********************************************************************
+-	script	dummy_npc	-1,{
+	end;
+}
