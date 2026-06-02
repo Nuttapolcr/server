@@ -82,3 +82,5 @@ Body:
     Sprite: Exclusive_Wander_Man
   - Mob: EXCLUSIVE_ANOLIAN
     Sprite: Exclusive_Anolian
+  - Mob: CITY_TITAN
+    Sprite: DARK_LORD

@@ -108,3 +108,45 @@ Body:
     AttackMotion: 288
     DamageMotion: 384
     Class: Boss
+
+  - Id: 31100
+    AegisName: CITY_TITAN
+    Name: City Titan
+    Level: 150
+    Hp: 50000000
+    Sp: 10000
+    BaseExp: 500000
+    JobExp: 250000
+    MvpExp: 100000
+    Attack: 2500
+    Attack2: 3500
+    Defense: 120
+    MagicDefense: 60
+    Str: 180
+    Agi: 20
+    Vit: 200
+    Int: 80
+    Dex: 120
+    Luk: 30
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 20
+    Size: Large
+    Race: DemiHuman
+    Element: Neutral
+    ElementLevel: 3
+    WalkSpeed: 300
+    AttackDelay: 1500
+    AttackMotion: 500
+    DamageMotion: 300
+    Ai: 02
+    Class: Boss
+    Drops:
+      - Item: Old_Blue_Box
+        Rate: 2000
+      - Item: Yggdrasilberry
+        Rate: 3000
+      - Item: Elunium
+        Rate: 8000
+      - Item: Oridecon
+        Rate: 8000

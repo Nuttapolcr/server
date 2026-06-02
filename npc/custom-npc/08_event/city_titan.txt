@@ -1,0 +1,90 @@
+//===== Custom NPC: City Titan Event ================================
+//= Boss spawns in Morocc 3x daily (12:00 / 18:00 / 21:00).
+//= On death: treasure chests scatter near the spawn point.
+//= Auto-despawn if not killed within 30 minutes.
+//===================================================================
+
+-	script	CityTitan	FAKE_NPC,{
+	end;
+
+OnClock1200:
+OnClock1800:
+OnClock2100:
+	if (.active) end;
+	.active = 1;
+	announce "[ City Titan ] บอสยักษ์กำลังบุกเข้า Morocc! เตรียมตัว!",bc_all|bc_blue;
+	sleep 10000;
+	announce "[ City Titan ] อีก 20 วินาที...",bc_all;
+	sleep 10000;
+	announce "[ City Titan ] อีก 10 วินาที...",bc_all;
+	sleep 10000;
+	announce "[ City Titan ] CITY TITAN บุกแล้ว! กลาง Morocc!",bc_all|bc_blue;
+	monster "morocc",156,93,"[City Titan]",31100,1,strnpcinfo(0)+"::OnTitanKilled";
+	initnpctimer;
+	end;
+
+OnTitanKilled:
+	stopnpctimer;
+	.active = 0;
+	if (playerattached() == 0) end;
+	announce "[ City Titan ] " + strcharinfo(0) + " สังหาร City Titan สำเร็จ! กล่องสมบัติปรากฏกลาง Morocc!",bc_all|bc_blue;
+	callsub OnSpawnChests, 156, 93;
+	end;
+
+OnTimer1800000:
+	.active = 0;
+	killmonster "morocc", strnpcinfo(0)+"::OnTitanKilled";
+	announce "[ City Titan ] Titan หลบหนีออกจาก Morocc ไปแล้ว!",bc_all;
+	end;
+
+OnSpawnChests:
+	.@cx = getarg(0);
+	.@cy = getarg(1);
+	.@count = rand(3,6);
+	for (.@k = 0; .@k < .@count; .@k++) {
+		$CTB_UID++;
+		if ($CTB_UID > 100000 || $CTB_UID < 1) $CTB_UID = 1;
+		.@id = $CTB_UID;
+		setd "$@ctbo_"+.@id, 0;
+		.@sx = .@cx + rand(-3,3);
+		.@sy = .@cy + rand(-3,3);
+		if (.@sx < 0) .@sx = 0;
+		if (.@sy < 0) .@sy = 0;
+		.@ex$ = duplicate("CityTitanChest","morocc",.@sx,.@sy,"กล่องสมบัติ#CT_"+.@id,1324);
+		if (.@ex$ != "") donpcevent .@ex$+"::OnArm";
+	}
+	return;
+}
+
+//=== Chest template =================================================
+-	script	CityTitanChest	FAKE_NPC,{
+	explode(.@p$, strnpcinfo(2), "_");
+	.@id = atoi(.@p$[1]);
+
+	if (getd("$@ctbo_"+.@id)) { disablenpc strnpcinfo(3); end; }
+	if (!playerattached()) end;
+
+	progressbar "0xFFCC00",10;
+
+	if (getd("$@ctbo_"+.@id)) end;
+	setd "$@ctbo_"+.@id, 1;
+	stopnpctimer;
+
+	.@r = rand(100);
+	if (.@r < 3)       { getitem "Yggdrasil_Seed",1;   announce "[ City Titan ] "+strcharinfo(0)+" ได้รับ Yggdrasil Seed!",bc_all; }
+	else if (.@r < 15) getitem "Yggdrasilberry",2;
+	else if (.@r < 45) getitem "Elunium",5;
+	else               getitem "Oridecon",5;
+
+	disablenpc strnpcinfo(3);
+	end;
+
+OnArm:
+	initnpctimer;
+	end;
+
+OnTimer120000:
+	stopnpctimer;
+	disablenpc strnpcinfo(3);
+	end;
+}

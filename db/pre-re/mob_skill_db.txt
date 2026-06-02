@@ -5796,3 +5796,13 @@
 2046,Magic Decoy Wind@AL_HEAL,chase,28,10,10000,0,1000,no,self,myhpltmaxrate,99,,,,,,,
 2046,Magic Decoy Wind@AL_HEAL,idle,28,10,10000,0,1000,no,self,myhpltmaxrate,99,,,,,,,
 2046,Magic Decoy Wind@AL_HEAL,attack,28,10,10000,0,1000,no,self,myhpltmaxrate,99,,,,,,,
+
+// ---- City Titan (31100) ----
+31100,CityTitan_stun,attack,NPC_STUNATTACK,5,3000,500,3000,no,target,always,0,,,,,,,
+31100,CityTitan_silence,attack,NPC_SILENCEATTACK,5,2000,500,4000,no,target,always,0,,,,,,,
+31100,CityTitan_blind,attack,NPC_BLINDATTACK,5,2500,500,3500,no,target,always,0,,,,,,,
+31100,CityTitan_sleep,attack,NPC_SLEEPATTACK,5,1500,500,6000,no,target,myhpltmaxrate,80,,,,,,,
+31100,CityTitan_freeze,attack,NPC_FREEZINGATTACK,5,2000,500,5000,no,target,always,0,,,,,,,
+31100,CityTitan_curse,attack,NPC_CURSEATTACK,5,1500,500,5000,no,target,always,0,,,,,,,
+31100,CityTitan_petrify,attack,NPC_PETRIFYATTACK,5,1000,500,8000,no,target,myhpltmaxrate,50,,,,,,,
+31100,CityTitan_stomp,idle,NPC_STONESKIN,3,1000,0,12000,no,self,always,0,,,,,,,
