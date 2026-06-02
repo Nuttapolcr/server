@@ -12,6 +12,7 @@ Body:
       Rare_Ranged_Armor: true
       Rare_Magic_Armor: true
       Rare_Defense_Armor: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -82,7 +83,7 @@ Body:
                 Chance: 4000
               - Item: Critical3
                 Chance: 4000
-              - Item: Hiclass_All_StatsPlus1
+              - Item: aegis_313144
                 Chance: 4000
       - Slot: 2
         Price: 0
@@ -133,31 +134,31 @@ Body:
                 Chance: 3125
               - Item: MSP1
                 Chance: 3125
-              - Item: Hiclass_Max_SPPlus2Pct
+              - Item: aegis_313195
                 Chance: 3125
               - Item: SP10
                 Chance: 3125
-              - Item: Hiclass_SPPlus20
+              - Item: aegis_313205
                 Chance: 3125
-              - Item: Hiclass_Perfect_Dodge_Plus1
+              - Item: aegis_313244
                 Chance: 3125
-              - Item: Hiclass_Perfect_Dodge_Plus2
+              - Item: aegis_313245
                 Chance: 3125
-              - Item: Hiclass_Perfect_Dodge_Plus3
+              - Item: aegis_313246
                 Chance: 3125
-              - Item: Hiclass_Perfect_Dodge_Plus4
+              - Item: aegis_313247
                 Chance: 3125
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 3125
-              - Item: Hiclass_Perfect_Dodge_Plus6
+              - Item: aegis_313249
                 Chance: 3125
-              - Item: Hiclass_Perfect_Dodge_Plus7
+              - Item: aegis_313250
                 Chance: 3125
-              - Item: Hiclass_HITPlus3
+              - Item: aegis_313224
                 Chance: 3125
-              - Item: Hiclass_HITPlus6
+              - Item: aegis_313225
                 Chance: 3125
-              - Item: Hiclass_All_StatsPlus1
+              - Item: aegis_313144
                 Chance: 3125
       - Slot: 1
         Price: 0
@@ -206,7 +207,7 @@ Body:
                 Chance: 3846
               - Item: Luck3
                 Chance: 3846
-              - Item: Hiclass_All_StatsPlus1
+              - Item: aegis_313144
                 Chance: 3846
               - Item: PlayerTolerance1
                 Chance: 3846
@@ -228,6 +229,7 @@ Body:
       Epic_Ranged_Armor: true
       Epic_Magic_Armor: true
       Epic_Defense_Armor: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -278,15 +280,15 @@ Body:
                 Chance: 5263
               - Item: MHP4
                 Chance: 5263
-              - Item: Hiclass_HP_Plus150
+              - Item: aegis_313186
                 Chance: 5263
               - Item: HP200
                 Chance: 5263
               - Item: Critical4
                 Chance: 5263
-              - Item: Hiclass_CRIRATE_Plus8
+              - Item: aegis_313237
                 Chance: 5263
-              - Item: Hiclass_All_StatsPlus2
+              - Item: aegis_313145
                 Chance: 5263
       - Slot: 2
         Price: 0
@@ -323,27 +325,27 @@ Body:
                 Chance: 4348
               - Item: Luck4
                 Chance: 4348
-              - Item: Hiclass_Max_SPPlus3Pct
+              - Item: aegis_313196
                 Chance: 4348
-              - Item: Hiclass_Max_SPPlus4Pct
+              - Item: aegis_313197
                 Chance: 4348
-              - Item: Hiclass_SPPlus30
+              - Item: aegis_313206
                 Chance: 4348
-              - Item: Hiclass_SPPlus40
+              - Item: aegis_313207
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus4
+              - Item: aegis_313247
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus6
+              - Item: aegis_313249
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus7
+              - Item: aegis_313250
                 Chance: 4347
-              - Item: Hiclass_HITPlus9
+              - Item: aegis_313226
                 Chance: 4347
-              - Item: Hiclass_HITPlus12
+              - Item: aegis_313227
                 Chance: 4347
-              - Item: Hiclass_All_StatsPlus2
+              - Item: aegis_313145
                 Chance: 4347
       - Slot: 1
         Price: 0
@@ -380,7 +382,7 @@ Body:
                 Chance: 5000
               - Item: Luck4
                 Chance: 5000
-              - Item: Hiclass_All_StatsPlus2
+              - Item: aegis_313145
                 Chance: 5000
               - Item: Hero
                 Chance: 5000
@@ -402,6 +404,7 @@ Body:
       Legend_Ranged_Armor: true
       Legend_Magic_Armor: true
       Legend_Defense_Armor: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -436,15 +439,15 @@ Body:
                 Chance: 9091
               - Item: Luck6
                 Chance: 9091
-              - Item: Hiclass_MaxHPPlus6Pct
+              - Item: aegis_313179
                 Chance: 9091
               - Item: HP300
                 Chance: 9091
-              - Item: Hiclass_CRIRATE_Plus12
+              - Item: aegis_313239
                 Chance: 9091
-              - Item: Hiclass_All_StatsPlus3
+              - Item: aegis_313146
                 Chance: 9091
-              - Item: Hiclass_All_StatsPlus4
+              - Item: aegis_313147
                 Chance: 9090
       - Slot: 2
         Price: 0
@@ -469,21 +472,21 @@ Body:
                 Chance: 5883
               - Item: Luck6
                 Chance: 5883
-              - Item: Hiclass_Max_SPPlus5Pct
+              - Item: aegis_313198
                 Chance: 5882
-              - Item: Hiclass_Max_SPPlus6Pct
+              - Item: aegis_313199
                 Chance: 5882
               - Item: SP50
                 Chance: 5882
-              - Item: Hiclass_SPPlus60
+              - Item: aegis_313209
                 Chance: 5882
-              - Item: Hiclass_Perfect_Dodge_Plus7
+              - Item: aegis_313250
                 Chance: 5882
-              - Item: Hiclass_HITPlus18
+              - Item: aegis_313229
                 Chance: 5882
-              - Item: Hiclass_All_StatsPlus3
+              - Item: aegis_313146
                 Chance: 5882
-              - Item: Hiclass_All_StatsPlus4
+              - Item: aegis_313147
                 Chance: 5882
               - Item: Hero
                 Chance: 5882
@@ -514,15 +517,15 @@ Body:
                 Chance: 6250
               - Item: Luck6
                 Chance: 6250
-              - Item: Hiclass_MaxHPPlus6Pct
+              - Item: aegis_313179
                 Chance: 6250
               - Item: HP300
                 Chance: 6250
-              - Item: Hiclass_Max_SPPlus6Pct
+              - Item: aegis_313199
                 Chance: 6250
-              - Item: Hiclass_SPPlus60
+              - Item: aegis_313209
                 Chance: 6250
-              - Item: Hiclass_All_StatsPlus4
+              - Item: aegis_313147
                 Chance: 6250
               - Item: Hero
                 Chance: 6250
@@ -569,6 +572,7 @@ Body:
       Rare_Ranged_Muffler: true
       Rare_Magic_Muffler: true
       Rare_Defense_Muffler: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -629,27 +633,27 @@ Body:
                 Chance: 3333
               - Item: MSP1
                 Chance: 3333
-              - Item: Hiclass_Max_SPPlus2Pct
+              - Item: aegis_313195
                 Chance: 3333
               - Item: SP10
                 Chance: 3333
-              - Item: Hiclass_SPPlus20
+              - Item: aegis_313205
                 Chance: 3333
               - Item: Evasion3
                 Chance: 3333
               - Item: Evasion6
                 Chance: 3333
-              - Item: Hiclass_Perfect_Dodge_Plus1
+              - Item: aegis_313244
                 Chance: 3333
-              - Item: Hiclass_Perfect_Dodge_Plus2
+              - Item: aegis_313245
                 Chance: 3333
-              - Item: Hiclass_Perfect_Dodge_Plus3
+              - Item: aegis_313246
                 Chance: 3333
-              - Item: Hiclass_Perfect_Dodge_Plus4
+              - Item: aegis_313247
                 Chance: 3333
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 3333
-              - Item: Hiclass_All_StatsPlus1
+              - Item: aegis_313144
                 Chance: 3333
       - Slot: 2
         Price: 0
@@ -759,15 +763,15 @@ Body:
                 Chance: 4000
               - Item: Evasion6
                 Chance: 4000
-              - Item: Hiclass_HITPlus3
+              - Item: aegis_313224
                 Chance: 4000
-              - Item: Hiclass_HITPlus6
+              - Item: aegis_313225
                 Chance: 4000
               - Item: Critical2
                 Chance: 4000
               - Item: Critical3
                 Chance: 4000
-              - Item: Hiclass_All_StatsPlus1
+              - Item: aegis_313144
                 Chance: 4000
   - Id: 1004
     TargetItems:
@@ -775,6 +779,7 @@ Body:
       Epic_Ranged_Muffler: true
       Epic_Magic_Muffler: true
       Epic_Defense_Muffler: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -821,27 +826,27 @@ Body:
                 Chance: 4348
               - Item: Luck4
                 Chance: 4348
-              - Item: Hiclass_Max_SPPlus3Pct
+              - Item: aegis_313196
                 Chance: 4348
-              - Item: Hiclass_Max_SPPlus4Pct
+              - Item: aegis_313197
                 Chance: 4348
-              - Item: Hiclass_SPPlus30
+              - Item: aegis_313206
                 Chance: 4348
-              - Item: Hiclass_SPPlus40
+              - Item: aegis_313207
                 Chance: 4348
-              - Item: Hiclass_FLEEPlus9
+              - Item: aegis_313216
                 Chance: 4348
               - Item: Evasion12
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus2
+              - Item: aegis_313245
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus3
+              - Item: aegis_313246
                 Chance: 4347
-              - Item: Hiclass_Perfect_Dodge_Plus4
+              - Item: aegis_313247
                 Chance: 4347
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 4347
-              - Item: Hiclass_All_StatsPlus2
+              - Item: aegis_313145
                 Chance: 4347
       - Slot: 2
         Price: 0
@@ -921,19 +926,19 @@ Body:
                 Chance: 5263
               - Item: Luck4
                 Chance: 5263
-              - Item: Hiclass_FLEEPlus9
+              - Item: aegis_313216
                 Chance: 5263
               - Item: Evasion12
                 Chance: 5263
-              - Item: Hiclass_HITPlus9
+              - Item: aegis_313226
                 Chance: 5263
-              - Item: Hiclass_HITPlus12
+              - Item: aegis_313227
                 Chance: 5263
               - Item: Critical4
                 Chance: 5263
-              - Item: Hiclass_CRIRATE_Plus8
+              - Item: aegis_313237
                 Chance: 5263
-              - Item: Hiclass_All_StatsPlus2
+              - Item: aegis_313145
                 Chance: 5263
   - Id: 1005
     TargetItems:
@@ -941,6 +946,7 @@ Body:
       Legend_Ranged_Muffler: true
       Legend_Magic_Muffler: true
       Legend_Defense_Muffler: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -975,17 +981,17 @@ Body:
                 Chance: 8333
               - Item: Luck6
                 Chance: 8333
-              - Item: Hiclass_Max_SPPlus6Pct
+              - Item: aegis_313199
                 Chance: 8333
-              - Item: Hiclass_SPPlus60
+              - Item: aegis_313209
                 Chance: 8333
-              - Item: Hiclass_FLEEPlus18
+              - Item: aegis_313219
                 Chance: 8333
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 8333
-              - Item: Hiclass_All_StatsPlus3
+              - Item: aegis_313146
                 Chance: 8333
-              - Item: Hiclass_All_StatsPlus4
+              - Item: aegis_313147
                 Chance: 8333
       - Slot: 2
         Price: 0
@@ -1037,18 +1043,18 @@ Body:
                 Chance: 9091
               - Item: Luck6
                 Chance: 9091
-              - Item: Hiclass_FLEEPlus18
+              - Item: aegis_313219
                 Chance: 9091
-              - Item: Hiclass_HITPlus18
+              - Item: aegis_313229
                 Chance: 9091
-              - Item: Hiclass_CRIRATE_Plus12
+              - Item: aegis_313239
                 Chance: 9091
-              - Item: Hiclass_All_StatsPlus4
+              - Item: aegis_313147
                 Chance: 9091
               - Item: Murderous_Grudge
                 Chance: 9090
         PerfectEnchants:
-          - Item: Hiclass_All_StatsPlus4
+          - Item: aegis_313147
             Price: 0
             Materials:
               - Material: Hiclass_Legend_Option_Ticket
@@ -1068,6 +1074,7 @@ Body:
       Rare_Ranged_Boots: true
       Rare_Magic_Boots: true
       Rare_Defense_Boots: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -1183,17 +1190,17 @@ Body:
                 Chance: 4166
               - Item: Luck3
                 Chance: 4166
-              - Item: Hiclass_Perfect_Dodge_Plus1
+              - Item: aegis_313244
                 Chance: 4166
-              - Item: Hiclass_Perfect_Dodge_Plus2
+              - Item: aegis_313245
                 Chance: 4166
-              - Item: Hiclass_Perfect_Dodge_Plus3
+              - Item: aegis_313246
                 Chance: 4166
-              - Item: Hiclass_Perfect_Dodge_Plus4
+              - Item: aegis_313247
                 Chance: 4166
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 4166
-              - Item: Hiclass_All_StatsPlus1
+              - Item: aegis_313144
                 Chance: 4166
       - Slot: 1
         Price: 0
@@ -1258,6 +1265,7 @@ Body:
       Epic_Ranged_Boots: true
       Epic_Magic_Boots: true
       Epic_Defense_Boots: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -1343,15 +1351,15 @@ Body:
                 Chance: 5882
               - Item: Luck4
                 Chance: 5882
-              - Item: Hiclass_Perfect_Dodge_Plus2
+              - Item: aegis_313245
                 Chance: 5882
-              - Item: Hiclass_Perfect_Dodge_Plus3
+              - Item: aegis_313246
                 Chance: 5882
-              - Item: Hiclass_Perfect_Dodge_Plus4
+              - Item: aegis_313247
                 Chance: 5882
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 5882
-              - Item: Hiclass_All_StatsPlus2
+              - Item: aegis_313145
                 Chance: 5882
       - Slot: 1
         Price: 0
@@ -1404,6 +1412,7 @@ Body:
       Legend_Ranged_Boots: true
       Legend_Magic_Boots: true
       Legend_Defense_Boots: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -1461,9 +1470,9 @@ Body:
                 Chance: 7143
               - Item: Luck6
                 Chance: 7143
-              - Item: Hiclass_All_StatsPlus3
+              - Item: aegis_313146
                 Chance: 7143
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 7143
               - Item: Gh_md_int
                 Chance: 7143
@@ -1573,6 +1582,7 @@ Body:
       Up_Humma_Clear: true
       Up_Crimson_Rose: true
       Up_Blessed_Knife: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -1607,45 +1617,45 @@ Body:
                 Chance: 3846
               - Item: MHP2
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus1
+              - Item: aegis_313244
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus2
+              - Item: aegis_313245
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus3
+              - Item: aegis_313246
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus4
+              - Item: aegis_313247
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus6
+              - Item: aegis_313249
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus7
+              - Item: aegis_313250
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus8
+              - Item: aegis_313251
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus9
+              - Item: aegis_313252
                 Chance: 3846
-              - Item: Hiclass_Perfect_Dodge_Plus10
+              - Item: aegis_313253
                 Chance: 3846
               - Item: aegis_312446
                 Chance: 3846
-              - Item: Hiclass_Water_Element_Weapon
+              - Item: Gear_TR1
                 Chance: 3846
-              - Item: Hiclass_Earth_Element_Weapon
+              - Item: Gear_MT1
                 Chance: 3846
-              - Item: Hiclass_Fire_Element_Weapon
+              - Item: Gear_DN1
                 Chance: 3846
-              - Item: Hiclass_Wind_Element_Weapon
+              - Item: Gear_SKE1
                 Chance: 3846
-              - Item: Hiclass_Poison_Element_Weapon
+              - Item: Gear_SOA1
                 Chance: 3846
-              - Item: Hiclass_Holy_Element_Weapon
+              - Item: Gear_EM1
                 Chance: 3846
-              - Item: Hiclass_Dark_Element_Weapon
+              - Item: Gear_ABC1
                 Chance: 3846
-              - Item: Hiclass_Ghost_Element_Weapon
+              - Item: Gear_CD1
                 Chance: 3846
-              - Item: Hiclass_Undead_Element_Weapon
+              - Item: Gear_SS1
                 Chance: 3846
       - Slot: 2
         Price: 0
@@ -1670,25 +1680,25 @@ Body:
                 Chance: 4348
               - Item: MHP2
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus1
+              - Item: aegis_313244
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus2
+              - Item: aegis_313245
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus3
+              - Item: aegis_313246
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus4
+              - Item: aegis_313247
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus6
+              - Item: aegis_313249
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus7
+              - Item: aegis_313250
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus8
+              - Item: aegis_313251
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus9
+              - Item: aegis_313252
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus10
+              - Item: aegis_313253
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
@@ -1727,25 +1737,25 @@ Body:
                 Chance: 4348
               - Item: MHP2
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus1
+              - Item: aegis_313244
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus2
+              - Item: aegis_313245
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus3
+              - Item: aegis_313246
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus4
+              - Item: aegis_313247
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus6
+              - Item: aegis_313249
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus7
+              - Item: aegis_313250
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus8
+              - Item: aegis_313251
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus9
+              - Item: aegis_313252
                 Chance: 4348
-              - Item: Hiclass_Perfect_Dodge_Plus10
+              - Item: aegis_313253
                 Chance: 4348
               - Item: Murderous_Grudge
                 Chance: 4348
@@ -1781,6 +1791,7 @@ Body:
       Adulter_F_C_Humma: true
       Adulter_F_Revolver: true
       Adulter_F_G_Sword: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -1815,37 +1826,37 @@ Body:
                 Chance: 4546
               - Item: MHP3
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus6
+              - Item: aegis_313249
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus7
+              - Item: aegis_313250
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus8
+              - Item: aegis_313251
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus9
+              - Item: aegis_313252
                 Chance: 4545
-              - Item: Hiclass_Perfect_Dodge_Plus10
+              - Item: aegis_313253
                 Chance: 4545
               - Item: aegis_312446
                 Chance: 4545
-              - Item: Hiclass_Water_Element_Weapon
+              - Item: Gear_TR1
                 Chance: 4545
-              - Item: Hiclass_Earth_Element_Weapon
+              - Item: Gear_MT1
                 Chance: 4545
-              - Item: Hiclass_Fire_Element_Weapon
+              - Item: Gear_DN1
                 Chance: 4545
-              - Item: Hiclass_Wind_Element_Weapon
+              - Item: Gear_SKE1
                 Chance: 4545
-              - Item: Hiclass_Poison_Element_Weapon
+              - Item: Gear_SOA1
                 Chance: 4545
-              - Item: Hiclass_Holy_Element_Weapon
+              - Item: Gear_EM1
                 Chance: 4545
-              - Item: Hiclass_Dark_Element_Weapon
+              - Item: Gear_ABC1
                 Chance: 4545
-              - Item: Hiclass_Ghost_Element_Weapon
+              - Item: Gear_CD1
                 Chance: 4545
-              - Item: Hiclass_Undead_Element_Weapon
+              - Item: Gear_SS1
                 Chance: 4545
       - Slot: 2
         Price: 0
@@ -1870,17 +1881,17 @@ Body:
                 Chance: 5556
               - Item: MHP3
                 Chance: 5556
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 5556
-              - Item: Hiclass_Perfect_Dodge_Plus6
+              - Item: aegis_313249
                 Chance: 5556
-              - Item: Hiclass_Perfect_Dodge_Plus7
+              - Item: aegis_313250
                 Chance: 5556
-              - Item: Hiclass_Perfect_Dodge_Plus8
+              - Item: aegis_313251
                 Chance: 5556
-              - Item: Hiclass_Perfect_Dodge_Plus9
+              - Item: aegis_313252
                 Chance: 5555
-              - Item: Hiclass_Perfect_Dodge_Plus10
+              - Item: aegis_313253
                 Chance: 5555
               - Item: PlayerTolerance3
                 Chance: 5555
@@ -1917,17 +1928,17 @@ Body:
                 Chance: 4546
               - Item: MHP3
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus5
+              - Item: aegis_313248
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus6
+              - Item: aegis_313249
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus7
+              - Item: aegis_313250
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus8
+              - Item: aegis_313251
                 Chance: 4546
-              - Item: Hiclass_Perfect_Dodge_Plus9
+              - Item: aegis_313252
                 Chance: 4545
-              - Item: Hiclass_Perfect_Dodge_Plus10
+              - Item: aegis_313253
                 Chance: 4545
               - Item: Murderous_Grudge
                 Chance: 4545
@@ -1969,6 +1980,7 @@ Body:
       Sinister_Huuma: true
       Sinister_Revolver: true
       Sinister_Saber_J: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -1997,29 +2009,29 @@ Body:
                 Chance: 6667
               - Item: MHP5
                 Chance: 6667
-              - Item: Hiclass_Perfect_Dodge_Plus9
+              - Item: aegis_313252
                 Chance: 6667
-              - Item: Hiclass_Perfect_Dodge_Plus10
+              - Item: aegis_313253
                 Chance: 6667
               - Item: aegis_312446
                 Chance: 6667
-              - Item: Hiclass_Water_Element_Weapon
+              - Item: Gear_TR1
                 Chance: 6667
-              - Item: Hiclass_Earth_Element_Weapon
+              - Item: Gear_MT1
                 Chance: 6667
-              - Item: Hiclass_Fire_Element_Weapon
+              - Item: Gear_DN1
                 Chance: 6667
-              - Item: Hiclass_Wind_Element_Weapon
+              - Item: Gear_SKE1
                 Chance: 6667
-              - Item: Hiclass_Poison_Element_Weapon
+              - Item: Gear_SOA1
                 Chance: 6666
-              - Item: Hiclass_Holy_Element_Weapon
+              - Item: Gear_EM1
                 Chance: 6666
-              - Item: Hiclass_Dark_Element_Weapon
+              - Item: Gear_ABC1
                 Chance: 6666
-              - Item: Hiclass_Ghost_Element_Weapon
+              - Item: Gear_CD1
                 Chance: 6666
-              - Item: Hiclass_Undead_Element_Weapon
+              - Item: Gear_SS1
                 Chance: 6666
       - Slot: 2
         Price: 0
@@ -2038,9 +2050,9 @@ Body:
                 Chance: 12500
               - Item: MHP5
                 Chance: 12500
-              - Item: Hiclass_Perfect_Dodge_Plus9
+              - Item: aegis_313252
                 Chance: 12500
-              - Item: Hiclass_Perfect_Dodge_Plus10
+              - Item: aegis_313253
                 Chance: 12500
               - Item: PlayerTolerance6
                 Chance: 12500
@@ -2065,9 +2077,9 @@ Body:
                 Chance: 5883
               - Item: MHP5
                 Chance: 5883
-              - Item: Hiclass_Perfect_Dodge_Plus9
+              - Item: aegis_313252
                 Chance: 5883
-              - Item: Hiclass_Perfect_Dodge_Plus10
+              - Item: aegis_313253
                 Chance: 5883
               - Item: PlayerTolerance6
                 Chance: 5883
@@ -2181,6 +2193,7 @@ Body:
       Rare_Ranged_Ring: true
       Rare_Magic_Ring: true
       Rare_Defense_Ring: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -2377,6 +2390,7 @@ Body:
       Epic_Ranged_Ring: true
       Epic_Magic_Ring: true
       Epic_Defense_Ring: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -2435,7 +2449,7 @@ Body:
                 Chance: 4545
               - Item: Skill_Delay3
                 Chance: 4545
-              - Item: Hiclass_Skill_Delay_8Pct
+              - Item: aegis_313278
                 Chance: 4545
               - Item: Spell2
                 Chance: 4545
@@ -2545,6 +2559,7 @@ Body:
       Legend_Ranged_Ring: true
       Legend_Magic_Ring: true
       Legend_Defense_Ring: true
+    MinimumRefine: 15
     Reset:
       Chance: 100000
       Price: 100000
@@ -2581,7 +2596,7 @@ Body:
                 Chance: 11111
               - Item: Attack_Delay_4
                 Chance: 11111
-              - Item: Hiclass_Skill_Delay_15Pct
+              - Item: aegis_313279
                 Chance: 11111
               - Item: Spell5
                 Chance: 11111
