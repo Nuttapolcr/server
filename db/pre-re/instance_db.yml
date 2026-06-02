@@ -81,3 +81,42 @@ Body:
       Y: 36
     AdditionalMaps:
       2@nyd: true
+  - Id: 12
+    Name: Old Glast Heim
+    Enter:
+      Map: 1@gl_k
+      X: 150
+      Y: 20
+    AdditionalMaps:
+      2@gl_k: true
+  - Id: 15
+    Name: Geffen Magic Tournament
+    TimeLimit: 7200
+    Enter:
+      Map: 1@gef
+      X: 119
+      Y: 209
+  - Id: 16
+    Name: Horror Toy Factory
+    Enter:
+      Map: 1@xm_d
+      X: 111
+      Y: 22
+  - Id: 17
+    Name: Faceworm's Nest
+    Enter:
+      Map: 1@face
+      X: 111
+      Y: 372
+  - Id: 18
+    Name: Ghost Palace
+    Enter:
+      Map: 1@spa
+      X: 42
+      Y: 196
+  - Id: 21
+    Name: Fenrir and Sarah
+    Enter:
+      Map: 1@glast
+      X: 367
+      Y: 304

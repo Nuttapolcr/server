@@ -21303,6 +21303,7 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
       }
+    Weight: 2000
   - Id: 530006
     AegisName: Up_Undine_Spear_K
     Name: "[Rare] Paladin Weapon"
