@@ -541,28 +541,28 @@ Body:
           - Item: Hero
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Release_Of_Magic
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Dynast
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: PlayerTolerance7
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
@@ -1057,14 +1057,14 @@ Body:
           - Item: aegis_313147
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Murderous_Grudge
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
@@ -1523,42 +1523,42 @@ Body:
           - Item: Bear's_Power
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Runaway_Magic
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Speed_Of_Light
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Muscle_Fool
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Hawkeye
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Lucky_Day
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
@@ -2109,77 +2109,77 @@ Body:
           - Item: PlayerTolerance7
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Murderous_Grudge
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Hero
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Release_Of_Magic
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Dynast
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Bear's_Power
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Runaway_Magic
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Speed_Of_Light
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Muscle_Fool
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Hawkeye
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Lucky_Day
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
@@ -2666,49 +2666,49 @@ Body:
           - Item: HPdrain1
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: SPdrain1
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Reactor_A_STR
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Reactor_A_INT
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Reactor_A_DEF
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: aegis_312421
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Immuned1
             Price: 0
             Materials:
-              - Material: Hiclass_Legend_Option_Ticket
+              - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000

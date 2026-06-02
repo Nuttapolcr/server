@@ -26288,22 +26288,6 @@ Body:
       bonus2 bResEff,Eff_Blind,1500;
       bonus2 bResEff,Eff_Poison,1500;
       bonus2 bResEff,Eff_Bleeding,1500;
-  - Id: 1000600
-    AegisName: Hiclass_Option_Ticket
-    Name: Option Ticket
-    Type: Etc
-    Buy: 10
-    Weight: 10
-    Flags:
-      BuyingStore: true
-  - Id: 1000601
-    AegisName: Hiclass_Legend_Option_Ticket
-    Name: "[Legend] Option Ticket"
-    Type: Etc
-    Buy: 10
-    Weight: 10
-    Flags:
-      BuyingStore: true
   - Id: 6608
     AegisName: Coagulated_Spell
     Name: Coagulated Spell
@@ -27630,6 +27614,16 @@ Body:
     Type: Card
     SubType: Enchant
     Weight: 0
+  - Id: 1001718
+    AegisName: Option_Ticket
+    Name: Option Ticket
+    Type: Etc
+    Weight: 1
+  - Id: 1001719
+    AegisName: aegis_1001719
+    Name: "[Legend] Option Ticket"
+    Type: Etc
+    Weight: 1
   - Id: 1001720
     AegisName: aegis_1001720
     Name: Premium Service 1Day [NT]

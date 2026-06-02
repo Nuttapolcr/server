@@ -4396,7 +4396,6 @@ ItemDBNameTbl = {
 	Rare_Ranged_Armor = 452026,
 	Rare_Magic_Armor = 452027,
 	Rare_Defense_Armor = 452028,
-	Hiclass_Option_Ticket = 1000600,
 	Strength1 = 4700,
 	Strength2 = 4701,
 	Strength3 = 4702,
@@ -4459,7 +4458,6 @@ ItemDBNameTbl = {
 	Luck6 = 4755,
 	HP300 = 4797,
 	SP50 = 4800,
-	Hiclass_Legend_Option_Ticket = 1000601,
 	Rare_Melee_Muffler = 480421,
 	Rare_Ranged_Muffler = 480422,
 	Rare_Magic_Muffler = 480423,
@@ -4612,6 +4610,7 @@ ItemDBNameTbl = {
 	aegis_313253 = 313253,
 	aegis_313278 = 313278,
 	aegis_313279 = 313279,
+	aegis_1001719 = 1001719,
 }
 ItemDB_To_ItemID = function(in_ItemDB)
 	if ItemDBNameTbl[in_ItemDB] == nil then
