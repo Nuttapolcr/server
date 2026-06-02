@@ -8091,6 +8091,7 @@
 	export_constant(IG_MVP_TREASURE_BLUE);
 	export_constant(IG_MVP_TREASURE_RED);
 	export_constant(IG_MVP_TREASURE_PURPLE);
+	export_constant(IG_CARDALBUM_BOSS);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);

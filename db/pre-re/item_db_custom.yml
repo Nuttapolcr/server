@@ -22700,7 +22700,7 @@ Body:
       BuyingStore: true
       Container: true
     Script: |
-      getgroupitem(IG_CardAlbum_Weapon);
+      getgroupitem(IG_CARDALBUM_BOSS);
   - Id: 22998
     AegisName: C_CatPaw_Ticket
     Name: Option Costume Ticket

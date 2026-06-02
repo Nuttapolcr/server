@@ -10543,6 +10543,112 @@ Body:
           - Index: 7
             Item: Frilldora_Card_NT
             Rate: 1
+  - Group: CARDALBUM_BOSS
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Orc_Hero_Card
+            Rate: 1
+          - Index: 1
+            Item: Maya_Card
+            Rate: 1
+          - Index: 2
+            Item: Orc_Load_Card
+            Rate: 1
+          - Index: 3
+            Item: Eddga_Card
+            Rate: 1
+          - Index: 4
+            Item: Osiris_Card
+            Rate: 1
+          - Index: 5
+            Item: Amon_Ra_Card
+            Rate: 1
+          - Index: 6
+            Item: Phreeoni_Card
+            Rate: 1
+          - Index: 7
+            Item: Dracula_Card
+            Rate: 1
+          - Index: 8
+            Item: Doppelganger_Card
+            Rate: 1
+          - Index: 9
+            Item: Mistress_Card
+            Rate: 1
+          - Index: 10
+            Item: Moonlight_Flower_Card
+            Rate: 1
+          - Index: 11
+            Item: Lady_Tanee_Card
+            Rate: 1
+          - Index: 12
+            Item: Baphomet_Card
+            Rate: 1
+          - Index: 13
+            Item: Pharaoh_Card
+            Rate: 1
+          - Index: 14
+            Item: Drake_Card
+            Rate: 1
+          - Index: 15
+            Item: Knight_Windstorm_Card
+            Rate: 1
+          - Index: 16
+            Item: Lord_Of_Death_Card
+            Rate: 1
+          - Index: 17
+            Item: Dark_Lord_Card
+            Rate: 1
+          - Index: 18
+            Item: Bacsojin_Card
+            Rate: 1
+          - Index: 19
+            Item: Ktullanux_Card
+            Rate: 1
+          - Index: 20
+            Item: Rsx_0806_Card
+            Rate: 1
+          - Index: 21
+            Item: Incant_Samurai_Card
+            Rate: 1
+          - Index: 22
+            Item: Dark_Snake_Lord_Card
+            Rate: 1
+          - Index: 23
+            Item: Tao_Gunka_Card
+            Rate: 1
+          - Index: 24
+            Item: Turtle_General_Card
+            Rate: 1
+          - Index: 25
+            Item: Atroce_Card
+            Rate: 1
+          - Index: 26
+            Item: Kiel_Card
+            Rate: 1
+          - Index: 27
+            Item: Apocalips_H_Card
+            Rate: 1
+          - Index: 28
+            Item: Detale_Card
+            Rate: 1
+          - Index: 29
+            Item: Fallen_Bishop_Card
+            Rate: 1
+          - Index: 30
+            Item: Gloom_Under_Night_Card
+            Rate: 1
+          - Index: 31
+            Item: Randgris_Card
+            Rate: 1
+          - Index: 32
+            Item: Ifrit_Card
+            Rate: 1
+          - Index: 33
+            Item: Berzebub_Card
+            Rate: 1
 # === Custom: MVP Treasure box loot pools (SubGroup 1 = Tier-A, SubGroup 2 = Tier-S) ===
   - Group: MVP_TREASURE_BLUE
     SubGroups:
