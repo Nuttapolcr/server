@@ -22678,6 +22678,8 @@ Body:
     Name: Accessory Stone Egg
     Type: Usable
     Buy: 10
+    Script: |
+      getgroupitem(IG_MUNIN_EGG01);
   - Id: 1001600
     AegisName: MAutoSpell_Select_Box
     Name: Fragment Stone Box
