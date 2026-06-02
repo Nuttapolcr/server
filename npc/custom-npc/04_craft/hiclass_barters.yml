@@ -2,7 +2,7 @@
 # HICLASS_CRAFT_ORE contains the deterministic ore exchanges from the sheet.
 # The six 20% / 80% ore upgrade recipes are intentionally omitted because
 # normal barter cannot grant a fallback item when its random roll fails.
-# HICLASS_CRAFT_WEAPON and HICLASS_CRAFT_EQUIPMENT contain the equipment recipes.
+# HICLASS_CRAFT_WEAPON, HICLASS_CRAFT_EQUIPMENT, and HICLASS_CRAFT_ACCESSORY contain the gear recipes.
 # MAX_BARTER_REQUIREMENTS must be 6 for this sheet because each recipe uses up to six materials.
 
 Header:
@@ -1391,7 +1391,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1416,7 +1416,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1441,7 +1441,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1466,7 +1466,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1491,7 +1491,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1516,7 +1516,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1541,7 +1541,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1566,7 +1566,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1591,7 +1591,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1616,7 +1616,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1641,7 +1641,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1666,7 +1666,7 @@ Body:
             Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
             Amount: 20
           - Index: 4
-            Item: Weapon_Ore_1 # [Rare] Weapon Stone (NT) x 1 (1000419)
+            Item: Armor_Ore_1 # [Rare] Armor Stone (NT) x1 (1000423)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
@@ -1690,7 +1690,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1714,7 +1714,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1738,7 +1738,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1762,7 +1762,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1786,7 +1786,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1810,7 +1810,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1834,7 +1834,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1858,7 +1858,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1882,7 +1882,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1906,7 +1906,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1930,7 +1930,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1954,7 +1954,7 @@ Body:
             Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
             Amount: 50
           - Index: 4
-            Item: Weapon_Ore_4 # [Epic] Weapon Stone (NT) x 1 (1000422)
+            Item: Armor_Ore_4 # [Epic] Armor Stone (NT) x1 (1000425)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
@@ -1978,7 +1978,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2002,7 +2002,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2026,7 +2026,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2050,7 +2050,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2074,7 +2074,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2098,7 +2098,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2122,7 +2122,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2146,7 +2146,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2170,7 +2170,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2194,7 +2194,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2218,7 +2218,7 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
@@ -2242,7 +2242,539 @@ Body:
             Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
             Amount: 100
           - Index: 4
-            Item: Weapon_Ore_2 # [Legend] Weapon Stone (NT) x1 (1000420)
+            Item: Armor_Ore_2 # [Legend] Armor Stone (NT) x1 (1000424)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+
+  - Name: HICLASS_CRAFT_ACCESSORY
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: Rare_Melee_Necklace # [Rare] Melee Necklace (490487)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 1
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 2
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 3
+            Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
+            Amount: 1
+          - Index: 4
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 1
+        Item: Rare_Ranged_Necklace # [Rare] Ranged Necklace (490488)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 1
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 2
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 3
+            Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
+            Amount: 1
+          - Index: 4
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 2
+        Item: Rare_Magic_Necklace # [Rare] Magic Necklace (490489)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 1
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 2
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 3
+            Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
+            Amount: 1
+          - Index: 4
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 3
+        Item: Rare_Defense_Necklace # [Rare] Defense Necklace (490490)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 1
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 2
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 3
+            Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
+            Amount: 1
+          - Index: 4
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 4
+        Item: Rare_Melee_Ring # [Rare] Melee Ring (490499)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 1
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 2
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 3
+            Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
+            Amount: 1
+          - Index: 4
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 5
+        Item: Rare_Ranged_Ring # [Rare] Ranged Ring (490500)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 1
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 2
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 3
+            Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
+            Amount: 1
+          - Index: 4
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 6
+        Item: Rare_Magic_Ring # [Rare] Magic Ring (490501)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 1
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 2
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 3
+            Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
+            Amount: 1
+          - Index: 4
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 7
+        Item: Rare_Defense_Ring # [Rare] Defense Ring (490502)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) x 75 (1001685)
+            Amount: 75
+          - Index: 1
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) x 20 (1001688)
+            Amount: 20
+          - Index: 2
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) x 20 (1001691)
+            Amount: 20
+          - Index: 3
+            Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
+            Amount: 1
+          - Index: 4
+            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Amount: 200
+      - Index: 8
+        Item: Epic_Melee_Necklace # [Epic] Melee Necklace (490491)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Melee_Necklace # [Rare] Melee Necklace (490487)
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 9
+        Item: Epic_Ranged_Necklace # [Epic] Ranged Necklace (490492)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Ranged_Necklace # [Rare] Ranged Necklace (490488)
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 10
+        Item: Epic_Magic_Necklace # [Epic] Magic Necklace (490493)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Magic_Necklace # [Rare] Magic Necklace (490489)
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 11
+        Item: Epic_Defense_Necklace # [Epic] Defense Necklace (490494)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Defense_Necklace # [Rare] Defense Necklace (490490)
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 12
+        Item: Epic_Melee_Ring # [Epic] Melee Ring (490503)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Melee_Ring # [Rare] Melee Ring (490499)
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 13
+        Item: Epic_Ranged_Ring # [Epic] Ranged Ring (490504)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Ranged_Ring # [Rare] Ranged Ring (490500)
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 14
+        Item: Epic_Magic_Ring # [Epic] Magic Ring (490505)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Magic_Ring # [Rare] Magic Ring (490501)
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 15
+        Item: Epic_Defense_Ring # [Epic] Defense Ring (490506)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rare_Defense_Ring # [Rare] Defense Ring (490502)
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) x 300 (1001686)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) x 100 (1001689)
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) x50 (1001692)
+            Amount: 50
+          - Index: 4
+            Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Amount: 500
+      - Index: 16
+        Item: Legend_Melee_Necklace # [Legend] Melee Necklace (490495)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Melee_Necklace # [Epic] Melee Necklace (490491)
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 17
+        Item: Legend_Ranged_Necklace # [Legend] Ranged Necklace (490496)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Ranged_Necklace # [Epic] Ranged Necklace (490492)
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 18
+        Item: Legend_Magic_Necklace # [Legend] Magic Necklace (490497)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Magic_Necklace # [Epic] Magic Necklace (490493)
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 19
+        Item: Legend_Defense_Necklace # [Legend] Defense Necklace (490498)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Defense_Necklace # [Epic] Defense Necklace (490494)
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 20
+        Item: Legend_Melee_Ring # [Legend] Melee Ring (490507)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Melee_Ring # [Epic] Melee Ring (490503)
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 21
+        Item: Legend_Ranged_Ring # [Legend] Ranged Ring (490508)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Ranged_Ring # [Epic] Ranged Ring (490504)
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 22
+        Item: Legend_Magic_Ring # [Legend] Magic Ring (490509)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Magic_Ring # [Epic] Magic Ring (490505)
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
+            Amount: 2000
+      - Index: 23
+        Item: Legend_Defense_Ring # [Legend] Defense Ring (490510)
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Epic_Defense_Ring # [Epic] Defense Ring (490506)
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # [Legend] Essence (NT) x 100 (1001690)
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # [Legend] Fragment (NT) x 100 (1001693)
+            Amount: 100
+          - Index: 4
+            Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
             Amount: 1
           - Index: 5
             Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
