@@ -1,0 +1,75 @@
+//===== HICLASS Ore Upgrade ==================================
+//= Random ore upgrades from the red block in the HICLASS sheet.
+//============================================================
+
+morocc,139,150,4	script	NPC อัพเกรดแร่	810,{
+	mes "[NPC อัพเกรดแร่]";
+	mes "เลือกประเภทแร่ที่ต้องการอัพเกรด";
+	next;
+
+	.@menu = select(
+		"[Rare] Jewel (NT) -> [Epic] Jewel",
+		"[Epic] Jewel (NT) -> [Legend] Jewel",
+		"[Rare] Essence (NT) -> [Epic] Essence",
+		"[Epic] Essence (NT) -> [Legend] Essence",
+		"[Rare] Fragment (NT) -> [Epic] Fragment",
+		"[Epic] Fragment (NT) -> [Legend] Fragment",
+		"ยกเลิก"
+	);
+	if (.@menu == 7) {
+		close;
+	}
+
+	.@index = .@menu - 1;
+
+	mes "[NPC อัพเกรดแร่]";
+	mes "วัตถุดิบที่ใช้:";
+	mes "- ^i[" + .InputItem[.@index] + "] x 10";
+	mes "- ^i[1000373] x " + .FragmentAmount[.@index];
+	mes " ";
+	mes "โอกาสได้รับ:";
+	mes "- ^i[" + .TradeReward[.@index] + "] x 1 (20%)";
+	mes "- ^i[" + .NTReward[.@index] + "] x 1 (80%)";
+	next;
+
+	if (select("ยืนยัน:ยกเลิก") == 2) {
+		close;
+	}
+
+	if (
+		countitem(.InputItem[.@index]) < 10 ||
+		countitem(1000373) < .FragmentAmount[.@index]
+	) {
+		mes "[NPC อัพเกรดแร่]";
+		mes "วัตถุดิบไม่เพียงพอ";
+		close;
+	}
+
+	delitem .InputItem[.@index],10;
+	delitem 1000373,.FragmentAmount[.@index];
+
+	if (rand(100) < 20) {
+		.@reward = .TradeReward[.@index];
+	} else {
+		.@reward = .NTReward[.@index];
+	}
+
+	getitem .@reward,1;
+	mes "[NPC อัพเกรดแร่]";
+	mes "อัพเกรดสำเร็จ";
+	mes "ได้รับ ^i[" + .@reward + "] x 1";
+	close;
+
+OnInit:
+	setarray .InputItem[0],
+		1001685,1001686,1001688,1001689,1001691,1001692;
+	setarray .FragmentAmount[0],
+		20,40,20,40,20,40;
+	setarray .TradeReward[0],
+		1000398,1000403,1001139,1001141,1000442,1000447;
+	setarray .NTReward[0],
+		1001686,1001687,1001689,1001690,1001692,1001693;
+
+	waitingroom "NPC อัพเกรดแร่",0;
+	end;
+}

@@ -1,6 +1,6 @@
 # Generated from HICLASS sheet "Barter - NPC§√“ø¢Õß" (gid 1968375192).
 # HICLASS_CRAFT_ORE contains the deterministic ore exchanges from the sheet.
-# The six 20% / 80% ore upgrade recipes are intentionally omitted because
+# The six 20% / 80% ore upgrades are handled by hiclass_ore_upgrade.txt because
 # normal barter cannot grant a fallback item when its random roll fails.
 # HICLASS_CRAFT_WEAPON, HICLASS_CRAFT_EQUIPMENT, and HICLASS_CRAFT_ACCESSORY contain the gear recipes.
 # MAX_BARTER_REQUIREMENTS must be 6 for this sheet because each recipe uses up to six materials.
