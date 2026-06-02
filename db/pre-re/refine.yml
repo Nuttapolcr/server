@@ -198,6 +198,86 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+          - Level: 11
+            Bonus: 770
+            BlacksmithBlessingAmount: 1
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Elunium
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Elunium
+                BreakingRate: 10000
+          - Level: 12
+            Bonus: 840
+            BlacksmithBlessingAmount: 1
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Elunium
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Elunium
+                BreakingRate: 10000
+          - Level: 13
+            Bonus: 910
+            BlacksmithBlessingAmount: 1
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Elunium
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Elunium
+                BreakingRate: 10000
+          - Level: 14
+            Bonus: 980
+            BlacksmithBlessingAmount: 1
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Elunium
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Elunium
+                BreakingRate: 10000
+          - Level: 15
+            Bonus: 1050
+            BlacksmithBlessingAmount: 1
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Elunium
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Elunium
+                BreakingRate: 10000
 
   - Group: Weapon
     Levels:
@@ -328,6 +408,81 @@ Body:
                 BreakingRate: 10000
           - Level: 10
             Bonus: 2000
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Phracon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 3000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 11
+            Bonus: 2200
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Phracon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 3000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 12
+            Bonus: 2400
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Phracon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 3000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 13
+            Bonus: 2600
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Phracon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 3000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 14
+            Bonus: 2800
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Phracon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 3000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 15
+            Bonus: 3000
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -482,6 +637,81 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+          - Level: 11
+            Bonus: 3300
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Emveretarcon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 2000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 12
+            Bonus: 3600
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Emveretarcon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 2000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 13
+            Bonus: 3900
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Emveretarcon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 2000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 14
+            Bonus: 4200
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Emveretarcon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 2000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 15
+            Bonus: 4500
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Emveretarcon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 2000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
 
       - Level: 3
         RefineLevels:
@@ -610,6 +840,81 @@ Body:
                 BreakingRate: 10000
           - Level: 10
             Bonus: 5000
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 11
+            Bonus: 5500
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 12
+            Bonus: 6000
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 13
+            Bonus: 6500
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 14
+            Bonus: 7000
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 15
+            Bonus: 7500
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -764,6 +1069,81 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+          - Level: 11
+            Bonus: 7700
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 12
+            Bonus: 8400
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 13
+            Bonus: 9100
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 14
+            Bonus: 9800
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 15
+            Bonus: 10500
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
 
   - Group: Shadow_Armor
     Levels:
@@ -842,6 +1222,46 @@ Body:
                 Price: 20000
                 Material: Blessed_Elunium
           - Level: 10
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 11
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 12
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 13
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 14
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 15
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -934,6 +1354,46 @@ Body:
                 Rate: 2500
                 Price: 20000
                 Material: Blessed_Elunium
+          - Level: 11
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 12
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 13
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 14
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 15
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
 
   - Group: Charm_Upgrade
     Levels:
@@ -1012,6 +1472,46 @@ Body:
                 Price: 20000
                 Material: Blessed_Oridecon
           - Level: 10
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Oridecon
+          - Level: 11
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Oridecon
+          - Level: 12
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Oridecon
+          - Level: 13
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Oridecon
+          - Level: 14
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Oridecon
+          - Level: 15
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
