@@ -5793,61 +5793,61 @@ tblLapineDdukddakBox = {
 		},
 		Combine_Rare_Weapon_Stone_Laphine = {
 			ItemID = 1500002,
-			NeedCount = 4,
+			NeedCount = 1,
 			NeedRefineMin = 0,
 			NeedRefineMax = 0,
 			SourceItems = {
-				{ "Weapon_Ore_1", 1, 1000419 }
+				{ "Weapon_Ore_1", 4, 1000419 }
 			},
 			NeedSource_String = "[Rare] Weapon Stone (NT)"
 		},
 		Combine_Epic_Weapon_Stone_Laphine = {
 			ItemID = 1500003,
-			NeedCount = 4,
+			NeedCount = 1,
 			NeedRefineMin = 0,
 			NeedRefineMax = 0,
 			SourceItems = {
-				{ "Weapon_Ore_4", 1, 1000422 }
+				{ "Weapon_Ore_4", 4, 1000422 }
 			},
 			NeedSource_String = "[Epic] Weapon Stone (NT)"
 		},
 		Combine_Rare_Armor_Stone_Laphine = {
 			ItemID = 1500004,
-			NeedCount = 4,
+			NeedCount = 1,
 			NeedRefineMin = 0,
 			NeedRefineMax = 0,
 			SourceItems = {
-				{ "Armor_Ore_1", 1, 1000423 }
+				{ "Armor_Ore_1", 4, 1000423 }
 			},
 			NeedSource_String = "[Rare] Armor Stone (NT)"
 		},
 		Combine_Epic_Armor_Stone_Laphine = {
 			ItemID = 1500005,
-			NeedCount = 4,
+			NeedCount = 1,
 			NeedRefineMin = 0,
 			NeedRefineMax = 0,
 			SourceItems = {
-				{ "Armor_Ore_4", 1, 1000425 }
+				{ "Armor_Ore_4", 4, 1000425 }
 			},
 			NeedSource_String = "[Epic] Armor Stone (NT)"
 		},
 		Combine_Rare_Acc_Stone_Laphine = {
 			ItemID = 1500006,
-			NeedCount = 4,
+			NeedCount = 1,
 			NeedRefineMin = 0,
 			NeedRefineMax = 0,
 			SourceItems = {
-				{ "Acc_Ore_1", 1, 1000426 }
+				{ "Acc_Ore_1", 4, 1000426 }
 			},
 			NeedSource_String = "[Rare] Accessory Stone (NT)"
 		},
 		Combine_Epic_Acc_Stone_Laphine = {
 			ItemID = 1500007,
-			NeedCount = 4,
+			NeedCount = 1,
 			NeedRefineMin = 0,
 			NeedRefineMax = 0,
 			SourceItems = {
-				{ "Acc_Ore_4", 1, 1000429 }
+				{ "Acc_Ore_4", 4, 1000429 }
 			},
 			NeedSource_String = "[Epic] Accessory Stone (NT)"
 		},

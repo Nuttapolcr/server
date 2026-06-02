@@ -42,3 +42,18 @@ bonus bVariableCastrate,-10;
 2. ตรวจสอบ `Id` และ `AegisName` ซ้ำ
 3. รัน map-server เพื่อตรวจสอบ error ที่เกี่ยวข้องกับ item DB
 4. อ่านค่าจากชีตกลับหลังเขียน เพื่อยืนยันว่าแก้คอลัมน์และแถวถูกต้อง
+
+## 5. อัพเดท Laphine Synthesis
+
+1. ใน `db/import/laphine_synthesis.yml` ค่า `RequiredRequirementsCount` คือจำนวน inventory slot ที่ client ต้องส่งมา
+2. ถ้าไอเทมใน `Requirements` เป็นไอเทม stackable ให้กำหนดจำนวนชิ้นด้วย `Amount` ใต้ requirement นั้น และนับเป็น 1 slot
+3. ตัวอย่างการใช้ไอเทม stackable 4 ชิ้น:
+
+```yaml
+RequiredRequirementsCount: 1
+Requirements:
+  - Item: Weapon_Ore_1
+    Amount: 4
+```
+
+4. หลังแก้ไขให้รัน `python3 tools/gen_lapineddukddakbox.py` เพื่อ sync client data
