@@ -291,6 +291,8 @@ Google Sheet `gid=2014536238` contains MVP pet bonus data split by rarity.
 For `pet_db.yml`, only add pets whose `Mob` exists in `db/pre-re/mob_db.yml`; otherwise the pet loader rejects the entry.
 If a sheet pet exists in `db/re/mob_db.yml` but not `db/pre-re/mob_db.yml`, add the mob to pre-re first, then add the pet entry.
 Pet entries need a real `EggItem`; before adding a new MVP pet egg, check the custom pet egg ID range starting at `9264`.
+In pet sheet descriptions, `"เจ้าของ"` means the pet owner themself. Use `bAddEff2` for self-inflicted attack statuses; use `SC_COMA` with `bAddEff2` for self-inflicted Coma.
+For temporary bonuses triggered from a pet `Script`, use `petautobonus`, not equipment `autobonus`, so the effect lifecycle is tied to the active pet.
 
 MVP pet stat mapping:
 
@@ -319,8 +321,8 @@ MVP pet stat mapping:
 | `B_SEYREN` | `B_Seyren_Egg` | All stats+3, Critical+20, ASPD+1, Player resist+5% |
 | `B_EREMES` | `B_Eremes_Egg` | All stats+1, move speed+30%, Player resist+5% |
 | `B_HARWORD` | `B_Harword_Egg` | All stats+1, ASPD+10%, Player resist+5% |
-| `B_MAGALETA` | `B_Magaleta_Egg` | Stun resist+50%, Freeze on attack, Player resist+5% |
-| `B_SHECIL` | `B_Shecil_Egg` | Boss damage+40%, Coma/Curse on attack, Player resist+5% |
+| `B_MAGALETA` | `B_Magaleta_Egg` | Stun resist+50%, self Freeze on attack, Player resist+5% |
+| `B_SHECIL` | `B_Shecil_Egg` | Boss damage+40%, self Coma/Curse on attack, Player resist+5% |
 | `B_KATRINN` | `B_Katrinn_Egg` | Physical reflect reduction, ATK-10%, Player resist+5% |
 | `B_RANDEL` | `B_Randel_Egg` | Magic reflect+100%, MATK-10%, Player resist+5% |
 | `B_FLAMEL` | `B_Flamel_Egg` | ATK+20%, ATK+30, ASPD+5%, Player resist+5% |
@@ -328,7 +330,7 @@ MVP pet stat mapping:
 | `B_CHEN` | `B_Chen_Egg` | 10% chance to inflict common statuses, Player resist+5% |
 | `MEDJAY` | `Medjay_Egg` | Physical attacks can grant boss physical damage+100% and Perfect Dodge+50, HP+1000, move speed+30%, Player resist+20% |
 | `CP_HEKA` | `Cp_Heka_Egg` | Magic attacks can grant boss magic damage+100% and Perfect Dodge+50, HP+1000, move speed+30%, Player resist+20% |
-| `MEDJED` | `Medjed_Egg` | Critical+100, critical damage+30%, Stun on attack, HP+1000, move speed+30%, Player resist+20% |
+| `MEDJED` | `Medjed_Egg` | Critical+100, critical damage+30%, self Stun on attack, HP+1000, move speed+30%, Player resist+20% |
 | `SPIRIT_R_FLAME_SL` | `Spirit_R_Flame_Sl_Egg` | ATK+150, melee+5%, ranged+10%, HP+1000, move speed+30%, Player resist+20% |
 | `SPIRIT_I_WATER_M` | `Spirit_I_Water_M_Egg` | MATK+300, MATK+20%, cast time-30%, delay-30%, HP+1000, move speed+30%, Player resist+20% |
 | `SPIRIT_S_WIND_M` | `Spirit_S_Wind_M_Egg` | HP+50%, DEF-30%, MDEF-30%, HP+1000, move speed+30%, Player resist+20% |

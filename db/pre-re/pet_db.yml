@@ -2255,7 +2255,7 @@ Body:
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus2 bResEff,Eff_Stun,5000;
-        bonus2 bAddEff,Eff_Freeze,10000;
+        bonus2 bAddEff2,Eff_Freeze,10000;
         bonus2 bSubRace,RC_DemiHuman,5;
         bonus2 bSubRace,RC_Player_Human,5;
       }
@@ -2276,9 +2276,8 @@ Body:
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus2 bAddClass,Class_Boss,40;
-        bonus2 bComaRace,RC_DemiHuman,10;
-        bonus2 bComaRace,RC_Player_Human,10;
-        bonus2 bAddEff,Eff_Curse,10000;
+        bonus2 bAddEff2,SC_COMA,100;
+        bonus2 bAddEff2,Eff_Curse,10000;
         bonus2 bSubRace,RC_DemiHuman,5;
         bonus2 bSubRace,RC_Player_Human,5;
       }
@@ -2408,7 +2407,7 @@ Body:
       petloot 100;
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
-        autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
+        petautobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
         bonus bMaxHP,1000;
         bonus bSpeedAddRate,30;
         bonus2 bSubRace,RC_DemiHuman,20;
@@ -2430,7 +2429,7 @@ Body:
       petloot 100;
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
-        autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
+        petautobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
         bonus bMaxHP,1000;
         bonus bSpeedAddRate,30;
         bonus2 bSubRace,RC_DemiHuman,20;
@@ -2454,7 +2453,7 @@ Body:
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus bCritical,100;
         bonus bCritAtkRate,30;
-        bonus2 bAddEff,Eff_Stun,10000;
+        bonus2 bAddEff2,Eff_Stun,10000;
         bonus bMaxHP,1000;
         bonus bSpeedAddRate,30;
         bonus2 bSubRace,RC_DemiHuman,20;
