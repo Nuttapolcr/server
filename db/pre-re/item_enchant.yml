@@ -12,7 +12,7 @@ Body:
       Rare_Ranged_Armor: true
       Rare_Magic_Armor: true
       Rare_Defense_Armor: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -229,7 +229,7 @@ Body:
       Epic_Ranged_Armor: true
       Epic_Magic_Armor: true
       Epic_Defense_Armor: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -404,7 +404,7 @@ Body:
       Legend_Ranged_Armor: true
       Legend_Magic_Armor: true
       Legend_Defense_Armor: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -572,7 +572,7 @@ Body:
       Rare_Ranged_Muffler: true
       Rare_Magic_Muffler: true
       Rare_Defense_Muffler: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -779,7 +779,7 @@ Body:
       Epic_Ranged_Muffler: true
       Epic_Magic_Muffler: true
       Epic_Defense_Muffler: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -946,7 +946,7 @@ Body:
       Legend_Ranged_Muffler: true
       Legend_Magic_Muffler: true
       Legend_Defense_Muffler: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -1074,7 +1074,7 @@ Body:
       Rare_Ranged_Boots: true
       Rare_Magic_Boots: true
       Rare_Defense_Boots: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -1265,7 +1265,7 @@ Body:
       Epic_Ranged_Boots: true
       Epic_Magic_Boots: true
       Epic_Defense_Boots: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -1412,7 +1412,7 @@ Body:
       Legend_Ranged_Boots: true
       Legend_Magic_Boots: true
       Legend_Defense_Boots: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -1582,7 +1582,7 @@ Body:
       Up_Humma_Clear: true
       Up_Crimson_Rose: true
       Up_Blessed_Knife: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -1791,7 +1791,7 @@ Body:
       Adulter_F_C_Humma: true
       Adulter_F_Revolver: true
       Adulter_F_G_Sword: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -1980,7 +1980,7 @@ Body:
       Sinister_Huuma: true
       Sinister_Revolver: true
       Sinister_Saber_J: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -2193,7 +2193,7 @@ Body:
       Rare_Ranged_Ring: true
       Rare_Magic_Ring: true
       Rare_Defense_Ring: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -2390,7 +2390,7 @@ Body:
       Epic_Ranged_Ring: true
       Epic_Magic_Ring: true
       Epic_Defense_Ring: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
@@ -2559,7 +2559,7 @@ Body:
       Legend_Ranged_Ring: true
       Legend_Magic_Ring: true
       Legend_Defense_Ring: true
-    MinimumRefine: 15
+    MinimumRefine: 0
     Reset:
       Chance: 100000
       Price: 100000
