@@ -63,7 +63,7 @@ dali02,43,129,5	script	Unpleasant Royal Guard#	4_M_SAKRAYROYAL,{
 }
 
 dali02,40,134,5	script	Interdimensional Device#dk	PORTAL,{
-	if (BaseLevel < 120) {
+	if (BaseLevel < 1) {
 		mes "[Unpleasant Royal Guard]";
 		mes "แม้ฉันจะต้องการความช่วยเหลือ แต่คุณไม่แข็งแกร่งพอที่จะช่วยได้ โนวิ้ส~!";
 		next;

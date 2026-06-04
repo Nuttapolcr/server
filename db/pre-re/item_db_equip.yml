@@ -2229,6 +2229,8 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 1
     Refineable: true
+    Script: |
+      bonus bAtkRate, 100;
   - Id: 1202
     AegisName: Knife_
     Name: Knife

@@ -100,7 +100,7 @@ payon,161,54,3	script	Exotic Merchant#pa0829	4W_M_03,{
 		mes "สัมภาระของคุณหนักเกินไปที่จะดำเนินการต่อ ลองอีกครั้งหลังจากลดน้ำหนัก";
 		close;
 	}
-	if (BaseLevel < 140) {
+	if (BaseLevel < 1) {
 		mes "[Sergio]";
 		mes "Fortune or fame is not important. The most important thing is family.";
 		next;
@@ -167,12 +167,12 @@ payon,161,50,1	script	Strong Looking Man#pa829	4_M_ORIENT01,{
 		mes "สัมภาระของคุณหนักเกินไปที่จะดำเนินการต่อ ลองอีกครั้งหลังจากลดน้ำหนัก";
 		close;
 	}
-	if (BaseLevel < 140) {
+	if (BaseLevel < 1) {
 		mes "[Dol-Seoi]";
 		mes "What can I do for you?";
 		next;
 		mes "[Dol-Seoi]";
-		mes "Are you at least level 140 yet?";
+		mes "Are you at least level 1 yet?";
 		close;
 	}
 	switch( checkquest(12328,PLAYTIME) ) {
@@ -236,12 +236,12 @@ payon,139,68,4	script	A dreary man#pa0829	4_M_NFDEADMAN,{
 		mes "สัมภาระของคุณหนักเกินไปที่จะดำเนินการต่อ ลองอีกครั้งหลังจากลดน้ำหนัก";
 		close;
 	}
-	if (BaseLevel < 140) {
+	if (BaseLevel < 1) {
 		mes "[Keaton]";
 		mes "...";
 		next;
 		mes "[Keaton]";
-		mes "Unless you're level 140, I won't have a real conversation with you.";
+		mes "Unless you're level 1, I won't have a real conversation with you.";
 		close;
 	}
 	switch( checkquest(12329,PLAYTIME) ) {

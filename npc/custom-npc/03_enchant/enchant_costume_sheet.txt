@@ -4,7 +4,7 @@
 =================================================================
 */
 
-morocc,139,147,4	script	NPC Option Costume	812,{
+morocc,139,147,4	script	NPC Option Costume	749,{
 Start:
 	
 	disable_items;

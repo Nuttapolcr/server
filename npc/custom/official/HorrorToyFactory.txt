@@ -177,7 +177,7 @@ xmas,233,305,4	script	Factory Dimension Telep	PORTAL,{
 		mes "There are some work study programs as monster workers during the Horror Toy Factory tour. Therefore, ^ff0000you are unable to enter when you are transformed.^000000";
 		close;
 	}
-	if (BaseLevel < 140) {
+	if (BaseLevel < 1) {
 		mes "[Factory Dimension Teleporter]";
 		mes "คุณไม่มีคุณสมบัติสำหรับการเลื่อนมิติ คุณควรเป็นอย่างน้อย Lv.140";
 		close;

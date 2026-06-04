@@ -7709,6 +7709,12 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 		ratio = battle_calc_attack_skill_ratio(&wd, src, target, skill_id, skill_lv); // skill level ratios
 
 		ATK_RATE(wd.damage, wd.damage2, ratio);
+
+		// bAtkRate: flat ATK +n% based on the normal-attack ATK (wd.basedamage), added
+		// after the skill ratio so it is NOT amplified by skill multipliers.
+		// (Renewal handles atk_rate via percentAtk; this is a pre-renewal-only flat variant.)
+		if (sd && sd->bonus.atk_rate)
+			ATK_ADD(wd.damage, wd.damage2, wd.basedamage * sd->bonus.atk_rate / 100);
 #endif
 
 		int64 bonus_damage = battle_calc_skill_constant_addition(&wd, src, target, skill_id, skill_lv); // other skill bonuses
