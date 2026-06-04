@@ -2407,7 +2407,7 @@ Body:
       petloot 100;
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
-        petautobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
+        petautobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
         bonus bMaxHP,1000;
         bonus bSpeedAddRate,30;
         bonus2 bSubRace,RC_DemiHuman,20;
@@ -2429,7 +2429,7 @@ Body:
       petloot 100;
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
-        petautobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",1000,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
+        petautobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
         bonus bMaxHP,1000;
         bonus bSpeedAddRate,30;
         bonus2 bSubRace,RC_DemiHuman,20;
