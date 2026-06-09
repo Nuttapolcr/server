@@ -24044,3 +24044,659 @@ Body:
     Type: Etc
     Buy: 2
     Weight: 10
+  - Id: 1000520
+    AegisName: ASPDStone_Robe_D
+    Name: ASPD Stone(Dual)
+    Type: Etc
+    Weight: 100
+  - Id: 1000855
+    AegisName: CriticalStone_Robe_D
+    Name: Critical Stone (Dual)
+    Type: Etc
+    Weight: 100
+  - Id: 1000526
+    AegisName: HPdrainStone_Robe_D
+    Name: HP Absorbtion Stone(Dual)
+    Type: Etc
+    Weight: 100
+  - Id: 1000527
+    AegisName: Magic_Stone_Robe_D
+    Name: Magic Power Stone(Dual)
+    Type: Etc
+    Weight: 100
+  - Id: 1000524
+    AegisName: Melee_Stone_Robe_D
+    Name: Melee Stone(Dual)
+    Type: Etc
+    Weight: 100
+  - Id: 1000521
+    AegisName: MinorCastStone_Robe_D
+    Name: Minor Casting Stone (Dual)
+    Type: Etc
+    Weight: 100
+  - Id: 1000523
+    AegisName: Range_Stone_Robe_D
+    Name: Range Stone (Dual)
+    Type: Etc
+    Weight: 100
+  - Id: 1000525
+    AegisName: SPdrainStone_Robe_D
+    Name: SP Absorption Stone (Dual)
+    Type: Etc
+    Weight: 100
+  - Id: 1000522
+    AegisName: CastStone_Robe_D
+    Name: Variable Casting Stone(Dual)
+    Type: Etc
+    Weight: 100
+  - Id: 6908
+    AegisName: ASPDStone_Robe
+    Name: Stone ASPD (Garment)
+    Type: Card
+    Buy: 20
+    Weight: 100
+    Script: |
+      bonus bAspd,1;
+  - Id: 25067
+    AegisName: CastingStone_Robe
+    Name: Casting Stone (Garment)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 25303
+    AegisName: Critical_Stone_Robe
+    Name: Critical Stone (Garment)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25302
+    AegisName: DoubleAttack_Stone
+    Name: Double Attack Stone (Garment)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 6963
+    AegisName: HPdrainStone_Robe
+    Name: HP Absorption Stone (Garment)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 25170
+    AegisName: MinorCastingStone_Robe
+    Name: Minor Casting Stone (Garment)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 6964
+    AegisName: SPdrainStone_Robe
+    Name: SP Absorption Stone (Garment)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 25306
+    AegisName: CastStone_Robe
+    Name: Variable Casting Stone (Garment)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000224
+    AegisName: AssacrossStone_Bottom2
+    Name: Assassin Cross Stone II (Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 25716
+    AegisName: AssacrossStone_Bottom
+    Name: Assassin Cross Stone (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25798
+    AegisName: SuraStone_Bottom2
+    Name: Sura Stone II (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25411
+    AegisName: SuraStone_Bottom
+    Name: Champion Stone (Lower)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000307
+    AegisName: WanderMinsStone_Bottom2
+    Name: Clown Gypsy Stone II (Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 25500
+    AegisName: WanderMinstStone_Bottom
+    Name: Clown Gypsy Stone (Lower)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000303
+    AegisName: GeneticStone_Bottom2
+    Name: Creator Stone II (Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 25452
+    AegisName: GeneticStone_Bottom
+    Name: Creator Stone (Lower)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25305
+    AegisName: Critical_Stone_Bottom
+    Name: Critical Stone (Bottom)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25861
+    AegisName: DoramStone_Bottom
+    Name: Doram Stone (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25062
+    AegisName: Greed_Stone
+    Name: Greed Stone (Lower)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 25857
+    AegisName: GunslingerStone_Bottom
+    Name: Gunslinger Stone (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25227
+    AegisName: Heal_Stone
+    Name: Heal Stone (Bottom)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000018
+    AegisName: HighpriestStone_Bottom2
+    Name: High Priest Stone II (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25708
+    AegisName: HighpriestStone_Bottom
+    Name: High Priest Stone (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 1000216
+    AegisName: WarlockStone_Bottom2
+    Name: High Wizard Stone II (Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 25455
+    AegisName: WarlockStone_Bottom
+    Name: High Wizard Stone (Lower)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25072
+    AegisName: Kyrie_Stone
+    Name: Kyrie Stone (Lower)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 1000299
+    AegisName: RuneknightStone_Bottom2
+    Name: Lord Knight Stone II (Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 25447
+    AegisName: RuneknightStone_Bottom
+    Name: Lord Knight Stone (Lower)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000379
+    AegisName: Melee_Stone_Bottom
+    Name: Melee Stone (Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 25852
+    AegisName: NinjaStone_Bottom
+    Name: Ninja Stone (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 1000220
+    AegisName: PaladinStone_Bottom2
+    Name: Paladin Stone II (Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 25712
+    AegisName: PaladinStone_Bottom
+    Name: Paladin Stone (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25802
+    AegisName: SorcererStone_Bottom2
+    Name: Sorcerer Stone II (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25419
+    AegisName: SorcererStone_Bottom
+    Name: Scholar Stone (Lower)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000376
+    AegisName: Range_Stone_Bottom
+    Name: Ranged Stone (Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 25066
+    AegisName: Recovery_Stone
+    Name: Recovery Stone (Lower)
+    Type: Card
+    Buy: 20
+    Weight: 100
+  - Id: 25071
+    AegisName: ReloadStone_Bottom
+    Name: Reload Stone (Lower)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 25845
+    AegisName: SoullinkerStone_Bottom
+    Name: Soul Linker Stone (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25806
+    AegisName: ShadowchasStone_Bottom2
+    Name: Shadow Chaser Stone II (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25492
+    AegisName: ShadowchaseStone_Bottom
+    Name: Stalker Stone (Lower)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25848
+    AegisName: GladiatorStone_Bottom
+    Name: Star Gladiator Stone (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25228
+    AegisName: Teleport_Stone
+    Name: Teleport Stone (Bottom)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25174
+    AegisName: CastingStone_Bottom
+    Name: Variable Casting Stone (Bottom)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000014
+    AegisName: MechanicStone_Bottom2
+    Name: Whitesmith Stone II (Bottom)
+    Type: Etc
+    Weight: 100
+  - Id: 25496
+    AegisName: MechanicStone_Bottom
+    Name: Mastersmith Stone (Lower)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000223
+    AegisName: AssacrossStone_Middle2
+    Name: Assassin Cross Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25715
+    AegisName: AssacrossStone_Middle
+    Name: Assassin Cross Stone (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25799
+    AegisName: SuraStone_Middle2
+    Name: Sura Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25410
+    AegisName: SuraStone_Middle
+    Name: Champion Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000306
+    AegisName: WanderMinsStone_Middle2
+    Name: Clown Gypsy Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25499
+    AegisName: WanderMinstStone_Middle
+    Name: Clown Gypsy Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000302
+    AegisName: GeneticStone_Middle2
+    Name: Creator Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25451
+    AegisName: GeneticStone_Middle
+    Name: Creator Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25060
+    AegisName: Critical_Stone
+    Name: Critical Stone (Middle)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 25860
+    AegisName: DoramStone_Middle
+    Name: Doram Stone (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25856
+    AegisName: GunslingerStone_Middle
+    Name: Gunslinger Stone (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 1000017
+    AegisName: HighpriestStone_Middle2
+    Name: High Priest Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25707
+    AegisName: HighpriestStone_Middle
+    Name: High Priest Stone (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 1000215
+    AegisName: WarlockStone_Middle2
+    Name: High Wizard Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25454
+    AegisName: WarlockStone_Middle
+    Name: High Wizard Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25175
+    AegisName: LexAeternaStone_Middle
+    Name: Lex Aeterna Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000298
+    AegisName: RuneknightStone_Middle2
+    Name: Lord Knight Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25446
+    AegisName: RuneknightStone_Middle
+    Name: Lord Knight Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000378
+    AegisName: Melee_Stone_Middle
+    Name: Melee Stone (Mid)
+    Type: Etc
+    Weight: 100
+  - Id: 25851
+    AegisName: NinjaStone_Middle
+    Name: Ninja Stone (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 1000219
+    AegisName: PaladinStone_Middle2
+    Name: Paladin Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25711
+    AegisName: PaladinStone_Middle
+    Name: Paladin Stone (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25803
+    AegisName: SorcererStone_Middle2
+    Name: Sorcerer Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25418
+    AegisName: SorcererStone_Middle
+    Name: Scholar Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25061
+    AegisName: Range_Stone
+    Name: Range Stone (Middle)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 25070
+    AegisName: ReloadStone_Middle
+    Name: Reload Stone (Middle)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 25844
+    AegisName: SoullinkerStone_Middle
+    Name: Soul Linker Stone (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25807
+    AegisName: ShadowchasStone_Middle2
+    Name: Shadow Chaser Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25491
+    AegisName: ShadowchaseStone_Middle
+    Name: Stalker Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25847
+    AegisName: GladiatorStone_Middle
+    Name: Star Gladiator Stone (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25173
+    AegisName: CastingStone_Middle
+    Name: Variable Casting Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000013
+    AegisName: MechanicStone_Middle2
+    Name: Whitesmith Stone II (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 25495
+    AegisName: MechanicStone_Middle
+    Name: Mastersmith Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25068
+    AegisName: ASPDStone_Top
+    Name: ASPD Stone (Upper)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 1000222
+    AegisName: AssacrossStone_Top2
+    Name: Assassin Cross Stone II (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25714
+    AegisName: AssacrossStone_Top
+    Name: Assassin Cross Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25800
+    AegisName: SuraStone_Top2
+    Name: Sura Stone II (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25409
+    AegisName: SuraStone_Top
+    Name: Champion Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000305
+    AegisName: WanderMinsStone_Top2
+    Name: Clown Gypsy Stone II (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25498
+    AegisName: WanderMinstrelStone_Top
+    Name: Clown Gypsy Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000301
+    AegisName: GeneticStone_Top2
+    Name: Creator Stone II (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25450
+    AegisName: GeneticStone_Top
+    Name: Creator Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25304
+    AegisName: Critical_Stone_Top
+    Name: Critical Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25859
+    AegisName: DoramStone_Top
+    Name: Doram Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25855
+    AegisName: GunslingerStone_Top
+    Name: Gunslinger Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 1000016
+    AegisName: HighpriestStone_Top2
+    Name: High Priest Stone II (Top)
+    Type: Etc
+    Weight: 100
+  - Id: 25706
+    AegisName: HighpriestStone_Top
+    Name: High Priest Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 1000214
+    AegisName: WarlockStone_Top2
+    Name: High Wizard Stone II (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25453
+    AegisName: WarlockStone_Top
+    Name: High Wizard Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000297
+    AegisName: RuneknightStone_Top2
+    Name: Lord Knight Stone II (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25445
+    AegisName: RuneknightStone_Top
+    Name: Lord Knight Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000377
+    AegisName: Melee_Stone_Top
+    Name: Melee Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25850
+    AegisName: NinjaStone_Top
+    Name: Ninja Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 1000218
+    AegisName: PaladinStone_Top2
+    Name: Paladin Stone II (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25710
+    AegisName: PaladinStone_Top
+    Name: Paladin Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25804
+    AegisName: SorcererStone_Top2
+    Name: Sorcerer Stone II (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25417
+    AegisName: SorcererStone_Top
+    Name: Scholar Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000375
+    AegisName: Range_Stone_Top
+    Name: Ranged Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25069
+    AegisName: ReloadStone_Top
+    Name: Reload Stone (Upper)
+    Type: Etc
+    Buy: 10
+    Weight: 100
+  - Id: 25843
+    AegisName: SoullinkerStone_Top
+    Name: Soul Linker Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25000
+    AegisName: SPdrainStone_Top
+    Name: SP Absorption Stone(Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25808
+    AegisName: ShadowchaserStone_Top2
+    Name: Shadow Chaser Stone II (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25490
+    AegisName: ShadowchaserStone_Top
+    Name: Stalker Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25846
+    AegisName: GladiatorStone_Top
+    Name: Star Gladiator Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 25172
+    AegisName: CastingStone_Top
+    Name: Variable Casting Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000012
+    AegisName: MechanicStone_Top2
+    Name: Whitesmith Stone II (Top)
+    Type: Etc
+    Weight: 100
+  - Id: 25494
+    AegisName: MechanicStone_Top
+    Name: Mastersmith Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
