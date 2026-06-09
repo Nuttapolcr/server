@@ -82368,6 +82368,168 @@ QuestInfoList = {
 			"Wait for the timer before purchasing another raffle ticket"
 		},
 		Summary = ""
+	},
+	[71020] = {
+		Title = "เควสต์รายวัน I",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: ส่ง Turtle Shell (967) 300 ชิ้น, Crystal Mirror (747) 30 ชิ้น และ Witherless Rose (748) 20 ชิ้น.",
+			"เงื่อนไขเพิ่มเติม: กำจัดบอส 1 ตัว.",
+			"รางวัล: Fragment Stone (1000373) 10 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันเวลาเที่ยงคืน."
+		},
+		Summary = "ส่งของและกำจัดบอส 1 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71021] = {
+		Title = "เควสต์รายวัน II",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 1,000 ตัว.",
+			"เงื่อนไขเพิ่มเติม: กำจัดบอส 1 ตัว.",
+			"รางวัล: Fragment Stone (1000373) 20 ชิ้น และ [Rare] Jewel (NT) (1000401) 5 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันเวลาเที่ยงคืน."
+		},
+		Summary = "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 1,000 ตัว และบอส 1 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71022] = {
+		Title = "เควสต์รายวัน III",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 3,000 ตัว.",
+			"เงื่อนไขเพิ่มเติม: กำจัดบอส 3 ตัว.",
+			"รางวัล: Fragment Stone (1000373) 20 ชิ้น และ [Rare] Jewel (NT) (1000401) 10 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันเวลาเที่ยงคืน."
+		},
+		Summary = "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 3,000 ตัว และบอส 3 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71023] = {
+		Title = "เควสต์รายวัน IV",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 1,000 ตัว.",
+			"เงื่อนไขเพิ่มเติม: กำจัดบอส 3 ตัว.",
+			"รางวัล: Fragment Stone (1000373) 30 ชิ้น และ [Rare] Jewel (NT) (1000401) 5 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันเวลาเที่ยงคืน."
+		},
+		Summary = "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 1,000 ตัว และบอส 3 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71024] = {
+		Title = "เควสต์รายวัน V",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 3,000 ตัว.",
+			"เงื่อนไขเพิ่มเติม: กำจัดบอส 5 ตัว.",
+			"รางวัล: Fragment Stone (1000373) 30 ชิ้น และ [Rare] Jewel (NT) (1000401) 10 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันเวลาเที่ยงคืน."
+		},
+		Summary = "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 3,000 ตัว และบอส 5 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71025] = {
+		Title = "เควสต์รายวัน Hardcore",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: ส่ง Bloody Rune (7563) 300 ชิ้น และ Suspicious Hat (7567) 300 ชิ้น.",
+			"เงื่อนไขเพิ่มเติม: กำจัดบอส 20 ตัว.",
+			"รางวัล: [Rare] Jewel (NT) (1000401) 50 ชิ้น, Con Spell (6608) 50 ชิ้น และบัตรวาปบอส (NT) (1000603) 5 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันเวลาเที่ยงคืน."
+		},
+		Summary = "ส่งของและกำจัดบอส 20 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71026] = {
+		Title = "เควสต์รายสัปดาห์ I",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัด Kasa (1833) 1,000 ตัว และ Salamander (1831) 1,000 ตัว.",
+			"รางวัล: Fragment Stone (1000373) 50 ชิ้น และ [Rare] Jewel (NT) (1000401) 25 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันจันทร์เวลา 00:01 น."
+		},
+		Summary = "กำจัด Kasa 1,000 ตัว และ Salamander 1,000 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71027] = {
+		Title = "เควสต์รายสัปดาห์ II",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัด Kasa (1833) 2,000 ตัว และ Salamander (1831) 2,000 ตัว.",
+			"รางวัล: Fragment Stone (1000373) 50 ชิ้น และ [Rare] Jewel (NT) (1000401) 25 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันจันทร์เวลา 00:01 น."
+		},
+		Summary = "กำจัด Kasa 2,000 ตัว และ Salamander 2,000 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71028] = {
+		Title = "เควสต์รายสัปดาห์ III",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัด Cecil (1638), Eremes (1635), Sorin (1637), Kathryne (1639), Seyren (1634) และ Harword (1636) อย่างละ 500 ตัว.",
+			"รางวัล: Fragment Stone (1000373) 50 ชิ้น และ [Rare] Jewel (NT) (1000401) 25 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันจันทร์เวลา 00:01 น."
+		},
+		Summary = "กำจัดมอนสเตอร์เป้าหมาย 6 ชนิด อย่างละ 500 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71029] = {
+		Title = "เควสต์รายสัปดาห์ IV",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัด Cecil (1638), Eremes (1635), Sorin (1637), Kathryne (1639), Seyren (1634) และ Harword (1636) อย่างละ 1,000 ตัว.",
+			"รางวัล: Fragment Stone (1000373) 70 ชิ้น และ [Rare] Jewel (NT) (1000401) 35 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันจันทร์เวลา 00:01 น."
+		},
+		Summary = "กำจัดมอนสเตอร์เป้าหมาย 6 ชนิด อย่างละ 1,000 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71030] = {
+		Title = "เควสต์รายสัปดาห์ V",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัดบอส 100 ตัว.",
+			"รางวัล: [Rare] Jewel (NT) (1000401) 100 ชิ้น, Con Spell (6608) 300 ชิ้น และบัตรวาปบอส (NT) (1000603) 20 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันจันทร์เวลา 00:01 น."
+		},
+		Summary = "กำจัดบอส 100 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
+	},
+	[71031] = {
+		Title = "เควสต์รายสัปดาห์ Hardcore",
+		Description = {
+			"รับเควสต์จาก <NAVI>[NPC Daily-Weekly Quest]<INFO>morocc,160,150,0,101,0</INFO></NAVI> ที่เมือง Morocc.",
+			"เงื่อนไข: กำจัดบอส 200 ตัว และกำจัดบอสไททันกลางเมือง 1 ตัว.",
+			"รางวัล: [Rare] Jewel (NT) (1000401) 150 ชิ้น, Con Spell (6608) 400 ชิ้น และบัตรวาปบอส (NT) (1000603) 30 ชิ้น.",
+			"เควสต์นี้รีเซตทุกวันจันทร์เวลา 00:01 น."
+		},
+		Summary = "กำจัดบอส 200 ตัว และบอสไททันกลางเมือง 1 ตัว",
+		NpcNavi = "morocc",
+		NpcPosX = 160,
+		NpcPosY = 150
 	}
 }
 

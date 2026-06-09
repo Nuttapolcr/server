@@ -683,17 +683,17 @@ Body:
                 Chance: 3846
               - Item: PlayerTolerance1
                 Chance: 3846
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 3846
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 3846
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 3846
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 3846
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 3846
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 3846
           - Enchantgrade: 1
             Items:
@@ -737,17 +737,17 @@ Body:
                 Chance: 3846
               - Item: PlayerTolerance1
                 Chance: 3846
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 3846
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 3846
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 3846
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 3846
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 3846
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 3846
           - Enchantgrade: 2
             Items:
@@ -791,17 +791,17 @@ Body:
                 Chance: 3846
               - Item: PlayerTolerance1
                 Chance: 3846
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 3846
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 3846
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 3846
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 3846
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 3846
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 3846
           - Enchantgrade: 3
             Items:
@@ -845,17 +845,17 @@ Body:
                 Chance: 3846
               - Item: PlayerTolerance1
                 Chance: 3846
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 3846
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 3846
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 3846
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 3846
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 3846
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 3846
           - Enchantgrade: 4
             Items:
@@ -899,17 +899,17 @@ Body:
                 Chance: 3846
               - Item: PlayerTolerance1
                 Chance: 3846
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 3846
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 3846
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 3846
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 3846
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 3846
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 3846
   - Id: 1001
     TargetItems:
@@ -1430,13 +1430,13 @@ Body:
                 Chance: 5000
               - Item: Dynast
                 Chance: 5000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5000
           - Enchantgrade: 1
             Items:
@@ -1472,13 +1472,13 @@ Body:
                 Chance: 5000
               - Item: Dynast
                 Chance: 5000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5000
           - Enchantgrade: 2
             Items:
@@ -1514,13 +1514,13 @@ Body:
                 Chance: 5000
               - Item: Dynast
                 Chance: 5000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5000
           - Enchantgrade: 3
             Items:
@@ -1556,13 +1556,13 @@ Body:
                 Chance: 5000
               - Item: Dynast
                 Chance: 5000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5000
           - Enchantgrade: 4
             Items:
@@ -1598,13 +1598,13 @@ Body:
                 Chance: 5000
               - Item: Dynast
                 Chance: 5000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5000
   - Id: 1002
     TargetItems:
@@ -1981,9 +1981,9 @@ Body:
                 Chance: 6250
               - Item: Dynast
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
           - Enchantgrade: 1
             Items:
@@ -2015,9 +2015,9 @@ Body:
                 Chance: 6250
               - Item: Dynast
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
           - Enchantgrade: 2
             Items:
@@ -2049,9 +2049,9 @@ Body:
                 Chance: 6250
               - Item: Dynast
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
           - Enchantgrade: 3
             Items:
@@ -2083,9 +2083,9 @@ Body:
                 Chance: 6250
               - Item: Dynast
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
           - Enchantgrade: 4
             Items:
@@ -2117,9 +2117,9 @@ Body:
                 Chance: 6250
               - Item: Dynast
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
         PerfectEnchants:
           - Item: Hero
@@ -2143,7 +2143,7 @@ Body:
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
-          - Item: PlayerTolerance7
+          - Item: aegis_313269
             Price: 0
             Materials:
               - Material: aegis_1001719
@@ -2536,13 +2536,13 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4347
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4347
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
           - Enchantgrade: 1
             Items:
@@ -2584,13 +2584,13 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4347
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4347
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
           - Enchantgrade: 2
             Items:
@@ -2632,13 +2632,13 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4347
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4347
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
           - Enchantgrade: 3
             Items:
@@ -2680,13 +2680,13 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4347
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4347
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
           - Enchantgrade: 4
             Items:
@@ -2728,13 +2728,13 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4347
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4347
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
       - Slot: 1
         Price: 0
@@ -3307,13 +3307,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 6250
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
           - Enchantgrade: 1
             Items:
@@ -3341,13 +3341,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 6250
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
           - Enchantgrade: 2
             Items:
@@ -3375,13 +3375,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 6250
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
           - Enchantgrade: 3
             Items:
@@ -3409,13 +3409,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 6250
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
           - Enchantgrade: 4
             Items:
@@ -3443,13 +3443,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 6250
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
       - Slot: 1
         Price: 0
@@ -3840,9 +3840,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 12500
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 12500
           - Enchantgrade: 1
             Items:
@@ -3858,9 +3858,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 12500
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 12500
           - Enchantgrade: 2
             Items:
@@ -3876,9 +3876,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 12500
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 12500
           - Enchantgrade: 3
             Items:
@@ -3894,9 +3894,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 12500
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 12500
           - Enchantgrade: 4
             Items:
@@ -3912,9 +3912,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 12500
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 12500
       - Slot: 1
         Price: 0
@@ -4125,17 +4125,17 @@ Body:
                 Chance: 4000
               - Item: PlayerTolerance1
                 Chance: 4000
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4000
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4000
           - Enchantgrade: 1
             Items:
@@ -4177,17 +4177,17 @@ Body:
                 Chance: 4000
               - Item: PlayerTolerance1
                 Chance: 4000
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4000
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4000
           - Enchantgrade: 2
             Items:
@@ -4229,17 +4229,17 @@ Body:
                 Chance: 4000
               - Item: PlayerTolerance1
                 Chance: 4000
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4000
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4000
           - Enchantgrade: 3
             Items:
@@ -4281,17 +4281,17 @@ Body:
                 Chance: 4000
               - Item: PlayerTolerance1
                 Chance: 4000
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4000
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4000
           - Enchantgrade: 4
             Items:
@@ -4333,17 +4333,17 @@ Body:
                 Chance: 4000
               - Item: PlayerTolerance1
                 Chance: 4000
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4000
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4000
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4000
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4000
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4000
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4000
       - Slot: 2
         Price: 0
@@ -4910,13 +4910,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
           - Enchantgrade: 1
             Items:
@@ -4944,13 +4944,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
           - Enchantgrade: 2
             Items:
@@ -4978,13 +4978,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
           - Enchantgrade: 3
             Items:
@@ -5012,13 +5012,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
           - Enchantgrade: 4
             Items:
@@ -5046,13 +5046,13 @@ Body:
                 Chance: 6250
               - Item: Luck4
                 Chance: 6250
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 6250
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 6250
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 6250
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 6250
       - Slot: 2
         Price: 0
@@ -5477,9 +5477,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
           - Enchantgrade: 1
             Items:
@@ -5495,9 +5495,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
           - Enchantgrade: 2
             Items:
@@ -5513,9 +5513,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
           - Enchantgrade: 3
             Items:
@@ -5531,9 +5531,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
           - Enchantgrade: 4
             Items:
@@ -5549,9 +5549,9 @@ Body:
                 Chance: 12500
               - Item: Luck6
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
       - Slot: 2
         Price: 0
@@ -6246,17 +6246,17 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4348
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4348
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4347
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4347
           - Enchantgrade: 1
             Items:
@@ -6294,17 +6294,17 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4348
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4348
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4347
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4347
           - Enchantgrade: 2
             Items:
@@ -6342,17 +6342,17 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4348
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4348
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4347
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4347
           - Enchantgrade: 3
             Items:
@@ -6390,17 +6390,17 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4348
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4348
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4347
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4347
           - Enchantgrade: 4
             Items:
@@ -6438,17 +6438,17 @@ Body:
                 Chance: 4348
               - Item: PlayerTolerance1
                 Chance: 4348
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4348
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4348
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 4347
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 4347
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 4347
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 4347
       - Slot: 1
         Price: 0
@@ -7005,15 +7005,15 @@ Body:
                 Chance: 5555
               - Item: aegis_313253
                 Chance: 5555
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 5555
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5555
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5555
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5555
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5555
               - Item: Murderous_Grudge
                 Chance: 5555
@@ -7043,15 +7043,15 @@ Body:
                 Chance: 5555
               - Item: aegis_313253
                 Chance: 5555
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 5555
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5555
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5555
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5555
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5555
               - Item: Murderous_Grudge
                 Chance: 5555
@@ -7081,15 +7081,15 @@ Body:
                 Chance: 5555
               - Item: aegis_313253
                 Chance: 5555
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 5555
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5555
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5555
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5555
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5555
               - Item: Murderous_Grudge
                 Chance: 5555
@@ -7119,15 +7119,15 @@ Body:
                 Chance: 5555
               - Item: aegis_313253
                 Chance: 5555
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 5555
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5555
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5555
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5555
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5555
               - Item: Murderous_Grudge
                 Chance: 5555
@@ -7157,15 +7157,15 @@ Body:
                 Chance: 5555
               - Item: aegis_313253
                 Chance: 5555
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 5555
-              - Item: PlayerTolerance4
+              - Item: aegis_313266
                 Chance: 5555
-              - Item: PlayerTolerance5
+              - Item: aegis_313267
                 Chance: 5555
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5555
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5555
               - Item: Murderous_Grudge
                 Chance: 5555
@@ -7630,9 +7630,9 @@ Body:
                 Chance: 12500
               - Item: aegis_313253
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
               - Item: Murderous_Grudge
                 Chance: 12500
@@ -7648,9 +7648,9 @@ Body:
                 Chance: 12500
               - Item: aegis_313253
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
               - Item: Murderous_Grudge
                 Chance: 12500
@@ -7666,9 +7666,9 @@ Body:
                 Chance: 12500
               - Item: aegis_313253
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
               - Item: Murderous_Grudge
                 Chance: 12500
@@ -7684,9 +7684,9 @@ Body:
                 Chance: 12500
               - Item: aegis_313253
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
               - Item: Murderous_Grudge
                 Chance: 12500
@@ -7702,9 +7702,9 @@ Body:
                 Chance: 12500
               - Item: aegis_313253
                 Chance: 12500
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 12500
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 12500
               - Item: Murderous_Grudge
                 Chance: 12500
@@ -7729,9 +7729,9 @@ Body:
                 Chance: 5883
               - Item: aegis_313253
                 Chance: 5883
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5883
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5882
               - Item: Murderous_Grudge
                 Chance: 5882
@@ -7765,9 +7765,9 @@ Body:
                 Chance: 5883
               - Item: aegis_313253
                 Chance: 5883
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5883
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5882
               - Item: Murderous_Grudge
                 Chance: 5882
@@ -7801,9 +7801,9 @@ Body:
                 Chance: 5883
               - Item: aegis_313253
                 Chance: 5883
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5883
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5882
               - Item: Murderous_Grudge
                 Chance: 5882
@@ -7837,9 +7837,9 @@ Body:
                 Chance: 5883
               - Item: aegis_313253
                 Chance: 5883
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5883
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5882
               - Item: Murderous_Grudge
                 Chance: 5882
@@ -7873,9 +7873,9 @@ Body:
                 Chance: 5883
               - Item: aegis_313253
                 Chance: 5883
-              - Item: PlayerTolerance6
+              - Item: aegis_313268
                 Chance: 5883
-              - Item: PlayerTolerance7
+              - Item: aegis_313269
                 Chance: 5882
               - Item: Murderous_Grudge
                 Chance: 5882
@@ -7898,7 +7898,7 @@ Body:
               - Item: Lucky_Day
                 Chance: 5882
         PerfectEnchants:
-          - Item: PlayerTolerance7
+          - Item: aegis_313269
             Price: 0
             Materials:
               - Material: aegis_1001719
@@ -8335,9 +8335,9 @@ Body:
                 Chance: 4762
               - Item: PlayerTolerance1
                 Chance: 4762
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4761
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4761
           - Enchantgrade: 1
             Items:
@@ -8379,9 +8379,9 @@ Body:
                 Chance: 4762
               - Item: PlayerTolerance1
                 Chance: 4762
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4761
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4761
           - Enchantgrade: 2
             Items:
@@ -8423,9 +8423,9 @@ Body:
                 Chance: 4762
               - Item: PlayerTolerance1
                 Chance: 4762
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4761
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4761
           - Enchantgrade: 3
             Items:
@@ -8467,9 +8467,9 @@ Body:
                 Chance: 4762
               - Item: PlayerTolerance1
                 Chance: 4762
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4761
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4761
           - Enchantgrade: 4
             Items:
@@ -8511,9 +8511,9 @@ Body:
                 Chance: 4762
               - Item: PlayerTolerance1
                 Chance: 4762
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 4761
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 4761
       - Slot: 1
         Price: 0
@@ -9060,9 +9060,9 @@ Body:
                 Chance: 7143
               - Item: Luck3
                 Chance: 7143
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 7142
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 7142
           - Enchantgrade: 1
             Items:
@@ -9090,9 +9090,9 @@ Body:
                 Chance: 7143
               - Item: Luck3
                 Chance: 7143
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 7142
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 7142
           - Enchantgrade: 2
             Items:
@@ -9120,9 +9120,9 @@ Body:
                 Chance: 7143
               - Item: Luck3
                 Chance: 7143
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 7142
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 7142
           - Enchantgrade: 3
             Items:
@@ -9150,9 +9150,9 @@ Body:
                 Chance: 7143
               - Item: Luck3
                 Chance: 7143
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 7142
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 7142
           - Enchantgrade: 4
             Items:
@@ -9180,9 +9180,9 @@ Body:
                 Chance: 7143
               - Item: Luck3
                 Chance: 7143
-              - Item: PlayerTolerance2
+              - Item: aegis_313264
                 Chance: 7142
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 7142
       - Slot: 1
         Price: 0
@@ -9567,7 +9567,7 @@ Body:
                 Chance: 14286
               - Item: Luck3
                 Chance: 14285
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 14285
           - Enchantgrade: 1
             Items:
@@ -9583,7 +9583,7 @@ Body:
                 Chance: 14286
               - Item: Luck3
                 Chance: 14285
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 14285
           - Enchantgrade: 2
             Items:
@@ -9599,7 +9599,7 @@ Body:
                 Chance: 14286
               - Item: Luck3
                 Chance: 14285
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 14285
           - Enchantgrade: 3
             Items:
@@ -9615,7 +9615,7 @@ Body:
                 Chance: 14286
               - Item: Luck3
                 Chance: 14285
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 14285
           - Enchantgrade: 4
             Items:
@@ -9631,7 +9631,7 @@ Body:
                 Chance: 14286
               - Item: Luck3
                 Chance: 14285
-              - Item: PlayerTolerance3
+              - Item: aegis_313265
                 Chance: 14285
       - Slot: 1
         Price: 0

@@ -1,0 +1,481 @@
+//!rathena
+// Daily / Weekly Quest NPC from sheet
+
+morocc,160,150,4	script	NPC Daily-Weekly Quest	412,{
+	callsub S_ResetExpired;
+
+	mes "[Daily-Weekly Quest]";
+	mes "เลือกภารกิจที่ต้องการได้เลย";
+	mes "Daily รีเซตทุกวันเวลาเที่ยงคืน";
+	mes "Weekly รีเซตทุกวันจันทร์เวลา 00:01 น.";
+	next;
+
+L_Main:
+	switch (select("Daily Quest:Weekly Quest:ดูสถานะภารกิจ:ยกเลิกภารกิจ:ออก")) {
+	case 1:
+		callsub S_SelectList, 0, 6;
+		goto L_Main;
+	case 2:
+		callsub S_SelectList, 6, 6;
+		goto L_Main;
+	case 3:
+		callsub S_ShowAllStatus;
+		goto L_Main;
+	case 4:
+		callsub S_CancelMenu;
+		goto L_Main;
+	default:
+		close;
+	}
+
+S_SelectList:
+	.@start = getarg(0);
+	.@count = getarg(1);
+	.@menu$ = "";
+	for (.@i = 0; .@i < .@count; .@i++) {
+		.@idx = .@start + .@i;
+		.@qid = .qid[.@idx];
+		.@status$ = "รับได้";
+		if (getd("#dwq_" + .@qid + "_done") == callsub(S_CycleKey, .@qid))
+			.@status$ = "เสร็จแล้ว";
+		else if (getd("#dwq_" + .@qid + "_active"))
+			.@status$ = "กำลังทำ";
+		.@menu$ += .title$[.@idx] + " [" + .@status$ + "]:";
+	}
+	.@menu$ += "ย้อนกลับ";
+	.@sel = select(.@menu$);
+	if (.@sel > .@count) return;
+	callsub S_QuestMenu, .qid[.@start + .@sel - 1];
+	return;
+
+S_QuestMenu:
+	.@qid = getarg(0);
+	.@key = callsub(S_CycleKey, .@qid);
+	mes "[Daily-Weekly Quest]";
+	mes "^0000FF" + callsub(S_Title, .@qid) + "^000000";
+	callsub S_ShowDetail, .@qid;
+	next;
+
+	if (getd("#dwq_" + .@qid + "_done") == .@key) {
+		mes "[Daily-Weekly Quest]";
+		mes "ภารกิจนี้ทำครบในรอบนี้แล้ว";
+		close2;
+		return;
+	}
+
+	if (!getd("#dwq_" + .@qid + "_active")) {
+		if (select("รับภารกิจนี้:ย้อนกลับ") == 2) return;
+		if (checkquest(.@qid) >= 0) erasequest .@qid;
+		setquest .@qid;
+		setd "#dwq_" + .@qid + "_active", 1;
+		setd "#dwq_" + .@qid + "_key", .@key;
+		callsub S_ClearCounters, .@qid;
+		mes "[Daily-Weekly Quest]";
+		mes "รับภารกิจเรียบร้อยแล้ว";
+		close2;
+		return;
+	}
+
+	callsub S_ShowProgress, .@qid;
+	if (!callsub(S_IsComplete, .@qid)) {
+		mes "[Daily-Weekly Quest]";
+		mes "เงื่อนไขยังไม่ครบ";
+		close2;
+		return;
+	}
+
+	next;
+	mes "[Daily-Weekly Quest]";
+	mes "เงื่อนไขครบแล้ว ต้องการส่งภารกิจเลยไหม?";
+	if (select("ส่งภารกิจ:ยังไม่ส่ง") == 2) {
+		close2;
+		return;
+	}
+
+	if (!callsub(S_HasItems, .@qid)) {
+		close2;
+		return;
+	}
+
+	callsub S_TakeItems, .@qid;
+	callsub S_GiveReward, .@qid;
+	setd "#dwq_" + .@qid + "_active", 0;
+	setd "#dwq_" + .@qid + "_done", .@key;
+	callsub S_ClearCounters, .@qid;
+	if (checkquest(.@qid) >= 0) erasequest .@qid;
+
+	mes "[Daily-Weekly Quest]";
+	mes "ส่งภารกิจสำเร็จ รับรางวัลเรียบร้อยแล้ว";
+	close2;
+	return;
+
+S_ShowAllStatus:
+	mes "[Daily-Weekly Quest]";
+	for (.@i = 0; .@i < getarraysize(.qid); .@i++) {
+		.@qid = .qid[.@i];
+		.@key = callsub(S_CycleKey, .@qid);
+		if (getd("#dwq_" + .@qid + "_done") == .@key)
+			mes "- " + .title$[.@i] + " : ^008800เสร็จแล้ว^000000";
+		else if (getd("#dwq_" + .@qid + "_active"))
+			mes "- " + .title$[.@i] + " : ^0000FFกำลังทำ^000000";
+	}
+	mes "ถ้าไม่มีรายการแสดง แปลว่ายังไม่มีภารกิจที่รับไว้หรือทำเสร็จในรอบนี้";
+	next;
+	return;
+
+S_CancelMenu:
+	.@menu$ = "";
+	.@active = 0;
+	for (.@i = 0; .@i < getarraysize(.qid); .@i++) {
+		.@qid = .qid[.@i];
+		if (getd("#dwq_" + .@qid + "_active")) {
+			.@menu$ += .title$[.@i] + ":";
+			.@active_qid[.@active] = .@qid;
+			.@active++;
+		}
+	}
+	if (!.@active) {
+		mes "[Daily-Weekly Quest]";
+		mes "ตอนนี้ไม่มีภารกิจที่กำลังทำอยู่";
+		next;
+		return;
+	}
+	.@menu$ += "ย้อนกลับ";
+	.@sel = select(.@menu$);
+	if (.@sel > .@active) return;
+	.@qid = .@active_qid[.@sel - 1];
+	mes "[Daily-Weekly Quest]";
+	mes "ต้องการยกเลิก " + callsub(S_Title, .@qid) + " ใช่ไหม?";
+	if (select("ยืนยัน:ไม่ยกเลิก") == 2) return;
+	callsub S_ClearQuest, .@qid;
+	mes "[Daily-Weekly Quest]";
+	mes "ยกเลิกภารกิจแล้ว";
+	next;
+	return;
+
+S_ResetExpired:
+	.@today = gettime(DT_YYYYMMDD);
+	.@week = callsub(S_WeeklyKey);
+	for (.@i = 0; .@i < getarraysize(.qid); .@i++) {
+		.@qid = .qid[.@i];
+		.@key = (.@qid < 71026) ? .@today : .@week;
+		if (getd("#dwq_" + .@qid + "_active") && getd("#dwq_" + .@qid + "_key") != .@key)
+			callsub S_ClearQuest, .@qid;
+	}
+	return;
+
+S_ClearQuest:
+	.@qid = getarg(0);
+	setd "#dwq_" + .@qid + "_active", 0;
+	setd "#dwq_" + .@qid + "_key", 0;
+	callsub S_ClearCounters, .@qid;
+	if (checkquest(.@qid) >= 0) erasequest .@qid;
+	return;
+
+S_ClearCounters:
+	.@qid = getarg(0);
+	for (.@i = 1; .@i <= 8; .@i++)
+		setd "#dwq_" + .@qid + "_k" + .@i, 0;
+	return;
+
+S_CycleKey:
+	.@qid = getarg(0);
+	if (.@qid < 71026)
+		return gettime(DT_YYYYMMDD);
+	return callsub(S_WeeklyKey);
+
+S_WeeklyKey:
+	.@dow = gettime(DT_DAYOFWEEK);
+	.@offset = (.@dow == SUNDAY) ? 6 : .@dow - MONDAY;
+	if (.@dow == MONDAY && gettime(DT_HOUR) == 0 && gettime(DT_MINUTE) == 0)
+		.@offset = 7;
+	return gettime(DT_YEAR) * 1000 + gettime(DT_DAYOFYEAR) - .@offset;
+
+S_Title:
+	.@qid = getarg(0);
+	for (.@i = 0; .@i < getarraysize(.qid); .@i++)
+		if (.qid[.@i] == .@qid) return .title$[.@i];
+	return "Quest " + .@qid;
+
+S_ShowDetail:
+	.@qid = getarg(0);
+	switch (.@qid) {
+	case 71020:
+		mes "ส่ง Item ID 967 x300, 747 x30, 748 x20";
+		mes "กำจัดบอส 1 ตัว";
+		mes "รางวัล: 1000373 x10";
+		return;
+	case 71021:
+		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 1,000 ตัว";
+		mes "กำจัดบอส 1 ตัว";
+		mes "รางวัล: 1000373 x20, 1000401 x5";
+		return;
+	case 71022:
+		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 3,000 ตัว";
+		mes "กำจัดบอส 3 ตัว";
+		mes "รางวัล: 1000373 x20, 1000401 x10";
+		return;
+	case 71023:
+		mes "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 1,000 ตัว";
+		mes "กำจัดบอส 3 ตัว";
+		mes "รางวัล: 1000373 x30, 1000401 x5";
+		return;
+	case 71024:
+		mes "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 3,000 ตัว";
+		mes "กำจัดบอส 5 ตัว";
+		mes "รางวัล: 1000373 x30, 1000401 x10";
+		return;
+	case 71025:
+		mes "ส่ง Item ID 7563 x300 และ 7567 x300";
+		mes "กำจัดบอส 20 ตัว";
+		mes "รางวัล: 1000401 x50, 6608 x50, 1000603 x5";
+		return;
+	case 71026:
+		mes "กำจัด Kasa (1833) 1,000 ตัว";
+		mes "กำจัด Salamander (1831) 1,000 ตัว";
+		mes "รางวัล: 1000373 x50, 1000401 x25";
+		return;
+	case 71027:
+		mes "กำจัด Kasa (1833) 2,000 ตัว";
+		mes "กำจัด Salamander (1831) 2,000 ตัว";
+		mes "รางวัล: 1000373 x50, 1000401 x25";
+		return;
+	case 71028:
+		mes "กำจัด Cecil, Eremes, Sorin, Kathryne, Seyren, Harword อย่างละ 500 ตัว";
+		mes "รางวัล: 1000373 x50, 1000401 x25";
+		return;
+	case 71029:
+		mes "กำจัด Cecil, Eremes, Sorin, Kathryne, Seyren, Harword อย่างละ 1,000 ตัว";
+		mes "รางวัล: 1000373 x70, 1000401 x35";
+		return;
+	case 71030:
+		mes "กำจัดบอส 100 ตัว";
+		mes "รางวัล: 1000401 x100, 6608 x300, 1000603 x20";
+		return;
+	case 71031:
+		mes "กำจัดบอส 200 ตัว";
+		mes "กำจัด City Titan (31100) 1 ตัว";
+		mes "รางวัล: 1000401 x150, 6608 x400, 1000603 x30";
+		return;
+	}
+	return;
+
+S_ShowProgress:
+	.@qid = getarg(0);
+	mes "[ความคืบหน้า]";
+	switch (.@qid) {
+	case 71020:
+		callsub S_MesCounter, .@qid, 1, "บอส", 1;
+		return;
+	case 71021:
+		callsub S_MesCounter, .@qid, 1, "มอนสเตอร์เลเวลต่ำกว่า 50", 1000;
+		callsub S_MesCounter, .@qid, 2, "บอส", 1;
+		return;
+	case 71022:
+		callsub S_MesCounter, .@qid, 1, "มอนสเตอร์เลเวลต่ำกว่า 50", 3000;
+		callsub S_MesCounter, .@qid, 2, "บอส", 3;
+		return;
+	case 71023:
+		callsub S_MesCounter, .@qid, 1, "มอนสเตอร์เลเวลสูงกว่า 70", 1000;
+		callsub S_MesCounter, .@qid, 2, "บอส", 3;
+		return;
+	case 71024:
+		callsub S_MesCounter, .@qid, 1, "มอนสเตอร์เลเวลสูงกว่า 70", 3000;
+		callsub S_MesCounter, .@qid, 2, "บอส", 5;
+		return;
+	case 71025:
+		callsub S_MesCounter, .@qid, 1, "บอส", 20;
+		return;
+	case 71026:
+		callsub S_MesCounter, .@qid, 1, "Kasa", 1000;
+		callsub S_MesCounter, .@qid, 2, "Salamander", 1000;
+		return;
+	case 71027:
+		callsub S_MesCounter, .@qid, 1, "Kasa", 2000;
+		callsub S_MesCounter, .@qid, 2, "Salamander", 2000;
+		return;
+	case 71028:
+		callsub S_MesCounter, .@qid, 1, "Cecil", 500;
+		callsub S_MesCounter, .@qid, 2, "Eremes", 500;
+		callsub S_MesCounter, .@qid, 3, "Sorin", 500;
+		callsub S_MesCounter, .@qid, 4, "Kathryne", 500;
+		callsub S_MesCounter, .@qid, 5, "Seyren", 500;
+		callsub S_MesCounter, .@qid, 6, "Harword", 500;
+		return;
+	case 71029:
+		callsub S_MesCounter, .@qid, 1, "Cecil", 1000;
+		callsub S_MesCounter, .@qid, 2, "Eremes", 1000;
+		callsub S_MesCounter, .@qid, 3, "Sorin", 1000;
+		callsub S_MesCounter, .@qid, 4, "Kathryne", 1000;
+		callsub S_MesCounter, .@qid, 5, "Seyren", 1000;
+		callsub S_MesCounter, .@qid, 6, "Harword", 1000;
+		return;
+	case 71030:
+		callsub S_MesCounter, .@qid, 1, "บอส", 100;
+		return;
+	case 71031:
+		callsub S_MesCounter, .@qid, 1, "บอส", 200;
+		callsub S_MesCounter, .@qid, 2, "City Titan", 1;
+		return;
+	}
+	return;
+
+S_MesCounter:
+	.@qid = getarg(0);
+	.@slot = getarg(1);
+	.@label$ = getarg(2);
+	.@target = getarg(3);
+	.@cur = getd("#dwq_" + .@qid + "_k" + .@slot);
+	if (.@cur > .@target) .@cur = .@target;
+	mes "- " + .@label$ + " : " + .@cur + " / " + .@target;
+	return;
+
+S_IsComplete:
+	.@qid = getarg(0);
+	switch (.@qid) {
+	case 71020: return getd("#dwq_71020_k1") >= 1;
+	case 71021: return getd("#dwq_71021_k1") >= 1000 && getd("#dwq_71021_k2") >= 1;
+	case 71022: return getd("#dwq_71022_k1") >= 3000 && getd("#dwq_71022_k2") >= 3;
+	case 71023: return getd("#dwq_71023_k1") >= 1000 && getd("#dwq_71023_k2") >= 3;
+	case 71024: return getd("#dwq_71024_k1") >= 3000 && getd("#dwq_71024_k2") >= 5;
+	case 71025: return getd("#dwq_71025_k1") >= 20;
+	case 71026: return getd("#dwq_71026_k1") >= 1000 && getd("#dwq_71026_k2") >= 1000;
+	case 71027: return getd("#dwq_71027_k1") >= 2000 && getd("#dwq_71027_k2") >= 2000;
+	case 71028: return getd("#dwq_71028_k1") >= 500 && getd("#dwq_71028_k2") >= 500 && getd("#dwq_71028_k3") >= 500 && getd("#dwq_71028_k4") >= 500 && getd("#dwq_71028_k5") >= 500 && getd("#dwq_71028_k6") >= 500;
+	case 71029: return getd("#dwq_71029_k1") >= 1000 && getd("#dwq_71029_k2") >= 1000 && getd("#dwq_71029_k3") >= 1000 && getd("#dwq_71029_k4") >= 1000 && getd("#dwq_71029_k5") >= 1000 && getd("#dwq_71029_k6") >= 1000;
+	case 71030: return getd("#dwq_71030_k1") >= 100;
+	case 71031: return getd("#dwq_71031_k1") >= 200 && getd("#dwq_71031_k2") >= 1;
+	}
+	return 0;
+
+S_HasItems:
+	.@qid = getarg(0);
+	.@ok = 1;
+	if (.@qid == 71020) {
+		if (countitem(967) < 300) { mes "ต้องใช้ " + getitemname(967) + " x300"; .@ok = 0; }
+		if (countitem(747) < 30) { mes "ต้องใช้ " + getitemname(747) + " x30"; .@ok = 0; }
+		if (countitem(748) < 20) { mes "ต้องใช้ " + getitemname(748) + " x20"; .@ok = 0; }
+	}
+	if (.@qid == 71025) {
+		if (countitem(7563) < 300) { mes "ต้องใช้ " + getitemname(7563) + " x300"; .@ok = 0; }
+		if (countitem(7567) < 300) { mes "ต้องใช้ " + getitemname(7567) + " x300"; .@ok = 0; }
+	}
+	return .@ok;
+
+S_TakeItems:
+	.@qid = getarg(0);
+	if (.@qid == 71020) {
+		delitem 967,300;
+		delitem 747,30;
+		delitem 748,20;
+	}
+	if (.@qid == 71025) {
+		delitem 7563,300;
+		delitem 7567,300;
+	}
+	return;
+
+S_GiveReward:
+	.@qid = getarg(0);
+	switch (.@qid) {
+	case 71020: getitem 1000373,10; return;
+	case 71021: getitem 1000373,20; getitem 1000401,5; return;
+	case 71022: getitem 1000373,20; getitem 1000401,10; return;
+	case 71023: getitem 1000373,30; getitem 1000401,5; return;
+	case 71024: getitem 1000373,30; getitem 1000401,10; return;
+	case 71025: getitem 1000401,50; getitem 6608,50; getitem 1000603,5; return;
+	case 71026: getitem 1000373,50; getitem 1000401,25; return;
+	case 71027: getitem 1000373,50; getitem 1000401,25; return;
+	case 71028: getitem 1000373,50; getitem 1000401,25; return;
+	case 71029: getitem 1000373,70; getitem 1000401,35; return;
+	case 71030: getitem 1000401,100; getitem 6608,300; getitem 1000603,20; return;
+	case 71031: getitem 1000401,150; getitem 6608,400; getitem 1000603,30; return;
+	}
+	return;
+
+OnInit:
+	setarray .qid[0], 71020,71021,71022,71023,71024,71025,71026,71027,71028,71029,71030,71031;
+	setarray .title$[0],
+		"เควสต์รายวัน I",
+		"เควสต์รายวัน II",
+		"เควสต์รายวัน III",
+		"เควสต์รายวัน IV",
+		"เควสต์รายวัน V",
+		"เควสต์รายวัน Hardcore",
+		"เควสต์รายสัปดาห์ I",
+		"เควสต์รายสัปดาห์ II",
+		"เควสต์รายสัปดาห์ III",
+		"เควสต์รายสัปดาห์ IV",
+		"เควสต์รายสัปดาห์ V",
+		"เควสต์รายสัปดาห์ Hardcore";
+	questinfo QTYPE_QUEST, QMARK_YELLOW;
+	end;
+}
+
+-	script	DWQ_KillCounter	FAKE_NPC,{
+	end;
+
+OnNPCKillEvent:
+	.@today = gettime(DT_YYYYMMDD);
+	.@dow = gettime(DT_DAYOFWEEK);
+	.@offset = (.@dow == SUNDAY) ? 6 : .@dow - MONDAY;
+	if (.@dow == MONDAY && gettime(DT_HOUR) == 0 && gettime(DT_MINUTE) == 0)
+		.@offset = 7;
+	.@week = gettime(DT_YEAR) * 1000 + gettime(DT_DAYOFYEAR) - .@offset;
+
+	.@mvp = getmonsterinfo(killedrid, MOB_MVPEXP) > 0;
+	.@lv = getmonsterinfo(killedrid, MOB_LV);
+
+	if (.@mvp) {
+		callsub S_AddKill, 71020, 1, 1, .@today;
+		callsub S_AddKill, 71021, 2, 1, .@today;
+		callsub S_AddKill, 71022, 2, 3, .@today;
+		callsub S_AddKill, 71023, 2, 3, .@today;
+		callsub S_AddKill, 71024, 2, 5, .@today;
+		callsub S_AddKill, 71025, 1, 20, .@today;
+		callsub S_AddKill, 71030, 1, 100, .@week;
+		callsub S_AddKill, 71031, 1, 200, .@week;
+	}
+
+	if (!.@mvp && .@lv > 0 && .@lv < 50) {
+		callsub S_AddKill, 71021, 1, 1000, .@today;
+		callsub S_AddKill, 71022, 1, 3000, .@today;
+	}
+
+	if (!.@mvp && .@lv > 70) {
+		callsub S_AddKill, 71023, 1, 1000, .@today;
+		callsub S_AddKill, 71024, 1, 3000, .@today;
+	}
+
+	if (killedrid == 1833) {
+		callsub S_AddKill, 71026, 1, 1000, .@week;
+		callsub S_AddKill, 71027, 1, 2000, .@week;
+	}
+	if (killedrid == 1831) {
+		callsub S_AddKill, 71026, 2, 1000, .@week;
+		callsub S_AddKill, 71027, 2, 2000, .@week;
+	}
+	if (killedrid == 1638) { callsub S_AddKill, 71028, 1, 500, .@week; callsub S_AddKill, 71029, 1, 1000, .@week; }
+	if (killedrid == 1635) { callsub S_AddKill, 71028, 2, 500, .@week; callsub S_AddKill, 71029, 2, 1000, .@week; }
+	if (killedrid == 1637) { callsub S_AddKill, 71028, 3, 500, .@week; callsub S_AddKill, 71029, 3, 1000, .@week; }
+	if (killedrid == 1639) { callsub S_AddKill, 71028, 4, 500, .@week; callsub S_AddKill, 71029, 4, 1000, .@week; }
+	if (killedrid == 1634) { callsub S_AddKill, 71028, 5, 500, .@week; callsub S_AddKill, 71029, 5, 1000, .@week; }
+	if (killedrid == 1636) { callsub S_AddKill, 71028, 6, 500, .@week; callsub S_AddKill, 71029, 6, 1000, .@week; }
+	if (killedrid == 31100) callsub S_AddKill, 71031, 2, 1, .@week;
+	end;
+
+S_AddKill:
+	.@qid = getarg(0);
+	.@slot = getarg(1);
+	.@target = getarg(2);
+	.@key = getarg(3);
+	if (!getd("#dwq_" + .@qid + "_active")) return;
+	if (getd("#dwq_" + .@qid + "_key") != .@key) return;
+	.@var$ = "#dwq_" + .@qid + "_k" + .@slot;
+	.@cur = getd(.@var$);
+	if (.@cur >= .@target) return;
+	.@cur++;
+	setd .@var$, .@cur;
+	dispbottom "[Daily-Weekly Quest] Quest " + .@qid + " : " + .@cur + " / " + .@target;
+	return;
+}
