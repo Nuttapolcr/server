@@ -32,7 +32,11 @@ def read_text(path, encoding="utf-8"):
     return path.read_text(encoding=encoding)
 
 
-def write_text(path, text, encoding="latin-1"):
+# EnchantList.lub is a Korean RO client file; its non-ASCII text is EUC-KR.
+LUB_ENCODING = "euc-kr"
+
+
+def write_text(path, text, encoding=LUB_ENCODING):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding=encoding, newline="") as output:
         output.write(text)
@@ -387,7 +391,7 @@ def render_entry(entry):
             int(bonus.get("Enchantgrade") or 0): int(bonus.get("Chance") or 0)
             for bonus in slot.get("EnchantgradeBonus", [])
         }
-        for grade in (1, 2, 3):
+        for grade in (1, 2, 3, 4):
             lines.append(
                 f"Table[{entry_id}].Slot[{slot_id}]:SetGradeBonus("
                 f"{grade}, {bonus_chance.get(grade, 0)})"
@@ -525,7 +529,7 @@ def main():
 
     existing = ""
     if args.output.exists() and not args.replace_all:
-        existing = read_text(args.output, encoding="latin-1")
+        existing = read_text(args.output, encoding=LUB_ENCODING)
 
     merged, replaced = merge_output(existing, entries, replace_all=args.replace_all)
 
@@ -537,7 +541,7 @@ def main():
     if args.dry_run:
         return
 
-    write_text(args.output, merged, encoding="latin-1")
+    write_text(args.output, merged, encoding=LUB_ENCODING)
     print(f"wrote={args.output}")
 
     added = sync_item_name_table(entries)
