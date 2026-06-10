@@ -278,6 +278,22 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+          - Level: 16
+            Bonus: 1120
+            BlacksmithBlessingAmount: 1
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Elunium
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Elunium
+                BreakingRate: 10000
 
   - Group: Weapon
     Levels:
@@ -483,6 +499,21 @@ Body:
                 BreakingRate: 10000
           - Level: 15
             Bonus: 3000
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Phracon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 3000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 16
+            Bonus: 3200
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -712,6 +743,21 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+          - Level: 16
+            Bonus: 4800
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 3000
+                Material: Emveretarcon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 2000
+                Price: 3000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
 
       - Level: 3
         RefineLevels:
@@ -915,6 +961,21 @@ Body:
                 BreakingRate: 10000
           - Level: 15
             Bonus: 7500
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
+          - Level: 16
+            Bonus: 8000
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -1144,6 +1205,21 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+          - Level: 16
+            Bonus: 11200
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 5000
+                Material: Oridecon
+                BreakingRate: 10000
+              - Type: Enriched
+                Rate: 1500
+                Price: 5000
+                Material: Enriched_Oridecon
+                BreakingRate: 10000
 
   - Group: Shadow_Armor
     Levels:
@@ -1262,6 +1338,14 @@ Body:
                 Price: 20000
                 Material: Blessed_Elunium
           - Level: 15
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
+          - Level: 16
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -1394,6 +1478,14 @@ Body:
                 Rate: 2500
                 Price: 20000
                 Material: Blessed_Elunium
+          - Level: 16
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Elunium
 
   - Group: Charm_Upgrade
     Levels:
@@ -1512,6 +1604,14 @@ Body:
                 Price: 20000
                 Material: Blessed_Oridecon
           - Level: 15
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 20000
+                Material: Blessed_Oridecon
+          - Level: 16
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
