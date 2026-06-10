@@ -18,3 +18,5 @@
 	{ "mob_ele_view",                       &battle_config.mob_ele_view,                    0,      0,      1,              },
 
 	{ "hide_pet",                           &battle_config.hide_pet,                        0,      0,      2,  			},
+
+	{ "rc_player_damage_cap",               &battle_config.rc_player_damage_cap,            0,      0,      INT_MAX,        },

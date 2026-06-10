@@ -9782,6 +9782,58 @@ static int64 pkpass_damage_control(struct block_list *src, struct block_list *ds
 	return final_damage;
 }
 
+static bool battle_should_cap_rc_player_damage(struct block_list *src, struct block_list *target)
+{
+	if (battle_config.rc_player_damage_cap <= 0)
+		return false;
+	if (!src || !target || src->type != BL_PC || target->type != BL_PC)
+		return false;
+
+	int race = status_get_race(target);
+	if (race != RC_PLAYER_HUMAN && race != RC_PLAYER_DORAM)
+		return false;
+
+	struct map_data *mapdata = map_getmapdata(target->m);
+	return mapdata && (mapdata_flag_gvg2(mapdata) || mapdata->getMapFlag(MF_PVP) || mapdata->getMapFlag(MF_PKPASS));
+}
+
+static void battle_cap_rc_player_damage(struct block_list *src, struct block_list *target, struct Damage *d)
+{
+	if (!d || !battle_should_cap_rc_player_damage(src, target))
+		return;
+	if (d->damage < 0 || d->damage2 < 0)
+		return;
+
+	int64 cap = battle_config.rc_player_damage_cap;
+	int64 damage = d->damage;
+	int64 damage2 = d->damage2;
+	int64 total = damage + damage2;
+
+	if (total <= cap)
+		return;
+
+	if (damage > 0 && damage2 > 0) {
+		int64 capped_damage = cap * damage / total;
+		int64 capped_damage2 = cap - capped_damage;
+
+		if (capped_damage < 1) {
+			capped_damage = 1;
+			capped_damage2 = cap - capped_damage;
+		}
+		if (capped_damage2 < 1 && cap > 1) {
+			capped_damage2 = 1;
+			capped_damage = cap - capped_damage2;
+		}
+
+		d->damage = capped_damage;
+		d->damage2 = capped_damage2;
+	} else if (damage > cap) {
+		d->damage = cap;
+	} else if (damage2 > cap) {
+		d->damage2 = cap;
+	}
+}
+
 /*==========================================
  * Battle main entry, from skill_attack
  *------------------------------------------
@@ -9831,6 +9883,7 @@ struct Damage battle_calc_attack(int attack_type,struct block_list *bl,struct bl
 	
 	d.damage = pkpass_damage_control(bl,target,d.damage,d.flag);
 	d.damage2 = pkpass_damage_control(bl,target,d.damage2,d.flag);
+	battle_cap_rc_player_damage(bl, target, &d);
 
 	if (sd && d.damage + d.damage2 > 1)
 		battle_vanish_damage(sd, target, d.flag);

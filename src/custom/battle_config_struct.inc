@@ -15,3 +15,6 @@
 	// Show Element Info [Hyroshima]
 	int mob_ele_view;
 	int hide_pet;
+
+	// Cap player race damage in GvG/PvP/PKPASS. 0 disables the cap.
+	int rc_player_damage_cap;
