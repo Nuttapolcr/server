@@ -201,61 +201,61 @@ S_ShowDetail:
 	.@qid = getarg(0);
 	switch (.@qid) {
 	case 71020:
-		mes "ส่ง Item ID 967 x300, 747 x30, 748 x20";
+		mes "ส่ง Item ^i[967] x300, ^i[747] x30, ^i[748] x20";
 		mes "กำจัดบอส 1 ตัว";
-		mes "รางวัล: 1000373 x10";
+		mes "รางวัล: ^i[1000373] x10";
 		return;
 	case 71021:
 		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 1,000 ตัว";
 		mes "กำจัดบอส 1 ตัว";
-		mes "รางวัล: 1000373 x20, 1000401 x5";
+		mes "รางวัล: ^i[1000373] x20, ^i[1001685] x5";
 		return;
 	case 71022:
 		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 3,000 ตัว";
 		mes "กำจัดบอส 3 ตัว";
-		mes "รางวัล: 1000373 x20, 1000401 x10";
+		mes "รางวัล: ^i[1000373] x20, ^i[1001685] x10";
 		return;
 	case 71023:
 		mes "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 1,000 ตัว";
 		mes "กำจัดบอส 3 ตัว";
-		mes "รางวัล: 1000373 x30, 1000401 x5";
+		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x5";
 		return;
 	case 71024:
 		mes "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 3,000 ตัว";
 		mes "กำจัดบอส 5 ตัว";
-		mes "รางวัล: 1000373 x30, 1000401 x10";
+		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10";
 		return;
 	case 71025:
-		mes "ส่ง Item ID 7563 x300 และ 7567 x300";
+		mes "ส่ง Item ID ^i[7563] x300 และ ^i[7567] x300";
 		mes "กำจัดบอส 20 ตัว";
-		mes "รางวัล: 1000401 x50, 6608 x50, 1000603 x5";
+		mes "รางวัล: ^i[1001685] x50, ^i[6608] x50, ^i[1000603] x5";
 		return;
 	case 71026:
 		mes "กำจัด Kasa (1833) 1,000 ตัว";
 		mes "กำจัด Salamander (1831) 1,000 ตัว";
-		mes "รางวัล: 1000373 x50, 1000401 x25";
+		mes "รางวัล: ^i[1000373] x50, ^i[1001685] x25";
 		return;
 	case 71027:
 		mes "กำจัด Kasa (1833) 2,000 ตัว";
 		mes "กำจัด Salamander (1831) 2,000 ตัว";
-		mes "รางวัล: 1000373 x50, 1000401 x25";
+		mes "รางวัล: ^i[1000373] x50, ^i[1001685] x25";
 		return;
 	case 71028:
 		mes "กำจัด Cecil, Eremes, Sorin, Kathryne, Seyren, Harword อย่างละ 500 ตัว";
-		mes "รางวัล: 1000373 x50, 1000401 x25";
+		mes "รางวัล: ^i[1000373] x50, ^i[1001685] x25";
 		return;
 	case 71029:
 		mes "กำจัด Cecil, Eremes, Sorin, Kathryne, Seyren, Harword อย่างละ 1,000 ตัว";
-		mes "รางวัล: 1000373 x70, 1000401 x35";
+		mes "รางวัล: ^i[1000373] x70, ^i[1001685] x35";
 		return;
 	case 71030:
 		mes "กำจัดบอส 100 ตัว";
-		mes "รางวัล: 1000401 x100, 6608 x300, 1000603 x20";
+		mes "รางวัล: ^i[1001685] x100, ^i[6608] x300, ^i[1000603] x20";
 		return;
 	case 71031:
 		mes "กำจัดบอส 200 ตัว";
 		mes "กำจัด City Titan (31100) 1 ตัว";
-		mes "รางวัล: 1000401 x150, 6608 x400, 1000603 x30";
+		mes "รางวัล: ^i[1001685] x150, ^i[6608] x400, ^i[1000603] x30";
 		return;
 	}
 	return;
@@ -379,17 +379,17 @@ S_GiveReward:
 	.@qid = getarg(0);
 	switch (.@qid) {
 	case 71020: getitem 1000373,10; return;
-	case 71021: getitem 1000373,20; getitem 1000401,5; return;
-	case 71022: getitem 1000373,20; getitem 1000401,10; return;
-	case 71023: getitem 1000373,30; getitem 1000401,5; return;
-	case 71024: getitem 1000373,30; getitem 1000401,10; return;
-	case 71025: getitem 1000401,50; getitem 6608,50; getitem 1000603,5; return;
-	case 71026: getitem 1000373,50; getitem 1000401,25; return;
-	case 71027: getitem 1000373,50; getitem 1000401,25; return;
-	case 71028: getitem 1000373,50; getitem 1000401,25; return;
-	case 71029: getitem 1000373,70; getitem 1000401,35; return;
-	case 71030: getitem 1000401,100; getitem 6608,300; getitem 1000603,20; return;
-	case 71031: getitem 1000401,150; getitem 6608,400; getitem 1000603,30; return;
+	case 71021: getitem 1000373,20; getitem 1001685,5; return;
+	case 71022: getitem 1000373,20; getitem 1001685,10; return;
+	case 71023: getitem 1000373,30; getitem 1001685,5; return;
+	case 71024: getitem 1000373,30; getitem 1001685,10; return;
+	case 71025: getitem 1001685,50; getitem 6608,50; getitem 1000603,5; return;
+	case 71026: getitem 1000373,50; getitem 1001685,25; return;
+	case 71027: getitem 1000373,50; getitem 1001685,25; return;
+	case 71028: getitem 1000373,50; getitem 1001685,25; return;
+	case 71029: getitem 1000373,70; getitem 1001685,35; return;
+	case 71030: getitem 1001685,100; getitem 6608,300; getitem 1000603,20; return;
+	case 71031: getitem 1001685,150; getitem 6608,400; getitem 1000603,30; return;
 	}
 	return;
 
@@ -408,6 +408,8 @@ OnInit:
 		"เควสต์รายสัปดาห์ IV",
 		"เควสต์รายสัปดาห์ V",
 		"เควสต์รายสัปดาห์ Hardcore";
+	for (.@i = 0; .@i < getarraysize(.qid); .@i++)
+		setd "$@dwq_title_" + .qid[.@i] + "$", .title$[.@i];
 	questinfo QTYPE_QUEST, QMARK_YELLOW;
 	end;
 }
@@ -476,6 +478,8 @@ S_AddKill:
 	if (.@cur >= .@target) return;
 	.@cur++;
 	setd .@var$, .@cur;
-	dispbottom "[Daily-Weekly Quest] Quest " + .@qid + " : " + .@cur + " / " + .@target;
+	.@title$ = getd("$@dwq_title_" + .@qid + "$");
+	if (.@title$ == "") .@title$ = "Quest " + .@qid;
+	dispbottom "[Daily-Weekly Quest] " + .@title$ + " : " + .@cur + " / " + .@target;
 	return;
 }

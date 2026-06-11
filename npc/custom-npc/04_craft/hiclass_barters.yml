@@ -1967,7 +1967,7 @@ Body:
           - Index: 0
             Item: Epic_Melee_Armor # [Epic] Melee Armor +7 (452029)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -1991,7 +1991,7 @@ Body:
           - Index: 0
             Item: Epic_Ranged_Armor # [Epic] Ranged Armor +7 (452030)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2015,7 +2015,7 @@ Body:
           - Index: 0
             Item: Epic_Magic_Armor # [Epic] Magic Armor +7 (452031)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2039,7 +2039,7 @@ Body:
           - Index: 0
             Item: Epic_Defense_Armor # [Epic] Defense Armor +7 (452032)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2063,7 +2063,7 @@ Body:
           - Index: 0
             Item: Epic_Melee_Muffler # [Epic] Melee Muffler +7 (480425)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2087,7 +2087,7 @@ Body:
           - Index: 0
             Item: Epic_Ranged_Muffler # [Epic] Ranged Muffler +7 (480426)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2111,7 +2111,7 @@ Body:
           - Index: 0
             Item: Epic_Magic_Muffler # [Epic] Magic Muffler +7 (480427)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2135,7 +2135,7 @@ Body:
           - Index: 0
             Item: Epic_Defense_Muffler # [Epic] Defense Muffler +7 (480428)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2159,7 +2159,7 @@ Body:
           - Index: 0
             Item: Epic_Melee_Boots # [Epic] Melee Boots +7 (470282)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2183,7 +2183,7 @@ Body:
           - Index: 0
             Item: Epic_Ranged_Boots # [Epic] Ranged Boots +7 (470283)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2207,7 +2207,7 @@ Body:
           - Index: 0
             Item: Epic_Magic_Boots # [Epic] Magic Boots +7 (470284)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300
@@ -2231,7 +2231,7 @@ Body:
           - Index: 0
             Item: Epic_Defense_Boots # [Epic] Defense Boots +7 (470285)
             Amount: 1
-            Refine: 7
+            Refine: 11
           - Index: 1
             Item: Wis_Meteorite_Dust_NT # [Legend] Jewel (NT) x 300 (1001687)
             Amount: 300

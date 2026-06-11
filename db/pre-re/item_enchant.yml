@@ -1981,10 +1981,6 @@ Body:
                 Chance: 6250
               - Item: Dynast
                 Chance: 6250
-              - Item: aegis_313268
-                Chance: 6250
-              - Item: aegis_313269
-                Chance: 6250
           - Enchantgrade: 1
             Items:
               - Item: Strength6
@@ -2014,10 +2010,6 @@ Body:
               - Item: Release_Of_Magic
                 Chance: 6250
               - Item: Dynast
-                Chance: 6250
-              - Item: aegis_313268
-                Chance: 6250
-              - Item: aegis_313269
                 Chance: 6250
           - Enchantgrade: 2
             Items:
@@ -2083,10 +2075,6 @@ Body:
                 Chance: 6250
               - Item: Dynast
                 Chance: 6250
-              - Item: aegis_313268
-                Chance: 6250
-              - Item: aegis_313269
-                Chance: 6250
           - Enchantgrade: 4
             Items:
               - Item: Strength6
@@ -2116,10 +2104,6 @@ Body:
               - Item: Release_Of_Magic
                 Chance: 6250
               - Item: Dynast
-                Chance: 6250
-              - Item: aegis_313268
-                Chance: 6250
-              - Item: aegis_313269
                 Chance: 6250
         PerfectEnchants:
           - Item: Hero
