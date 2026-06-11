@@ -746,10 +746,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 931
     AegisName: Orcish_Voucher
     Name: Orcish Voucher
@@ -774,10 +770,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 935
     AegisName: Shell
     Name: Shell
@@ -834,10 +826,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 942
     AegisName: Yoyo_Tail
     Name: Yoyo Tail
@@ -854,10 +842,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 944
     AegisName: Horseshoe
     Name: Horseshoe
@@ -866,10 +850,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 945
     AegisName: Raccoon_Leaf
     Name: Raccoon Leaf
@@ -926,10 +906,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 952
     AegisName: Cactus_Needle
     Name: Cactus Needle
@@ -970,10 +946,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 957
     AegisName: Decayed_Nail
     Name: Decayed Nail
@@ -1030,10 +1002,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 964
     AegisName: Crap_Shell
     Name: Crab Shell
@@ -1512,10 +1480,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1024
     AegisName: Chinese_Ink
     Name: Squid Ink
@@ -1532,10 +1496,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1026
     AegisName: Acorn
     Name: Acorn
@@ -1608,10 +1568,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1035
     AegisName: Dragon_Canine
     Name: Dragon Canine
@@ -1620,10 +1576,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1036
     AegisName: Dragon_Scale
     Name: Dragon Scale
@@ -1632,10 +1584,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1037
     AegisName: Dragon_Train
     Name: Dragon Tail
@@ -1644,10 +1592,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1038
     AegisName: Petite_DiablOfs_Horn
     Name: Little Evil Horn
@@ -1656,10 +1600,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1039
     AegisName: Petite_DiablOfs_Wing
     Name: Little Evil Wing
@@ -1668,10 +1608,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1040
     AegisName: Elder_Pixie's_Beard
     Name: Elder Pixie's Moustache
@@ -1696,10 +1632,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1043
     AegisName: Nail_Of_Orc
     Name: Orc Claw
@@ -1724,10 +1656,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1046
     AegisName: Tweezer
     Name: Scorpion Nipper
@@ -1752,10 +1680,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1049
     AegisName: Skirt_Of_Virgin
     Name: Skirt of Virgin
@@ -1804,10 +1728,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1055
     AegisName: Earthworm_Peeling
     Name: Earthworm Peeling
@@ -1864,10 +1784,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1062
     AegisName: Pumpkin_Head
     Name: Jack o' Pumpkin
@@ -2077,10 +1993,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1096
     AegisName: Round_Shell
     Name: Round Shell
@@ -2089,10 +2001,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1097
     AegisName: Worn_Out_Page
     Name: Worn Out Page
@@ -2109,10 +2017,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1099
     AegisName: Worn_Out_Prison_Uniform
     Name: Worn-out Prison Uniform
@@ -2121,10 +2025,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 1750
     AegisName: Arrow
     Name: Arrow
@@ -12979,14 +12879,6 @@ Body:
     Type: Etc
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
   - Id: 6074
     AegisName: Bazett's_Order
     Name: Bazett's Order
@@ -13005,15 +12897,6 @@ Body:
     Type: Etc
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
   - Id: 6076
     AegisName: Portable_Toolbox
     Name: Portable Toolbox
@@ -15495,10 +15378,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7004
     AegisName: Mud_Lump
     Name: Mud Lump
@@ -15507,10 +15386,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7005
     AegisName: Skull
     Name: Skull
@@ -15519,10 +15394,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7006
     AegisName: Wing_Of_Red_Bat
     Name: Wing of Red Bat
@@ -15555,10 +15426,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7010
     AegisName: Tail_Of_Steel_Scorpion
     Name: Tail of Steel Scorpion
@@ -15591,10 +15458,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7014
     AegisName: Old_Portrait
     Name: Old Portrait
@@ -15619,10 +15482,6 @@ Body:
     Weight: 20
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7017
     AegisName: Executioner's_Mitten
     Name: Executioner's Mitten
@@ -15895,10 +15754,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7054
     AegisName: Brigan
     Name: Brigan
@@ -15907,10 +15762,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7055
     AegisName: Animal_Pooopoo
     Name: Animal Poop
@@ -15988,10 +15839,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7066
     AegisName: Ice_Piece
     Name: Ice Cubic
@@ -16016,10 +15863,6 @@ Body:
     Weight: 10
     Flags:
       BuyingStore: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
   - Id: 7069
     AegisName: Broken_Armor_Piece
     Name: Destroyed Armor

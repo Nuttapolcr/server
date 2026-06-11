@@ -22051,3 +22051,11 @@ Body:
     Script: |
       sc_start SC_EXPBOOST,604800000,50;
       sc_start SC_ITEMBOOST,604800000,50;
+  - Id: 100002
+    AegisName: PayPromotion_Box
+    Name: Payment Promotion Reward Box
+    Type: Usable
+    Flags:
+      Container: true
+    Script: |
+      getgroupitem(IG_PAYPROMOTION_BOX);

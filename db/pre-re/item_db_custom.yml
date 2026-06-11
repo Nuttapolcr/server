@@ -19746,8 +19746,6 @@ Body:
     AegisName: aegis_1001012
     Name: Random Drop Box
     Type: Etc
-    Locations:
-      Costume_Head_Mid: true
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 2113
@@ -22431,6 +22429,13 @@ Body:
     Weight: 0
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoCart: true
+      NoMail: true
+      TradePartner: true
   - Id: 1000419
     AegisName: Weapon_Ore_1
     Name: "[Rare] Weapon Stone (NT)"
@@ -22439,6 +22444,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoCart: true
+      NoMail: true
+      TradePartner: true
   - Id: 1000422
     AegisName: Weapon_Ore_4
     Name: "[Epic] Weapon Stone (NT)"
@@ -22447,6 +22459,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoCart: true
+      TradePartner: true
+      NoMail: true
   - Id: 1000420
     AegisName: Weapon_Ore_2
     Name: "[Legend] Weapon Stone (NT)"
@@ -22455,6 +22474,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoCart: true
+      TradePartner: true
+      NoMail: true
   - Id: 1000423
     AegisName: Armor_Ore_1
     Name: "[Rare] Armor Stone (NT)"
@@ -22463,6 +22489,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoCart: true
+      TradePartner: true
+      NoMail: true
   - Id: 1000425
     AegisName: Armor_Ore_4
     Name: "[Epic] Armor Stone (NT)"
@@ -22471,6 +22504,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoMail: true
+      TradePartner: true
+      NoCart: true
   - Id: 1000424
     AegisName: Armor_Ore_2
     Name: "[Legend] Armor Stone (NT)"
@@ -22479,6 +22519,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoCart: true
+      TradePartner: true
+      NoMail: true
   - Id: 1000426
     AegisName: Acc_Ore_1
     Name: "[Rare] Accessory Stone (NT)"
@@ -22487,6 +22534,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoMail: true
+      NoCart: true
+      TradePartner: true
   - Id: 1000428
     AegisName: Acc_Ore_3
     Name: "[Epic] Accessory Stone (NT)"
@@ -22495,6 +22549,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      TradePartner: true
+      NoMail: true
+      NoCart: true
   - Id: 1000427
     AegisName: Acc_Ore_2
     Name: "[Legend] Accessory Stone (NT)"
@@ -22503,6 +22564,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoMail: true
+      NoCart: true
+      TradePartner: true
   - Id: 1000429
     AegisName: Acc_Ore_4
     Name: "[Epic] Accessory Stone (NT)"
@@ -22510,6 +22578,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      TradePartner: true
+      NoTrade: true
+      NoMail: true
+      NoCart: true
   - Id: 1001685
     AegisName: Crt_Meteorite_Dust_NT
     Name: "[Rare] Jewel (NT)"
@@ -22517,6 +22592,14 @@ Body:
     Weight: 0
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      TradePartner: true
+      NoSell: true
+      NoMail: true
+      NoCart: true
   - Id: 1000398
     AegisName: Pow_Meteorite_Dust
     Name: "[Epic] Jewel"
@@ -22531,6 +22614,13 @@ Body:
     Weight: 0
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoMail: true
+      TradePartner: true
+      NoCart: true
   - Id: 1000403
     AegisName: Wis_Meteorite_Dust
     Name: "[Legend] Jewel"
@@ -22545,6 +22635,13 @@ Body:
     Weight: 0
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      TradePartner: true
+      NoMail: true
+      NoCart: true
   - Id: 1001140
     AegisName: Barmund_Ice_Essence
     Name: "[Rare] Essence"
@@ -22561,6 +22658,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoMail: true
+      TradePartner: true
+      NoCart: true
   - Id: 1001139
     AegisName: Barmund_Flame_Essence
     Name: "[Epic] Essence"
@@ -22577,6 +22681,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoMail: true
+      TradePartner: true
+      NoCart: true
   - Id: 1001141
     AegisName: Barmund_Death_Essence
     Name: "[Legend] Essence"
@@ -22593,6 +22704,13 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoMail: true
+      TradePartner: true
+      NoCart: true
   - Id: 1000445
     AegisName: Crt_Meteorite_Fragment
     Name: "[Rare] Fragment"
@@ -22607,6 +22725,13 @@ Body:
     Weight: 0
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoMail: true
+      TradePartner: true
+      NoCart: true
   - Id: 1000442
     AegisName: Pow_Meteorite_Fragment
     Name: "[Epic] Fragment"
@@ -22621,6 +22746,13 @@ Body:
     Weight: 0
     Flags:
       BuyingStore: true
+    Trade:
+      NoTrade: true
+      NoGuildStorage: true
+      NoDrop: true
+      NoMail: true
+      TradePartner: true
+      NoCart: true
   - Id: 1000447
     AegisName: Wis_Meteorite_Fragment
     Name: "[Legend] Fragment"
@@ -22635,6 +22767,13 @@ Body:
     Weight: 0
     Flags:
       BuyingStore: true
+    Trade:
+      TradePartner: true
+      NoMail: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoDrop: true
+      NoCart: true
   - Id: 22571
     AegisName: Easter_Egg
     Name: Pet Egg
@@ -27968,6 +28107,9 @@ Body:
       NoDrop: true
       NoTrade: true
       NoGuildStorage: true
+      NoCart: true
+      TradePartner: true
+      NoMail: true
   - Id: 6755
     AegisName: Polluted_Spell
     Name: Contaminated Magic
