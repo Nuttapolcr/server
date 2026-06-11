@@ -9,7 +9,7 @@
 
 dali02,97,142,3	script	Professor Bernhard#a1	4_LGTSCIENCE,{
 	if (BaseLevel < 1) {
-		mes "- คุณสามารถดำเนินการต่อได้เมื่อถึงเลเวล 145 หรือสูงกว่า -";
+		mes "- You may proceed after reaching level 145 or over -";
 		close;
 	}
 	switch( checkquest(9336,PLAYTIME) ) {
@@ -17,75 +17,75 @@ dali02,97,142,3	script	Professor Bernhard#a1	4_LGTSCIENCE,{
 		switch( isbegin_quest(9335) ) {
 		case 0:// First time doing instance
 			mes "[Professor Bernhard]";
-			mes "ข้าจะบอกว่าข้าคือศาสตราจารย์ Bernhard นักวิจัยอาวุธที่ดีที่สุดใน Schwarzwald";
+			mes "I would say I am Professor Bernhard, the best weapons researcher in Schwarzwald.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "หลังการวิจัยอย่างไม่รู้จบ ข้าได้สร้างอาวุธต่างๆ แต่รู้สึกว่ายังขาดบางอย่าง จึงค้นพบตำราโบราณ";
-			mes "ข้าได้ค้นพบเกี่ยวกับอุปกรณ์มิติในระหว่างการวิจัย";
+			mes "After endless research I have created various weapons, but I felt something was missing so I found the ancient texts.";
+			mes "I found out about the Dimensional Device during my research.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "ข้ายังตระหนักว่าต้องใช้ของเหลือจากอดีตอันยิ่งใหญ่ในการสร้างอาวุธที่ทรงพลังและเหนือกว่า";
-			mes "นั่นเป็นเหตุผลที่.. ข้าต้องการเจ้า..";
+			mes "I also realized that relics from the glorious past were also needed to create more powerful and superior weapons.";
+			mes "That is why..I need you..";
 			next;
 			mes "[Professor Bernhard]";
 			if (is_party_leader() == false) {
-				mes "ความปรารถนาของข้าในการสร้างอาวุธอันทรงพลังในฐานะศาสตราจารย์ที่แท้จริง!";
-				mes "เพื่อให้สำเร็จ เราต้องการเศษชิ้นส่วน Gigantes ที่เคยปรากฏในการต่อสู้ในอดีตของ Fenrir และ Sarah";
+				mes "A longing for accomplishing a powerful weapon as a genuine professor!";
+				mes "In order to accomplish that, we need shards of Gigantes that once appeared in the past battle of Fenrir and Sarah.";
 				next;
 				mes "[Professor Bernhard]";
-				mes "ข้าไม่สามารถออกจากตำแหน่งได้";
-				mes "ข้าต้องการนักรบที่สามารถนำเศษชิ้นส่วนมาให้แทน..";
-				mes "เจ้าดูมีความสามารถ";
+				mes "I cannot leave my post.";
+				mes "I need a warrior who can bring me the shards instead..";
+				mes "You seem capable.";
 				next;
 				mes "[Professor Bernhard]";
-				mes "ข้าจะพูดคุยเรื่องนี้ต่อกับหัวหน้าปาร์ตี้ของเจ้ามากกว่ากับเจ้า";
+				mes "I will continue discussing this further with your party leader rather than with you.";
 				close;
 			}
-			mes "ข้าต้องการนักรบที่สามารถนำเศษ Gigantes มาให้แทน..";
-			mes "เจ้าดูมีความสามารถ";
+			mes "I need a warrior who can bring me the shard of Gigantes instead..";
+			mes "You seem capable.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "เจ้าคิดอย่างไร?";
-			mes "เจ้าจะไปยังอดีตและนำเศษ Gigantes กลับมาให้ข้าไหม?";
-			mes "ข้าจะชดเชยให้เจ้าอย่างเพียงพอ";
+			mes "What do you think?";
+			mes "Would you go to the past and bring me back the shards of Gigantes?";
+			mes "I will make sure to compensate you sufficiently.";
 			next;
-			if (select( "ไม่", "ใช่" ) == 1) {
+			if (select( "No", "Yes" ) == 1) {
 				mes "[Professor Bernhard]";
-				mes "กลับมาหาข้าอีกครั้งถ้าเจ้าเปลี่ยนใจ";
+				mes "Visit me again if you change your mind.";
 				close;
 			}
 			mes "[Professor Bernhard]";
-			mes "ข้าตั้งค่าอุปกรณ์มิติไปยัง Glast Heim ในอดีต ที่ Fenrir และ Sarah เคยสู้กัน";
-			mes "เวลาปฏิบัติการไม่นาน รีบกลับมา";
+			mes "I set the Dimensional Device to Glast Heim of the past, where Fenrir and Sarah once fought.";
+			mes "The operating time isn't long so hurry up and come back.";
 			instance_create("Fenrir and Sarah");
 			close;
 		case 1:
 			mes "[Professor Bernhard]";
-			mes "เจ้านำเศษ Gigantes กลับมาสำเร็จหรือไม่?";
-			mes "เจ้าคงเผชิญกับอันตรายมาก ขอบคุณสำหรับความพยายาม";
+			mes "Did you successfully bring back the shards of Gigantes?";
+			mes "You probably faced a lot of danger so thank you for the effort.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "ข้าไม่คาดว่าจะรับเศษชิ้นส่วนเปล่าๆ เมื่อเจ้าเสี่ยงชีวิตเพื่อมัน!";
+			mes "I don't expect to receive the shards for nothing when you have risked your life for them!";
 			if (sarah_fenrir == 0) {
-				mes "ข้าจะให้ตุ้มหูที่มีประโยชน์จากวัตถุโบราณที่ข้าได้มาระหว่างการวิจัยก่อนหน้า";
+				mes "I will give you a useful looking earring from the relics I have happened to have obtained during my previous research.";
 				next;
-				mes "- ตุ้มหูซ้ายของ Sarah -";
-				mes "ใช้สำหรับ Heal ระดับ 1";
-				mes "- ตุ้มหูขวาของ Sarah -";
-				mes "ใช้สำหรับ Teleport ระดับ 1";
+				mes "- The left earring of Sarah -";
+				mes "Usable for Heal 1Lv";
+				mes "- The right earring of Sarah -";
+				mes "Usable for Teleport 1Lv";
 				next;
-				.@s = select( "ตุ้มหูซ้ายของ Sarah", "ตุ้มหูขวาของ Sarah" ) - 1;
+				.@s = select( "The left earring of Sarah", "The right earring of Sarah" ) - 1;
 			}
 			mes "[Professor Bernhard]";
-			mes "ถ้าเจ้ามอบเศษ Gigantes ให้ผู้ช่วยหลักของข้า ข้าจะมั่นใจว่าตุ้มหูจะยอดเยี่ยมผ่านการ Enchant";
+			mes "If you hand the shards of Gigantes to my chief assistant, I will make sure the earrings will be correspondingly great through an enchantment.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "ยิ่งเก็บเศษ Gigantes ได้มาก ยิ่งดี";
-			mes "อย่างไรก็ตาม ไม่มีแหล่งพลังงานที่มั่นคงสำหรับใช้งานอุปกรณ์มิติ";
+			mes "The more shards of Gigantes are collected, the better.";
+			mes "However, there isn't a stable supply of energy needed to work the Dimensional Device.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "กลับมาหาข้าหลังจากหนึ่งสัปดาห์ผ่านไปสำหรับพลังงานอุปกรณ์มิติ";
-			mes "ข้าต้องการให้เจ้าหาเศษ Gigantes อีกครั้ง";
+			mes "Come back and find me after one week has passed for the supply of Dimensional Device energy.";
+			mes "I need you to find shards of Gigantes again.";
 			erasequest 9335;// Search for shards of Gigantes
 			setquest 9336;// Go back to Professor Bernhard
 			if (isbegin_quest(9337) > 0)
@@ -101,35 +101,35 @@ dali02,97,142,3	script	Professor Bernhard#a1	4_LGTSCIENCE,{
 	case 0:
 	case 1:
 		mes "[Professor Bernhard]";
-		mes "เราขาดเศษ Gigantes ในการสร้างอาวุธทรงพลัง";
-		mes "เนื่องจากต้องใช้พลังงานมากในการเปิดอุปกรณ์มิติ กลับมาหาข้าเมื่อพลังงานสะสมแล้ว";
+		mes "We lack the shards of Gigantes in order to make powerful weapons.";
+		mes "Because a lot of energy is needed to open a dimension device, come back and find me when the energy has accumulated.";
 		close;
 	case 2:
 		mes "[Professor Bernhard]";
-		mes "ข้ารอแล้ว";
-		mes "ทุกอย่างเป็นอย่างไรบ้าง?";
-		mes "ขณะที่เจ้าออกไป ข้าสำเร็จในการสะสมพลังงานมิติ";
-		mes "เราสามารถเปิดอุปกรณ์มิติได้อีกครั้ง";
+		mes "I have been waiting.";
+		mes "How is everything going?";
+		mes "While you were gone I have succeeded in accumulating dimensional energy.";
+		mes "We can open the dimension device again.";
 		next;
 		mes "[Professor Bernhard]";
-		mes "ความปรารถนาของข้าในการสร้างอาวุธอันทรงพลังในฐานะศาสตราจารย์ที่แท้จริง!";
-		mes "เพื่อให้สำเร็จ เราต้องการเศษชิ้นส่วน Gigantes ที่เคยปรากฏในการต่อสู้ในอดีตของ Fenrir และ Sarah";
+		mes "A longing for accomplishing a powerful weapon as a genuine professor!";
+		mes "In order to accomplish that, we need shards of Gigantes that once appeared in the past battle of Fenrir and Sarah.";
 		next;
 		mes "[Professor Bernhard]";
-		mes "เนื่องจากข้าไม่สามารถออกจากตำแหน่งได้ ";
-		mes "ข้าต้องการนักรบที่สามารถนำเศษชิ้นส่วนมาให้แทน";
-		mes "ข้าคิดว่าเจ้าสามารถช่วยข้าได้อีกครั้ง..";
+		mes "Because I cannot leave my post, ";
+		mes "I need a warrior who can bring me the shards instead.";
+		mes "I think you can assist me once again..";
 		next;
 		mes "[Professor Bernhard]";
-		mes "นั่น การเตรียมการทั้งหมดเสร็จสิ้นแล้ว";
-		mes "เจ้าสามารถย้อนเวลากลับไปอีกครั้งและนำเศษ Gigantes มาให้ข้าได้ไหม?";
-		mes "ข้าจะชดเชยให้เจ้าอย่างเพียงพอ";
+		mes "There, all the preparations are finished.";
+		mes "Can you go back in time again and bring me the shards of Gigantes?";
+		mes "I will make sure to compensate you sufficiently.";
 		if (is_party_leader() == true) {
 			next;
-			if (select( "ไม่", "ใช่" ) == 1) {
+			if (select( "No", "Yes" ) == 1) {
 				mes "[Professor Bernhard]";
-				mes "ข้าตั้งค่าอุปกรณ์มิติไปยัง Glast Heim ในอดีต ที่ Fenrir และ Sarah เคยอยู่";
-				mes "มันจะไม่นาน รีบกลับมา";
+				mes "I set the Dimensional Device to Glast Heim of the past, where Fenrir and Sarah once were.";
+				mes "It won't last long so hurry up and come back.";
 				close;
 			}
 			instance_create("Fenrir and Sarah");
@@ -140,8 +140,8 @@ dali02,97,142,3	script	Professor Bernhard#a1	4_LGTSCIENCE,{
 
 dali02,99,148,3	script	Dimensional Device#XX1	PORTAL,{
 	if (BaseLevel < 1) {
-		mes "- คุณต้องเป็นเลเวล 145 หรือสูงกว่า";
-		mes "ดูเหมือนจะสามารถเข้าได้ -";
+		mes "- You must be level 145 or over";
+		mes "It seems entry is possible. -";
 		close;
 	}
 	switch( checkquest(9336,PLAYTIME) ) {
@@ -149,30 +149,30 @@ dali02,99,148,3	script	Dimensional Device#XX1	PORTAL,{
 		break;
 	case 0:
 	case 1:
-		mes "- อุปกรณ์มิติปิดแล้ว";
-		mes "ดูเหมือนจะไม่สามารถเข้าได้ -";
+		mes "- The Dimensional Device has closed.";
+		mes "It seems entry is not possible. -";
 		close;
 	case 2:
 		break;
 	}
 	if (isbegin_quest(9335) > 0) {
-		mes "- อุปกรณ์มิติปิดแล้ว";
-		mes "ดูเหมือนจะไม่สามารถเข้าได้ -";
+		mes "- The Dimensional Device has closed.";
+		mes "It seems entry is not possible. -";
 		close;
 	}
-	if (select( "ไม่เข้าอุปกรณ์", "เข้าอุปกรณ์เวลา" ) == 1) {
+	if (select( "Do not enter the device.", "Enter the time device" ) == 1) {
 		if (getcharid(1) > 0) {
-			mes "- ดูเหมือนอุปกรณ์มิติ ";
-			mes "จะบิดเบือนกาลอวกาศ -";
+			mes "- It seems the Dimensional Device ";
+			mes "will contort space time -";
 			close;
 		}
-		mes "- มีความรู้สึกชื้นแฉะ -";
+		mes "- There is a damp presence. -";
 		close;
 	}
 	.@md_name$ = "Fenrir and Sarah";
 	switch( instance_enter(.@md_name$) ) {
 	case IE_OTHER:
-		mes "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ";
+		mes "An unknown error occurred.";
 		close;
 	case IE_NOINSTANCE:
 		mes "Memorial Dungeon " + .@md_name$ + " does not exist.";
@@ -196,21 +196,21 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 		end;
 	disable_items;
 	mes "[Chief Assistant]";
-	mes "ข้าได้ยินเรื่องของเจ้าจากศาสตราจารย์";
-	mes "ศาสตราจารย์บอกข้าให้ชดเชยเจ้าอย่างเพียงพอสำหรับการเสี่ยงชีวิตและนำเศษ Gigantes มา";
+	mes "I've heard about you from the professor.";
+	mes "The professor has told me to sufficiently compensate you for risking your life and bringing the shards of Gigantes.";
 	next;
-	switch( select( "Enchant ตุ้มหู", "ซื้อตุ้มหู", "จบการสนทนา" ) ) {
+	switch( select( "Enchant earring.", "Purchase earring", "Exit conversation" ) ) {
 	case 1:
 		mes "[Chief Assistant]";
-		mes "ตุ้มหูของ Sarah ที่เราค้นพบที่แหล่งโบราณคดีต้องมีศักยภาพสูง";
+		mes "Sarah's earrings we have discovered at the archaeological site must certainly have great potential.";
 		next;
-		switch( select( "Enchant ตุ้มหูของ Sarah", "Initialize Enchant บนตุ้มหูของ Sarah", "จบการสนทนา" ) ) {
+		switch( select( "Enchant Sarah's earrings", "Initialize enchantment on Sarah's earrings", "Exit conversation" ) ) {
 		case 1:
 			mes "[Chief Assistant]";
-			mes "สามารถ Enchant ได้ 2 ครั้งบนตุ้มหูหนึ่งชิ้น";
-			mes "เจ้าต้องการ Enchant ตุ้มหูชิ้นไหน?";
+			mes "2 enchantments are possible on one earring.";
+			mes "Which earring do you wish to enchant?";
 			next;
-			switch( select( "ตุ้มหูซ้ายของ Sarah", "ตุ้มหูขวาของ Sarah", "Quit" ) ) {
+			switch( select( "The left earring of Sarah", "The right earring of Sarah", "Quit" ) ) {
 			case 1:
 				.@sarah_item_id = 28310;
 				.@sarah_earring$ = "left";
@@ -223,14 +223,14 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 				mes "[Chief Assistant]";
 				mes "If you want an enchantment ";
 				mes "on Sarah's earrings, ";
-				mes "กลับมาหาข้าอีกครั้ง";
+				mes "come and find me again.";
 				close;
 			}
 			mes "[Chief Assistant]";
-			mes "เจ้าต้องสวมใส่ไอเท็มเพื่อให้ Enchant ได้";
-			mes "เจ้าต้องการ Enchant คอลัมน์ไหน?";
+			mes "You must equip the item to make enchantment possible.";
+			mes "Which column do you wish to enchant?";
 			next;
-			if (select( "คอลัมน์ซ้าย", "คอลัมน์ขวา" ) == 1) {
+			if (select( "Left column", "Right column" ) == 1) {
 				.@part = EQI_ACC_L;
 				.@column$ = "left";
 				.@bonus_size = 4;		// 4 possibilities
@@ -245,30 +245,30 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 			.@equip_id = getequipid(.@part);
 			if (.@equip_id != .@sarah_item_id) {
 				mes "[Chief Assistant]";
-				mes "ถ้าต้องการ Enchant เจ้าต้องสวมตุ้มหูของ Sarah " + .@sarah_earring$ + " earring.";
+				mes "If you wish to enchant, you must equip Sarah's " + .@sarah_earring$ + " earring.";
 				close;
 			}
 			setarray .@card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
 			if (.@card[2] > 0) {// 2 enchants
 				mes "[Chief Assistant]";
-				mes "ตุ้มหูของ Sarah ที่ Enchant เต็มแล้วไม่สามารถ Enchant ได้อีก";
+				mes "A fully enchanted earring of Sarah cannot be enchanted any further.";
 				close;
 			}
 			if (.@card[3] > 0) {// 1 enchant
 				mes "[Chief Assistant]";
-				mes "ตุ้มหูของ Sarah อยู่ในสถานะ Enchant ที่สล็อต 4";
+				mes "Sarah's Earring is currently in a state of enchantment in slot 4.";
 				.@slot = 3;
 			}
 			else {// none enchant
 				mes "[Chief Assistant]";
-				mes "ตุ้มหูของ Sarah อยู่ในสถานะไม่มี Enchant";
+				mes "Sarah's Earring is currently in a state without enchantment.";
 				.@slot = 4;
 			}
 			next;
 			mes "[Chief Assistant]";
-			mes "เจ้าต้องการความสามารถไหนเป็น Enchant ที่สล็อต " + .@slot + "?";
+			mes "Which ability do you want as an enchantment on slot " + .@slot + "?";
 			next;
-			switch( select( "CRI หรือ Critical", "Expert archer หรือ Bleed", "Conservation หรือ MATK", "Delay Attack หรือ Delay Skill" ) ) {
+			switch( select( "CRI or Critical", "Expert archer or Bleed", "Conservation or MATK", "Delay Attack or Delay Skill" ) ) {
 			case 1:
 				setarray .@bonus[0],
 					4863,	// Fatal1
@@ -316,29 +316,29 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 			}
 			next;
 			mes "[Chief Assistant]";
-			mes "ต้องใช้เศษ Gigantes 4 ชิ้นสำหรับการ Enchant หนึ่งครั้ง";
+			mes "4 shards of Gigantes is required for one enchantment.";
 			next;
 			mes "[Chief Assistant]";
-			mes "เนื่องจาก Enchant เป็นกระบวนการความเสี่ยงสูง มีความเสี่ยงที่ตุ้มหูของ Sarah จะถูกทำลาย";
-			mes "เจ้ายังต้องการทำอยู่ไหม?";
+			mes "Because enchantment is a high risk process, there is risk of Sarah's earring being destroyed.";
+			mes "Do you still want to do it?";
 			next;
-			if (select( "ไม่", "ใช่" ) == 1) {
+			if (select( "No", "Yes" ) == 1) {
 				mes "[Chief Assistant]";
-				mes "โปรดมาพูดกับข้าอีกครั้งหลังจากตัดสินใจแน่ชัดแล้ว!";
+				mes "Please speak to me again after making a clear decision!";
 				close;
 			}
 			if (countitem(6803) < 4) {
 				mes "[Chief Assistant]";
-				mes "เศษ Gigantes ไม่เพียงพอ";
-				mes "ต้องใช้เศษ Gigantes 4 ชิ้นในการ Enchant หนึ่งครั้ง";
+				mes "There are not enough shards of Gigantes.";
+				mes "4 shards of Gigantes is required to do one enchantment.";
 				close;
 			}
 			mes "[Chief Assistant]";
-			mes "ดี ข้าจะเริ่ม Enchant!";
-			mes "ขอให้โชคดี~!";
+			mes "Good. I will start the enchantment!";
+			mes "I wish you luck~!";
 			next;
 			mes "[Chief Assistant]";
-			mes "อาห์!!!";
+			mes "Aahhhh!!";
 			next;
 			progressbar "000000",5;
 			specialeffect2 EF_MAGICALATTHIT;
@@ -356,23 +356,23 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 				specialeffect2 EF_CRASHEARTH;
 				specialeffect2 EF_MAXPOWER;
 				mes "[Chief Assistant]";
-				mes "น่าเสียดาย... มันคือ..";
-				mes "ถูกทำลาย...";
-				mes "ฟิ้ว.. ";
-				mes "การ Enchant ไม่ใช่งานง่าย..";
+				mes "Sadly... it is..";
+				mes "destroyed...";
+				mes "Whew.. ";
+				mes "enchantment is not an easy task..";
 				close;
 			}
 			.@card[.@slot-1] = .@bonus[.@i];
 			specialeffect2 EF_ANGEL2;
 			getitem2 .@sarah_item_id,1,1,0,0,.@card[0],.@card[1],.@card[2],.@card[3];
 			mes "[Chief Assistant]";
-			mes "Enchant สำเร็จ!";
+			mes "Enchantment completed!";
 			close;
 		case 2:
 			mes "[Chief Assistant]";
-			mes "เจ้าต้องการ Initialize ตุ้มหูชิ้นไหน?";
+			mes "Which earring do you wish to initialize?";
 			next;
-			switch( select( "ตุ้มหูซ้ายของ Sarah", "ตุ้มหูขวาของ Sarah", "Quit" ) ) {
+			switch( select( "The left earring of Sarah", "The right earring of Sarah", "Quit" ) ) {
 			case 1:
 				.@sarah_item_id = 28310;
 				.@sarah_earring$ = "left";
@@ -383,23 +383,23 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 				break;
 			case 3:
 				mes "[Chief Assistant]";
-				mes "ถ้าต้องการ Initialize Enchant บนตุ้มหูของ Sarah กลับมาหาข้าอีกครั้ง";
+				mes "If you want to initialize an enchantment on Sarah's earrings, come and find me again.";
 				close;
 			}
 			mes "[Chief Assistant]";
-			mes "บนตุ้มหูของ Sarah ต้องใช้เศษ Gigantes 1 ชิ้นในการ Initialize Enchant..";
+			mes "On Sarah's earring. 1 shard of Gigantes is required to initialize the enchantment..";
 			next;
 			if (countitem(6803) < 1) {
 				mes "[Chief Assistant]";
-				mes "เศษ Gigantes ไม่เพียงพอ";
-				mes "เจ้าจะต้องการมันเพื่อให้การ Initialize เกิดขึ้น";
+				mes "There are not enough shards of Gigantes.";
+				mes "You will need them in order for initialization to take place.";
 				close;
 			}
 			mes "[Chief Assistant]";
-			mes "เจ้าต้องสวมใส่ไอเท็มเพื่อให้ Initialize ได้";
-			mes "เจ้าต้องการ Initialize ตุ้มหูในคอลัมน์ไหน?";
+			mes "You must equip the item to make initialization possible.";
+			mes "Which column's earring do you wish to initialize?";
 			next;
-			if (select( "คอลัมน์ซ้าย", "คอลัมน์ขวา" ) == 1) {
+			if (select( "Left column", "Right column" ) == 1) {
 				.@part = EQI_ACC_L;
 				.@column$ = "left";
 			}
@@ -411,27 +411,27 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 			setarray .@card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
 			if (.@equip_id == -1) {
 				mes "[Chief Assistant]";
-				mes "ในการ Initialize Enchant คอลัมน์ที่เกี่ยวข้องต้องสวมอุปกรณ์";
+				mes "To initialize an enchantment, the relevant column must be equipped with gear.";
 				close;
 			}
 			if (.@equip_id != .@sarah_item_id) {
 				mes "[Chief Assistant]";
-				mes "ในการ Initialize Enchant คอลัมน์ที่เกี่ยวข้องต้องสวมตุ้มหูของ Sarah";
+				mes "To initialize an enchantment, the relevant column must be equipped with Sarah's earring.";
 				close;
 			}
 			if (getequipcardid(.@part,3) < 1) {
 				mes "[Chief Assistant]";
-				mes "ตุ้มหูของ Sarah ที่ไม่มี Enchant ไม่สามารถ Initialize ได้";
+				mes "Sarah's earring without an enchantment cannot be initialized.";
 				close;
 			}
 			mes "[Chief Assistant]";
-			mes "เจ้าได้เลือกตุ้มหูของ Sarah " + .@sarah_earring$ + " earring on the " + .@column$ + " column.";
-			mes "เป็นไปไม่ได้ที่จะคืนความสามารถที่หายไปหลังการ Initialize";
-			mes "เจ้ายังต้องการดำเนินการต่อไหม?";
+			mes "You have selected Sarah's " + .@sarah_earring$ + " earring on the " + .@column$ + " column.";
+			mes "It is impossible to restore abilities that are gone after initialization.";
+			mes "Do you still want to proceed?";
 			next;
-			if (select( "ไม่", "ใช่" ) == 2) {
+			if (select( "No", "Yes" ) == 2) {
 				mes "[Chief Assistant]";
-				mes "ใช่ครับ การ Initialize จะเริ่มต้น";
+				mes "Yes sir. Initialization will start.";
 				next;
 				progressbar "000000",5;
 				specialeffect2 EF_MAGICALATTHIT;
@@ -446,38 +446,38 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 				delequip .@part;
 				getitem .@sarah_item_id,1;
 				mes "[Chief Assistant]";
-				mes "Initialize สำเร็จ";
-				mes "โปรดมาหาข้าถ้าต้องการ";
+				mes "Initialization completed.";
+				mes "Please find me if you need me.";
 			}
 			close;
 		case 3:
 			mes "[Chief Assistant]";
-			mes "ถ้าต้องการ Enchant บนตุ้มหูของ Sarah กลับมาหาข้าอีกครั้ง";
+			mes "If you want an enchantment on Sarah's earrings, come and find me again.";
 			close;
 		}
 	case 2:
 		mes "[Chief Assistant]";
-		mes "เกี่ยวกับ Glast Heim นี่คือตุ้มหูที่หายากและไม่ซ้ำใครที่พบระหว่างการขุดค้นกับศาสตราจารย์";
+		mes "Related to Glast Heim, this is an unique and rare earring found during an excavation with the professor.";
 		next;
 		mes "[Chief Assistant]";
-		mes "ข้าคิดว่ามันเคยถูก Sarah สวมใส่ในอดีตและดูเหมือนมีความสามารถสูงในการดึงพลังที่ซ่อนอยู่";
+		mes "I think this has been worn by Sarah in the past and seems to have a great ability to draw out potential strength.";
 		next;
 		mes "[Chief Assistant]";
-		mes "ข้าจะแลกกับเศษ 1 ชิ้นเป็นพิเศษ เนื่องจากเจ้าเป็นนักรบที่นำเศษ Gigantes มาให้งานของศาสตราจารย์";
+		mes "I will specially trade it for 1 shard since you are the warrior who brought shards of Gigantes for the professor's work.";
 		next;
 		mes "[Chief Assistant]";
-		mes "- ตุ้มหูซ้ายของ Sarah -";
-		mes "ใช้สำหรับ Heal ระดับ 1";
-		mes "- ตุ้มหูขวาของ Sarah -";
-		mes "ใช้สำหรับ Teleport ระดับ 1";
+		mes "- The left earring of Sarah -";
+		mes "Usable for Heal 1Lv";
+		mes "- The right earring of Sarah -";
+		mes "Usable for Teleport 1Lv";
 		mes "-----------------------";
-		mes "เจ้าต้องการชิ้นไหน?";
+		mes "Which one do you wish?";
 		next;
-		.@s = select( "ตุ้มหูซ้ายของ Sarah", "ตุ้มหูขวาของ Sarah", "จบการสนทนา" ) - 1;
+		.@s = select( "The left earring of Sarah", "The right earring of Sarah", "Exit conversation" ) - 1;
 		if (.@s < 2) {
 			if (countitem(6803) < 1) {
 				mes "[Chief Assistant]";
-				mes "เศษ Gigantes ไม่เพียงพอ";
+				mes "There are not enough shards of Gigantes.";
 				mes "You will need them for me to trade with you.";
 				close;
 			}
@@ -485,13 +485,13 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 			getitem (28310+.@s),1;
 		}
 		mes "[Chief Assistant]";
-		mes "ศาสตราจารย์ Bernhard คือศาสตราจารย์ที่ข้าเคารพมากที่สุด";
-		mes "เจ้ามีคนที่เคารพไหม?";
+		mes "Professor Bernhard is the professor I respect the most.";
+		mes "Do you have someone you respect?";
 		close;
 	case 3:
 		mes "[Chief Assistant]";
-		mes "ข้าได้ยินเรื่องของเจ้าจากศาสตราจารย์";
-		mes "ศาสตราจารย์บอกข้าให้ชดเชยเจ้าอย่างเพียงพอสำหรับการเสี่ยงชีวิตและนำเศษ Gigantes มา";
+		mes "I've heard about you from the professor.";
+		mes "The professor has told me to sufficiently compensate you for risking your life and bringing the shards of Gigantes.";
 		close;
 	}
 }
@@ -505,9 +505,9 @@ OnTouch:
 	unittalk getcharid(3), "" + strcharinfo(0) + " : Huh? Somebody there? Hello~ You must be a traveler.";
 	sleep2 3000;
 	cutin "fenrir_a.bmp",2;
-	npctalk "Fenrith Fenrir: นี่แปลก.. ข้าจำไม่ได้ว่าปราสาท Glast Heim เคยเต็มไปด้วยบรรยากาศมืดมนขนาดนี้..", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: This is strange.. I don't recall Glast Heim castle being filled with such a dark presence..", 'fenrir_1$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: ทักทายกันทีหลัง! ระวัง! ดูเหมือนมีคนเรียกมอนสเตอร์มา!", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Greetings can come later! Careful! It seems somebody has summoned a monster!", 'fenrir_1$;
 	sleep2 3000;
 	cutin "",255;
 	specialeffect EF_LOCKON, AREA, 'fenrir_1$;
@@ -522,7 +522,7 @@ OnTouch:
 	monster 'map_glast$,364,291, "Mutant Galion",3198,1, .@label$;
 	monster 'map_glast$,353,290, "Mutant Galion",3198,1, .@label$;
 	unittalk getcharid(3), "" + strcharinfo(0) + " : What are these things?";
-	npctalk "Fenrith Fenrir: ยื้อเวลาให้ข้าสักครู่ขณะที่ข้าร่ายเวทย์! ข้าจะจัดการสิ่งนี้!", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Buy me some time while I cast magic! I will handle this!", 'fenrir_1$;
 	donpcevent instance_npcname("#glast_event_1") + "::OnBar";
 	donpcevent instance_npcname("#glast_event_1") + "::OnEvent";
 	setpcblock PCBLOCK_NPC, false;
@@ -532,26 +532,26 @@ OnBar:
 	end;
 
 OnEvent:
-	// npctalk "Fenrith Fenrir: ยื้อเวลาให้ข้าสักครู่ขณะที่ข้าร่ายเวทย์! ข้าจะจัดการสิ่งนี้!", 'fenrir_1$;// double on official
+	// npctalk "Fenrith Fenrir: Buy me some time while I cast magic! I will handle this!", 'fenrir_1$;// double on official
 	sleep 3000;
-	npctalk "Fenrith Fenrir: ความพิโรธของท้องฟ้าแท้จริง", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Wrath of the true sky.", 'fenrir_1$;
 	sleep 3000;
-	npctalk "Fenrith Fenrir: สายฟ้าที่อาจแยกแผ่นดิน!", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Thunderbolt that may split the earth!", 'fenrir_1$;
 	sleep 3000;
-	npctalk "Fenrith Fenrir: จงล้มลงต่อหน้าข้าตอนนี้!", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Fall before me now!", 'fenrir_1$;
 	sleep 3000;
-	npctalk "Fenrith Fenrir: อาา!! Thunder Storm!!!!!", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Aaah!! Thunder Storm!!!!!", 'fenrir_1$;
 	for ( .@i = 1; .@i < 8; .@i++ )
 		specialeffect EF_THUNDERSTORM, AREA, instance_npcname( "#effect_glast_event01_" + .@i );
 	killmonster 'map_glast$, instance_npcname("#glast_event_1") + "::OnMobDead";
 	sleep 4000;
-	npctalk "Fenrith Fenrir: Glast Heim เคยเป็นมหาวิหารสำหรับเทพแห่ง Asgard..", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Glast Heim, once the cathedral for the Asgard gods..", 'fenrir_1$;
 	sleep 3000;
-	npctalk "Fenrith Fenrir: ตอนนี้มันกลายเป็นที่อยู่อาศัยของมอนสเตอร์โดยสมบูรณ์..", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Now it has completely become a habitat for monsters..", 'fenrir_1$;
 	sleep 3000;
-	npctalk "Fenrith Fenrir: รอก่อน.. คิดดูแล้ว มีบางอย่างแปลก..", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Wait.. Come to think of it, something is strange..", 'fenrir_1$;
 	sleep 3000;
-	npctalk "Fenrith Fenrir: Galion คือมอนสเตอร์ที่อาศัยอยู่บริเวณนี้..", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Galions are the monsters that habit this vicinity..", 'fenrir_1$;
 	sleep 3000;
 	enablenpc instance_npcname("#glast_event_3");
 	end;
@@ -566,23 +566,23 @@ OnTouch:
 	disablenpc instance_npcname("#glast_event_3");
 	setpcblock PCBLOCK_NPC, true;
 	cutin "fenrir_a.bmp",2;
-	npctalk "Fenrith Fenrir: อ้อ ข้ารู้ว่ามันกะทันหัน แต่ขอบคุณที่ช่วย", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: By the way, I know it was sudden but thank you for helping.", 'fenrir_1$;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: ยังไงก็ตาม เจ้าคือใคร?", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Anyway, who are you?", 'fenrir_1$;
 	sleep2 2000;
 	unittalk getcharid(3), "" + strcharinfo(0) + " : Ah.. that is....";
 	sleep2 2000;
 	unittalk getcharid(3), "" + strcharinfo(0) + " : .. I am a traveler who wanders around the world!";
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: อย่างนั้นหรือ..? เข้าใจแล้ว.. ข้าเดาว่ามันไม่สำคัญ", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Is that so..? I see.. I guess it does not matter.", 'fenrir_1$;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: สถานที่นี้ดูอันตรายมากตอนนี้ ยังไม่สายเกินไปที่จะถอยกลับ", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: This place seems quite dangerous now. It is not too late to turn back.", 'fenrir_1$;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: มีวัตถุที่ข้าต้องหา ต้องรีบก่อนที่จะสายเกินไป", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: There is an object I need to find. I need to hurry before it is too late.", 'fenrir_1$;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: บางทีเจ้าสามารถช่วยข้าได้...", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: Perhaps you can help me...", 'fenrir_1$;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: ไม่.. แล้วขอบคุณ! ข้าหวังว่าจะพบกันอีกภายหลัง!", 'fenrir_1$;
+	npctalk "Fenrith Fenrir: No.. Then thank you! I hope we can meet again later!", 'fenrir_1$;
 	sleep2 3000;
 	cutin "",255;
 	specialeffect EF_LOCKON, AREA, 'fenrir_1$;
@@ -629,22 +629,22 @@ OnTimer2000:
 	specialeffect EF_WHITEBODY, AREA, 'sarah_ego$;
 	end;
 OnTimer3000:
-	npctalk "Sarah Irene: น่าประทับใจ Fenrith Fenrir เจ้าหลบหนีได้อย่างฉลาด", 'sarah_ego$;
+	npctalk "Sarah Irene: Impressive Fenrith Fenrir, you cleverly escaped", 'sarah_ego$;
 	end;
 OnTimer7500:
-	npctalk "Sarah Irene: ฮืมม์.. วันนี้ฉันจะทำให้เจ้ายอมแพ้", 'sarah_ego$;
+	npctalk "Sarah Irene: Mm.. today I will make you stand down", 'sarah_ego$;
 	end;
 OnTimer8000:
-	npctalk "Fenrith Fenrir: วันนี้ข้าหวังที่จะยุติความสัมพันธ์อันชั่วร้ายของเรา", 'fenrir_11$;
+	npctalk "Fenrith Fenrir: Today I hope to end our ill fated relationship.", 'fenrir_11$;
 	end;
 OnTimer11000:
-	npctalk "Sarah Irene: อย่างไรก็ตาม อย่าคิดว่านี่คือจุดสิ้นสุด", 'sarah_ego$;
+	npctalk "Sarah Irene: However, do not think this is the end", 'sarah_ego$;
 	end;
 OnTimer14000:
-	npctalk "Sarah Irene: เจ้าจะได้พบฉันอีกอย่างแน่นอน!!!", 'sarah_ego$;
+	npctalk "Sarah Irene: You will surely see me again!!!", 'sarah_ego$;
 	end;
 OnTimer14500:
-	npctalk "Fenrith Fenrir: ฮืมม์... ข้าตั้งตารอ Sarah Irene..", 'fenrir_11$;
+	npctalk "Fenrith Fenrir: Mm... I look forward to it Sarah Irene..", 'fenrir_11$;
 	specialeffect EF_FIREPILLARON2, AREA, 'sarah_ego$;
 	end;
 OnTimer15500:
@@ -714,26 +714,26 @@ OnTouch:
 	disablenpc instance_npcname("#glast_event_5");
 	setpcblock PCBLOCK_NPC, true;
 	cutin "fenrir_a.bmp",2;
-	npctalk "Fenrith Fenrir: เจ้ายังอยู่ใน Glast Heim หรือ? ทำไมไม่ออกจากสถานที่อันตรายนี้?", 'fenrir_2$;
+	npctalk "Fenrith Fenrir: You are still in Glast Heim? Why aren't you leaving this dangerous place?", 'fenrir_2$;
 	sleep2 2000;
 	unittalk getcharid(3), "" + strcharinfo(0) + " : I know it's dangerous but I thought it would be fun so I couldn't help myself..";
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: ฮืมม์.. นักผจญภัย..", 'fenrir_2$;
+	npctalk "Fenrith Fenrir: Hm.. Adventurers..", 'fenrir_2$;
 	sleep2 2000;
 	unittalk getcharid(3), "" + strcharinfo(0) + " : You don't have to worry~! I am fairly strong myself!";
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: โอ้.. จริงหรือ? เจ้าคิดว่าจะช่วยข้าได้ไหม?", 'fenrir_2$;
+	npctalk "Fenrith Fenrir: Oh.. really? Do you think you can assist me then?", 'fenrir_2$;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: วัตถุที่ข้ากำลังหาอยู่ที่ไหนสักแห่งใน Glast Heim!", 'fenrir_2$;
+	npctalk "Fenrith Fenrir: The object I am looking for is located somewhere in Glast Heim!", 'fenrir_2$;
 	viewpoint 1,47,270,1,0xFF0000;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: แต่คนอื่นที่กำลังหาวัตถุนั้นจะมาถึงที่นั่นเร็วๆ นี้!", 'fenrir_2$;
+	npctalk "Fenrith Fenrir: But others looking for the object will arrive there soon!", 'fenrir_2$;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: นี่เร่งด่วนเพราะเวลาไม่พอ เราต้องไปถึงที่นั่นเร็วๆ อย่างช้าสุด 5 นาที!", 'fenrir_2$;
+	npctalk "Fenrith Fenrir: This is urgent because there isn't enough time. We have to arrive there soon. 5 minutes at the latest!", 'fenrir_2$;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: ข้าจะรอ! ถ้าเจ้ามาสาย ข้าต้องไปคนเดียว!", 'fenrir_2$;
+	npctalk "Fenrith Fenrir: I will be waiting! If you are late I will have to go by myself!", 'fenrir_2$;
 	sleep2 2000;
-	npctalk "Fenrith Fenrir: โอเค ข้าจะไปก่อน และเจ้าตัดสินใจว่าจะมาช่วยไหม!", 'fenrir_2$;
+	npctalk "Fenrith Fenrir: Alright, I will go on ahead and you decide if you are going to assist me!", 'fenrir_2$;
 	sleep2 3000;
 	cutin "",255;
 	disablenpc 'fenrir_2$;
@@ -759,13 +759,13 @@ OnTouch:
 	end;
 OnTouch:
 	if (is_party_leader() == false)
-		npctalk "Fenrith Fenrir: ข้าต้องการให้หัวหน้าปาร์ตี้ของเจ้ามาช่วย!", 'fenrir_3$;
+		npctalk "Fenrith Fenrir: I would like your party leader to come and help me!", 'fenrir_3$;
 	else {
 		setpcblock PCBLOCK_NPC, true;
 		disablenpc instance_npcname("#glast_event_7");
-		npctalk "Fenrith Fenrir: เจ้ามาแล้ว! ข้ารออยู่!", 'fenrir_3$;
+		npctalk "Fenrith Fenrir: You came! I was waiting!", 'fenrir_3$;
 		sleep2 2000;
-		npctalk "Fenrith Fenrir: เราไม่มีเวลามาก! เราต้องออกไปค้นหามันตอนนี้! เข้าไปเลย!", 'fenrir_3$;
+		npctalk "Fenrith Fenrir: We don't have much time! We have to go search for it now! Let's go in!", 'fenrir_3$;
 		sleep2 2000;
 		setpcblock PCBLOCK_NPC, false;
 		if ('skip_left_part == 0 && is_party_leader() == true) {// 5 mins have passed?
@@ -789,38 +789,38 @@ OnTouch:
 	disablenpc instance_npcname("#glast_event_9");
 	setpcblock PCBLOCK_NPC, true;
 	cutin "fenrir_a.bmp",2;
-	npctalk "Fenrith Fenrir: ดาบของ Baldur, Sentinel Breeze... แม้หลังจาก 1000 ปี..", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: The sword of Baldur, Sentinel Breeze... even after 1000 years..", 'fenrir_4$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: ข้ารู้สึกได้ถึงความชั่วร้ายของมอนสเตอร์ในสถานที่นี้.. ราวกับถูกควบคุมโดยใครบางคน..", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: I can feel the evil of monsters in this place.. as if they are being controlled by someone..", 'fenrir_4$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: แล้วมีคนอื่นอยู่ที่นี่นอกจากข้าหรือ?", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Then there is someone else here other than me?", 'fenrir_4$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: พอแล้ว.. ตอนนี้สิ่งที่ต้องทำคือใช้ Sentinel Breeze หาที่อยู่ของ Baldur..", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: That will do.. Now all I have to do is use Sentinel Breeze to find Baldur's whereabouts..", 'fenrir_4$;
 	sleep2 3000;
 	enablenpc 'sarah_10$;
 	enablenpc instance_npcname("Gigantes#semi1");
 	enablenpc instance_npcname("Gigantes#semi2");
 	sleep2 1000;
 	cutin "sarah_hero3.bmp",0;
-	npctalk "Sarah Irene: เฮเฮ.. เข้าใจแล้ว... ตามที่คาด", 'sarah_10$;
+	npctalk "Sarah Irene: Hehe.. I see... just as I expected.", 'sarah_10$;
 	sleep2 3000;
-	npctalk "Sarah Irene: ดาบนั้นเป็นเบาะแสหรือ?", 'sarah_10$;
+	npctalk "Sarah Irene: Was that blade the clue?", 'sarah_10$;
 	sleep2 3000;
-	npctalk "Sarah Irene: แล้ว Fenrith Fenrir หมายความว่าตราประทับที่อายุ 1000 ปีสามารถแตกได้ด้วยมันหรือ?", 'sarah_10$;
+	npctalk "Sarah Irene: Then, Fenrith Fenrir, that means a 1000 year old seal can be broken with it?", 'sarah_10$;
 	sleep2 3500;
 	unittalk getcharid(3), "" + strcharinfo(0) + " : Could it be he was the real Fenrir?";
-	npctalk "Fenrith Fenrir: นี่คือ.. Valkyrie หรือ! ตอนนี้มันไม่สนุกแล้ว", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Could this be.. Valkyrie! Now it is not fun anymore", 'fenrir_4$;
 	cutin "fenrir_b.bmp",2;
 	sleep2 5000;
-	npctalk "Sarah Irene: ขอทักทายล่าช้า ฉันคือ Sarah Irene หนึ่งใน 12 Valkyries แห่ง Valhalla", 'sarah_10$;
+	npctalk "Sarah Irene: Belated salutations, my name is Sarah Irene, one of the 12 Valkyries of Valhalla.", 'sarah_10$;
 	cutin "sarah_hero3.bmp",0;
 	sleep2 3000;
-	npctalk "Sarah Irene: ยังไงก็ตาม เพื่อบรรลุเจตจำนง Freyja ด้วย.. เฮเฮ..", 'sarah_10$;
-	npctalk "Fenrith Fenrir: Gigantes สองตัว! นี่จะไม่ใช่การสู้ที่ง่าย ช่วยข้าและเอาชนะ Gigantes!", 'fenrir_4$;
+	npctalk "Sarah Irene: Anyway, also to achieve Freyja's will.. hehe..", 'sarah_10$;
+	npctalk "Fenrith Fenrir: Two Gigantes! This will not be an easy fight. Help me and defeat the Gigantes!", 'fenrir_4$;
 	cutin "fenrir_b.bmp",2;
 	sleep2 3000;
-	npctalk "Sarah Irene: ออกไป! Gigantes! และมอนสเตอร์ผู้จงรักภักดีของฉัน!", 'sarah_10$;
-	npctalk "Fenrith Fenrir: Sarah จะซ่อนตัวและเรียกมอนสเตอร์ต่อเนื่อง! ข้าจะจัดการมอนสเตอร์นั้น เจ้าเผชิญกับ Gigantes!", 'fenrir_4$;
+	npctalk "Sarah Irene: Go forth! Gigantes! And my loyal monsters!", 'sarah_10$;
+	npctalk "Fenrith Fenrir: Sarah will hide and continuously summon monsters! I will take care of that monster, you face the Gigantes!", 'fenrir_4$;
 	cutin "fenrir_b.bmp",255;
 	sleep2 2000;
 	disablenpc 'sarah_10$;
@@ -840,7 +840,7 @@ OnEvent:
 
 OnStart:
 	initnpctimer;
-	npctalk "Fenrith Fenrir: กระแสสั่นสะเทือนในชั้นบรรยากาศ! แสดงพลังของเจ้า!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Currents vibrating in the atmosphere! Show me your strength!", 'fenrir_4$;
 	callsub S_Spawn,1,3198;// MM_M_GALION
 
 	progressbar_npc "000000",5, 'fenrir_4$;	// note: display effect after dead of Gigantes
@@ -852,10 +852,10 @@ OnTimer6000:
 	killmonster 'map_glast$, instance_npcname("#glast_event_9") + "::OnMobDead";
 	end;
 OnTimer15000:
-	npctalk "Fenrith Fenrir: กลืนกินความชั่วร้ายนี้ด้วยหลุมไฟแห่งจักรวาล!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Devour this evil presence with the fire pit of the universe!", 'fenrir_4$;
 	callsub S_Spawn,2,3198;// MM_M_GALION
 	progressbar_npc "000000",5, 'fenrir_4$;
-	npctalk "Fenrith Fenrir: ไฟนรกที่กลืนแม้กระทั่งอวกาศ! Meteor storm~!!!!!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Hell fire that can swallow even space! Meteor storm~!!!!!", 'fenrir_4$;
 	for ( .@i = 1; .@i < 9; .@i++ )
 		specialeffect EF_METEORSTORM, AREA, instance_npcname("#effect_glast_event02_" + .@i);
 	end;
@@ -863,7 +863,7 @@ OnTimer21000:
 	killmonster 'map_glast$, instance_npcname("#glast_event_9") + "::OnMobDead";
 	end;
 OnTimer30000:
-	npctalk "Fenrith Fenrir: กระแสสั่นสะเทือนในชั้นบรรยากาศ! แสดงพลังของเจ้า!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Currents vibrating in the atmosphere! Show me your strength!", 'fenrir_4$;
 	callsub S_Spawn,1,3199;// MM_M_MUTANT_DRAGON
 	progressbar_npc "000000",5, 'fenrir_4$;
 	npctalk "Fenrith Fenrir: Light Bolt!!!", 'fenrir_4$;
@@ -874,10 +874,10 @@ OnTimer36000:
 	killmonster 'map_glast$, instance_npcname("#glast_event_9") + "::OnMobDead";
 	end;
 OnTimer45000:
-	npctalk "Fenrith Fenrir: แช่แข็งความชั่วร้ายด้วยลมน้ำแข็ง!!!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Freeze the evil presence with frost wind!!!", 'fenrir_4$;
 	callsub S_Spawn,2,3199;// MM_M_MUTANT_DRAGON
 	progressbar_npc "000000",5, 'fenrir_4$;
-	npctalk "Fenrith Fenrir: พายุที่แช่แข็งได้แม้กระทั่งวิญญาณ!! Storm gust~!!!!!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: A storm that can freeze even the soul!! Storm gust~!!!!!", 'fenrir_4$;
 	for ( .@i = 1; .@i < 9; .@i++ )
 		specialeffect EF_STORMGUST, AREA, instance_npcname("#effect_glast_event02_" + .@i);
 	end;
@@ -933,17 +933,17 @@ S_Spawn:
 OnEvent:
 	enablenpc instance_npcname("#fenrir_left_vermilion");
 	initnpctimer;
-	npctalk "Fenrith Fenrir: พวกมันไม่มีสิ้นสุด ข้าควรยุติสิ่งนี้โดยเด็ดขาด", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: They are endless. I should finish this absolutely.", 'fenrir_4$;
 	progressbar_npc "000000",10, 'fenrir_4$;
 	end;
 OnTimer2000:
-	npctalk "Fenrith Fenrir: ราชันแห่งระยะทางอันไม่สิ้นสุดพร้อมลมหายใจสีแดงเข้มที่สวยงาม!!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Limitlessly distant monarch with the beautiful scarlet breath!!", 'fenrir_4$;
 	end;
 OnTimer4000:
-	npctalk "Fenrith Fenrir: ที่ที่เจ้าผ่านไปจะเต็มไปด้วยความว่างเปล่า", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Where you have passed will only be filled with nothingness.", 'fenrir_4$;
 	end;
 OnTimer7000:
-	npctalk "Fenrith Fenrir: พลังที่สั่นสะเทือนแกนโลก! แสดงพระคุณของเจ้าที่นี่และตอนนี้!!!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Power to shake the earth's axis! Show your grace right here and now!!!", 'fenrir_4$;
 	end;
 OnTimer10000:
 	stopnpctimer;
@@ -966,21 +966,21 @@ OnStart:
 	initnpctimer;
 	end;
 OnTimer2000:
-	npctalk "Fenrith Fenrir: ได้แล้ว! เราเอาชนะ Gigantes แล้ว!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Alright! We have defeated a Gigantes!", 'fenrir_4$;
 	enablenpc 'sarah_10$;
 	end;
 OnTimer4000:
-	npctalk "Sarah Irene: ตามที่คาด Fenrith Fenrir เจ้าไม่ยอมแพ้ง่ายๆ!", 'sarah_10$;
+	npctalk "Sarah Irene: As expected, Fenrith Fenrir, you do not yield easily!", 'sarah_10$;
 	end;
 OnTimer7000:
-	npctalk "Fenrith Fenrir: ออกห่างจาก Sentinel Breeze ทันที!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Get away from the Sentinel Breeze immediately!", 'fenrir_4$;
 	end;
 OnTimer9000:
-	npctalk "Sarah Irene: เฮเฮ.. ฉันทำไม่ได้!", 'sarah_10$;
+	npctalk "Sarah Irene: Hehe.. I can't do that!", 'sarah_10$;
 	specialeffect EF_WL_TELEKINESIS_INTENSE, AREA, instance_npcname("#effect_glast_event02_bis");
 	end;
 OnTimer11000:
-	npctalk "Sarah Irene: ถ้าต้องการคืน ไปที่ปราสาท Glast Heim! ฉันจะรออยู่!", 'sarah_10$;
+	npctalk "Sarah Irene: If you want it back come to Glast Heim Castle! I shall be waiting!", 'sarah_10$;
 	end;
 OnTimer13000:
 	specialeffect EF_FIREPILLARON2, AREA, 'sarah_10$;
@@ -989,10 +989,10 @@ OnTimer14000:
 	disablenpc 'sarah_10$;
 	end;
 OnTimer16000:
-	npctalk "Fenrith Fenrir: เราต้องติดตามอย่างรวดเร็วเพื่อเรียกคืนดาบ! ข้าจะใช้เวทย์ย้ายกลุ่ม!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: We must follow quickly to retrieve the sword! I shall use a group space movement spell!", 'fenrir_4$;
 	end;
 OnTimer19000:
-	npctalk "Fenrith Fenrir: Warp ขนาดใหญ่พร้อมกัน!", 'fenrir_4$;
+	npctalk "Fenrith Fenrir: Simultaneous large scale warp!", 'fenrir_4$;
 	end;
 OnTimer20000:
 	stopnpctimer;
@@ -1042,18 +1042,18 @@ OnTouch:
 	setpcblock PCBLOCK_NPC, true;
 	cutin "fenrir_a.bmp",2;
 	sleep2 1000;
-	npctalk "Fenrith Fenrir: ข้าต้องไปปราสาท Glast Heim เพื่อเรียกคืนดาบของ Baldur", 'fenrir_5$;
+	npctalk "Fenrith Fenrir: I need to go to Glast Heim Castle to retrieve the sword of Baldur.", 'fenrir_5$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: อาจยากถ้าไปคนเดียว ข้ายินดีรับความช่วยเหลือของเจ้า", 'fenrir_5$;
+	npctalk "Fenrith Fenrir: It could be difficult alone, I would gratefully accept your help.", 'fenrir_5$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: เนื่องจากเวลาไม่เพียงพอ เราไม่สามารถรอได้นาน", 'fenrir_5$;
+	npctalk "Fenrith Fenrir: Since there isn't enough time, we can't wait long.", 'fenrir_5$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: ข้าจะรอที่ปราสาทกลางของ Glast Heim ประมาณ 5 นาที", 'fenrir_5$;
+	npctalk "Fenrith Fenrir: I will wait in the central castle of Glast Heim for about 5 minutes.", 'fenrir_5$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: เนื่องจากมันอันตราย เจ้าไม่จำเป็นต้องรู้สึกผูกพันที่จะช่วย ข้าจะพยายามเองถ้าจำเป็น", 'fenrir_5$;
+	npctalk "Fenrith Fenrir: Since it is dangerous you do not have to feel obligated to help me. I will try by myself if I have to.", 'fenrir_5$;
 	viewpoint 1,199,237,1,0xFF0000;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: แล้วข้าจะไปก่อน! Warp!", 'fenrir_5$;
+	npctalk "Fenrith Fenrir: Then I will go on ahead! Warp!", 'fenrir_5$;
 	cutin "",255;
 	donpcevent instance_npcname("#glast_event_13") + "::OnBar";
 	setpcblock PCBLOCK_NPC, false;
@@ -1081,19 +1081,19 @@ OnTimer300000:
 	'skip_left_part = 1;
 	disablenpc instance_npcname("#glast_event_7");
 	disablenpc 'fenrir_3$;
-	mapannounce 'map_glast$, "Fenrith Fenrir: ได้แล้ว! เราเอาชนะ Gigantes แล้ว!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: Alright! We have defeated a Gigantes!", bc_map,0xEBFF;
 	end;
 OnTimer302000:
-	mapannounce 'map_glast$, "Sarah Irene: ตามที่คาด Fenrith Fenrir เจ้าไม่ยอมแพ้ง่ายๆ!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: As expected, Fenrith Fenrir, you do not yield easily!", bc_map,0xEBFF;
 	end;
 OnTimer305000:
-	mapannounce 'map_glast$, "Fenrith Fenrir: ออกห่างจาก Sentinel Breeze ทันที!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: Get away from the Sentinel Breeze immediately!", bc_map,0xEBFF;
 	end;
 OnTimer307000:
-	mapannounce 'map_glast$, "Sarah Irene: เฮเฮ.. ฉันทำไม่ได้!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: Hehe.. I can't do that!", bc_map,0xEBFF;
 	end;
 OnTimer309000:
-	mapannounce 'map_glast$, "Sarah Irene: ถ้าต้องการคืน ไปที่ปราสาท Glast Heim! ฉันจะรออยู่!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: If you want it back come to Glast Heim Castle! I shall be waiting!", bc_map,0xEBFF;
 	end;
 OnTimer311000:
 	mapannounce 'map_glast$, "Fenrith Fenrir: I need to go to Glast Heim Castle to retrieve the sword of Baldur", bc_map,0xEBFF;
@@ -1102,14 +1102,14 @@ OnTimer313000:
 	mapannounce 'map_glast$, "Fenrith Fenrir: It may be difficult alone. If you are listening I will gratefully accept your help.", bc_map,0xEBFF;
 	end;
 OnTimer315000:
-	mapannounce 'map_glast$, "Fenrith Fenrir: เนื่องจากเวลาไม่เพียงพอ เราไม่สามารถรอได้นาน", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: Since there isn't enough time, we can't wait long.", bc_map,0xEBFF;
 	end;
 OnTimer317000:
-	mapannounce 'map_glast$, "Fenrith Fenrir: ข้าจะรอที่ปราสาทกลางของ Glast Heim ประมาณ 5 นาที", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: I will wait in the central castle of Glast Heim for about 5 minutes.", bc_map,0xEBFF;
 	end;
 OnTimer319000:
 	stopnpctimer;
-	mapannounce 'map_glast$, "Fenrith Fenrir: เนื่องจากมันอันตราย เจ้าไม่จำเป็นต้องรู้สึกผูกพันที่จะช่วย ข้าจะพยายามเองถ้าจำเป็น", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: Since it is dangerous you do not have to feel obligated to help me. I will try by myself if I have to.", bc_map,0xEBFF;
 	enablenpc instance_npcname("#glast_move_03");
 	enablenpc 'fenrir_6$;
 	enablenpc instance_npcname("#glast_event_15");
@@ -1131,9 +1131,9 @@ OnTouch:
 	donpcevent instance_npcname("#fenrir_boss_final_2") + "::OnStop";
 	setpcblock PCBLOCK_NPC, true;
 	sleep2 1000;
-	npctalk "Fenrith Fenrir: ข้ารออยู่ ขอบคุณที่ไม่มาสาย", 'fenrir_6$;
+	npctalk "Fenrith Fenrir: I was waiting. Thank you for not being late.", 'fenrir_6$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: ขึ้นปราสาทเพื่อเรียกคืน Sentinel Breeze! Sarah จะรออยู่!", 'fenrir_6$;
+	npctalk "Fenrith Fenrir: Let us climb the castle to retrieve Sentinel Breeze! Sarah will be waiting!", 'fenrir_6$;
 	sleep2 3000;
 	disablenpc 'fenrir_6$;
 	enablenpc instance_npcname("#glast_move_03a");
@@ -1154,38 +1154,38 @@ OnTouch:
 	setpcblock PCBLOCK_NPC, true;
 	cutin "sarah_hero3.bmp",0;
 	sleep2 1000;
-	npctalk "Sarah Irene: รอเจ้านานเหมือนตลอดไป~ Fenrith Fenrir", 'sarah_17$;
+	npctalk "Sarah Irene: It seemed like forever waiting for you~ Fenrith Fenrir.", 'sarah_17$;
 	sleep2 3000;
 	cutin "fenrir_b.bmp",2;
-	npctalk "Fenrith Fenrir: ไม่ต้องพูดคำไร้ประโยชน์ ส่ง Sentinel Breeze มาตอนนี้!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: No need for useless words, hand over the Sentinel Breeze now!", 'fenrir_7$;
 	sleep2 3000;
 	cutin "sarah_hero3.bmp",0;
-	npctalk "Sarah Irene: ลองดูถ้าทำได้", 'sarah_17$;
+	npctalk "Sarah Irene: Try if you can.", 'sarah_17$;
 	sleep2 3000;
 	cutin "fenrir_b.bmp",2;
-	npctalk "Fenrith Fenrir: Sarah อาจยากเกินไปสำหรับเจ้าที่จะเผชิญเพียงลำพัง ข้าต้องเผชิญกับเธอ!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Sarah may be too difficult for you to face alone. I must face her!", 'fenrir_7$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: โซ่ตรวนขาวบริสุทธิ์ คุกนิรันดร์ ทำข้อตกลงกับข้าตอนนี้!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Pure white shackles, eternal prison, make a deal with me now!", 'fenrir_7$;
 	donpcevent instance_npcname("#glast_event_18") + "::OnBar";
 	sleep2 3000;
 	npctalk "Fenrith Fenrir: White Imprison!!", 'fenrir_7$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	sleep2 3000;
-	npctalk "Sarah Irene: อุ้ก.... เขา..", 'sarah_17$;
-	npctalk "Fenrith Fenrir: ข้าจะทำให้ Sarah อ่อนแอด้วย White Imprison และเผชิญกับเธอขณะถูกล่ามโซ่", 'fenrir_7$;
+	npctalk "Sarah Irene: Hurk.... he..", 'sarah_17$;
+	npctalk "Fenrith Fenrir: I will weaken Sarah with white imprison and face her while she's shackled,", 'fenrir_7$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: เจ้าจัดการมอนสเตอร์ที่เธอเรียก ข้าพึ่งพาเจ้า", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: you take care of the monsters she summons. I'm counting on you.", 'fenrir_7$;
 	sleep2 3000;
 	unittalk getcharid(3), "" + strcharinfo(0) + " : Will do. Powerful enemies make my blood boil.";
 	sleep2 6000;
-	npctalk "Fenrith Fenrir: นี่คือกลยุทธ์โจมตีพร้อมกันและยุติ Sarah ขณะอยู่ในสภาวะวิกฤต จำไว้ว่าคู่ต่อสู้ของเราแข็งแกร่ง", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: This is a strategy to attack at once and finish Sarah off while she is in critical condition. Remember, our opponent is strong.", 'fenrir_7$;
 	sleep2 3000;
 	cutin "sarah_hero3_2.bmp",0;
-	npctalk "Sarah Irene: แผนของเจ้าคือมัดฉันด้วยเล่ห์กลแบบนี้หรือ?", 'sarah_17$;
+	npctalk "Sarah Irene: So your plan was to tie me up with this sort of trick?", 'sarah_17$;
 	sleep2 3000;
-	npctalk "Sarah Irene: ยิ่งกว่านั้น เจ้ายืมความช่วยเหลือจากนักผจญภัยมือใหม่เช่นนี้...", 'sarah_17$;
+	npctalk "Sarah Irene: Furthermore you borrow the assistance of such rookie adventurers...", 'sarah_17$;
 	sleep2 3000;
-	npctalk "Sarah Irene: เจ้าต้องหายไปจากที่นี่พร้อมกับดาบที่ชำรุดนั้น!!", 'sarah_17$;
+	npctalk "Sarah Irene: You need to disappear from here along with that worn out blade!!", 'sarah_17$;
 	sleep2 3000;
 	cutin "",255;
 	hideonnpc 'sarah_17$;
@@ -1222,7 +1222,7 @@ OnEvent:
 	enablenpc instance_npcname("#fenrir_boss_final_1");
 	initnpctimer;
 	specialeffect EF_PRIMECHARGE4, AREA, 'fenrir_7$;
-	npctalk "Fenrith Fenrir: พิษร้ายแรง เมฆมืด ปรากฏต่อหน้าข้าและแสดงความตายอันเจ็บปวดที่สุด!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Lethal poison, Dark clouds, appear before me and show a most painful death!", 'fenrir_7$;
 	monster 'map_glast$,190,341, "Large Gigantes#a1", 3194,1, instance_npcname("#fenrir_boss_final_1") + "::OnMobDead";// MM_L_GIGAN1
 	monster 'map_glast$,214,331, "Large Gigantes#b2", 3195,1, instance_npcname("#fenrir_boss_final_1") + "::OnMobDead";// MM_L_GIGAN2
 	progressbar_npc "000000",10, 'fenrir_7$;
@@ -1232,7 +1232,7 @@ OnTimer1000:
 	end;
 OnTimer10000:
 	callsub S_Hit,1;
-	npctalk "Fenrith Fenrir: ไป! Cloud Kill!!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Go! Cloud Kill!!!!!", 'fenrir_7$;
 	specialeffect EF_POISONSMOKE, AREA, 'sarah_17$;
 	for ( .@i = 1; .@i <= 8; .@i++ )
 		specialeffect EF_POISONSMOKE, AREA, instance_npcname("#effect_glast_event03_" + .@i);
@@ -1253,7 +1253,7 @@ OnTimer11000:
 	specialeffect EF_ENCHANTPOISON, AREA, instance_npcname("#effect_glast_event03_8");
 	end;
 OnTimer13000:
-	npctalk "Fenrith Fenrir: พิษร้ายแรง เมฆมืด ปรากฏต่อหน้าข้าและแสดงความตายอันเจ็บปวดที่สุด!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Lethal poison, Dark clouds, appear before me and show a most painful death!", 'fenrir_7$;
 	specialeffect EF_PRIMECHARGE4, AREA, 'fenrir_7$;
 	specialeffect EF_POISONSMOKE2, AREA, 'sarah_17$;
 	specialeffect EF_POISONSMOKE2, AREA, instance_npcname("#effect_glast_event03_1");
@@ -1267,7 +1267,7 @@ OnTimer13000:
 	end;
 OnTimer20000:
 	callsub S_Hit,2;
-	npctalk "Fenrith Fenrir: ไป! Cloud Kill!!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Go! Cloud Kill!!!!!", 'fenrir_7$;
 	specialeffect EF_POISONSMOKE, AREA, 'sarah_17$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	for ( .@i = 1; .@i <= 8; .@i++ )
@@ -1289,7 +1289,7 @@ OnTimer21000:
 	specialeffect EF_ENCHANTPOISON, AREA, instance_npcname("#effect_glast_event03_8");
 	end;
 OnTimer23000:
-	npctalk "Fenrith Fenrir: ข้าพูดกับเจ้าผู้ควบคุมไฟ ข้า Fenrith ปรารถนาไฟที่ไม่ดับ...", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: I speak to you who controls fire, I Fenrith, desire a fire that does not go out...", 'fenrir_7$;
 	specialeffect EF_BEGINSPELL_YB, AREA, 'fenrir_7$;
 	specialeffect EF_POISONSMOKE2, AREA, 'sarah_17$;
 	specialeffect EF_POISONSMOKE2, AREA, instance_npcname("#effect_glast_event03_1");
@@ -1302,13 +1302,13 @@ OnTimer23000:
 	specialeffect EF_ENCHANTPOISON, AREA, instance_npcname("#effect_glast_event03_8");
 	end;
 OnTimer36000:
-	npctalk "Fenrith Fenrir: ไฟที่ลุกไหม้ไม่สิ้นสุด ไฟที่เผาแม้กระทั่งวิญญาณ!! ปรากฏต่อหน้าข้าตอนนี้!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Endlessly burning conflagration, a fire that can scorch even the soul!! Appear before me now!!", 'fenrir_7$;
 	specialeffect EF_BEGINSPELL_YB, AREA, 'fenrir_7$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	end;
 OnTimer50000:
 	callsub S_Hit,3;
-	npctalk "Fenrith Fenrir: ออกมา!! Fire Insignia!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Emerge!! Fire Insignia!!!!", 'fenrir_7$;
 	specialeffect EF_DEMONICFIRE, AREA, 'sarah_17$;
 	progressbar_npc "000000",10, 'fenrir_7$;
 	end;
@@ -1319,12 +1319,12 @@ OnTimer51000:
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	end;
 OnTimer53000:
-	npctalk "Fenrith Fenrir: รากแห่งพลังสั่นสะเทือนโลก!! เกรงกลัวพลังของแผ่นดิน!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: The root of earthshaking power!! Fear the power of the earth!!!", 'fenrir_7$;
 	specialeffect EF_PRIMECHARGE4, AREA, 'fenrir_7$;
 	end;
 OnTimer60000:
 	callsub S_Hit,4;
-	npctalk "Fenrith Fenrir: ออกไป!! Heaven's Drive!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Go forth!! Heaven's Drive!!!", 'fenrir_7$;
 	specialeffect EF_HEAVENSDRIVE, AREA, 'sarah_17$;
 	monster 'map_glast$,190,341, "Large Gigantes#a1", 3194,1, instance_npcname("#fenrir_boss_final_1") + "::OnMobDead";// MM_L_GIGAN1
 	monster 'map_glast$,214,331, "Large Gigantes#b2", 3195,1, instance_npcname("#fenrir_boss_final_1") + "::OnMobDead";// MM_L_GIGAN2
@@ -1335,11 +1335,11 @@ OnTimer60500:
 	end;
 OnTimer63000:
 	specialeffect EF_PRIMECHARGE4, AREA, 'fenrir_7$;
-	npctalk "Fenrith Fenrir: รากแห่งพลังสั่นสะเทือนโลก!! เกรงกลัวพลังของแผ่นดิน!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: The root of earthshaking power!! Fear the power of the earth!!!", 'fenrir_7$;
 	end;
 OnTimer70000:
 	callsub S_Hit,5;
-	npctalk "Fenrith Fenrir: ออกไป!! Heaven's Drive!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Go forth!! Heaven's Drive!!!", 'fenrir_7$;
 	specialeffect EF_HEAVENSDRIVE, AREA, 'sarah_17$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	progressbar_npc "000000",30, 'fenrir_7$;
@@ -1348,16 +1348,16 @@ OnTimer70500:
 	unittalk 'boss_id, "Sarah Irene: Do you think that is enough to beat me?";
 	end;
 OnTimer73000:
-	npctalk "Fenrith Fenrir: ลมหายใจเย็นชาอย่างไร้ความปรานีของลมเหนือ", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: The mercilessly cold breath of the Northern winds,", 'fenrir_7$;
 	specialeffect EF_PRIMECHARGE2, AREA, 'fenrir_7$;
 	end;
 OnTimer85000:
-	npctalk "Fenrith Fenrir: มาเหมือนหมอกรุ่งสงัดและแช่แข็งทุกสิ่ง!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Come like the silent dawn mist and freeze everything!!", 'fenrir_7$;
 	specialeffect EF_PRIMECHARGE2, AREA, 'fenrir_7$;
 	end;
 OnTimer100000:
 	callsub S_Hit,6;
-	npctalk "Fenrith Fenrir: ปรากฏ!!! Frost Misty!!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Appear!!! Frost Misty!!!!!", 'fenrir_7$;
 	specialeffect EF_FROSTMYSTY, AREA, 'sarah_17$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	specialeffect EF_FROSTMYSTY, AREA, 'sarah_17$;
@@ -1367,12 +1367,12 @@ OnTimer100500:
 	unittalk 'boss_id, "Sarah Irene: Not bad but.. not even close!";
 	end;
 OnTimer103000:
-	npctalk "Fenrith Fenrir: พลังแห่งความสงสัย แรงอันทรงพลัง พลังของความลับที่ซ่อนลึกในจิตใจ!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: The power of doubt, a powerful force, the power of deeply hidden secrets in the mind!!!", 'fenrir_7$;
 	specialeffect EF_PRIMECHARGE, AREA, 'fenrir_7$;
 	end;
 OnTimer110000:
 	callsub S_Hit,7;
-	npctalk "Fenrith Fenrir: ตอนนี้!!! Psychic Wave!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Now!!! Psychic Wave!!!!", 'fenrir_7$;
 	specialeffect EF_SPR_PLANT10, AREA, 'sarah_17$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	progressbar_npc "000000",10, 'fenrir_7$;
@@ -1381,12 +1381,12 @@ OnTimer110500:
 	unittalk 'boss_id, "Sarah Irene: Ugh... that is no use Fenrir!";
 	end;
 OnTimer113000:
-	npctalk "Fenrith Fenrir: พลังแห่งความสงสัย แรงอันทรงพลัง พลังของความลับที่ซ่อนลึกในจิตใจ!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: The power of doubt, a powerful force, the power of deeply hidden secrets in the mind!!!", 'fenrir_7$;
 	specialeffect EF_PRIMECHARGE, AREA, 'fenrir_7$;
 	end;
 OnTimer120000:
 	callsub S_Hit,8;
-	npctalk "Fenrith Fenrir: ตอนนี้!!! Psychic Wave!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Now!!! Psychic Wave!!!!", 'fenrir_7$;
 	specialeffect EF_SPR_PLANT10, AREA, 'sarah_17$;
 	monster 'map_glast$,190,341, "Large Gigantes#a1", 3194,1, instance_npcname("#fenrir_boss_final_1") + "::OnMobDead";// MM_L_GIGAN1
 	monster 'map_glast$,214,331, "Large Gigantes#b2", 3195,1, instance_npcname("#fenrir_boss_final_1") + "::OnMobDead";// MM_L_GIGAN2
@@ -1396,17 +1396,17 @@ OnTimer120500:
 	unittalk 'boss_id, "Sarah Irene: Hurk.. such an annoying magic bombardment!!";
 	end;
 OnTimer123000:
-	npctalk "Fenrith Fenrir: ข้าพูดกับเจ้าผู้ควบคุมไฟ ข้า Fenrith ปรารถนาไฟที่ไม่ดับ...", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: I speak to you who controls fire, I Fenrith, desire a fire that does not go out...", 'fenrir_7$;
 	specialeffect EF_BEGINSPELL_YB, AREA, 'fenrir_7$;
 	end;
 OnTimer135000:
-	npctalk "Fenrith Fenrir: ไฟที่ลุกไหม้ไม่สิ้นสุด ไฟที่เผาแม้กระทั่งวิญญาณ!! ปรากฏต่อหน้าข้าตอนนี้!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Endlessly burning conflagration, a fire that can scorch even the soul!! Appear before me now!!", 'fenrir_7$;
 	specialeffect EF_BEGINSPELL_YB, AREA, 'fenrir_7$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	end;
 OnTimer150000:
 	callsub S_Hit,9;
-	npctalk "Fenrith Fenrir: ออกมา!! Fire Insignia!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Emerge!! Fire Insignia!!!!", 'fenrir_7$;
 	specialeffect EF_DEMONICFIRE, AREA, 'sarah_17$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	progressbar_npc "000000",10, 'fenrir_7$;
@@ -1415,12 +1415,12 @@ OnTimer150500:
 	unittalk 'boss_id, "Sarah Irene: I am Sarah Irene! I will not fall so easily!!!";
 	end;
 OnTimer153000:
-	npctalk "Fenrith Fenrir: ความพิโรธแท้จริงของท้องฟ้า สายฟ้าที่อาจแยกแผ่นดิน... ล้มลงต่อหน้าข้าตอนนี้!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: True wrath of the sky, thunderbolt that may split the earth... Fall before me now!!", 'fenrir_7$;
 	specialeffect EF_DQ9_CHARGE3, AREA, 'fenrir_7$;
 	end;
 OnTimer160000:
 	callsub S_Hit,10;
-	npctalk "Fenrith Fenrir: มาเลย!! Thunder Storm!!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Come now!! Thunder Storm!!!!!", 'fenrir_7$;
 	specialeffect EF_THUNDERSTORM2, AREA, 'sarah_17$;
 	unittalk 'boss_id, "Sarah Irene: Ugh...you are.. stronger than I predicted Fenrir...";
 	progressbar_npc "000000",10, 'fenrir_7$;
@@ -1429,12 +1429,12 @@ OnTimer160500:
 	unittalk 'boss_id, "Sarah Irene: Ugh...you are.. stronger than I predicted Fenrir...";
 	end;
 OnTimer163000:
-	npctalk "Fenrith Fenrir: ความพิโรธแท้จริงของท้องฟ้า สายฟ้าที่อาจแยกแผ่นดิน... ล้มลงต่อหน้าข้าตอนนี้!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: True wrath of the sky, thunderbolt that may split the earth... Fall before me now!!", 'fenrir_7$;
 	specialeffect EF_DQ9_CHARGE3, AREA, 'fenrir_7$;
 	end;
 OnTimer170000:
 	callsub S_Hit,11;
-	npctalk "Fenrith Fenrir: มาเลย!! Thunder Storm!!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Come now!! Thunder Storm!!!!!", 'fenrir_7$;
 	specialeffect EF_THUNDERSTORM2, AREA, 'sarah_17$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	progressbar_npc "000000",30, 'fenrir_7$;
@@ -1443,7 +1443,7 @@ OnTimer170500:
 	unittalk 'boss_id, "Sarah Irene: Argh!!!!!! Ahhh!!!!!";
 	end;
 OnTimer173000:
-	npctalk "Fenrith Fenrir: ลมหายใจเย็นชาอย่างไร้ความปรานีของลมเหนือ", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: The mercilessly cold breath of the Northern winds,", 'fenrir_7$;
 	specialeffect EF_PRIMECHARGE2, AREA, 'fenrir_7$;
 	end;
 OnTimer180000:
@@ -1453,13 +1453,13 @@ OnTimer180000:
 	monster 'map_glast$,214,331, "Large Gigantes#b2", 3195,1, instance_npcname("#fenrir_boss_final_1") + "::OnMobDead";// MM_L_GIGAN2
 	end;
 OnTimer185000:
-	npctalk "Fenrith Fenrir: มาเหมือนหมอกรุ่งสงัดและแช่แข็งทุกสิ่ง!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Come like the silent dawn mist and freeze everything!!", 'fenrir_7$;
 	specialeffect EF_PRIMECHARGE2, AREA, 'fenrir_7$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	end;
 OnTimer200000:
 	callsub S_Hit,12;
-	npctalk "Fenrith Fenrir: ปรากฏ!!! Frost Misty!!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Appear!!! Frost Misty!!!!!", 'fenrir_7$;
 	specialeffect EF_FROSTMYSTY, AREA, 'sarah_17$;
 	donpcevent 'fenrir_7$ + "::OnStart";
 	progressbar_npc "000000",50, 'fenrir_7$;
@@ -1470,15 +1470,15 @@ OnTimer200500:
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	end;
 OnTimer203000:
-	npctalk "Fenrith Fenrir: ดาบสวรรค์ที่แทงผ่านท้องฟ้า", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Heaven's sword piercing the sky", 'fenrir_7$;
 	specialeffect EF_BLACKBODY, AREA, 'fenrir_7$;
 	specialeffect EF_RECOGNIZED, AREA, 'fenrir_7$;
 	end;
 OnTimer216000:
-	npctalk "Fenrith Fenrir: ข้าขอยืมพลังของเจ้าสักครู่!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: I wish to borrow your strength for a moment!!", 'fenrir_7$;
 	end;
 OnTimer230000:
-	npctalk "Fenrith Fenrir: ปล่อยพลังสูงสุดที่สามารถฉีกแม้กระทั่งสุญญากาศลงมาที่นี่!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Let fall here your extreme strength that can tear even the vacuum!!", 'fenrir_7$;
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
 	end;
 OnTimer239000:
@@ -1488,10 +1488,10 @@ OnTimer239000:
 	monster 'map_glast$,214,331, "Large Gigantes#b2", 3195,1, instance_npcname("#fenrir_boss_final_1") + "::OnMobDead";// MM_L_GIGAN2
 	end;
 OnTimer240000:
-	npctalk "Fenrith Fenrir: ดาบที่ควบคุมชีวิตและความตาย และทะลุกาลอวกาศ!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Sword that can control life and death, and pierce space time!!!", 'fenrir_7$;
 	end;
 OnTimer250000:
-	npctalk "Fenrith Fenrir: ออกมา Baretis Spear!!!!!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Come out Baretis Spear!!!!!!", 'fenrir_7$;
 	specialeffect EF_PRESSURE3, AREA, 'sarah_17$;
 	for ( .@i = 1; .@i <= 8; .@i++ )
 		specialeffect EF_PRESSURE3, AREA, instance_npcname("#effect_glast_event03_" + .@i);
@@ -1502,31 +1502,31 @@ OnTimer253000:
 	specialeffect EF_PRESSURE3, AREA, 'sarah_17$;
 	for ( .@i = 1; .@i <= 8; .@i++ )
 		specialeffect EF_PRESSURE3, AREA, instance_npcname("#effect_glast_event03_" + .@i);
-	npctalk "Fenrith Fenrir: ตอนนี้! ข้าทำให้ Sarah อยู่ในสภาวะวิกฤต! เจ้าต้องยุติเธอ! โจมตีเธออย่างรวดเร็ว! Sarah แข็งแกร่ง!", 'fenrir_7$;
-	mapannounce 'map_glast$, "Fenrith Fenrir: ตอนนี้! ข้าทำให้ Sarah อยู่ในสภาวะวิกฤต! เจ้าต้องยุติเธอ!! โจมตีเธออย่างรวดเร็ว! Sarah แข็งแกร่ง!", bc_map,0xEBFF;
-	npctalk "Sarah Irene: อุ้ก...นี่.. เป็นไปไม่ได้!!! ฉันแพ้ไม่ได้!!!!!", 'sarah_17$;
+	npctalk "Fenrith Fenrir: Now! I put Sarah in critical condition! You have to finish her off! Attack her quickly! Sarah is strong!", 'fenrir_7$;
+	mapannounce 'map_glast$, "Fenrith Fenrir: Now! I put Sarah in critical condition! You have to finish her off!! Attack her quickly! Sarah is strong!", bc_map,0xEBFF;
+	npctalk "Sarah Irene: Hurk...this.. cannot happen!!! I cannot lose!!!!!", 'sarah_17$;
 	end;
 OnTimer263000:
-	npctalk "Fenrith Fenrir: เนื่องจากเจ้าอาจยุติเธอคนเดียวไม่ได้ ข้าจะเตรียมเวทย์สุดท้ายหนึ่งครั้ง!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Since you may not be able to finish her off alone, I will prepare one final spell!!", 'fenrir_7$;
 	progressbar_npc "000000",50, 'fenrir_7$;
 	end;
 OnTimer273000:
 	specialeffect EF_BOTTOM_BASILICA2, AREA, 'sarah_17$;
-	npctalk "Fenrith Fenrir: ดาบสวรรค์ที่แทงผ่านท้องฟ้า", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: Heaven's sword piercing the sky", 'fenrir_7$;
 	specialeffect EF_RECOGNIZED, AREA, 'fenrir_7$;
 	specialeffect EF_BLACKBODY, AREA, 'fenrir_7$;
 	end;
 OnTimer283000:
-	npctalk "Fenrith Fenrir: ข้าขอยืมพลังของเจ้าสักครู่!!", 'fenrir_7$;
+	npctalk "Fenrith Fenrir: I wish to borrow your strength for a moment!!", 'fenrir_7$;
 	end;
 OnTimer293000:
-	npctalk "Fenrith Fenrir: ปล่อยพลังสูงสุดที่สามารถฉีกแม้กระทั่งสุญญากาศลงมาที่นี่!!";
+	npctalk "Fenrith Fenrir: Let fall here your extreme strength that can tear even the vacuum!!";
 	end;
 OnTimer303000:
-	npctalk "Fenrith Fenrir: ดาบที่ควบคุมชีวิตและความตาย และทะลุกาลอวกาศ!!!";
+	npctalk "Fenrith Fenrir: Sword that can control life and death, and pierce space time!!!";
 	end;
 OnTimer313000:
-	npctalk "Fenrith Fenrir: ออกมา Baretis Spear!!!!!!";
+	npctalk "Fenrith Fenrir: Come out Baretis Spear!!!!!!";
 	specialeffect EF_PRESSURE3, AREA, 'sarah_17$;
 	for ( .@i = 1; .@i <= 8; .@i++ )
 		specialeffect EF_PRESSURE3, AREA, instance_npcname("#effect_glast_event03_" + .@i);
@@ -1568,16 +1568,16 @@ OnTimer6000:
 	enablenpc 'sarah_20$;
 	end;
 OnTimer9000:
-	npctalk "Fenrith Fenrir: Sentinel Breeze! ข้าถือมันอยู่ในมือ!", 'fenrir_8$;
+	npctalk "Fenrith Fenrir: Sentinel Breeze! I have it in my hand!", 'fenrir_8$;
 	end;
 OnTimer12000:
-	npctalk "Sarah Irene: อุ้ก....", 'sarah_20$;
+	npctalk "Sarah Irene: Hurk....", 'sarah_20$;
 	end;
 OnTimer15000:
-	npctalk "Fenrith Fenrir: ข้าสามารถหา Baldur ได้ด้วยสิ่งนี้!", 'fenrir_8$;
+	npctalk "Fenrith Fenrir: I can find Baldur with this!", 'fenrir_8$;
 	end;
 OnTimer18000:
-	npctalk "Sarah Irene: ยังไม่ได้!!", 'sarah_20$;
+	npctalk "Sarah Irene: Not yet!!", 'sarah_20$;
 	progressbar_npc "000000",2, 'sarah_20$;
 	end;
 OnTimer21000:
@@ -1586,21 +1586,21 @@ OnTimer21000:
 	enablenpc 'fenrir_9$;
 	end;
 OnTimer24000:
-	npctalk "Sarah Irene: เฮเฮ... เจ้าหลบหนีเก่งเหมือนหนู", 'sarah_20$;
+	npctalk "Sarah Irene: Hehe... You evade well like a rat.", 'sarah_20$;
 	end;
 OnTimer27000:
-	npctalk "Sarah Irene: อย่างไรก็ตาม ฉันปล่อยให้เจ้าไปพร้อมสิ่งนั้นไม่ได้", 'sarah_20$;
+	npctalk "Sarah Irene: However, I cannot let you leave with that.", 'sarah_20$;
 	end;
 OnTimer30000:
-	npctalk "Sarah Irene: ฉันจะระเบิดปราสาททั้งหลัง! ยา!", 'sarah_20$;
+	npctalk "Sarah Irene: I will blow this entire castle away! Yaah!", 'sarah_20$;
 	progressbar_npc "000000",15, 'sarah_20$;
 	end;
 OnTimer33000:
-	npctalk "Fenrith Fenrir: เธอกำลังวางแผนทำลายสถานที่นี้! ข้าต้องทำการ Teleport ขนาดใหญ่!!!", 'fenrir_9$;
+	npctalk "Fenrith Fenrir: She is planning to collapse this place! I must perform a large scale teleportation!!!", 'fenrir_9$;
 	progressbar_npc "000000",6, 'fenrir_9$;
 	end;
 OnTimer36000:
-	npctalk "Fenrith Fenrir: ลาก่อน Valkyrie!! ข้าจะเอา Sentinel Breeze ไป! ลาก่อน!", 'fenrir_9$;
+	npctalk "Fenrith Fenrir: Farewell Valkyrie!! I shall take the Sentinel Breeze! So long!", 'fenrir_9$;
 	end;
 OnTimer39000:
 	for ( .@i = 1; .@i <= 8; .@i++ )
@@ -1645,19 +1645,19 @@ OnTouch:
 	setpcblock PCBLOCK_NPC, true;
 	sleep2 1500;
 	cutin "fenrir_b.bmp",2;
-	npctalk "Fenrith Fenrir: เฮเฮ.. เจ้ามีทักษะแน่นอน แต่ข้าคิดว่าเจ้าประเมินข้าต่ำเกินไป Valkyrie", 'fenrir_10$;
+	npctalk "Fenrith Fenrir: Hehe.. You are certainly skilled but I think you have underestimated me, Valkyrie.", 'fenrir_10$;
 	sleep2 3000;
-	mapannounce 'map_glast$, "Sarah Irene: เจ้าทำให้ฉันสนุกนะ Fenrith...", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: You rather entertain me Fenrith...", bc_map,0xEBFF;
 	sleep2 3000;
-	mapannounce 'map_glast$, "Sarah Irene: เจ้าคิดว่าหลบหนีได้ง่ายๆ หรือ?", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: Did you think you can escape that easily?", bc_map,0xEBFF;
 	sleep2 3000;
-	mapannounce 'map_glast$, "Sarah Irene: ฉันจะเปลี่ยน Glast Heim ให้เป็นนรก!!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: I shall turn Glast Heim into hell!!", bc_map,0xEBFF;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: ถ้าเราไม่หนีตอนนี้ เราจะพบชะตากรรมอันน่าสยดสยองจากมอนสเตอร์และเวทย์ของ Sarah!", 'fenrir_10$;
+	npctalk "Fenrith Fenrir: If we don't escape now we will suffer a gruesome fate by Sarah's monsters and magic!", 'fenrir_10$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: ไปเจอกันที่ทางเข้า Glast Heim ที่เราพบกันครั้งแรก! ถ้าหนีไปไกลแค่นั้นน่าจะปลอดภัย!", 'fenrir_10$;
+	npctalk "Fenrith Fenrir: Let's meet at Glast Heim entrance where we first met! If we flee that far it should be safe!", 'fenrir_10$;
 	sleep2 3000;
-	npctalk "Fenrith Fenrir: ไม่มีเวลา! รีบ!", 'fenrir_10$;
+	npctalk "Fenrith Fenrir: There is no time! Hurry!", 'fenrir_10$;
 	sleep2 3000;
 	cutin "",255;
 	disablenpc 'fenrir_10$;
@@ -1681,32 +1681,32 @@ OnTimer300000:
 	disablenpc 'fenrir_6$;
 	end;
 OnTimer305000:
-	mapannounce 'map_glast$, "Fenrith Fenrir: Sentinel Breeze! ข้าถือมันอยู่ในมือ!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: Sentinel Breeze! I have it in my hand!", bc_map,0xEBFF;
 	end;
 OnTimer308000:
-	mapannounce 'map_glast$, "Sarah Irene: อุ้ก....", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: Hurk....", bc_map,0xEBFF;
 	end;
 OnTimer311000:
-	mapannounce 'map_glast$, "Fenrith Fenrir: เฮเฮ.. เจ้ามีทักษะแน่นอน แต่ข้าคิดว่าเจ้าประเมินข้าต่ำเกินไป Valkyrie", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: Hehe.. You are certainly skilled but I think you have underestimated me, Valkyrie.", bc_map,0xEBFF;
 	end;
 OnTimer314000:
-	mapannounce 'map_glast$, "Sarah Irene: เจ้าทำให้ฉันสนุกนะ Fenrith...", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: You rather entertain me Fenrith...", bc_map,0xEBFF;
 	end;
 OnTimer317000:
-	mapannounce 'map_glast$, "Sarah Irene: เจ้าคิดว่าหลบหนีได้ง่ายๆ หรือ?", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: Did you think you can escape that easily?", bc_map,0xEBFF;
 	end;
 OnTimer320000:
-	mapannounce 'map_glast$, "Sarah Irene: ฉันจะเปลี่ยน Glast Heim ให้เป็นนรก!!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: I shall turn Glast Heim into hell!!", bc_map,0xEBFF;
 	end;
 OnTimer323000:
-	mapannounce 'map_glast$, "Fenrith Fenrir: ถ้าเราไม่หนีตอนนี้ เราจะพบชะตากรรมอันน่าสยดสยองจากมอนสเตอร์และเวทย์ของ Sarah!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: If we don't escape now we will suffer a gruesome fate by Sarah's monsters and magic!", bc_map,0xEBFF;
 	end;
 OnTimer326000:
-	mapannounce 'map_glast$, "Fenrith Fenrir: ไปเจอกันที่ทางเข้า Glast Heim ที่เราพบกันครั้งแรก! ถ้าหนีไปไกลแค่นั้นน่าจะปลอดภัย!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: Let's meet at Glast Heim entrance where we first met! If we flee that far it should be safe!", bc_map,0xEBFF;
 	end;
 OnTimer329000:
 	stopnpctimer;
-	mapannounce 'map_glast$, "Fenrith Fenrir: ไม่มีเวลา! รีบ!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Fenrith Fenrir: There is no time! Hurry!", bc_map,0xEBFF;
 	donpcevent instance_npcname("#sarah_wrath") + "::OnStart";
 	end;
 OnStop:
@@ -1731,28 +1731,28 @@ OnStart:
 	initnpctimer;
 	end;
 OnTimer10000:
-	mapannounce 'map_glast$, "Sarah Irene: สิ่งเล็กน้อยที่ไร้สาระ เจ้าคิดว่าหลบหนีได้ง่ายๆ หรือ?", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: Absurd little thing, you think you can escape that easily?", bc_map,0xEBFF;
 	callsub S_Spawn,0;
 	end;
 OnTimer50000:
-	mapannounce 'map_glast$, "Sarah Irene: ลูกน้องของฉันจะฆ่าเจ้าให้ได้!!!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: My minions will make sure to kill you!!!", bc_map,0xEBFF;
 	callsub S_Spawn,1;
 	end;
 OnTimer80000:
-	mapannounce 'map_glast$, "Sarah Irene: ฉันปล่อยให้เจ้าหนีไม่ได้!!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: I cannot let you escape!!", bc_map,0xEBFF;
 	callsub S_Spawn,2;
 	end;
 OnTimer110000:
-	mapannounce 'map_glast$, "Sarah Irene: Fenrith Fenrir.... เจ้าคิดว่าฉันติดตามไม่ได้เพราะเจ้าหนีหรือ?", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: Fenrith Fenrir.... Did you think I couldn't track you because you fled?", bc_map,0xEBFF;
 	callsub S_Spawn,3;
 	end;
 OnTimer150000:
-	mapannounce 'map_glast$, "Sarah Irene: สิ่งเล็กน้อยที่ไร้สาระ เจ้าคิดว่าหลบหนีได้ง่ายๆ หรือ?", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: Absurd little thing, you think you can escape that easily?", bc_map,0xEBFF;
 	callsub S_Spawn,4;
 	end;
 OnTimer300000:
 	stopnpctimer;
-	mapannounce 'map_glast$, "Sarah Irene: วาฮาฮาฮาฮา!! Glast Heim กำลังเต็มไปด้วยความพิโรธของฉัน!!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: Bwahahahahahaha!! Glast Heim is being filled with my wrath!!", bc_map,0xEBFF;
 	for ( .@i = 1; .@i <= 14; .@i++ )
 		enablenpc instance_npcname("#glast_bomb_" + (.@i < 10 ? ("0"+.@i) : .@i));
 	end;
@@ -1862,7 +1862,7 @@ S_Spawn:
 	end;
 OnTouch:
 	unitkill 0;
-	mapannounce 'map_glast$, "Sarah Irene: วาฮาฮาฮาฮา!! Glast Heim กำลังเต็มไปด้วยความพิโรธของฉัน!!", bc_map,0xEBFF;
+	mapannounce 'map_glast$, "Sarah Irene: Bwahahahahahaha!! Glast Heim is being filled with my wrath!!", bc_map,0xEBFF;
 	specialeffect2 EF_LORD;
 	sleep2 1000;
 	specialeffect2 EF_LORD;
@@ -1889,22 +1889,22 @@ OnTouch:
 	if (isbegin_quest(9337) == 0) {
 		cutin "fenrir_a.bmp",2;
 		mes "[Fenrith Fenrir]";
-		mes "เจ้ามาถึงอย่างปลอดภัย!";
-		mes "สถานการณ์อันตราย";
-		mes "ทำให้ข้าเป็นห่วง";
-		mes "มันเป็นงานที่ยากและอันตราย";
-		mes "ข้าจึงขอบคุณสำหรับความช่วยเหลือ";
+		mes "You arrived safely!";
+		mes "The dangerous situation";
+		mes "had me worried.";
+		mes "It was difficult and dangerous work";
+		mes "so I am grateful for your help.";
 		next;
 		mes "[Fenrir]";
-		mes "ข้ารู้สึกว่าเราจะพบกันอีก";
-		mes "แต่บางทีก็แค่จินตนาการของข้า?";
-		mes "ฮืมม์.. นั่นคงดี";
+		mes "I feel we will meet again";
+		mes "but perhaps it is just my imagination?";
+		mes "Mm.. that would be nice.";
 		next;
 		mes "[Fenrir]";
-		mes "เราทำงานด้วยกันได้ดี";
-		mes "ข้าหวังว่าจะพบกันอีก";
-		mes "และระวัง Sarah ด้วย";
-		mes "อันตรายอาจมาถึงเจ้าเช่นกัน";
+		mes "We worked well together";
+		mes "so I hope we will meet again.";
+		mes "And watch for Sarah,";
+		mes "harm can come your way as well.";
 		setquest 9337;// Wrapping up the Adventure
 		getitem 607,1;// Yggdrasilberry
 		getitem 608,1;// Seed_Of_Yggdrasil
@@ -1913,8 +1913,8 @@ OnTouch:
 		end;
 	}
 	mes "[Fenrir]";
-	mes "เราทำงานด้วยกันได้ดี";
-	mes "ข้าหวังว่าจะพบกันอีก";
+	mes "We worked well together";
+	mes "so I hope we will meet again.";
 	close;
 }
 

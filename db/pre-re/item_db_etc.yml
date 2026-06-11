@@ -2,6 +2,81 @@ Header:
   Type: ITEM_DB
   Version: 3
 Body:
+  - Id: 6607
+    AegisName: Temporal_Crystal
+    Name: Temporal Crystal
+    Type: Etc
+    Buy: 20
+    Weight: 10
+    Flags:
+      BuyingStore: true
+  - Id: 6612
+    AegisName: Gold_Coin_Basket
+    Name: Gold Coin Basket
+    Type: Etc
+    Buy: 300000
+    Weight: 200
+    Flags:
+      BuyingStore: true
+  - Id: 6613
+    AegisName: Colorful_Brooch
+    Name: Colorful Brooch
+    Type: Etc
+    Buy: 100000
+    Weight: 10
+    Flags:
+      BuyingStore: true
+  - Id: 6648
+    AegisName: Shabby_Crown
+    Name: Old Crown
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6650
+    AegisName: Shabby_Ring
+    Name: Old Ring
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6651
+    AegisName: Rusty_Bracelet
+    Name: Rusty Bracalet
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6652
+    AegisName: Old_Photo_Album
+    Name: Old Photo Album
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6653
+    AegisName: Shabby_Pill
+    Name: Old Pill
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6671
+    AegisName: Geffen_Magic_Coin
+    Name: Geffen Coin Magic Tournament
+    Type: Etc
+    Buy: 10
+    Flags:
+      BuyingStore: true
+  - Id: 6672
+    AegisName: Gray_Shard
+    Name: Gray Shard
+    Type: Etc
+    Sell: 1
+    Weight: 1
+    Flags:
+      BuyingStore: true
+  - Id: 6803
+    AegisName: Piece_Of_Gigantes
+    Name: Fragments Of Gigan
+    Type: Etc
+    Buy: 10
+    Weight: 10
   - Id: 6909
     AegisName: Nyangvine_Fruit
     Name: Actinidia Cat Fruit
@@ -20333,6 +20408,13 @@ Body:
     Name: Sachet
     Type: Etc
     Buy: 100
+  - Id: 7642
+    AegisName: Bloody_Coin
+    Name: Bloody Coin
+    Type: Etc
+    Buy: 10
+    Flags:
+      BuyingStore: true
   - Id: 7701
     AegisName: Dragon_Spirit
     Name: Soul

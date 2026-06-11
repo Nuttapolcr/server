@@ -23,11 +23,11 @@ OnTouch:
 	if ('GMT == 0) {
 		'GMT = 1;
 		setquest 9292;
-		mapannounce instance_mapname("1@gef"),"ประกาศเกฟเฟน: การแข่งขันเวทมนตร์เกฟเฟนกำลังจะเริ่มต้นแล้ว!",bc_blue;
+		mapannounce instance_mapname("1@gef"),"Geffen Broadcast: The Geffen Magic Tournament is about to begin!",bc_blue;
 		sleep2 3000;
-		mapannounce instance_mapname("1@gef"),"ประกาศเกฟเฟน: พลเมืองและผู้ผจญภัยในเกฟเฟน โปรดเข้าร่วมการแข่งขัน~!",bc_blue;
+		mapannounce instance_mapname("1@gef"),"Geffen Broadcast: Citizens and adventurers in Geffen, please join the tournament~!",bc_blue;
 		sleep2 5000;
-		mapannounce instance_mapname("1@gef"),"ประกาศเกฟเฟน: ใครที่ต้องการเข้าร่วมการแข่งขันเวทมนตร์เกฟเฟน โปรดมาที่น้ำพุด้านใต้ของเกฟเฟน~!",bc_blue;
+		mapannounce instance_mapname("1@gef"),"Geffen Broadcast: Anyone who wants to join the Geffen Magic Tournament, please come to the southern fountain of Geffen~!",bc_blue;
 		'charname$ = strcharinfo(0);
 		'sex = Sex;
 		'gmt_account_id = getcharid(3);
@@ -83,75 +83,75 @@ OnTimer1000:
 	'm1_timer++;
 	
 	switch('m1_timer) {
-		case   1: npctalk "ฉันโดดเดี่ยว... ควรอยู่คนเดียวระหว่างงานเทศกาลหรือ?", instance_npcname("Young Lady#gef1"); break;
-		case   4: npctalk "โอ้พระเจ้า~! ทำไมพูดแบบนั้น~?", instance_npcname("Young Lady#gef2"); break;
-		case   8: npctalk "ลองจีบนักผจญภัยหน้าตาดีที่มา Geffen ล่ะ?", instance_npcname("Young Lady#gef3"); break;
-		case  12: npctalk "หน้าตาดี? ผู้ชายหน้าตาดีอยู่ที่ไหน?", instance_npcname("Young Lady#gef1"); break;
-		case  17: npctalk "ฉันเห็นแต่ผู้ชายที่ดูแก่และอ้วน!", instance_npcname("Young Lady#gef1"); break;
-		case  21: npctalk "อุ๊ก... ฉันนั่งอยู่คนเดียวระหว่างงานเทศกาลนี้ไม่ได้...", instance_npcname("Young Lady#gef2"); break;
-		case  26: npctalk "ไม่! ต้องมีผู้ชายหน้าตาดีแถวนี้! อย่ายอมแพ้!", instance_npcname("Young Lady#gef3"); break;
+		case   1: npctalk "I am lonely... Should I be alone during the festival?", instance_npcname("Young Lady#gef1"); break;
+		case   4: npctalk "Oh my god ~! Why do you say that~?", instance_npcname("Young Lady#gef2"); break;
+		case   8: npctalk "How about hitting on the handsome adventurers coming to Geffen?", instance_npcname("Young Lady#gef3"); break;
+		case  12: npctalk "Handsome? Where are there handsome men?", instance_npcname("Young Lady#gef1"); break;
+		case  17: npctalk "I only see guys who look so old and fat!", instance_npcname("Young Lady#gef1"); break;
+		case  21: npctalk "Agh... I can not just sit around during this festival alone...", instance_npcname("Young Lady#gef2"); break;
+		case  26: npctalk "No! There has to be some handsome guys around here! Don't give up!", instance_npcname("Young Lady#gef3"); break;
 		case  30:
-			npctalk "เอ่อ... โอเค...", instance_npcname("Young Lady#gef1");
-			npctalk "เอ่อ... โอเค...", instance_npcname("Young Lady#gef2");
+			npctalk "Um... okay...", instance_npcname("Young Lady#gef1");
+			npctalk "Um... okay...", instance_npcname("Young Lady#gef2");
 			break;
-		case  34: npctalk "ดูนั่น! ดูตรงนั้น! ผู้ชายหน้าตาดี!", instance_npcname("Young Lady#gef3"); break;
+		case  34: npctalk "See! Look over there! A handsome guy!", instance_npcname("Young Lady#gef3"); break;
 		case  38:
-			npctalk "โอ้พระเจ้า! ที่ไหน?!", instance_npcname("Young Lady#gef1");
-			npctalk "โอ้พระเจ้า! ที่ไหน? ที่ไหน?", instance_npcname("Young Lady#gef2");
+			npctalk "Oh god! Where?!", instance_npcname("Young Lady#gef1");
+			npctalk "Oh my god! Where? Where?", instance_npcname("Young Lady#gef2");
 			break;
 		case  42:
 			hideoffnpc instance_npcname("Handsome Adventurer#gef");
-			npctalk "อยู่ตรงนั้น~!", instance_npcname("Young Lady#gef3");
+			npctalk "Over there~!", instance_npcname("Young Lady#gef3");
 			break;
-		case  46: npctalk "มีสตรีสวยงามมากมายในการแข่งขันเวทมนตร์ปีนี้", instance_npcname("Handsome Adventurer#gef"); break;
+		case  46: npctalk "There are many beautiful ladies at this year's Magic Tournament.", instance_npcname("Handsome Adventurer#gef"); break;
 		case  50:
-			npctalk "โอ้โห~~~!!", instance_npcname("Young Lady#gef1");
-			npctalk "โอ้โห~~~! เขาพูดถึงฉันหรือ?", instance_npcname("Young Lady#gef2");
-			npctalk "โอ้โห~~! ดีจัง!!", instance_npcname("Young Lady#gef3");
+			npctalk "Yikes~~~!!", instance_npcname("Young Lady#gef1");
+			npctalk "Yikes~~~! Is he talking about me?", instance_npcname("Young Lady#gef2");
+			npctalk "Yikes~~! Nice!!", instance_npcname("Young Lady#gef3");
 			break;
-		case  54: npctalk "ฉันควรทำอะไร? ควรไปคุยกับเขาไหม?", instance_npcname("Young Lady#gef3"); break;
-		case  58: npctalk "เร็วๆ~! เธอเก่งเรื่องนี้! รีบไปจีบเขาซะ!", instance_npcname("Young Lady#gef2"); break;
-		case  62: npctalk "รีบๆ~!", instance_npcname("Young Lady#gef1"); break;
-		case  66: npctalk "ใกล้ถึงเวลาที่งานจะเริ่มแล้ว...", instance_npcname("Handsome Adventurer#gef"); break;
-		case  70: npctalk "บางทีเขากำลังรอใครอยู่!", instance_npcname("Young Lady#gef3"); break;
-		case  74: npctalk "แฟนสาวหรือ?! เป็นไปไม่ได้!", instance_npcname("Young Lady#gef2"); break;
+		case  54: npctalk "What should I do? Should I talk to him?", instance_npcname("Young Lady#gef3"); break;
+		case  58: npctalk "Come on~! You're good at this! Hurry up and hook up with him!", instance_npcname("Young Lady#gef2"); break;
+		case  62: npctalk "Hurry up~!", instance_npcname("Young Lady#gef1"); break;
+		case  66: npctalk "It's almost time for the event to begin...", instance_npcname("Handsome Adventurer#gef"); break;
+		case  70: npctalk "Maybe he's waiting for someone!", instance_npcname("Young Lady#gef3"); break;
+		case  74: npctalk "A girlfriend?! It can't be!", instance_npcname("Young Lady#gef2"); break;
 		case  78:
 			hideoffnpc instance_npcname("Male Adventurer#gef");
-			npctalk "ไม่... เป็นไปไม่ได้~!", instance_npcname("Young Lady#gef1");
+			npctalk "No... it can't be~!", instance_npcname("Young Lady#gef1");
 			break;
-		case  79: npctalk "ข้าทำให้เจ้ารอนานไหม?", instance_npcname("Male Adventurer#gef"); break;
-		case  83: npctalk "โชคดี! เป็นผู้ชาย!!!", instance_npcname("Young Lady#gef3"); break;
+		case  79: npctalk "Have I kept you waiting for a long time?", instance_npcname("Male Adventurer#gef"); break;
+		case  83: npctalk "Lucky! It's a man!!!", instance_npcname("Young Lady#gef3"); break;
 		case  86:
-			npctalk "ดูเหมือนจะเป็นแค่เพื่อน~!!", instance_npcname("Young Lady#gef2");
+			npctalk "Looks like it's just a friend~!!", instance_npcname("Young Lady#gef2");
 			break;
-		case  88: npctalk "จีบทั้งคู่เลยไหม? โฮ โฮ โฮ~!", instance_npcname("Young Lady#gef1"); break;
+		case  88: npctalk "Hook up with both of them? Ho ho ho~!", instance_npcname("Young Lady#gef1"); break;
 		case  91:
-			npctalk "ใช่! เจ้ามาถึงในที่สุด รักของข้า!", instance_npcname("Handsome Adventurer#gef");
+			npctalk "Yes! You have finally arrived, my love!", instance_npcname("Handsome Adventurer#gef");
 			emotion ET_HUK, getnpcid(0, instance_npcname("Young Lady#gef1"));
 			emotion ET_HUK, getnpcid(0, instance_npcname("Young Lady#gef2"));
 			emotion ET_HUK, getnpcid(0, instance_npcname("Young Lady#gef3"));
 			break;
 		case  95:
-			npctalk "รักของข้า...", instance_npcname("Male Adventurer#gef");
+			npctalk "My love...", instance_npcname("Male Adventurer#gef");
 			emotion ET_THROB, getnpcid(0, instance_npcname("Male Adventurer#gef"));
 			emotion ET_THROB, getnpcid(0, instance_npcname("Handsome Adventurer#gef"));
 			emotion ET_THROB, getnpcid(0, instance_npcname("Handsome Adventurer#gef"));
 			break;
 		case  99:
-			npctalk "บางที... ไม่มีผู้ชายดีๆ เหลือสำหรับพวกเรา...", instance_npcname("Young Lady#gef3");
+			npctalk "Maybe... There are no good guys left for us...", instance_npcname("Young Lady#gef3");
 			emotion ET_THROB, getnpcid(0, instance_npcname("Handsome Adventurer#gef"));
 			break;
 		case 103:
-			npctalk "เอ่อ... บางที... แค่พวกเราสามคน... จะอยู่ด้วยกันตลอดไป...", instance_npcname("Young Lady#gef2");
+			npctalk "Ahem... Maybe... Just the three of us... will be together forever...", instance_npcname("Young Lady#gef2");
 			emotion ET_THROB, getnpcid(0, instance_npcname("Male Adventurer#gef"));
 			break;
 		case 106:
-			npctalk "มิตรภาพของเราตลอดไป~!!!", instance_npcname("Young Lady#gef3");
+			npctalk "Our friendship is forever~!!!", instance_npcname("Young Lady#gef3");
 			emotion ET_THROB, getnpcid(0, instance_npcname("Handsome Adventurer#gef"));
 			sleep 500;
-			npctalk "มิตรภาพของเราตลอดไป~!!!", instance_npcname("Young Lady#gef1");
+			npctalk "Our friendship is forever~!!!", instance_npcname("Young Lady#gef1");
 			sleep 500;
-			npctalk "มิตรภาพของเราตลอดไป~!!!", instance_npcname("Young Lady#gef2");
+			npctalk "Our friendship is forever~!!!", instance_npcname("Young Lady#gef2");
 			'm1_timer++;
 			break;
 		case 109:
@@ -244,17 +244,17 @@ OnInstanceInit:
 
 1@gef,131,58,4	script	Geffen Coin Operator#g	4_F_ZONDAGIRL,{ // 55149
 	.@n$ = "[ Geffen Coin Operator ]";
-	mes .@n$,"ข้าแลกเปลี่ยน Magic Tournament Coins กับอุปกรณ์"; next;
+	mes .@n$,"I exchange Magic Tournament Coins for Equipment."; next;
 	goto L_Menu;
 	end;
 
 L_Menu:
-	switch(select("โล่:แหวน:เกราะ:สิ้นสุดการสนทนา")){
+	switch(select("Shields:Rings:Armor:End Conversation")){
 		case 1:
-			mes .@n$,"มีโล่สองประเภทสำหรับแลกเปลี่ยน";
+			mes .@n$,"There are two types of Shields are available for exchange.";
 			next;
 L_Shield:
-			switch(select("Magic Reflector ^3355FF<900 Coins>^000000:สารานุกรมที่แก้ไข ^3355FF<900 Coins>^000000:กลับไปเมนูก่อนหน้า")){
+			switch(select("Magic Reflector ^3355FF<900 Coins>^000000:Revised Encyclopedia ^3355FF<900 Coins>^000000:Go back to previous menu")){
 				case 1: .@item = 2185; .@cost = 900; break;
 				case 2: .@item = 2186; .@cost = 900; break;
 				case 3: goto L_Menu; break;
@@ -262,11 +262,11 @@ L_Shield:
 			mes .@n$;
 			mes mesitemlink( .@item, false );
 			mes "Price is "+.@cost+" coins";
-			mes "เจ้าต้องการแลกเปลี่ยน coins ไหม?";
+			mes "Do you wish to exchange your coins?";
 			next;
-				switch(select("อย่าแลก:แลก")){
+				switch(select("Do Not Exchange:Exchange")){
 					case 1:
-						mes .@n$,"ดูอุปกรณ์อื่นที่มีอยู่";
+						mes .@n$,"Take a look at the other equipment available.";
 						next;
 						goto L_Shield;
 						break;
@@ -274,7 +274,7 @@ L_Shield:
 						if( countitem(6671) < .@cost ) { 
 							mes .@n$,"You need "+.@cost+" Geffen Magic Tournament Coins."; 
 							next;
-							mes .@n$,"เข้าร่วมการแข่งขันเพื่อหา coins เพิ่ม"," ","Do you need more help?"; 
+							mes .@n$,"Participate in the Tournament to earn more coins."," ","Do you need more help?"; 
 							goto L_Shield; 
 						}
 						if(!checkweight(.@item,1)) { mes .@n$; mes "You have too many things in your inventory to carry a ^FF0000"+getitemname(.@item)+"^000000."; end; }
@@ -286,10 +286,10 @@ L_Shield:
 
 		case 2:
 			mes .@n$;
-			mes "มีแหวนสองประเภทสำหรับแลกเปลี่ยน";
+			mes "There are two types of Rings are available for exchange.";
 			next;
 L_Ring:
-				switch(select("Physical Enhancer Ring ^3355FF<1350 Coins>^000000:Magic Intensifier Ring ^3355FF<1350 Coins>^000000:กลับไปเมนูก่อนหน้า")){
+				switch(select("Physical Enhancer Ring ^3355FF<1350 Coins>^000000:Magic Intensifier Ring ^3355FF<1350 Coins>^000000:Go back to previous menu")){
 					case 1:
 						.@item = 2963;
 						.@cost = 1350;
@@ -305,11 +305,11 @@ L_Ring:
 			mes .@n$;
 			mes mesitemlink( .@item, false );
 			mes "Price is "+.@cost+" coins";
-			mes "เจ้าต้องการแลกเปลี่ยน coins ไหม?";
+			mes "Do you wish to exchange your coins?";
 			next;
-				switch(select("อย่าแลก:แลก")){
+				switch(select("Do Not Exchange:Exchange")){
 					case 1:
-						mes .@n$,"ดูอุปกรณ์อื่นที่มีอยู่";
+						mes .@n$,"Take a look at the other equipment available.";
 						next;
 						goto L_Ring;
 						break;
@@ -317,7 +317,7 @@ L_Ring:
 						if( countitem(6671) < .@cost ) { 
 							mes .@n$,"You need "+.@cost+" Geffen Magic Tournament Coins."; 
 							next;
-							mes .@n$,"เข้าร่วมการแข่งขันเพื่อหา coins เพิ่ม"," ","Do you need more help?"; 
+							mes .@n$,"Participate in the Tournament to earn more coins."," ","Do you need more help?"; 
 							goto L_Ring; 
 						}
 						if(!checkweight(.@item,1)) { mes .@n$; mes "You have too many things in your inventory to carry a ^FF0000"+getitemname(.@item)+"^000000."; end; }
@@ -328,10 +328,10 @@ L_Ring:
 				}
 		case 3:
 			mes .@n$;
-			mes "มีเกราะสองประเภทสำหรับแลกเปลี่ยน";
+			mes "There are two types of Armor are available for exchange.";
 			next;
 L_Armor:
-				switch(select("Anti-Magic Suit ^3355FF<1800 Coins>^000000:เสื้อคลุมเวทมนตร์เกฟเฟน ^3355FF<1800 Coins>^000000:กลับไปเมนูก่อนหน้า")){
+				switch(select("Anti-Magic Suit ^3355FF<1800 Coins>^000000:Geffen Magic Robe ^3355FF<1800 Coins>^000000:Go back to previous menu")){
 					case 1:
 						.@item = 15073;
 						.@cost = 1800;
@@ -347,11 +347,11 @@ L_Armor:
 			mes .@n$;
 			mes mesitemlink( .@item, false );
 			mes "Price is "+.@cost+" coins";
-			mes "เจ้าต้องการแลกเปลี่ยน coins ไหม?";
+			mes "Do you wish to exchange your coins?";
 			next;
-				switch(select("อย่าแลก:แลก")){
+				switch(select("Do Not Exchange:Exchange")){
 					case 1:
-						mes .@n$,"ดูอุปกรณ์อื่นที่มีอยู่";
+						mes .@n$,"Take a look at the other equipment available.";
 						next;
 						goto L_Armor;
 						break;
@@ -359,7 +359,7 @@ L_Armor:
 						if( countitem(6671) < .@cost ) { 
 							mes .@n$,"You need "+.@cost+" Geffen Magic Tournament Coins."; 
 							next;
-							mes .@n$,"เข้าร่วมการแข่งขันเพื่อหา coins เพิ่ม"," ","Do you need more help?"; 
+							mes .@n$,"Participate in the Tournament to earn more coins."," ","Do you need more help?"; 
 							goto L_Armor; 
 						}
 						if(!checkweight(.@item,1)) { mes .@n$; mes "You have too many things in your inventory to carry a ^FF0000"+getitemname(.@item)+"^000000."; end; }
@@ -370,8 +370,8 @@ L_Armor:
 				}
 		case 4:
 			mes .@n$;
-			mes "คุณสามารถรู้จักคนๆ หนึ่งได้มากจากอุปกรณ์ที่พวกเขามี";
-			mes "แล้วพบกันครั้งหน้า~!";
+			mes "You can tell a lot about a person by what gear they have.";
+			mes "I will see you next time~!";
 			close;
 
 	}
@@ -383,55 +383,55 @@ L_Armor:
 1@gef,0,0,0	script	#gmt_quotes	-1,{
 	end;
 OnTouch_:
-	if (strnpcinfo(0) == "Old Bachelor#z1_0et") setarray .@quotes$, "ชายโสดแก่: เทศกาลดีขนาดนี้ แต่ข้าอยู่คนเดียว...","ชายโสดแก่: บางทีข้าควรจีบสาวคนนั้น...","ชายโสดแก่: แออัดมากที่นี่ระหว่างการแข่งขันเวทมนตร์~!";
-	if (strnpcinfo(0) == "Little Geffen Boy#a2_0e") setarray .@quotes$, "เด็กชายเกฟเฟน: อุ๊ก ฮา ฮา~ ดูนั่น~! ผู้ชายที่ผ่านไปน่าเกลียดมาก~!!","เด็กชายเกฟเฟน: ฉันเบื่อ! มีอะไรสนุกทำแถวนี้บ้างไหม?","เด็กชายเกฟเฟน: ฉันควรขอเงินค่าขนมจากพ่อ";
+	if (strnpcinfo(0) == "Old Bachelor#z1_0et") setarray .@quotes$, "Old Bachelor: It's such a good festival, and I am alone...","Old Bachelor: Maybe I should hit on that girl...","Old Bachelor: It's so crowded in here during the Magic Tournament~!";
+	if (strnpcinfo(0) == "Little Geffen Boy#a2_0e") setarray .@quotes$, "Little Geffen Boy: Ugh ha ha~ Look~! That guy passing by there is so ugly~!!","Little Geffen Boy: I am bored! Is there anything fun to do around here?","Little Geffen Boy: I should ask my father for some pocket change.";
 	if (strnpcinfo(0) == "Dio Anemos#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Dio Anemos: ทุกครั้งที่ข้าเผชิญกับผู้หญิง ข้าไม่มีทางเลือกนอกจากจะผ่อนปรนกับเธอ...";
-		else setarray .@quotes$, "Dio Anemos: ข้าอยากกินคุกกี้ก่อนการแข่งขันเวทมนตร์จะเริ่ม","Dio Anemos: ข้าหิว... ขอกินอะไรได้ไหม?","Dio Anemos: Geffen มีชีวิตชีวามากทุกครั้งที่ข้ามาเยือน";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Dio Anemos : Any time I face a woman, I really have no choice but to go easy on her...";
+		else setarray .@quotes$, "Dio Anemos: I want to eat some cookies before the Magic Tournament starts.","Dio Anemos: I'm hungry... Can i have some food?","Dio Anemos: Geffen is so lively whenever I visit.";
 	}
 	if (strnpcinfo(0) == "Ordre#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Ordre: แม้แต่คนที่ทรงพลังอย่างข้าก็แพ้ได้...";
-		else setarray .@quotes$, "Ordre: ข้ารอบรรยากาศและอารมณ์แบบนี้มานานแล้ว","Ordre: แสดงให้เราเห็นว่าเจ้าฝึกมาเพื่ออะไร","Ordre: ไปลงทะเบียนสำหรับการแข่งขันกัน";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Ordre : Even powerful people like me can lose...";
+		else setarray .@quotes$, "Ordre: I've been waiting for this air and mood for a long time.","Ordre: Show us what you have trained for.","Ordre: Let's go register for the competition.";
 	}
 	if (strnpcinfo(0) == "Ju#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Ju: ... เจ้าเอาชนะข้าจริงๆ...";
-		else setarray .@quotes$, "Ju: ข้าจะรีบลงทะเบียนสำหรับการแข่งขันเวทมนตร์","Ju: ข้าเห็นแต่โนวิ้สรอบๆ ที่นี่","Ju: ข้าจะทำให้พวกเขาประหลาดใจด้วยทักษะการต่อสู้อันยอดเยี่ยม!";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Ju : ... You really defeat me...";
+		else setarray .@quotes$, "Ju: I will make sure to register for the Magic Tournament quickly.","Ju: I only see novices around here.","Ju: I will surprise them with my excellent battle skills!";
 	}
 	if (strnpcinfo(0) == "Blut Hase#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Blut Hase: ใครจะทรงพลังได้ขนาดนี้...";
-		else setarray .@quotes$, "Blut Hase: ข้าไปลงทะเบียนสำหรับการแข่งขันเวทมนตร์ที่ไหน?","Blut Hase: เสื้อผ้าของข้าจะเปื้อนเลือดของศัตรู";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Blut Hase : How can somebody be so powerful...";
+		else setarray .@quotes$, "Blut Hase: Where do I go to register for the Magic Tournament?","Blut Hase: My clothes will be stained with the blood of my enemies.";
 	}
 	if (strnpcinfo(0) == "Kuro Akuma#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Kuro Akuma: บางทีการเป็นคนชั่วร้ายอย่างเดียวไม่พอที่จะชนะการแข่งขัน...";
-		else setarray .@quotes$, "Kuro Akuma: มันเหมือนความสงบก่อนพายุ~!","Kuro Akuma: สงบมาก~! ข้าชอบ!","Kuro Akuma: มีลูกแกะบริสุทธิ์มากมายที่เข้าร่วมการแข่งขันเวทมนตร์~!";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Kuro Akuma : Maybe just being evil isn't enough to win the tournament...";
+		else setarray .@quotes$, "Kuro Akuma: It's like a calm before a storm~!","Kuro Akuma: So peaceful~! I love it!","Kuro Akuma: There quite a few innocent lambs joining the Magic Tournament~!";
 	}
 	if (strnpcinfo(0) == "Odoric#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Odoric: นี่คือลักษณะของความหนุ่มสาว น้องสาว... ข้าอิจฉาจริงๆ...";
-		else setarray .@quotes$, "Odoric: ข้าหาคู่แข่งประเภทที่ถูกใจไม่ได้เลย!","Odoric: แออัดมากระหว่างการแข่งขัน~!","Odoric: น่าสนุกที่จะเต้นรำในงานเทศกาล~!";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Odoric : This is what youth looks like, sister... I'm truly jealous...";
+		else setarray .@quotes$, "Odoric: I can't find my type of competitors at all!","Odoric: It is so crowded during the Tournament~!","Odoric: It should be fun dancing in the festival~!";
 	}
 	if (strnpcinfo(0) == "Fay Kanavian#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Fay Kanavian: ข้าแพ้จริงๆ... เป็นไปได้อย่างไร?";
-		else setarray .@quotes$, "Fay Kanavian: ถึงเวลาโชว์ Philosopher's Stone ของข้าในการแข่งขัน~!","Fay Kanavian: ไม่มีใครหยุดข้าได้ ฮา ฮา ฮา ฮา ฮา ฮา~!","Fay Kanavian: คุณเห็น Homonculus Alphonse ของข้าไหม?";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Fay Kanavian : I actually lost... How is this possible?";
+		else setarray .@quotes$, "Fay Kanavian: It is time to show off my Philosopher's Stone at the Tournament~!","Fay Kanavian: No one can stop me. Ha ha ha ha ha ha~!","Fay Kanavian: Have you seen my Homonculus Alphonse?";
 	}
 	if (strnpcinfo(0) == "Licheniyes#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Lecheniyes: คนส่วนใหญ่จะจำผลการแข่งขันไม่ได้ ดังนั้นไม่มีความรู้สึกล้มเหลวจริงๆ...";
-		else setarray .@quotes$, "Licheni: Happy Geffen Magic Tournament~!","Licheni: การแข่งขันเวทมนตร์ปีนี้จะสนุกมาก","Licheni: ยาฮู~ ไปเข้าร่วมการแข่งขันเวทมนตร์กัน~";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Lecheniyes : Most people won't even remember the outcome of the tournament, so there's no real sense of failure...";
+		else setarray .@quotes$, "Licheni: Happy Geffen Magic Tournament~!","Licheni: It will be a very fun Magic Tournament this year.","Licheni: Yahoo~ Let's go join the Magic Tournament~";
 	}
 	if (strnpcinfo(0) == "Ifodes#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Ifodes: แพ้ผู้หญิง... นั่นเป็นความคิดที่น่าสยดสยอง";
-		else setarray .@quotes$, "Ifodes: ข้าจะแสดงให้รู้ว่าข้าเป็นใครในการแข่งขันเวทมนตร์!","Ifodes: โจมตีแข็งแกร่งและป้องกันมั่นคง! ถอนหายใจ ข้าหวังว่าจะมีแฟน...","Ifodes: มีสตรีสวยงามอยู่แถวนี้ที่ข้าจะแสดงความอัศวินไหม?";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Ifodes : Losing to a woman... Now that's a terrifying thought.";
+		else setarray .@quotes$, "Ifodes: I will show who I am at the Magic Tournament!","Ifodes: Strong attack and solid defense! Sigh, I wish I had a girlfriend...","Ifodes: Is there any beautiful ladies around to show my chivalry?";
 	}
 	if (strnpcinfo(0) == "Faymont#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Faymont: ไม่มีเวลาคุย ต้องไปปลอบใจสาวๆ คนอื่นที่ล้มเหลว";
-		else setarray .@quotes$, "Faymont: ข้าได้ยินว่ามีหมวกใหม่ออกจำหน่ายใน Geffen","Faymont: ไม่มีคู่แข่งที่น่าพอใจคนอื่นในการแข่งขันหรือ?","Faymont: ข้าไม่เคยพบใครที่มีแฟชั่นเซ้นส์ดีกว่าข้า";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Faymont : No time to chat, I need to go comfort the other girls who failed.";
+		else setarray .@quotes$, "Faymont: I heard a new hat was released in Geffen.","Faymont: There are no other decent competitors in the Tournament?","Faymont: I've never met anyone who has a better fashion sense than me.";
 	}
 	if (strnpcinfo(0) == "Arhi#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Arhi: การแข่งขันจบแล้วในที่สุด! มันเป็นปีที่ยอดเยี่ยมจริงๆ... เข้มข้นเกินไป!";
-		else setarray .@quotes$, "Arhi: ข้ากำลังคิดจะเข้าร่วมการแข่งขันเวทมนตร์!","Arhi: นี่ควรจะเป็นประสบการณ์ที่ดีมาก","Arhi: มีคู่แข่งที่ดูอ่อนแอไหม?";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Arhi: The tournament is finally over! It was really a great year... Way too intense!";
+		else setarray .@quotes$, "Arhi: I'm thinking of joining the Magic Tournament!","Arhi: This should be a pretty good experience.","Arhi: Are there any competitors that look weak?";
 	}
 	if (strnpcinfo(0) == "Dwigh#z1_0et") {
-		if ('GMT_1QUE > 1) setarray .@quotes$, "Dwigh: ไม่ต้องพูดก็รู้ว่ามันเป็นการต่อสู้ที่เด็ดขาด!";
-		else setarray .@quotes$, "Dwigh: ข้าต้องการให้การแข่งขันเวทมนตร์นี้เป็นจุดเปลี่ยนของข้า","Dwigh: ข้าค่อนข้างหดหู่ช่วงนี้...","Dwigh: ข้าจะแสดงทักษะยอดเยี่ยมให้นักเรียนทุกคนเห็น";
+		if ('GMT_1QUE > 1) setarray .@quotes$, "Dwigh : Needless to say, it was a pretty decisive battle!";
+		else setarray .@quotes$, "Dwigh: I want this Magic Tournament to become my turning point.","Dwigh: I am quite depressed these days...","Dwigh: I will show my great skills to all of my students.";
 	}
 	
 	showscript .@quotes$[rand(getarraysize(.@quotes$))], getnpcid(0);
@@ -538,9 +538,9 @@ OnTouch_:
 		close;
 	}
 	mes "[ Point Merchant ]";
-	mes "สวัสดี ข้าขาย catalyst ที่เรียกว่า ^FF0000Points^000000 สำหรับ Sorcerers คุณต้องการอะไร?";
+	mes "Hello. I'm selling a catalyst called ^FF0000Points^000000 for Sorcerers. What would you like?";
 	next;
-	.@i = select("Scarlet Points - 200z:Lime Green Points - 200z:Indigo Points - 200z:Yellow Wish Points - 200z:ยกเลิก")-1;
+	.@i = select("Scarlet Points - 200z:Lime Green Points - 200z:Indigo Points - 200z:Yellow Wish Points - 200z:Cancel")-1;
 	mes "[ Point Merchant ]";
 	if (.@i == 4) {
 		mes "You can't find the stuff you need?";
@@ -548,27 +548,27 @@ OnTouch_:
 	}
 	setarray .@itemid[0],6360,6363,6361,6362;
 	setarray .@color$[0],"Scarlet","Lime Green","Indigo","Yellow Wish";
-	mes "คุณเลือก "+.@color$[.@i]+" Points";
-	mes "คุณต้องการกี่ชิ้น?";
-	mes "ถ้าต้องการยกเลิก กรอก 0";
+	mes "You have chosen "+.@color$[.@i]+" Points.";
+	mes "How many do you want?";
+	mes "If you want to cancel, enter 0.";
 	next;
 	input .@amount;
 	mes "[ Point Merchant ]";
 	if (.@amount == 0) {
-		mes "คุณยกเลิกการซื้อขายแล้ว";
+		mes "You've cancelled the trade.";
 		close;
 	}
 	if (Zeny < .@amount*200) {
-		mes "คุณดูเหมือนไม่มีเงินพอ";
+		mes "You don't seem to have enough money.";
 		close;
 	}
 	if (!checkweight(.@itemid[.@i],.@amount)) {
-		mes "คุณไม่มีพื้นที่เพียงพอในกระเป๋าสัมภาระเพื่อซื้อจำนวนนี้";
+		mes "You don't have enough space in your inventory to buy this amount.";
 		close;
 	}
 	Zeny = Zeny-(.@amount*200);
 	getitem .@itemid[.@i],.@amount;
-	mes "ขอบคุณมาก แล้วพบกัน~!";
+	mes "Thank you very much. See you~!";
 	close;
 }
 
@@ -603,10 +603,10 @@ OnTouch_:
 1@gef,124,65,4	script	Kafra Employee#gef_t	4_F_KAFRA4,{
 	cutin "kafra_04",2;
 	mes "[Kafra Employee]";
-	mes "ยินดีต้อนรับ~!";
-	mes "บริการ Kafra";
-	mes "อยู่เคียงข้างคุณเสมอ";
-	mes "ข้าจะช่วยอะไรคุณได้?";
+	mes "Welcome~!";
+	mes "The Kafra Services.";
+	mes "are always on your side.";
+	mes "So how can I help you?";
 	callfunc "F_Kafra",5,5,1,50,0;
 }
 
@@ -627,35 +627,35 @@ dali,100,147,3	script	Dimensional Device#gefma	PORTAL,{
 			
 			if( !getcharid(1) || is_party_leader() == false || .@GPPartySize > 1) {
 				mes .@n$;
-				mes "นี่คือ Instance เดี่ยว โปรดสร้างปาร์ตี้เดี่ยวก่อนดำเนินการต่อ";
+				mes "This is a solo instance. Please form a solo party before continuing.";
 				end;
 			}
 			
 			if (!.@party_id) {
 				mes .@n$;
-				mes "นี่คือ Instance เดี่ยว โปรดสร้างปาร์ตี้เดี่ยวก่อนดำเนินการต่อ";
+				mes "This is a solo instance. Please form a solo party before continuing.";
 				end;
 			}
 				
-			switch(select("ปล่อยไว้:^3355FFใช้อุปกรณ์^000000")){
+			switch(select("Leave it alone:^3355FFUse the Device^000000")){
 			
 				case 1:
 					mes .@n$;
-					mes "คุณรู้สึกได้ว่าเวลาถูกบิดเบือนโดยอุปกรณ์";
+					mes "You can feel time being distorted by the device.";
 					end;
 					
 				case 2:
 					if (BaseLevel < 90) {
 						mes .@n$; 
-						mes "คุณต้องเป็น base level 90 เพื่อดำเนินการต่อ";
+						mes "You must be base level 90 to continue.";
 						end;
 					}
 						switch(instance_enter(.@md_name$)) {
 							case 3:
-								mes "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ";
+								mes "An unknown error has occurred.";
 								end;
 							case 2:
-								mes "Instance Geffen Magic Tournament ยังไม่ถูกสร้าง โปรดไปคุยกับ Emmitt White ก่อน";
+								mes "The Geffen Magic Tournament instance has not been created. Please go to talk to Emmitt White first.";
 								end;
 							case 1:
 								mes "Only registered members can enter the "+.@md_name$+" instance.";
@@ -671,7 +671,7 @@ dali,100,147,3	script	Dimensional Device#gefma	PORTAL,{
 			}
 		} else if ( GeffenTournament > gettimetick(2) ) {
 			mes .@n$;
-			mes "ดูเหมือนหน้าต่างแห่งโอกาสยังไม่เปิดตอนนี้";
+			mes "Looks like the window of opportunity is not open right now.";
 			end;
 		}
 		end;
@@ -685,25 +685,25 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 	
 		if (BaseLevel < 90) {
 			mes .@n$; 
-			mes "คุณต้องเป็น base level 90 เพื่อดำเนินการต่อ";
+			mes "You must be base level 90 to continue.";
 			end;
 		}
 	
 	if (checkquest(9309) != -1) {
 		mes .@n$,
-		"ข้าเห็นว่าเจ้ากลับมาจากการแข่งขันแล้ว",
-		"เจ้าพบอะไรน่าสนใจบ้างไหม?";
+		"I see that you've returned from the Tournament.",
+		"Did you find out anything interesting?";
 		next;
 		mes .@n$,
-		"เจ้าให้รายละเอียดประสบการณ์แก่นักวิจัย";
+		"You give details of your experience to the researcher.";
 		next;
 		mes .@n$,
-		"เจ้าไม่ได้ให้ข้อมูลที่ข้าไม่รู้อยู่แล้วเลย...";
+		"You didn't really give me any information that I didn't already know...";
 		next;
 		mes .@n$,
-		"แต่ข้ายังต้องการมากกว่านี้~!",
-		"เจ้าช่วยข้าพรุ่งนี้ได้ไหม?",
-		"ข้าจะรอเจ้าอยู่";
+		"But I still want more~!",
+		"Can you help me tomorrow?",
+		"I will be waiting for you.";
 		next;
 
 				for (.@i = 9284; .@i <= 9314; .@i++) {
@@ -717,12 +717,12 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 	
 	if (checkquest(9308) != -1) {
 		mes .@n$,
-		"ข้าเชื่อไม่ได้ว่าเจ้าชนะการแข่งขัน!";
+		"I can't believe you won the Tournament!";
 		next;
 		mes .@n$,
-		"แต่ข้ายังต้องการมากกว่านี้~!",
-		"เจ้าช่วยข้าพรุ่งนี้ได้ไหม?",
-		"ข้าจะรอเจ้าอยู่";
+		"But I still want more~!",
+		"Can you help me tomorrow?",
+		"I will be waiting for you.";
 		next;
 
 				for (.@i = 9284; .@i <= 9314; .@i++) {
@@ -739,7 +739,7 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 		
 		if( !getcharid(1) || is_party_leader() == false || .@GPPartySize > 1) {
 			mes .@n$;
-			mes "นี่คือ Instance เดี่ยว โปรดสร้างปาร์ตี้เดี่ยวก่อนดำเนินการต่อ";
+			mes "This is a solo instance. Please form a solo party before continuing.";
 			end;
 		}
 		
@@ -753,37 +753,37 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 
 			if (!.@party_id) {
 				mes .@n$;
-				mes "เจ้าต้องเป็นหัวหน้าปาร์ตี้เพื่อดำเนินการต่อ";
+				mes "You need to be a party leader in order to continue.";
 				end;
 			}
 			
 		if (is_party_leader() == true){
 			mes .@n$; 
-			mes "เจ้ารู้ไหม? เมื่อนานมาแล้วมีการแข่งขันเวทมนตร์ใน Geffen";
+			mes "Did you know? A long time ago there was a Magic Tournament in Geffen.";
 			next;
 			mes .@n$; 
-			mes "ข้าวิจัยเกี่ยวกับการแข่งขันมามาก แต่ยังไม่ได้ข้อมูลมากนักจากการวิจัยเพียงอย่างเดียว";
+			mes "I've done so much research on the Tournament but haven't gotten too much information from research alone.";
 			next;
 			mes .@n$; 
-			mes "เมื่อข้าพบว่าช่องว่างเวลานี้สามารถช่วยการวิจัยได้ ข้าต้านทานโอกาสที่จะวิจัยต่อไม่ได้";
+			mes "When I found out that this time gap can help with my research I couldn't resist the opportunity to continue the research.";
 			next;
 			mes .@n$; 
-			mes "และตอนนี้ข้าพบนักผจญภัยในตัวเจ้าที่สามารถช่วยข้ากลับไปยังเวลาที่การแข่งขันเกิดขึ้น";
+			mes "And now I've found an adventurer, in you, who can help me go back to the time that the Tournament took place.";
 			next;
 			mes .@n$; 
-			mes "โปรดใช้อุปกรณ์มิติและเข้าร่วมการแข่งขันเวทมนตร์แทนข้า";
+			mes "Please use the dimensional device and participate in the Magic Tournament for me.";
 			next;
 			mes .@n$; 
-			mes "เจ้าจะไปและบอกข้าเกี่ยวกับมันไหม?";
+			mes "Will you go and tell me about it?";
 			next;
 			mes .@n$; 
-			mes "พอร์ทัลไม่เสถียรดังนั้นเจ้าต้องไปคนเดียว";
-			mes "เจ้าพร้อมที่จะเข้าไปหรือยัง?";
+			mes "The portal is unstable so you have to go solo.";
+			mes "Are you ready to enter?";
 			next;
-				switch(select("ไม่:ใช่")){
+				switch(select("No:Yes")){
 					case 1:
 						mes .@n$;
-						mes "กลับมาถ้าเจ้าเปลี่ยนใจ~!";
+						mes "Come back if you change your mind~!";
 						end;
 					case 2:
 						for (.@i = 9284; .@i <= 9314; .@i++) {
@@ -799,20 +799,20 @@ dali,98,141,3	script	Emmitt White	4_M_KHKYEL,{
 							end;
 						}
 						mes .@n$; 
-						mes "อุปกรณ์มิติถูกเปิดใช้งานแล้ว";
+						mes "The Dimensional Device has been activated.";
 						end;
 					}
 			end;
 		} else {
 			mes .@n$;
-			mes "เจ้าต้องเป็นหัวหน้าปาร์ตี้เพื่อดำเนินการต่อ";
+			mes "You need to be a party leader in order to continue.";
 			end;
 		}
 
 	} else {
 		mes .@n$;
-		mes "รอแป๊บนึง";
-		mes "เจ้าต้องรอให้ตัวจับเวลาหมดก่อนจึงจะกลับได้";
+		mes "Just a second.";
+		mes "You need to wait for the timer to expire before going back.";
 		mes " ";
 		
 		.@time = (GeffenTournament - gettimetick(2));
@@ -900,13 +900,13 @@ OnInstanceInit:
 1@gef,123,203,4	script	Tournament Guide#gfmg	705,{
 	cutin "gef_soldier.bmp",2;
 	.@n$ = "[ Tournament Guide ]";
-	mes .@n$,"ยินดีต้อนรับสู่เมืองแห่งเวทมนตร์ ^8B4513Geffen^000000";
+	mes .@n$,"Welcome to the Magical city of ^8B4513Geffen^000000.";
 	next;
-	mes .@n$,"ถ้าต้องการดู ^55CC55Magic Tournament^000000 ไปที่น้ำพุทางใต้ของ Geffen";
+	mes .@n$,"If you want to watch the ^55CC55Magic Tournament^000000 go to the southern fountain of Geffen.";
 	next;
-	mes .@n$,"ดอกไม้ไฟอยู่ที่นี่เพื่อเฉลิมฉลองเทศกาล Geffen Magical Tournament";
+	mes .@n$,"The fireworks are here to celebrate the Geffen Magical Tournament Festival.";
 	next;
-	mes .@n$,"โปรดเพลิดเพลินกับงานเทศกาลและการอยู่ที่ Geffen~!";
+	mes .@n$,"Please enjoy the festivities and enjoy your stay here in Geffen~!";
 	close2;
 	cutin "",255;
 	end;
@@ -926,55 +926,55 @@ OnEnable:
 
 	if ( checkquest(9309) != -1 ) {
 		mes .@n$;
-		mes "Fenrir ชนะการแข่งขันเวทมนตร์ปีนี้!";
+		mes "Fenrir won this year's Magic Tournament!";
 		next;
 		mes .@n$;
-		mes "ข้าเป็นแฟนตัวยงของเธอ";
+		mes "I'm such a big fan of hers.";
 		end;
 	}
 	
 	if ( checkquest(9308) != -1 ) {
 		mes .@n$;
-		mes "ขอแสดงความยินดีที่เป็นผู้ชนะ Magic Tournament ปีนี้!";
+		mes "Congratulations on being this year's Magic Tournament winner!";
 		end;
 	}
 		
 	if ( 'passtest == 2 ) {
 		mes .@n$;
-		mes "เจ้าต้องการลองอีกครั้งไหม?";
-		mes "ถ้าเจ้าสามารถฆ่า Desert Wolf ได้ภายใน 60 วินาที เจ้าผ่านการทดสอบ";
+		mes "Do you wish to try again?";
+		mes "If you can kill the Desert Wolf within 60 seconds, you pass the test.";
 		next;
 		mes .@n$;
-		mes "ถ้าเจ้าล้มเหลว เจ้าจะถูกลบออกจากรายชื่อโดยอัตโนมัติ เจ้าสามารถลองอีกครั้งกี่ครั้งก็ได้ที่ต้องการ";
-		mes "เจ้าจะทำการทดสอบอีกครั้งไหม?";
+		mes "If you fail, you will automatically be eliminated from the list. You can try again as many times as you want.";
+		mes "Will you take the test again?";
 		next;
-		switch(select("ไม่:ใช่")){
+		switch(select("No:Yes")){
 			case 1:
 				mes .@n$;
-				mes "กลับมาถ้าเจ้าเปลี่ยนใจ";
+				mes "Come back if you change your mind.";
 				close;
 			case 2:
 				mes .@n$;
-				mes "ไม่มีค่าธรรมเนียมลงทะเบียนสำหรับการเข้าร่วม";
-				mes "ข้อกำหนดเพียงอย่างเดียวคือผ่านการทดสอบง่ายๆ";
+				mes "There is no registration fee to enter.";
+				mes "The only requirement is to pass a simple test.";
 				next;
 				mes .@n$;
-				mes "การทดสอบง่ายมาก เอาชนะ Desert Wolf ใน 60 วินาทีหรือน้อยกว่าแล้วเจ้าเข้าได้";
+				mes "The test is very simple. Defeat a Desert Wolf in 60 seconds or less and you're in.";
 				next;
 				mes .@n$;
-				mes "ถ้าเจ้าล้มเหลวเจ้าจะถูกลบออกจากรายชื่อโดยอัตโนมัติ แต่เจ้าสามารถลองอีกครั้งกี่ครั้งก็ได้ตามต้องการ";
-				mes "เจ้าพร้อมไหม?";
+				mes "If you fail you will automatically be eliminated from the list but you can try again as many times as you wish.";
+				mes "Are you ready?";
 				next;
-				switch(select("ไม่:ใช่")){
+				switch(select("No:Yes")){
 					case 1:
 						mes .@n$;
-						mes "กลับมาถ้าเจ้าเปลี่ยนใจ";
+						mes "Come back if you change your mind.";
 						close;
 					case 2:
 						mes .@n$;
-						mes "เจ้าสามารถเข้าร่วม Magic Tournament หลังจากผ่านการทดสอบ";
-						mes "แล้ว มาเริ่มกันเลย!";
-						npctalk "เวลาจำกัด 60 วินาที! พร้อม! ตั้ง! ไป!";
+						mes "You can participate in the Magic Tournament after passing the test.";
+						mes "Then, let us begin!";
+						npctalk "Time limit is 60 seconds ! Ready! Set! Go!";
 						erasequest 9292;
 						setquest 9293;
 						addtimer 60000,instance_npcname("Receptionist#1_0et")+"::OnFail";
@@ -991,27 +991,27 @@ OnEnable:
 	
 		if ('GMT >= 5){
 			mes .@n$;
-			mes "Magic Tournament จะเริ่มเร็วๆ นี้";
-			mes "เข้าพอร์ทัลทางใต้แล้วเจ้าสามารถเข้าร่วมได้";
+			mes "The Magic Tournament is going to start soon.";
+			mes "Enter the portal to the south and you can join in.";
 			next;
 			mes .@n$;
-			mes "โชคดี!";
+			mes "Good luck!";
 			end;
 		}
 		
 		mes .@n$;
-		mes "ขอแสดงความยินดี! เจ้าผ่านการทดสอบ!";
+		mes "Congratulations! You passed the test!";
 		next;
 		mes .@n$;
-		mes "บอกชื่อเจ้าให้ข้าจด";
-		mes "เจ้าจะถูกลงทะเบียนสำหรับการแข่งขันโดยอัตโนมัติตอนนี้";
+		mes "Give me your name so I can write it down.";
+		mes "You will automatically be registered for the tournament now.";
 		next;
 		input .@char$;
 		if(.@char$ == "") { end; }
 		mes .@n$;
 		mes strcharinfo(0)+"?";
-		mes "โอเค ชื่อน่าสนใจ";
-		mes "ยังไงก็ตาม การลงทะเบียนของเจ้าเสร็จสิ้นแล้ว!";
+		mes "Okay, interesting name.";
+		mes "Anyway, your registration is complete!";
 		'GMT = 5;
 		erasequest 9293;
 		if (checkquest(9294) > -1)
@@ -1020,14 +1020,14 @@ OnEnable:
 		donpcevent instance_npcname("#gefmagic_warp01")+"::OnEnable";
 		next;
 		mes .@n$;
-		mes "ผู้แข่งขันที่ลงทะเบียนจะถูกเลือกแบบสุ่ม";
+		mes "Competitors who registered will randomly be selected.";
 		next;
 		mes .@n$;
-		mes "Magic Tournament จะเริ่มเร็วๆ นี้";
-		mes "เข้าพอร์ทัลทางใต้แล้วเจ้าสามารถเข้าร่วมได้";
+		mes "The Magic Tournament is going to start soon.";
+		mes "Enter the portal to the south and you can join in.";
 		next;
 		mes .@n$;
-		mes "โชคดี~!";
+		mes "Good Luck~!";
 		end;
 	
 	}
@@ -1035,52 +1035,52 @@ OnEnable:
 	if ( checkquest(9293) == -1 ) {
 		
 		mes .@n$;
-		mes "ขอบคุณที่มาเยือน Geffen Magic Tournament";
-		mes "ข้าจะช่วยอะไรเจ้าได้?";
+		mes "Thank you for visiting the Geffen Magic Tournament.";
+		mes "What can I do for you?";
 		next;
 	L_Menu:
-		switch(select("เกี่ยวกับการแข่งขันเวทมนตร์เกฟเฟน:ฉันจะลงทะเบียนได้อย่างไร?:การเก็บรางวัล:ฉันสามารถได้ใบอนุญาตชม?:สิ้นสุดการสนทนา")){
+		switch(select("About Geffen Magic Tournament:How do I Register?:Collecting Rewards.:Can I get a Spectator Pass?:End Conversation")){
 			case 1:
 				mes .@n$;
-				mes "Geffen Magic Tournament จัดขึ้นทุก 3 ปี";
+				mes "Geffen Magic Tournament is being held once every 3 years.";
 				next;
 				mes .@n$;
-				mes "งานเทศกาลนี้เคยเป็นงานที่เน้นการศึกษาที่นักวิชาการถกเถียงเรื่องวิธีเวทมนตร์";
-				mes "ตอนนี้มันเกี่ยวกับความสนุกและงานปาร์ตี้ใหญ่";
+				mes "This festival used to be a more studious event with scholars discussing magical methods.";
+				mes "Now it's all about fun and a big party.";
 				next;
 				mes .@n$;
-				mes "ตอนนี้มันกลายเป็นการแข่งขันต่อสู้เกือบทั้งหมด";
-				mes "นักเวทมนตร์ที่มีชื่อเสียงที่สุดจากทั่วโลกมาสำหรับการแข่งขัน";
+				mes "Now it has become almost exclusively a fighting tournament.";
+				mes "The most famous Mages from all over the world come for the tournament.";
 				next;
 				mes .@n$;
-				mes "มีอะไรอีกไหม?";
+				mes "Anything else?";
 				next;
 				goto L_Menu;
 			case 2:
 				mes .@n$;
-				mes "ไม่มีค่าธรรมเนียมลงทะเบียนสำหรับการเข้าร่วม";
-				mes "ข้อกำหนดเพียงอย่างเดียวคือผ่านการทดสอบง่ายๆ";
+				mes "There is no registration fee to enter.";
+				mes "The only requirement is to pass a simple test.";
 				next;
 				mes .@n$;
-				mes "การทดสอบง่ายมาก เอาชนะ Desert Wolf ใน 60 วินาทีหรือน้อยกว่าแล้วเจ้าเข้าได้";
+				mes "The test is very simple. Defeat a Desert Wolf in 60 seconds or less and you're in.";
 				next;
 				mes .@n$;
-				mes "ถ้าเจ้าล้มเหลวเจ้าจะถูกลบออกจากรายชื่อโดยอัตโนมัติ แต่เจ้าสามารถลองอีกครั้งกี่ครั้งก็ได้ตามต้องการ";
-				mes "เจ้าต้องการทำการทดสอบไหม?";
+				mes "If you fail you will automatically be eliminated from the list but you can try again as many times as you wish.";
+				mes "Do you want to take the test?";
 				next;
-				switch(select("ไม่:ใช่")){
+				switch(select("No:Yes")){
 					case 1:
 						mes .@n$;
-						mes "กลับมาถ้าเจ้าเปลี่ยนใจ";
+						mes "Come back if you change your mind.";
 						close;
 					case 2:
 						mes .@n$;
-						mes "เจ้าสามารถเข้าร่วม Magic Tournament หลังจากผ่านการทดสอบ";
-						mes "แล้ว มาเริ่มกันเลย!";
+						mes "You can participate in the Magic Tournament after passing the test.";
+						mes "Then, let us begin!";
 						erasequest 9292;
 						setquest 9293;
 						'GMT = 3;
-						npctalk "เวลาจำกัด 60 วินาที! พร้อม! ตั้ง! ไป!";
+						npctalk "Time limit is 60 seconds ! Ready! Set! Go!";
 						addtimer 60000,instance_npcname("Receptionist#1_0et")+"::OnFail";
 						monster instance_mapname("1@gef"),120,62,"--ja--",1106,1,instance_npcname("Receptionist#1_0et")+"::OnTest";
 						hideonnpc instance_npcname("Receptionist#1_0et");	
@@ -1089,29 +1089,29 @@ OnEnable:
 				end;
 			case 3:
 				mes .@n$;
-				mes "ยิ่งไปไกลในการแข่งขัน เจ้าจะได้ coins มากขึ้น";
+				mes "The father you go along in the tournament, the more coins you will earn.";
 				next;
 				mes .@n$;
-				mes "เก็บ coins และแลกเปลี่ยนกับอุปกรณ์จาก Geffen Coin Operator";
+				mes "Collect the coins and you can exchange them for equipment from the Geffen Coin Operator.";
 				next;
 				mes .@n$;
-				mes "มีอะไรอีกไหม?";
+				mes "Anything else?";
 				next;
 				goto L_Menu;
 			case 4:
 				mes .@n$;
-				mes "ฮืมม์ ดูเหมือน Magic Tournament ปีนี้ได้รับความนิยมมากจนไม่มีที่นั่งผู้ชมเหลือ";
+				mes "Hmm it seems that the Magic Tournament is so popular this year that there aren't any more spectator seats available.";
 				next;
 				mes .@n$;
-				mes "ข้าขอโทษสำหรับความไม่สะดวก";
+				mes "I am sorry for inconvenience.";
 				next;
 				mes .@n$;
-				mes "เจ้าต้องการอะไรอีกไหม?";
+				mes "Do you need anything else?";
 				next;
 				goto L_Menu;
 			case 5:
 				mes .@n$;
-				mes "โปรดเพลิดเพลินกับ Geffen Magic Tournament";
+				mes "Please enjoy the Geffen Magic Tournament.";
 				close;
 		}
 		end;
@@ -1123,14 +1123,14 @@ OnTest:
 	deltimer instance_npcname("Receptionist#1_0et")+"::OnFail";
 	'passtest = 1;
 	hideoffnpc instance_npcname("Receptionist#1_0et");
-	npctalk "เจ้าผ่านการทดสอบ! เราจะทำการลงทะเบียนของเจ้าให้เสร็จไหม?", instance_npcname("Receptionist#1_0et");
+	npctalk "You passed the test! Shall we finish your registration?", instance_npcname("Receptionist#1_0et");
 	end;
 	
 OnFail:
 	hideoffnpc instance_npcname("Receptionist#1_0et");
 	'passtest = 2;
 	killmonster instance_mapname("1@gef"),instance_npcname("Receptionist#1_0et")+"::OnTest";
-	npctalk "เจ้าล้มเหลวการทดสอบ มาคุยกับข้าถ้าต้องการลองอีกครั้ง", instance_npcname("Receptionist#1_0et");
+	npctalk "You failed the test. Talk to me if you wish to try again.", instance_npcname("Receptionist#1_0et");
 	end;
 
 }
@@ -1351,31 +1351,31 @@ OnTouch_:
 	if ('GMT_1QUE < 11) {
 		cutin "acamaster_a.bmp",2;
 		mes .@n$,
-		"สุภาพสตรีและสุภาพบุรุษ!",
+		"Ladies and gentlemen!",
 		"Welcome to the Geffen Magic",
 		"Tournament!";
 		next;
 		mes .@n$,
-		"วันนี้จะมีการสวมมงกุฎแชมป์";
+		"Today a champion will be crowned.";
 		next;
 		mes .@n$,
-		"ปีนี้มี 2 ดิวิชั่น",
-		"แบ่งเป็น กลุ่ม A และ B",
+		"There are 2 divisions this year",
+		"divided into Group A and B.",
 		"The winner of each group will face",
 		"each other for the championship",
 		"match.";
 		next;
 		mes .@n$,
-		"ข้าเป็น MC ของกลุ่ม A",
+		"I am the MC of Group A.",
 		"Geffen Academy Master~!",
 		"Archmage Zanzibar Hellmod";
 		next;
 		mes .@n$,
-		"ข้ารู้สึกเป็นเกียรติที่เป็น MC ปีนี้",
-		"ตอนนี้ถึงเวลาที่การแข่งขันจะเริ่ม";
+		"I am honored to be this year's MC.",
+		"Now, it's time for the matches to begin.";
 		next;
 		mes .@n$,
-		"เอ่อ...";
+		"Ahem...";
 		close2;
 		cutin "acamaster_a.bmp", 255;
 		hideonnpc "Geffen Academy Master";
@@ -1402,10 +1402,10 @@ OnInstanceInit:
 	.@n$ = "[ Tournament Guide ]";
 	ignoretimeout 1;
 	if (checkquest(9308) != -1) {
-		switch(select("ออกจากเวทีและรับรางวัล:สิ้นสุดการสนทนา")) {
+		switch(select("Leave the Arena and receive your reward:End Conversation")) {
 			case 1:
 				mes .@n$;
-				mes "เจ้าชนะการแข่งขัน!","ขอแสดงความยินดี!";
+				mes "You won the competition!","Congratulations!";
 				next;
 				mes .@n$;
 				mes "By the way, the Academy Master has","something to tell you!";
@@ -1413,7 +1413,7 @@ OnInstanceInit:
 				cutin "acamaster_a.bmp",2;
 				.@n2$ = "[ Geffen Academy Master ]";
 				mes .@n2$,
-				"ขอแสดงความยินดี!",
+				"Congratulations!",
 				"This has been the best pool of",
 				"competitors in the history of this",
 				"competition.";
@@ -1525,8 +1525,8 @@ OnInstanceInit:
 					end;
 			case 2:
 				mes .@n$; // KURAMA END CONVERSATION TEXT
-				mes "ต้องการเวลาเตรียมตัวมากขึ้นใช่ไหม";
-				mes "ไม่เป็นไร มาคุยกับข้าเมื่อพร้อม";
+				mes "Need more time to prepare I see.";
+				mes "Not a problem, talk to me when you're ready.";
 				close;
 		}
 
@@ -1934,9 +1934,9 @@ OnStart:
 	.@label$ = instance_npcname("#GMTcontroller")+"::OnMobDead";
 	'timeout = 180;
 	if ('GMT_1QUE == 23) 'timeout = 300;
-	mapannounce .@map$, "<ประกาศ Magic Tournament>: เวลาจำกัด " + ('timeout / 60) + " minutes.",bc_blue; sleep 2000;
-	mapannounce .@map$, "<ประกาศ Magic Tournament>: เตรียมพร้อม... ตั้ง...",bc_blue; sleep 2000;
-	mapannounce .@map$, "<ประกาศ Magic Tournament>: สู้!",bc_blue;
+	mapannounce .@map$, "<Magic Tournament Broadcast>: Time limit is " + ('timeout / 60) + " minutes.",bc_blue; sleep 2000;
+	mapannounce .@map$, "<Magic Tournament Broadcast>: Ready... Set...",bc_blue; sleep 2000;
+	mapannounce .@map$, "<Magic Tournament Broadcast>: Fight!",bc_blue;
 	
 	donpcevent instance_npcname("#FireworksControl")+"::OnTurn";
 	initnpctimer;
@@ -2067,18 +2067,18 @@ OnTimer1000:
 	}
 	
 	switch('timeout) {
-		case 240: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: เวลาเหลือ 4 นาที การแข่งขันกำลังเข้มข้น!",bc_blue; break;
-		case 180: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: เวลาเหลือ 3 นาที การแข่งขันเข้มข้นอย่างยิ่ง!",bc_blue; break;
-		case 120: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: เวลาเหลือ 2 นาที เรากำลังแล่นสู่จุดจบ!",bc_blue; break;
-		case  90: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: เวลาเหลือ 1 นาที 30 วินาที การแข่งขันผ่านครึ่งทางแล้ว!",bc_blue; break;
-		case  60: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: เวลาเหลือ 1 นาที ใกล้จบการแข่งขันแล้ว!",bc_blue; break;
-		case  30: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: เวลาเหลือ 30 วินาที รอบกำลังจะสิ้นสุด!",bc_blue; break;
-		case  10: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: เหลือ 10 วินาที!",bc_blue; break;
-		case   5: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: 5!",bc_blue; break;
-		case   4: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: 4!",bc_blue; break;
-		case   3: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: 3!",bc_blue; break;
-		case   2: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: 2!",bc_blue; break;
-		case   1: mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: 1!",bc_blue; break;
+		case 240: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: Time remaining is 4 minutes, this match is getting heated!",bc_blue; break;
+		case 180: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: Time remaining is 3 minutes, the match has gotten extremely heated!",bc_blue; break;
+		case 120: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: Time remaining is 2 minutes, we're racing towards the end!",bc_blue; break;
+		case  90: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: Time remaining is 1 minute 30 seconds, the bout is halfway over!",bc_blue; break;
+		case  60: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: Time remaining is 1 minute, the end of the match is nearing!",bc_blue; break;
+		case  30: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: Time remaining is 30 seconds, turn coming to an end!",bc_blue; break;
+		case  10: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: 10 seconds remaining!",bc_blue; break;
+		case   5: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: 5!",bc_blue; break;
+		case   4: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: 4!",bc_blue; break;
+		case   3: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: 3!",bc_blue; break;
+		case   2: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: 2!",bc_blue; break;
+		case   1: mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: 1!",bc_blue; break;
 		case   0:
 			stopnpctimer;
 			donpcevent instance_npcname("#GMTcontroller") + "::OnTimeout2";
@@ -2088,7 +2088,7 @@ OnTimer1000:
 	initnpctimer;
 	end;
 OnTimeout2:
-	mapannounce instance_mapname("1@ge_st"), "<ประกาศ Magic Tournament>: หมดเวลา! กรรมการจะตัดสินผู้ชนะรอบนี้!",bc_blue;	
+	mapannounce instance_mapname("1@ge_st"), "<Magic Tournament Broadcast>: Time's up! The judges will decide the victor for this round!",bc_blue;	
 	
 	setcell instance_mapname("1@ge_st"), 50, 50, 50, 50, cell_walkable, 1;
 	if (unitexists('BossID))
@@ -2288,16 +2288,16 @@ OnEnd:
 
 1@ge_st,111,57,4	script	Tournament Healer#1	569,{ //83649 (hide) 
 	mes "[ Tournament Healer ]";
-	mes "ผู้ชนะรอบก่อนหน้าสามารถรับการฮีลจากข้าได้";
+	mes "The previous round's winner can receive a heal from me.";
 	next;
-		if (select ("Heal", "ยกเลิก") == 2) {
+		if (select ("Heal", "Cancel") == 2) {
 			mes "[ Tournament Healer ]";
-			mes "ดูเหมือนเจ้าไม่ต้องการการฮีล";
+			mes "Guess you don't need to be healed.";
 			close;
 		}
 	mes "[ Tournament Healer ]";
-	mes "เพลิดเพลิน";
-	mes "โชคดีในรอบถัดไป!";
+	mes "Enjoy.";
+	mes "Good luck on the next round!";
 	percentheal 100,100;
 	specialeffect2 EF_HEAL;
 	close2;
@@ -3978,7 +3978,7 @@ OnEnable:
 // Cutscenes
 
 
-//
+//ฯฏฯฏฯฏฯฏฯฏฯฏฯฏฯฏฯฏ
 //   Event 1
 //__________________
 1@gef,159,172,6	duplicate(#gmt_dummy)	Geffen Gangster#1	682
@@ -4137,7 +4137,7 @@ OnTimer1000:
 			hideoffnpc instance_npcname("Geffen Gangster#22");
 			hideoffnpc instance_npcname("Geffen Gangster#33");
 			break;
-		case 22: mapannounce instance_mapname("1@gef"), "หยุดตรงนั้น! พวกโจร!", 0x00ebff; break;
+		case 22: mapannounce instance_mapname("1@gef"), "Stop right there! Jerks!", 0x00ebff; break;
 		case 23: hideoffnpc instance_npcname("Chaos#Gef1"); break;
 		case 25: specialeffect EF_POTION_CON, AREA, instance_npcname("Chaos#Gef1"); break;
 		case 26: npctalk "Chaos : Are you clowns harassing Iris?", instance_npcname("Chaos#Gef1"); break;
@@ -4195,27 +4195,27 @@ OnTimer1000:
 			
 			if (attachrid('gmt_account_id)) {
 				cutin "hero_iris_01.bmp", 2;
-				mes "[Iris]", "เจ้าไม่เป็นไรไหม?", "มีคนน่ารำคาญมากทุกที่ที่เราไป..."; next;
+				mes "[Iris]", "Are you okay?", "There have been so many jerks everywhere we go..."; next;
 				cutin "", 255;
-				mes "[Kafra]", "ขอบคุณที่ช่วยข้า", "เจ้าคือใคร?"; next;
+				mes "[Kafra]", "Thanks for helping me out.", "Who are you?"; next;
 				cutin "hero_iris_01.bmp", 2;
-				mes "[Iris]", "ข้าคือ Iris~", "ข้ากำลังเดินทางกับเพื่อนสนิท Chaos~!"; next;
-				mes "[Iris]", "ข้าไม่ใช่คนที่เจ้าควรขอบคุณ", "Thank that adventurer, " + strcharinfo(0) + ".", "มันอาจแย่กว่านี้มาก"; next;
+				mes "[Iris]", "I am Iris~", "I am travelling with my good friend Chaos~!"; next;
+				mes "[Iris]", "I am not the one you should thank.", "Thank that adventurer, " + strcharinfo(0) + ".", "It could have been much worse."; next;
 				cutin "", 255;
-				mes "[Kafra]", "Thank you " + strcharinfo(0) + ".", "เจ้าช่วยข้า"; next;
+				mes "[Kafra]", "Thank you " + strcharinfo(0) + ".", "You saved me."; next;
 				cutin "hero_iris_01.bmp", 2;
-				mes "[Iris]", "ค่อนข้างหายากที่จะพบคนที่ซื่อสัตย์อย่าง " + strcharinfo(0) + "."; next;
+				mes "[Iris]", "It's pretty rare to meet someone as righteous as " + strcharinfo(0) + "."; next;
 				mes "[Iris]", "I'm on my way to see the Geffen Magic Tournament with Chaos.", "Are you on your way there too, " + strcharinfo(0) + "?"; next;
 				cutin "hero_chaos_01.bmp", 2;
 				mes "[Chaos]", "Yes, you seem strong enough to be in the Tournament."; next;
 				mes "[Chaos]", "Just know that Fenrir plans on joining as well, so it won't be that easy."; next;
-				mes "[Chaos]", "นี่คือม้วนกระดาษเสริมพลังเวทมนตร์ที่ข้าชอบที่สุด รับไว้เป็นสัญลักษณ์ความขอบคุณของเรา";
+				mes "[Chaos]", "This is my favorite magic buff scroll, so take it as a token of our appreciation.";
 				sc_start4 SC_GEFFEN_MAGIC3, 3600000, 5, 0, 0, 0, 10000, 1;
 				atcommand "@effect 220";
 				next;
-				mes "[Chaos]", "มันจะมีประโยชน์ใน Magic Tournament", "ไปกัน Iris~!", "มันจะเริ่มเร็วๆ นี้~!"; next;
+				mes "[Chaos]", "It will be useful in the Magic Tournament.", "Let's go Iris~!", "It's going to start soon~!"; next;
 				cutin "hero_iris_01.bmp", 2;
-				mes "[Iris]", "Yes~! Go " + strcharinfo(0) + "~", "Kafra, wish us luck~!", "ทำดีที่สุด " + strcharinfo(0) + ".";
+				mes "[Iris]", "Yes~! Go " + strcharinfo(0) + "~", "Kafra, wish us luck~!", "Do your best " + strcharinfo(0) + ".";
 				close2;
 				cutin "", 255;
 				hideonnpc instance_npcname("Iris#Gef1");
@@ -4235,7 +4235,7 @@ OnTimer1000:
 	end;
 }
 
-//
+//ฯฏฯฏฯฏฯฏฯฏฯฏฯฏฯฏฯฏ
 //   Event 2
 //__________________
 1@gef,75,172,4	duplicate(#gmt_dummy)	Geffen Bully#1	681
@@ -4482,14 +4482,14 @@ OnMobKilled:
 				case 49:
 					attachrid('gmt_account_id);
 					cutin "fenrir_a.bmp", 2;
-					mes "[Fenrir]", "เจ้าไม่เป็นไรไหม?", "Where are all these punks coming from anyways?"; next;
+					mes "[Fenrir]", "Are you okay?", "Where are all these punks coming from anyways?"; next;
 					cutin "", 255;
-					mes "[Magic Academy Student]", "Thanks for helping me.", "เจ้าคือใคร?"; next;
+					mes "[Magic Academy Student]", "Thanks for helping me.", "Who are you?"; next;
 					cutin "fenrir_a.bmp", 2;
 					mes "[Fenrir]", "I am Fenris Fenrir."; next;
 					mes "[Fenrir]", "Thank " + strcharinfo(0) + ".", "It would have been much worse if "+('sex?"he":"she")+" hadn't shown up."; next;
 					cutin "", 255;
-					mes "[Magic Academy Student]", "Thank you so much " + strcharinfo(0) + ".", "เจ้าช่วยข้า"; next;
+					mes "[Magic Academy Student]", "Thank you so much " + strcharinfo(0) + ".", "You saved me."; next;
 					cutin "fenrir_a.bmp", 2;
 					mes "[Fenrir]", "You don't meet many people like " + strcharinfo(0) + " these days.", "You're a good person."; next;
 					mes "[Fenrir]", "I was on the way to register for the Geffen Magic Tournament with Loki."; next;
@@ -4525,7 +4525,7 @@ OnMobKilled:
 	end;
 }
 
-//
+//ฯฏฯฏฯฏฯฏฯฏฯฏฯฏฯฏฯฏ
 //   Event 3
 //__________________
 1@gef,111,146,4	duplicate(#gmt_dummy)	Geffen Resident#1	67

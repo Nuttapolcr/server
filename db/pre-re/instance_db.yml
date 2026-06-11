@@ -96,6 +96,9 @@ Body:
       Map: 1@gef
       X: 119
       Y: 209
+    AdditionalMaps:
+      1@gef_in: true
+      1@ge_st: true
   - Id: 16
     Name: Horror Toy Factory
     Enter:

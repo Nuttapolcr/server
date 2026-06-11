@@ -6757,6 +6757,35 @@ Body:
       bonus bStr,1;
       bonus bInt,2;
       bonus bDex,1;
+  - Id: 1438
+    AegisName: Thanos_Spear
+    Name: Thanos Spear
+    Type: Weapon
+    SubType: 1hSpear
+    Buy: 10
+    Weight: 3000
+    Attack: 150
+    MagicAttack: 100
+    Range: 3
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
   - Id: 1451
     AegisName: Guisarme
     Name: Guisarme
@@ -7586,6 +7615,35 @@ Body:
       bonus2 bAddRace,RC_DemiHuman,10;
       bonus2 bAddRace,RC_Player_Human,10;
       bonus3 bAutoSpell,"KN_PIERCE",5,30;
+  - Id: 1496
+    AegisName: Thanos_Long_Spear
+    Name: Thanos Long Spear
+    Type: Weapon
+    SubType: 2hSpear
+    Buy: 10
+    Weight: 3750
+    Attack: 250
+    MagicAttack: 50
+    Range: 3
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
   - Id: 1501
     AegisName: Club
     Name: Club
@@ -11050,6 +11108,39 @@ Body:
          bonus bUseSPrate,-15;
          bonus bInt,3;
       }
+  - Id: 1669
+    AegisName: Thanos_Staff
+    Name: Thanos Staff
+    Type: Weapon
+    SubType: Staff
+    Buy: 10
+    Weight: 1000
+    Attack: 100
+    MagicAttack: 200
+    Range: 1
+    Slots: 1
+    Jobs:
+      Monk: true
+      Priest: true
+      Sage: true
+      Wizard: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus bHealPower,15;
+      autobonus "{ bonus2 bHPRegenRate,300,2000; bonus2 bSPRegenRate,50,2000; }",50,60000,BF_MAGIC,"{ specialeffect2 EF_HEALSP; }";
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
   - Id: 1701
     AegisName: Bow
     Name: Bow
@@ -12690,6 +12781,36 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 1836
+    AegisName: Thanos_Knuckle
+    Name: Thanos Knuckle
+    Type: Weapon
+    SubType: Knuckle
+    Buy: 10
+    Weight: 600
+    Attack: 160
+    MagicAttack: 100
+    Range: 1
+    Slots: 1
+    Jobs:
+      Monk: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
   - Id: 1901
     AegisName: Violin
     Name: Violin
@@ -13315,6 +13436,38 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 1933
+    AegisName: Thanos_Violin
+    Name: Thanos Violin
+    Type: Weapon
+    SubType: Musical
+    Buy: 10
+    Weight: 2000
+    Attack: 200
+    MagicAttack: 130
+    Range: 1
+    Slots: 1
+    Jobs:
+      BardDancer: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Gender: Male
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus bLongAtkRate,20;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
   - Id: 1939
     AegisName: Scarlet_Viollin
     Name: Crimson Violin
@@ -14059,6 +14212,38 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 1988
+    AegisName: Thanos_Whip
+    Name: Thanos Whip
+    Type: Weapon
+    SubType: Whip
+    Buy: 10
+    Weight: 2200
+    Attack: 200
+    MagicAttack: 130
+    Range: 2
+    Slots: 1
+    Jobs:
+      BardDancer: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Gender: Female
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus bLongAtkRate,20;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
   - Id: 2000
     AegisName: Destruction_Rod
     Name: Staff of Destruction
@@ -14236,6 +14421,61 @@ Body:
       bonus bInt,6;
       bonus bVit,2;
       autobonus3 "{ }",20,1000,"AL_HEAL","{ specialeffect2 EF_MAGICALATTHIT; heal 0,200; }";
+  - Id: 2022
+    AegisName: Staff_Of_Geffen
+    Name: Staff of Geffen
+    Type: Weapon
+    SubType: 2hStaff
+    Buy: 20
+    Weight: 1000
+    Attack: 100
+    MagicAttack: 300
+    Range: 1
+    Slots: 1
+    Jobs:
+      Wizard: true
+    Classes:
+      All_Upper: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 1
+    EquipLevelMin: 150
+    Refineable: true
+    Script: |
+      bonus bInt,20;
+  - Id: 2023
+    AegisName: Thanos_Rod
+    Name: Thanos Two-Handed Staff
+    Type: Weapon
+    SubType: 2hStaff
+    Buy: 10
+    Weight: 1400
+    Attack: 120
+    MagicAttack: 250
+    Range: 1
+    Slots: 1
+    Jobs:
+      Monk: true
+      Priest: true
+      Sage: true
+      Wizard: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus bHealPower,18;
+      autobonus "{ bonus2 bHPRegenRate,300,2000; bonus2 bSPRegenRate,50,2000; }",50,60000,BF_MAGIC,"{ specialeffect2 EF_HEALSP; }";
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
   - Id: 2101
     AegisName: Guard
     Name: Guard
@@ -15045,6 +15285,88 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 99
     View: 1
+  - Id: 2185
+    AegisName: Magic_Reflector
+    Name: Magic Reflect
+    Type: Armor
+    Buy: 10
+    Weight: 1000
+    Defense: 50
+    Slots: 1
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 99
+    Refineable: true
+    View: 3
+    Script: |
+      bonus bMdef,10;
+      .@r = getrefine();
+      .@val = 3;
+      if (.@r>6) {
+         .@val += 3;
+         if (.@r>8)
+            .@val += 3;
+      }
+      bonus bMagicDamageReturn,.@val;
+  - Id: 2186
+    AegisName: Encyclopedia_Revision
+    Name: Revised Encyclopedia
+    Type: Armor
+    Buy: 10
+    Weight: 200
+    Defense: 50
+    Slots: 1
+    Jobs:
+      Priest: true
+      Sage: true
+      StarGladiator: true
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 99
+    Refineable: true
+    View: 4
+    Script: |
+      bonus bInt,3;
+      bonus bDex,2;
+      .@r = getrefine();
+      bonus bCritical,3+((.@r >= 7) ? 2 : 0);
+      bonus bMatk,5+((.@r >= 9) ? 5 : 0);
+  - Id: 2187
+    AegisName: Shield_Of_Gray
+    Name: Shield of Gray
+    Type: Armor
+    Buy: 10
+    Weight: 2000
+    Defense: 75
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      Knight: true
+      Monk: true
+      Priest: true
+      Rogue: true
+      Sage: true
+      Wizard: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 120
+    Refineable: true
+    View: 3
+    Script: |
+      .@r = getrefine();
+      bonus2 bSubEle,Ele_Holy,30+.@r;
+      bonus bMdef,9+.@r/3;
   - Id: 2199
     AegisName: Ahura_Mazda
     Name: Ahura Mazdah
@@ -19556,6 +19878,27 @@ Body:
       bonus bAddItemHealRate,5;
       bonus bMdef,3;
       bonus bVit,2;
+  - Id: 2486
+    AegisName: Shadow_Walk_
+    Name: Shadow Walk
+    Type: Armor
+    Buy: 20
+    Weight: 2000
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Classes:
+      All_Upper: true
+    Locations:
+      Shoes: true
+    ArmorLevel: 1
+    EquipLevelMin: 75
+    Refineable: true
+    Script: |
+      bonus bMdef,10;
+      bonus5 bAutoSpellWhenHit,"AS_CLOAKING",max(2,getskilllv("AS_CLOAKING")),100,BF_MAGIC,0;
   - Id: 2501
     AegisName: Hood
     Name: Hood
@@ -24528,6 +24871,99 @@ Body:
       skill "MG_COLDBOLT",1;
       skill "MG_FIREWALL",1;
       skill "MG_FIREBOLT",1;
+  - Id: 2949
+    AegisName: Silversmith_Bracelet
+    Name: Silversmith Bracelet
+    Type: Armor
+    Buy: 10
+    Weight: 100
+    Defense: 3
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Locations:
+      Both_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 60
+    Script: |
+      bonus bAllStats,1;
+      bonus bMdef,3;
+      skill "SA_SPELLBREAKER",5;
+  - Id: 2963
+    AegisName: Body_Power_Up_Ring
+    Name: Physical Enhancer Ring
+    Type: Armor
+    Buy: 10
+    Weight: 100
+    Slots: 1
+    Locations:
+      Both_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 90
+    Script: |
+      bonus2 bAddClass,Class_All,5;
+  - Id: 2964
+    AegisName: Ring_Of_Spell_Explosion
+    Name: Magic Intensifier Ring
+    Type: Armor
+    Buy: 10
+    Weight: 100
+    Slots: 1
+    Locations:
+      Both_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 90
+    Script: |
+      bonus bMatkRate,5;
+  - Id: 2976
+    AegisName: Red_Lantern
+    Name: Red Lantern
+    Type: Armor
+    Buy: 10
+    Weight: 200
+    Slots: 1
+    Locations:
+      Both_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 100
+    Script: |
+      bonus bMaxSP,-300;
+      skill "MG_SIGHT",1;
+      bonus2 bAddMonsterDropItem,970,50;
+      bonus2 bAddMonsterDropItem,971,50;
+      bonus2 bAddMonsterDropItem,972,50;
+    UnEquipScript: |
+      sc_end SC_SIGHT;
+  - Id: 2977
+    AegisName: Hurt_Mind
+    Name: Hurt Mind
+    Type: Armor
+    Buy: 10
+    Weight: 100
+    Slots: 1
+    Locations:
+      Both_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 110
+    Script: |
+      bonus bMaxSP,200;
+      skill "DC_SCREAM",3;
+  - Id: 2978
+    AegisName: KindHeart
+    Name: Kind Heart
+    Type: Armor
+    Buy: 10
+    Weight: 100
+    Slots: 1
+    Locations:
+      Both_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 110
+    Script: |
+      bonus bMaxHP,500;
+      bonus2 bHPRegenRate,300,10000;
   - Id: 5001
     AegisName: Headset
     Name: Headset
@@ -38088,6 +38524,78 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 13086
+    AegisName: Goldsmithing_Dagger
+    Name: Goldsmithing Dagger
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 500
+    Attack: 35
+    MagicAttack: 25
+    Range: 1
+    Jobs:
+      Alchemist: true
+      Archer: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      KagerouOboro: true
+      Knight: true
+      Mage: true
+      Merchant: true
+      Ninja: true
+      Rogue: true
+      Sage: true
+      SoulLinker: true
+      Swordman: true
+      Thief: true
+      Wizard: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+  - Id: 13093
+    AegisName: Thanos_Dagger
+    Name: Thanos Dagger
+    Type: Weapon
+    SubType: Dagger
+    Buy: 10
+    Weight: 800
+    Attack: 100
+    MagicAttack: 130
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Archer: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      Knight: true
+      Merchant: true
+      Rogue: true
+      Swordman: true
+      Thief: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
   - Id: 13100
     AegisName: Six_Shooter
     Name: Six Shooter
@@ -40069,6 +40577,98 @@ Body:
     Script: |
       bonus bUnbreakableWeapon;
       bonus2 bAddSize,Size_All,40;
+  - Id: 13440
+    AegisName: Ceremonial_Sword
+    Name: Ceremonial Sword
+    Type: Weapon
+    SubType: 1hSword
+    Buy: 20
+    Weight: 500
+    Attack: 60
+    Range: 1
+    Jobs:
+      Alchemist: true
+      Archer: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      KagerouOboro: true
+      Knight: true
+      Mage: true
+      Merchant: true
+      Ninja: true
+      Rogue: true
+      Sage: true
+      SoulLinker: true
+      Swordman: true
+      Thief: true
+      Wizard: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bAtkEle,Ele_Holy;
+  - Id: 13441
+    AegisName: Thanos_Sword
+    Name: Thanos Sword
+    Type: Weapon
+    SubType: 1hSword
+    Buy: 10
+    Weight: 700
+    Attack: 150
+    MagicAttack: 100
+    Range: 1
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
+  - Id: 13442
+    AegisName: Old_Parasol
+    Name: Old Parasol
+    Type: Weapon
+    SubType: 1hSword
+    Buy: 10
+    Weight: 500
+    Attack: 120
+    MagicAttack: 80
+    Slots: 3
+    Jobs:
+      Alchemist: true
+      Assassin: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Rogue: true
+      Swordman: true
+      Thief: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 80
+    Refineable: true
+    Script: |
+      bonus bMatk,getrefine()*10;
+      skill "MG_SOULSTRIKE",10;
   - Id: 15000
     AegisName: Bone_Plate
     Name: Bone Plate
@@ -40121,6 +40721,467 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+  - Id: 15066
+    AegisName: Engraved_Armor
+    Name: Engraved Plate Armor
+    Type: Armor
+    Buy: 100000
+    Weight: 3000
+    Defense: 120
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    EquipLevelMin: 150
+    Refineable: true
+    Script: |
+      bonus bMdef,25;
+  - Id: 15073
+    AegisName: Anti_Magic_Suit
+    Name: Anti-Magic Suits
+    Type: Armor
+    Buy: 10
+    Weight: 1500
+    Defense: 50
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    EquipLevelMin: 99
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus bMaxHPrate,5+((.@r >= 9) ? 2 : 0);
+      bonus bMdef,10+((.@r >= 7) ? 5 : 0);
+  - Id: 15074
+    AegisName: Geffen_Mage_Robe
+    Name: Geffen Magic Robe
+    Type: Armor
+    Buy: 10
+    Weight: 1000
+    Defense: 40
+    Slots: 1
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    EquipLevelMin: 99
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus bUseSPrate,-10-((.@r>=7) ? 5: 0);
+      bonus bVariableCastrate,15-((.@r>=9) ? 5: 0);
+      bonus bNoCastCancel2;
+  - Id: 15090
+    AegisName: Armor_Of_Gray
+    Name: Armor of Gray
+    Type: Armor
+    Buy: 10
+    Weight: 2400
+    Defense: 90
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Archer: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      Knight: true
+      Merchant: true
+      Rogue: true
+      Swordman: true
+      Thief: true
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bMdef,10;
+      bonus2 bSubEle,Ele_Holy,10+getrefine()*2;
+  - Id: 15091
+    AegisName: Gray_Robe
+    Name: Gray Robe
+    Type: Armor
+    Buy: 20
+    Weight: 1300
+    Defense: 55
+    Slots: 1
+    Jobs:
+      Monk: true
+      Priest: true
+      Sage: true
+      Wizard: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus2 bSubEle,Ele_Holy,10+getrefine()*2;
+  - Id: 16028
+    AegisName: Thanos_Hammer
+    Name: Thanos Hammer
+    Type: Weapon
+    SubType: Mace
+    Buy: 10
+    Weight: 3000
+    Attack: 180
+    MagicAttack: 120
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Monk: true
+      Priest: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
+  - Id: 18119
+    AegisName: Thanos_Bow
+    Name: Thanos Bow
+    Type: Weapon
+    SubType: Bow
+    Buy: 10
+    Weight: 1300
+    Attack: 180
+    MagicAttack: 110
+    Range: 5
+    Slots: 1
+    Jobs:
+      BardDancer: true
+      Hunter: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
+  - Id: 18820
+    AegisName: Gray_Helmet
+    Name: Gray Helmet
+    Type: Armor
+    Buy: 20
+    Weight: 450
+    Defense: 35
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      Knight: true
+      Monk: true
+      Priest: true
+      Rogue: true
+      Sage: true
+      Wizard: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Head_Top: true
+    ArmorLevel: 1
+    EquipLevelMin: 120
+    Refineable: true
+    View: 941
+    Script: |
+      bonus2 bSubEle,Ele_Holy,3+getrefine()/2;
+  - Id: 18848
+    AegisName: Lush_Rose
+    Name: Lush Rose
+    Type: Armor
+    Buy: 10
+    Weight: 200
+    Slots: 1
+    Locations:
+      Head_Top: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    View: 963
+    Script: |
+      bonus bMagicHPGainValue,100;
+      bonus bMatk,20+(getrefine()*5);
+      bonus2 bHPLossRate,50,5000;
+  - Id: 20717
+    AegisName: FaceWorm_Skin
+    Name: Gigant Snake Skin
+    Type: Armor
+    Buy: 10
+    Weight: 400
+    Defense: 38
+    Locations:
+      Garment: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bMdef,10;
+  - Id: 20718
+    AegisName: FaceWorm_Skin_
+    Name: Gigant Snake Skin
+    Type: Armor
+    Buy: 10
+    Weight: 400
+    Defense: 38
+    Slots: 1
+    Locations:
+      Garment: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
+    Script: |
+      bonus bMdef,10;
+  - Id: 20721
+    AegisName: Cloak_Of_Gray
+    Name: Cloak of Gray
+    Type: Armor
+    Buy: 20
+    Weight: 600
+    Defense: 45
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      Knight: true
+      Monk: true
+      Priest: true
+      Rogue: true
+      Sage: true
+      Wizard: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Garment: true
+    ArmorLevel: 1
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus2 bSubEle,Ele_Holy,5+getrefine()/2;
+  - Id: 21007
+    AegisName: Heavy_Sword
+    Name: Heavy Greatsword
+    Type: Weapon
+    SubType: 2hSword
+    Buy: 20
+    Weight: 2500
+    Attack: 330
+    Range: 1
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 1
+    EquipLevelMin: 150
+    Refineable: true
+    Script: |
+      bonus bStr,20;
+  - Id: 21009
+    AegisName: Thanos_Great_Sword
+    Name: Thanos Great Sword
+    Type: Weapon
+    SubType: 2hSword
+    Buy: 10
+    Weight: 1300
+    Attack: 280
+    MagicAttack: 120
+    Range: 1
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
+  - Id: 22033
+    AegisName: Boots_Of_Gray
+    Name: Boots of Gray
+    Type: Armor
+    Buy: 20
+    Weight: 400
+    Defense: 25
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      Knight: true
+      Monk: true
+      Priest: true
+      Rogue: true
+      Sage: true
+      Wizard: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Shoes: true
+    ArmorLevel: 1
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus2 bSubEle,Ele_Holy,2+getrefine()/3;
+  - Id: 28000
+    AegisName: Thanos_Katar
+    Name: Thanos Katar
+    Type: Weapon
+    SubType: Katar
+    Buy: 10
+    Weight: 1800
+    Attack: 220
+    MagicAttack: 80
+    Range: 1
+    Slots: 1
+    Jobs:
+      Assassin: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
+  - Id: 28100
+    AegisName: Thanos_Axe
+    Name: Thanos Axe
+    Type: Weapon
+    SubType: 2hAxe
+    Buy: 10
+    Weight: 4000
+    Attack: 300
+    MagicAttack: 80
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bInt,6;
+      bonus bVit,6;
+      bonus bLuk,-6;
+      bonus2 bHPDrainRate,50,5;
+      bonus2 bSPDrainRate,10,5;
+      bonus2 bHPLossRate,100,10000;
+    UnEquipScript: |
+      heal -1000,0;
+  - Id: 28310
+    AegisName: Earring_Of_Sarah_L
+    Name: Sarah's Left Earring
+    Type: Armor
+    Buy: 10
+    Weight: 100
+    Locations:
+      Left_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 145
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      skill "AL_HEAL",1;
+  - Id: 28311
+    AegisName: Earring_Of_Sarah_R
+    Name: Sarah's Right Earring
+    Type: Armor
+    Buy: 10
+    Weight: 100
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 145
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      skill "AL_TELEPORT",1;
   - Id: 1029001
     AegisName: Beginner50_Blade
     Name: Beginner Blade

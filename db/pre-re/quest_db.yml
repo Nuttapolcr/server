@@ -285,6 +285,11 @@ Body:
     Title: Getting back Professor Worm's memory
   - Id: 1228
     Title: Getting back Professor Worm's memory
+  - Id: 1261
+    Title: Cursed Swordman
+    TimeLimit: 4h
+  - Id: 1263
+    Title: Cursed Swordman
   - Id: 2000
     Title: Job Change to Blacksmith
   - Id: 2001
@@ -3652,6 +3657,83 @@ Body:
     Title: Survey investigation notes
   - Id: 9262
     Title: Mystery Robbery Incident 16
+  - Id: 9284
+    Title: Stopping Geffen Gangsters
+  - Id: 9285
+    Title: Beating Geffen Gangsters
+  - Id: 9286
+    Title: Stop Geffen Gangsters
+  - Id: 9287
+    Title: Defeating Geffen Gangsters
+  - Id: 9288
+    Title: Catch a Geffen thief
+  - Id: 9289
+    Title: Get things back from the thief
+  - Id: 9290
+    Title: Participate in Magic competitions
+  - Id: 9291
+    Title: Participate in Magic competitions
+  - Id: 9292
+    Title: Participate in Magic competitions
+  - Id: 9293
+    Title: Register in Magic Competition
+    Targets:
+      - Mob: DESERT_WOLF
+        Count: 1
+  - Id: 9294
+    Title: Registration Complete
+  - Id: 9295
+    Title: 1st match of the Tournament has started
+  - Id: 9296
+    Title: 2nd match of the Competition has started
+  - Id: 9297
+    Title: 3rd match of the Competition has started
+  - Id: 9298
+    Title: 4th match of the Competition has started
+  - Id: 9299
+    Title: 5th match of the Competition has started
+  - Id: 9300
+    Title: 6th match of the Competition has started
+  - Id: 9301
+    Title: 7th match of the Competition has started
+  - Id: 9302
+    Title: 8th match of the Competition has started
+  - Id: 9303
+    Title: 9th match of the Competition has started
+  - Id: 9304
+    Title: 10th match of the Competition has started
+  - Id: 9305
+    Title: 11th match of the Competition has started
+  - Id: 9306
+    Title: 12th match of the Competition has started
+  - Id: 9307
+    Title: Final match of the Competition has started
+  - Id: 9308
+    Title: Magic Competition Win~!
+  - Id: 9309
+    Title: Magic Tournament defeat
+  - Id: 9310
+    Title: Encounter Iris
+  - Id: 9311
+    Title: Encounter Chaos
+  - Id: 9312
+    Title: Encounter Lydia
+  - Id: 9313
+    Title: Encounter Fenrir
+  - Id: 9314
+    Title: Encounter Loki
+  - Id: 9315
+    Title: Exploring the dimensional gap
+  - Id: 9316
+    Title: Re-exploring the crack of spaces
+    TimeLimit: 4h
+  - Id: 9335
+    Title: Search for shards of Gigantes
+  - Id: 9336
+    Title: Go back to Professor Bernhard
+    TimeLimit: 7d 4h
+  - Id: 9337
+    Title: Wrapping up the Adventure
   - Id: 10000
     Title: To the Prontera Royal Court
   - Id: 10001
@@ -5235,6 +5317,8 @@ Body:
     Title: Revisiting Etran
   - Id: 12301
     Title: Two remaining friends
+  - Id: 12316
+    Title: Meeting Hugin
   - Id: 12317
     Title: Fake Keyblade
     TimeLimit: +23h
@@ -5242,6 +5326,32 @@ Body:
     Title: "Upper Cats: annoying guy"
   - Id: 12319
     Title: "Upper Cats: annoying guy"
+  - Id: 12320
+    Title: Time Traveler
+  - Id: 12321
+    Title: Time Conqueror
+  - Id: 12322
+    Title: Space Distortion
+  - Id: 12325
+    Title: Faceworm's Nest after-effects
+    TimeLimit: 4h
+  - Id: 12326
+    Title: The owner of old ring
+    TimeLimit: 4h
+  - Id: 12327
+    Title: The memory of old photo album
+    TimeLimit: 4h
+  - Id: 12328
+    Title: Dol-Seoi's Sorrow
+    TimeLimit: 4h
+  - Id: 12329
+    Title: Keaton's Bracelet
+    TimeLimit: 4h
+  - Id: 12330
+    Title: Skull-faced Girl
+  - Id: 12331
+    Title: Trail of Toy Factory
+    TimeLimit: 4h
   - Id: 12363
     Title: ?????? ?? ??
   - Id: 13000
@@ -7104,16 +7214,16 @@ Body:
     TimeLimit: +1h
   - Id: 99050
     Title: Smith Create Elemental Converter
-    Summary: Pay 100,000z to learn. Step 1: Payon (96,146) bring item 991 x10.
+    Summary: "Pay 100,000z to learn. Step 1: Payon (96,146) bring item 991 x10."
   - Id: 99051
     Title: Smith Create Elemental Converter
-    Summary: Step 2: Geffen (178,54) bring item 993 x10.
+    Summary: "Step 2: Geffen (178,54) bring item 993 x10."
   - Id: 99052
     Title: Smith Create Elemental Converter
-    Summary: Step 3: Izlude (136,158) bring item 990 x10.
+    Summary: "Step 3: Izlude (136,158) bring item 990 x10."
   - Id: 99053
     Title: Smith Create Elemental Converter
-    Summary: Step 4: Prontera (146,173) bring item 992 x10.
+    Summary: "Step 4: Prontera (146,173) bring item 992 x10."
   - Id: 99054
     Title: Smith Create Elemental Converter
     Summary: Return to Mr.Smith at Alberta_in (12,58) to receive the skill.

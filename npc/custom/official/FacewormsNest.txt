@@ -13,57 +13,57 @@
 //============================================================
 payon,157,54,5	script	An Old Woman#pa0829	8_F_GRANDMOTHER,{
 	if (!checkweight(1201,1)) {
-		mes "คุณมีประเภทของสัมภาระมากเกินไป ลองอีกครั้งหลังจากลดประเภทไอเท็ม";
+		mes "You have too many kind of belongings. Let's try again after reducing the kind of items.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "สัมภาระของคุณหนักเกินไปที่จะดำเนินการต่อ ลองอีกครั้งหลังจากลดน้ำหนัก";
+		mes "Your belongings are too heavy to continue. Let's try again after reducing the weight.";
 		close;
 	}
 	if (BaseLevel < 1) {
 		mes "[Jeum-sun]";
-		mes "ฉันยังมีชีวิตอยู่ในความทรงจำ สร้างความทรงจำเพิ่มขึ้น...";
+		mes "I am still living in the memory. Make more memories...";
 		next;
 		mes "[Jeum-sun]";
-		mes "โอ้ คุณถึงเลเวล 140 แล้วหรือยัง? ฉันจะไม่คุยกับนักผจญภัยที่อ่อนแอ";
+		mes "Oh are you level 140 yet? I won't talk to any weak adventurers.";
 		close;
 	}
 	switch( checkquest(12326,PLAYTIME) ) {
 	case -1:
 		mes "[Jeum-sun]";
-		mes "ตอนที่ฉันเป็นเด็กสาวเมื่อหลายปีก่อน มีผู้ชายที่ฉันชอบ ฉันไม่รู้ว่าจะบอกเขาว่ารู้สึกอย่างไร...";
+		mes "When I was a young girl many years ago there was a man who I had crush on. I didn't know to tell him how I felt...";
 		next;
 		mes "[Jeum-sun]";
-		mes "ฉันเคยแกล้ง Peco Peco ของเขาและอยากให้เขาสังเกตว่าฉันสนใจ เรื่องนี้ดำเนินมาสักพัก";
+		mes "I used to tease his Peco Peco and wanted him to notice that I was interested. This went on and on for a while.";
 		next;
 		mes "[Jeum-sun]";
-		mes "แล้วเราก็เริ่มคบหากันยังไงไม่รู้ มันยังน่าอายที่พูดถึง";
+		mes "Then we started dating somehow. It's still embarrasing to talk about it.";
 		next;
 		mes "[Jeum-sun]";
-		mes "ยังไงก็ตาม เราแต่งงานกันเมื่อโตพอ เขาเคยขอโทษที่ไม่สามารถซื้อแหวนให้ฉันได้";
+		mes "Anyway, we got married when we became old enough to marry. He used to say sorry for not being able to afford to buy a ring for me.";
 		next;
 		mes "[Jeum-sun]";
-		mes "มันผ่านมา 40 ปีนับตั้งแต่เราแต่งงาน และเขายังพูดว่า ^0000ff'ที่รัก~ อยากได้แหวนไหม?'^000000";
+		mes "It has been 40 years since we were married and he still says ^0000ff'Darling~ Do you want to have a ring?'^000000.";
 		next;
 		mes "[Jeum-sun]";
-		mes "ฉันบอกเขา.. แหวนจะมีประโยชน์อะไรสำหรับหญิงแก่?";
+		mes "I told him.. What good is a ring for an old lady?";
 		next;
 		mes "[Jeum-sun]";
-		mes "ฉันควรหยุดเขา ฉันยังจำใบหน้าของเขาในตอนแรกได้";
+		mes "I should have stopped him. I still remember his face early.";
 		next;
-		select("เกิดอะไรขึ้นกับเขา?");
+		select("What happened to him?");
 		mes "[Jeum-sun]";
-		mes "เขาไม่กลับมาอีกนับตั้งแต่ออกจากบ้านไปซื้อแหวน";
+		mes "He had not came back since he left home to buy a ring.";
 		next;
 		mes "^0000ffThe old lady turned her face down with reddened eyes.^000000";
 		if (countitem(6650)) {// Shabby_Ring
 			next;
-			if (select("หยุดคุย:แสดงแหวนจาก Faceworm's Nest") == 2) {
+			if (select("Stop talking.:Show the ring from the Faceworm's Nest.") == 2) {
 				mes "[Jeum-sun]";
 				mes "What about this ring?";
 				next;
 				mes "[Jeum-sun]";
-				mes "โอ้... ที่รัก~";
+				mes "Oh... Darling~";
 				next;
 				mes "^0000ffThe lady read an inscription inside the ring and started weeping.";
 				mes "[Jeum-sun, my darling flower]^000000";
@@ -71,7 +71,7 @@ payon,157,54,5	script	An Old Woman#pa0829	8_F_GRANDMOTHER,{
 				mes "^0000ffYou sense a warm energy emanating. Maybe this is the wish of the man who made this ring.^000000";
 				specialeffect EF_SPHERE;
 				next;
-				mes "พลังงานอุ่นๆ ได้ปลุกเร้าความแข็งแกร่งในตัวคุณ";
+				mes "The warm energy has inspired you with strength.";
 				delitem 6650,1;// Shabby_Ring
 				setquest 12326;// The owner of old ring
 				getexp 70000,55000;
@@ -80,10 +80,10 @@ payon,157,54,5	script	An Old Woman#pa0829	8_F_GRANDMOTHER,{
 		close;
 	case 0:
 	case 1:
-		mes "สตรีคนนั้นยังคงร้องไห้ซ้ำแล้วซ้ำเล่าถือแหวนอยู่ ดูเหมือนไม่มีประโยชน์ที่จะคุยกับเธอตอนนี้";
+		mes "The lady keeps crying over and over holding a ring. It seems to be no use talking to her right now.";
 		close;
 	case 2:
-		mes "น่าเสียดาย ผู้หญิงคนนี้ดูเหมือนจะจำอดีตไม่ได้เพราะอารมณ์เปลี่ยนแปลงกะทันหัน มาพูดคุยอย่างระมัดระวังและฟังเรื่องราวของเธอ";
+		mes "Sadly, this woman does not seem to remember the past because of abrupt emotional changes. Let's talk carefully and listen to her story.";
 		erasequest 12326;
 		close;
 	}
@@ -97,7 +97,7 @@ payon,161,54,3	script	Exotic Merchant#pa0829	4W_M_03,{
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "สัมภาระของคุณหนักเกินไปที่จะดำเนินการต่อ ลองอีกครั้งหลังจากลดน้ำหนัก";
+		mes "Your belongings are too heavy to continue. Let's try again after reducing the weight.";
 		close;
 	}
 	if (BaseLevel < 1) {
@@ -111,34 +111,34 @@ payon,161,54,3	script	Exotic Merchant#pa0829	4W_M_03,{
 	switch( checkquest(12327,PLAYTIME) ) {
 	case -1:
 		mes "[Sergio]";
-		mes "ฉันมีความทรงจำเลือนลางตอนที่เคยเดินทางกับกลุ่มพ่อค้าติดอาวุธของพ่อ";
+		mes "I have a blurry memory of when I used to travel with my father's armed-merchant group.";
 		next;
 		mes "[Sergio]";
-		mes "ฉันจำได้เลือนลางว่าทุกคนในกลุ่มแตกกระจายหลังถูกโจมตีโดยสิ่งมีชีวิตคล้ายงูยักษ์";
+		mes "I vaguely remember everyone of the group were scattered after being attacked by a giant snake-like creature.";
 		next;
 		mes "[Sergio]";
-		mes "ฉันสูญเสียครอบครัวในตอนนั้น ฉันจำหน้าของพวกเขาไม่ชัดเจนด้วยซ้ำ";
+		mes "I had lost my family at that time. I do not clearly remember even their faces.";
 		next;
 		mes "[Sergio]";
-		mes "ตอนนี้ฉันสร้างกลุ่มพ่อค้าติดอาวุธของตัวเองและกลับมามีชีวิตอีกครั้ง แต่ความทรงจำในอดีตยังคงหลอกหลอนฉัน";
+		mes "Now I've made my own armed-merchant group and got my life back. But the memory of my past keeps haunting me.";
 		next;
 		mes "[Sergio]";
-		mes "ฉันแค่แวะเมืองนี้เพื่อหาบันทึกเกี่ยวกับครอบครัวและกลุ่มพ่อค้า แต่จนถึงตอนนี้ยังไม่พบอะไร";
+		mes "I just stopped by this town to possibly find a record of my family and the armed-merchant group but so far I've found nothing.";
 		if (countitem(6652)) {
 			next;
-			if (select("หยุดคุย:แสดง Old Photo Album ให้เขาดู") == 2) {
+			if (select("Stop talking.:Show him the Old Photo Album") == 2) {
 				mes "[Sergio]";
-				mes "ใช่! ฉันนึกออกแล้ว นี่คือคนที่เคยทำงานให้กลุ่มพ่อค้าติดอาวุธของพ่อ";
+				mes "Yes! I remembered. This is the one who used to work for my father's armed-merchant group.";
 				next;
 				mes "[Sergio]";
-				mes "โอ้ฉัน... มีรูปอื่นที่นี่ด้วย...";
+				mes "Oh my... There are other pictures here too...";
 				next;
 				mes "^0000ffA smile of lonely satisfaction spreads over the face of Sergio while looking at a photo album.^000000";
 				next;
 				mes "^0000ffA gentle energy surrounds Sergio.^000000";
 				specialeffect EF_SPHERE;
 				next;
-				mes "คุณรู้สึกซาบซึ้งเมื่อเห็นความพอใจบนใบหน้าของ Sergio";
+				mes "You are touched by seeing the satisfaction on Sergio's face.";
 				delitem 6652,1;// Aged_Photo_Album
 				setquest 12327;// The memory of old photo album
 				getexp 70000,55000;
@@ -147,10 +147,10 @@ payon,161,54,3	script	Exotic Merchant#pa0829	4W_M_03,{
 		close;
 	case 0:
 	case 1:
-		mes "Sergio ยังคงมองอัลบั้มรูป ปล่อยให้เขาอยู่คนเดียว";
+		mes "Sergio keeps looking at the photo album. Let's leave him alone.";
 		close;
 	case 2:
-		mes "คุณสามารถคุยกับ Sergio อีกครั้งเมื่อหยิบอัลบั้มรูปใหม่จาก Faceworm's Nest";
+		mes "You can talk to Sergio again when you pick up a new photo album from the Faceworm's Nest.";
 		erasequest 12327;
 		close;
 	}
@@ -164,7 +164,7 @@ payon,161,50,1	script	Strong Looking Man#pa829	4_M_ORIENT01,{
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "สัมภาระของคุณหนักเกินไปที่จะดำเนินการต่อ ลองอีกครั้งหลังจากลดน้ำหนัก";
+		mes "Your belongings are too heavy to continue. Let's try again after reducing the weight.";
 		close;
 	}
 	if (BaseLevel < 1) {
@@ -172,37 +172,37 @@ payon,161,50,1	script	Strong Looking Man#pa829	4_M_ORIENT01,{
 		mes "What can I do for you?";
 		next;
 		mes "[Dol-Seoi]";
-		mes "Are you at least level 1 yet?";
+		mes "Are you at least level 140 yet?";
 		close;
 	}
 	switch( checkquest(12328,PLAYTIME) ) {
 	case -1:
 		mes "[Dol-Seoi]";
-		mes "ฉันเคยเป็นคนรับใช้ของสตรีที่ร่ำรวยมาก เธอใจดีกับฉันเสมอ แต่เธอทนทุกข์กับอาการไอรุนแรงที่ไม่หายนอกจากจะกินยาพิเศษ";
+		mes "I used to be a servant to a very wealthy lady. She was always kind to me but she suffered from a severe cough that wouldn't go away unless she took a special pill.";
 		next;
 		mes "[Dol-Seoi]";
-		mes "ฉันเคยได้ยาจากกลุ่มพ่อค้าติดอาวุธ แต่ได้ยินว่าพวกเขาถูกโจมตีโดยงู และนั่นคือเมื่อฉันหายาไม่ได้อีก";
+		mes "I used to get the pill from a group of armed-merchants but I heard that they were attacked by a snake and that's when I couldn't get any more pills.";
 		next;
 		mes "[Dol-Seoi]";
-		mes "ฉันค้นหาทุกที่ แต่ไม่มีใครหายาได้ ในที่สุดนายหญิงก็เสียชีวิต ถ้าไม่ใช่เพราะงูเลื้อยนั้น...";
+		mes "I searched everywhere but no one could get that pill for me so eventually my lady passed away. If it wasn't for that slithering...";
 		next;
-		select("เจ้าต้องการแก้แค้นหรือ?");
+		select("Do you want to revenge?");
 		mes "[Dol-Seoi]";
-		mes "ก็นั่นแหละ...";
+		mes "Well...";
 		next;
 		mes "[Dol-Seoi]";
-		mes "ใช่... แต่ฉันไม่มีส่วนเกี่ยวข้องกับงูนั้น ฉันแค่คนรับใช้ไร้ค่าที่เคยรับใช้นายหญิง";
+		mes "Yes... But, I have nothing to do with that snake. I am just a worthless servant who once served for my lady.";
 		next;
 		mes "^0000ffYou catch a glimpse of complicated rage and sorrow in his eyes.^000000";
 		if (countitem(6653)) {
 			next;
-			if (select("หยุดคุย:แสดง Old Pill ให้เขาดู") == 2) {
+			if (select("Stop talking.:Show him the Old Pill.") == 2) {
 				mes "[Dol-Seoi]";
-				mes "รอก่อน! เจ้าได้สิ่งนี้มาจากไหน?";
+				mes "Wait! Where did you get this?";
 				next;
-				select("ฉันฆ่างู...");
+				select("I killed a snake...");
 				mes "[Dol-Seoi]";
-				mes "ยานี้... นายหญิงของฉัน ถ้าฉันมียานี้...";
+				mes "This pill... My lady, if I had this pill...";
 				next;
 				mes "^0000ffHe begins to weep like a wounded Muka. She must have meant a lot to him...^000000";
 				next;
@@ -216,10 +216,10 @@ payon,161,50,1	script	Strong Looking Man#pa829	4_M_ORIENT01,{
 		close;
 	case 0:
 	case 1:
-		mes "Dol-Seoi ยืนใจลอยถือ Old Pill อยู่ ปล่อยให้เขาอยู่คนเดียวตอนนี้";
+		mes "Dol-Seoi is standing absent-mindedly clutching the Old Pill. Let's leave him alone now.";
 		close;
 	case 2:
-		mes "คุณสามารถคุยกับ Dol-Seoi อีกครั้งถ้าได้ Old Pill อีกชิ้นจาก Faceworm's Nest";
+		mes "You can talk to Dol-Seoi again if you get another Old Pill from the Faceworm's Nest.";
 		erasequest 12328;
 		close;
 	}
@@ -233,7 +233,7 @@ payon,139,68,4	script	A dreary man#pa0829	4_M_NFDEADMAN,{
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "สัมภาระของคุณหนักเกินไปที่จะดำเนินการต่อ ลองอีกครั้งหลังจากลดน้ำหนัก";
+		mes "Your belongings are too heavy to continue. Let's try again after reducing the weight.";
 		close;
 	}
 	if (BaseLevel < 1) {
@@ -241,7 +241,7 @@ payon,139,68,4	script	A dreary man#pa0829	4_M_NFDEADMAN,{
 		mes "...";
 		next;
 		mes "[Keaton]";
-		mes "Unless you're level 1, I won't have a real conversation with you.";
+		mes "Unless you're level 140, I won't have a real conversation with you.";
 		close;
 	}
 	switch( checkquest(12329,PLAYTIME) ) {
@@ -261,7 +261,7 @@ payon,139,68,4	script	A dreary man#pa0829	4_M_NFDEADMAN,{
 		mes "Keaton, will go after a snake to find a bracelet. The bad snake killed keaton.^000000";
 		if (countitem(6651)) {
 			next;
-			if (select("หยุดคุย:แสดง Rusty Bracelet ให้เขาดู") == 2) {
+			if (select("Stop talking.:Show him the Rusty Bracelet.") == 2) {
 				mes "^999999[Keaton]";
 				mes "It is the bracelet of Keaton!!^000000";
 				specialeffect EF_MAPPILLAR2;
@@ -278,10 +278,10 @@ payon,139,68,4	script	A dreary man#pa0829	4_M_NFDEADMAN,{
 		close;
 	case 0:
 	case 1:
-		mes "วิญญาณของ Keaton ดูเหมือนจะยิ้ม ดีที่สุดคือให้ความสงบแก่เขาเท่าที่ทำได้";
+		mes "Keaton's soul seems to be smiling. Best to give him whatever peace he can have for now.";
 		close;
 	case 2:
-		mes "Keaton เศร้ามาก บางทีเป็นเพราะกำไลแตก พาไปหาของ Rusty Bracelet ที่พบใน Faceworm's Nest";
+		mes "Keaton is very sad maybe it is because the bracelet was broken. Bring him any other Rusty Bracelets found in the Faceworm's Nest.";
 		erasequest 12329;
 		close;
 	}
@@ -302,8 +302,8 @@ dali,83,67,5	script	Old Sign#1	4_BOARD3,{
 	else
 		.@time_txt$ = callfunc( "F_InsertPlural", .@time_m, "Minute" ) + " " + callfunc( "F_InsertPlural", .@time_s, "Second" );
 	if (.@face_member > 0)
-		.@string$ =  " with ^ff0044" + .@face_member + " สมาชิกปาร์ตี้ " + ( .@face_member > 1 ? "members" : "members" )  + "^000000";
-	mes "-- บันทึกสถิติ Faceworm's Nest --";
+		.@string$ =  " with ^ff0044" + .@face_member + " party " + ( .@face_member > 1 ? "members" : "members" )  + "^000000";
+	mes "-- Faceworm's Nest Records --";
 	mes "Best time belongs to adventurer ^ff0044" + .@face_name$ + "^000000" + .@string$ + ".";
 	mes "Current record time is ^0000ff" + .@time_txt$ + "^000000.";
 	close;
@@ -319,16 +319,16 @@ OnInit:
 }
 
 dali,80,60,4	script	Magic Scholar	4_M_SAGE_C,{
-	if (BaseLevel < 140) {
+	if (BaseLevel < 1) {
 		mes "[Magic Scholar]";
-		mes "คุณไม่มีคุณสมบัติเพียงพอที่จะเข้าที่นี่ ลองไปสถานที่อื่นจนถึงเลเวล 140";
+		mes "You are not qualified enough to enter here. How about visiting other places until you become level 140.";
 		close;
 	}
 	.@party_id = getcharid(1);
 	.@md_name$ = "Faceworm's Nest";
 	if (.@party_id < 1) {
 		mes "[Magic Scholar]";
-		mes "คุณไม่มีปาร์ตี้หรือ? กรุณากลับมาอีกครั้งหลังสร้างปาร์ตี้แม้จะมาคนเดียว";
+		mes "You don't have a party? Please come back again after creating a party even if you've come alone.";
 		close;
 	}
 	switch( checkquest(12325,PLAYTIME) ) {
@@ -337,7 +337,7 @@ dali,80,60,4	script	Magic Scholar	4_M_SAGE_C,{
 			mes "[Magic Scholar]";
 			mes "What can I do for you?";
 			next;
-			switch( select("จองฺ Faceworm's Nest:คุณทำอะไรอยู่ที่นี่?:หยุดคุย") ) {
+			switch( select("Reserve Faceworm's Nest:What are you doing here?:Stop Talking.") ) {
 			case 1:
 				switch( instance_create(.@md_name$) ) {
 				case -3:
@@ -380,7 +380,7 @@ dali,80,60,4	script	Magic Scholar	4_M_SAGE_C,{
 	case 0:
 	case 1:
 		mes "[Magic Scholar]";
-		mes "รอยร้าวในเวลาไม่ปลอดภัยพอที่จะผ่านไปมา กรุณากลับมาอีกครั้งเมื่อตัวจับเวลาผลข้างเคียงหมด";
+		mes "The crack in time is not safe enough to pass back and forth. Please come back again if the after effect timer has passed.";
 		close;
 	case 2:
 		mes "^0000ffThe trace of dimensional space travelling has disappeared. You can now move between dimensions.^000000";
@@ -390,16 +390,16 @@ dali,80,60,4	script	Magic Scholar	4_M_SAGE_C,{
 }
 
 dali,72,55,4	script	Interdimensional Device	CLEAR_NPC,{
-	if (BaseLevel < 140) {
+	if (BaseLevel < 1) {
 		mes "[Interdimensional Device]";
-		mes "ระดับพลังของคุณไม่สูงพอที่จะเดินทางในอวกาศ กรุณากลับมาเมื่อถึงอย่างน้อยเลเวล 140";
+		mes "Your power level is not high enough to travel the space. Please come back again when you reach at least level 140.";
 		close;
 	}
 	.@party_id = getcharid(1);
 	.@md_name$ = "Faceworm's Nest";
 	if (.@party_id < 1) {
 		mes "[Interdimensional Device]";
-		mes "ไม่มีปาร์ตี้หรือ? กรุณากลับมาอีกครั้งหลังสร้างปาร์ตี้แม้จะมาคนเดียว";
+		mes "No party? Please come back again after creating a party even if you've come alone.";
 		close;
 	}
 	switch( checkquest(12325,PLAYTIME) ) {
@@ -407,15 +407,15 @@ dali,72,55,4	script	Interdimensional Device	CLEAR_NPC,{
 		switch( instance_enter(.@md_name$) ) {
 		case IE_OTHER:
 			mes "[Interdimensional Device]";
-			mes "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ";
+			mes "An unknown error has occurred.";
 			close;
 		case IE_NOINSTANCE:
 			mes "[Interdimensional Device]";
-			mes "ทางผ่านสำหรับการเดินทางในอวกาศยังไม่ถูกเปิดใช้งาน";
+			mes "The passage for space travel is not activated yet.";
 			close;
 		case IE_NOMEMBER:// Custom text
 			mes "[Interdimensional Device]";
-			mes "คุณไม่ได้รับอนุญาตให้ใช้อุปกรณ์";
+			mes "You are not allowed to access the device.";
 			close;
 		case IE_OK:
 			mapannounce "dali", getpartyname(.@party_id) + " party's party member " + strcharinfo(0) + " enters " + .@md_name$ + ".",bc_map,"0x00ff99";
@@ -426,7 +426,7 @@ dali,72,55,4	script	Interdimensional Device	CLEAR_NPC,{
 	case 0:
 	case 1:
 		mes "[Interdimensional Device]";
-		mes "ตรวจพบร่องรอยการเดินทางในอวกาศล่าสุด การเข้าถึงถูกปฏิเสธ";
+		mes "Traces of recent space travel have been detected. Access is denied.";
 		close;
 	case 2:
 		mes "^0000ffThe trace of dimensional space travelling has disappeared. You can now move between dimensions.^000000";
@@ -450,24 +450,24 @@ dali,72,55,4	script	Interdimensional Device	CLEAR_NPC,{
 	.@account_id = getcharid(3);
 	.@player_name$ = strcharinfo(0);
 	mes "[Chaos]";
-	mes "จริงหรือ? ข้าไม่รู้ว่านักล่าเงินรางวัลจะมาที่นี่";
-	npctalk "Chaos: จริงหรือ? ข้าไม่รู้ว่านักล่าเงินรางวัลจะมาที่นี่";
+	mes "Really? I didn't know that a bounty hunter was coming here.";
+	npctalk "Chaos: Really? I didn't know that a bounty hunter was coming here.";
 	next;
 	select("Wait! It's a misunderstanding.");
 	cutin "",255;
 	mes "[" + .@player_name$ + "]";
-	mes "ไม่! ฉันคิดว่าคุณเข้าใจผิด! เราไม่ใช่นักล่าเงินรางวัล...";
+	mes "No! I think you're mistaken! We are not bounty hunters...";
 	unittalk .@account_id, .@player_name$ + ": No! I think you're mistaken! We are not bounty hunters...";
 	next;
 	cutin "h_chaos01",2;
 	mes "[Chaos]";
-	mes "ไม่ ไม่ต้องหาข้ออ้าง... Faceworm ไม่ใช่ของใคร";
-	npctalk "Chaos: ไม่ ไม่ต้องหาข้ออ้าง... Faceworm ไม่ใช่ของใคร";
+	mes "No, No need to make an excuse... The faceworm belongs to nobody.";
+	npctalk "Chaos: No, No need to make an excuse... The faceworm belongs to nobody.";
 	next;
 	select("Faceworm?");
 	cutin "",255;
 	mes "[" + .@player_name$ + "]";
-	mes "Faceworm? ฉันไม่เคยได้ยินเกี่ยวกับมัน";
+	mes "Faceworm? I've never heard about it.";
 	unittalk .@account_id, .@player_name$ + ": Faceworm? I've never heard about it.";
 	close2;
 	donpcevent instance_npcname("Chaos#01") + "::OnStart";
@@ -482,30 +482,30 @@ OnStart:
 	hideoffnpc instance_npcname("Chaos#01");
 	hideonnpc instance_npcname("Chaos#0");
 	sleep 5000;
-	npctalk "Chaos: ฮาฮาฮา คุณไม่เคยได้ยินจริงๆ หรอ? Faceworm คือชื่อมอนสเตอร์ที่เพิ่งปรากฏในพื้นที่นี้";
+	npctalk "Chaos: Hahaha, you really never heard about it? Faceworm is the name of a monster which has recently showed up in this area.";
 	sleep 5000;
-	npctalk "Chaos: ข้าไม่แคร์ ข้าจะไม่แคร์ตราบใดที่เจ้าไม่รบกวนข้า";
+	npctalk "Chaos: I don't care. I would not care as long as you don't disturb me.";
 	sleep 5000;
-	npctalk "Iris: อา~ ลมเบาๆ~", .@iris_name$;
+	npctalk "Iris: Ah~ A gentle breeze~", .@iris_name$;
 	sleep 3000;
-	npctalk "Iris: เฮเฮ อากาศดีมาก ฉันดีใจมาก~", .@iris_name$;
+	npctalk "Iris: Hehe, the weather has been great. I'm so happy~", .@iris_name$;
 	sleep 3000;
-	npctalk "Iris: แล้ว Chaos ล่ะ?", .@iris_name$;
+	npctalk "Iris: How about you Chaos?", .@iris_name$;
 	sleep 3000;
-	npctalk "Chaos: มันจะเป็นอย่างนี้แค่ชั่วคราว";
+	npctalk "Chaos: It will only be for the time being.";
 	sleep 3000;
-	npctalk "Chaos: ลมดำเริ่มพัดแล้ว";
+	npctalk "Chaos: A black wind has started blowing.";
 	sleep 4000;
-	npctalk "Chaos: Iris! ข้ารู้สึกว่า Faceworm อยู่แถวนี้ บางที รังของราชินีอยู่ในส่วนลึกที่สุดของป่านี้!";
+	npctalk "Chaos: Iris! I feel like faceworms are around here. Maybe, the queen's nest is in the deepest side of this forest!";
 	sleep 5000;
-	npctalk "Iris: อาฮา~ มาจัดการมันเหมือนเดิมนะ?", .@iris_name$;
+	npctalk "Iris: Ahah~ Let's take care of it as always like usual ok?", .@iris_name$;
 	sleep 3000;
-	npctalk "Chaos: ใช่ มาจัดการและกลับกัน เฮ้ นักผจญภัย ระวัง! ข้าแน่ใจว่า Faceworm เยอะจะมาเร็วๆ นี้";
+	npctalk "Chaos: Yes, let's take care of it and go back. Hey, adventurers. Watch out! I'm sure lots of faceworms will be here soon.";
 	sleep 6000;
 	hideonnpc instance_npcname("Chaos#01");
 	hideonnpc instance_npcname("Iris#0");
 	donpcevent instance_npcname("#fwormcontrol1") + "::OnStart";
-	mapannounce 'map_name$, "การโจมตีเวลาหนอนใบหน้าเริ่มแล้ว การฆ่าอย่างรวดเร็วจะให้ผลตอบแทนมากขึ้น",bc_map,"0xffffff";
+	mapannounce 'map_name$, "Faceworm time attack has started. Faster kill times gives a higher percentage of rewards.",bc_map,"0xffffff";
 	donpcevent instance_npcname("#fwormprize1") + "::OnStart";
 	end;
 OnInstanceInit:
@@ -541,7 +541,7 @@ OnMyMobDead:
 OnTimer1000:
 	killmonster 'map_name$, instance_npcname("#fwormcontrol1") + "::OnMyMobDead";
 	donpcevent instance_npcname("#fwormboss1") + "::OnStart";
-	mapannounce 'map_name$, "หนอนใบหน้ายักษ์ปรากฏตัวขึ้นมาอย่างกระทันหัน",bc_map,"0xffffff";
+	mapannounce 'map_name$, "A giant faceworm has suddenly appeared.",bc_map,"0xffffff";
 	stopnpctimer;
 	end;
 OnInstanceInit:
@@ -588,7 +588,7 @@ OnMyMobDead:
 		hideoffnpc instance_npcname("Chaos#1");
 		hideoffnpc instance_npcname("Iris#1");
 		donpcevent instance_npcname("#fwormboss12") + "::OnEnd";
-		mapannounce 'map_name$, "หลุมปรากฏขึ้นหลังจากฆ่าหนอนใบหน้ามืด",bc_map,"0xffffff";
+		mapannounce 'map_name$, "A hole appears after killing the dark faceworm.",bc_map,"0xffffff";
 		stopnpctimer;
 	}
 	end;
@@ -699,7 +699,7 @@ OnInstanceInit:
 	next;
 	cutin "h_chaos01",2;
 	mes "[Chaos]";
-	mes "ไม่~~ มันคงไม่ใช่ราชินี Faceworm";
+	mes "No~~ It can't be the faceworm queen.";
 	close2;
 	donpcevent instance_npcname("Chaos#11") + "::OnStart";
 	cutin "",255;
@@ -716,26 +716,26 @@ OnStart:
 	.@iris_name$ = instance_npcname("Iris#1");
 	hideoffnpc instance_npcname("Chaos#11");
 	hideonnpc instance_npcname("Chaos#1");
-	npctalk "Chaos: ไม่~~ มันคงไม่ใช่ราชินี Faceworm";
+	npctalk "Chaos: No~~ It can't be the faceworm queen.";
 	sleep 4000;
-	npctalk "Chaos: สิ่งที่เราเพิ่งเห็นคือ Faceworm กลายพันธุ์";
+	npctalk "Chaos: The one we just saw before is a mutant faceworm.";
 	sleep 5000;
-	npctalk "Chaos: รอก่อน! หนัง Faceworm ที่ตายแล้วอาจมีประโยชน์";
+	npctalk "Chaos: Wait! The dead faceworm's castoff skin might be useful.";
 	sleep 3000;
-	npctalk "Iris: แต่ถ้าการสู้นานเกินไป เกล็ดอาจเสียหาย มันจะไม่มีค่าเลย!", .@iris_name$;
+	npctalk "Iris: But, if the fight takes too long. The scales might be damaged. They'll be worthless!", .@iris_name$;
 	sleep 5000;
-	npctalk "Iris: ฉันได้ยินว่านักล่าที่มีทักษะเก่งในการถอดเกล็ดได้เร็วมาก", .@iris_name$;
+	npctalk "Iris: I heard that skillful hunters are good at taking the scales off super fast.", .@iris_name$;
 	sleep 6000;
-	npctalk "Iris: Chaos เจ้าเก่งเรื่องนี้ไหม?", .@iris_name$;
+	npctalk "Iris: Chaos, are you any good at it?", .@iris_name$;
 	sleep 3000;
-	npctalk "Chaos: ไม่... ไม่เลย! ข้าใช้แค่ Magnum Break ดังนั้นเกล็ดคงจะถูกเผาไหม้...";
+	npctalk "Chaos: No... Not at all! I use Magnum Break only, so the scales will probably get burned...";
 	sleep 3000;
-	npctalk "Iris: Chaos ไร้ประโยชน์", .@iris_name$;
+	npctalk "Iris: Useless Chaos.", .@iris_name$;
 	sleep 3000;
-	npctalk "Chaos: นอกจากนี้ คนที่เราตามหาไม่อยู่ที่นี่ ข้าจะกลับก่อน ดูแลส่วนที่เหลือนะ?";
+	npctalk "Chaos: Besides, the one we are looking for is not here. I will go back first, so take care of the rest ok?";
 	sleep 5000;
 	hideonnpc instance_npcname("Chaos#11");
-	npctalk "Iris: Chaos! เจ้าทิ้งฉันไว้คนเดียวหรือ?", .@iris_name$;
+	npctalk "Iris: Chaos! Are you leaving me alone?", .@iris_name$;
 	sleep 3000;
 	hideonnpc .@iris_name$;
 	donpcevent instance_npcname("#fwormcontrol2") + "::OnStart";
@@ -777,7 +777,7 @@ OnMyMobDead:
 OnTimer1000:
 	killmonster 'map_name$, instance_npcname("#fwormcontrol2") + "::OnMyMobDead";
 	donpcevent instance_npcname("#fwormboss2") + "::OnStart";
-	mapannounce 'map_name$, "หนอนใบหน้ายักษ์ปรากฏตัวขึ้นมาอย่างกระทันหัน",bc_map,"0xffffff";
+	mapannounce 'map_name$, "A giant faceworm has suddenly appeared.",bc_map,"0xffffff";
 	stopnpctimer;
 	end;
 OnInstanceInit:
@@ -824,7 +824,7 @@ OnMyMobDead:
 		hideoffnpc instance_npcname("Chaos#2");
 		hideoffnpc instance_npcname("Iris#2");
 		donpcevent instance_npcname("#fwormboss22") + "::OnEnd";
-		mapannounce 'map_name$, "คุณได้ยินเสียงดังในทิศใต้ มันต้องเป็นรังของสิ่งที่เราเพิ่งกำจัด",bc_map,"0xffffff";
+		mapannounce 'map_name$, "You hear something loud in the south. It must be the nest of the one we just got rid of.",bc_map,"0xffffff";
 		stopnpctimer;
 	}
 	end;
@@ -905,7 +905,7 @@ OnInstanceInit:
 	}
 	mes "[Chaos]";
 	mes "You're pretty good! But you have to be careful from now on. This narrow canyon seems to be full of dangers.";
-	npctalk "Chaos: เจ้าเก่งมาก! แต่เจ้าต้องระวังจากนี้ไป หุบเขาแคบนี้ดูเต็มไปด้วยอันตราย";
+	npctalk "Chaos: You're pretty good! But you have to be careful from now on. This narrow canyon seems to be full of dangers.";
 	close2;
 	donpcevent instance_npcname("Chaos#22") + "::OnStart";
 	cutin "",255;
@@ -922,9 +922,9 @@ OnStart:
 	hideoffnpc instance_npcname("Chaos#22");
 	hideonnpc instance_npcname("Chaos#2");
 	sleep 4000;
-	npctalk "Iris: ฉันรู้สึกไม่ดีที่นี่ ออกไปจากที่นี่ตอนนี้เลย Chaos!", instance_npcname("Iris#2");
+	npctalk "Iris: I do not feel good here. Let's get outta here right now Chaos!", instance_npcname("Iris#2");
 	sleep 4000;
-	npctalk "Chaos: โอเค ออกไปจากที่นี่กัน ตามข้าไปอย่างระมัดระวัง!";
+	npctalk "Chaos: Ok, let's get out of here. Carefully follow me!";
 	sleep 4000;
 	hideonnpc instance_npcname("Chaos#22");
 	hideonnpc instance_npcname("Iris#2");
@@ -939,7 +939,7 @@ OnInstanceInit:
 1@face,160,113,1	script	Iris#2	4_F_IRIS,{
 	cutin "h_iris01",2;
 	mes "[Iris]";
-	mes "หุบเขานี้ ฉันรู้สึกไม่ดีที่นี่ ฉันไม่อยากอยู่อีกต่อไป";
+	mes "This canyon. I am not feeling good here. I don't want to stay anymore.";
 	close2;
 	cutin "",255;
 	end;
@@ -964,7 +964,7 @@ OnMyMobDead:
 OnTimer1000:
 	killmonster 'map_name$, instance_npcname("#fwormcontrol3") + "::OnMyMobDead";
 	donpcevent instance_npcname("#fwormboss3") + "::OnStart";
-	mapannounce 'map_name$, "หนอนใบหน้ายักษ์ปรากฏตัวขึ้นมาอย่างกระทันหัน",bc_map,"0xffffff";
+	mapannounce 'map_name$, "A giant faceworm has suddenly appeared.",bc_map,"0xffffff";
 	stopnpctimer;
 	end;
 OnInstanceInit:
@@ -1008,7 +1008,7 @@ OnMyMobDead:
 		enablenpc instance_npcname("#fwormexit3");
 		enablenpc instance_npcname("#chaoson");
 		donpcevent instance_npcname("#fwormboss32") + "::OnEnd";
-		mapannounce 'map_name$, "คุณได้ยินเสียงหินกองลงมา นี่อาจเป็นทางเข้าไปยังพื้นที่อื่น",bc_map,"0xffffff";
+		mapannounce 'map_name$, "You hear the pile of stones collapsing. This might be a gateway to go to other spaces.",bc_map,"0xffffff";
 		stopnpctimer;
 	}
 	end;
@@ -1098,9 +1098,9 @@ OnInstanceInit:
 1@face,1,10,7	script	#announcer1	CLEAR_NPC,{
 	end;
 OnStart:
-	mapannounce 'map_name$, "เสียงของ Chaos: เฮ้ นักผจญภัย คุณควรระวัง! หลีกเลี่ยงพิษ!",bc_map,"0xffff00";
+	mapannounce 'map_name$, "The voice of Chaos: Hey adventurers, you should be careful! Avoid the poison!",bc_map,"0xffff00";
 	sleep 6000;
-	mapannounce 'map_name$, "เสียงของ Chaos: เรากำลังหารังอื่น แจ้งข้าถ้าพบอะไร",bc_map,"0xffff00";
+	mapannounce 'map_name$, "The voice of Chaos: We are looking for another nest so let me know if you find anything.",bc_map,"0xffff00";
 	donpcevent instance_npcname("#fwormcontrol4") + "::OnStart";
 	donpcevent instance_npcname("#fwormcontrol42") + "::OnStart";
 	donpcevent instance_npcname("#fwormprize4") + "::OnStart";
@@ -1128,7 +1128,7 @@ OnMyMobDead:
 OnTimer1000:
 	killmonster 'map_name$, instance_npcname("#fwormcontrol4") + "::OnMyMobDead";
 	donpcevent instance_npcname("#fwormboss4") + "::OnStart";
-	mapannounce 'map_name$, "คุณได้ยินเสียงร้องมาจากทิศตะวันตก",bc_map,"0xffffff";
+	mapannounce 'map_name$, "You hear something screaming to the west.",bc_map,"0xffffff";
 	stopnpctimer;
 	end;
 OnInstanceInit:
@@ -1194,7 +1194,7 @@ OnMyMobDead:
 		hideoffnpc instance_npcname("Iris#4");
 		enablenpc instance_npcname("#chaoson2");
 		donpcevent instance_npcname("#fwormboss42") + "::OnEnd";
-		mapannounce 'map_name$, "คุณได้ยินเสียงหินกองพังทลาย ฉันคิดว่าพบทางเข้าอีกแห่ง",bc_map,"0xffffff";
+		mapannounce 'map_name$, "You hear the pile of stones collapsing. I think another gateway is found.",bc_map,"0xffffff";
 		stopnpctimer;
 	}
 	end;
@@ -1304,7 +1304,7 @@ OnStart:
 	sleep 2000;
 	npctalk "Chaos: Iris, what is this puddle for?";
 	sleep 3000;
-	npctalk "Iris: ก็นั่นแหละ ฉันคิดว่ามันใหญ่เกินไปสำหรับรัง Faceworm", .@iris$;
+	npctalk "Iris: Well, I think it is too big to be the nest of a faceworm.", .@iris$;
 	sleep 4000;
 	npctalk "Chaos: Hmm, okay, should I go down there and check it out?";
 	sleep 3000;
@@ -1340,7 +1340,7 @@ OnStart:
 	sleep 3000;
 	npctalk "Iris: I asked you what happened dummy!", .@iris$;
 	sleep 3000;
-	npctalk "Chaos: อ้า ราชินี Faceworm กำลังไต่ขึ้นมาตอนนี้และดูโกรธมาก ดังนั้น เอ่อ ออกไปจากที่นี่กัน";
+	npctalk "Chaos: Uhh, the faceworm queen is crawling up now and it looks like really pissed off. So let's, uh, get outta here.";
 	sleep 6000;
 	hideonnpc instance_npcname("Chaos#4");
 	sleep 1000;
@@ -1437,7 +1437,7 @@ OnBerserk:
 		// monster 'map_name$,1,6,"Faceworm Queen's Life",2915,1,instance_npcname("#fwormboss5") + "::OnMyMobDead";
 		'BOSS_HP = .@arr[UMOB_HP];
 		donpcevent instance_npcname("#fwormboss50") + "::OnCalm";
-		mapannounce 'map_name$, "ไกลจากรังเกินไป ราชินี Faceworm เริ่มคลุ้มคลั่ง",bc_map,"0xff3333",FW_NORMAL,15;
+		mapannounce 'map_name$, "It is too far away from the nest. The Faceworm Queen begins raging.",bc_map,"0xff3333",FW_NORMAL,15;
 	}
 	end;
 OnCalm:
@@ -1486,7 +1486,7 @@ OnChange:
 OnWarning:
 	getunitdata 'BOSS[5],.@arr;
 	if (.@arr[UMOB_X] < 190 || .@arr[UMOB_X] > 230 || .@arr[UMOB_Y] < 135 || .@arr[UMOB_Y] > 175)
-		mapannounce 'map_name$, "โปรดอย่าออกไปไกลจากรัง ราชินี Faceworm อาจดุร้าย",bc_map,"0xff5555",FW_NORMAL,15;
+		mapannounce 'map_name$, "Please do not go farther from the nest. The Faceworm Queen can be violent.",bc_map,"0xff5555",FW_NORMAL,15;
 	end;
 OnEnd:
 	killmonster 'map_name$, instance_npcname("#fwormboss5") + "::OnMyMobDead";
@@ -1612,16 +1612,16 @@ OnSupport_2:
 	.@chan_f = rand(1,.@sup_m);
 	if (.@chan_f > 0 && .@chan_f < 3) {
 		donpcevent instance_npcname("#chaos_north") + "::OnStart";
-		mapannounce 'map_name$, "เสียงของ Chaos: เฮ้! ล่อมันไปทางเหนือ! ข้าจะตี!",bc_map,"0xff44aa",FW_NORMAL,14;
+		mapannounce 'map_name$, "The voice of Chaos: Hey! Lure it to the north! I will beat it!",bc_map,"0xff44aa",FW_NORMAL,14;
 	} else if (.@chan_f > 2 && .@chan_f < 5) {
 		donpcevent instance_npcname("#chaos_south") + "::OnStart";
-		mapannounce 'map_name$, "เสียงของ Chaos: เฮ้! ล่อมันไปทางใต้! ข้าจะตี!",bc_map,"0xff44aa",FW_NORMAL,14;
+		mapannounce 'map_name$, "The voice of Chaos: Hey! Lure it to the south! I will beat it!",bc_map,"0xff44aa",FW_NORMAL,14;
 	} else if (.@chan_f > 4 && .@chan_f < 7) {
 		donpcevent instance_npcname("#chaos_east") + "::OnStart";
-		mapannounce 'map_name$, "เสียงของ Chaos: เฮ้! ล่อมันไปทางตะวันออก! ข้าจะตี!",bc_map,"0xff44aa",FW_NORMAL,14;
+		mapannounce 'map_name$, "The voice of Chaos: Hey! Lure it to the east! I will beat it!",bc_map,"0xff44aa",FW_NORMAL,14;
 	} else if (.@chan_f > 6 && .@chan_f < 9) {
 		donpcevent instance_npcname("#chaos_west") + "::OnStart";
-		mapannounce 'map_name$, "เสียงของ Chaos: เฮ้! ล่อมันไปทางตะวันตก! ข้าจะตี!",bc_map,"0xff44aa",FW_NORMAL,14;
+		mapannounce 'map_name$, "The voice of Chaos: Hey! Lure it to the west! I will beat it!",bc_map,"0xff44aa",FW_NORMAL,14;
 	}
 	end;
 }
@@ -2020,7 +2020,7 @@ OnInstanceInit:
 	mes "[Dimensional Device]";
 	mes "Your time is finished here. You may look arround or go leave. What do you want to do?";
 	next;
-	if (select("หยุด:กลับไปยัง Dimensional Gap") == 2)
+	if (select("Stop:Return to Dimensional Gap") == 2)
 		warp "dali",85,62;
 	end;
 
@@ -2181,7 +2181,7 @@ OnT_s2:
 		if (!.@face_member)
 			announce .@winner_name$ + " beat the best record for completing the Faceworm's Nest (" + .@time_txt$ + ").",bc_all,"0xffff33",FW_NORMAL,15;
 		else
-			announce .@winner_name$ + " กับ " + .@face_member + " สมาชิกปาร์ตี้ " + ( .@face_member > 1 ? "members" : "members" ) + " beat the best record for completing the Faceworm's Nest (" + .@time_txt$ + ").",bc_all,"0xffff33",FW_NORMAL,15;
+			announce .@winner_name$ + " with " + .@face_member + " party " + ( .@face_member > 1 ? "members" : "members" ) + " beat the best record for completing the Faceworm's Nest (" + .@time_txt$ + ").",bc_all,"0xffff33",FW_NORMAL,15;
 		$120719_str_face$ = .@winner_name$;
 		$120719_num_face = .@current_timer;
 		$120903_num_face = .@face_member;
@@ -2750,7 +2750,7 @@ OnInstanceInit:
 			hideonnpc instance_npcname("Chaos#0");
 			hideonnpc instance_npcname("Iris#0");
 			donpcevent instance_npcname("#fwormcontrol1") + "::OnStart";
-			mapannounce 'map_name$, "การโจมตีเวลาหนอนใบหน้าเริ่มแล้ว การฆ่าอย่างรวดเร็วจะให้ผลตอบแทนมากขึ้น",bc_map,"0xffffff";
+			mapannounce 'map_name$, "Faceworm time attack has started. Faster kill times gives a higher percentage of rewards.",bc_map,"0xffffff";
 			donpcevent instance_npcname("#globaltimer22") + "::OnT_s";
 			donpcevent instance_npcname("#fwormprize1") + "::OnStart";
 			warp 'map_name$,110,348;
@@ -2760,7 +2760,7 @@ OnInstanceInit:
 			enablenpc instance_npcname("#fwormexit1");
 			hideoffnpc instance_npcname("Chaos#1");
 			hideoffnpc instance_npcname("Iris#1");
-			mapannounce 'map_name$, "หลุมปรากฏขึ้นหลังจากฆ่าหนอนใบหน้ามืด",bc_map,"0xffffff";
+			mapannounce 'map_name$, "A hole appears after killing the dark faceworm.",bc_map,"0xffffff";
 			warp 'map_name$,127,95;
 			break;
 		case 4:
@@ -2768,14 +2768,14 @@ OnInstanceInit:
 			enablenpc instance_npcname("#fwormexit2");
 			hideoffnpc instance_npcname("Chaos#2");
 			hideoffnpc instance_npcname("Iris#2");
-			mapannounce 'map_name$, "คุณได้ยินเสียงดังในทิศใต้ มันต้องเป็นรังของสิ่งที่เราเพิ่งกำจัด",bc_map,"0xffffff";
+			mapannounce 'map_name$, "You hear something loud in the south. It must be the nest of the one we just got rid of.",bc_map,"0xffffff";
 			warp 'map_name$,156,117;
 			break;
 		case 5:
 			enablenpc instance_npcname("#fwormenter3");
 			enablenpc instance_npcname("#fwormexit3");
 			enablenpc instance_npcname("#chaoson");
-			mapannounce 'map_name$, "คุณได้ยินเสียงหินกองลงมา นี่อาจเป็นทางเข้าไปยังพื้นที่อื่น",bc_map,"0xffffff";
+			mapannounce 'map_name$, "You hear the pile of stones collapsing. This might be a gateway to go to other spaces.",bc_map,"0xffffff";
 			warp 'map_name$,261,170;
 			break;
 		case 6:
@@ -2784,7 +2784,7 @@ OnInstanceInit:
 			hideoffnpc instance_npcname("Chaos#4");
 			hideoffnpc instance_npcname("Iris#4");
 			enablenpc instance_npcname("#chaoson2");
-			mapannounce 'map_name$, "คุณได้ยินเสียงหินกองพังทลาย ฉันคิดว่าพบทางเข้าอีกแห่ง",bc_map,"0xffffff";
+			mapannounce 'map_name$, "You hear the pile of stones collapsing. I think another gateway is found.",bc_map,"0xffffff";
 			warp 'map_name$,210,145;
 			break;
 		case 7:

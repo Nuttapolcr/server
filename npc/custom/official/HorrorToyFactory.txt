@@ -11,10 +11,10 @@
 xmas,237,303,3	script	Catherine Jet Johnson	4_F_SKULL06GIRL,{
 	if (getstatus(SC_MONSTER_TRANSFORM,1) > 0) {
 		mes "[Catherine Jet Johnson]";
-		mes "อา.. คุณกำลังจะเข้าไปที่นั่นหรือ?";
+		mes "Aaa.. Are you going to go into there?";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "คุณควรยกเลิกการแปลงร่างก่อนถ้าต้องการเข้า อาจเป็นอันตรายบางประการ";
+		mes "You'd better release your transformation if you'd like to enter. It could be dangerous in some ways.";
 		close;
 	}
 
@@ -23,7 +23,7 @@ xmas,237,303,3	script	Catherine Jet Johnson	4_F_SKULL06GIRL,{
 		mes "Ah, wait! Please wait. This is not a good place for a promising young "+ ( Sex ? "man" : "woman" ) +" like you!";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "ถ้าจำเป็น กลับมาใหม่เมื่อแข็งแกร่งกว่านี้มาก ฮืมม์.. ฉันจะบอกว่า.. Lv.140?";
+		mes "If you must, come back later after you become far stronger. Hmmm.. I would say.. Lv.140?";
 		close;
 	}
 
@@ -32,111 +32,111 @@ xmas,237,303,3	script	Catherine Jet Johnson	4_F_SKULL06GIRL,{
 	mes "[Catherine Jet Johnson]";
 	switch( isbegin_quest(12330) ) {
 	case 0:
-		mes "อย่า.. อย่ากลัวฉัน ตอนนี้ฉันดูน่าเกลียด แต่ฉันไม่ได้เป็นแบบนี้มาก่อน";
+		mes "Do.. Don't be afraid of me. Now I look ugly, but I wasn't like this before.";
 		next;
 		mes "^0000ffThe skull-faced girl in front of you is speaking in a tearful voice. Void holes where there should be eyes are staring at you.^000000";
 		next;
-		select("ใบหน้าของคุณเป็นอะไรไป?");
+		select("What's wrong with your face?");
 		mes "[Catherine Jet Johnson]";
-		mes "นี่เป็นเรื่องยาว.. คุณจะรำคาญไหมถ้าฉันจะเล่าให้ฟัง? ถ้าคุณจะเสียเวลากับคนอย่างฉัน?";
+		mes "This is a long story.. Would you mind if I talk to you? If you waste your time on someone like me?";
 		next;
-		if (select( "ออก", "โปรดพูดต่อ" ) == 1) {
+		if (select( "Quit.", "Please keep talking." ) == 1) {
 			mes "[Catherine Jet Johnson]";
-			mes "โอเค ดูแลตัวเองด้วย และอย่าเข้าใกล้ทางเข้าแปลกประหลาดนั้นเลย";
+			mes "Okay, take care of yourself. And don't ever come near that odd entrance.";
 			close;
 		}
 		mes "[Catherine Jet Johnson]";
-		mes "ฮืมม์.. ฉันควรเริ่มจากไหนดี.. เรื่องของเมืองนี้ก่อนไหม?...";
+		mes "Mmm.. Where should I start.. The story of this town first?...";
 		next;
 		mes "^0000ffWith a sigh, the girl begins to speak in a subdued tone like a bard who tells an old story.^000000";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "มีโรงงานของเล่นในเมืองนี้ คนทั้งเมืองทำงานที่นั่นและฉันก็เป็นพนักงานคนหนึ่ง";
+		mes "There was a toy factory in this town. All of the people in this town work there and I was one of the employees.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "เราทุกคนมีความสุขในตอนแรก เราเคยมาชุมนุมกันและสนทนาอย่างเป็นกันเองพร้อมขนมปังขิงและชาร้อนหลังเลิกงาน";
+		mes "We all were happy in the beginning. We used to gather around together and have a friendly chat having gingerbread and hot tea after work.";
 		next;
-		select("ฉันไม่สามารถจินตนาการได้ว่าเห็นอารมณ์นี้...");
+		select("I couldn't even imagine, seeing this mood...");
 		mes "[Catherine Jet Johnson]";
-		mes "ใช่ เพราะเราไม่สามารถทำมาหากินด้วยการบรรจุของเล่นไปตลอด สถานการณ์ยากขึ้นหลังชาวบ้านทยอยจากไป";
+		mes "Yes, because we couldn't earn a living by packaging toys forever. The situations got tough after the villagers left in ones and twos.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "ฉันเป็นคนที่ทำงานเป็นผู้ช่วยข้างช่างทำตุ๊กตาที่ทำตุ๊กตาจนถึงวันสุดท้าย";
+		mes "I was the one who worked as an assistant beside the doll craftsman who made dolls to the end.";
 		next;
 		mes "^0000ffI could feel her slender jawbone is trembling due to the subtle change of her emotion.^000000";
 		next;
-		select("ขอให้เธอพูดต่อ");
+		select("Ask her to continue.");
 		mes "[Catherine Jet Johnson]";
-		mes "ในวันที่โรงงานถูกตัดสินว่าจะปิด ช่างทำตุ๊กตาแต่งตัวตุ๊กตาตัวสุดท้ายและหลั่งน้ำตา";
+		mes "On the day when the factory is decided to be closed, the doll maker dressed the last doll he made and shed tears.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "บางทีเขาคิดว่าเขาจะไม่ทำตุ๊กตาอีกแล้ว";
+		mes "Perhaps he thought he wouldn't make dolls anymore.";
 		next;
 		mes "[Catherine Jet Johnson]";
 		mes "He named the last doll ^0000ffCeline Kimi^000000 and stopped all the lines in the factory.";
 		next;
-		select("เขาให้ชื่อตุ๊กตาหรือ?");
+		select("Did he give a doll a name?");
 		mes "[Catherine Jet Johnson]";
-		mes "บางครั้งช่างทำตุ๊กตาทุ่มเทกับตุ๊กตาราวกับมันเป็นลูกของพวกเขา Kimi คือตุ๊กตาแบบนั้นสำหรับเขา";
+		mes "Sometimes so much work goes into a doll as if it were their child to doll makers. Kimi was the one for him.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "ฉันเดาว่าความจริงจังของเขาได้ปลุกชีวิตให้ Kimi";
+		mes "I guess his earnestness breathed life to Kimi.";
 		next;
-		select("คุณหมายความว่าตุ๊กตามีชีวิตใช่ไหม?");
+		select("Do you mean the doll is alive?");
 		mes "[Catherine Jet Johnson]";
 		mes "Yes, ^0000ffShe^000000 became a living creature. I don't know how, but she is striding in the toy factory with heavy sorrow and rage.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "ครั้งแรกที่ฉันเห็นเธอ เธอยืนอยู่ข้างช่างทำตุ๊กตาที่เสียชีวิตและล้มลง เธอยืนอยู่ที่นั่นด้วยสีหน้าว่างเปล่า";
+		mes "When I first saw her, she was standing beside the doll maker who died and collapsed. She stood there with a bare expression.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "นั่นคือจุดสิ้นสุด ฉันอยู่ข้างนอกเมื่อตื่นขึ้นมาอีกครั้งหลังจากสลบ ใบหน้าของฉันกลายมาเป็นแบบนี้";
+		mes "That's the end. I was outside when I woke up again after I had blacked out. My face has become like this.";
 		next;
-		select("คิมิทำสิ่งนั้นหรือ?");
+		select("Did Kimi do that?");
 		mes "[Catherine Jet Johnson]";
-		mes "ฉันไม่รู้.. เธออาจทำแบบนั้น หรืออาจเป็นปัญหาอื่น ฉันไม่มีความทรงจำเกี่ยวกับมัน";
+		mes "I don't know.. She would do it, or it could be a different problem. I have no memory of it.";
 		next;
-		select("คุณกล่าวหาเธอหรือ?");
+		select("Do you blame her?");
 		mes "[Catherine Jet Johnson]";
-		mes "อา ไม่ ฉันไม่โทษเธอ! ฉันแค่อยากรู้ว่าเกิดอะไรขึ้นกับช่างทำตุ๊กตาในวันนั้น";
-		next;
-		mes "[Catherine Jet Johnson]";
-		mes "ฉันคิดว่าฉนที่เห็นไม่ใช่ทั้งหมด อย่างไรก็ตาม การเข้าไปในโรงงานอีกครั้งคือ.. การกลับเข้าไปนั้นคือ...";
+		mes "Ah, no. I don't blame her! I just want to know what happened to the doll craftsman on that day.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "ใช่ ฉันกลัวและลังเลที่จะทำ ถ้ามีใครที่สามารถช่วยฉันได้..";
+		mes "I don't think the scene I saw was everything. However, getting into the factory again is.. Re-entering there is...";
 		next;
-		if (select( "ฉันไม่มีประโยชน์ต่อคุณมาก", "อาจจะฉันสามารถช่วยคุณในเรื่องนี้ได้" ) == 1) {
+		mes "[Catherine Jet Johnson]";
+		mes "Yes, I am scared and reluctant to do it. If there's someone who can help me..";
+		next;
+		if (select( "I am not very helpful to you.", "Maybe I can help you with it." ) == 1) {
 			mes "[Catherine Jet Johnson]";
-			mes "ขอบคุณที่.. ที่รับฟังฉัน หวังว่าคุณจะสนุกกับการเดินทาง..";
+			mes "Thank you for.. for listening to me. Hope you will enjoy your trip..";
 			close;
 		}
 		mes "[Catherine Jet Johnson]";
-		mes "เฮ้? คุณจะทำความช่วยเหลือแก่ฉันหรือ?";
+		mes "Heh? You would do me a favor?";
 		next;
-		select("ลองเข้าไปในโรงงาน");
+		select("Let's get into the factory.");
 		mes "[Catherine Jet Johnson]";
-		mes "เรา.. ก็นั่นแหละ ฉันช่วยคุณไม่ได้เลยนอกจากบอกทิศทาง นอกจากนี้มันอาจอันตรายมากสำหรับคุณ";
+		mes "We.. Well, I cannot help you at all except for providing you with directions. Besides, this can be very dangerous to you.";
 		next;
-		select("คุณสามารถอยู่ร่วมกับคิมิได้ใช่ไหม?");
+		select("You can reunite with Kimi, can't you?");
 		mes "[Catherine Jet Johnson]";
-		mes "Kimi คุณหมายถึง Kimi..";
+		mes "Kimi, you mean Kimi..";
 		next;
 		mes "^0000ffShe is thinking about something intently with gaping eyes.^000000";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "ฉัน.. ฉันตัดสินใจแล้ว มันอาจไม่ช่วยคุณได้มากนัก แต่ฉันสามารถแจ้งทิศทางให้คุณได้";
+		mes "I.. I've decided. It won't be a great help to you, but I can simply let you know the directions.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "รอก่อน โปรดรอจนกว่าฉันจะพร้อม ฉันสามารถนำทางคุณได้เมื่อพร้อมแล้ว";
+		mes "Wait, please wait until I am prepared. I can guide you when I am ready.";
 		setquest 12330;// Skull-faced Girl
 		close;
 	case 1:
-		mes "เรียบร้อย ให้ฉันลองเปิดประตูที่ปิดอยู่";
+		mes "Done. Let me try to open the closed door.";
 		completequest 12330;
 		break;
 	case 2:
-		mes "วิญญาณของ Kimi ยังคงอยู่ในที่นี้ เมื่อไหรที่ฉันจะปล่อยให้เธอสงบ...";
+		mes "Kimi's soul is still staying in this ground. When I can let her rest in peace...";
 		break;
 	}
 	next;
@@ -148,21 +148,21 @@ xmas,237,303,3	script	Catherine Jet Johnson	4_F_SKULL06GIRL,{
 	case -1:
 		if (is_party_leader() == false) {
 			mes "[Catherine Jet Johnson]";
-			mes "เอ้อ.. ให้ฉันสักครู่ ฉันกำลังคุยกับผู้รับผิดชอบ โปรดรอสักครู่";
+			mes "Eh.. Give me a second. I am talking to the person in charge. Please wait a little bit.";
 			close;
 		}
-		if (select( "ปลดล็อกโรงงานเล่นของสยองขวัญ", "ยกเลิก" ) == 1) {
-			mes "ประตูจะ.. เปิดเร็วๆ นี้.. คุณจะรอสักครู่ได้ไหม?";
+		if (select( "Unlock Horror Toy Factory", "Cancel" ) == 1) {
+			mes "Door will be.. opened soon.. Would you wait for a moment?";
 			instance_create("Horror Toy Factory");
 		}
 		close;
 	case 0:
 	case 1:
 		mes "[Catherine Jet Johnson]";
-		mes "กลิ่นสารกันบูดจากโรงงานยังไม่หายไป คุณไม่สามารถเข้าได้ในสภาพนี้";
+		mes "The smell of preservative from the factory has not gone away. You cannot enter under this state.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "ฉันจะป้องกันคุณจากการเข้าจนกว่ากลิ่นสารกันบูดจะหมดไปโดยสิ้นเชิง";
+		mes "I will keep you from entering until the scent of preservative is completely gone.";
 		close;
 	case 2:
 		mes "^0000ffThe smell of preservative has gone away. You can talk to Catherine Jet Johnson.^000000";
@@ -179,26 +179,26 @@ xmas,233,305,4	script	Factory Dimension Telep	PORTAL,{
 	}
 	if (BaseLevel < 1) {
 		mes "[Factory Dimension Teleporter]";
-		mes "คุณไม่มีคุณสมบัติสำหรับการเลื่อนมิติ คุณควรเป็นอย่างน้อย Lv.140";
+		mes "You are not eligible for dimensional shifting. You should be at least Lv.140.";
 		close;
 	}
 	if (getcharid(1) < 1) {
 		mes "[Factory Dimension Teleporter]";
-		mes "คุณไม่มีทีม? โปรดรวมปาร์ตี้และกลับมาใหม่ถ้าจะเข้าคนเดียว";
+		mes "You don't have any support? Please organize a party and come again if you go in alone.";
 		close;
 	}
 	switch( checkquest(12331,PLAYTIME) ) {
 	case -1:
 		switch( instance_enter("Horror Toy Factory") ) {
 		case 3:
-			mes "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ";
+			mes "An unknown error has occurred.";
 			close;
 		case 2:
-			mes "ทางเข้าสำหรับการเลื่อนมิติยังไม่ถูกเปิดใช้งาน";
+			mes "The gateway for dimensional shifting has not been activated.";
 			close;
 		case 1:// dummy
 			mes "[Factory Dimension Teleporter]";
-			mes "คุณไม่มีทีม? โปรดรวมปาร์ตี้และกลับมาใหม่ถ้าจะเข้าคนเดียว";
+			mes "You don't have any support? Please organize a party and come again if you go in alone.";
 			close;
 		case 0:
 			mapannounce "xmas", getpartyname( getcharid(1) ) +" party's party member "+ strcharinfo(0) +" has entered the Horror Toy Factory.", bc_map, "0x00ff99";
@@ -207,7 +207,7 @@ xmas,233,305,4	script	Factory Dimension Telep	PORTAL,{
 		}
 	case 0:
 	case 1:
-		mes "คุณมีร่องรอยการเลื่อนมิติอยู่แล้ว การเข้าถึงของคุณถูกปฏิเสธ";
+		mes "You already have a trail of dimensional shifting. Your access has been denied.";
 		close;
 	case 2:
 		mes "^0000ffThe trail of dimensional shifting disappeared. You are allowed to use Factory Dimension Teleporter.^000000";
@@ -219,25 +219,25 @@ xmas,233,305,4	script	Factory Dimension Telep	PORTAL,{
 1@xm_d,112,20,6	script	Catherine Jet Johnson#0	4_F_SKULL06GIRL,{
 	if (getstatus(SC_MONSTER_TRANSFORM,1) > 0) {
 		mes "[Catherine Jet Johnson]";
-		mes "คุณไม่สามารถมาที่นี่ได้หากอยู่ภายใต้ผลของการแปลงร่างเป็นมอนสเตอร์";
+		mes "You cannot come here if you are under the effect of a monster transformation.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "โปรดรอจนกว่าการแปลงร่างจะสิ้นสุด คุณไม่สามารถย้ายไปพื้นที่อื่นได้จนกว่าจะกลับเป็นปกติ";
+		mes "Please wait until the transformation is finished. You cannot move to another area until you become normal.";
 		close;
 	}
 	if (is_party_leader() == false) {
 		mes "[Catherine Jet Johnson]";
-		mes "เอ้อ.. ให้ฉันสักครู่ ฉันกำลังคุยกับผู้รับผิดชอบ โปรดรอ";
+		mes "Eh.. Give me a second. I am talking to the person in charge. Please wait.";
 		close;
 	}
 	mes "[Catherine Jet Johnson]";
-	mes "ทุกคนอยู่ในสภาพมนุษย์ปกติใช่ไหม?";
-	npctalk "Catherine Jet Johnson: ทุกคนอยู่ในสภาพมนุษย์ปกติใช่ไหม?";
+	mes "Everyone is in their mortal corruptible state right?";
+	npctalk "Catherine Jet Johnson: Everyone is in their mortal corruptible state right?";
 	next;
-	switch( select( "ออกจากเรื่อง", "ฟังเรื่องของเธอ", "ฉันรู้สถานการณ์ของคุณ มาเริ่มอย่างรวดเร็ว!" ) ) {
+	switch( select( "Quit the story", "Listen to her story.", "I know your situation. Let's start quickly!" ) ) {
 	case 1:
 		mes "[Catherine Jet Johnson]";
-		mes "โอ้ ที่รัก บอกฉันเมื่อคุณพร้อม";
+		mes "Oh, dear. Let me know when you are ready.";
 		close;
 	case 2:
 		donpcevent instance_npcname("Catherine Jet Johnson#01") + "::OnStart";
@@ -255,43 +255,43 @@ OnStart:
 	enablenpc instance_npcname("Catherine Jet Johnson#01");
 	disablenpc instance_npcname("Catherine Jet Johnson#0");
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: พื้นที่นี้คือโรงงานที่ 1 มันเคยเป็นสถานที่เก็บของเล่นและตุ๊กตาก่อนมอบเป็นของขวัญ";
+	npctalk "Catherine Jet Johnson: This area was Factory No.1. It used to be the place where the toys and dolls were stored before given as presents.";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: อา ฉันจำได้หลายอย่าง ถ้าใครไม่สวมชุดพนักงาน ยามจะมาดุพวกเขา....";
+	npctalk "Catherine Jet Johnson: Ah, I remember several things. If someone wasn't in the employee's uniform, the guards used to come and scold them....";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: อ้อ อีกอย่าง...";
+	npctalk "Catherine Jet Johnson: By the way...";
 	donpcevent instance_npcname("#fac1ct") + "::OnStart";
 	sleep 3000;
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: ตื่นเถิด เวลาทำงานของโรงงานของเล่นมาแล้ว...", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: Wake up, toy factory working time has come...", bc_map, "0x00ff44";
 	sleep 6000;
-	npctalk "Catherine Jet Johnson: อ.. อะไรเกิดขึ้น? ของเล่นและตุ๊กตาเดินเพ่นพ่านแทนพนักงานมนุษย์ ราวกับว่าพวกมันเป็นพนักงาน...";
+	npctalk "Catherine Jet Johnson: Wh.. What happened? Toys and dolls are wandering instead of human workers. As if they are employees...";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: ฉันคิดว่าวิญญาณอื่นๆ อาศัยอยู่ในโรงงานที่ว่างเปล่านานเกินไป";
+	npctalk "Catherine Jet Johnson: I think other spirits have inhabited the empty factory for too long.";
 	sleep 3000;
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: ขยะและสิ่งปนเปื้อนอื่น ๆ ควรให้พื้นที่ทำงานสะอาด เพื่อรักษาความปลอดภัยของคุณเสมอ", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: Waste and other debris should be kept clear from work areas. This is to keep you safe at all times.", bc_map, "0x00ff44";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: มันเหมือนกับตอนที่มนุษย์ทำงานที่นี่";
+	npctalk "Catherine Jet Johnson: It's just like when humans worked here.";
 	sleep 3000;
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: มาสร้างของขวัญสำหรับความฝันของทุกเด็กในวันนี้กัน", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: Let's make presents for every child's dream today.", bc_map, "0x00ff44";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: แต่มันไม่ใช่เวลาที่จะมีความสุข เมื่อเราพบพื้นที่โรงงานสุดท้าย เราจะต้องหยุดสายการผลิตทั้งหมด";
+	npctalk "Catherine Jet Johnson: But, it's not the time to be happy. Once we find the last factory area, we will need to halt all production lines.";
 	sleep 1000;
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: โปรดเริ่มสายการผลิตที่ 1 อย่าลืมสวมหมวกเซฟตี้! หมายความว่าคุณบ๊อบ!", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: Please start product line No.1. Don't forget to wear a safety helmet! This means you Bob!", bc_map, "0x00ff44";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: อา บางทีเราควรคืนสภาพของเล่นและกล่องของขวัญเหล่านั้นสู่สภาพเดิม";
+	npctalk "Catherine Jet Johnson: Ah, maybe we should restore those toys and gift boxes to their original condition.";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: เอ้อ? ฉัน... ฉันหมายถึง... คืนพวกมันสู่สภาพเดิม.. ใช่... เราต้องสู้กับพวกมันหรือ? ฉันไม่รู้แน่ชัด";
+	npctalk "Catherine Jet Johnson: Eh? I... I mean... To return them as they were.. Yes... We need to fight them? I don't know how exactly.";
 	sleep 2000;
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: พนักงานทั้งหมดต้องสวมชุดสม่ำเสมอและบัตรประจำตัว โปรดติดต่อด้านความปลอดภัยหากคุณไม่มี", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: All employees must wear a proper uniform and identification. Please check with security if you do not have yours.", bc_map, "0x00ff44";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: พระเจ้า ฉันหวังว่ายามยังคงเป็นมนุษย์อยู่ เคยมีกล่องชุดพนักงานใกล้ๆ นี้แต่ก่อน..";
+	npctalk "Catherine Jet Johnson: Good heavens, I hope the guards are still human. There were boxes of uniforms near here in the past..";
 	enablenpc instance_npcname("Employees' Uniform Box#1");
 	enablenpc instance_npcname("Employees' Uniform Box#2");
 	enablenpc instance_npcname("Employees' Uniform Box#3");
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: อา พวกมันอยู่ข้างหลังฉัน คุณควรเปลี่ยนเป็นชุดพนักงาน โชคดีที่ฉันยังมีบัตรพนักงาน";
+	npctalk "Catherine Jet Johnson: Ah, they are behind me. You'd better change into the uniform. Fortunately, I still have my employee card.";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: ฉันจะหาทางรอบๆ ที่นี่ มาเจอกันใกล้สายการผลิตที่สอง ใจดีหน่อย มันเป็นโรงงานของเล่น มันคงไม่แย่ขนาดนั้น!!";
+	npctalk "Catherine Jet Johnson: I will find my way around here. Let's meet near the second production line. Cheer up, it's a toy factory. It can't be all that bad!!";
 	sleep 6000;
 	disablenpc instance_npcname("Catherine Jet Johnson#01");
 	disablenpc instance_npcname("#bgm01");
@@ -302,17 +302,17 @@ OnStart2:
 	enablenpc instance_npcname("Catherine Jet Johnson#01");
 	disablenpc instance_npcname("Catherine Jet Johnson#0");
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: อา.. เราเคยสำรวจที่นี่มาก่อนหรือ? โอเค มาเจอกันที่จุดเดิมอีกครั้ง";
+	npctalk "Catherine Jet Johnson: Ah.. We have explored here before? Okay, let's meet at the same spot again.";
 	sleep 6000;
 	disablenpc instance_npcname("Catherine Jet Johnson#01");
 	enablenpc instance_npcname("Employees' Uniform Box#1");
 	enablenpc instance_npcname("Employees' Uniform Box#2");
 	enablenpc instance_npcname("Employees' Uniform Box#3");
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: ตื่นเถิด เวลาทำงานของโรงงานของเล่นมาแล้ว...", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: Wake up, toy factory working time has come...", bc_map, "0x00ff44";
 	sleep 6000;
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: ขยะและสิ่งปนเปื้อนอื่น ๆ ควรให้พื้นที่ทำงานสะอาด เพื่อรักษาความปลอดภัยของคุณเสมอ", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: Waste and other debris should be kept clear from work areas. This is to keep you safe at all times.", bc_map, "0x00ff44";
 	sleep 6000;
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: มาสร้างของขวัญสำหรับความฝันของทุกเด็กในวันนี้กัน", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: Let's make presents for every child's dream today.", bc_map, "0x00ff44";
 	donpcevent instance_npcname("#fac1ct") + "::OnStart";
 	disablenpc instance_npcname("#bgm01");
 	end;
@@ -358,7 +358,7 @@ OnMyMobDead:
 OnTimer1000:
 	killmonster 'xm_d_map$, instance_npcname("#fac1ct") + "::OnMyMobDead";
 	enablenpc instance_npcname("#fac1bs");
-	mapannounce 'xm_d_map$, "ประกาศพิกัด: ฮ่า? ทำไมทุกคนหายไป! พนักงานกล้าหาญเพียงไรที่ขาดหายจากสาย!", bc_map, "0xff8800";
+	mapannounce 'xm_d_map$, "Coordinator's announcement: Huh? Where's everyone! How dare workers be absent from the line!", bc_map, "0xff8800";
 	for ( .@i = 61; .@i <= 89; .@i++ )
 		disablenpc instance_npcname( "alert#"+ .@i );
 	stopnpctimer;
@@ -370,17 +370,17 @@ OnTimer1000:
 		.@mob_id_transform = getstatus(SC_MONSTER_TRANSFORM,1);
 		mes "[Coordinator]";
 		if (.@mob_id_transform == 1246) {
-			mes "ฉันหาพนักงานคนอื่นไม่เจอ เราไม่มีเวลาอ้อยอิ่ง เด็กๆ รอของขวัญอยู่";
+			mes "I can't find the other workers. We don't have time for dawdling. Children are waiting for presents.";
 			next;
 			mes "[Coordinator]";
 			mes "Hurry up! Carry ^ff0000the gift box over there^000000 and move to the east.";
 			enablenpc instance_npcname("#pck1");
-			npctalk "ผู้ประสานงาน: รีบขึ้น! หิ้วกล่องของขวัญไปที่นั่นและไปทางทิศตะวันออก";
+			npctalk "Coordinator: Hurry up! Carry the gift box over there and move to the east.";
 		}
 		else if (.@mob_id_transform == 1249)
 			mes "Why are you hanging around! Carry ^ff0000the gift box over here^000000 and move to the east.";
 		else {
-			mes "อะไรนะ?! มนุษย์!!!";
+			mes "What!? Humans!!!";
 			donpcevent instance_npcname("#fac1bs") + "::OnAlert";
 		}
 		close;
@@ -391,7 +391,7 @@ OnAlert:
 	.@npc_name$ = instance_npcname("#fac1bs");
 	.@event$ = .@npc_name$ + "::OnMyMobDead";
 	killmonster 'xm_d_map$, .@event$;
-	npctalk "ผู้ประสานงาน: ยาม! ยามอยู่ที่ไหน! มนุษย์กำลังบุกรุก!!";
+	npctalk "Coordinator: Guard! Where is a guard! Humans are invading!!";
 	sleep 3000;
 	disablenpc .@npc_name$;
 	for ( .@i = 0; .@i <= 10; .@i++ ) {
@@ -407,7 +407,7 @@ OnTimer60000:
 	.@npc_name$ = instance_npcname("#fac1bs");
 	killmonster 'xm_d_map$, .@npc_name$ + "::OnMyMobDead";
 	enablenpc .@npc_name$;
-	npctalk "ผู้ประสานงาน: เรื่องแบบนี้เกิดขึ้นบ่อยช่วงนี้...";
+	npctalk "Coordinator: This kind of thing happens a lot these days...";
 	stopnpctimer;
 	end;
 }
@@ -451,25 +451,25 @@ OnTouch:
 OnStart:
 	.@r = rand(1,10);
 	if (.@r == 1)
-		mapannounce 'xm_d_map$, "ประกาศโรงงาน: พบผู้นอกเขตแดนบนสายการผลิต ยาม โปรดออกไปทันที",bc_map,"0x00ffff";
+		mapannounce 'xm_d_map$, "Factory announcement: Outsiders are spotted on the product line. Guards, please move out immediately.",bc_map,"0x00ffff";
 	else if (.@r == 2)
-		mapannounce 'xm_d_map$, "ประกาศโรงงาน: ระบุตัวผู้รุกรานแล้ว รหัสการจำแนก AX0829 ประเภท: มนุษย์ ไล่ขับให้ไป", bc_map, "0x00ffff";
+		mapannounce 'xm_d_map$, "Factory announcement: Invaders have been identified. Distinction Code AX0829. Type: Human. Chase them away.", bc_map, "0x00ffff";
 	else if (.@r == 3)
-		mapannounce 'xm_d_map$, "ประกาศยาม: โปรดออกไปจากที่นี่ทันทีผู้นอกเขตแดน", bc_map, "0xffff00";
+		mapannounce 'xm_d_map$, "Guard's announcement: Please leave here immediately, outsiders.", bc_map, "0xffff00";
 	else if (.@r == 4)
-		mapannounce 'xm_d_map$, "ประกาศโรงงาน: ผู้นอกเขตแดน ยกมือขึ้นและยอมแพ้ มิฉะนั้นฉันจะยิงคุณ", bc_map, "0x00ffff";
+		mapannounce 'xm_d_map$, "Factory announcement: Outsiders, hold up your hands and surrender. Otherwise, I will shoot you.", bc_map, "0x00ffff";
 	else if (.@r == 5)
-		mapannounce 'xm_d_map$, "ประกาศโรงงาน: ส่งยาม ปราบปรามผู้รุกราน", bc_map, "0x00ffff";
+		mapannounce 'xm_d_map$, "Factory announcement: Dispatch the guards. Suppress the invaders.", bc_map, "0x00ffff";
 	else if (.@r == 6)
-		mapannounce 'xm_d_map$, "คำเตือน: ผู้จัดการโรงงานกำลังจะมาตรวจสอบ ขจัดผู้นอกเขตแดนให้สิ้นเชิง", bc_map, "0xff4444";
+		mapannounce 'xm_d_map$, "CAUTION: The plant manger is coming to inspect. Wipe out the outsiders.", bc_map, "0xff4444";
 	else if (.@r == 7)
-		mapannounce 'xm_d_map$, "ประกาศโรงงาน: ข่าวไม่ดี พบสิ่งมีชีวิตจากภายนอก ยาม โปรดเข้าหนุน", bc_map, "0x00ff88";
+		mapannounce 'xm_d_map$, "Factory announcement: Not good news. Outside creatures are detected. Guards, please mobilize.", bc_map, "0x00ff88";
 	else if (.@r == 8)
-		mapannounce 'xm_d_map$, "ประกาศโรงงาน: ผู้นอกเขตแดนหรือผู้รุกรานเป็นอุปสรรคต่อการทำงานของโรงงาน คุณสามารถฆ่าพวกเขาได้หากจำเป็น", bc_map, "0xff9999";
+		mapannounce 'xm_d_map$, "Factory announcement: Outsiders or invaders are obstacles to factory's operation. You can kill them if necessary.", bc_map, "0xff9999";
 	else if (.@r == 9)
-		mapannounce 'xm_d_map$, "ประกาศโรงงาน: โอเค นั่นแหละ! ปาร์ตี้จบแล้ว! ออกไปจากบ้านของฉัน!", bc_map, "0x00ffff";
+		mapannounce 'xm_d_map$, "Factory announcement: Okay that's it, party's over! Get out of my house!", bc_map, "0x00ffff";
 	else
-		mapannounce 'xm_d_map$, "ประกาศยาม: พบผู้รุกรานแล้ว! ดูเหมือนจะเป็นมนุษย์! ฉันจะเอาชนะพวกเขา!", bc_map, "0xffff00";
+		mapannounce 'xm_d_map$, "Guard's announcement: Invaders are spotted! They seem human! I will blip them off!", bc_map, "0xffff00";
 	end;
 }
 
@@ -566,12 +566,12 @@ OnMyMobDead:
 1@xm_d,185,100,6	script	Catherine Jet Johnson#2	4_F_SKULL06GIRL,{
 	if (is_party_leader() == true) {
 		mes "[Catherine Jet Johnson]";
-		mes "โชคดีที่คุณมาถึงที่นี่ได้อย่างปลอดภัย";
+		mes "Lucky you got here safely.";
 		next;
-		switch( select( "ออกจากเรื่อง", "Listen to her tactics.", "I know what to do. Proceed quickly!" ) ) {
+		switch( select( "Quit the story", "Listen to her tactics.", "I know what to do. Proceed quickly!" ) ) {
 		case 1:
 			mes "[Catherine Jet Johnson]";
-			mes "โอ้ ที่รัก บอกฉันเมื่อคุณพร้อม";
+			mes "Oh, dear. Let me know when you are ready.";
 			close;
 		case 2:
 			donpcevent instance_npcname("Catherine Jet Johnson#21") + "::OnStart";
@@ -582,7 +582,7 @@ OnMyMobDead:
 		}
 	}
 	mes "[Catherine Jet Johnson]";
-	mes "รอก่อน~ ฉันกำลังคุยกับผู้จัดการของคุณ โปรดรอ";
+	mes "Hold on~ I am talking to your manager, so please wait.";
 	close;
 }
 
@@ -598,25 +598,25 @@ S_Skip:
 	disablenpc instance_npcname("Catherine Jet Johnson#2");
 	sleep 3000;
 	if (getarg(0) == 1)
-		npctalk "Catherine Jet Johnson: ถ้าคุณพบเบาะแสทั้งหมด ค้นหาที่อื่น ฉันจะหาจุดที่ฉันพบช่างทำตุ๊กตาครั้งสุดท้ายที่ฉันอยู่ที่นี่";
+		npctalk "Catherine Jet Johnson: If you find all clues, search other places. I will look for the spot where I met the doll maker last time I was here.";
 	else {
-		npctalk "Catherine Jet Johnson: สถานที่นี้คือโรงงานที่ 2";
+		npctalk "Catherine Jet Johnson: This place was Factory No.2.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: มันเคยเต็มไปด้วยคน แต่ตอนนี้ไม่ใช่แล้ว";
+		npctalk "Catherine Jet Johnson: It used to be filled with people, but now it isn't.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: อา ฉันตระหนักได้บางอย่างระหว่างมาที่นี่ บาง...เด็ก...";
+		npctalk "Catherine Jet Johnson: Ah, I realized something while coming here. Some...Children...";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: จะพูดอย่างไรดี.. มีวิญญาณที่น่ากลัวมาก แต่ก็น่าเศร้ามากเช่นกัน";
+		npctalk "Catherine Jet Johnson: How can I say.. There were lots of very scary, but awfully sad, looking souls.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: พวกมันน่าสงสารเพียงใด แต่โปรดปล่อยให้พวกมันพักถ้าโจมตีคุณ โชคดีที่พวกมันจะไม่มาที่ฉัน";
+		npctalk "Catherine Jet Johnson: How pitiful they are, but please make them rest if they attack you. Fortunately, they won't come at me.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: ถ้าคุณเห็นของเล่นพนักงานที่ปฏิบัติหน้าที่ขณะค้นหาที่นี่ คุณจะถามมันเกี่ยวกับช่างทำตุ๊กตาได้ไหม?";
+		npctalk "Catherine Jet Johnson: If you see a worker toy on duty while searching here, would you ask it about the doll maker?";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: เขาอาจถูกส่งสวรรค์ถ้าพวกมันนึกถึงความทรงจำของช่างทำตุ๊กตา นั่นคือความหวังที่ดีที่สุด";
+		npctalk "Catherine Jet Johnson: He might be sent to Heaven if they recall the memory of doll maker. That's the best hope.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: ถ้าคุณพบเบาะแสทั้งหมด ค้นหาที่อื่น ฉันจะหาจุดที่ฉันพบช่างทำตุ๊กตาครั้งสุดท้ายที่ฉันอยู่ที่นี่";
+		npctalk "Catherine Jet Johnson: If you find all clues, search other places. I will look for the spot where I met the doll maker last time I was here.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: ขอโทษที่ช่วยคุณได้ไม่มาก แล้วเจอกัน";
+		npctalk "Catherine Jet Johnson: Sorry that I can't be a big help to you. See you in a minute.";
 	}
 	sleep 6000;
 	disablenpc instance_npcname("Catherine Jet Johnson#21");
@@ -676,7 +676,7 @@ OnStart:
 		enablenpc instance_npcname("#fac3wp");
 		enablenpc instance_npcname("#fac3wp2");
 		donpcevent instance_npcname("#fac2ct") + "::OnEnd";
-		mapannounce 'xm_d_map$, "ประกาศโรงงาน: ทุกคนกลับบ้านแล้ว สายการผลิตปิดแล้ว และห้องพักพนักงานเปิดแล้ว", bc_map, "0x00ff44";
+		mapannounce 'xm_d_map$, "Factory announcement: Everyone has gone home. The line is shut down and the employee's lounge is open.", bc_map, "0x00ff44";
 		for ( .@i = 90; .@i <= 104; .@i++ )
 			disablenpc instance_npcname( "alert#"+ .@i );
 	}
@@ -689,67 +689,67 @@ OnStart:
 	if (getstatus(SC_MONSTER_TRANSFORM,1) == 1246) {
 		.@num = atoi(strnpcinfo(2));
 		mes "[Worker]";
-		mes "ฮ่า? เกิดอะไรขึ้น?";
+		mes "Huh? What happened?";
 		next;
 		if (select( "No, nothing special", "Do you know about the doll maker?" ) == 1) {
 			mes "[Worker]";
 			if (.@num == 8)
-				mes "ฉันกำลังทำงานอยู่! ฉันยุ่งมาก!";
+				mes "I'm working now! I'm very busy!";
 			else
-				mes "ฉันยุ่งมากกับงาน ดังนั้นคุณหยุดคุยได้ไหม?";
+				mes "I'm very busy with working, so could you stop chatting?";
 			close;
 		}
 		close2;
 		setpcblock PCBLOCK_NPC, true;
 		switch(.@num) {
 		case 1:
-			npctalk "พนักงาน: อา! คุณปู่? ท่านเป็นคนดีมาก ท่านทาน้ำมันพวกเราทุกวันและทำความสะอาดฝุ่นบ่อยมาก";
+			npctalk "Worker: Ah! Grandpa? He's a real good man. He oiled us everyday and cleaned the dust very often.";
 			sleep2 3000;
-			npctalk "พนักงาน: ฉันหวังว่าท่านจะไม่จากไป อา... อาฮา... ฉันรู้สึกดีขึ้น";
+			npctalk "Worker: I wish he wouldn't pass away. Ah... Ahah... I feel better.";
 			break;
 		case 2:
-			npctalk "พนักงาน: Kimi ฆ่าคุณปู่ช่างหรือ? ใครพูดแบบนั้น? ไม่เป็นความจริง Kimi กำลังจะช่วยท่าน!";
+			npctalk "Worker: Did Kimi kill the craftsman grandpa? Who said that? That's not true. Kimi was going to save him!";
 			sleep2 3000;
-			npctalk "พนักงาน: อา... ก.. แต่ ทำไมร่างกายของฉันถึง...";
+			npctalk "Worker: Ah... B.. By the way, why my does my body become...";
 			break;
 		case 3:
-			npctalk "พนักงาน: ท่านมีโรคหัวใจเรื้อรัง แต่มันเป็นอย่างกะทันหันเมื่อมันเริ่มและท่านเสียชีวิต Kimi พบท่านและปฐมพยาบาล แต่..";
+			npctalk "Worker: He had a chronic cardiac disease, but it was so sudden when it started and he died. Kimi found him and gave him first aid, but..";
 			sleep2 3000;
-			npctalk "พนักงาน: อา.. คุณทำอะไรกับฉันหรือ? ฉันรู้สึกแปลก...";
+			npctalk "Worker: Ah.. Did you do something to me? I feel strange...";
 			break;
 		case 4:
-			npctalk "พนักงาน: Kimi ไม่เคลื่อนไหวเลยสักพักและนั่งลงเหมือนตุ๊กตาธรรมดา";
+			npctalk "Worker: Kimi didn't move at all for sometime and sat down like ordinary dolls.";
 			sleep2 3000;
-			npctalk "พนักงาน: เธอกำลังจะปล่อยวิญญาณตลอดไป... เหมือนฉันตอนนี้... โอ้ ฉัน... เกิดอะไรขึ้นกับฉัน?";
+			npctalk "Worker: She was about to fly her soul forever... Like me now... Oh, my... What happened to me?";
 			break;
 		case 5:
-			npctalk "พนักงาน: โอ้ Kimi.. ที่รัก.. เธอคิดว่าช่างทำตุ๊กตาเสียชีวิตเพราะเธอทำให้ท่านตกใจ";
+			npctalk "Worker: Oh, Kimi.. My dear.. She thought the doll maker passed away because she startled him.";
 			sleep2 3000;
-			npctalk "พนักงาน: คุณปู่แค่ดีใจมากที่ Kimi เคลื่อนไหวได้..";
+			npctalk "Worker: Grandpa was just very pleased that Kimi was moving..";
 			break;
 		case 6:
-			npctalk "พนักงาน: ท่านสามารถเห็นตุ๊กตามีชีวิตชั่วขณะ นั่นคือสิ่งที่ Kimi ทำเป็นอันดับแรก";
+			npctalk "Worker: He could see a living doll for a while. That's what Kimi first did.";
 			sleep2 3000;
-			npctalk "พนักงาน: และสิ่งแรกที่เธอเห็นคือการสิ้นชีพของท่าน ช่างน่าสังเวชใจ";
+			npctalk "Worker: And what she first saw was his death. What a misery.";
 			break;
 		case 7:
-			npctalk "พนักงาน: Kimi สามารถได้ยินเสียงคุณปู่และรู้สึกก่อนที่จะถูกสิ่งอื่นเข้าสิง";
+			npctalk "Worker: Kimi was able to hear the Grandpa's voice and feel before she was indwelled.";
 			sleep2 3000;
-			npctalk "พนักงาน: บางทีความรักของคุณปู่ทำให้เธอเคลื่อนไหวและมีชีวิต อาฮา.. ฉันง่วงนอน..";
+			npctalk "Worker: Perhaps Grandpa's affection made her move and become alive. Ahah.. I'm sleepy..";
 			break;
 		case 8:
-			npctalk "พนักงาน: คุณปู่เป็นคนดี! น่าสงสาร Kimi! Kimi รักคุณปู่! แต่คุณปู่เสียชีวิต ฉันเศร้า!";
+			npctalk "Worker: Grandpa was a good man! Pity on Kimi! Kimi loved Grandpa! But Grandpa died. I'm sad!";
 			sleep2 3000;
 			break;
 		case 9:
-			npctalk "พนักงาน: ท่านแปลกใจมากที่เห็น Kimi เปิดตาและหัวใจของท่าน... มันก็เป็นเช่นนั้น";
+			npctalk "Worker: He was so amazed to see Kimi's opening eyes and his heart... It became like that.";
 			sleep2 3000;
-			npctalk "พนักงาน: ยังไงก็ตาม ทำไมร่างกายของฉัน... มันดูเหมือนจะลอยอยู่ในอากาศ.... แปลกอะไรบางอย่าง";
+			npctalk "Worker: Anyhow, why my is my body... It's likely to float in the air.... Something strange.";
 			break;
 		case 10:
-			npctalk "พนักงาน: Kimi ไม่ได้ทำร้ายคุณปู่! Kimi ต้องการช่วยคุณปู่! คนกลัว Kimi แต่ Kimi ใจดี! Kimi เป็นเด็กดี!";
+			npctalk "Worker: Kimi didn't hurt Grandpa! Kimi's wanted to save Grandpa! People are scared of Kimi, but Kimi is kind! Kimi is a good girl!";
 			sleep2 3000;
-			npctalk "พนักงาน: คุณปู่... ฉันคิดถึงท่าน คุณปู่ คุณปู่...";
+			npctalk "Worker: Grandpa... I miss him. Grandpa, Grandpa...";
 			break;
 		}
 		sleep2 3000;
@@ -762,7 +762,7 @@ OnStart:
 		end;
 	}
 	mes "[Worker]";
-	mes "อะไรนะ?! คุณไม่ใช่พวกเรา!!";
+	mes "What!? You are not one of us!!";
 	donpcevent instance_npcname( strnpcinfo(0) ) + "::OnAlert";
 	close;
 
@@ -771,9 +771,9 @@ OnAlert:
 	killmonster 'xm_d_map$, .@npc_name$ + "::OnMyMobDead";
 	.@num = atoi(strnpcinfo(2));
 	if (.@num == 8)
-		npctalk "พนักงาน: ยาม! ยาม!!";
+		npctalk "Worker: Guard! Guard!!";
 	else
-		npctalk "พนักงาน: ยาม ยาม! คุณอยู่ที่ไหน?! มนุษย์อยู่ที่นี่!!";
+		npctalk "Worker: Guard, Guard! Where are you?! Humans are here!!";
 	sleep 3000;
 	switch(.@num) {
 	case 9:
@@ -826,52 +826,52 @@ OnTouch_:
 
 1@xm_d,131,208,8	script	Captured Santa#3	4_M_SANTA,{
 	mes "[Captured Santa]";
-	mes "แม้ไม่มีใครเป็นเจ้าของ มันก็ไม่ถูกต้องที่จะขโมยจากทุกคน";
+	mes "Even if no one owns it, its not right to steal it from everyone.";
 	close;
 }
 
 1@xm_d,131,213,4	script	Antonio#1	4_M_ANTONIO,{
 	mes "[Antonio]";
-	mes "เฮ้ ซานต้า หยุดเป็นคนเคร่งครัดสิ คนแก่ ก็แฟร์แค่แฟร์นั่นแหละ คีคีคี";
+	mes "Hey, Santa. Stop being stuffy, you old man. Fair is fair after all, kekeke.";
 	close;
 
 OnStart:
 	.@antonio$ = instance_npcname("Antonio#1");
 	.@santa$ = instance_npcname("Captured Santa#3");
 	sleep 3000;
-	npctalk "Antonio: ฟังฉันพูดนะ ซานต้า~ ฉันหมายถึง ฉันชอบโรงงานนี้", .@antonio$;
+	npctalk "Antonio: Listen to me, Santa~ I mean, I like this factory.", .@antonio$;
 	sleep 3000;
-	npctalk "Antonio: ไม่มีใครเป็นเจ้าของ~ และมีของหลายอย่างที่ฉันสามารถใช้ได้", .@antonio$;
+	npctalk "Antonio: No one owns it~ And there are a number of things I can use.", .@antonio$;
 	sleep 3000;
-	npctalk "Santa ที่ถูกจับ: โง่จริง! เพื่อให้แน่ใจ ฉันตามเจ้ามา ตอนนี้เจ้าขโมยจากโรงงานของทุกคน!", .@santa$;
+	npctalk "Captured Santa: You silly! Just to be sure, I followed you. Now you steal from everyones factory!", .@santa$;
 	sleep 4000;
-	npctalk "Antonio: เฮ้ มันเป็นเรื่องใหญ่ถ้าฉันมีของขวัญส่วนเกินหรือ? ฉันไม่รู้นะ~", .@antonio$;
+	npctalk "Antonio: Hey, is this a big deal if I have surplus presents? I don't know about that~", .@antonio$;
 	sleep 4000;
-	npctalk "Santa ที่ถูกจับ: ฟิ้ว... โอเค แต่ลองคิดดูว่าเด็กๆ รู้สึกอย่างไรเมื่อพวกเขาได้รับ", .@santa$;
+	npctalk "Captured Santa: Whew... Okay, but think about that how children feel when they got them.", .@santa$;
 	sleep 4000;
-	npctalk "Santa ที่ถูกจับ: พวกเขาจะรู้สึกอย่างไรถ้ารู้ว่าเจ้าแจกสิ่งที่ไม่มีเจ้าของให้พวกเขา?", .@santa$;
+	npctalk "Captured Santa: How they feel if they know you distributed the masterless things to them?", .@santa$;
 	sleep 4000;
-	npctalk "Antonio: ฮืมม์...", .@antonio$;
+	npctalk "Antonio: Hmm...", .@antonio$;
 	sleep 2000;
-	npctalk "Antonio: บางที... ฉันจะมีความสุขหรือ?! ยังไงก็ตาม มันเป็นของขวัญ คีคีคีคี", .@antonio$;
+	npctalk "Antonio: Maybe... I will be happy?! Anyway, that's a present, kekekeke.", .@antonio$;
 	sleep 5000;
-	npctalk "Santa ที่ถูกจับ: ใครบอกว่าของขวัญเองเป็นปัญหา! เจ้าควรหยุดการขโมยนี้ Antonio!", .@santa$;
+	npctalk "Captured Santa: Who said the present itself is the problem! You'd better stop this theft, Antonio!", .@santa$;
 	sleep 5000;
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: การเตรียมส่งเสร็จแล้วในโรงงานที่ 3", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: The sending preparations have finished in Factory No.3.", bc_map, "0x00ff44";
 	sleep 5000;
-	mapannounce 'xm_d_map$, "ประกาศโรงงาน: พนักงานส่งมอบ โปรดเตรียมตัว", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Factory announcement: Delivery employees, please stand by.", bc_map, "0x00ff44";
 	sleep 3000;
-	npctalk "Antonio: โอ้! วูฮูฮู! ของขวัญกองโตล่าช้า ลองจัดปาร์ตี้วันนี้ไหม?!", .@antonio$;
+	npctalk "Antonio: Oh! Wohuhu! A bunch of presents are delayed. Let's have a party today?!", .@antonio$;
 	sleep 4000;
-	npctalk "Antonio: เฮ้ มนุษย์ คุณสามารถตามฉันมาถ้าอยากช่วย ฉันโอเคตราบใดที่คุณไม่รบกวนฉัน!", .@antonio$;
+	npctalk "Antonio: Hey, human. You can follow me if you'd like to help. I'm okay unless you disturb me!", .@antonio$;
 	sleep 4000;
 	disablenpc .@antonio$;
 	sleep 2000;
-	npctalk "Santa ที่ถูกจับ: อา.. พวกนั้นไม่มีจรรยาบรรณเลย!", .@santa$;
+	npctalk "Captured Santa: Tha.. That dude has no ethics!", .@santa$;
 	sleep 4000;
-	npctalk "Santa ที่ถูกจับ: เฮ้ คุณจะไปไล่ Antonio ออกไหม? เขาอาจหนีถ้าคุณตีหลายครั้ง", .@santa$;
+	npctalk "Captured Santa: Hey, would you go kick that Antonio out? He might run away if you hit several times.", .@santa$;
 	sleep 5000;
-	npctalk "Santa ที่ถูกจับ: มันไม่ถูกต้องที่จะขโมยจากชุมชน!", .@santa$;
+	npctalk "Captured Santa: Its not right to steal from the community!", .@santa$;
 
 	disablenpc instance_npcname("#bgm04");
 	enablenpc instance_npcname("#fac4wp");
@@ -953,7 +953,7 @@ OnEnd:
 	donpcevent instance_npcname("#fac3ct2") + "::OnEnd";
 	donpcevent instance_npcname("#finalbs") + "::OnStart";
 	disablenpc instance_npcname("Captured Santa#3");
-	mapannounce 'xm_d_map$, "???: ฉันจะไม่ทำร้ายคุณถ้าคุณออกไปอย่างเงียบๆ โดยไม่รบกวนฉัน", bc_map, "0xff8800";
+	mapannounce 'xm_d_map$, "???: I won't harm you if you leave quietly without spoiling it for me.", bc_map, "0xff8800";
 	stopnpctimer;
 	end;
 }
@@ -981,7 +981,7 @@ OnTouch:
 
 1@xm_d,233,183,3	script	Celine Kimi#0	4_F_KIMI,{
 	mes "[Celine Kimi]";
-	mes "คุณมาที่นี่ด้วยหรือ? ทำไมมนุษย์ทั้งหมดจึงกระสับกระส่ายที่จะทำลายสิ่งที่พวกเราสร้าง?";
+	mes "Did you come here as well? Why are all of the humans so anxious to destroy what we built?";
 	close;
 }
 
@@ -1003,55 +1003,55 @@ OnTouch:
 
 1@xm_d,222,183,6	script	Catherine Jet Johnson#5	4_F_SKULL06GIRL,{
 	mes "[Catherine Jet Johnson]";
-	mes "อา.. ระวัง! Kimi ไม่ได้อยู่ในสภาวะปกติ";
+	mes "Wa.. Watch out! Kimi isn't under the normal status.";
 	close;
 
 OnStart:
 	.@kimi$ = instance_npcname("Celine Kimi#0");
 	sleep 2000;
-	npctalk "Catherine Jet Johnson: Kimi! ฟังฉันพูด ฉันไม่ได้มาที่นี่เพื่อกล่าวโทษเธอ";
+	npctalk "Catherine Jet Johnson: Kimi! Listen to me. I didn't come here to blame you.";
 	sleep 3000;
-	npctalk "Celine Kimi: ทุกคนเกลียดฉัน!... คุณก็ไม่ชอบฉันเหมือนกันหรือ? ตุ๊กตาน่าเกลียดและน่าขนลุกตัวนี้ชอบฉัน...", .@kimi$;
+	npctalk "Celine Kimi: Everyone hates me!... You don't like me as well? This ugly and creepy doll likes me...", .@kimi$;
 	sleep 4000;
-	npctalk "Catherine Jet Johnson: Kimi ฉันได้ยินเรื่องของเธอจากตุ๊กตาที่นี่ ช่างทำตุ๊กตาหลงรักเธอมาก!";
+	npctalk "Catherine Jet Johnson: Kimi, I heard about you from dolls here. The doll maker adored you so much!";
 	sleep 4000;
-	mapannounce 'xm_d_map$, "เสียงร้องของจิตวิญญาณ: โกหก!", bc_map, "0xff8800";
+	mapannounce 'xm_d_map$, "Phantom's yell: Lie!", bc_map, "0xff8800";
 	sleep 1000;
-	npctalk "Celine Kimi: อย่าโกหก ถ้าเป็นความจริง ทำไมเขาถึงไม่มองฉันด้วยความรักในดวงตา?", .@kimi$;
+	npctalk "Celine Kimi: Don't lie. If that's true, why didn't he see me with love in his eyes?", .@kimi$;
 	sleep 4000;
-	npctalk "Celine Kimi: ทำไมเขาถึงไม่เรียกชื่อฉัน? [Kimi] [Kimi!] ฉันกระสับกระส่ายที่จะได้ยินเสียงคุณปู่", .@kimi$;
+	npctalk "Celine Kimi: Why didn't he say my name? [Kimi] [Kimi!] I was anxious to hear the Grandpa's voice.", .@kimi$;
 	sleep 4000;
-	mapannounce 'xm_d_map$, "เสียงร้องของจิตวิญญาณ: ใช่ Kimi~ พ่อกลัว! เขากลัวเธอ~", bc_map, "0xff8800";
+	mapannounce 'xm_d_map$, "Phantom's yell: Yes, Kimi~ Father was frightened! He was scared of you~", bc_map, "0xff8800";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: ไม่ อย่าฟังมัน Kimi! เขารักษาเธอไว้จริงๆ";
+	npctalk "Catherine Jet Johnson: No, don't listen to it, Kimi! He really cherished you.";
 	sleep 3000;
-	npctalk "Celine Kimi: เขา... รักษาฉันไว้หรือ?", .@kimi$;
+	npctalk "Celine Kimi: Did he... cherish me?", .@kimi$;
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: ใช่ เมื่อเธอเริ่มเคลื่อนไหว เขาดีใจมาก...";
+	npctalk "Catherine Jet Johnson: Yes, when you start to move, he was so plea...";
 	sleep 1000;
-	mapannounce 'xm_d_map$, "เสียงร้องของจิตวิญญาณ: เขากลัวรูปลักษณ์ของเธอและหัวใจหยุดเต้น Kimi~ เธอฆ่าเขา!", bc_map, "0xff8800";
+	mapannounce 'xm_d_map$, "Phantom's yell: He was scared of your appearance and his heart stopped, Kimi~ You killed him!", bc_map, "0xff8800";
 	sleep 3000;
-	npctalk "Celine Kimi: ฉัน.. ฉันฆ่า.. เขาหรือ?...", .@kimi$;
+	npctalk "Celine Kimi: D.. Did I.. kill him?...", .@kimi$;
 	sleep 2000;
-	npctalk "Catherine Jet Johnson: ไม่ Kimi! ฉันตระหนักแล้ว ฉันเข้าใจผิดเธอ เขาป่วย!";
+	npctalk "Catherine Jet Johnson: No, Kimi! I've realized that. I misunderstood you. He was sick!";
 	sleep 3000;
-	npctalk "Celine Kimi: ฉัน.. ฉัน.. ฉันฆ่า... เขาหรือ?", .@kimi$;
+	npctalk "Celine Kimi: D.. Di.. Did I... kill... him?", .@kimi$;
 	sleep 2000;
-	mapannounce 'xm_d_map$, "เสียงร้องของจิตวิญญาณ: ดูตัวเองสิ Kimi~ ดูในกระจก~ เธอรู้สึกอย่างไร?", bc_map, "0xff8800";
+	mapannounce 'xm_d_map$, "Phantom's yell: See how you look, Kimi~ See the mirror~ How do yo feel? ", bc_map, "0xff8800";
 	sleep 3000;
-	npctalk "Celine Kimi: ฉัน... ฉัน...", .@kimi$;
+	npctalk "Celine Kimi: I... I...", .@kimi$;
 	sleep 1000;
-	mapannounce 'xm_d_map$, "เสียงร้องของจิตวิญญาณ: เธอไม่เห็นด้วยหรือว่าเธอน่ากลัว? ไม่มีใครรักเธอ Kimi~", bc_map, "0xff8800";
+	mapannounce 'xm_d_map$, "Phantom's yell: Don't you agree you are frightening? No one loves you, Kimi~", bc_map, "0xff8800";
 	sleep 3000;
-	npctalk "Celine Kimi: เพราะฉัน คุณปู่จึงเสียชีวิต...", .@kimi$;
+	npctalk "Celine Kimi: Because of me, grandpa is dead...", .@kimi$;
 	specialeffect EF_MAPPILLAR2, AREA, .@kimi$;
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: มันกลายเป็นเรื่องร้ายแรง Kimi กำลังทุกข์ทรมาน มันจะอันตรายในสภาพนี้!";
+	npctalk "Catherine Jet Johnson: It has become serious. Kimi is suffering. It would be dangerous under this condition!";
 	specialeffect EF_MAPPILLAR2, AREA, .@kimi$;
 	sleep 1000;
-	mapannounce 'xm_d_map$, "เสียงร้องของจิตวิญญาณ: ความโกรธ~ ความเศร้า~ ไม่มีใครร้องไห้เพื่อเธอ Kimi~", bc_map, "0xff8800";
+	mapannounce 'xm_d_map$, "Phantom's yell: Rage~ Sorrow~ No one cries for you, Kimi~", bc_map, "0xff8800";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: ฉันจะหาทางออกฉุกเฉินเพื่อหนี วิ่งหนีไป ผู้ผจญภัย!";
+	npctalk "Catherine Jet Johnson: I will find the emergency exit to escape. Run away, adventurer!";
 	sleep 3000;
 	disablenpc instance_npcname("Catherine Jet Johnson#5");
 	sleep 2000;
@@ -1113,7 +1113,7 @@ OnTimer1000:
 	if (unitexists('celene_id) == true) {
 		getunitdata 'celene_id, .@data;
 		if ((.@data[UMOB_X] < 211 || .@data[UMOB_X] > 241 || .@data[UMOB_Y] < 166 || .@data[UMOB_Y] > 201) && (.@data[UMOB_X] > 0 || .@data[UMOB_Y] > 0)) {
-			mapannounce 'xm_d_map$, "Celine Kimi: ไม่! ฉันต้องอยู่ในที่ของฉัน!",bc_map,"0xff6666",FW_NORMAL,15;
+			mapannounce 'xm_d_map$, "Celine Kimi: No! I should keep my place!",bc_map,"0xff6666",FW_NORMAL,15;
 			donpcevent instance_npcname("#finalbs2") + "::Onfail";
 		}
 	}
@@ -1296,7 +1296,7 @@ OnStart:
 		initnpctimer;
 	end;
 OnTimer3000:
-	mapannounce 'xm_d_map$, "เซลีน คิมิ และจิตวิญญาณของเธออีกคนได้แบ่งปันพลังของพวกเขา พวกเขาจะแข็งแกร่งกว่าที่เคยมา!",bc_map,"0xff6666";
+	mapannounce 'xm_d_map$, "Celine Kimi and her phantom have shared their strength. They will be stronger than ever!",bc_map,"0xff6666";
 	stopnpctimer;
 	end;
 }
@@ -1304,14 +1304,14 @@ OnTimer3000:
 1@xm_d,1,5,3	script	#finalbs_e	CLEAR_NPC,{
 	end;
 OnStart:
-	mapannounce 'xm_d_map$, "เซลีน คิมิ: มันไม่มีประโยชน์ที่จะเอาชนะฉัน! ร่างกายของฉันจะฟื้นตัว",bc_map,"0xff6666",FW_NORMAL,15;
+	mapannounce 'xm_d_map$, "Celine Kimi: It is no use to defeat me! My body will be restored.",bc_map,"0xff6666",FW_NORMAL,15;
 	enablenpc instance_npcname("#fac6wp");
 	enablenpc instance_npcname("#jeton2");
 	enablenpc instance_npcname("Catherine Jet Johnson#6");
 	for ( .@i = 1; .@i <= 10; .@i++ )
 		enablenpc instance_npcname("Packaged Present#"+ .@i);
 	sleep 6000;
-	mapannounce 'xm_d_map$, "เสียงร้องของแคเธอรีน เจ็ท จอห์นสัน: คุณไม่เป็นไร? หนีไปที่ทางออกฉุกเฉินทางใต้!",bc_map,"0xffff00";
+	mapannounce 'xm_d_map$, "Catherine Jet Johnson's yell: Are you okay? Flee to the south emergency exit!",bc_map,"0xffff00";
 	end;
 }
 
@@ -1327,19 +1327,19 @@ OnTouch_:
 	end;
 OnStart:
 	sleep 1000;
-	npctalk "Catherine Jet Johnson: น่าเสียดาย ฉันล้มเหลวในการโน้มน้าว Kimi";
+	npctalk "Catherine Jet Johnson: Unfortunately, I have failed to persuade Kimi.";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: เสียงของจิตวิญญาณนั้นคืออะไร? ทำไมมันถึงทรมาน Kimi อย่างรุนแรง...";
+	npctalk "Catherine Jet Johnson: What was the voice of that phantom? Why does it torment Kimi so harshly...";
 	sleep 4000;
-	npctalk "Catherine Jet Johnson: ฉันเดาว่าคำสาปที่ใบหน้าของฉันมาจากเสียงที่ไม่ระบุตัวตน";
+	npctalk "Catherine Jet Johnson: I guess that the curse of my face was from the unidentified voice.";
 	sleep 4000;
-	npctalk "Catherine Jet Johnson: ยังไงก็ตาม แม้ Kimi จะเกลียดทุกคน เธอก็รวบรวมความทรงจำของเธอที่นี่มาก";
+	npctalk "Catherine Jet Johnson: Anyway, even Kimi hates everyone and has collected her recollections here a lot.";
 	sleep 6000;
-	npctalk "Catherine Jet Johnson: ฉันจะยุติสิ่งนี้อย่างปลอดภัยแม้วิญญาณของเธอจะกลับมาและเธอจะไม่ผิดหวัง";
+	npctalk "Catherine Jet Johnson: I will end this thing safely even if her soul will return and she won't be disappointed.";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: ขอบคุณคุณ ทุกอย่างที่ฉันสงสัยได้รับการแก้ไขอย่างสมบูรณ์ โปรดเรียกฉันอีกครั้งถ้าคุณจะส่งเธอขึ้นสวรรค์ครั้งหน้า";
+	npctalk "Catherine Jet Johnson: Thanks to you, everything that I have wondered is completely resolved. Please call me again if you are going to send her to Heaven next time.";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: ฉันจะเปิดทางออก ฉันจะออกไปข้างนอกก่อน แค่ตามฉันมา";
+	npctalk "Catherine Jet Johnson: I will open the exit way out. I will go outside first, so just follow me.";
 	sleep 3000;
 	disablenpc instance_npcname("Catherine Jet Johnson#6");
 	enablenpc instance_npcname("#exwp1");

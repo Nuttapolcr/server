@@ -975,6 +975,26 @@ Body:
       Duration: 500
     Script: |
       itemskill "AL_TELEPORT",1;
+  - Id: 22507
+    AegisName: ShabbyOldScroll
+    Name: Old Scroll
+    Type: Usable
+    Buy: 10
+    Weight: 10
+    Script: |
+      callfunc "F_22507";
+  - Id: 22534
+    AegisName: Closedmind_Box
+    Name: Closed Mind Box
+    Type: Cash
+    Buy: 10
+    Weight: 1000
+    EquipLevelMin: 1
+    Flags:
+      BuyingStore: true
+      Container: true
+    Script: |
+      getgroupitem(IG_CLOSEDMIND_BOX);
   - Id: 22850
     AegisName: C_Wing_Of_FlyBox
     Name: Infinite Flywing Box
