@@ -1,19 +1,19 @@
 //!rathena
-// Costume enchant NPC generated from the HICLASS costume stone sheet.
-// Reference flow: malangdo_costume.txt
-// All supported stones are applied to card slot 4.
+// NPC เสริมหิน Costume สร้างจาก HICLASS costume stone sheet.
+// อ้างอิง flow จาก malangdo_costume.txt
+// หินที่รองรับทั้งหมดจะถูกใส่ลง card slot 4.
 
-morocc,139,147,4	script	NPC Option Costume	749,{
+morocc,139,147,4	script	NPC เสริมหิน Costume	749,{
 	disable_items;
 
 	if (checkweight(1119,3) == 0) {
 		mes .mes$;
-		mes "Please reduce your inventory weight and try again.";
+		mes "น้ำหนักในตัวเกิน กรุณาลดน้ำหนักแล้วลองใหม่";
 		close;
 	}
 
 	mes .mes$;
-	mes "Select the costume part to enchant.";
+	mes "เลือกตำแหน่ง Costume ที่ต้องการเสริมพลัง";
 	next;
 
 	setarray .@equip_pos[0],
@@ -23,18 +23,18 @@ morocc,139,147,4	script	NPC Option Costume	749,{
 		EQI_COSTUME_GARMENT,
 		EQI_SHADOW_WEAPON;
 	setarray .@equip_name$[0],
-		"Costume Upper",
-		"Costume Middle",
-		"Costume Lower",
-		"Costume Garment",
-		"Costume Weapon";
+		"Costume ส่วนบน",
+		"Costume ส่วนกลาง",
+		"Costume ส่วนล่าง",
+		"Costume ผ้าคลุม",
+		"Costume อาวุธ";
 
 	for (.@i = 0; .@i < getarraysize(.@equip_pos); .@i++) {
 		.@menu$ += .@equip_name$[.@i] + " - ";
 		if (getequipisequiped(.@equip_pos[.@i]))
 			.@menu$ += getequipname(.@equip_pos[.@i]);
 		else
-			.@menu$ += "(not equipped)";
+			.@menu$ += "(ไม่ได้สวมใส่)";
 		.@menu$ += ":";
 	}
 	.@selected = select(.@menu$) - 1;
@@ -45,7 +45,7 @@ morocc,139,147,4	script	NPC Option Costume	749,{
 
 	if (.@equip_id < 0) {
 		mes .mes$;
-		mes "You are not wearing anything in " + .@part_name$ + ".";
+		mes "คุณไม่ได้สวมใส่อุปกรณ์ในช่อง " + .@part_name$;
 		close;
 	}
 
@@ -195,21 +195,21 @@ morocc,139,147,4	script	NPC Option Costume	749,{
 
 	if (!getarraysize(.@stone_id)) {
 		mes .mes$;
-		mes "This part does not have costume stones configured.";
+		mes "ตำแหน่งนี้ยังไม่มีรายการหิน Costume ที่ตั้งค่าไว้";
 		close;
 	}
 
 	mes .mes$;
-	mes "Item: ^0000FF" + getitemname(.@equip_id) + "^000000";
-	mes "Enchant will be applied to slot " + .local + ".";
-	mes "Success rate: ^009900" + .success_rate + "%^000000";
+	mes "ไอเทม: ^0000FF" + getitemname(.@equip_id) + "^000000";
+	mes "การเสริมพลังจะถูกใส่ใน slot " + .local;
+	mes "โอกาสสำเร็จ: ^009900" + .success_rate + "%^000000";
 	if (.zeny_cost)
-		mes "Fee: ^FF9900" + callfunc("F_InsertComma", .zeny_cost) + " Zeny^000000";
+		mes "ค่าบริการ: ^FF9900" + callfunc("F_InsertComma", .zeny_cost) + " Zeny^000000";
 	next;
 
 	for (.@i = 0; .@i < getarraysize(.@stone_id); .@i += 2)
 		.@stone_menu$ += getitemname(.@stone_id[.@i]) + " [" + countitem(.@stone_id[.@i]) + "]:";
-	.@stone_menu$ += "Cancel";
+	.@stone_menu$ += "ยกเลิก";
 	.@stone_select = select(.@stone_menu$) - 1;
 	if (.@stone_select == getarraysize(.@stone_id) / 2)
 		close;
@@ -219,12 +219,12 @@ morocc,139,147,4	script	NPC Option Costume	749,{
 
 	if (countitem(.@stone) < 1) {
 		mes .mes$;
-		mes "You do not have ^FF0000" + getitemname(.@stone) + "^000000.";
+		mes "คุณไม่มี ^FF0000" + getitemname(.@stone) + "^000000";
 		close;
 	}
 	if (.zeny_cost && Zeny < .zeny_cost) {
 		mes .mes$;
-		mes "You need " + callfunc("F_InsertComma", .zeny_cost - Zeny) + " more Zeny.";
+		mes "คุณต้องการ Zeny เพิ่มอีก " + callfunc("F_InsertComma", .zeny_cost - Zeny);
 		close;
 	}
 
@@ -255,24 +255,24 @@ morocc,139,147,4	script	NPC Option Costume	749,{
 		getequiprandomoption(.@part,4,ROA_PARAM);
 
 	mes .mes$;
-	mes "Item: ^0000FF" + getitemname(.@equip_id) + "^000000";
-	mes "Stone: ^009900" + getitemname(.@stone) + "^000000";
+	mes "ไอเทม: ^0000FF" + getitemname(.@equip_id) + "^000000";
+	mes "หิน: ^009900" + getitemname(.@stone) + "^000000";
 	if (.@card[.@target_slot])
-		mes "^FF0000The current slot " + .local + " enchant will be overwritten.^000000";
-	mes "^FF0000If enchant fails, slot " + .local + " will be cleared.^000000";
-	mes "Continue?";
+		mes "^FF0000Enchant เดิมใน slot " + .local + " จะถูกเขียนทับ^000000";
+	mes "^FF0000ถ้าเสริมพลังล้มเหลว slot " + .local + " จะถูกล้าง^000000";
+	mes "ต้องการดำเนินการต่อหรือไม่?";
 	next;
-	if (select("Confirm", "Cancel") == 2)
+	if (select("ยืนยัน", "ยกเลิก") == 2)
 		close;
 
 	if (getequipid(.@part) < 0 || countitem(.@stone) < 1) {
 		mes .mes$;
-		mes "Please keep both the costume and stone ready.";
+		mes "กรุณาเตรียม Costume และหินไว้ให้พร้อม";
 		close;
 	}
 	if (.zeny_cost && Zeny < .zeny_cost) {
 		mes .mes$;
-		mes "You do not have enough Zeny.";
+		mes "คุณมี Zeny ไม่เพียงพอ";
 		close;
 	}
 	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
@@ -287,14 +287,14 @@ morocc,139,147,4	script	NPC Option Costume	749,{
 
 	if (rand(1,100) <= .success_rate) {
 		mes .mes$;
-		mes "^009900Enchant success.^000000";
+		mes "^009900เสริมพลังสำเร็จ^000000";
 		.@card[.@target_slot] = .@enchant;
 		specialeffect2 154;
-		announce strnpcinfo(0) + ": " + strcharinfo(0) + " enchanted " + getitemname(.@equip_id) + " with " + getitemname(.@stone) + ".", bc_all, 0xFFFF00;
+		announce strnpcinfo(0) + ": " + strcharinfo(0) + " เสริมพลัง " + getitemname(.@equip_id) + " ด้วย " + getitemname(.@stone), bc_all, 0xFFFF00;
 	}
 	else {
 		mes .mes$;
-		mes "^FF0000Enchant failed.^000000";
+		mes "^FF0000เสริมพลังล้มเหลว^000000";
 		.@card[.@target_slot] = 0;
 		specialeffect2 155;
 	}
