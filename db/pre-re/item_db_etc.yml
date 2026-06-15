@@ -24625,8 +24625,6 @@ Body:
     Type: Etc
     Buy: 20
     Weight: 100
-
-
   - Id: 29032
     AegisName: SPdrain1_Top
     Name: SP Absorption 1
@@ -24801,7 +24799,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"MO_CHAINCOMBO",20;
+      bonus bSPrecovRate,2*getskilllv("MO_EXPLOSIONSPIRITS");
   - Id: 29432
     AegisName: Sorcerer_Top
     Name: Professor Stone (Upper)
@@ -24838,7 +24836,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"LK_SPIRALPIERCE",15;
+      bonus bMaxHP,100*(getskilllv("KN_TWOHANDQUICKEN")/2);
   - Id: 29462
     AegisName: Runeknight_Bottom
     Name: Lord Knight Stone (Bottom)
@@ -24889,7 +24887,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"WZ_FIREPILLAR",20;
+      bonus2 bVariableCastrate,"HW_MAGICPOWER",-50;
   - Id: 29477
     AegisName: Shadowchaser_Top
     Name: Stalker Stone (Upper)
@@ -24910,7 +24908,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"RG_RAID",20;
+      bonus bFlee,2*getskilllv("RG_RAID");
   - Id: 29481
     AegisName: Mechanic_Top
     Name: Whitesmith Stone (Upper)
@@ -24924,14 +24922,14 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus bHit,3*getskilllv("BS_SKINTEMPER");
+      bonus bHit,2*getskilllv("BS_SKINTEMPER");
   - Id: 29483
     AegisName: Mechanic_Bottom
     Name: Whitesmith Stone (Bottom)
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"WS_CARTTERMINATION",20;
+      bonus bDef,2*getskilllv("BS_ADRENALINE");
   - Id: 29485
     AegisName: WanderMinstrel_Top
     Name: Clown Gypsy Stone (Upper)
@@ -24949,16 +24947,16 @@ Body:
     SubType: Enchant
     Script: |
       if (Sex == SEX_FEMALE)
-         bonus2 bSkillAtk,"DC_THROWARROW",20;
+         bonus bLongAtkRate,(getskilllv("DC_THROWARROW")/2);
       else
-         bonus2 bSkillAtk,"BA_MUSICALSTRIKE",20;
+         bonus bLongAtkRate,(getskilllv("BA_MUSICALSTRIKE")/2);
   - Id: 29487
     AegisName: WanderMinstrel_Bottom
     Name: Clown Gypsy Stone (Bottom)
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"CG_ARROWVULCAN",20;
+      bonus bHit,2*getskilllv("CG_ARROWVULCAN");
   - Id: 29513
     AegisName: Highpriest_Top
     Name: High Priest Stone (Upper)
@@ -24972,21 +24970,21 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus bCritAtkRate,2*getskilllv("PR_MACEMASTERY");
+      bonus bMatk,2*getskilllv("PR_MACEMASTERY");
   - Id: 29515
     AegisName: Highpriest_Bottom
     Name: High Priest Stone (Bottom)
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"PR_MAGNUS",20;
+      bonus bVariableCastrate,-2*getskilllv("HP_BASILICA");
   - Id: 29517
     AegisName: Paladin_Top
     Name: Paladin Stone (Upper)
     Type: Card
     SubType: Enchant
     Script: |
-      bonus bMaxHPrate,(getskilllv("CR_TRUST")/2);
+      bonus bMaxHP,100*(getskilllv("CR_TRUST")/2);
   - Id: 29518
     AegisName: Paladin_Middle
     Name: Paladin Stone (Middle)
@@ -25049,38 +25047,35 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus bMatk,2*getskilllv("SA_AUTOSPELL");
+      bonus bMatk,4*getskilllv("WZ_EARTHSPIKE");
   - Id: 29616
     AegisName: Sorcerer_Middle2
     Name: Sorcerer Stone II (Middle)
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"MG_FIREBOLT",20;
-      bonus2 bSkillAtk,"MG_COLDBOLT",20;
-      bonus2 bSkillAtk,"MG_LIGHTNINGBOLT",20;
+      bonus bInt,2*((getskilllv("SA_FLAMELAUNCHER")+getskilllv("SA_LIGHTNINGLOADER")+getskilllv("SA_FROSTWEAPON"))/3);
   - Id: 29617
     AegisName: Sorcerer_Top2
     Name: Sorcerer Stone II (Upper)
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"WZ_EARTHSPIKE",20;
-      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",20;
+      bonus bVariableCastrate,-2*getskilllv("PF_DOUBLECASTING");
   - Id: 29619
     AegisName: Shadowchaser_Bottom2
     Name: Shadow Chaser Stone II (Bottom)
     Type: Card
     SubType: Enchant
     Script: |
-      bonus bHit,getskilllv("TF_MISS");
+      bonus bCritical,(getskilllv("TF_MISS")/2);
   - Id: 29620
     AegisName: Shadowchaser_Middle2
     Name: Shadow Chaser Stone II (Middle)
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"RG_BACKSTAP",15;
+      bonus bFlee,getskilllv("RG_STEALCOIN");
   - Id: 29621
     AegisName: Shadowchaser_Top2
     Name: Shadow Chaser Stone II (Upper)
@@ -25123,6 +25118,7 @@ Body:
     SubType: Enchant
     Script: |
       bonus2 bFixedCastrate,"SG_FEEL",-50;
+      bonus2 bFixedCastrate,"SG_HATE",-50;
   - Id: 29657
     AegisName: Gladiator_Bottom
     Name: Star Gladiator Stone (Bottom)
@@ -25174,7 +25170,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus bLongAtkRate,(getskilllv("GS_CHAINACTION")/2);
+      bonus bLongAtkRate,getskilllv("GS_CHAINACTION");
   - Id: 29668
     AegisName: Doram_Top
     Name: Doram Stone (Upper)
@@ -25330,14 +25326,14 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bAddSize,Size_All,getskilllv("AM_CANNIBALIZE");
+      bonus bCritical,2*getskilllv("AM_CANNIBALIZE");
   - Id: 310263
     AegisName: Genetic_Middle2
     Name: Creator Stone II (Middle)
     Type: Card
     SubType: Enchant
     Script: |
-      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",25;
+      bonus bAspdRate,getskilllv("AM_ACIDTERROR");
   - Id: 310264
     AegisName: Genetic_Bottom2
     Name: Creator Stone II (Bottom)

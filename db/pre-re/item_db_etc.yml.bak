@@ -2,6 +2,81 @@ Header:
   Type: ITEM_DB
   Version: 3
 Body:
+  - Id: 6607
+    AegisName: Temporal_Crystal
+    Name: Temporal Crystal
+    Type: Etc
+    Buy: 20
+    Weight: 10
+    Flags:
+      BuyingStore: true
+  - Id: 6612
+    AegisName: Gold_Coin_Basket
+    Name: Gold Coin Basket
+    Type: Etc
+    Buy: 300000
+    Weight: 200
+    Flags:
+      BuyingStore: true
+  - Id: 6613
+    AegisName: Colorful_Brooch
+    Name: Colorful Brooch
+    Type: Etc
+    Buy: 100000
+    Weight: 10
+    Flags:
+      BuyingStore: true
+  - Id: 6648
+    AegisName: Shabby_Crown
+    Name: Old Crown
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6650
+    AegisName: Shabby_Ring
+    Name: Old Ring
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6651
+    AegisName: Rusty_Bracelet
+    Name: Rusty Bracalet
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6652
+    AegisName: Old_Photo_Album
+    Name: Old Photo Album
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6653
+    AegisName: Shabby_Pill
+    Name: Old Pill
+    Type: Etc
+    Buy: 10
+    Weight: 10
+  - Id: 6671
+    AegisName: Geffen_Magic_Coin
+    Name: Geffen Coin Magic Tournament
+    Type: Etc
+    Buy: 10
+    Flags:
+      BuyingStore: true
+  - Id: 6672
+    AegisName: Gray_Shard
+    Name: Gray Shard
+    Type: Etc
+    Sell: 1
+    Weight: 1
+    Flags:
+      BuyingStore: true
+  - Id: 6803
+    AegisName: Piece_Of_Gigantes
+    Name: Fragments Of Gigan
+    Type: Etc
+    Buy: 10
+    Weight: 10
   - Id: 6909
     AegisName: Nyangvine_Fruit
     Name: Actinidia Cat Fruit
@@ -20333,6 +20408,13 @@ Body:
     Name: Sachet
     Type: Etc
     Buy: 100
+  - Id: 7642
+    AegisName: Bloody_Coin
+    Name: Bloody Coin
+    Type: Etc
+    Buy: 10
+    Flags:
+      BuyingStore: true
   - Id: 7701
     AegisName: Dragon_Spirit
     Name: Soul
@@ -24543,3 +24625,844 @@ Body:
     Type: Etc
     Buy: 20
     Weight: 100
+
+
+  - Id: 29032
+    AegisName: SPdrain1_Top
+    Name: SP Absorption 1
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSPDrainRate,10,1;
+  - Id: 29046
+    AegisName: Greed
+    Name: Greed
+    Type: Card
+    SubType: Enchant
+    Script: |
+      skill "BS_GREED",1;
+  - Id: 29047
+    AegisName: Fatal0
+    Name: Fatal
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bCritAtkRate,3;
+  - Id: 29048
+    AegisName: Expert_Archer0
+    Name: Expert Archer
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,3;
+  - Id: 29052
+    AegisName: Recovery
+    Name: Recovery
+    Type: Card
+    SubType: Enchant
+    Script: |
+      skill "PR_STRECOVERY",1;
+  - Id: 29053
+    AegisName: Skill_Delay1_Top
+    Name: After Skill Delay1 Upper
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bDelayrate,-1;
+  - Id: 29054
+    AegisName: Skill_Delay1_Middle
+    Name: After Skill Delay1 Middle
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bDelayrate,-1;
+  - Id: 29055
+    AegisName: Skill_Delay1_Bottom
+    Name: After Skill Delay1 Lower
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bDelayrate,-1;
+  - Id: 29056
+    AegisName: FixedCasting05
+    Name: Reduces Fixed Cast
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bFixedCast,-500;
+  - Id: 29057
+    AegisName: Kyrie
+    Name: Kyrie
+    Type: Card
+    SubType: Enchant
+    Script: |
+      skill "PR_KYRIE",1;
+  - Id: 29154
+    AegisName: FixedCasting03
+    Name: Minor Fixed Cast Reduction
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bFixedCast,-300;
+  - Id: 29155
+    AegisName: LexAeterna
+    Name: Lex Aeterna
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus3 bAutoSpell,"PR_LEXAETERNA",1,10;
+  - Id: 29156
+    AegisName: Casting_Top
+    Name: Variable Cast Reduction Upper
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bVariableCastrate,-3;
+  - Id: 29157
+    AegisName: Casting_Middle
+    Name: Variable Cast Reduction Middle
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bVariableCastrate,-3;
+  - Id: 29158
+    AegisName: Casting_Bottom
+    Name: Variable Cast Reduction Lower
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bVariableCastrate,-3;
+  - Id: 29227
+    AegisName: Heal
+    Name: Heal
+    Type: Card
+    SubType: Enchant
+    Script: |
+      skill "AL_HEAL",1;
+  - Id: 29229
+    AegisName: Teleport
+    Name: Teleport
+    Type: Card
+    SubType: Enchant
+    Script: |
+      skill "AL_TELEPORT",1;
+  - Id: 29358
+    AegisName: Casting_Robe
+    Name: Variable Casting Garment
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bVariableCastrate,-10;
+  - Id: 29359
+    AegisName: Fatal_Top
+    Name: Fatal (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bCritAtkRate,3;
+  - Id: 29360
+    AegisName: Fatal_Bottom
+    Name: Fatal (Lower)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bCritAtkRate,3;
+  - Id: 29361
+    AegisName: Fatal_Robe
+    Name: Fatal (Garment)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bCritAtkRate,20;
+  - Id: 29362
+    AegisName: DoubleAttack
+    Name: Double Attack
+    Type: Card
+    SubType: Enchant
+    Script: |
+      skill "TF_DOUBLE",3;
+  - Id: 29423
+    AegisName: Sura_Top
+    Name: Champion Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("MO_IRONHAND");
+  - Id: 29424
+    AegisName: Sura_Middle
+    Name: Champion Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bHit,2*getskilllv("MO_DODGE");
+  - Id: 29425
+    AegisName: Sura_Bottom
+    Name: Champion Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"MO_CHAINCOMBO",20;
+  - Id: 29432
+    AegisName: Sorcerer_Top
+    Name: Professor Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bAspdRate,getskilllv("SA_ADVANCEDBOOK");
+  - Id: 29433
+    AegisName: Sorcerer_Middle
+    Name: Professor Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillFixedCast,"PF_DOUBLECASTING",-400;
+  - Id: 29434
+    AegisName: Sorcerer_Bottom
+    Name: Professor Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"MG_FIREBOLT",20;
+      bonus2 bSkillAtk,"MG_COLDBOLT",20;
+      bonus2 bSkillAtk,"MG_LIGHTNINGBOLT",20;
+  - Id: 29460
+    AegisName: Runeknight_Top
+    Name: Lord Knight Stone (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("KN_SPEARMASTERY");
+  - Id: 29461
+    AegisName: Runeknight_Middle
+    Name: Lord Knight Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"LK_SPIRALPIERCE",15;
+  - Id: 29462
+    AegisName: Runeknight_Bottom
+    Name: Lord Knight Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bAspdRate,getskilllv("KN_CAVALIERMASTERY");
+  - Id: 29464
+    AegisName: Genetic_Top
+    Name: Creator Stone (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("AM_LEARNINGPOTION");
+  - Id: 29465
+    AegisName: Genetic_Middle
+    Name: Creator Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      .@val = 2*getskilllv("AM_POTIONPITCHER");
+      bonus bHealPower,.@val;
+      bonus bHealPower2,.@val;
+  - Id: 29466
+    AegisName: Genetic_Bottom
+    Name: Creator Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"AM_ACIDTERROR",20;
+  - Id: 29468
+    AegisName: Warlock_Top
+    Name: High Wizard Stone (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bMatk,2*getskilllv("HW_MAGICPOWER");
+  - Id: 29469
+    AegisName: Warlock_Middle
+    Name: High Wizard Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"WZ_METEOR",20;
+  - Id: 29470
+    AegisName: Warlock_Bottom
+    Name: High Wizard Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"WZ_FIREPILLAR",20;
+  - Id: 29477
+    AegisName: Shadowchaser_Top
+    Name: Stalker Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("RG_PLAGIARISM");
+  - Id: 29478
+    AegisName: Shadowchaser_Middle
+    Name: Stalker Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bHit,2*getskilllv("AC_VULTURE");
+  - Id: 29479
+    AegisName: Shadowchaser_Bottom
+    Name: Stalker Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"RG_RAID",20;
+  - Id: 29481
+    AegisName: Mechanic_Top
+    Name: Whitesmith Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("BS_WEAPONRESEARCH");
+  - Id: 29482
+    AegisName: Mechanic_Middle
+    Name: Whitesmith Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bHit,3*getskilllv("BS_SKINTEMPER");
+  - Id: 29483
+    AegisName: Mechanic_Bottom
+    Name: Whitesmith Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",20;
+  - Id: 29485
+    AegisName: WanderMinstrel_Top
+    Name: Clown Gypsy Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      if (Sex == SEX_FEMALE)
+         bonus bBaseAtk,getskilllv("DC_DANCINGLESSON")*2;
+      else
+         bonus bBaseAtk,getskilllv("BA_MUSICALLESSON")*2;
+  - Id: 29486
+    AegisName: WanderMinstrel_Middle
+    Name: Clown Gypsy Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      if (Sex == SEX_FEMALE)
+         bonus2 bSkillAtk,"DC_THROWARROW",20;
+      else
+         bonus2 bSkillAtk,"BA_MUSICALSTRIKE",20;
+  - Id: 29487
+    AegisName: WanderMinstrel_Bottom
+    Name: Clown Gypsy Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",20;
+  - Id: 29513
+    AegisName: Highpriest_Top
+    Name: High Priest Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bHealPower,getskilllv("HP_MEDITATIO");
+  - Id: 29514
+    AegisName: Highpriest_Middle
+    Name: High Priest Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bCritAtkRate,2*getskilllv("PR_MACEMASTERY");
+  - Id: 29515
+    AegisName: Highpriest_Bottom
+    Name: High Priest Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"PR_MAGNUS",20;
+  - Id: 29517
+    AegisName: Paladin_Top
+    Name: Paladin Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bMaxHPrate,(getskilllv("CR_TRUST")/2);
+  - Id: 29518
+    AegisName: Paladin_Middle
+    Name: Paladin Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,(getskilllv("KN_SPEARMASTERY")/2);
+  - Id: 29519
+    AegisName: Paladin_Bottom
+    Name: Paladin Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"CR_HOLYCROSS",20;
+  - Id: 29521
+    AegisName: Assassincross_Top
+    Name: Assassin Cross Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("AS_KATAR");
+  - Id: 29522
+    AegisName: Assassincross_Middle
+    Name: Assassin Cross Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bHit,2*getskilllv("AS_LEFT");
+  - Id: 29523
+    AegisName: Assassincross_Bottom
+    Name: Assassin Cross Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"AS_SONICBLOW",20;
+  - Id: 29611
+    AegisName: Sura_Bottom2
+    Name: Sura Stone II (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("AL_DP");
+  - Id: 29612
+    AegisName: Sura_Middle2
+    Name: Sura Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"MO_COMBOFINISH",15;
+  - Id: 29613
+    AegisName: Sura_Top2
+    Name: Sura Stone II (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"CH_CHAINCRUSH",15;
+  - Id: 29615
+    AegisName: Sorcerer_Bottom2
+    Name: Sorcerer Stone II (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bMatk,2*getskilllv("SA_AUTOSPELL");
+  - Id: 29616
+    AegisName: Sorcerer_Middle2
+    Name: Sorcerer Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"MG_FIREBOLT",20;
+      bonus2 bSkillAtk,"MG_COLDBOLT",20;
+      bonus2 bSkillAtk,"MG_LIGHTNINGBOLT",20;
+  - Id: 29617
+    AegisName: Sorcerer_Top2
+    Name: Sorcerer Stone II (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"WZ_EARTHSPIKE",20;
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",20;
+  - Id: 29619
+    AegisName: Shadowchaser_Bottom2
+    Name: Shadow Chaser Stone II (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bHit,getskilllv("TF_MISS");
+  - Id: 29620
+    AegisName: Shadowchaser_Middle2
+    Name: Shadow Chaser Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"RG_BACKSTAP",15;
+  - Id: 29621
+    AegisName: Shadowchaser_Top2
+    Name: Shadow Chaser Stone II (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("RG_SNATCHER");
+  - Id: 29651
+    AegisName: Soullinker_Top
+    Name: Soul Linker Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bMatk,2*getskilllv("TK_SPTIME");
+  - Id: 29652
+    AegisName: Soullinker_Middle
+    Name: Soul Linker Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"SL_SMA",20;
+  - Id: 29653
+    AegisName: Soullinker_Bottom
+    Name: Soul Linker Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bVariableCastrate,-2*getskilllv("SL_KAAHI");
+  - Id: 29655
+    AegisName: Gladiator_Top
+    Name: Star Gladiator Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("TK_HPTIME");
+  - Id: 29656
+    AegisName: Gladiator_Middle
+    Name: Star Gladiator Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bFixedCastrate,"SG_FEEL",-50;
+  - Id: 29657
+    AegisName: Gladiator_Bottom
+    Name: Star Gladiator Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bAspdRate,getskilllv("SG_KNOWLEDGE");
+  - Id: 29659
+    AegisName: Ninja_Top
+    Name: Ninja Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bMatk,2*getskilllv("NJ_NINPOU");
+      bonus bBaseAtk,2*getskilllv("NJ_NINPOU");
+  - Id: 29660
+    AegisName: Ninja_Middle
+    Name: Ninja Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"NJ_HUUMA",20;
+  - Id: 29661
+    AegisName: Ninja_Bottom
+    Name: Ninja Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",20;
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",20;
+      bonus2 bSkillAtk,"NJ_KAMAITACHI",20;
+  - Id: 29664
+    AegisName: Gunslinger_Top
+    Name: Gunslinger Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("GS_SNAKEEYE");
+  - Id: 29665
+    AegisName: Gunslinger_Middle
+    Name: Gunslinger Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"GS_DESPERADO",20;
+  - Id: 29666
+    AegisName: Gunslinger_Bottom
+    Name: Gunslinger Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,(getskilllv("GS_CHAINACTION")/2);
+  - Id: 29668
+    AegisName: Doram_Top
+    Name: Doram Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      .@lv = getskilllv("SU_SCRATCH");
+      bonus bBaseAtk,.@lv;
+      bonus bMatk,.@lv;
+  - Id: 29669
+    AegisName: Doram_Middle
+    Name: Doram Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"SU_LUNATICCARROTBEAT",20;
+  - Id: 29670
+    AegisName: Doram_Bottom
+    Name: Doram Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"SU_SV_STEMSPEAR",20;
+  - Id: 310004
+    AegisName: Mechanic_Top2
+    Name: Whitesmith Stone II (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillCooldown,"NC_AXEBOOMERANG",-(100*getskilllv("WS_OVERTHRUSTMAX"));
+  - Id: 310005
+    AegisName: Mechanic_Middle2
+    Name: Whitesmith Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",15;
+  - Id: 310006
+    AegisName: Mechanic_Bottom2
+    Name: Whitesmith Stone II (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,getskilllv("BS_MAXIMIZE");
+  - Id: 310008
+    AegisName: Highpriest_Top2
+    Name: High Priest Stone II (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"PR_MAGNUS",15;
+  - Id: 310009
+    AegisName: Highpriest_Middle2
+    Name: High Priest Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bMagicAtkEle,Ele_Holy,getskilllv("HP_ASSUMPTIO");
+  - Id: 310010
+    AegisName: Highpriest_Bottom2
+    Name: High Priest Stone II (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bVariableCastrate,-(getskilllv("PR_KYRIE")/2);
+  - Id: 310181
+    AegisName: Warlock_Top2
+    Name: High Wizard Stone II (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"WZ_METEOR",20;
+  - Id: 310182
+    AegisName: Warlock_Middle2
+    Name: High Wizard Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bMagicAtkEle,Ele_Neutral,2*getskilllv("HW_GRAVITATION");
+  - Id: 310183
+    AegisName: Warlock_Bottom2
+    Name: High Wizard Stone II (Lower)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bMatk,2*getskilllv("HW_SOULDRAIN");
+  - Id: 310185
+    AegisName: Paladin_Bottom2
+    Name: Paladin Stone II (Lower)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bMagicAtkEle,Ele_Holy,getskilllv("CR_GRANDCROSS");
+  - Id: 310186
+    AegisName: Paladin_Middle2
+    Name: Paladin Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"PA_PRESSURE",20;
+  - Id: 310187
+    AegisName: Paladin_Top2
+    Name: Paladin Stone II (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bVariableCastrate,-getskilllv("CR_TRUST");
+  - Id: 310189
+    AegisName: Assassincross_Bottom2
+    Name: Assassin Cross Stone II (Lower)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bAddSize,Size_All,2*getskilllv("ASC_KATAR");
+  - Id: 310190
+    AegisName: Assassincross_Middle2
+    Name: Assassin Cross Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"AS_SONICBLOW",20;
+  - Id: 310191
+    AegisName: Assassincross_Top2
+    Name: Assassin Cross Stone II (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bDelayrate,-getskilllv("ASC_BREAKER");
+  - Id: 310258
+    AegisName: Runeknight_Top2
+    Name: Lord Knight Stone II (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,getskilllv("LK_SPIRALPIERCE");
+  - Id: 310259
+    AegisName: Runeknight_Middle2
+    Name: Lord Knight Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",20;
+  - Id: 310260
+    AegisName: Runeknight_Bottom2
+    Name: Lord Knight Stone II (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"LK_SPIRALPIERCE",20;
+  - Id: 310262
+    AegisName: Genetic_Top2
+    Name: Creator Stone II (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bAddSize,Size_All,getskilllv("AM_CANNIBALIZE");
+  - Id: 310263
+    AegisName: Genetic_Middle2
+    Name: Creator Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",25;
+  - Id: 310264
+    AegisName: Genetic_Bottom2
+    Name: Creator Stone II (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,(getskilllv("CR_ACIDDEMONSTRATION")/2);
+  - Id: 310266
+    AegisName: WanderMins_Top2
+    Name: Trentini Gypsy Stone II (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",15;
+  - Id: 310267
+    AegisName: WanderMins_Middle2
+    Name: Trentini Gypsy Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bMagicAtkEle,Ele_Neutral,getskilllv("BA_MUSICALSTRIKE")+getskilllv("DC_THROWARROW");
+  - Id: 310268
+    AegisName: WanderMins_Bottom2
+    Name: Trentini Gypsy Stone II (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"BA_MUSICALSTRIKE",15;
+      bonus2 bSkillAtk,"DC_THROWARROW",15;
+  - Id: 310325
+    AegisName: Range_Top
+    Name: Range Stone (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,3;
+  - Id: 310326
+    AegisName: Range_Bottom
+    Name: Range Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,3;
+  - Id: 310327
+    AegisName: Melee_Top
+    Name: Melee Stone (Top)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bShortAtkRate,3;
+  - Id: 310328
+    AegisName: Melee_Middle
+    Name: Melee Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bShortAtkRate,3;
+  - Id: 310329
+    AegisName: Melee_Bottom
+    Name: Melee Stone (Bottom)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bShortAtkRate,3;
+  - Id: 310654
+    AegisName: ASPD_Robe_D
+    Name: ASPD+1(Dual)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bAspd,1;
+  - Id: 310658
+    AegisName: MinorCast_Robe_D
+    Name: Minor Casting Reduction(Dual)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bFixedCast,-100;
+  - Id: 310659
+    AegisName: Cast_Robe_D
+    Name: Variable Casting Time Reduction(Dual)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bVariableCastrate,-5;
+  - Id: 310660
+    AegisName: Range_Robe_D
+    Name: Ranged Stone(Dual)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,4;
+  - Id: 310661
+    AegisName: Melee_Robe_D
+    Name: Melee Stone(Dual)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bShortAtkRate,4;
+  - Id: 310662
+    AegisName: HPdrain_Robe_D
+    Name: HP Absorbtion(Dual)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bHPDrainRate,10,1;
+  - Id: 310663
+    AegisName: SPdrain_Robe_D
+    Name: SP Absorbtion(Dual)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSPDrainRate,10,1;
+  - Id: 310667
+    AegisName: Magic_Robe_D
+    Name: Magic Power Stone(Dual)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bMagicAtkEle,Ele_All,4;
+  - Id: 311354
+    AegisName: Critical_Robe_D
+    Name: Critical Stone (Dual)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bCritical,10;
+      bonus bCritAtkRate,10;

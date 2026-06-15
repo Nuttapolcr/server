@@ -22432,10 +22432,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoCart: true
-      NoMail: true
       TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1000419
     AegisName: Weapon_Ore_1
     Name: "[Rare] Weapon Stone (NT)"
@@ -22447,10 +22447,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoCart: true
-      NoMail: true
       TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1000422
     AegisName: Weapon_Ore_4
     Name: "[Epic] Weapon Stone (NT)"
@@ -22462,9 +22462,9 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoCart: true
       TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
       NoMail: true
   - Id: 1000420
     AegisName: Weapon_Ore_2
@@ -22477,9 +22477,9 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoCart: true
       TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
       NoMail: true
   - Id: 1000423
     AegisName: Armor_Ore_1
@@ -22492,9 +22492,9 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoCart: true
       TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
       NoMail: true
   - Id: 1000425
     AegisName: Armor_Ore_4
@@ -22507,10 +22507,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoMail: true
       TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1000424
     AegisName: Armor_Ore_2
     Name: "[Legend] Armor Stone (NT)"
@@ -22522,9 +22522,9 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoCart: true
       TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
       NoMail: true
   - Id: 1000426
     AegisName: Acc_Ore_1
@@ -22537,10 +22537,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
+      TradePartner: true
+      NoCart: true
       NoGuildStorage: true
       NoMail: true
-      NoCart: true
-      TradePartner: true
   - Id: 1000428
     AegisName: Acc_Ore_3
     Name: "[Epic] Accessory Stone (NT)"
@@ -22552,10 +22552,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
       TradePartner: true
-      NoMail: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1000427
     AegisName: Acc_Ore_2
     Name: "[Legend] Accessory Stone (NT)"
@@ -22567,10 +22567,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
+      TradePartner: true
+      NoCart: true
       NoGuildStorage: true
       NoMail: true
-      NoCart: true
-      TradePartner: true
   - Id: 1000429
     AegisName: Acc_Ore_4
     Name: "[Epic] Accessory Stone (NT)"
@@ -22580,11 +22580,11 @@ Body:
       DropEffect: CLIENT
     Trade:
       NoDrop: true
-      NoGuildStorage: true
-      TradePartner: true
       NoTrade: true
-      NoMail: true
+      TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1001685
     AegisName: Crt_Meteorite_Dust_NT
     Name: "[Rare] Jewel (NT)"
@@ -22595,11 +22595,11 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
       TradePartner: true
       NoSell: true
-      NoMail: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1000398
     AegisName: Pow_Meteorite_Dust
     Name: "[Epic] Jewel"
@@ -22617,10 +22617,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoMail: true
       TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1000403
     AegisName: Wis_Meteorite_Dust
     Name: "[Legend] Jewel"
@@ -22638,10 +22638,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
       TradePartner: true
-      NoMail: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1001140
     AegisName: Barmund_Ice_Essence
     Name: "[Rare] Essence"
@@ -22661,10 +22661,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoMail: true
       TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1001139
     AegisName: Barmund_Flame_Essence
     Name: "[Epic] Essence"
@@ -22684,10 +22684,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoMail: true
       TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1001141
     AegisName: Barmund_Death_Essence
     Name: "[Legend] Essence"
@@ -22707,10 +22707,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoMail: true
       TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1000445
     AegisName: Crt_Meteorite_Fragment
     Name: "[Rare] Fragment"
@@ -22728,10 +22728,10 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoMail: true
       TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1000442
     AegisName: Pow_Meteorite_Fragment
     Name: "[Epic] Fragment"
@@ -22747,12 +22747,12 @@ Body:
     Flags:
       BuyingStore: true
     Trade:
-      NoTrade: true
-      NoGuildStorage: true
       NoDrop: true
-      NoMail: true
+      NoTrade: true
       TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1000447
     AegisName: Wis_Meteorite_Fragment
     Name: "[Legend] Fragment"
@@ -22768,12 +22768,12 @@ Body:
     Flags:
       BuyingStore: true
     Trade:
-      TradePartner: true
-      NoMail: true
-      NoTrade: true
-      NoGuildStorage: true
       NoDrop: true
+      NoTrade: true
+      TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 22571
     AegisName: Easter_Egg
     Name: Pet Egg
@@ -28106,9 +28106,9 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoGuildStorage: true
-      NoCart: true
       TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
       NoMail: true
   - Id: 6755
     AegisName: Polluted_Spell
