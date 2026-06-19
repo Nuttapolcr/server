@@ -17536,8 +17536,6 @@ Body:
     MagicAttack: 160
     Range: 1
     Slots: 1
-    Jobs:
-      Priest: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
@@ -17553,6 +17551,8 @@ Body:
       if (.@r>=7) {
          bonus bMatkRate,5;
       }
+    Jobs:
+      Sage: true
   - Id: 620004
     AegisName: Up_Avenger
     Name: "[Rare] Mastersmith Weapon"
@@ -17909,6 +17909,7 @@ Body:
     Slots: 1
     Jobs:
       Rebellion: true
+      Gunslinger: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
@@ -18491,6 +18492,7 @@ Body:
     Slots: 1
     Jobs:
       KagerouOboro: true
+      Ninja: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
@@ -18527,6 +18529,7 @@ Body:
     Slots: 1
     Jobs:
       Rebellion: true
+      Gunslinger: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
@@ -19459,7 +19462,7 @@ Body:
       bonus bLongAtkRate,2*.@r;
       bonus2 bAddClass,Class_Boss,10;
       if (.@r>=5) {
-         bonus2 bAddClass,Class_Boss,20;
+         bonus2 bAddClass,Class_Boss,10;
       }
       if (.@r>=7) {
          bonus bBaseAtk,30;
@@ -24301,7 +24304,6 @@ Body:
     CollectionScript: |-
       bonus bShortAtkRate,1;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001726
     AegisName: Col_Maya
     Name: "[ Collection ] Maya"
@@ -24313,7 +24315,6 @@ Body:
     CollectionScript: |-
       bonus bAspdRate,1;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001727
     AegisName: Col_Eddga
     Name: "[ Collection ] Eddga"
@@ -24325,7 +24326,6 @@ Body:
     CollectionScript: |-
       bonus bDelayrate,-1;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001728
     AegisName: Col_Dark_Lord
     Name: "[ Collection ] Dark Lord"
@@ -24337,7 +24337,6 @@ Body:
     CollectionScript: |-
       bonus bCritical,5;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001729
     AegisName: Col_Baphomet
     Name: "[ Collection ] Baphomet"
@@ -24349,7 +24348,6 @@ Body:
     CollectionScript: |-
       bonus2 bDropAddClass_C,Class_All,10;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001730
     AegisName: Col_Orc_Lord
     Name: "[ Collection ] Orc Lord"
@@ -24361,7 +24359,6 @@ Body:
     CollectionScript: |-
       bonus bMaxSP,100;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001731
     AegisName: Col_Lady_Tanee
     Name: "[ Collection ] Lady Tanee"
@@ -24373,7 +24370,6 @@ Body:
     CollectionScript: |-
       bonus bCritAtkRate,5;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001732
     AegisName: Col_Phreeoni
     Name: "[ Collection ] Phreeoni"
@@ -24385,7 +24381,6 @@ Body:
     CollectionScript: |-
       bonus bFlee2,5;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001733
     AegisName: Col_Orc_Hero
     Name: "[ Collection ] Orc Hero"
@@ -24397,7 +24392,6 @@ Body:
     CollectionScript: |-
       bonus2 bAddClass,Class_All,1;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001734
     AegisName: Col_Amon_Ra
     Name: "[ Collection ] Amon Ra"
@@ -24409,7 +24403,6 @@ Body:
     CollectionScript: |-
       bonus2 bMagicAddClass,Class_All,1;
       bonus2 bDropAddClass,Class_All,2;
-    CollectionAmount: 5
   - Id: 1001735
     AegisName: Col_Pharaoh
     Name: "[ Collection ] Pharaoh"
@@ -24422,7 +24415,6 @@ Body:
       bonus2 bAddEffWhenHit,Eff_Freeze,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001736
     AegisName: Col_Bacsojin
     Name: "[ Collection ] Bacsojin"
@@ -24435,7 +24427,6 @@ Body:
       bonus2 bAddEffWhenHit,Eff_Stun,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001737
     AegisName: Col_Osiris
     Name: "[ Collection ] Osiris"
@@ -24448,7 +24439,6 @@ Body:
       bonus2 bAddEffWhenHit,Eff_Stone,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001738
     AegisName: Col_Dracula
     Name: "[ Collection ] Dracula"
@@ -24461,7 +24451,6 @@ Body:
       bonus2 bAddEffWhenHit,Eff_Sleep,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001739
     AegisName: Col_Doppelganger
     Name: "[ Collection ] Doppelganger"
@@ -24474,7 +24463,6 @@ Body:
       bonus2 bAddEffWhenHit,Eff_Silence,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001740
     AegisName: Col_Mistress
     Name: "[ Collection ] Mistress"
@@ -24487,7 +24475,6 @@ Body:
       bonus2 bAddEffWhenHit,Eff_Curse,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001741
     AegisName: Col_Moonlight
     Name: "[ Collection ] Moonlight"
@@ -24500,7 +24487,6 @@ Body:
       bonus2 bAddEffWhenHit,Eff_Confusion,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001742
     AegisName: Col_Drake
     Name: "[ Collection ] Drake"
@@ -24513,7 +24499,6 @@ Body:
       skill "AL_INCAGI",10;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001743
     AegisName: Col_Stormy_Knight
     Name: "[ Collection ] Stormy Knight"
@@ -24526,7 +24511,6 @@ Body:
       skill "PR_IMPOSITIO",5;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001744
     AegisName: Col_Lord_of_Death
     Name: "[ Collection ] Lord of Death"
@@ -24539,7 +24523,6 @@ Body:
       skill "AL_BLESSING",10;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
-    CollectionAmount: 5
   - Id: 1001745
     AegisName: Col_Seyren
     Name: "[ Collection ] Seyren"
@@ -24554,7 +24537,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001746
     AegisName: Col_Eremes
     Name: "[ Collection ] Eremes"
@@ -24570,7 +24552,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001747
     AegisName: Col_Howard
     Name: "[ Collection ] Howard"
@@ -24585,7 +24566,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001748
     AegisName: Col_Margaretha
     Name: "[ Collection ] Margaretha"
@@ -24600,7 +24580,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001749
     AegisName: Col_Cecil
     Name: "[ Collection ] Cecil"
@@ -24616,7 +24595,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001750
     AegisName: Col_Kathryne
     Name: "[ Collection ] Kathryne"
@@ -24630,7 +24608,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001751
     AegisName: Col_Randel
     Name: "[ Collection ] Randel"
@@ -24644,7 +24621,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001752
     AegisName: Col_Flamel
     Name: "[ Collection ] Flamel"
@@ -24658,7 +24634,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001753
     AegisName: Col_Celia
     Name: "[ Collection ] Celia"
@@ -24672,7 +24647,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001754
     AegisName: Col_Chen
     Name: "[ Collection ] Chen"
@@ -24690,7 +24664,6 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
-    CollectionAmount: 5
   - Id: 1001755
     AegisName: Col_MedJay
     Name: "[ Collection ] MedJay"
@@ -24704,7 +24677,6 @@ Body:
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
-    CollectionAmount: 2
   - Id: 1001756
     AegisName: Col_MedJee
     Name: "[ Collection ] MedJee"
@@ -24718,7 +24690,6 @@ Body:
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
-    CollectionAmount: 2
   - Id: 1001757
     AegisName: Col_MedJed
     Name: "[ Collection ] MedJed"
@@ -24733,7 +24704,6 @@ Body:
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
-    CollectionAmount: 2
   - Id: 1001758
     AegisName: Col_Spirit_Flame
     Name: "[ Collection ] Spirit Flame"
@@ -24749,7 +24719,6 @@ Body:
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
-    CollectionAmount: 2
   - Id: 1001759
     AegisName: Col_Spirit_Water
     Name: "[ Collection ] Spirit Water"
@@ -24766,7 +24735,6 @@ Body:
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
-    CollectionAmount: 2
   - Id: 1001760
     AegisName: Col_Spirit_Wind
     Name: "[ Collection ] Spirit Wind"
@@ -24781,7 +24749,6 @@ Body:
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
-    CollectionAmount: 2
   - Id: 1000619
     AegisName: aegis_1000619
     Name: iPhone 20

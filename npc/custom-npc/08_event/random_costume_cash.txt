@@ -10,6 +10,9 @@ function	script	F_RandomCostumeCash_AddRange	{
 	.@size = getd("$@RandomCostumeCash_" + .@type$ + "_Size");
 
 	for (.@id = .@start; .@id <= .@end; .@id++) {
+		if (inarray($@RandomCostumeCash_Excluded, .@id) >= 0)
+			continue;
+
 		if (getitemname(.@id) == "null")
 			continue;
 
@@ -174,6 +177,30 @@ OnInit:
 	$@RandomCostumeCash_Middle_Size = 0;
 	$@RandomCostumeCash_Lower_Size = 0;
 	$@RandomCostumeCash_Garment_Size = 0;
+
+	// Items listed in the costume-removal sheet are excluded from every pool.
+	deletearray $@RandomCostumeCash_Excluded;
+	setarray $@RandomCostumeCash_Excluded[0],
+		63050, 63053, 63055, 63056, 63058, 63059, 63061, 63063, 63065, 63070,
+		63077, 63082, 63083, 63084, 63085, 63086, 63136, 63137, 63138, 63139,
+		63140, 63141, 63142, 63143, 63144, 63145, 63146, 63147, 63187, 63247,
+		63248, 63249, 63250, 63251, 63266, 63267, 63745, 63747, 63748, 63749,
+		63751, 63752, 63753, 63759, 63760, 63761, 63762, 63763, 63764, 63765,
+		63766, 63767, 63768, 63769, 63770;
+	setarray $@RandomCostumeCash_Excluded[55],
+		63783, 63787, 63791, 63792, 63795, 63803, 63814, 63815, 63816, 63817,
+		63818, 63823, 63824, 63825, 63826, 63827, 63828, 63829, 63830, 63831,
+		63835, 63836, 63839, 63840, 63841, 63851, 63852, 63853, 63854, 63855,
+		63856, 63857, 63866, 63867, 63874, 63882, 63884, 63891, 63899, 63900,
+		63925, 63927, 63929, 63935, 63974, 64203, 64301;
+	setarray $@RandomCostumeCash_Excluded[102],
+		64331, 64332, 64333, 64334, 64335, 64336, 64337, 64338, 64339, 64340,
+		64341, 64342, 64343, 64344, 64345, 64346, 64347, 64348, 64349, 64361,
+		64362, 64366, 64388, 64389, 64390, 64391, 64392, 64395, 64404, 64414,
+		64424, 64581, 64585, 64666, 64667, 64668, 64747, 64768, 64769;
+	setarray $@RandomCostumeCash_Excluded[141],
+		250023, 250024, 250025, 250026, 250027,
+		1001504, 1001505, 1001506, 1001507, 1001508;
 
 	callfunc "F_RandomCostumeCash_AddRange", "Upper", 63000, 63782, EQP_COSTUME_HEAD_TOP;
 	callfunc "F_RandomCostumeCash_AddRange", "Upper", 1001007, 1001009, EQP_COSTUME_HEAD_TOP;
