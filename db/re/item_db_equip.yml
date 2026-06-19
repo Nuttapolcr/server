@@ -87042,8 +87042,6 @@ Body:
     View: 880
     EquipScript: |
       sc_start SC_STRANGELIGHTS,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_STRANGELIGHTS;
   - Id: 18742
     AegisName: C_MoonStar_Accessory
     Name: Costume Moon and Stars
@@ -87057,8 +87055,6 @@ Body:
       NoDrop: true
     EquipScript: |
       sc_start SC_MOONSTAR,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_MOONSTAR;
   - Id: 18743
     AegisName: C_Spirit_Of_Chung_E
     Name: Costume Spirit Of Chung E
@@ -87079,8 +87075,6 @@ Body:
     View: 883
     EquipScript: |
       sc_start SC_SUPER_STAR,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_SUPER_STAR;
   - Id: 18745
     AegisName: Choco_Stick_In_Mouth
     Name: Choco Stick In Mouth
@@ -90099,8 +90093,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 50
     View: 897
-    Script: |
-      bonus bLuk,10;
   - Id: 18922
     AegisName: ILCHONGOM
     Name: Angeling Woolly Hat
@@ -98145,8 +98137,6 @@ Body:
       Costume_Head_Low: true
     ArmorLevel: 1
     View: 65
-    Script: |
-      bonus bStr,2;
   - Id: 19501
     AegisName: T_Spinx_Helm
     Name: T Spinx Helm
@@ -98165,8 +98155,6 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 1
-    Script: |
-      bonus2 bExpAddRace,RC_All,30;
   - Id: 19503
     AegisName: T_Munak_Hat
     Name: T Munak Hat
@@ -98212,8 +98200,6 @@ Body:
     View: 654
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19508
     AegisName: T_Gemmed_Sallet
     Name: T Gemmed Sallet
@@ -98221,8 +98207,6 @@ Body:
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19509
     AegisName: Butterfly_Wing_Ear
     Name: Butterfly Wing Ears
@@ -98234,8 +98218,6 @@ Body:
     View: 695
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19510
     AegisName: Nut_On_Head
     Name: Screw Stuck in Head
@@ -98247,8 +98229,6 @@ Body:
     View: 696
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19511
     AegisName: Heart_Eye_Patch1
     Name: Heart Eye Patch 1
@@ -98260,8 +98240,6 @@ Body:
     View: 697
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19512
     AegisName: Heart_Eye_Patch2
     Name: Heart Eye Patch 2
@@ -98273,8 +98251,6 @@ Body:
     View: 698
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19513
     AegisName: Chicken_Beak
     Name: Chicken Bill
@@ -98286,8 +98262,6 @@ Body:
     View: 699
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19514
     AegisName: Charlie_Beard
     Name: Charlies Beard
@@ -98299,8 +98273,6 @@ Body:
     View: 700
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19515
     AegisName: Yellow_Hat
     Name: Yellow Hat
@@ -98312,8 +98284,6 @@ Body:
     View: 701
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19516
     AegisName: Singing_Bird
     Name: Singing Bird
@@ -98325,8 +98295,6 @@ Body:
     View: 702
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19517
     AegisName: Cocks_Comb
     Name: Chicken Crest
@@ -98338,8 +98306,6 @@ Body:
     View: 703
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19518
     AegisName: Rainbow
     Name: Rainbow
@@ -98351,8 +98317,6 @@ Body:
     View: 704
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19519
     AegisName: Lightning_Cloud
     Name: Thunderstorm Cloud
@@ -98364,8 +98328,6 @@ Body:
     View: 688
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19520
     AegisName: Rain_Cloud
     Name: Rain Cloud
@@ -98377,8 +98339,6 @@ Body:
     View: 705
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19521
     AegisName: Charlie_Hat
     Name: Charlies Hat
@@ -98390,8 +98350,6 @@ Body:
     View: 706
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19522
     AegisName: Mini_Crown1
     Name: Mini Crown
@@ -98403,8 +98361,6 @@ Body:
     View: 707
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19523
     AegisName: Donation_Ribbon
     Name: Green Ribbon
@@ -98422,8 +98378,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19524
     AegisName: C_Green_Feeler
     Name: Costume Green Feeler
@@ -98433,8 +98387,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 85
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19525
     AegisName: C_Jack_A_Dandy
     Name: Costume Jack A Dandy
@@ -98443,8 +98395,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 58
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19526
     AegisName: C_Helm
     Name: Costume Helm
@@ -98454,8 +98404,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 40
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19527
     AegisName: C_Sharp_Gear
     Name: Costume Spiky Band
@@ -98465,8 +98413,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 43
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19528
     AegisName: C_Iron_Cane
     Name: Costume Iron Cain
@@ -98476,8 +98422,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 53
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19529
     AegisName: C_Angelic_Chain
     Name: Costume Angel Wing
@@ -98487,10 +98431,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 38
-    Script: |
-      bonus bUnbreakableHelm;
-      bonus bVit,1;
-      bonus bAgi,1;
   - Id: 19530
     AegisName: C_Wild_Rose
     Name: Costume Wild Rose
@@ -98502,10 +98442,6 @@ Body:
     View: 541
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
-      bonus bBaseAtk,2;
-      bonus bMatk,2;
   - Id: 19531
     AegisName: C_Cube_Mask
     Name: Costume Cube Mask
@@ -98523,9 +98459,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus bUnbreakableHelm;
-      bonus bFlee,1;
   - Id: 19532
     AegisName: C_Red_Bunny_Band
     Name: Red Bunny Band
@@ -98543,9 +98476,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus bUnbreakableHelm;
-      bonus bDex,1;
   - Id: 19533
     AegisName: C_Spore_Hat
     Name: Costume Spore Hat
@@ -98557,10 +98487,6 @@ Body:
     View: 114
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
-      bonus bVit,1;
-      bonus2 bExpAddRace,RC_All,1;
   - Id: 19534
     AegisName: C_Tha_Despero_Mask
     Name: Costume Thanatos Despero Mask
@@ -98574,10 +98500,6 @@ Body:
     View: 693
     Trade:
       NoDrop: true
-    Script: |
-      bonus2 bAddClass,Class_All,1;
-      bonus bMatkRate,1;
-      bonus bHealPower,1;
   - Id: 19535
     AegisName: C_Sinsuncho_Hat
     Name: Costume Sinsuncho Hat
@@ -98589,10 +98511,6 @@ Body:
     View: 730
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
-      bonus bStr,1;
-      bonus2 bExpAddRace,RC_All,1;
   - Id: 19536
     AegisName: C_Rose_Corsage
     Name: Costume Rose Corsage
@@ -98604,10 +98522,6 @@ Body:
     View: 533
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
-      bonus2 bExpAddRace,RC_All,1;
-      bonus bInt,1;
   - Id: 19537
     AegisName: C_Gryphon_Hat
     Name: Costume Gryphon Hat
@@ -98617,8 +98531,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 591
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19538
     AegisName: Full_Moon
     Name: Full Moon
@@ -98628,9 +98540,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 780
-    Script: |
-      autobonus "{ bonus bBaseAtk,50; }",10,5000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
-      autobonus "{ bonus bMatk,50; }",5,5000,BF_MAGIC,"{ specialeffect2 EF_ENERGYCOAT; }";
   - Id: 19539
     AegisName: C_Reginleif_Hairband
     Name: Costume Hairband Of Reginleif
@@ -98642,8 +98551,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 468
-    Script: |
-      bonus bAllStats,1;
   - Id: 19540
     AegisName: C_Rabbit_Earplug
     Name: Costume Rabbit Earplugs
@@ -98655,9 +98562,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 515
-    Script: |
-      bonus bAgi,1;
-      bonus bFlee,2;
   - Id: 19541
     AegisName: C_Romantic_White_Flower
     Name: Costume Romantic White Flower
@@ -98668,9 +98572,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 259
-    Script: |
-      bonus bUnbreakableHelm;
-      bonus bHit,1;
   - Id: 19542
     AegisName: C_Devil_Whisper
     Name: Costume Devil Whisper
@@ -98681,12 +98582,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 712
-    Script: |
-      bonus bUnbreakableHelm;
-      bonus2 bSubRace,RC_Angel,1;
-      bonus2 bSubRace,RC_Demon,1;
-      bonus3 bAddMonsterDropItem,523,RC_Angel,400;
-      bonus3 bAddMonsterDropItem,12020,RC_Demon,400;
   - Id: 19543
     AegisName: Oliver_Wolf_Hood
     Name: Oliver Wolf Hood
@@ -98698,8 +98593,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 70
     View: 849
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19544
     AegisName: C_Tare_Neko_Cru
     Name: Costume Tare Neko Cru
@@ -98712,8 +98605,6 @@ Body:
     View: 692
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19545
     AegisName: C_Boys_Cap
     Name: Costume Boy's Cap
@@ -98725,8 +98616,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 100
     View: 102
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19546
     AegisName: C_Valkyrie_Helm
     Name: Costume Valkyrie Helm
@@ -98738,8 +98627,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 100
     View: 225
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19547
     AegisName: C_Deviruchi_Cap
     Name: Costume Deviruchi Cap
@@ -98751,8 +98638,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 100
     View: 123
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19548
     AegisName: C_Frog_Cap
     Name: Costume Frog Cap
@@ -98777,8 +98662,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 100
     View: 41
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19550
     AegisName: C_Blush
     Name: Costume Blush
@@ -98790,8 +98673,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 100
     View: 125
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19551
     AegisName: C_Elven_Ears
     Name: Costume Elven Ears
@@ -98803,8 +98684,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 100
     View: 73
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19552
     AegisName: C_Centimental_Flower
     Name: Costume Centimental Flower
@@ -98816,8 +98695,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 100
     View: 56
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19553
     AegisName: C_Assassin_Mask_
     Name: Costume Assassin Mask
@@ -98829,8 +98706,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 100
     View: 180
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19554
     AegisName: C_Hahoe_Mask
     Name: Costume Hahoe Mask
@@ -98843,8 +98718,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 100
     View: 230
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19555
     AegisName: C_Crescent_Helm
     Name: Costume Crescent Moon Helm
@@ -98857,8 +98730,6 @@ Body:
     View: 213
     Trade:
       NoDrop: true
-    Script: |
-      bonus bVit,1;
   - Id: 19556
     AegisName: C_Kabuki_Mask
     Name: Costume Kabuki Mask
@@ -98872,8 +98743,6 @@ Body:
     View: 214
     Trade:
       NoDrop: true
-    Script: |
-      bonus bInt,1;
   - Id: 19557
     AegisName: C_Ayothaya_Hat
     Name: Costume Ayothaya Hat
@@ -98885,8 +98754,6 @@ Body:
     View: 334
     Trade:
       NoDrop: true
-    Script: |
-      bonus bStr,1;
   - Id: 19558
     AegisName: C_Raven_Cap
     Name: Costume Crow Hat
@@ -98898,8 +98765,6 @@ Body:
     View: 524
     Trade:
       NoDrop: true
-    Script: |
-      bonus bVit,1;
   - Id: 19559
     AegisName: C_B_Dragon_Hat
     Name: Costume Baby Dragon Hat
@@ -98911,8 +98776,6 @@ Body:
     View: 525
     Trade:
       NoDrop: true
-    Script: |
-      bonus bAgi,1;
   - Id: 19560
     AegisName: C_Quati_Hat
     Name: Costume Coati Hat
@@ -98924,8 +98787,6 @@ Body:
     View: 527
     Trade:
       NoDrop: true
-    Script: |
-      bonus bDex,1;
   - Id: 19561
     AegisName: C_Tucan_Hat
     Name: Costume Tucan Hat
@@ -98938,8 +98799,6 @@ Body:
     View: 528
     Trade:
       NoDrop: true
-    Script: |
-      bonus bDex,1;
   - Id: 19562
     AegisName: C_Jaguar_Hat
     Name: Costume Jaguar Hat
@@ -98953,8 +98812,6 @@ Body:
     View: 530
     Trade:
       NoDrop: true
-    Script: |
-      bonus bStr,1;
   - Id: 19563
     AegisName: C_Dragon_Arhat_Mask
     Name: Costume Dragon Arhat Mask
@@ -98990,8 +98847,6 @@ Body:
     View: 583
     Trade:
       NoDrop: true
-    Script: |
-      bonus bInt,1;
   - Id: 19566
     AegisName: C_Samurai_Mask
     Name: Costume Samurai Mask
@@ -99016,8 +98871,6 @@ Body:
     View: 676
     Trade:
       NoDrop: true
-    Script: |
-      bonus bVit,1;
   - Id: 19568
     AegisName: C_Horn_Of_Ancient
     Name: Costume Ancient Horns
@@ -99029,8 +98882,6 @@ Body:
     View: 757
     Trade:
       NoDrop: true
-    Script: |
-      bonus bStr,1;
   - Id: 19569
     AegisName: C_Sprout_Hat
     Name: Costume Sprout Hat
@@ -99042,8 +98893,6 @@ Body:
     View: 758
     Trade:
       NoDrop: true
-    Script: |
-      bonus bInt,1;
   - Id: 19570
     AegisName: C_Mercury_Helm
     Name: Costume Mercury Riser
@@ -99055,8 +98904,6 @@ Body:
     View: 759
     Trade:
       NoDrop: true
-    Script: |
-      bonus bLuk,1;
   - Id: 19571
     AegisName: C_White_Musang_Hat
     Name: Costume White Musang Hat
@@ -99068,8 +98915,6 @@ Body:
     View: 770
     Trade:
       NoDrop: true
-    Script: |
-      bonus bStr,1;
   - Id: 19572
     AegisName: C_Black_Musang_Hat
     Name: Costume Black Musang Hat
@@ -99081,8 +98926,6 @@ Body:
     View: 771
     Trade:
       NoDrop: true
-    Script: |
-      bonus bInt,1;
   - Id: 19573
     AegisName: C_Heart_Wing_Hairband
     Name: Costume Heart Wing Hairband
@@ -99105,8 +98948,6 @@ Body:
     View: 742
     Trade:
       NoDrop: true
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19575
     AegisName: C_Rising_Black_Dragon
     Name: Costume Ascension Black Dragon
@@ -99158,9 +98999,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 613
-    Script: |
-      bonus bHPrecovRate,20;
-      bonus bSPrecovRate,20;
   - Id: 19580
     AegisName: C_Sphinx_Helm
     Name: Costume Sphinx Helm
@@ -99180,8 +99018,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 891
-    Script: |
-      bonus2 bAddMonsterDropItem,6614,50;
   - Id: 19582
     AegisName: C_Cowboy_Hat
     Name: Costume Cowboy Hat
@@ -99240,8 +99076,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 905
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19588
     AegisName: C_Cat_Hat_J
     Name: Costume Cat Hat
@@ -99251,9 +99085,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 182
-    Script: |
-      bonus bAllStats,3;
-      bonus2 bExpAddClass,Class_All,30;
   - Id: 19589
     AegisName: C_Fallen_Angel_Lost_J
     Name: Costume Fallen Angel Lost
@@ -99359,8 +99190,6 @@ Body:
     View: 589
     Trade:
       NoDrop: true
-    Script: |
-      bonus3 bAutoSpell,"SA_FLAMELAUNCHER",1,5;
   - Id: 19600
     AegisName: Drooping_Kiehl
     Name: Costume Drooping Kiehl
@@ -99542,8 +99371,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 105
-    Script: |
-      bonus bVit,1;
   - Id: 19620
     AegisName: C_Detective_Hat
     Name: Costume Detective Hat
@@ -99611,8 +99438,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 266
-    Script: |
-      bonus2 bExpAddRace,RC_All,30;
   - Id: 19628
     AegisName: C_Headset
     Name: Costume Headset
@@ -99845,8 +99670,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 194
-    Script: |
-      skill "BS_MAXIMIZE",5;
   - Id: 19652
     AegisName: C_Rabbit_Magic_Hat
     Name: Costume Rabbit Magic Hat
@@ -99985,8 +99808,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 217
-    Script: |
-      bonus2 bAddItemHealRate,513,1100;
   - Id: 19667
     AegisName: C_Helm_Of_Dragoon
     Name: Costume Dragon Helm
@@ -100075,8 +99896,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus2 bExpAddRace,RC_All,10;
   - Id: 19676
     AegisName: C_Rainbow_Poring_Hat
     Name: Costume Rainbow Poring Hat
@@ -100150,8 +99969,6 @@ Body:
     Locations:
       Costume_Head_Low: true
     ArmorLevel: 1
-    Script: |
-      bonus2 bExpAddRace,RC_All,5;
   - Id: 19684
     AegisName: C_Happy_Wig
     Name: Costume Happy Wig
@@ -100180,8 +99997,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 964
-    Script: |
-      autobonus "{ bonus bFlee,10; }",30,5000,BF_WEAPON|BF_MAGIC,"{ active_transform 1247,5000; specialeffect2 EF_POISONHIT; showscript \"Khehehe-! Chaos! Destruction! Petrifaction!\"; }";
   - Id: 19687
     AegisName: C_Lush_Rose
     Name: Costume Lush Rose
@@ -100373,8 +100188,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 966
-    Script: |
-      bonus bUnbreakableHelm;
   - Id: 19708
     AegisName: Elizabeth
     Name: Costume White Snake Hat
@@ -100612,11 +100425,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 39
-    Script: |
-      bonus bStr,1;
-      bonus bAgi,1;
-      bonus bFlee,3;
-      bonus2 bSubRace,RC_Angel,3;
   - Id: 19732
     AegisName: C_Goblin_Mask_04
     Name: Costume Goblin Leader Mask
@@ -100637,9 +100445,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 115
-    Script: |
-      bonus bAllStats,1;
-      bonus2 bExpAddClass,Class_All,10;
   - Id: 19734
     AegisName: C_Binoculars
     Name: Costume Binoculars
@@ -100650,8 +100455,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 83
-    Script: |
-      bonus bDex,1;
   - Id: 19735
     AegisName: C_Fin_Helm
     Name: Costume Fin Helm
@@ -100673,8 +100476,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 91
-    Script: |
-      bonus2 bResEff,Eff_Poison,3000;
   - Id: 19737
     AegisName: C_Corsair_K
     Name: Costume Refined Corsair
@@ -100685,9 +100486,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 105
-    Script: |
-      bonus bVit,3;
-      bonus bInt,3;
   - Id: 19738
     AegisName: C_Detective_Hat_K
     Name: Costume Renown Detective's Cap
@@ -100708,9 +100506,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 838
-    Script: |
-      bonus2 bAddRace,RC_Brute,2;
-      bonus2 bAddRace,RC_Player_Doram,2;
   - Id: 19740
     AegisName: C_Guildsman_Recruiter
     Name: Costume Guild Member Recruitment Hat
@@ -100738,8 +100533,6 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 724
-    Script: |
-      bonus2 bExpAddRace,RC_All,1;
   - Id: 19743
     AegisName: C_Anubis_Helm_J
     Name: Costume Anubis Helm
@@ -100979,8 +100772,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus2 bExpAddRace,RC_All,10;
   - Id: 19765
     AegisName: C_Ear_Of_Angel's_Wing
     Name: Costume Wing Angels Ears
@@ -100999,8 +100790,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus2 bExpAddRace,RC_All,10;
   - Id: 19766
     AegisName: C_Yggdrasil_Hat
     Name: Costume Yggdrasil Hat
@@ -101130,9 +100919,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 659
-    Script: |
-      bonus bAllStats,1;
-      bonus2 bExpAddClass,Class_All,10;
   - Id: 19780
     AegisName: C_Rabbit_Ear_Knit_Hat
     Name: Costume Knit Rabbit Ears
@@ -101144,9 +100930,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 867
-    Script: |
-      bonus bMaxHPrate,3;
-      bonus bMaxSPrate,3;
   - Id: 19781
     AegisName: C_Ear_Of_Angel's_Wing_
     Name: Costume Angel Wing Ears
@@ -101876,10 +101659,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus2 bExpAddRace,RC_All,5;
-      bonus bAspd,1;
-      bonus bUseSPrate,-5;
   - Id: 19854
     AegisName: C_Ear_Of_Black_Cat_
     Name: Costume Black Cat Ears
@@ -101908,10 +101687,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 1080
-    Script: |
-      bonus2 bAddEle,Ele_Fire,5;
-      bonus2 bMagicAddEle,Ele_Fire,5;
-      bonus2 bAddMonsterDropItem,11589,5;
   - Id: 19857
     AegisName: C_King_Prawn_Hat
     Name: Costume Crayfish Hat
@@ -102050,8 +101825,6 @@ Body:
     View: 1074
     EquipScript: |
       sc_start SC_DECORATION_OF_MUSIC,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_DECORATION_OF_MUSIC;
   - Id: 19872
     AegisName: C_Phantom_Of_Opera
     Name: Costume Phantom Of Opera
@@ -102281,9 +102054,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 261
-    Script: |
-      bonus bAllStats,3;
-      bonus bMdef,3;
   - Id: 19898
     AegisName: RPC13_2ND_Wreath
     Name: Costume RPC 2ND Wreath
@@ -102292,9 +102062,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 261
-    Script: |
-      bonus bAllStats,2;
-      bonus bMdef,2;
   - Id: 19899
     AegisName: RPC13_3RD_Wreath
     Name: Costume RPC 3RD Wreath
@@ -102303,9 +102070,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 261
-    Script: |
-      bonus bAllStats,1;
-      bonus bMdef,1;
   - Id: 19900
     AegisName: Special_Eyepatch
     Name: Cool Pirate Eyepatch
@@ -102315,8 +102079,6 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 1094
-    Script: |
-      bonus2 bAddMonsterDropItem,22660,50;
   - Id: 19901
     AegisName: C_Viking_Helm
     Name: Costume Orc Helm
@@ -102464,8 +102226,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 691
-    Script: |
-      bonus bSpeedRate,25;
   - Id: 19918
     AegisName: C_Lude_Mask
     Name: Costume Lude Mask
@@ -102476,8 +102236,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 802
-    Script: |
-      bonus bAddItemHealRate,20;
   - Id: 19919
     AegisName: C_Cube_Mask_
     Name: Costume Quve Mask
@@ -102488,8 +102246,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 472
-    Script: |
-      bonus bAspdRate,10;
   - Id: 19920
     AegisName: C_Adv_Whisper_Mask
     Name: Costume Evolved Whisper Mask
@@ -102501,8 +102257,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 458
-    Script: |
-      bonus bFlee,20;
   - Id: 19921
     AegisName: C_Drooping_Wild_Rose
     Name: Costume Wild Rose
@@ -103031,9 +102785,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 1144
-    Script: |
-      bonus bAspdRate,10;
-      bonus bSpeedRate,25;
   - Id: 19977
     AegisName: C_Golden_Exclamation
     Name: Costume Golden Exclamation Mark
@@ -103091,15 +102842,6 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 20
-    Script: |
-      if (gettime(DT_MONTH) == 12) {
-         bonus bMaxHP,1000;
-         bonus bMaxSP,100;
-         bonus bAspd,3;
-         bonus2 bAddClass,Class_All,10;
-         bonus bMatkRate,10;
-         bonus bHealPower,10;
-      }
   - Id: 19983
     AegisName: C_Flower_Hairpin
     Name: Costume Flower Hairpin
@@ -103541,9 +103283,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus bDex,2;
-      bonus2 bAddMonsterDropItem,519,100;
   - Id: 20026
     AegisName: C_Cow_Hat2
     Name: Costume Cow Hat 2
@@ -103561,9 +103300,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus bDex,2;
-      bonus2 bAddMonsterDropItem,519,100;
   - Id: 20027
     AegisName: C_Cow_Hat3
     Name: Costume Cow Hat 3
@@ -103581,9 +103317,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus bDex,2;
-      bonus2 bAddMonsterDropItem,519,100;
   - Id: 20028
     AegisName: C_Cow_Hat4
     Name: Costume Cow Hat 4
@@ -103601,9 +103334,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus bDex,2;
-      bonus2 bAddMonsterDropItem,519,100;
   - Id: 20029
     AegisName: C_Donut_In_Mouth_J
     Name: Costume Donut in Mouth
@@ -103924,8 +103654,6 @@ Body:
       NoDrop: true
     EquipScript: |
       sc_start SC_HAT_EFFECT,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_HAT_EFFECT;
   - Id: 20063
     AegisName: Yellow_Brain_Hat
     Name: Costume Yellow Brain Hat
@@ -104320,8 +104048,6 @@ Body:
     View: 1239
     EquipScript: |
       sc_start SC_LJOSALFAR,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_LJOSALFAR;
   - Id: 20100
     AegisName: C_Volume_Fhat
     Name: Costume Volume Fhat
@@ -104870,8 +104596,6 @@ Body:
     View: 1275
     EquipScript: |
       sc_start SC_MAPLE_FALLS,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_MAPLE_FALLS;
   - Id: 20155
     AegisName: C_Ladys_Feather_Hat
     Name: Costume Lady's Feather Hat
@@ -105408,8 +105132,6 @@ Body:
     View: 1299
     EquipScript: |
       sc_start SC_MERMAID_LONGING,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_MERMAID_LONGING;
   - Id: 20210
     AegisName: C_Cock_Hat2
     Name: Costume Chicken Hat
@@ -105783,8 +105505,6 @@ Body:
     View: 1309
     EquipScript: |
       sc_start SC_TIME_ACCESSORY,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_TIME_ACCESSORY;
   - Id: 20247
     AegisName: C_Blackhand_Of_Fate
     Name: Costume Fate Of Black Hand
@@ -106483,8 +106203,6 @@ Body:
     View: 1074
     EquipScript: |
       sc_start SC_DECORATION_OF_MUSIC,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_DECORATION_OF_MUSIC;
   - Id: 20324
     AegisName: C_Pigeon_Hat
     Name: Costume Pigeon Hat
@@ -107150,8 +106868,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 1415
-    Script: |
-      autobonus2 "{}",31,10000,BF_WEAPON|BF_MAGIC,"{ active_transform 1130,10000; showscript \"Yikes!!! That hurts!!!\"; }";
   - Id: 20398
     AegisName: C_Niflheim_Bunny_Hat
     Name: Costume Niffleheim Bunny Hat
@@ -109076,9 +108792,6 @@ Body:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
-    Script: |
-      /*TODO: View ID*/
-      bonus bUnbreakableHelm;
   - Id: 20601
     AegisName: C_99LV_Rune_Red
     Name: Costume Red Energy
@@ -148784,8 +148497,6 @@ Body:
     View: 1309
     EquipScript: |
       sc_start SC_TIME_ACCESSORY,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_TIME_ACCESSORY;
   - Id: 31143
     AegisName: C_Krathong_Crown_TH
     Name: "Costume: Krathong Crown"
@@ -149264,8 +148975,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 1592
-    Script: |
-      bonus2 bExpAddRace,RC_All,7;
   - Id: 31196
     AegisName: C_JP_EV12
     Name: C Drooping Chuni Penguin
@@ -149883,8 +149592,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus2 bExpAddRace,RC_All,10;
   - Id: 31263
     AegisName: C_Disposable_Popcorn
     Name: C Disposable Popcorn Hat
@@ -150417,9 +150124,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus bAspdRate,5;
-      bonus bVariableCastrate,-5;
   - Id: 31320
     AegisName: C_Pinwheel_Cap_R
     Name: C Pinwheel Hat
@@ -150437,12 +150141,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus bAspd,1;
-      bonus bAspdRate,5;
-      bonus bVariableCastrate,-5;
-      bonus2 bAddRace,RC_Fish,10;
-      bonus2 bMagicAddRace,RC_Fish,10;
   - Id: 31321
     AegisName: C_Shining_Sunflower
     Name: Costume Shining Sunflower
@@ -151099,8 +150797,6 @@ Body:
     View: 1230
     EquipScript: |
       sc_start SC_FSTONE,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_FSTONE;
   - Id: 31392
     AegisName: C_Radio_Antenna
     Name: Costume Radio Antenna
@@ -152846,8 +152542,6 @@ Body:
     View: 880
     EquipScript: |
       sc_start SC_STRANGELIGHTS,INFINITE_TICK,0;
-    UnEquipScript: |
-      sc_end SC_STRANGELIGHTS;
   - Id: 31584
     AegisName: C_Marin_Muffler
     Name: "Costume: Marin's Muffler"
@@ -159573,8 +159267,6 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-    Script: |
-      bonus2 bExpAddClass,Class_All,10;
   - Id: 400056
     AegisName: C_VIP_Hair_Female
     Name: "Costume: Blue Devil Wig"

@@ -41660,10 +41660,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 61
-    Script: |
-      bonus2 bDropAddClass,Class_All,10;
-      bonus2 bExpAddClass,Class_All,10;
-      bonus bAddMaxWeight,2500;
   - Id: 50048
     AegisName: Costume_Fallen_Angel_Wings
     Name: Costume Fallen Angel Wings
@@ -41675,10 +41671,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 73
-    Script: |
-      bonus2 bDropAddClass,Class_All,10;
-      bonus2 bExpAddClass,Class_All,10;
-      bonus bAddMaxWeight,2500;
   - Id: 50049
     AegisName: Costume_Golden_Angel_Wings
     Name: Costume Golden Angel Wings
@@ -41690,10 +41682,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 75
-    Script: |
-      bonus2 bDropAddClass,Class_All,10;
-      bonus2 bExpAddClass,Class_All,10;
-      bonus bAddMaxWeight,2500;
   - Id: 24000
     AegisName: aegis_24000
     Name: CBT Shadow Armor
