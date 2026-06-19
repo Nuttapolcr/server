@@ -2229,8 +2229,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 1
     Refineable: true
-    Script: |+
-      
   - Id: 1202
     AegisName: Knife_
     Name: Knife

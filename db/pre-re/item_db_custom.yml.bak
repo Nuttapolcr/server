@@ -17749,7 +17749,7 @@ Body:
       bonus2 bSkillAtk,"AC_DOUBLE",10;
       bonus bDex,.@r/3*1;
       bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*7;
-      if (.@r>=7) {
+      if (.@r>=7) {bonus2 bAddClass,Class_All,5; 
       }
   - Id: 570009
     AegisName: Up_Trumpet_Shell_K
