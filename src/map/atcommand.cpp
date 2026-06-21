@@ -57,6 +57,7 @@
 #include "storage.hpp"
 #include "trade.hpp"
 #include "vending.hpp"
+#include "vip_rank.hpp"
 
 using namespace rathena;
 
@@ -10805,6 +10806,140 @@ ACMD_FUNC(showrate) {
 }
 #endif
 
+static bool atcommand_vip_rank_account(const char* target, uint32& account_id, char* label, size_t label_size) {
+	if (target == nullptr || *target == '\0')
+		return false;
+
+	char* end = nullptr;
+	unsigned long numeric_id = strtoul(target, &end, 10);
+	if (end != target && *end == '\0' && numeric_id <= UINT32_MAX) {
+		account_id = static_cast<uint32>(numeric_id);
+		safesnprintf(label, label_size, "account %u", account_id);
+		return true;
+	}
+
+	map_session_data* target_sd = map_nick2sd(target, false);
+	if (target_sd != nullptr) {
+		account_id = target_sd->status.account_id;
+		safestrncpy(label, target_sd->status.name, label_size);
+		return true;
+	}
+
+	char escaped_name[NAME_LENGTH * 2 + 1] = {};
+	Sql_EscapeStringLen(mmysql_handle, escaped_name, target, strnlen(target, NAME_LENGTH - 1));
+	if (Sql_Query(mmysql_handle,
+		"SELECT `account_id`, `name` FROM `char` WHERE `name` = '%s' LIMIT 1",
+		escaped_name) != SQL_SUCCESS) {
+		Sql_ShowDebug(mmysql_handle);
+		return false;
+	}
+
+	char* data = nullptr;
+	bool found = Sql_NextRow(mmysql_handle) == SQL_SUCCESS;
+	if (found) {
+		Sql_GetData(mmysql_handle, 0, &data, nullptr);
+		account_id = data != nullptr ? static_cast<uint32>(strtoul(data, nullptr, 10)) : 0;
+		Sql_GetData(mmysql_handle, 1, &data, nullptr);
+		safestrncpy(label, data != nullptr ? data : target, label_size);
+	}
+	Sql_FreeResult(mmysql_handle);
+	return found && account_id != 0;
+}
+
+ACMD_FUNC(viprank) {
+	nullpo_retr(-1, sd);
+
+	uint32 account_id = sd->status.account_id;
+	char label[NAME_LENGTH + 24] = {};
+	safestrncpy(label, sd->status.name, sizeof(label));
+
+	if (message != nullptr && *message != '\0' && pc_get_group_level(sd) == 0) {
+		clif_displaymessage(fd, "You can only inspect your own VIP Rank.");
+		return -1;
+	}
+
+	if (message != nullptr && *message != '\0' &&
+		!atcommand_vip_rank_account(message, account_id, label, sizeof(label))) {
+		clif_displaymessage(fd, "VIP Rank target was not found. Use a character name or account ID.");
+		return -1;
+	}
+
+	int64 donation_total;
+	uint16 rank;
+	if (!vip_rank_load_account(account_id, donation_total, rank)) {
+		clif_displaymessage(fd, "Unable to read VIP Rank data. Check the SQL migration and map-server log.");
+		return -1;
+	}
+
+	std::shared_ptr<s_vip_rank> entry = vip_rank_db.find(rank);
+	const char* rank_name = entry != nullptr ? entry->name.c_str() : "None";
+	safesnprintf(atcmd_output, sizeof(atcmd_output),
+		"VIP Rank: %s (AID %u) | Donate %" PRId64 " | Rank %u %s",
+		label, account_id, donation_total, rank, rank_name);
+	clif_displaymessage(fd, atcmd_output);
+	return 0;
+}
+
+static int atcommand_vip_rank_modify(const int fd, map_session_data* sd, const char* message, e_vip_rank_operation operation, const char* reason) {
+	nullpo_retr(-1, sd);
+
+	long long amount = -1;
+	char target[NAME_LENGTH] = {};
+	if (message == nullptr || sscanf(message, "%lld %23[^\n]", &amount, target) < 2 || amount < 0) {
+		clif_displaymessage(fd, "Usage: @viprankset/@viprankadd/@viprankrefund <amount> <character name|account ID>");
+		return -1;
+	}
+
+	uint32 account_id = 0;
+	char label[NAME_LENGTH + 24] = {};
+	if (!atcommand_vip_rank_account(target, account_id, label, sizeof(label))) {
+		clif_displaymessage(fd, "VIP Rank target was not found.");
+		return -1;
+	}
+
+	if (!vip_rank_change_total(
+		account_id,
+		static_cast<int64>(amount),
+		operation,
+		sd->status.account_id,
+		"",
+		reason
+	)) {
+		clif_displaymessage(fd, "VIP Rank update failed. Check the SQL migration and map-server log.");
+		return -1;
+	}
+
+	int64 donation_total;
+	uint16 rank;
+	if (!vip_rank_load_account(account_id, donation_total, rank))
+		return -1;
+
+	safesnprintf(atcmd_output, sizeof(atcmd_output),
+		"VIP Rank updated: %s (AID %u) | Donate %" PRId64 " | Rank %u",
+		label, account_id, donation_total, rank);
+	clif_displaymessage(fd, atcmd_output);
+	return 0;
+}
+
+ACMD_FUNC(viprankset) {
+	return atcommand_vip_rank_modify(fd, sd, message, VIP_RANK_OP_SET, "viprankset");
+}
+
+ACMD_FUNC(viprankadd) {
+	return atcommand_vip_rank_modify(fd, sd, message, VIP_RANK_OP_ADD, "viprankadd");
+}
+
+ACMD_FUNC(viprankrefund) {
+	return atcommand_vip_rank_modify(fd, sd, message, VIP_RANK_OP_REFUND, "viprankrefund");
+}
+
+ACMD_FUNC(reloadviprankdb) {
+	nullpo_retr(-1, sd);
+	vip_rank_reload();
+	clif_displaymessage(fd, "VIP Rank config and online account data have been reloaded.");
+	return 0;
+}
+
 ACMD_FUNC(fullstrip) {
 	int i;
 	TBL_PC *tsd;
@@ -12667,6 +12802,11 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(vip),
 		ACMD_DEF(showrate),
 #endif
+		ACMD_DEF(viprank),
+		ACMD_DEF(viprankset),
+		ACMD_DEF(viprankadd),
+		ACMD_DEF(viprankrefund),
+		ACMD_DEF(reloadviprankdb),
 		ACMD_DEF(statsdamage),
 		ACMD_DEF(resist),
 		ACMD_DEF(fullstrip),

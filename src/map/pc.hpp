@@ -1153,6 +1153,11 @@ public:
 	bool vars_ok;
 	bool vars_dirty;
 
+	int64 vip_rank_donation_total;
+	uint16 vip_rank;
+	int32 vip_rank_icon;
+	bool vip_rank_loaded;
+
 	uint16 dmglog[DAMAGELOG_SIZE_PC]; ///target ids
 
 	int c_marker[MAX_SKILL_CRIMSON_MARKER]; /// Store target that marked by Crimson Marker [Cydh]

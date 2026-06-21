@@ -1,0 +1,108 @@
+Header:
+  Type: VIP_RANK_DB
+  Version: 1
+
+# Script works like an item bonus script and is active on every map.
+# PveScript works like an item bonus script but is disabled on PvP/GvG/WoE/BG maps.
+# WoeScript works like an item bonus script and is active only on GvG/WoE/TE/Castle maps.
+# Icon accepts any valid EFST constant. Use EFST_BLANK to hide the icon.
+# Example:
+#   WoeScript: |
+#     bonus bMaxHP,500;
+#     bonus2 bSubRace,RC_Player_Human,3;
+# Values are final totals for the current Rank; earlier Rank scripts are not stacked.
+# rAthena weight uses x10 units: bAddMaxWeight,10000 displays as +1,000 Weight.
+Body:
+  - Rank: 1
+    Name: Bronze
+    Threshold: 3000
+    BoxSpeed: 5
+    Icon: EFST_MEMBER1
+    Script: |
+      bonus bAddMaxWeight,10000;
+      bonus2 bDropAddRace,RC_All,5;
+
+  - Rank: 2
+    Name: Silver
+    Threshold: 10000
+    BoxSpeed: 8
+    Icon: EFST_MEMBER2
+    Script: |
+      bonus bAddMaxWeight,10000;
+      bonus2 bDropAddRace,RC_All,8;
+    PveScript: |
+      bonus bMaxHP,1000;
+      bonus bMaxSP,100;
+
+  - Rank: 3
+    Name: Gold
+    Threshold: 15000
+    BoxSpeed: 10
+    Icon: EFST_MEMBER3
+    Script: |
+      bonus bAddMaxWeight,10000;
+      bonus2 bDropAddRace,RC_All,10;
+    PveScript: |
+      bonus bMaxHP,1000;
+      bonus bMaxSP,100;
+      bonus bSpeedAddRate,5;
+
+  - Rank: 4
+    Name: Platinum
+    Threshold: 30000
+    BoxSpeed: 15
+    Icon: EFST_MEMBER4
+    Script: |
+      bonus bAddMaxWeight,15000;
+      bonus2 bDropAddRace,RC_All,15;
+    PveScript: |
+      bonus bMaxHP,2000;
+      bonus bMaxSP,200;
+      bonus bSpeedAddRate,7;
+
+  - Rank: 5
+    Name: Diamond
+    Threshold: 35000
+    BoxSpeed: 18
+    Icon: EFST_MEMBER5
+    Script: |
+      bonus bAddMaxWeight,15000;
+      bonus2 bDropAddRace,RC_All,18;
+    PveScript: |
+      bonus bMaxHP,2000;
+      bonus bMaxSP,200;
+      bonus bSpeedAddRate,7;
+      bonus bDelayrate,-5;
+
+  - Rank: 6
+    Name: Master
+    Threshold: 40000
+    BoxSpeed: 20
+    Icon: EFST_MEMBER6
+    Script: |
+      bonus bAddMaxWeight,15000;
+      bonus2 bDropAddRace,RC_All,20;
+    PveScript: |
+      bonus bMaxHP,2500;
+      bonus bMaxSP,300;
+      bonus bSpeedAddRate,7;
+      bonus bDelayrate,-5;
+      bonus bAtkRate,5;
+      bonus bMatkRate,5;
+
+  - Rank: 7
+    Name: Legend
+    Threshold: 50000
+    BoxSpeed: 25
+    Icon: EFST_MEMBER7
+    Script: |
+      bonus bAddMaxWeight,20000;
+      bonus2 bDropAddRace,RC_All,25;
+    PveScript: |
+      bonus bMaxHP,3000;
+      bonus bMaxSP,300;
+      bonus bSpeedAddRate,10;
+      bonus bDelayrate,-7;
+      bonus bAtkRate,8;
+      bonus bMatkRate,8;
+      bonus2 bSubClass,Class_All,5;

@@ -69,6 +69,7 @@
 #include "unit.hpp" // unit_stop_attack(), unit_stop_walking()
 #include "vending.hpp" // struct s_vending
 #include "cashshop.hpp"
+#include "vip_rank.hpp"
 
 using namespace rathena;
 
@@ -2219,6 +2220,7 @@ bool pc_authok(map_session_data *sd, uint32 login_id2, time_t expiration_time, i
 	sd->vars_dirty = false;
 	sd->vars_ok = false;
 	sd->vars_received = 0x0;
+	vip_rank_load(sd);
 
 	// Check if the player's last point requires special handling and if conditions apply to return the player to his savepoint
 	if( pc_lastpoint_special( *sd ) ){
@@ -17194,6 +17196,7 @@ void do_final_pc(void) {
 #endif
 	penalty_db.clear();
 	captcha_db.clear();
+	vip_rank_db.clear();
 	no_pk_maps = {};
 }
 
@@ -17209,6 +17212,7 @@ void do_init_pc(void) {
 	reputationgroup_db.load();
 #endif
 	captcha_db.load();
+	vip_rank_db.load();
 
 	add_timer_func_list(pc_invincible_timer, "pc_invincible_timer");
 	add_timer_func_list(pc_eventtimer, "pc_eventtimer");

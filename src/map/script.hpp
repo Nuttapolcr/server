@@ -763,6 +763,12 @@ enum vip_status_type {
 	VIP_STATUS_REMAINING
 };
 
+enum vip_rank_info_type {
+	VIP_RANK_INFO_RANK = 1,
+	VIP_RANK_INFO_DONATION_TOTAL,
+	VIP_RANK_INFO_BOX_SPEED
+};
+
 enum e_special_effects {
 	EF_NONE = -1,
 	EF_HIT1,
