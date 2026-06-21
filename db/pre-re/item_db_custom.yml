@@ -19324,6 +19324,7 @@ Body:
          bonus bStr,.@r/3*1;
          bonus bAtkRate,.@r/3*3;
       }
+    Gradable: true
   - Id: 1394
     AegisName: Upg_Two_Handed_Axe
     Name: "[Rookie] Two-handed Axe"
@@ -21116,6 +21117,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*3;
       }
+    Gradable: true
   - Id: 1450
     AegisName: Sinister_Lance
     Name: "[Legend] Paladin Weapon"
@@ -21178,6 +21180,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/2*3;
       }
+    Gradable: true
   - Id: 1600
     AegisName: Sinister_Rod
     Name: "[Legend] High Wizard Weapon"
@@ -21243,6 +21246,7 @@ Body:
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bDelayrate,-(.@r/2*2);
       }
+    Gradable: true
   - Id: 28605
     AegisName: Sinister_Book
     Name: "[Legend] Professor Weapon"
@@ -21307,6 +21311,7 @@ Body:
          bonus bDex,.@r/3*2;
          bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
+    Gradable: true
   - Id: 28107
     AegisName: Sinister_Twohand_Axe
     Name: "[Legend] Whitesmith Weapon"
@@ -21364,6 +21369,7 @@ Body:
          bonus bBaseAtk,20;
          bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
       }
+    Gradable: true
   - Id: 13455
     AegisName: Sinister_Saber
     Name: "[Legend] Creator Weapon"
@@ -21429,6 +21435,7 @@ Body:
       bonus bDelayrate,-5;
          bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/2*5;
       }
+    Gradable: true
   - Id: 16041
     AegisName: Sinister_Mace
     Name: "[Legend] High Priest Weapon"
@@ -21508,6 +21515,7 @@ Body:
          bonus bHealPower,.@r/2*10;
       bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
       }
+    Gradable: true
   - Id: 1800
     AegisName: Sinister_Fist
     Name: "[Legend] Champion Weapon"
@@ -21572,6 +21580,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/2*5;
       }
+    Gradable: true
   - Id: 28008
     AegisName: Sinister_Katar
     Name: "[Legend] Assassin Cross Weapon"
@@ -21641,6 +21650,7 @@ Body:
          bonus bCritAtkRate,.@r/2*5;
          bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
       }
+    Gradable: true
   - Id: 28706
     AegisName: Sinister_Dagger
     Name: "[Legend] Stalker Weapon"
@@ -21715,6 +21725,7 @@ Body:
          bonus bCritAtkRate,.@r/2*5;
          bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
       }
+    Gradable: true
   - Id: 18121
     AegisName: Sinister_Bow
     Name: "[Legend] Sniper Weapon"
@@ -21783,6 +21794,7 @@ Body:
          bonus bDex,.@r/2*2;
          bonus2 bSkillAtk,"AC_DOUBLE",.@r/2*10;
       }
+    Gradable: true
   - Id: 1900
     AegisName: Sinister_Viollin
     Name: "[Legend] Clown Weapon"
@@ -21848,6 +21860,7 @@ Body:
          bonus bDex,.@r/3*2;
          bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
+    Gradable: true
   - Id: 1996
     AegisName: Sinister_Wire
     Name: "[Legend] Gypsy Weapon"
@@ -21913,6 +21926,7 @@ Body:
          bonus bDex,.@r/3*2;
          bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
+    Gradable: true
   - Id: 2026
     AegisName: Sinister_Staff
     Name: "[Legend] Soul Linker Weapon"
@@ -21990,6 +22004,7 @@ Body:
          bonus bVariableCastrate,-(.@r/2*1);
          bonus bDelayrate,-(.@r/2*2);
       }
+    Gradable: true
   - Id: 13328
     AegisName: Sinister_Huuma
     Name: "[Legend] Ninja Weapon"
@@ -22067,6 +22082,7 @@ Body:
          bonus bVariableCastrate,-(.@r/2*1);
          bonus bDelayrate,-(.@r/2*2);
       }
+    Gradable: true
   - Id: 13128
     AegisName: Sinister_Revolver
     Name: "[Legend] Gunslinger Weapon"
@@ -22148,6 +22164,7 @@ Body:
          bonus2 bSkillAtk,"GS_DESPERADO",.@r/2*5;
          bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/2*5;
       }
+    Gradable: true
   - Id: 13468
     AegisName: Sinister_Saber_J
     Name: "[Legend] Super Novice Weapon"
@@ -22254,6 +22271,7 @@ Body:
          bonus bVariableCastrate,-(.@r/2*1);
          bonus bDelayrate,-(.@r/2*2);
       }
+    Gradable: true
   - Id: 9299
     AegisName: Guide_of_Dead_I_Egg
     Name: "[Legendaly] Guide of Dead I Egg"
