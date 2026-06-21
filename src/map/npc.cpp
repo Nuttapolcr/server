@@ -5227,6 +5227,7 @@ static const char* npc_parse_shop(char* w1, char* w2, char* w3, char* w4, const 
 		int32 qty = -1;
 		int value;
 		bool skip = false;
+		bool use_default_price = false;
 
 		if( p == NULL )
 			break;
@@ -5258,10 +5259,11 @@ static const char* npc_parse_shop(char* w1, char* w2, char* w3, char* w4, const 
 			continue;
 		}
 		if( value < 0 ) {
+			use_default_price = true;
 			if (type == NPCTYPE_SHOP || type == NPCTYPE_MARKETSHOP) value = id->value_buy;
 			else value = 0; // Cashshop doesn't have a "buy price" in the item_db
 		}
-		if (value == 0 && (type == NPCTYPE_SHOP || type == NPCTYPE_MARKETSHOP)) { // NPC selling items for free!
+		if (use_default_price && value == 0 && (type == NPCTYPE_SHOP || type == NPCTYPE_MARKETSHOP)) { // NPC selling items for free unintentionally
 			ShowWarning("npc_parse_shop: Item %s [%u] is being sold for FREE in file '%s', line '%d'.\n",
 				id->name.c_str(), nameid2, filepath, strline(buffer,start-buffer));
 		}
