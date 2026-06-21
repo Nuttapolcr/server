@@ -1326,3 +1326,84 @@ Body:
           - Muscle_Fool
     Script: |
       bonus bLongAtkRate,7;
+
+# Costume enchant combos used by enchant_costume_sheet.txt.
+# Imported from db/re/item_combos.yml; only combos whose items exist in
+# the Pre-Renewal item database are included.
+  - Combos:
+      - Combo:
+          - Casting_Top
+          - Casting_Middle
+          - Casting_Bottom
+          - Casting_Robe
+    Script: |
+      bonus bVariableCastrate,-5;
+  - Combos:
+      - Combo:
+          - Skill_Delay1_Top
+          - Skill_Delay1_Middle
+          - Skill_Delay1_Bottom
+    Script: |
+      bonus bDelayrate,-2;
+  - Combos:
+      - Combo:
+          - Casting_Top
+          - Casting_Middle
+          - Casting_Bottom
+    Script: |
+      bonus bVariableCastrate,-6;
+  - Combos:
+      - Combo:
+          - Fatal0
+          - Fatal_Top
+          - Fatal_Bottom
+          - Fatal_Robe
+    Script: |
+      bonus bCritical,10;
+  - Combos:
+      - Combo:
+          - Fatal0
+          - Fatal_Top
+          - Fatal_Bottom
+    Script: |
+      bonus bCritAtkRate,6;
+  - Combos:
+      - Combo:
+          - Cast_Robe_D
+          - Casting_Robe
+    Script: |
+      bonus bFixedCast,-500;
+  - Combos:
+      - Combo:
+          - MinorCast_Robe_D
+          - FixedCasting03
+    Script: |
+      bonus bFixedCast,-300;
+  - Combos:
+      - Combo:
+          - Melee_Top
+          - Melee_Middle
+          - Melee_Bottom
+    Script: |
+      bonus bShortAtkRate,6;
+  - Combos:
+      - Combo:
+          - Range_Robe_D
+          - Range_Top
+      - Combo:
+          - Range_Robe_D
+          - Range_Bottom
+    Script: |
+      bonus bLongAtkRate,2;
+  - Combos:
+      - Combo:
+          - Melee_Robe_D
+          - Melee_Top
+      - Combo:
+          - Melee_Robe_D
+          - Melee_Middle
+      - Combo:
+          - Melee_Robe_D
+          - Melee_Bottom
+    Script: |
+      bonus bShortAtkRate,2;
