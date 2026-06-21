@@ -40,6 +40,7 @@
 #include "script.hpp"
 #include "stall.hpp"
 #include "log.hpp"
+#include "vip_rank.hpp"
 
 using namespace rathena;
 
@@ -4437,6 +4438,7 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 	}
 
 	vip_bonus(sd);
+	vip_rank_apply(sd);
 	refine_pass_bonus(sd);
 	custom_buff_effect(sd);
 	title_buff_effect(sd);

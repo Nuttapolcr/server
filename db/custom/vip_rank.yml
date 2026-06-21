@@ -6,6 +6,10 @@ Header:
 # PveScript works like an item bonus script but is disabled on PvP/GvG/WoE/BG maps.
 # WoeScript works like an item bonus script and is active only on GvG/WoE/TE/Castle maps.
 # Icon accepts any valid EFST constant. Use EFST_BLANK to hide the icon.
+# Example:
+#   WoeScript: |
+#     bonus bMaxHP,500;
+#     bonus2 bSubRace,RC_Player_Human,3;
 # Values are final totals for the current Rank; earlier Rank scripts are not stacked.
 # rAthena weight uses x10 units: bAddMaxWeight,10000 displays as +1,000 Weight.
 Body:

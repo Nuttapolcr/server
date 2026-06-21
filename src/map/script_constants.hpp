@@ -2112,7 +2112,6 @@
 	export_constant(SC_ITEMBOOST_C);
  	export_constant(SC_ITEMBOOST_W);
  	export_constant(SC_ITEMBOOST_ETC);
-	export_constant(SC_AUTOBUFF);
 
 	/* status icons */
 	export_deprecated_constant2("SI_BLANK",-1);
@@ -4456,9 +4455,6 @@
 	export_constant(EFST_CASH_RECEIVEITEM_C);
 	export_constant(EFST_CASH_RECEIVEITEM_W);
 	export_constant(EFST_CASH_RECEIVEITEM_ETC);
-
-	export_constant(EFST_AUTOATTACK);
-	export_constant(EFST_AUTOBUFF);
 
 	export_constant(EFST_MAX);
 

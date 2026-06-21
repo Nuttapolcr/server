@@ -69,6 +69,7 @@
 #include "pet.hpp"
 #include "quest.hpp"
 #include "storage.hpp"
+#include "vip_rank.hpp"
 
 s_next_dropitem_special next_dropitem_special;
 
@@ -23582,6 +23583,84 @@ BUILDIN_FUNC(vip_time) {
 	return SCRIPT_CMD_SUCCESS;
 }
 
+/**
+ * Returns account-wide VIP Rank information.
+ * vip_rank_info <type>;
+ */
+BUILDIN_FUNC(vip_rank_info) {
+	TBL_PC* sd;
+
+	if (!script_rid2sd(sd))
+		return SCRIPT_CMD_FAILURE;
+
+	switch (script_getnum(st, 2)) {
+		case VIP_RANK_INFO_RANK:
+			script_pushint(st, sd->vip_rank);
+			break;
+		case VIP_RANK_INFO_DONATION_TOTAL:
+			script_pushint64(st, sd->vip_rank_donation_total);
+			break;
+		case VIP_RANK_INFO_BOX_SPEED: {
+			std::shared_ptr<s_vip_rank> entry = vip_rank_db.find(sd->vip_rank);
+			script_pushint(st, entry != nullptr ? entry->box_speed : 0);
+			break;
+		}
+		default:
+			ShowError("buildin_vip_rank_info: Unsupported type.\n");
+			return SCRIPT_CMD_FAILURE;
+	}
+
+	return SCRIPT_CMD_SUCCESS;
+}
+
+/**
+ * Returns a boss-box duration after applying VIP Rank speed.
+ * vip_rank_box_time <base milliseconds>{,<minimum milliseconds>};
+ */
+BUILDIN_FUNC(vip_rank_box_time) {
+	TBL_PC* sd;
+
+	if (!script_rid2sd(sd))
+		return SCRIPT_CMD_FAILURE;
+
+	int base = script_getnum(st, 2);
+	int minimum = script_hasdata(st, 3) ? script_getnum(st, 3) : 1000;
+	script_pushint(st, vip_rank_box_time(sd, base, minimum));
+	return SCRIPT_CMD_SUCCESS;
+}
+
+/**
+ * Changes the attached account's lifetime donation total and writes an audit log.
+ * vip_rank_update <amount>,<operation>{,<reference>,<reason>};
+ * operation: 0=set, 1=add, 2=refund
+ */
+BUILDIN_FUNC(vip_rank_update) {
+	TBL_PC* sd;
+
+	if (!script_rid2sd(sd))
+		return SCRIPT_CMD_FAILURE;
+
+	int64 amount = script_getnum64(st, 2);
+	int operation = script_getnum(st, 3);
+	const char* reference = script_hasdata(st, 4) ? script_getstr(st, 4) : "";
+	const char* reason = script_hasdata(st, 5) ? script_getstr(st, 5) : "script";
+
+	if (amount < 0 || operation < VIP_RANK_OP_SET || operation > VIP_RANK_OP_REFUND) {
+		script_pushint(st, 0);
+		return SCRIPT_CMD_SUCCESS;
+	}
+
+	script_pushint(st, vip_rank_change_total(
+		sd->status.account_id,
+		amount,
+		static_cast<e_vip_rank_operation>(operation),
+		0,
+		reference,
+		reason
+	));
+	return SCRIPT_CMD_SUCCESS;
+}
+
 
 /**
  * Turns a player into a monster and optionally can grant a SC attribute effect.
@@ -31074,6 +31153,9 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF2(montransform, "active_transform", "vi?????"),
 	BUILDIN_DEF(vip_status,"i?"),
 	BUILDIN_DEF(vip_time,"i?"),
+	BUILDIN_DEF(vip_rank_info,"i"),
+	BUILDIN_DEF(vip_rank_box_time,"i?"),
+	BUILDIN_DEF(vip_rank_update,"ii??"),
 	BUILDIN_DEF(bonus_script,"si????"),
 	BUILDIN_DEF(bonus_script_clear,"??"),
 	BUILDIN_DEF(getgroupitem,"i??"),
