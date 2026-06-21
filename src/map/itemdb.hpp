@@ -2839,6 +2839,11 @@ enum e_random_item_group {
 	IG_MVP_TREASURE_PURPLE,
 	IG_CARDALBUM_BOSS,
 
+	// Custom: City Titan event loot pools
+	IG_CITY_TITAN_BLUE,
+	IG_CITY_TITAN_RED,
+	IG_CITY_TITAN_PURPLE,
+
 	IG_MAX,
 };
 
