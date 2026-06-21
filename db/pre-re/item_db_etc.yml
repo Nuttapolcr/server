@@ -10715,7 +10715,7 @@ Body:
       bonus bVariableCastrate,-10;
   - Id: 4827
     AegisName: Spell6
-    Name: Spell6
+    Name: Spell Lv6
     Type: Card
     SubType: Enchant
     Buy: 20
@@ -10724,7 +10724,7 @@ Body:
       bonus bVariableCastrate,-10;
   - Id: 4828
     AegisName: Spell7
-    Name: Spell7
+    Name: Spell Lv7
     Type: Card
     SubType: Enchant
     Buy: 20
@@ -10733,7 +10733,7 @@ Body:
       bonus bVariableCastrate,-10;
   - Id: 4829
     AegisName: Spell8
-    Name: Spell8
+    Name: Spell Lv8
     Type: Card
     SubType: Enchant
     Buy: 20
@@ -10742,7 +10742,7 @@ Body:
       bonus bVariableCastrate,-10;
   - Id: 4830
     AegisName: Spell9
-    Name: Spell9
+    Name: Spell Lv9
     Type: Card
     SubType: Enchant
     Buy: 20
@@ -10751,7 +10751,7 @@ Body:
       bonus bVariableCastrate,-10;
   - Id: 4831
     AegisName: Spell10
-    Name: Spell10
+    Name: Spell Lv10
     Type: Card
     SubType: Enchant
     Buy: 20
@@ -11133,7 +11133,7 @@ Body:
       bonus bMaxHPrate,4;
   - Id: 4869
     AegisName: Attack_Delay_1
-    Name: After Attack Delay Lv1
+    Name: ASPD Lv1
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -11158,7 +11158,7 @@ Body:
       bonus bMaxSP,75;
   - Id: 4872
     AegisName: Attack_Delay_2
-    Name: After Attack Delay Lv2
+    Name: ASPD Lv2
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -11167,7 +11167,7 @@ Body:
       bonus bAspdRate,6;
   - Id: 4873
     AegisName: Attack_Delay_3
-    Name: After Attack Delay Lv3
+    Name: ASPD Lv3
     Type: Card
     SubType: Enchant
     Buy: 10
@@ -11242,7 +11242,7 @@ Body:
       heal 0,-300;
   - Id: 4881
     AegisName: Attack_Delay_4
-    Name: After Attack Delay Lv4
+    Name: ASPD Lv4
     Type: Card
     SubType: Enchant
     Buy: 10

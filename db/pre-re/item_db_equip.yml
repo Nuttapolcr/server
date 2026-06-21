@@ -4618,12 +4618,11 @@ Body:
       bonus bCritAtkRate,3*.@r;
       bonus2 bAddClass,Class_Boss,10;
       if (.@r>=5) {
-         bonus2 bAddClass,Class_Boss,20;
+         bonus2 bAddClass,Class_Boss,10;
       }
       if (.@r>=7) {
          bonus bBaseAtk,30;
          bonus bCritAtkRate,20;
-         bonus2 bSubClass,Class_Boss,30;
       }
   - Id: 1301
     AegisName: Axe
