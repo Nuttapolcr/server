@@ -32,3 +32,47 @@ Header:
   Version: 1
 
 Body:
+  - Id: 1
+    Dialog: Weakling! Challenge me if you have any courage!
+  - Id: 2
+    Dialog: Impressive! I wonder how far your recklessness will take you.
+  - Id: 3
+    Dialog: I almost pity how outmatched you are against me. Now prepare for my attack!
+  - Id: 4
+    Dialog: My loyal servants! Welcome them with a painful death!
+  - Id: 6
+    Dialog: You worthless humans. Your so-called holy powers have no effect on me!
+  - Id: 14
+    Dialog: This is how you attack? Watch and learn, weaklings!
+  - Id: 15
+    Dialog: It's time to finish the game!
+  - Id: 16
+    Dialog: Oh, you're stronger than I thought!
+  - Id: 17
+    Dialog: No, this can't be happening! I'm Satan Morocc, Demon King of Destruction!
+  - Id: 19
+    Dialog: I was born to conquer this world! None shall stop me!
+  - Id: 20
+    Dialog: Your days are numbered!
+  - Id: 21
+    Dialog: Pulse Strike! My fingers tear steel!
+  - Id: 22
+    Dialog: Hahaha, tell me who I am! I'm Baphomet, the Heir of Hell!
+  - Id: 23
+    Dialog: Enjoy your time on the mortal plane while you can, your hope will soon turn into despair!
+  - Id: 24
+    Dialog: When are you going to learn your lesson? In death?
+  - Id: 25
+    Dialog: No... I can't lose! I won't beg for my life! I'm not running away! I don't accept this as defeat!
+  - Id: 27
+    Dialog: What do you want from me?
+  - Id: 28
+    Dialog: No! I didn't do this! He's the one who planned out all this!
+  - Id: 29
+    Dialog: I just wanted to find peace..! That's why I have been fleeing away!
+  - Id: 31
+    Dialog: Annoying flies!! Get off of me!
+  - Id: 32
+    Dialog: Suffer in Hell!
+  - Id: 34
+    Dialog: No... I won't accept this as defeat!

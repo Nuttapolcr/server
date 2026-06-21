@@ -42,7 +42,7 @@
 
 Header:
   Type: STATUS_DB
-  Version: 3
+  Version: 4
 
 Footer:
   Imports:

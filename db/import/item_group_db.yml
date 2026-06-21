@@ -48,6 +48,45 @@ Header:
   Version: 3
 
 Body:
+  - Group: GIFT_BUFF_SET
+    SubGroups:
+      - SubGroup: 0
+        List:
+          - Index: 0
+            Item: E_Small_Life_Potion
+            Amount: 5
+          - Index: 1
+            Item: E_Blessing_10_Scroll
+            Amount: 5
+          - Index: 2
+            Item: E_Inc_Agi_10_Scroll
+            Amount: 5
+      - SubGroup: 2
+        List:
+          - Index: 0
+            Item: E_Vit_Dish10_
+            Rate: 10
+            Amount: 2
+          - Index: 1
+            Item: E_Str_Dish10_
+            Rate: 10
+            Amount: 2
+          - Index: 2
+            Item: E_Agi_Dish10_
+            Rate: 10
+            Amount: 2
+          - Index: 3
+            Item: E_Int_Dish10_
+            Rate: 10
+            Amount: 2
+          - Index: 4
+            Item: E_Dex_Dish10_
+            Rate: 10
+            Amount: 2
+          - Index: 5
+            Item: E_Luk_Dish10_
+            Rate: 10
+            Amount: 2
   - Group: PET_COMBINATION_COMMON_REWARD
     AnnounceBoxItemId: 1500000
     SubGroups:

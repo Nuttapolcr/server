@@ -2,6 +2,60 @@ Header:
   Type: ITEM_DB
   Version: 3
 Body:
+  - Id: 5470
+    AegisName: Eyes_Of_Darkness
+    Name: Eye Of Darkness
+    Type: Armor
+    Buy: 20
+    Weight: 100
+    Defense: 1
+    Locations:
+      Head_Mid: true
+    ArmorLevel: 1
+    EquipLevelMin: 50
+    View: 467
+    Script: |
+      bonus bDex,1;
+      bonus2 bResEff,Eff_Blind,10000;
+  - Id: 12679
+    AegisName: Sg_White_Potion_Box
+    Name: Siege White Potion Box
+    Type: Usable
+    Buy: 20
+    Weight: 200
+    Flags:
+      BuyingStore: true
+    Script: |
+      getitem 11548,30;
+  - Id: 12680
+    AegisName: Sg_Blue_Potion_Box
+    Name: Siege Blue Potion Box
+    Type: Usable
+    Buy: 20
+    Weight: 200
+    Flags:
+      BuyingStore: true
+    Script: |
+      getitem 11549,10;
+  - Id: 22777
+    AegisName: BuffGiftBox
+    Name: Gift Buff Set
+    Type: Usable
+    Buy: 10
+    Weight: 100
+    EquipLevelMin: 1
+    Flags:
+      Container: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_Gift_Buff_Set);
   - Id: 9200
     AegisName: Pet_Taming
     Name: Pet Taming
@@ -15964,7 +16018,6 @@ Body:
     AegisName: aegis_1001012
     Name: Random Drop Box
     Type: Etc
-    ArmorLevel: 1
     EquipLevelMin: 1
     View: 2113
   - Id: 1001013
@@ -18843,6 +18896,20 @@ Body:
     Name: "[Legend] Accessory Stone (NT)"
     Type: Etc
     Weight: 1
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+  - Id: 1000429
+    AegisName: Acc_Ore_4
+    Name: "[Epic] Accessory Stone (NT)"
+    Type: Etc
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
