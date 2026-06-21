@@ -1,0 +1,51 @@
+//===== HICLASS Enchant Grade ================================
+//= Opens the official Enchant Grade UI.
+//============================================================
+
+morocc,180,139,4	script	ช่างอัพเกรด#hiclass	4_JP_GARM_H,{
+	mes "[ช่างอัพเกรด]";
+	mes "ข้าสามารถเพิ่ม Grade";
+	mes "ให้กับอุปกรณ์ที่รองรับระบบได้";
+	next;
+
+	switch (select("เปิดหน้าต่างเพิ่ม Grade:ดูรายละเอียด:ยกเลิก")) {
+	case 1:
+		mes "[ช่างอัพเกรด]";
+		mes "ขอให้โชคดี";
+		close2;
+		enchantgradeui();
+		end;
+
+	case 2:
+		mes "[ช่างอัพเกรด]";
+		mes "อุปกรณ์ต้องตีบวกอย่างน้อย +7";
+		mes "และต้องเป็นไอเทมที่รองรับระบบ Grade";
+		mes " ";
+		mes "ค่าใช้จ่ายหลัก:";
+		mes "- 500,000 Zeny";
+		mes "- Fragment Stone ตามระดับ Grade";
+		next;
+		mes "[ช่างอัพเกรด]";
+		mes "โอกาสสำเร็จพื้นฐาน:";
+		mes "- ไม่มี Grade -> D : 50%";
+		mes "- Grade D -> C : 40%";
+		mes "- Grade C -> B : 30%";
+		mes "- Grade B -> A : 20%";
+		next;
+		mes "[ช่างอัพเกรด]";
+		mes "สามารถใช้ Blacksmith Blessing";
+		mes "เพิ่มโอกาสสำเร็จชิ้นละ 2%";
+		mes "สูงสุด 10 ชิ้น";
+		mes " ";
+		mes "หากล้มเหลว อุปกรณ์จะไม่แตก";
+		mes "และระดับตีบวกจะไม่ลดลง";
+		close;
+
+	default:
+		close;
+	}
+
+OnInit:
+	waitingroom "เพิ่ม Grade อุปกรณ์", 0;
+	end;
+}

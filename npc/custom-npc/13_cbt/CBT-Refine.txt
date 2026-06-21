@@ -16,7 +16,7 @@ Contact Us. Dollaporn Naraphan [ FB ]
 ==========================================================
 */
 
-morocc,157,173,4	script	Refine#cbt	826,{
+morocc,155,149,4	script	Refine#cbt	826,{
 	if( getbattleflag( "feature.refineui" ) ){
 		refineui();
 		end;

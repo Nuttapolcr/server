@@ -1,0 +1,130 @@
+//===== HICLASS Card Remover ================================
+//= Removes every card from one equipped item.
+//= Cost per operation: 1,000,000 Zeny + 20 Fragment Stones.
+//============================================================
+
+morocc,165,150,4	script	ช่างถอดการ์ด#fragment	869,{
+	disable_items;
+
+	mes "[ช่างถอดการ์ด]";
+	mes "ข้าสามารถถอดการ์ดทั้งหมด";
+	mes "ออกจากอุปกรณ์ที่สวมใส่ได้";
+	mes " ";
+	mes "ค่าบริการ:";
+	mes "- 1,000,000 Zeny";
+	mes "- ^i[1000373] Fragment Stone จำนวน 20 ชิ้น";
+	next;
+
+	if (select("ถอดการ์ด:ยกเลิก") == 2) {
+		close;
+	}
+
+	setarray .@slots[0],
+		EQI_HEAD_TOP,
+		EQI_ARMOR,
+		EQI_HAND_L,
+		EQI_HAND_R,
+		EQI_GARMENT,
+		EQI_SHOES,
+		EQI_ACC_L,
+		EQI_ACC_R,
+		EQI_HEAD_MID,
+		EQI_HEAD_LOW;
+
+	for (.@i = 0; .@i < getarraysize(.@slots); ++.@i) {
+		if (!getequipisequiped(.@slots[.@i])) {
+			continue;
+		}
+
+		.@slot_map[.@equipped_count] = .@slots[.@i];
+		.@menu$ += F_getpositionname(.@slots[.@i])
+			+ " - [" + getequipname(.@slots[.@i]) + "]:";
+		++.@equipped_count;
+	}
+
+	if (.@equipped_count == 0) {
+		mes "[ช่างถอดการ์ด]";
+		mes "คุณยังไม่ได้สวมใส่อุปกรณ์";
+		close;
+	}
+
+	mes "[ช่างถอดการ์ด]";
+	mes "เลือกอุปกรณ์ที่ต้องการถอดการ์ด:";
+	next;
+
+	.@choice = select(.@menu$ + "ยกเลิก");
+	if (.@choice > .@equipped_count) {
+		close;
+	}
+
+	.@part = .@slot_map[.@choice - 1];
+	.@card_count = getequipcardcnt(.@part);
+
+	if (.@card_count == 0) {
+		mes "[ช่างถอดการ์ด]";
+		mes "อุปกรณ์ชิ้นนี้ไม่มีการ์ดให้ถอด";
+		close;
+	}
+
+	for (.@i = 0; .@i < 4; ++.@i) {
+		.@card_id = getequipcardid(.@part, .@i);
+		if (.@card_id > 0 && getiteminfo(.@card_id, ITEMINFO_TYPE) == IT_CARD) {
+			.@card_ids[.@return_count] = .@card_id;
+			.@card_amounts[.@return_count] = 1;
+			++.@return_count;
+		}
+	}
+
+	if (.@return_count == 0) {
+		mes "[ช่างถอดการ์ด]";
+		mes "อุปกรณ์ชิ้นนี้ไม่มีการ์ดให้ถอด";
+		close;
+	}
+
+	if (!checkweight2(.@card_ids, .@card_amounts)) {
+		mes "[ช่างถอดการ์ด]";
+		mes "กรุณาเพิ่มช่องว่างในกระเป๋า";
+		mes "และลดน้ำหนักที่ถืออยู่ก่อน";
+		close;
+	}
+
+	mes "[ช่างถอดการ์ด]";
+	mes "อุปกรณ์: ^0055FF" + getequipname(.@part) + "^000000";
+	mes "จำนวนการ์ดที่จะถอด: ^FF0000" + .@card_count + " ใบ^000000";
+	mes " ";
+	mes "ระบบจะถอดการ์ดทั้งหมดออกจากอุปกรณ์";
+	mes "อุปกรณ์และการ์ดจะไม่สูญหาย";
+	next;
+
+	if (select("ยืนยันการถอดการ์ด:ยกเลิก") == 2) {
+		close;
+	}
+
+	if (
+		Zeny < .ZenyCost ||
+		countitem(.FragmentStone) < .FragmentAmount
+	) {
+		mes "[ช่างถอดการ์ด]";
+		mes "คุณมีวัตถุดิบไม่เพียงพอ";
+		mes " ";
+		mes "วัตถุดิบที่ต้องใช้:";
+		mes "- " + callfunc("F_InsertComma", .ZenyCost) + " Zeny";
+		mes "- ^i[" + .FragmentStone + "] Fragment Stone จำนวน " + .FragmentAmount + " ชิ้น";
+		close;
+	}
+
+	Zeny -= .ZenyCost;
+	delitem .FragmentStone, .FragmentAmount;
+	successremovecards .@part;
+
+	mes "[ช่างถอดการ์ด]";
+	mes "ถอดการ์ดทั้งหมดสำเร็จแล้ว";
+	close;
+
+OnInit:
+	.ZenyCost = 1000000;
+	.FragmentStone = 1000373;
+	.FragmentAmount = 20;
+	waitingroom "ถอดการ์ด", 0;
+	end;
+}

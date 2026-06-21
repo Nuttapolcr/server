@@ -55,6 +55,149 @@ Header:
   Version: 3
 
 Body:
+  # HICLASS gradable equipment is Armor Level 2.
+  # Failure consumes the selected materials, but never destroys or downgrades
+  # the equipment.
+  - Type: Armor
+    Levels:
+      - Level: 2
+        Grades:
+          - Grade: None
+            Chances:
+              - Refine: 7
+                Chance: 5000
+              - Refine: 8
+                Chance: 5000
+              - Refine: 9
+                Chance: 5000
+              - Refine: 10
+                Chance: 5000
+              - Refine: 11
+                Chance: 5000
+              - Refine: 12
+                Chance: 5000
+              - Refine: 13
+                Chance: 5000
+              - Refine: 14
+                Chance: 5000
+              - Refine: 15
+                Chance: 5000
+              - Refine: 16
+                Chance: 5000
+            Bonus: 10
+            Catalyst:
+              Item: Blacksmith_Blessing
+              AmountPerStep: 1
+              MaximumSteps: 10
+              ChanceIncrease: 200
+            Options:
+              - Option: 0
+                Item: Meteorite_Fragment
+                Amount: 20
+                Zeny: 500000
+
+          - Grade: D
+            Chances:
+              - Refine: 7
+                Chance: 4000
+              - Refine: 8
+                Chance: 4000
+              - Refine: 9
+                Chance: 4000
+              - Refine: 10
+                Chance: 4000
+              - Refine: 11
+                Chance: 4000
+              - Refine: 12
+                Chance: 4000
+              - Refine: 13
+                Chance: 4000
+              - Refine: 14
+                Chance: 4000
+              - Refine: 15
+                Chance: 4000
+              - Refine: 16
+                Chance: 4000
+            Bonus: 30
+            Catalyst:
+              Item: Blacksmith_Blessing
+              AmountPerStep: 1
+              MaximumSteps: 10
+              ChanceIncrease: 200
+            Options:
+              - Option: 0
+                Item: Meteorite_Fragment
+                Amount: 40
+                Zeny: 500000
+
+          - Grade: C
+            Chances:
+              - Refine: 7
+                Chance: 3000
+              - Refine: 8
+                Chance: 3000
+              - Refine: 9
+                Chance: 3000
+              - Refine: 10
+                Chance: 3000
+              - Refine: 11
+                Chance: 3000
+              - Refine: 12
+                Chance: 3000
+              - Refine: 13
+                Chance: 3000
+              - Refine: 14
+                Chance: 3000
+              - Refine: 15
+                Chance: 3000
+              - Refine: 16
+                Chance: 3000
+            Bonus: 50
+            Catalyst:
+              Item: Blacksmith_Blessing
+              AmountPerStep: 1
+              MaximumSteps: 10
+              ChanceIncrease: 200
+            Options:
+              - Option: 0
+                Item: Meteorite_Fragment
+                Amount: 60
+                Zeny: 500000
+
+          - Grade: B
+            Chances:
+              - Refine: 7
+                Chance: 2000
+              - Refine: 8
+                Chance: 2000
+              - Refine: 9
+                Chance: 2000
+              - Refine: 10
+                Chance: 2000
+              - Refine: 11
+                Chance: 2000
+              - Refine: 12
+                Chance: 2000
+              - Refine: 13
+                Chance: 2000
+              - Refine: 14
+                Chance: 2000
+              - Refine: 15
+                Chance: 2000
+              - Refine: 16
+                Chance: 2000
+            Bonus: 100
+            Catalyst:
+              Item: Blacksmith_Blessing
+              AmountPerStep: 1
+              MaximumSteps: 10
+              ChanceIncrease: 200
+            Options:
+              - Option: 0
+                Item: Meteorite_Fragment
+                Amount: 80
+                Zeny: 500000
+
 #=============== enchantgrade.yml =================
 #  - Type: PetEgg
 #    Levels:
