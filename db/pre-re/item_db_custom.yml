@@ -19240,6 +19240,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -19310,8 +19311,8 @@ Body:
       bonus2 bSkillAtk,"TK_TURNKICK",50;
       bonus2 bSkillAtk,"TK_COUNTER",50;
       bonus2 bSkillAtk,"TK_JUMPKICK",50;
-         bonus bStr,.@r/3*1;
-         bonus bAtkRate,.@r/3*3;
+         bonus bStr,.@r/2*1;
+         bonus bAtkRate,.@r/2*3;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bAtkRate,5;
@@ -19321,10 +19322,9 @@ Body:
       bonus2 bSkillAtk,"TK_TURNKICK",50;
       bonus2 bSkillAtk,"TK_COUNTER",50;
       bonus2 bSkillAtk,"TK_JUMPKICK",50;
-         bonus bStr,.@r/3*1;
-         bonus bAtkRate,.@r/3*3;
+         bonus bStr,.@r/2*1;
+         bonus bAtkRate,.@r/2*3;
       }
-    Gradable: true
   - Id: 1394
     AegisName: Upg_Two_Handed_Axe
     Name: "[Rookie] Two-handed Axe"
@@ -19782,7 +19782,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -19804,7 +19804,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -19826,7 +19826,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -19848,7 +19848,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -19871,7 +19871,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -19899,7 +19899,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -19927,7 +19927,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -19958,7 +19958,7 @@ Body:
     Slots: 1
     Locations:
       Armor: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20020,7 +20020,7 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bShortAtkRate,.@r/2*2;
+         bonus bShortAtkRate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -20073,7 +20073,7 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bLongAtkRate,.@r/2*2;
+         bonus bLongAtkRate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -20129,7 +20129,7 @@ Body:
          bonus bMatkRate,5;
          bonus bMatk,20;
          bonus2 bAddClass,Class_Boss,5;
-         bonus bDelayrate,-(.@r/2*2);
+         bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMatkRate,5;
@@ -20192,13 +20192,13 @@ Body:
          bonus bMaxHPrate,5;
          bonus bMaxHP,500;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/2*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,500;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/2*2;
       }
   - Id: 480421
     AegisName: Rare_Melee_Muffler
@@ -20209,7 +20209,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20231,7 +20231,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20253,7 +20253,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20275,7 +20275,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20298,7 +20298,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20326,7 +20326,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20354,7 +20354,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20385,7 +20385,7 @@ Body:
     Slots: 1
     Locations:
       Garment: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20447,7 +20447,7 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bShortAtkRate,.@r/2*2;
+         bonus bShortAtkRate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -20500,7 +20500,7 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bLongAtkRate,.@r/2*2;
+         bonus bLongAtkRate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -20556,7 +20556,7 @@ Body:
          bonus bMatkRate,5;
          bonus bMatk,20;
          bonus2 bAddClass,Class_Boss,5;
-         bonus bDelayrate,-(.@r/2*2);
+         bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMatkRate,5;
@@ -20619,13 +20619,13 @@ Body:
          bonus bMaxHPrate,5;
          bonus bMaxHP,500;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/2*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,500;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/2*2;
       }
   - Id: 470278
     AegisName: Rare_Melee_Boots
@@ -20636,7 +20636,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20658,7 +20658,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20680,7 +20680,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20702,7 +20702,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20725,7 +20725,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20753,7 +20753,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20781,7 +20781,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20812,7 +20812,7 @@ Body:
     Slots: 1
     Locations:
       Shoes: true
-    ArmorLevel: 2
+    ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     Gradable: true
@@ -20874,7 +20874,7 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bShortAtkRate,.@r/2*2;
+         bonus bShortAtkRate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -20927,7 +20927,7 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bLongAtkRate,.@r/2*2;
+         bonus bLongAtkRate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -20983,7 +20983,7 @@ Body:
          bonus bMatkRate,5;
          bonus bMatk,20;
          bonus2 bAddClass,Class_Boss,5;
-         bonus bDelayrate,-(.@r/2*2);
+         bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMatkRate,5;
@@ -21046,13 +21046,13 @@ Body:
          bonus bMaxHPrate,5;
          bonus bMaxHP,500;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/2*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,500;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/2*2;
       }
   - Id: 21016
     AegisName: Sinister_Twohand_Sword
@@ -21071,6 +21071,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21103,7 +21104,7 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*3;
+         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*3;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -21117,7 +21118,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*3;
       }
-    Gradable: true
   - Id: 1450
     AegisName: Sinister_Lance
     Name: "[Legend] Paladin Weapon"
@@ -21135,6 +21135,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21166,7 +21167,7 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/2*3;
+         bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/3*3;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -21180,7 +21181,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/2*3;
       }
-    Gradable: true
   - Id: 1600
     AegisName: Sinister_Rod
     Name: "[Legend] High Wizard Weapon"
@@ -21198,6 +21198,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21232,7 +21233,7 @@ Body:
          bonus bMatkRate,5;
          bonus bMatk,20;
          bonus2 bMagicAddClass,Class_Boss,10;
-         bonus bDelayrate,-(.@r/2*2);
+         bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMatkRate,5;
@@ -21246,7 +21247,6 @@ Body:
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bDelayrate,-(.@r/2*2);
       }
-    Gradable: true
   - Id: 28605
     AegisName: Sinister_Book
     Name: "[Legend] Professor Weapon"
@@ -21264,6 +21264,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21302,16 +21303,15 @@ Body:
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMaxHPrate,10;
          bonus bLongAtkDef,5;
-         bonus bDex,.@r/3*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
+         bonus bDex,.@r/2*2;
+         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,10;
          bonus bLongAtkDef,5;
-         bonus bDex,.@r/3*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
+         bonus bDex,.@r/2*2;
+         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
       }
-    Gradable: true
   - Id: 28107
     AegisName: Sinister_Twohand_Axe
     Name: "[Legend] Whitesmith Weapon"
@@ -21329,6 +21329,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21357,7 +21358,7 @@ Body:
       if (.@g >= ENCHANTGRADE_C) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
-         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
+         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -21369,7 +21370,6 @@ Body:
          bonus bBaseAtk,20;
          bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
       }
-    Gradable: true
   - Id: 13455
     AegisName: Sinister_Saber
     Name: "[Legend] Creator Weapon"
@@ -21387,6 +21387,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21421,7 +21422,7 @@ Body:
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
-         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/2*5;
+         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bDex,5;
@@ -21435,7 +21436,6 @@ Body:
       bonus bDelayrate,-5;
          bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/2*5;
       }
-    Gradable: true
   - Id: 16041
     AegisName: Sinister_Mace
     Name: "[Legend] High Priest Weapon"
@@ -21453,6 +21453,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21496,7 +21497,7 @@ Body:
          bonus bInt,5;
          bonus bMaxHPrate,5;
          bonus2 bMagicAddClass,Class_Boss,10;
-         bonus bHealPower,.@r/2*10;
+         bonus bHealPower,.@r/3*10;
       bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_B) {
@@ -21505,7 +21506,7 @@ Body:
          bonus bMaxHPrate,5;
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bHealPower,.@r/2*10;
-      bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
+      bonus2 bSkillAtk,"PR_MAGNUS",.@r/2*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bDex,5;
@@ -21513,9 +21514,8 @@ Body:
          bonus bMaxHPrate,5;
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bHealPower,.@r/2*10;
-      bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
+      bonus2 bSkillAtk,"PR_MAGNUS",.@r/2*2;
       }
-    Gradable: true
   - Id: 1800
     AegisName: Sinister_Fist
     Name: "[Legend] Champion Weapon"
@@ -21533,6 +21533,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21566,7 +21567,7 @@ Body:
          bonus bAspdRate,5;
          bonus bMaxSPrate,10;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/2*5;
+         bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAspdRate,5;
@@ -21580,7 +21581,6 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/2*5;
       }
-    Gradable: true
   - Id: 28008
     AegisName: Sinister_Katar
     Name: "[Legend] Assassin Cross Weapon"
@@ -21598,6 +21598,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21633,8 +21634,8 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bCritAtkRate,.@r/2*5;
-         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
+         bonus bCritAtkRate,.@r/3*5;
+         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -21650,7 +21651,6 @@ Body:
          bonus bCritAtkRate,.@r/2*5;
          bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
       }
-    Gradable: true
   - Id: 28706
     AegisName: Sinister_Dagger
     Name: "[Legend] Stalker Weapon"
@@ -21668,6 +21668,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21706,8 +21707,8 @@ Body:
          bonus bBaseAtk,20;
          bonus bCritical,10;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bCritAtkRate,.@r/2*5;
-         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
+         bonus bCritAtkRate,.@r/3*5;
+         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -21725,7 +21726,6 @@ Body:
          bonus bCritAtkRate,.@r/2*5;
          bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
       }
-    Gradable: true
   - Id: 18121
     AegisName: Sinister_Bow
     Name: "[Legend] Sniper Weapon"
@@ -21743,6 +21743,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21777,8 +21778,8 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bDex,.@r/2*2;
-         bonus2 bSkillAtk,"AC_DOUBLE",.@r/2*10;
+         bonus bDex,.@r/3*2;
+         bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -21794,7 +21795,6 @@ Body:
          bonus bDex,.@r/2*2;
          bonus2 bSkillAtk,"AC_DOUBLE",.@r/2*10;
       }
-    Gradable: true
   - Id: 1900
     AegisName: Sinister_Viollin
     Name: "[Legend] Clown Weapon"
@@ -21813,6 +21813,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21851,16 +21852,15 @@ Body:
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMaxHPrate,10;
          bonus bLongAtkDef,5;
-         bonus bDex,.@r/3*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
+         bonus bDex,.@r/2*2;
+         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,10;
          bonus bLongAtkDef,5;
-         bonus bDex,.@r/3*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
+         bonus bDex,.@r/2*2;
+         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
       }
-    Gradable: true
   - Id: 1996
     AegisName: Sinister_Wire
     Name: "[Legend] Gypsy Weapon"
@@ -21879,6 +21879,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21917,16 +21918,15 @@ Body:
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMaxHPrate,10;
          bonus bLongAtkDef,5;
-         bonus bDex,.@r/3*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
+         bonus bDex,.@r/2*2;
+         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,10;
          bonus bLongAtkDef,5;
-         bonus bDex,.@r/3*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
+         bonus bDex,.@r/2*2;
+         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
       }
-    Gradable: true
   - Id: 2026
     AegisName: Sinister_Staff
     Name: "[Legend] Soul Linker Weapon"
@@ -21944,6 +21944,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -21984,9 +21985,9 @@ Body:
          bonus bInt,5;
          bonus2 bSkillAtk,"SL_SMA",10;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bDex,.@r/2*2;
-         bonus bVariableCastrate,-(.@r/2*1);
-         bonus bDelayrate,-(.@r/2*2);
+         bonus bDex,.@r/3*2;
+         bonus bVariableCastrate,-(.@r/3*1);
+         bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bInt,5;
@@ -22004,7 +22005,6 @@ Body:
          bonus bVariableCastrate,-(.@r/2*1);
          bonus bDelayrate,-(.@r/2*2);
       }
-    Gradable: true
   - Id: 13328
     AegisName: Sinister_Huuma
     Name: "[Legend] Ninja Weapon"
@@ -22023,6 +22023,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -22062,9 +22063,9 @@ Body:
          bonus bDex,3;
          bonus2 bSkillAtk,"NJ_HUUMA",50;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bDex,.@r/2*2;
-         bonus bVariableCastrate,-(.@r/2*1);
-         bonus bDelayrate,-(.@r/2*2);
+         bonus bDex,.@r/3*2;
+         bonus bVariableCastrate,-(.@r/3*1);
+         bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bDex,3;
@@ -22082,7 +22083,6 @@ Body:
          bonus bVariableCastrate,-(.@r/2*1);
          bonus bDelayrate,-(.@r/2*2);
       }
-    Gradable: true
   - Id: 13128
     AegisName: Sinister_Revolver
     Name: "[Legend] Gunslinger Weapon"
@@ -22101,6 +22101,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -22141,10 +22142,10 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bDex,.@r/2*2;
-         bonus bHit,.@r/2*5;
-         bonus2 bSkillAtk,"GS_DESPERADO",.@r/2*5;
-         bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/2*5;
+         bonus bDex,.@r/3*2;
+         bonus bHit,.@r/3*5;
+         bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*5;
+         bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -22164,7 +22165,6 @@ Body:
          bonus2 bSkillAtk,"GS_DESPERADO",.@r/2*5;
          bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/2*5;
       }
-    Gradable: true
   - Id: 13468
     AegisName: Sinister_Saber_J
     Name: "[Legend] Super Novice Weapon"
@@ -22183,6 +22183,7 @@ Body:
     WeaponLevel: 4
     EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -22236,14 +22237,14 @@ Body:
          bonus bAtkRate,5;
          bonus bMaxHP,1000;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bStr,.@r/2*1;
-         bonus bAgi,.@r/2*1;
-         bonus bVit,.@r/2*1;
-         bonus bInt,.@r/2*1;
-         bonus bDex,.@r/2*1;
-         bonus bLuk,.@r/2*1;
-         bonus bVariableCastrate,-(.@r/2*1);
-         bonus bDelayrate,-(.@r/2*2);
+         bonus bStr,.@r/3*1;
+         bonus bAgi,.@r/3*1;
+         bonus bVit,.@r/3*1;
+         bonus bInt,.@r/3*1;
+         bonus bDex,.@r/3*1;
+         bonus bLuk,.@r/3*1;
+         bonus bVariableCastrate,-(.@r/3*1);
+         bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -22271,7 +22272,6 @@ Body:
          bonus bVariableCastrate,-(.@r/2*1);
          bonus bDelayrate,-(.@r/2*2);
       }
-    Gradable: true
   - Id: 9299
     AegisName: Guide_of_Dead_I_Egg
     Name: "[Legendaly] Guide of Dead I Egg"
@@ -24552,11 +24552,12 @@ Body:
       bonus bBaseAtk,15;
   - Id: 1000602
     AegisName: aegis_1000602
+    Name: บัตรวาปบอส
     Type: Etc
     Weight: 0
-    Name: บัตรวาปบอส
   - Id: 1000603
     AegisName: aegis_1000603
+    Name: บัตรวาปบอส (NT)
     Type: Etc
     Weight: 0
     Trade:
@@ -24566,7 +24567,6 @@ Body:
       NoCart: true
       NoGuildStorage: true
       NoMail: true
-    Name: บัตรวาปบอส (NT)
   - Id: 6755
     AegisName: Polluted_Spell
     Name: Contaminated Magic
@@ -25036,14 +25036,18 @@ Body:
     Name: iPhone 20
     Type: DelayConsume
     Weight: 0
-    Script: callfunc "F_LaphineSynthesis";
     Trade:
       NoDrop: true
-      NoStorage: true
-      NoGuildStorage: true
       NoTrade: true
       TradePartner: true
-      NoMail: true
-      NoAuction: true
       NoSell: true
       NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: callfunc "F_LaphineSynthesis";
+  - Id: 1000620
+    AegisName: Valor_Stone
+    Name: Valor Stone
+    Type: Etc
