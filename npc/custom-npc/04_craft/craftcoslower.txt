@@ -14,12 +14,12 @@ OnInit:
 //  Basic shop settings.
 // -----------------------------------------------------------
 
-	set .Signer,0;		// ๏ฟฝ๏ฟฝัก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 0 ๏ฟฝ๏ฟฝ๏ฟฝ - 1 ๏ฟฝ๏ฟฝ
-	set .Announce,1;	// ๏ฟฝ๏ฟฝะก๏ฟฝ๏ฟฝ๏ฟฝาก๏ฟฝ๏ฟฝ๏ฟฝาฟ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ? (1: yes / 0: no)
-	set .ShowSlot,1;	// ๏ฟฝสด๏ฟฝ Slot ? (2: ๏ฟฝุป๏ฟฝรณ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ / 1: ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ [] > 0 / 0: ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ)
-	set .ShowID,0;  	// ๏ฟฝสด๏ฟฝ Item ID? (1: yes / 0: no)
-	set .ShowZeny,0;	// ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Zeny (1: yes / 0: no)
-	set .MaxStack,100;	// ๏ฟฝำนวณ๏ฟฝาก๏ฟฝุด๏ฟฝ๏ฟฝ๏ฟฝะผ๏ฟฝิต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอบ
+	set .Signer,0;		// สลักชื่อ 0 ไม่ - 1 ใช่
+	set .Announce,1;	// ประกาศหากคร้าฟสำเร็จ? (1: yes / 0: no)
+	set .ShowSlot,1;	// แสดง Slot ? (2: อุปกรณ์ทั้งหมด / 1: ถ้ามี [] > 0 / 0: ไม่โชว์)
+	set .ShowID,0;  	// แสดง Item ID? (1: yes / 0: no)
+	set .ShowZeny,0;	// แสดงค่าใช้จ่าย Zeny (1: yes / 0: no)
+	set .MaxStack,100;	// จำนวณมากสุดที่จะผลิตได้ในแต่ละรอบ
 
 // -----------------------------------------------------------
 //
@@ -33,7 +33,7 @@ OnInit:
 // -----------------------------------------------------------
 
 	setarray .Shops$[1],
-		"~ Craft Costume Garment [^FF000090%^000000]",	// Shop Named 1 (๏ฟฝอก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 20%)
+		"~ Craft Costume Garment [^FF000090%^000000]",	// Shop Named 1 (โอกาสสำเร็จ 20%)
 
 		
 
@@ -43,7 +43,7 @@ OnInit:
 
 
 // Shop 1 craft charm LV.1
-//	add(๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ,๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ,	๏ฟฝำนวน,	zeny,	๏ฟฝอก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ,	 ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุต๏ฟฝุดิบ1,๏ฟฝำนวน1,๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุต๏ฟฝุดิบ2,๏ฟฝำนวน2,๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝุต๏ฟฝุดิบ3,๏ฟฝำนวน3, ... );
+//	add(กลุ่ม,ไอเท็มทำยา,	จำนวน,	zeny,	โอกาสสำเร็จ,	 ไอเท็มวัตถุดิบ1,จำนวน1,ไอเท็มวัตถุดิบ2,จำนวน2,ไอเท็มวัตถุดิบ3,จำนวน3, ... );
 
 
 	
@@ -88,7 +88,7 @@ OnMenu:
 		message strcharinfo(0),"An error has occurred.";
 		end;
 	}
-	dispbottom "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 1 ๏ฟฝ๏ฟฝยก๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน 100 ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ";
+	dispbottom "ทำรายการได้ครั้งละ 1 รายการ และไม่เกิน 100 ชิ้น เท่านั้น";
 	callshop "craftcoslower"+@shop_index,1;
 	npcshopattach "craftcoslower"+@shop_index;
 	end;
@@ -99,18 +99,18 @@ OnBuyItem:
 	copyarray .@q[3],getd(".q_"+@shop_index+"_"+.@q[0]+"[0]"),getarraysize(getd(".q_"+@shop_index+"_"+.@q[0]));
 	set .@q[2],.@q[1]*.@q[3];
 	if (!.@q[2] || .@q[2] > 30000) {
-		message strcharinfo(0),"๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ "+getitemname(.@q[0])+" ๏ฟฝ๏ฟฝ๏ฟฝาก๏ฟฝ๏ฟฝ๏ฟฝาน๏ฟฝ๏ฟฝ.";
+		message strcharinfo(0),"ไม่สามารถซื้อ "+getitemname(.@q[0])+" ได้มากกว่านี้.";
 		end;
 	}
 	if (!.@q[5]) {
 		mes "[Craft Man]";
-		mes "๏ฟฝัต๏ฟฝุดิบ๏ฟฝอง :";
-		mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM> "+.@q[2]+" ๏ฟฝ๏ฟฝ๏ฟฝ";
-		mes "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัต๏ฟฝุดิบ :";
+		mes "วัตถุดิบของ :";
+		mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM> "+.@q[2]+" ชิ้น";
+		mes "ค่าวัตถุดิบ :";
 		disable_items;
 		if (.@q[4]) mes " > "+Chk(Zeny,.@q[4]*.@q[1])+F_InsertComma(.@q[4]*.@q[1])+" Zeny^000000";
 		//if (.@q[5]) mes " > "+Chk(getd(.Points$[0]),.@q[5]*.@q[1])+(.@q[5]*.@q[1])+" "+.Points$[1]+" ("+getd(.Points$[0])+"/"+(.@q[5]*.@q[1])+")^000000";
-		mes "๏ฟฝ๏ฟฝ๏ฟฝัต๏ฟฝุดิบ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ :";
+		mes "ได้วัตถุดิบดังนี้ :";
 		if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2) {
 			mes " > <ITEM>"+((.ShowID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+"<INFO>"+.@q[.@i]+"</INFO></ITEM> ^000000( "+(.@q[.@i+1]*.@q[1])+" )";
 			.@boughtweight += getiteminfo(.@q[.@i],6)*.@q[.@i+1]*.@q[1];
@@ -119,23 +119,23 @@ OnBuyItem:
 		setarray @qe[1], getiteminfo(.@q[0],5), getiteminfo(.@q[0],11);
 		addtimer 1000, strnpcinfo(0)+"::OnEnd";
 		while(1) {
-			switch(select(" ~ ๏ฟฝืน๏ฟฝัน ^0055FF"+getitemname(.@q[0])+"^000000: ~ ^777777ยก๏ฟฝ๏ฟฝิก^000000")) {
+			switch(select(" ~ ยืนยัน ^0055FF"+getitemname(.@q[0])+"^000000: ~ ^777777ยกเลิก^000000")) {
 			case 1:
 				if (@qe[0]) {
 					mes "[Craft Man]";
-					mes "Zeny ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
+					mes "Zeny ไม่พอ";
 					close;
 				}
 				if ( Weight+.@boughtweight > MaxWeight ) {
 					mes "[Craft Man]";
-					mes "๏ฟฝัต๏ฟฝุดิบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝีน๏ฟฝ๏ฟฝหนัก๏ฟฝาก๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝาท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาจ๏ฟฝแบก๏ฟฝ๏ฟฝ";
+					mes "วัตถุดิบที่ซื้อมีน้ำหนักมากเกินกว่าที่เจ้าจะแบกได้";
 					mes " ";
-					mes "๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ^FF0000"+((Weight +.@boughtweight) - MaxWeight) / 10+"^000000 หน๏ฟฝ๏ฟฝ๏ฟฝ";
+					mes "เกินอยู่ ^FF0000"+((Weight +.@boughtweight) - MaxWeight) / 10+"^000000 หน่วย";
 					close;
 				}
 				if (!checkweight(.@q[0],.@q[2])) {
 					mes "[Craft Man]";
-					mes "^FF0000๏ฟฝ๏ฟฝอง๏ฟฝีน๏ฟฝ๏ฟฝหนัก๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" ๏ฟฝ๏ฟฝ๏ฟฝอจ๏ฟฝ๏ฟฝลก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยน.^000000";
+					mes "^FF0000ต้องมีน้ำหนักอย่างน้อย "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" เพื่อจะแลกเปลี่ยน.^000000";
 					close;
 				}
 				if (.@q[4]) set Zeny, Zeny-(.@q[4]*.@q[1]);
@@ -143,7 +143,7 @@ OnBuyItem:
 				if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2)
 					getitem .@q[.@i],.@q[.@i+1]*.@q[1];
 				//getitem .@q[0],.@q[2];
-				if (.Announce) announce strcharinfo(0)+" ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+"!",0;
+				if (.Announce) announce strcharinfo(0)+" ได้สร้าง "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+"!",0;
 				specialeffect2 EF_FLOWERLEAF;
 				close;
 			case 2:
@@ -152,28 +152,28 @@ OnBuyItem:
 		}
 	} else {
 		mes "[Craft Man]";
-		mes "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง :";
-		mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM> "+.@q[2]+" ๏ฟฝ๏ฟฝ๏ฟฝ";
+		mes "การสร้าง :";
+		mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM> "+.@q[2]+" ชิ้น";
 		disable_items;
-		if (.@q[4]) { mes "๏ฟฝ๏ฟฝาด๏ฟฝ๏ฟฝิน๏ฟฝ๏ฟฝ๏ฟฝ :"; mes " > "+Chk(Zeny,.@q[4]*.@q[1])+F_InsertComma(.@q[4]*.@q[1])+" Zeny^000000"; }
-		if (.@q[5]) mes " > ๏ฟฝอก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ "+.@q[5]+" %";
-		mes "๏ฟฝ๏ฟฝ๏ฟฝัต๏ฟฝุดิบ๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ :";
+		if (.@q[4]) { mes "ค่าดำเนินการ :"; mes " > "+Chk(Zeny,.@q[4]*.@q[1])+F_InsertComma(.@q[4]*.@q[1])+" Zeny^000000"; }
+		if (.@q[5]) mes " > โอกาสสำเร็จ "+.@q[5]+" %";
+		mes "ใช้วัตถุดิบดังนี้ :";
 		if (.@q[6]) for(set .@i,6; .@i<getarraysize(.@q); set .@i,.@i+2)
 			mes " > <ITEM>"+Chk(countitem(.@q[.@i]),.@q[.@i+1]*.@q[1])+((.ShowID)?"{"+.@q[.@i]+"} ":"")+Slot(.@q[.@i])+"<INFO>"+.@q[.@i]+"</INFO></ITEM> ("+countitem(.@q[.@i])+"/"+(.@q[.@i+1]*.@q[1])+")^000000";
 		next;
 		setarray @qe[1], getiteminfo(.@q[0],5), getiteminfo(.@q[0],11);
 		addtimer 1000, strnpcinfo(0)+"::OnEnd";
 		while(1) {
-			switch(select(" ~ ๏ฟฝืน๏ฟฝัน ^0055FF"+getitemname(.@q[0])+"^000000: ~ ^777777ยก๏ฟฝ๏ฟฝิก^000000")) {
+			switch(select(" ~ ยืนยัน ^0055FF"+getitemname(.@q[0])+"^000000: ~ ^777777ยกเลิก^000000")) {
 			case 1:
 				if (@qe[0]) {
 					mes "[Craft Man]";
-					mes "๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรบ";
+					mes "เงื่อนไขไม่ครบ";
 					close;
 				}
 				if (!checkweight(.@q[0],.@q[2])) {
 					mes "[Craft Man]";
-					mes "^FF0000๏ฟฝ๏ฟฝอง๏ฟฝีน๏ฟฝ๏ฟฝหนัก๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" ๏ฟฝ๏ฟฝ๏ฟฝอจ๏ฟฝ๏ฟฝลก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยน.^000000";
+					mes "^FF0000ต้องมีน้ำหนักอย่างน้อย "+(((.@q[2]*getiteminfo(.@q[0],6))+Weight-MaxWeight)/10)+" เพื่อจะแลกเปลี่ยน.^000000";
 					close;
 				}
 				if (.@q[4]) set Zeny, Zeny-(.@q[4]*.@q[1]);
@@ -186,16 +186,16 @@ OnBuyItem:
 					delitem .@q[.@i],.@q[.@i+1]*.@q[1];
 				if (!.@success) {
 					mes "[Craft Man]";
-					mes "๏ฟฝ๏ฟฝ๏ฟฝษด๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝาท๏ฟฝ :";
+					mes "ขอโทษด้วย ข้าทำ :";
 					mes "<ITEM>"+Slot(.@q[0])+"<INFO>"+.@q[0]+"</INFO></ITEM>";
-					mes "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ";
+					mes "ไม่สำเร็จเลย";
 					close;
 				}
 				if (.Signer)
 					getitem2 .@q[0],.@success,1,0,0,254,0,getcharid(0)&0xffff,(getcharid(0)>>16)&0xffff;
 				else
 					getitem .@q[0],.@success;
-				if (.Announce) announce strcharinfo(0)+" ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+"!",0;
+				if (.Announce) announce strcharinfo(0)+" ได้สร้าง "+((.@q[2] > 1)?.@q[2]+"x "+getitemname(.@q[0]):callfunc("F_InsertArticle",getitemname(.@q[0])))+"!",0;
 				specialeffect2 EF_FLOWERLEAF;
 				close;
 			case 2:
@@ -280,7 +280,6 @@ function	script	craftcoslower	{
 -	shop	craftcoslower16	-1,909:-1
 -	shop	craftcoslower17	-1,909:-1
 -	shop	craftcoslower18	-1,909:-1
-
 
 
 
