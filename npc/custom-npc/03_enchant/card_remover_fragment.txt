@@ -3,7 +3,7 @@
 //= Cost per operation: 1,000,000 Zeny + 20 Fragment Stones.
 //============================================================
 
-morocc,165,150,4	script	ช่างถอดการ์ด#fragment	869,{
+morocc,180,150,4	script	ช่างถอดการ์ด#fragment	869,{
 	disable_items;
 
 	mes "[ช่างถอดการ์ด]";
