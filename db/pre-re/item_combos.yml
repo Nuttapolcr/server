@@ -32,7 +32,6 @@
 Header:
   Type: COMBO_DB
   Version: 1
-
 Body:
   - Combos:
       - Combo:
@@ -130,16 +129,6 @@ Body:
       bonus bMdef,8;
       bonus bMaxSPRate,10;
       bonus bInt,4;
-#  - Combos:
-#      - Combo:
-#          - Bone_Wand
-#          - Skull_Cap
-#      - Combo:
-#          - Thorn_Staff
-#          - Skull_Cap
-#    Script: |
-#      bonus bMatk,10*getequiprefinerycnt(EQI_HAND_R);
-#      bonus bCastRate,-10;
   - Combos:
       - Combo:
           - Staff_Of_Wing
@@ -318,28 +307,6 @@ Body:
     Script: |
       bonus2 bAddEff,Eff_Blind,500;
       autobonus "{ bonus bFlee,20; }",200,10000,BF_WEAPON,"{ specialeffect2 EF_INCAGILITY; }";
-#  - Combos:
-#      - Combo:
-#          - Mr_Smile
-#          - Wit_Pumpkin_Hat
-#    Script: |
-#      bonus2 bAddMonsterDropItem,12192,1;
-#  - Combos:
-#      - Combo:
-#          - Phantom_Of_Opera
-#          - Wit_Pumpkin_Hat
-#    Script: |
-#      bonus bFlee,10;
-#      bonus2 bAddEff,Eff_Stun,1000;
-#  - Combos:
-#      - Combo:
-#          - Elven_Ears
-#          - Skull_Cap
-#      - Combo:
-#          - Elven_Ears_
-#          - Skull_Cap
-#    Script: |
-#      bonus bUseSPrate,-3;
   - Combos:
       - Combo:
           - Padded_Armor
@@ -1110,22 +1077,6 @@ Body:
     Script: |
       bonus bStr,1;
       bonus bAspdRate,2;
-#  - Combos:
-#      - Combo:
-#          - Alarm_Mask
-#          - Wit_Pumpkin_Hat
-#    Script: |
-#      bonus2 bAddMonsterDropItem,12192,1;
-#      bonus2 bAddMonsterDropItem,538,1;
-#      bonus2 bAddItemHealRate,12192,100;
-#      bonus2 bAddItemHealRate,538,100;
-#  - Combos:
-#      - Combo:
-#          - Hahoe_Mask
-#          - Wit_Pumpkin_Hat
-#    Script: |
-#      bonus bAspdRate,5;
-#      autobonus "{ bonus bAtk,50; }",5,10000,0,"{ specialeffect2 EF_POTION_BERSERK; }";
   - Combos:
       - Combo:
           - Pecopeco_Wing_Ears
@@ -1150,146 +1101,6 @@ Body:
       bonus bHit,10;
       bonus2 bAddSize,Size_Large,30;
       autobonus "{ bonus bAspdRate,100; }",1,7000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
-#  - Combos:
-#      - Combo:
-#          - FlyingGalapago
-#          - Falconer_Claw
-#    Script: |
-#      bonus2 bSubSkill,"HT_BLITZBEAT",200;
-#  - Combos:
-#      - Combo:
-#          - UPG Dragon_Vest
-#          - UPG I Dragon_Manteau
-#    Script: |
-#      bonus bAgi,7;
-#      bonus bFlee,20;
-#  - Combos:
-#      - Combo:
-#          - UPG II Dragon_Vest
-#          - UPG II Dragon_Manteau
-#    Script: |
-#      bonus bAgi,10;
-#      bonus bFlee,25;    
-#  - Combos:
-#      - Combo:
-#          - UPG I Tidal_Shoes
-#          - UPG I Wool_Scarf
-#    Script: |
-#      bonus bHPrecovRate,7;
-#      bonus bMaxHPrate,12;      
-#  - Combos:
-#      - Combo:
-#          - UPG II Tidal_Shoes
-#          - UPG II Wool_Scarf
-#    Script: |
-#      bonus bHPrecovRate,10;
-#      bonus bMaxHPrate,15;   
-#  - Combos:
-#      - Combo:
-#          - UPG I Linen_Glove
-#          - UPG Sprint_Mail
-#    Script: |
-#      bonus bMAtkRate,2;      
-#      bonus bAtkRate,2; 
-#      bonus bAspdRate,2;         
-#  - Combos:
-#      - Combo:
-#          - UPG I Linen_Glove
-#          - UPG Dragon_Vest
-#    Script: |
-#      bonus bMAtkRate,2;      
-#      bonus bAtkRate,2;       
-#      bonus bCritAtkRate,2;      
-#  - Combos:
-#      - Combo:
-#          - UPG II Linen_Glove
-#          - UPG II Sprint_Mail
-#    Script: |
-#      bonus bMAtkRate,3;      
-#      bonus bAtkRate,3; 
-#      bonus bAspdRate,3;         
-#  - Combos:
-#      - Combo:
-#          - UPG II Linen_Glove
-#          - UPG II Dragon_Vest
-#    Script: |
-#      bonus bMAtkRate,3;      
-#      bonus bAtkRate,3;       
-#      bonus bCritAtkRate,3;      
-#  - Combos:
-#      - Combo:
-#          - UPG I Orleans_Server
-#          - UPG I Orleans_Glove
-#    Script: |
-#      bonus bCastrate,-12;
-#  - Combos:
-#      - Combo:
-#          - UPG II Orleans_Server
-#          - UPG II Orleans_Glove
-#    Script: |
-#      bonus bCastrate,-15;      
-#  - Combos:
-#      - Combo:
-#          - UPG I Thorny_Buckler
-#          - UPG I Bison_Horn
-#    Script: |
-#      bonus bAspdRate,12;
-#      bonus bShortWeaponDamageReturn,7;
-#  - Combos:
-#      - Combo:
-#          - UPG II Thorny_Buckler
-#          - UPG II Bison_Horn
-#    Script: |
-#      bonus bAspdRate,15;
-#      bonus bShortWeaponDamageReturn,9;      
-#  - Combos:
-#      - Combo:
-#          - UPG I Black_Leather_Boots
-#          - UPG I Rider_Insignia    
-#    Script: |
-#      bonus bFlee,13;         
-#      bonus bAspdRate,2;
-#  - Combos:
-#      - Combo:
-#          - UPG II Black_Leather_Boots
-#          - UPG II Rider_Insignia    
-#    Script: |
-#      bonus bFlee,15;         
-#      bonus bAspdRate,3;     
-#  - Combos:
-#      - Combo:
-#          - UPG I Diabolus_Armor
-#          - UPG I Diabolus_Ring  
-#      - Combo:
-#          - UPG I Diabolus_Robe
-#          - UPG I Diabolus_Ring            
-#    Script: |
-#      bonus2 bAddClass,Class_All,5;
-#      bonus bMatkRate,5;          
-#  - Combos:
-#      - Combo:
-#          - UPG II Diabolus_Armor
-#          - UPG II Diabolus_Ring
-#      - Combo:          
-#          - UPG II Diabolus_Robe
-#          - UPG II Diabolus_Ring             
-#    Script: |
-#      bonus2 bAddClass,Class_All,7;
-#      bonus bMatkRate,7;       
-#  - Combos:
-#      - Combo:
-#          - UPG I Diabolus_Boots
-#          - UPG I Diabolus_Manteau
-#    Script: |
-#      bonus bMaxHPRate,8;
-#  - Combos:
-#      - Combo:
-#          - UPG II Diabolus_Boots
-#          - UPG II Diabolus_Manteau
-#    Script: |
-#      bonus bMaxHPRate,10;
-
-# HICLASS Enchant UI generated combos (gid 1328426605).
   - Combos:
       - Combo:
           - Gh_md_dex
@@ -1326,10 +1137,6 @@ Body:
           - Muscle_Fool
     Script: |
       bonus bLongAtkRate,7;
-
-# Costume enchant combos used by enchant_costume_sheet.txt.
-# Imported from db/re/item_combos.yml; only combos whose items exist in
-# the Pre-Renewal item database are included.
   - Combos:
       - Combo:
           - Casting_Top
@@ -1407,3 +1214,22 @@ Body:
           - Melee_Bottom
     Script: |
       bonus bShortAtkRate,2;
+  - Combos:
+      - Combo:
+          - Magic_Robe_D
+          - Magic_Top
+      - Combo:
+          - Magic_Robe_D
+          - Magic_Middle
+      - Combo:
+          - Magic_Robe_D
+          - Magic_Bottom
+    Script: |
+      bonus2 bMagicAtkEle,Ele_All,2;
+  - Combos:
+      - Combo:
+          - Magic_Top
+          - Magic_Middle
+          - Magic_Bottom
+    Script: |
+      bonus2 bMagicAtkEle,Ele_All,6;

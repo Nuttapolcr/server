@@ -19753,6 +19753,7 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bSubEle,Ele_Neutral,10;
+    Slots: 1
   - Id: 2562
     AegisName: Upg_Muffler
     Name: "[Rookie] Muffler"
@@ -24478,6 +24479,7 @@ Body:
     Script: |
       bonus bMaxHP,100;
       bonus bAspd,1;
+    Refineable: true
   - Id: 24585
     AegisName: S_Booster_Shield
     Name: Booster Shadow Shield
@@ -24496,6 +24498,7 @@ Body:
     Script: |
       bonus bMaxHP,100;
       bonus bVariableCastrate,-5;
+    Refineable: true
   - Id: 24586
     AegisName: S_Booster_Shoes
     Name: Booster Shadow Shoes
@@ -24514,6 +24517,7 @@ Body:
     Script: |
       bonus bMaxHP,100;
       bonus bAspdRate,5;
+    Refineable: true
   - Id: 24587
     AegisName: S_Booster_Earing
     Name: Booster Shadow Earring
@@ -24532,6 +24536,7 @@ Body:
     Script: |
       bonus bMatk,15;
       bonus bMaxHP,100;
+    Refineable: true
   - Id: 24588
     AegisName: S_Booster_Pandent
     Name: Booster Shadow Pendant
@@ -24550,6 +24555,7 @@ Body:
     Script: |
       bonus bMaxHP,100;
       bonus bBaseAtk,15;
+    Refineable: true
   - Id: 1000602
     AegisName: aegis_1000602
     Name: บัตรวาปบอส
@@ -25051,3 +25057,115 @@ Body:
     AegisName: Valor_Stone
     Name: Valor Stone
     Type: Etc
+    Weight: 10
+  - Id: 1000528
+    AegisName: Magic_Stone_Top
+    Name: Magic Power Stone (Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 1000529
+    AegisName: Magic_Stone_Middle
+    Name: Magic Power Stone (Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 1000530
+    AegisName: Magic_Stone_Bottom
+    Name: Magic Power Stone (Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 25413
+    AegisName: RangerStone_Top
+    Name: Sniper Stone (Upper)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25414
+    AegisName: RangerStone_Middle
+    Name: Sniper Stone (Middle)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 25415
+    AegisName: RangerStone_Bottom
+    Name: Sniper Stone (Lower)
+    Type: Etc
+    Buy: 20
+    Weight: 100
+  - Id: 1000008
+    AegisName: RangerStone_Top2
+    Name: Sniper Stone II(Upper)
+    Type: Etc
+    Weight: 100
+  - Id: 1000009
+    AegisName: RangerStone_Middle2
+    Name: Sniper Stone II(Middle)
+    Type: Etc
+    Weight: 100
+  - Id: 1000010
+    AegisName: RangerStone_Bottom2
+    Name: Sniper Stone II(Lower)
+    Type: Etc
+    Weight: 100
+  - Id: 310664
+    AegisName: Magic_Top
+    Name: Magic Power Stone(Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bMagicAtkEle,Ele_All,3;
+  - Id: 310665
+    AegisName: Magic_Middle
+    Name: Magic Power Stone(Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bMagicAtkEle,Ele_All,3;
+  - Id: 310666
+    AegisName: Magic_Bottom
+    Name: Magic Power Stone(Lower)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bMagicAtkEle,Ele_All,3;
+  - Id: 29428
+    AegisName: Ranger_Top
+    Name: Sniper Stone (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("HT_STEELCROW");
+  - Id: 29429
+    AegisName: Ranger_Middle
+    Name: Sniper Stone (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillFixedCast,"SN_SHARPSHOOTING",-500;
+  - Id: 29430
+    AegisName: Ranger_Bottom
+    Name: Sniper Stone (Lower)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus2 bSkillAtk,"AC_SHOWER",20;
+  - Id: 310000
+    AegisName: Ranger_Top2
+    Name: Sniper Stone II (Upper)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bAspdRate,getskilllv("SN_WINDWALK")/2;
+  - Id: 310001
+    AegisName: Ranger_Middle2
+    Name: Sniper Stone II (Middle)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bLongAtkRate,(getskilllv("HT_BEASTBANE")/2);
+  - Id: 310002
+    AegisName: Ranger_Bottom2
+    Name: Sniper Stone II (Lower)
+    Type: Card
+    SubType: Enchant
+    Script: |
+      bonus bBaseAtk,2*getskilllv("SN_SIGHT");

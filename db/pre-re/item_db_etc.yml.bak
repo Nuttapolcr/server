@@ -255,26 +255,29 @@ Body:
     AegisName: Yellow_Gemstone
     Name: Yellow Gemstone
     Type: Etc
-    Buy: 600
+    Buy: 500
     Weight: 30
     Flags:
       BuyingStore: true
+    Sell: 0
   - Id: 716
     AegisName: Red_Gemstone
     Name: Red Gemstone
     Type: Etc
-    Buy: 600
+    Buy: 500
     Weight: 30
     Flags:
       BuyingStore: true
+    Sell: 0
   - Id: 717
     AegisName: Blue_Gemstone
     Name: Blue Gemstone
     Type: Etc
-    Buy: 600
+    Buy: 500
     Weight: 30
     Flags:
       BuyingStore: true
+    Sell: 0
   - Id: 718
     AegisName: Dark_Red_Jewel
     Name: Garnet
@@ -14401,28 +14404,12 @@ Body:
     Type: Etc
     Buy: 20
     Weight: 10
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
   - Id: 6241
     AegisName: HD_Elunium
     Name: HD Elunium
     Type: Etc
     Buy: 20
     Weight: 10
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
   - Id: 6242
     AegisName: Midgard_Coin
     Name: Midgard Coin
@@ -24071,12 +24058,12 @@ Body:
     Weight: 100
   - Id: 25716
     AegisName: AssacrossStone_Bottom
-    Name: Assassin Cross Stone (Bottom)
+    Name: Assassin Cross Stone (Lower)
     Type: Etc
     Weight: 100
   - Id: 25798
     AegisName: SuraStone_Bottom2
-    Name: Sura Stone II (Bottom)
+    Name: Sura Stone II (Lower)
     Type: Etc
     Weight: 100
   - Id: 25411
@@ -24109,13 +24096,13 @@ Body:
     Weight: 100
   - Id: 25305
     AegisName: Critical_Stone_Bottom
-    Name: Critical Stone (Bottom)
+    Name: Critical Stone (Lower)
     Type: Etc
     Buy: 20
     Weight: 100
   - Id: 25861
     AegisName: DoramStone_Bottom
-    Name: Doram Stone (Bottom)
+    Name: Doram Stone (Lower)
     Type: Etc
     Weight: 100
   - Id: 25062
@@ -24126,23 +24113,23 @@ Body:
     Weight: 100
   - Id: 25857
     AegisName: GunslingerStone_Bottom
-    Name: Gunslinger Stone (Bottom)
+    Name: Gunslinger Stone (Lower)
     Type: Etc
     Weight: 100
   - Id: 25227
     AegisName: Heal_Stone
-    Name: Heal Stone (Bottom)
+    Name: Heal Stone (Lower)
     Type: Etc
     Buy: 20
     Weight: 100
   - Id: 1000018
     AegisName: HighpriestStone_Bottom2
-    Name: High Priest Stone II (Bottom)
+    Name: High Priest Stone II (Lower)
     Type: Etc
     Weight: 100
   - Id: 25708
     AegisName: HighpriestStone_Bottom
-    Name: High Priest Stone (Bottom)
+    Name: High Priest Stone (Lower)
     Type: Etc
     Weight: 100
   - Id: 1000216
@@ -24180,7 +24167,7 @@ Body:
     Weight: 100
   - Id: 25852
     AegisName: NinjaStone_Bottom
-    Name: Ninja Stone (Bottom)
+    Name: Ninja Stone (Lower)
     Type: Etc
     Weight: 100
   - Id: 1000220
@@ -24190,12 +24177,12 @@ Body:
     Weight: 100
   - Id: 25712
     AegisName: PaladinStone_Bottom
-    Name: Paladin Stone (Bottom)
+    Name: Paladin Stone (Lower)
     Type: Etc
     Weight: 100
   - Id: 25802
     AegisName: SorcererStone_Bottom2
-    Name: Sorcerer Stone II (Bottom)
+    Name: Sorcerer Stone II (Lower)
     Type: Etc
     Weight: 100
   - Id: 25419
@@ -24212,7 +24199,7 @@ Body:
   - Id: 25066
     AegisName: Recovery_Stone
     Name: Recovery Stone (Lower)
-    Type: Card
+    Type: Etc
     Buy: 20
     Weight: 100
   - Id: 25071
@@ -24223,12 +24210,12 @@ Body:
     Weight: 100
   - Id: 25845
     AegisName: SoullinkerStone_Bottom
-    Name: Soul Linker Stone (Bottom)
+    Name: Soul Linker Stone (Lower)
     Type: Etc
     Weight: 100
   - Id: 25806
     AegisName: ShadowchasStone_Bottom2
-    Name: Shadow Chaser Stone II (Bottom)
+    Name: Shadow Chaser Stone II (Lower)
     Type: Etc
     Weight: 100
   - Id: 25492
@@ -24239,24 +24226,24 @@ Body:
     Weight: 100
   - Id: 25848
     AegisName: GladiatorStone_Bottom
-    Name: Star Gladiator Stone (Bottom)
+    Name: Star Gladiator Stone (Lower)
     Type: Etc
     Weight: 100
   - Id: 25228
     AegisName: Teleport_Stone
-    Name: Teleport Stone (Bottom)
+    Name: Teleport Stone (Lower)
     Type: Etc
     Buy: 20
     Weight: 100
   - Id: 25174
     AegisName: CastingStone_Bottom
-    Name: Variable Casting Stone (Bottom)
+    Name: Variable Casting Stone (Lower)
     Type: Etc
     Buy: 20
     Weight: 100
   - Id: 1000014
     AegisName: MechanicStone_Bottom2
-    Name: Whitesmith Stone II (Bottom)
+    Name: Whitesmith Stone II (Lower)
     Type: Etc
     Weight: 100
   - Id: 25496
@@ -24364,7 +24351,7 @@ Body:
     Weight: 100
   - Id: 1000378
     AegisName: Melee_Stone_Middle
-    Name: Melee Stone (Mid)
+    Name: Melee Stone (Middle)
     Type: Etc
     Weight: 100
   - Id: 25851
@@ -24510,7 +24497,7 @@ Body:
     Weight: 100
   - Id: 1000016
     AegisName: HighpriestStone_Top2
-    Name: High Priest Stone II (Top)
+    Name: High Priest Stone II (Upper)
     Type: Etc
     Weight: 100
   - Id: 25706
@@ -24616,7 +24603,7 @@ Body:
     Weight: 100
   - Id: 1000012
     AegisName: MechanicStone_Top2
-    Name: Whitesmith Stone II (Top)
+    Name: Whitesmith Stone II (Upper)
     Type: Etc
     Weight: 100
   - Id: 25494
@@ -24655,7 +24642,7 @@ Body:
       bonus bLongAtkRate,3;
   - Id: 29052
     AegisName: Recovery
-    Name: Recovery
+    Name: Recovery Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24753,14 +24740,14 @@ Body:
       bonus bVariableCastrate,-10;
   - Id: 29359
     AegisName: Fatal_Top
-    Name: Fatal (Upper)
+    Name: Critical Stone (Upper)
     Type: Card
     SubType: Enchant
     Script: |
       bonus bCritAtkRate,3;
   - Id: 29360
     AegisName: Fatal_Bottom
-    Name: Fatal (Lower)
+    Name: Critical Stone(Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24795,7 +24782,7 @@ Body:
       bonus bHit,2*getskilllv("MO_DODGE");
   - Id: 29425
     AegisName: Sura_Bottom
-    Name: Champion Stone (Bottom)
+    Name: Champion Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24816,7 +24803,7 @@ Body:
       bonus2 bSkillFixedCast,"PF_DOUBLECASTING",-400;
   - Id: 29434
     AegisName: Sorcerer_Bottom
-    Name: Professor Stone (Bottom)
+    Name: Professor Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24825,7 +24812,7 @@ Body:
       bonus2 bSkillAtk,"MG_LIGHTNINGBOLT",20;
   - Id: 29460
     AegisName: Runeknight_Top
-    Name: Lord Knight Stone (Top)
+    Name: Lord Knight Stone (Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24839,14 +24826,14 @@ Body:
       bonus bMaxHP,100*(getskilllv("KN_TWOHANDQUICKEN")/2);
   - Id: 29462
     AegisName: Runeknight_Bottom
-    Name: Lord Knight Stone (Bottom)
+    Name: Lord Knight Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
       bonus bAspdRate,getskilllv("KN_CAVALIERMASTERY");
   - Id: 29464
     AegisName: Genetic_Top
-    Name: Creator Stone (Top)
+    Name: Creator Stone (Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24862,14 +24849,14 @@ Body:
       bonus bHealPower2,.@val;
   - Id: 29466
     AegisName: Genetic_Bottom
-    Name: Creator Stone (Bottom)
+    Name: Creator Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
       bonus2 bSkillAtk,"AM_ACIDTERROR",20;
   - Id: 29468
     AegisName: Warlock_Top
-    Name: High Wizard Stone (Top)
+    Name: High Wizard Stone (Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24883,7 +24870,7 @@ Body:
       bonus2 bSkillAtk,"WZ_METEOR",20;
   - Id: 29470
     AegisName: Warlock_Bottom
-    Name: High Wizard Stone (Bottom)
+    Name: High Wizard Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24904,7 +24891,7 @@ Body:
       bonus bHit,2*getskilllv("AC_VULTURE");
   - Id: 29479
     AegisName: Shadowchaser_Bottom
-    Name: Stalker Stone (Bottom)
+    Name: Stalker Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24925,7 +24912,7 @@ Body:
       bonus bHit,2*getskilllv("BS_SKINTEMPER");
   - Id: 29483
     AegisName: Mechanic_Bottom
-    Name: Whitesmith Stone (Bottom)
+    Name: Whitesmith Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24952,7 +24939,7 @@ Body:
          bonus bLongAtkRate,(getskilllv("BA_MUSICALSTRIKE")/2);
   - Id: 29487
     AegisName: WanderMinstrel_Bottom
-    Name: Clown Gypsy Stone (Bottom)
+    Name: Clown Gypsy Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24973,7 +24960,7 @@ Body:
       bonus bMatk,2*getskilllv("PR_MACEMASTERY");
   - Id: 29515
     AegisName: Highpriest_Bottom
-    Name: High Priest Stone (Bottom)
+    Name: High Priest Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -24994,7 +24981,7 @@ Body:
       bonus bLongAtkRate,(getskilllv("KN_SPEARMASTERY")/2);
   - Id: 29519
     AegisName: Paladin_Bottom
-    Name: Paladin Stone (Bottom)
+    Name: Paladin Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25015,14 +25002,14 @@ Body:
       bonus bHit,2*getskilllv("AS_LEFT");
   - Id: 29523
     AegisName: Assassincross_Bottom
-    Name: Assassin Cross Stone (Bottom)
+    Name: Assassin Cross Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
       bonus2 bSkillAtk,"AS_SONICBLOW",20;
   - Id: 29611
     AegisName: Sura_Bottom2
-    Name: Sura Stone II (Bottom)
+    Name: Sura Stone II (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25043,7 +25030,7 @@ Body:
       bonus2 bSkillAtk,"CH_CHAINCRUSH",15;
   - Id: 29615
     AegisName: Sorcerer_Bottom2
-    Name: Sorcerer Stone II (Bottom)
+    Name: Sorcerer Stone II (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25064,7 +25051,7 @@ Body:
       bonus bVariableCastrate,-2*getskilllv("PF_DOUBLECASTING");
   - Id: 29619
     AegisName: Shadowchaser_Bottom2
-    Name: Shadow Chaser Stone II (Bottom)
+    Name: Shadow Chaser Stone II (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25099,7 +25086,7 @@ Body:
       bonus2 bSkillAtk,"SL_SMA",20;
   - Id: 29653
     AegisName: Soullinker_Bottom
-    Name: Soul Linker Stone (Bottom)
+    Name: Soul Linker Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25121,7 +25108,7 @@ Body:
       bonus2 bFixedCastrate,"SG_HATE",-50;
   - Id: 29657
     AegisName: Gladiator_Bottom
-    Name: Star Gladiator Stone (Bottom)
+    Name: Star Gladiator Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25143,7 +25130,7 @@ Body:
       bonus2 bSkillAtk,"NJ_HUUMA",20;
   - Id: 29661
     AegisName: Ninja_Bottom
-    Name: Ninja Stone (Bottom)
+    Name: Ninja Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25166,7 +25153,7 @@ Body:
       bonus2 bSkillAtk,"GS_DESPERADO",20;
   - Id: 29666
     AegisName: Gunslinger_Bottom
-    Name: Gunslinger Stone (Bottom)
+    Name: Gunslinger Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25189,14 +25176,14 @@ Body:
       bonus2 bSkillAtk,"SU_LUNATICCARROTBEAT",20;
   - Id: 29670
     AegisName: Doram_Bottom
-    Name: Doram Stone (Bottom)
+    Name: Doram Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
       bonus2 bSkillAtk,"SU_SV_STEMSPEAR",20;
   - Id: 310004
     AegisName: Mechanic_Top2
-    Name: Whitesmith Stone II (Top)
+    Name: Whitesmith Stone II (Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25210,14 +25197,14 @@ Body:
       bonus2 bSkillAtk,"WS_CARTTERMINATION",15;
   - Id: 310006
     AegisName: Mechanic_Bottom2
-    Name: Whitesmith Stone II (Bottom)
+    Name: Whitesmith Stone II (Lower)
     Type: Card
     SubType: Enchant
     Script: |
       bonus bLongAtkRate,getskilllv("BS_MAXIMIZE");
   - Id: 310008
     AegisName: Highpriest_Top2
-    Name: High Priest Stone II (Top)
+    Name: High Priest Stone II (Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25231,7 +25218,7 @@ Body:
       bonus2 bMagicAtkEle,Ele_Holy,getskilllv("HP_ASSUMPTIO");
   - Id: 310010
     AegisName: Highpriest_Bottom2
-    Name: High Priest Stone II (Bottom)
+    Name: High Priest Stone II (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25301,7 +25288,7 @@ Body:
       bonus bDelayrate,-getskilllv("ASC_BREAKER");
   - Id: 310258
     AegisName: Runeknight_Top2
-    Name: Lord Knight Stone II (Top)
+    Name: Lord Knight Stone II (Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25315,14 +25302,14 @@ Body:
       bonus2 bSkillAtk,"KN_BOWLINGBASH",20;
   - Id: 310260
     AegisName: Runeknight_Bottom2
-    Name: Lord Knight Stone II (Bottom)
+    Name: Lord Knight Stone II (Lower)
     Type: Card
     SubType: Enchant
     Script: |
       bonus2 bSkillAtk,"LK_SPIRALPIERCE",20;
   - Id: 310262
     AegisName: Genetic_Top2
-    Name: Creator Stone II (Top)
+    Name: Creator Stone II (Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25336,14 +25323,14 @@ Body:
       bonus bAspdRate,getskilllv("AM_ACIDTERROR");
   - Id: 310264
     AegisName: Genetic_Bottom2
-    Name: Creator Stone II (Bottom)
+    Name: Creator Stone II (Lower)
     Type: Card
     SubType: Enchant
     Script: |
       bonus bLongAtkRate,(getskilllv("CR_ACIDDEMONSTRATION")/2);
   - Id: 310266
     AegisName: WanderMins_Top2
-    Name: Trentini Gypsy Stone II (Top)
+    Name: Trentini Gypsy Stone II (Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25357,7 +25344,7 @@ Body:
       bonus2 bMagicAtkEle,Ele_Neutral,getskilllv("BA_MUSICALSTRIKE")+getskilllv("DC_THROWARROW");
   - Id: 310268
     AegisName: WanderMins_Bottom2
-    Name: Trentini Gypsy Stone II (Bottom)
+    Name: Trentini Gypsy Stone II (Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25365,21 +25352,21 @@ Body:
       bonus2 bSkillAtk,"DC_THROWARROW",15;
   - Id: 310325
     AegisName: Range_Top
-    Name: Range Stone (Top)
+    Name: Range Stone (Upper)
     Type: Card
     SubType: Enchant
     Script: |
       bonus bLongAtkRate,3;
   - Id: 310326
     AegisName: Range_Bottom
-    Name: Range Stone (Bottom)
+    Name: Range Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
       bonus bLongAtkRate,3;
   - Id: 310327
     AegisName: Melee_Top
-    Name: Melee Stone (Top)
+    Name: Melee Stone (Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25393,7 +25380,7 @@ Body:
       bonus bShortAtkRate,3;
   - Id: 310329
     AegisName: Melee_Bottom
-    Name: Melee Stone (Bottom)
+    Name: Melee Stone (Lower)
     Type: Card
     SubType: Enchant
     Script: |
