@@ -9,5 +9,6 @@
  **/
 
 //ACMD_DEF(newcommand),
+ACMD_DEF(doevent),
 ACMD_DEF(hidepet),
 ACMD_DEF2("hidepetall", hidepet),

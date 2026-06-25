@@ -78,6 +78,10 @@ Body:
   - Command: commands
     Help: |
       Displays a list of commands that you can use.
+  - Command: doevent
+    Help: |
+      Params: <NPC::Label>
+      Runs a NPC event label, for example: @doevent CityTitan::OnGMStart
   - Command: rates
     Help: |
       Displays the server's current rates.

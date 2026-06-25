@@ -135,6 +135,7 @@ Body:
       tonpc: true
       hidenpc: true
       shownpc: true
+      doevent: true
       loadnpc: true
       unloadnpc: true
       npcmove: true

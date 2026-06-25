@@ -29,13 +29,13 @@ OnClock2000:
 	if (.active) end;
 	.active = 1;
 	.ending = 0;
-	announce "[ City Titan ] Titan กำลังมุ่งหน้าสู่ใจกลาง Morocc อีก 30 วินาที!",bc_all|bc_blue;
+	announce "[ City Titan ] Titan ���ѧ���˹�����㨡�ҧ Morocc �ա 30 �Թҷ�!",bc_all|bc_blue;
 	sleep 10000;
 	if (!.active) end;
-	announce "[ City Titan ] Titan จะปรากฏในอีก 20 วินาที!",bc_all;
+	announce "[ City Titan ] Titan �л�ҡ���ա 20 �Թҷ�!",bc_all;
 	sleep 10000;
 	if (!.active) end;
-	announce "[ City Titan ] Titan จะปรากฏในอีก 10 วินาที! เตรียมตัวให้พร้อม!",bc_all;
+	announce "[ City Titan ] Titan �л�ҡ���ա 10 �Թҷ�! ���������������!",bc_all;
 	sleep 10000;
 	if (!.active) end;
 	callsub S_SpawnBoss;
@@ -44,7 +44,7 @@ OnClock2000:
 // GM test: @doevent CityTitan::OnGMStart
 OnGMStart:
 	if (.active) {
-		announce "[ City Titan ] Event กำลังทำงานอยู่",bc_self;
+		announce "[ City Titan ] Event ���ѧ�ӧҹ����",bc_self;
 		end;
 	}
 	.active = 1;
@@ -61,7 +61,7 @@ OnGMStop:
 	.boss_gid = 0;
 	callsub S_ClearChests;
 	.ending = 0;
-	announce "[ City Titan ] GM ยุติ Event และล้างวัตถุทั้งหมดแล้ว",bc_all;
+	announce "[ City Titan ] GM �ص� Event �����ҧ�ѵ�ط���������",bc_all;
 	end;
 
 S_SpawnBoss:
@@ -74,13 +74,13 @@ S_SpawnBoss:
 	.boss_y = .spawn_y;
 	.spawn_time = gettimetick(2);
 
-	announce "[ City Titan ] CITY TITAN ปรากฏตัวแล้ว ณ ใจกลาง Morocc!",bc_all|bc_blue;
-	announce "[ City Titan ] เมื่อ Titan ร่ายสกิล ทุกคนในบริเวณต้องนั่ง มิฉะนั้นจะเสียชีวิต!",bc_all;
+	announce "[ City Titan ] CITY TITAN ��ҡ�������� � 㨡�ҧ Morocc!",bc_all|bc_blue;
+	announce "[ City Titan ] ����� Titan ����ʡ�� �ء��㹺���ǳ��ͧ��� �ԩй�鹨����ª��Ե!",bc_all;
 	monster .map$,.spawn_x,.spawn_y,"[City Titan]",.boss_id,1,strnpcinfo(0)+"::OnTitanKilled";
 	.boss_gid = $@mobid[0];
 	if (!.boss_gid) {
 		.active = 0;
-		announce "[ City Titan ] ไม่สามารถสร้างบอสได้ กรุณาแจ้งทีมงาน",bc_all;
+		announce "[ City Titan ] �������ö���ҧ����� ��س��駷���ҹ",bc_all;
 		return;
 	}
 	initnpctimer;
@@ -104,7 +104,7 @@ OnTimer1000:
 		killmonster .map$,strnpcinfo(0)+"::OnTitanKilled";
 		.boss_gid = 0;
 		.ending = 0;
-		announce "[ City Titan ] Titan หลบหนีออกจาก Morocc ไปแล้ว!",bc_all;
+		announce "[ City Titan ] Titan �ź˹��͡�ҡ Morocc �����!",bc_all;
 		end;
 	}
 
@@ -140,7 +140,7 @@ S_SitCast:
 	getunitdata .boss_gid,.@boss;
 	.boss_x = .@boss[UMOB_X];
 	.boss_y = .@boss[UMOB_Y];
-	announce "[ City Titan ] คำเตือน! Titan ร่ายสกิลที่ HP "+.@phase+"% — นั่งภายใน 5 วินาที!",bc_all|bc_blue;
+	announce "[ City Titan ] ����͹! Titan ����ʡ�ŷ�� HP "+.@phase+"% � ������� 5 �Թҷ�!",bc_all|bc_blue;
 	unitskilluseid .boss_gid,"NV_FIRSTAID",1,.boss_gid,5000,0;
 	sleep 5000;
 
@@ -176,7 +176,7 @@ OnTitanKilled:
 	getitem 1001012,1;
 	if (rand(100) < 10) getitem 6635,10;
 	if (rand(100) < 10) getitem 1001012,10;
-	announce "[ City Titan ] "+.@mvp$+" ได้รับรางวัล MVP! กล่องสมบัติปรากฏขึ้นแล้ว!",bc_all|bc_blue;
+	announce "[ City Titan ] "+.@mvp$+" ���Ѻ�ҧ��� MVP! ���ͧ���ѵԻ�ҡ��������!",bc_all|bc_blue;
 
 	// Purple and Red roll first; Blue is reduced last to enforce the cap.
 	.@purple = (rand(100) < 1) ? rand(1,3) : 0;
@@ -196,11 +196,11 @@ S_SpawnChests:
 	if (.@count <= 0) return;
 
 	if (.@color$ == "P")
-		.@display$ = "กล่องสมบัติสีม่วง";
+		.@display$ = "���ͧ���ѵ�����ǧ";
 	else if (.@color$ == "R")
-		.@display$ = "กล่องสมบัติสีแดง";
+		.@display$ = "���ͧ���ѵ���ᴧ";
 	else
-		.@display$ = "กล่องสมบัติสีฟ้า";
+		.@display$ = "���ͧ���ѵ��տ��";
 
 	for (.@i = 0; .@i < .@count; .@i++) {
 		$CTB_UID++;
@@ -263,7 +263,7 @@ S_ClearChests:
 	getitem .@reward,1;
 	setarray .@rare[0],1001686,1001689,1001692;
 	if (inarray(.@rare,.@reward) >= 0)
-		announce "[ City Titan ] "+strcharinfo(0)+" ได้รับ "+getitemname(.@reward)+" จากกล่องสมบัติ!",bc_all;
+		announce "[ City Titan ] "+strcharinfo(0)+" ���Ѻ "+getitemname(.@reward)+" �ҡ���ͧ���ѵ�!",bc_all;
 
 	disablenpc strnpcinfo(3);
 	end;

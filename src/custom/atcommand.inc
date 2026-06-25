@@ -19,6 +19,40 @@
 //}
 
 /**
+ * @doevent - Runs a NPC event label.
+ * Usage: @doevent <NPC::Label>
+ */
+ACMD_FUNC(doevent)
+{
+	char event_name[EVENT_NAME_LENGTH];
+	int count;
+
+	if (!message || !*message) {
+		clif_displaymessage(fd, "Usage: @doevent <NPC::Label>");
+		return -1;
+	}
+
+	safestrncpy(event_name, message, sizeof(event_name));
+	trim(event_name);
+
+	if (!*event_name) {
+		clif_displaymessage(fd, "Usage: @doevent <NPC::Label>");
+		return -1;
+	}
+
+	count = npc_event_do_id(event_name, sd ? sd->bl.id : 0);
+	if (count <= 0) {
+		safesnprintf(atcmd_output, sizeof(atcmd_output), "NPC event '%s' not found.", event_name);
+		clif_displaymessage(fd, atcmd_output);
+		return -1;
+	}
+
+	safesnprintf(atcmd_output, sizeof(atcmd_output), "NPC event '%s' executed.", event_name);
+	clif_displaymessage(fd, atcmd_output);
+	return 0;
+}
+
+/**
  * @hidepet - Hides all pets except the player's pet.
  * @hidepetall - Hides all pets, including the player's pet.
  * [Daegaladh]
