@@ -1,0 +1,238 @@
+//!rathena
+// HICLASS sheet: NPC costume recycle and costume option rolls.
+
+morocc,132,106,4	script	NPC Yoi Costume#sheet	89,{
+	disable_items;
+
+	mes .mes$;
+	mes "ย่อย Costume ที่สวมใส่อยู่เพื่อรับ:";
+	mes "^i[" + .ticket_id + "] " + getitemname(.ticket_id) + " x" + .ticket_amount;
+	mes "^FF0000Costume ที่เลือกจะถูกทำลายถาวร^000000";
+	next;
+
+	callfunc "F_HICostumeOption_SelectEquip";
+	.@part = @hicostume_part;
+	.@equip_id = @hicostume_id;
+
+	if (.@equip_id < 0)
+		close;
+
+	if (checkweight(.ticket_id, .ticket_amount) == 0) {
+		mes .mes$;
+		mes "น้ำหนักในตัวเกิน กรุณาลดน้ำหนักก่อน";
+		close;
+	}
+
+	.@refine = getequiprefinerycnt(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part, 0),
+		getequipcardid(.@part, 1),
+		getequipcardid(.@part, 2),
+		getequipcardid(.@part, 3);
+
+	mes .mes$;
+	mes "รายการที่เลือก: ^0000FF" + getitemname(.@equip_id) + "^000000";
+	mes "ของรางวัล: ^009900" + getitemname(.ticket_id) + " x" + .ticket_amount + "^000000";
+	mes "ต้องการดำเนินการต่อหรือไม่?";
+	next;
+	if (select("ยืนยัน:ยกเลิก") == 2)
+		close;
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		close;
+
+	delequip .@part;
+	getitem .ticket_id, .ticket_amount;
+	specialeffect2 154;
+
+	mes .mes$;
+	mes "ย่อย Costume เรียบร้อยแล้ว";
+	close;
+
+OnInit:
+	waitingroom "[#] " + strnpcinfo(0), 0;
+	.mes$ = "^FF3300[ " + strnpcinfo(0) + " ]^000000";
+	.ticket_id = 1030003;
+	.ticket_amount = 1;
+	end;
+}
+
+morocc,135,106,4	script	NPC Option Costume#sheet	82,{
+	disable_items;
+
+	mes .mes$;
+	mes "สุ่มออฟชั่นให้ Costume";
+	mes "ค่าใช้จ่าย: ^i[" + .ticket_id + "] " + getitemname(.ticket_id) + " x" + .ticket_amount;
+	mes "สามารถเลือกออฟช่อง 1, 2 หรือ 3 ได้";
+	next;
+
+	callfunc "F_HICostumeOption_SelectEquip";
+	.@part = @hicostume_part;
+	.@equip_id = @hicostume_id;
+
+	if (.@equip_id < 0)
+		close;
+
+	.@slot_select = select("ช่อง 1 (ซ้ายสุด):ช่อง 2:ช่อง 3:ยกเลิก");
+	if (.@slot_select == 4)
+		close;
+
+	.@target_slot = .@slot_select - 1;
+	callfunc "F_HICostumeOption_LoadPool", .@target_slot;
+	callfunc "F_HICostumeOption_Roll";
+	.@option_id = @hicostume_option_id;
+
+	.@refine = getequiprefinerycnt(.@part);
+	.@grade = getenchantgrade(.@part);
+	setarray .@card[0],
+		getequipcardid(.@part, 0),
+		getequipcardid(.@part, 1),
+		getequipcardid(.@part, 2),
+		getequipcardid(.@part, 3);
+	setarray .@OptID[0],
+		getequiprandomoption(.@part, 0, ROA_ID),
+		getequiprandomoption(.@part, 1, ROA_ID),
+		getequiprandomoption(.@part, 2, ROA_ID),
+		getequiprandomoption(.@part, 3, ROA_ID),
+		getequiprandomoption(.@part, 4, ROA_ID);
+	setarray .@OptVal[0],
+		getequiprandomoption(.@part, 0, ROA_VALUE),
+		getequiprandomoption(.@part, 1, ROA_VALUE),
+		getequiprandomoption(.@part, 2, ROA_VALUE),
+		getequiprandomoption(.@part, 3, ROA_VALUE),
+		getequiprandomoption(.@part, 4, ROA_VALUE);
+	setarray .@OptParam[0],
+		getequiprandomoption(.@part, 0, ROA_PARAM),
+		getequiprandomoption(.@part, 1, ROA_PARAM),
+		getequiprandomoption(.@part, 2, ROA_PARAM),
+		getequiprandomoption(.@part, 3, ROA_PARAM),
+		getequiprandomoption(.@part, 4, ROA_PARAM);
+
+	mes .mes$;
+	mes "รายการที่เลือก: ^0000FF" + getitemname(.@equip_id) + "^000000";
+	mes "ช่องที่จะออฟ: ช่อง " + .@slot_select;
+	if (.@card[.@target_slot])
+		mes "^FF0000ออฟเดิม " + getitemname(.@card[.@target_slot]) + " จะถูกออฟทับ^000000";
+	mes "ค่าใช้จ่าย: ^i[" + .ticket_id + "] " + getitemname(.ticket_id) + " x" + .ticket_amount;
+	mes "ต้องการดำเนินการต่อหรือไม่?";
+	next;
+	if (select("ยืนยัน:ยกเลิก") == 2)
+		close;
+
+	if (countitem(.ticket_id) < .ticket_amount) {
+		mes .mes$;
+		mes "มี " + getitemname(.ticket_id) + " ไม่เพียงพอ";
+		close;
+	}
+
+	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
+	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+		close;
+
+	delitem .ticket_id, .ticket_amount;
+	delequip .@part;
+	.@card[.@target_slot] = .@option_id;
+
+	if (.@grade)
+		getitem4 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3], .@grade, .@OptID, .@OptVal, .@OptParam;
+	else
+		getitem3 .@equip_id, 1, 1, .@refine, 0, .@card[0], .@card[1], .@card[2], .@card[3], .@OptID, .@OptVal, .@OptParam;
+	equip .@equip_id;
+	specialeffect2 154;
+
+	mes .mes$;
+	mes "ได้รับออฟชั่น: ^009900" + getitemname(.@option_id) + "^000000";
+	close;
+
+OnInit:
+	waitingroom "[#] " + strnpcinfo(0), 0;
+	.mes$ = "^FF3300[ " + strnpcinfo(0) + " ]^000000";
+	.ticket_id = 1030003;
+	.ticket_amount = 1;
+	end;
+}
+
+function	script	F_HICostumeOption_SelectEquip	{
+	setarray .@equip_pos[0],
+		EQI_COSTUME_HEAD_TOP,
+		EQI_COSTUME_HEAD_MID,
+		EQI_COSTUME_HEAD_LOW,
+		EQI_COSTUME_GARMENT;
+	setarray .@equip_name$[0],
+		"Costume ส่วนบน",
+		"Costume ส่วนกลาง",
+		"Costume ส่วนล่าง",
+		"Costume ผ้าคลุม";
+
+	for (.@i = 0; .@i < getarraysize(.@equip_pos); .@i++) {
+		.@menu$ += .@equip_name$[.@i] + " - ";
+		if (getequipisequiped(.@equip_pos[.@i]))
+			.@menu$ += getequipname(.@equip_pos[.@i]);
+		else
+			.@menu$ += "(ไม่ได้สวมใส่)";
+		.@menu$ += ":";
+	}
+	.@menu$ += "ยกเลิก";
+
+	.@selected = select(.@menu$) - 1;
+	if (.@selected == getarraysize(.@equip_pos)) {
+		@hicostume_part = -1;
+		@hicostume_id = -1;
+		return;
+	}
+
+	@hicostume_part = .@equip_pos[.@selected];
+	@hicostume_id = getequipid(@hicostume_part);
+
+	if (@hicostume_id < 0) {
+		mes "^FF3300[ Costume ]^000000";
+		mes "ไม่ได้สวมใส่ Costume ในช่องนี้";
+		@hicostume_part = -1;
+		return;
+	}
+	return;
+}
+
+function	script	F_HICostumeOption_LoadPool	{
+	.@slot = getarg(0);
+	deletearray @hicostume_pool_id[0], getarraysize(@hicostume_pool_id);
+	deletearray @hicostume_pool_weight[0], getarraysize(@hicostume_pool_weight);
+
+	switch (.@slot) {
+	case 0:
+		setarray @hicostume_pool_id[0], 1001700, 1001701, 1001702, 1001703, 1001704, 1001705;
+		break;
+	case 1:
+		setarray @hicostume_pool_id[0], 1001706, 1001707, 1001708, 1001709, 1001710, 1001711;
+		break;
+	case 2:
+		setarray @hicostume_pool_id[0], 1001712, 1001713, 1001714, 1001715, 1001716, 1001717;
+		break;
+	default:
+		return;
+	}
+
+	setarray @hicostume_pool_weight[0], 600, 200, 90, 55, 30, 25;
+	return;
+}
+
+function	script	F_HICostumeOption_Roll	{
+	.@total = 0;
+	for (.@i = 0; .@i < getarraysize(@hicostume_pool_id); .@i++)
+		.@total += @hicostume_pool_weight[.@i];
+
+	.@roll = rand(1, .@total);
+	for (.@i = 0; .@i < getarraysize(@hicostume_pool_id); .@i++) {
+		.@roll -= @hicostume_pool_weight[.@i];
+		if (.@roll <= 0) {
+			@hicostume_option_id = @hicostume_pool_id[.@i];
+			return;
+		}
+	}
+
+	@hicostume_option_id = @hicostume_pool_id[0];
+	return;
+}
