@@ -25192,3 +25192,7 @@ Body:
     Name: Valor Stone Box
     Type: Cash
     Script: getitem 1000620,10;
+  - Id: 1030005
+    AegisName: Pet_Friendly_Ticket
+    Name: Pet Friendly Ticket
+    Type: Usable

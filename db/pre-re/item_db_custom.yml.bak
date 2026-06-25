@@ -25187,3 +25187,8 @@ Body:
     Trade:
       NoDrop: true
       NoSell: true
+  - Id: 1030004
+    AegisName: Valor_Stone_Box
+    Name: Valor Stone Box
+    Type: Cash
+    Script: getitem 1000620,10;
