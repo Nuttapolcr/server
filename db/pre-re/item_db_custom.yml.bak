@@ -15721,7 +15721,7 @@ Body:
       NoCart: true
       NoGuildStorage: true
     Script: |
-      getitem 30001,300;
+      getitem 30001,1000;
   - Id: 30006
     AegisName: Ai_BOX_7Day
     Name: Ai box 7day
@@ -19739,6 +19739,7 @@ Body:
     Name: "[Rookie] Boots"
     Type: Armor
     Defense: 14
+    Slots: 1
     Locations:
       Garment: true
     ArmorLevel: 1
@@ -24467,6 +24468,7 @@ Body:
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
+    Refineable: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -24478,7 +24480,6 @@ Body:
     Script: |
       bonus bMaxHP,100;
       bonus bAspd,1;
-    Refineable: true
   - Id: 24585
     AegisName: S_Booster_Shield
     Name: Booster Shadow Shield
@@ -24486,6 +24487,7 @@ Body:
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
+    Refineable: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -24497,7 +24499,6 @@ Body:
     Script: |
       bonus bMaxHP,100;
       bonus bVariableCastrate,-5;
-    Refineable: true
   - Id: 24586
     AegisName: S_Booster_Shoes
     Name: Booster Shadow Shoes
@@ -24505,6 +24506,7 @@ Body:
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
+    Refineable: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -24516,7 +24518,6 @@ Body:
     Script: |
       bonus bMaxHP,100;
       bonus bAspdRate,5;
-    Refineable: true
   - Id: 24587
     AegisName: S_Booster_Earing
     Name: Booster Shadow Earring
@@ -24524,6 +24525,7 @@ Body:
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
+    Refineable: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -24535,7 +24537,6 @@ Body:
     Script: |
       bonus bMatk,15;
       bonus bMaxHP,100;
-    Refineable: true
   - Id: 24588
     AegisName: S_Booster_Pandent
     Name: Booster Shadow Pendant
@@ -24543,6 +24544,7 @@ Body:
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
+    Refineable: true
     Trade:
       NoDrop: true
       NoTrade: true
@@ -24554,7 +24556,6 @@ Body:
     Script: |
       bonus bMaxHP,100;
       bonus bBaseAtk,15;
-    Refineable: true
   - Id: 1000602
     AegisName: aegis_1000602
     Name: บัตรวาปบอส
@@ -25168,3 +25169,21 @@ Body:
     SubType: Enchant
     Script: |
       bonus bBaseAtk,2*getskilllv("SN_SIGHT");
+  - Id: 1030001
+    AegisName: HD_Elu_Box
+    Name: HD Elunium Box
+    Type: Cash
+    Script: getitem 6241,10;
+  - Id: 1030002
+    AegisName: HD_Ori_Box
+    Name: HD Oridecon Box
+    Type: Cash
+    Script: getitem 6240,10;
+  - Id: 1030003
+    AegisName: Costume_Option_Ticket
+    Name: Costume Option Ticket
+    Type: Etc
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoSell: true
