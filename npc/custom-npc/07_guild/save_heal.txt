@@ -207,6 +207,8 @@ function	script	F_war_days_text	{
 
 	set @delay_heal, gettimetick(2);
 	
+	percentheal 100, 100;
+	
 	sc_end SC_INCREASEAGI;
 	sc_end SC_BLESSING;
 

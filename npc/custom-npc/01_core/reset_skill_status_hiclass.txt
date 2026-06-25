@@ -1,0 +1,61 @@
+//===== HICLASS Reset Skill & Status =========================
+//= Source: HICLASS sheet, gid 1060400011
+//= Location: morocc 150 107
+//= Sprite: 624
+//= Costs: Status 5m, Skills 1m, Both 5m
+//============================================================
+
+morocc,150,107,4	script	Reset Skill&Status#hiclass	624,{
+	disable_items;
+
+	.@npc$ = "[Reset Skill&Status]";
+	setarray .@Cost[0], 5000000, 1000000, 5000000;
+
+	mes .@npc$;
+	mes "กรุณาเลือกบริการที่ต้องการ";
+	mes " ";
+	mes "รีสเตตัส: ^FF9900"+callfunc("F_InsertComma",.@Cost[0])+"^000000 Zeny";
+	mes "รีสกิล: ^FF9900"+callfunc("F_InsertComma",.@Cost[1])+"^000000 Zeny";
+	mes "รีทั้งคู่: ^FF9900"+callfunc("F_InsertComma",.@Cost[2])+"^000000 Zeny";
+	next;
+
+	.@choice = select("รีสเตตัส:รีสกิล:รีทั้งคู่:ยกเลิก");
+	if (.@choice == 4) {
+		close;
+	}
+
+	.@cost = .@Cost[.@choice - 1];
+	mes .@npc$;
+	mes "ค่าบริการ: ^FF9900"+callfunc("F_InsertComma",.@cost)+"^000000 Zeny";
+	mes "ต้องการดำเนินการต่อหรือไม่?";
+	next;
+
+	if (select("ยืนยัน:ยกเลิก") == 2) {
+		close;
+	}
+
+	if (Zeny < .@cost) {
+		mes .@npc$;
+		mes "คุณมี Zeny ไม่เพียงพอ";
+		close;
+	}
+
+	set Zeny, Zeny - .@cost;
+
+	if (.@choice == 1 || .@choice == 3) {
+		ResetStatus;
+	}
+	if (.@choice == 2 || .@choice == 3) {
+		sc_end_class;
+		ResetSkill;
+	}
+
+	specialeffect2 EF_HEAL2;
+	mes .@npc$;
+	mes "รีเซ็ตเรียบร้อยแล้ว";
+	close;
+
+OnInit:
+	waitingroom "Reset Skill&Status",0;
+	end;
+}
