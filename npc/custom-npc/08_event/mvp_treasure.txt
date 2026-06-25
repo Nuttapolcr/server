@@ -136,6 +136,8 @@ OnSpawn:
 		}
 	}
 
+	.@sec = vip_rank_box_time(.@sec, 1);
+
 	progressbar .@bar$, .@sec;	// moving -> script ENDs here, chest is kept
 
 	// --- reached only on a completed open ---

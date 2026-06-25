@@ -5068,6 +5068,10 @@ void pc_bonus(map_session_data *sd,int type,int val)
 		case SP_BARTER_CRAFT:
 			sd->bonus.barter_craft_bonus += val;
 			break;
+		case SP_BOSS_BOX_SPEED:
+			if (sd->state.lr_flag != 2)
+				sd->bonus.boss_box_speed += val;
+			break;
 		case SP_REFINE_RATE:
 			if (sd->state.lr_flag != 2)
 				sd->bonus.refine_rate += val;

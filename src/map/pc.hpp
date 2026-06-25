@@ -902,6 +902,7 @@ public:
 		short weapon_atk_rate, weapon_matk_rate;
 		int refine_rate;
 		int32 barter_craft_bonus;
+		int32 boss_box_speed;
 	} bonus;
 	// zeroed vars end here.
 

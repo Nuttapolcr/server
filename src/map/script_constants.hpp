@@ -835,6 +835,7 @@
 	export_constant2("bMagicAtkEle",SP_MAGIC_ATK_ELE);
 	export_constant2("bFixedCast",SP_ADD_FIXEDCAST);
 	export_constant2("bVariableCast",SP_ADD_VARIABLECAST);
+	export_constant2("bBossBoxSpeed", SP_BOSS_BOX_SPEED);
 	export_constant2("bSetDefRace",SP_SET_DEF_RACE);
 	export_constant2("bSetMDefRace",SP_SET_MDEF_RACE);
 	export_constant2("bHPVanishRate",SP_HP_VANISH_RATE);

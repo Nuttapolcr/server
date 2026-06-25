@@ -156,6 +156,7 @@ bonus bPerfectHitRate,n;		On-target impact attack probability n% (only the highe
 bonus bPerfectHitAddRate,n;		On-target impact attack probability + n%
 bonus bSpeedRate,n;   			Movement speed + n% (only the highest among all is applied, won't be stacked with SC_SPEEDUP0, SC_SPEEDUP1)
 bonus bSpeedAddRate,n;			Movement speed + n%
+bonus bBossBoxSpeed,n;			Boss treasure box opening speed + n%
 bonus bAspd,n;        			Attack speed + n
 bonus bAspdRate,n;    			Attack speed + n%
 bonus bAtkRange,n;    			Attack range + n

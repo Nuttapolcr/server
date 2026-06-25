@@ -364,14 +364,19 @@ int vip_rank_box_time(map_session_data* sd, int base_milliseconds, int minimum_m
 		return 0;
 
 	int minimum = std::clamp(minimum_milliseconds, 0, base_milliseconds);
-	if (sd == nullptr || !sd->vip_rank_loaded || sd->vip_rank == 0)
+	if (sd == nullptr)
 		return std::max(base_milliseconds, minimum);
 
-	std::shared_ptr<s_vip_rank> entry = vip_rank_db.find(sd->vip_rank);
-	if (entry == nullptr)
-		return std::max(base_milliseconds, minimum);
+	int speed = sd->bonus.boss_box_speed;
 
-	int result = base_milliseconds * (100 - entry->box_speed) / 100;
+	if (sd->vip_rank_loaded && sd->vip_rank != 0) {
+		std::shared_ptr<s_vip_rank> entry = vip_rank_db.find(sd->vip_rank);
+		if (entry != nullptr)
+			speed += entry->box_speed;
+	}
+
+	speed = std::clamp(speed, 0, 90);
+	int result = base_milliseconds * (100 - speed) / 100;
 	return std::max(result, minimum);
 }
 
