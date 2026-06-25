@@ -24469,14 +24469,6 @@ Body:
       Shadow_Armor: true
     EquipLevelMin: 1
     Refineable: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus bMaxHP,100;
       bonus bAspd,1;
@@ -24488,14 +24480,6 @@ Body:
       Shadow_Shield: true
     EquipLevelMin: 1
     Refineable: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus bMaxHP,100;
       bonus bVariableCastrate,-5;
@@ -24507,14 +24491,6 @@ Body:
       Shadow_Shoes: true
     EquipLevelMin: 1
     Refineable: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus bMaxHP,100;
       bonus bAspdRate,5;
@@ -24526,14 +24502,6 @@ Body:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
     Refineable: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus bMatk,15;
       bonus bMaxHP,100;
@@ -24545,14 +24513,6 @@ Body:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
     Refineable: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus bMaxHP,100;
       bonus bBaseAtk,15;
