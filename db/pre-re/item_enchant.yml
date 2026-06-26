@@ -7959,7 +7959,7 @@ Body:
         Materials:
           - Material: Option_Ticket
             Amount: 1
-          - Material: Meteorite_Fragment
+          - Material: Geffen_Magic_Coin
             Amount: 10
         Chance: 100000
         Enchants:
@@ -8248,7 +8248,7 @@ Body:
         Materials:
           - Material: Option_Ticket
             Amount: 1
-          - Material: Meteorite_Fragment
+          - Material: Geffen_Magic_Coin
             Amount: 30
         Chance: 100000
         Enchants:
@@ -8477,7 +8477,7 @@ Body:
         Materials:
           - Material: Option_Ticket
             Amount: 1
-          - Material: Meteorite_Fragment
+          - Material: Geffen_Magic_Coin
             Amount: 50
         Chance: 100000
         Enchants:
@@ -8748,7 +8748,7 @@ Body:
         Materials:
           - Material: Option_Ticket
             Amount: 1
-          - Material: Meteorite_Fragment
+          - Material: Geffen_Magic_Coin
             Amount: 10
         Chance: 100000
         Enchants:
@@ -8987,7 +8987,7 @@ Body:
         Materials:
           - Material: Option_Ticket
             Amount: 1
-          - Material: Meteorite_Fragment
+          - Material: Geffen_Magic_Coin
             Amount: 30
         Chance: 100000
         Enchants:
@@ -9146,7 +9146,7 @@ Body:
         Materials:
           - Material: Option_Ticket
             Amount: 1
-          - Material: Meteorite_Fragment
+          - Material: Geffen_Magic_Coin
             Amount: 50
         Chance: 100000
         Enchants:
@@ -9397,7 +9397,7 @@ Body:
         Materials:
           - Material: Option_Ticket
             Amount: 1
-          - Material: Meteorite_Fragment
+          - Material: Geffen_Magic_Coin
             Amount: 10
         Chance: 100000
         Enchants:
@@ -9506,7 +9506,7 @@ Body:
         Materials:
           - Material: Option_Ticket
             Amount: 1
-          - Material: Meteorite_Fragment
+          - Material: Geffen_Magic_Coin
             Amount: 30
         Chance: 100000
         Enchants:
@@ -9595,7 +9595,7 @@ Body:
         Materials:
           - Material: Option_Ticket
             Amount: 1
-          - Material: Meteorite_Fragment
+          - Material: Geffen_Magic_Coin
             Amount: 50
         Chance: 100000
         Enchants:
@@ -9745,47 +9745,47 @@ Body:
             Materials:
               - Material: aegis_1001719
                 Amount: 1
-              - Material: Meteorite_Fragment
-                Amount: 1000
+              - Material: Geffen_Magic_Coin
+                Amount: 500
           - Item: SPdrain1
             Price: 0
             Materials:
               - Material: aegis_1001719
                 Amount: 1
-              - Material: Meteorite_Fragment
-                Amount: 1000
+              - Material: Geffen_Magic_Coin
+                Amount: 500
           - Item: Reactor_A_STR
             Price: 0
             Materials:
               - Material: aegis_1001719
                 Amount: 1
-              - Material: Meteorite_Fragment
-                Amount: 1000
+              - Material: Geffen_Magic_Coin
+                Amount: 500
           - Item: Reactor_A_INT
             Price: 0
             Materials:
               - Material: aegis_1001719
                 Amount: 1
-              - Material: Meteorite_Fragment
-                Amount: 1000
+              - Material: Geffen_Magic_Coin
+                Amount: 500
           - Item: Reactor_A_DEF
             Price: 0
             Materials:
               - Material: aegis_1001719
                 Amount: 1
-              - Material: Meteorite_Fragment
-                Amount: 1000
+              - Material: Geffen_Magic_Coin
+                Amount: 500
           - Item: aegis_312421
             Price: 0
             Materials:
               - Material: aegis_1001719
                 Amount: 1
-              - Material: Meteorite_Fragment
-                Amount: 1000
+              - Material: Geffen_Magic_Coin
+                Amount: 500
           - Item: Immuned1
             Price: 0
             Materials:
               - Material: aegis_1001719
                 Amount: 1
-              - Material: Meteorite_Fragment
-                Amount: 1000
+              - Material: Geffen_Magic_Coin
+                Amount: 500

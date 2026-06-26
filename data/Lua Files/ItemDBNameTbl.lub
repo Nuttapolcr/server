@@ -4738,6 +4738,7 @@ ItemDBNameTbl = {
 	aegis_313278 = 313278,
 	aegis_313279 = 313279,
 	aegis_1001719 = 1001719,
+	Geffen_Magic_Coin = 6671,
 }
 ItemDB_To_ItemID = function(in_ItemDB)
 	if ItemDBNameTbl[in_ItemDB] == nil then
