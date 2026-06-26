@@ -35231,6 +35231,7 @@ Body:
     Type: Card
     SubType: Enchant
     Weight: 0
+    Script: bonus2 bRegenPercentSP,1,1000;
   - Id: 1001718
     AegisName: Option_Ticket
     Name: Option Ticket
