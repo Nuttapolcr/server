@@ -1601,7 +1601,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 9000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1610,7 +1610,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 8000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1619,7 +1619,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 7000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1628,7 +1628,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 6000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1637,7 +1637,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 5000
+                Rate: 8000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1646,7 +1646,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 4000
+                Rate: 6000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1655,7 +1655,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 3000
+                Rate: 4000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1664,7 +1664,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 2000
+                Rate: 3000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1673,7 +1673,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 1000
+                Rate: 2000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1682,7 +1682,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 900
+                Rate: 1000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1744,7 +1744,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 9000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1753,7 +1753,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 8000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1762,7 +1762,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 7000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1771,7 +1771,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 6000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1780,7 +1780,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 5000
+                Rate: 8000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1789,7 +1789,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 4000
+                Rate: 6000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1798,7 +1798,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 3000
+                Rate: 4000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1807,7 +1807,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 2000
+                Rate: 3000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1816,7 +1816,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 1000
+                Rate: 2000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1825,7 +1825,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 900
+                Rate: 1000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1887,7 +1887,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 9000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1896,7 +1896,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 8000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1905,7 +1905,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 7000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1914,7 +1914,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 6000
+                Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1923,7 +1923,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 5000
+                Rate: 8000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1932,7 +1932,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 4000
+                Rate: 6000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1941,7 +1941,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 3000
+                Rate: 4000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1950,7 +1950,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 2000
+                Rate: 3000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1959,7 +1959,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 1000
+                Rate: 2000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
@@ -1968,7 +1968,7 @@ Body:
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 900
+                Rate: 1000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
