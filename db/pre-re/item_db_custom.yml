@@ -26061,13 +26061,17 @@ Body:
     AegisName: WING_01
     Name: Cos Hanabi Wing Orange
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 128
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26078,22 +26082,21 @@ Body:
       bonus bVariableCastrate,-3;
       bonus bBossBoxSpeed,10;
       bonus bMaxHP,2000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250012
     AegisName: WING_02
     Name: Cos Hanabi Wing Purple 2
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 129
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26104,22 +26107,21 @@ Body:
       bonus bVariableCastrate,-3;
       bonus bBossBoxSpeed,10;
       bonus bMaxHP,2000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250013
     AegisName: WING_03
     Name: Cos Hanabi Wing Starryskyblue
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 130
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26130,22 +26132,21 @@ Body:
       bonus bVariableCastrate,-3;
       bonus bBossBoxSpeed,10;
       bonus bMaxHP,2000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250014
     AegisName: WING_04
     Name: Cos Yocci Black
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 131
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26155,22 +26156,21 @@ Body:
       bonus bSpeedAddRate,5;
       bonus bVariableCastrate,-1;
       bonus bMaxHP,1000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250015
     AegisName: WING_05
     Name: Cos Yocci Pink
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 132
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26180,22 +26180,21 @@ Body:
       bonus bSpeedAddRate,5;
       bonus bVariableCastrate,-1;
       bonus bMaxHP,1000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250016
     AegisName: hanabi_wing_blue
     Name: Cos Hanabi Wing Blue
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 133
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26206,22 +26205,21 @@ Body:
       bonus bVariableCastrate,-3;
       bonus bBossBoxSpeed,10;
       bonus bMaxHP,2000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250017
     AegisName: HANABI_WING_GRAY
     Name: Cos Hanabi Wing Gray
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 134
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26232,22 +26230,21 @@ Body:
       bonus bVariableCastrate,-3;
       bonus bBossBoxSpeed,10;
       bonus bMaxHP,2000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250018
     AegisName: HANABI_WING_PINK
     Name: Cos Hanabi Wing Pink
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 135
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26258,22 +26255,21 @@ Body:
       bonus bVariableCastrate,-3;
       bonus bBossBoxSpeed,10;
       bonus bMaxHP,2000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250019
     AegisName: HANABI_WING_PURPLE
     Name: Cos Hanabi Wing Purple
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 136
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26284,22 +26280,21 @@ Body:
       bonus bVariableCastrate,-3;
       bonus bBossBoxSpeed,10;
       bonus bMaxHP,2000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250020
     AegisName: HANABI_WING_GREEN
     Name: Cos Hanabi Wing Green
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 137
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26310,11 +26305,6 @@ Body:
       bonus bVariableCastrate,-3;
       bonus bBossBoxSpeed,10;
       bonus bMaxHP,2000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250021
     AegisName: C_Black_Dragon_Wing
     Name: Costume Black Dragon Wing
@@ -26337,13 +26327,17 @@ Body:
     AegisName: lumi_rainbow
     Name: Cos Yocci Rainbow
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 139
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26353,22 +26347,21 @@ Body:
       bonus bSpeedAddRate,5;
       bonus bVariableCastrate,-1;
       bonus bMaxHP,1000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250023
     AegisName: YC_yellow
     Name: Cos Yocci Yellow
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 141
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26378,22 +26371,21 @@ Body:
       bonus bSpeedAddRate,5;
       bonus bVariableCastrate,-1;
       bonus bMaxHP,1000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250024
     AegisName: YC_green
     Name: Cos Yocci Green
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 142
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26403,22 +26395,21 @@ Body:
       bonus bSpeedAddRate,5;
       bonus bVariableCastrate,-1;
       bonus bMaxHP,1000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250025
     AegisName: YC_purple
     Name: Cos Yocci Purple
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 143
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26428,22 +26419,21 @@ Body:
       bonus bSpeedAddRate,5;
       bonus bVariableCastrate,-1;
       bonus bMaxHP,1000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250026
     AegisName: YC_blue
     Name: Cos Yocci Blue
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 144
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26453,22 +26443,21 @@ Body:
       bonus bSpeedAddRate,5;
       bonus bVariableCastrate,-1;
       bonus bMaxHP,1000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 250027
     AegisName: YC_red
     Name: Cos Yocci Red
     Type: Armor
-    Weight: 50
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
     View: 145
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26478,11 +26467,6 @@ Body:
       bonus bSpeedAddRate,5;
       bonus bVariableCastrate,-1;
       bonus bMaxHP,1000;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 81001
     AegisName: Vending_Zeny
     Name: Zeny
