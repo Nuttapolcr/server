@@ -64,14 +64,6 @@ Body:
         Grades:
           - Grade: None
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 5000
               - Refine: 12
@@ -98,14 +90,6 @@ Body:
 
           - Grade: D
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 4000
               - Refine: 12
@@ -132,14 +116,6 @@ Body:
 
           - Grade: C
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 3000
               - Refine: 12
@@ -166,14 +142,6 @@ Body:
 
           - Grade: B
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 2000
               - Refine: 12
@@ -204,14 +172,6 @@ Body:
         Grades:
           - Grade: None
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 5000
               - Refine: 12
@@ -238,14 +198,6 @@ Body:
 
           - Grade: D
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 4000
               - Refine: 12
@@ -272,14 +224,6 @@ Body:
 
           - Grade: C
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 3000
               - Refine: 12
@@ -306,14 +250,6 @@ Body:
 
           - Grade: B
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 2000
               - Refine: 12
@@ -342,14 +278,6 @@ Body:
         Grades:
           - Grade: None
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 5000
               - Refine: 12
@@ -376,14 +304,6 @@ Body:
 
           - Grade: D
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 4000
               - Refine: 12
@@ -410,14 +330,6 @@ Body:
 
           - Grade: C
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 3000
               - Refine: 12
@@ -444,14 +356,6 @@ Body:
 
           - Grade: B
             Chances:
-              - Refine: 7
-                Chance: 0
-              - Refine: 8
-                Chance: 0
-              - Refine: 9
-                Chance: 0
-              - Refine: 10
-                Chance: 0
               - Refine: 11
                 Chance: 2000
               - Refine: 12

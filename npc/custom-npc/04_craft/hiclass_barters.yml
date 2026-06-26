@@ -2269,7 +2269,7 @@ Body:
             Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
             Amount: 1
           - Index: 4
-            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 200 (6671)
             Amount: 200
       - Index: 1
         Item: Rare_Ranged_Necklace # [Rare] Ranged Necklace (490488)
@@ -2289,7 +2289,7 @@ Body:
             Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
             Amount: 1
           - Index: 4
-            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 200 (6671)
             Amount: 200
       - Index: 2
         Item: Rare_Magic_Necklace # [Rare] Magic Necklace (490489)
@@ -2309,7 +2309,7 @@ Body:
             Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
             Amount: 1
           - Index: 4
-            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 200 (6671)
             Amount: 200
       - Index: 3
         Item: Rare_Defense_Necklace # [Rare] Defense Necklace (490490)
@@ -2329,7 +2329,7 @@ Body:
             Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
             Amount: 1
           - Index: 4
-            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 200 (6671)
             Amount: 200
       - Index: 4
         Item: Rare_Melee_Ring # [Rare] Melee Ring (490499)
@@ -2349,7 +2349,7 @@ Body:
             Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
             Amount: 1
           - Index: 4
-            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 200 (6671)
             Amount: 200
       - Index: 5
         Item: Rare_Ranged_Ring # [Rare] Ranged Ring (490500)
@@ -2369,7 +2369,7 @@ Body:
             Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
             Amount: 1
           - Index: 4
-            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 200 (6671)
             Amount: 200
       - Index: 6
         Item: Rare_Magic_Ring # [Rare] Magic Ring (490501)
@@ -2389,7 +2389,7 @@ Body:
             Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
             Amount: 1
           - Index: 4
-            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 200 (6671)
             Amount: 200
       - Index: 7
         Item: Rare_Defense_Ring # [Rare] Defense Ring (490502)
@@ -2409,7 +2409,7 @@ Body:
             Item: Acc_Ore_1 # [Rare] Accessory Stone (NT) x1 (1000426)
             Amount: 1
           - Index: 4
-            Item: Meteorite_Fragment # Fragment Stone x 200 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 200 (6671)
             Amount: 200
       - Index: 8
         Item: Epic_Melee_Necklace # [Epic] Melee Necklace (490491)
@@ -2432,7 +2432,7 @@ Body:
             Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 500 (6671)
             Amount: 500
       - Index: 9
         Item: Epic_Ranged_Necklace # [Epic] Ranged Necklace (490492)
@@ -2455,7 +2455,7 @@ Body:
             Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 500 (6671)
             Amount: 500
       - Index: 10
         Item: Epic_Magic_Necklace # [Epic] Magic Necklace (490493)
@@ -2478,7 +2478,7 @@ Body:
             Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 500 (6671)
             Amount: 500
       - Index: 11
         Item: Epic_Defense_Necklace # [Epic] Defense Necklace (490494)
@@ -2501,7 +2501,7 @@ Body:
             Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 500 (6671)
             Amount: 500
       - Index: 12
         Item: Epic_Melee_Ring # [Epic] Melee Ring (490503)
@@ -2524,7 +2524,7 @@ Body:
             Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 500 (6671)
             Amount: 500
       - Index: 13
         Item: Epic_Ranged_Ring # [Epic] Ranged Ring (490504)
@@ -2547,7 +2547,7 @@ Body:
             Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 500 (6671)
             Amount: 500
       - Index: 14
         Item: Epic_Magic_Ring # [Epic] Magic Ring (490505)
@@ -2570,7 +2570,7 @@ Body:
             Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 500 (6671)
             Amount: 500
       - Index: 15
         Item: Epic_Defense_Ring # [Epic] Defense Ring (490506)
@@ -2593,7 +2593,7 @@ Body:
             Item: Acc_Ore_3 # [Epic] Accessory Stone (NT) x1 (1000428)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 500 (1000373)
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 500 (6671)
             Amount: 500
       - Index: 16
         Item: Legend_Melee_Necklace # [Legend] Melee Necklace (490495)
@@ -2616,8 +2616,8 @@ Body:
             Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
-            Amount: 2000
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 1000 (6671)
+            Amount: 1000
       - Index: 17
         Item: Legend_Ranged_Necklace # [Legend] Ranged Necklace (490496)
         Rate: 10000
@@ -2639,8 +2639,8 @@ Body:
             Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
-            Amount: 2000
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 1000 (6671)
+            Amount: 1000
       - Index: 18
         Item: Legend_Magic_Necklace # [Legend] Magic Necklace (490497)
         Rate: 10000
@@ -2662,8 +2662,8 @@ Body:
             Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
-            Amount: 2000
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 1000 (6671)
+            Amount: 1000
       - Index: 19
         Item: Legend_Defense_Necklace # [Legend] Defense Necklace (490498)
         Rate: 10000
@@ -2685,8 +2685,8 @@ Body:
             Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
-            Amount: 2000
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 1000 (6671)
+            Amount: 1000
       - Index: 20
         Item: Legend_Melee_Ring # [Legend] Melee Ring (490507)
         Rate: 10000
@@ -2708,8 +2708,8 @@ Body:
             Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
-            Amount: 2000
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 1000 (6671)
+            Amount: 1000
       - Index: 21
         Item: Legend_Ranged_Ring # [Legend] Ranged Ring (490508)
         Rate: 10000
@@ -2731,8 +2731,8 @@ Body:
             Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
-            Amount: 2000
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 1000 (6671)
+            Amount: 1000
       - Index: 22
         Item: Legend_Magic_Ring # [Legend] Magic Ring (490509)
         Rate: 10000
@@ -2754,8 +2754,8 @@ Body:
             Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
-            Amount: 2000
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 1000 (6671)
+            Amount: 1000
       - Index: 23
         Item: Legend_Defense_Ring # [Legend] Defense Ring (490510)
         Rate: 10000
@@ -2777,5 +2777,5 @@ Body:
             Item: Acc_Ore_2 # [Legend] Accessory Stone (NT) x1 (1000427)
             Amount: 1
           - Index: 5
-            Item: Meteorite_Fragment # Fragment Stone x 2000 (1000373)
-            Amount: 2000
+            Item: Geffen_Magic_Coin # Geffen Coin Magic Tournament x 1000 (6671)
+            Amount: 1000
