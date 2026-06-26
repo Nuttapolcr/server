@@ -167,7 +167,7 @@ morocc,129,106,4	script	µŸÈ ÿË¡Cos Garment#rccash4	562,{
 
 -	script	RandomCostumeCash_Config	-1,{
 OnInit:
-	$@RandomCostumeCash_Cost = 10;
+	$@RandomCostumeCash_Cost = 390;
 
 	deletearray $@RandomCostumeCash_Upper;
 	deletearray $@RandomCostumeCash_Middle;
