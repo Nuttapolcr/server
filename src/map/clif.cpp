@@ -2470,7 +2470,12 @@ void clif_selllist(map_session_data *sd)
 			if( !pc_can_sell_item(sd, &sd->inventory.u.items_inventory[i], nd->subtype))
 				continue;
 
-			if (battle_config.rental_item_novalue && sd->inventory.u.items_inventory[i].expire_time)
+			if( !npc_shop_sell_filter_matches(nd, sd, i) )
+				continue;
+
+			if( nd->sell_filter.enabled && nd->sell_filter.zero_price )
+				val = 0;
+			else if (battle_config.rental_item_novalue && sd->inventory.u.items_inventory[i].expire_time)
 				val = 0;
 			else {
 				val = sd->inventory_data[i]->value_sell;

@@ -18353,6 +18353,40 @@ BUILDIN_FUNC(npcshopattach)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+/**
+ * Sets an item filter for the NPC sell window.
+ * npcshopsellfilter "<npc_name>",<equip_mask>{,<exact_equip>{,<zero_price>{,<item_type>}}}
+ */
+BUILDIN_FUNC(npcshopsellfilter)
+{
+	const char* npcname = script_getstr(st, 2);
+	struct npc_data* nd = npc_name2id(npcname);
+
+	if (!nd || nd->subtype != NPCTYPE_SHOP) {
+		ShowError("buildin_npcshopsellfilter: Shop [%s] not found (or NPC is not shop type).\n", npcname);
+		script_pushint(st, 0);
+		return SCRIPT_CMD_FAILURE;
+	}
+
+	int equip_mask = script_getnum(st, 3);
+	int item_type = script_hasdata(st, 6) ? script_getnum(st, 6) : -1;
+
+	if (equip_mask < 0 || item_type < -1) {
+		ShowError("buildin_npcshopsellfilter: Invalid filter for shop '%s'.\n", nd->exname);
+		script_pushint(st, 0);
+		return SCRIPT_CMD_FAILURE;
+	}
+
+	nd->sell_filter.enabled = equip_mask != 0 || item_type >= 0;
+	nd->sell_filter.equip_mask = static_cast<uint32>(equip_mask);
+	nd->sell_filter.exact_equip = script_hasdata(st, 4) ? script_getnum(st, 4) != 0 : false;
+	nd->sell_filter.zero_price = script_hasdata(st, 5) ? script_getnum(st, 5) != 0 : false;
+	nd->sell_filter.item_type = item_type;
+
+	script_pushint(st, 1);
+	return SCRIPT_CMD_SUCCESS;
+}
+
 /*==========================================
  * Returns some values of an item [Lupus]
  * Price, Weight, etc...
@@ -30959,6 +30993,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(npcshopadditem,"sii*"),
 	BUILDIN_DEF(npcshopdelitem,"si*"),
 	BUILDIN_DEF(npcshopattach,"s?"),
+	BUILDIN_DEF(npcshopsellfilter,"si???"),
 	BUILDIN_DEF(equip,"i?"),
 	BUILDIN_DEF(autoequip,"ii"),
 	BUILDIN_DEF(setbattleflag,"si?"),

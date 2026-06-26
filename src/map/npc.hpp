@@ -165,6 +165,14 @@ struct s_questinfo {
 	}
 };
 
+struct s_npc_shop_sell_filter {
+	bool enabled;
+	uint32 equip_mask;
+	bool exact_equip;
+	bool zero_price;
+	int item_type;
+};
+
 // Status of NPC view.
 enum e_npcv_status : uint8 {
 	NPCVIEW_DISABLE  = 0x01,
@@ -204,6 +212,7 @@ struct npc_data {
 	void* chatdb; // pointer to a npc_parse struct (see npc_chat.cpp)
 	char* path;/* path dir */
 	enum npc_subtype subtype;
+	struct s_npc_shop_sell_filter sell_filter;
 	bool trigger_on_hidden;
 	int src_id;
 	union {
@@ -1562,6 +1571,7 @@ enum npce_event : uint8 {
 };
 
 struct view_data* npc_get_viewdata(int class_);
+bool npc_shop_sell_filter_matches(const struct npc_data* nd, const map_session_data* sd, int inventory_index);
 int npc_chat_sub(struct block_list* bl, va_list ap);
 int npc_event_dequeue(map_session_data* sd,bool free_script_stack=true);
 int npc_event(map_session_data* sd, const char* eventname, int ontouch);

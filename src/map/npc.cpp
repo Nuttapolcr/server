@@ -53,6 +53,34 @@ static int npc_cache_mob=0;
 
 struct eri *npc_sc_display_ers;
 
+bool npc_shop_sell_filter_matches(const struct npc_data* nd, const map_session_data* sd, int inventory_index)
+{
+	if (nd == nullptr || !nd->sell_filter.enabled)
+		return true;
+
+	if (sd == nullptr || inventory_index < 0 || inventory_index >= MAX_INVENTORY || sd->inventory_data[inventory_index] == nullptr)
+		return false;
+
+	const struct item& item = sd->inventory.u.items_inventory[inventory_index];
+	if (item.nameid == 0)
+		return false;
+
+	const item_data* id = sd->inventory_data[inventory_index];
+
+	if (nd->sell_filter.item_type >= 0 && id->type != nd->sell_filter.item_type)
+		return false;
+
+	if (nd->sell_filter.equip_mask != 0) {
+		if ((id->equip & nd->sell_filter.equip_mask) == 0)
+			return false;
+
+		if (nd->sell_filter.exact_equip && (id->equip & nd->sell_filter.equip_mask) != id->equip)
+			return false;
+	}
+
+	return true;
+}
+
 // Market Shop
 #if PACKETVER >= 20131223
 struct s_npc_market {
@@ -3286,6 +3314,7 @@ static int npc_selllist_sub(map_session_data* sd, int list_length, PACKET_CZ_PC_
 	char card_slot[NAME_LENGTH];
 	char option_id[NAME_LENGTH], option_val[NAME_LENGTH], option_param[NAME_LENGTH];
 	int i, j;
+	int key_idx = 0;
 	int key_nameid = 0;
 	int key_amount = 0;
 	int key_refine = 0;
@@ -3296,6 +3325,7 @@ static int npc_selllist_sub(map_session_data* sd, int list_length, PACKET_CZ_PC_
 	int key_option_id[MAX_ITEM_RDM_OPT], key_option_val[MAX_ITEM_RDM_OPT], key_option_param[MAX_ITEM_RDM_OPT];
 
 	// discard old contents
+	script_cleararray_pc( sd, "@sold_idx" );
 	script_cleararray_pc( sd, "@sold_nameid" );
 	script_cleararray_pc( sd, "@sold_quantity" );
 	script_cleararray_pc( sd, "@sold_refine" );
@@ -3326,6 +3356,7 @@ static int npc_selllist_sub(map_session_data* sd, int list_length, PACKET_CZ_PC_
 	{
 		int idx = item_list[i].index - 2;
 
+		script_setarray_pc( sd, "@sold_idx", i, idx, &key_idx );
 		script_setarray_pc( sd, "@sold_nameid", i, sd->inventory.u.items_inventory[idx].nameid, &key_nameid );
 		script_setarray_pc( sd, "@sold_quantity", i, item_list[i].amount, &key_amount );
 
@@ -3401,6 +3432,10 @@ uint8 npc_selllist(map_session_data* sd, int list_length, PACKET_CZ_PC_SELL_ITEM
 			return 1;
 		}
 
+		if (!npc_shop_sell_filter_matches(nd, sd, idx)) {
+			return 1;
+		}
+
 		if( nd->master_nd )
 		{// Script-controlled shops decide by themselves, what can be sold and at what price.
 			continue;
@@ -3410,7 +3445,9 @@ uint8 npc_selllist(map_session_data* sd, int list_length, PACKET_CZ_PC_SELL_ITEM
 			return 1; // In official server, this illegal attempt the player will be disconnected
 		}
 
-		if (battle_config.rental_item_novalue && sd->inventory.u.items_inventory[idx].expire_time)
+		if (nd->sell_filter.enabled && nd->sell_filter.zero_price)
+			value = 0;
+		else if (battle_config.rental_item_novalue && sd->inventory.u.items_inventory[idx].expire_time)
 			value = 0;
 		else
 			value = pc_modifysellvalue(sd, sd->inventory_data[idx]->value_sell);

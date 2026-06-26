@@ -1,50 +1,69 @@
 //!rathena
 // HICLASS sheet: NPC costume recycle and costume option rolls.
 
-morocc,132,106,4	script	NPC Yoi Costume#sheet	89,{
+-	shop	hi_costume_recycle_shop	-1,909:-1
+
+morocc,132,106,4	script	NPC ย่อย Costume#sheet	89,{
 	disable_items;
 
 	mes .mes$;
-	mes "ย่อย Costume ที่สวมใส่อยู่เพื่อรับ:";
+	mes "กรุณาเลือก Costume ที่ต้องการย่อย";
 	mes "^i[" + .ticket_id + "] " + getitemname(.ticket_id) + " x" + .ticket_amount;
-	mes "^FF0000Costume ที่เลือกจะถูกทำลายถาวร^000000";
+	mes "^FF0000จะแสดงเฉพาะ Costume ที่สามารถย่อยได้เท่านั้น^000000";
 	next;
 
-	callfunc "F_HICostumeOption_SelectEquip";
-	.@part = @hicostume_part;
-	.@equip_id = @hicostume_id;
+	deletearray @sold_idx[0], getarraysize(@sold_idx);
+	deletearray @sold_nameid[0], getarraysize(@sold_nameid);
+	deletearray @sold_quantity[0], getarraysize(@sold_quantity);
+	deletearray @sold_refine[0], getarraysize(@sold_refine);
+	deletearray @sold_attribute[0], getarraysize(@sold_attribute);
+	deletearray @sold_identify[0], getarraysize(@sold_identify);
+	deletearray @sold_enchantgrade[0], getarraysize(@sold_enchantgrade);
 
-	if (.@equip_id < 0)
-		close;
-
-	if (checkweight(.ticket_id, .ticket_amount) == 0) {
+	if (!npcshopattach(.shop_npc_name$)) {
 		mes .mes$;
-		mes "น้ำหนักในตัวเกิน กรุณาลดน้ำหนักก่อน";
+		mes "ไม่พบร้านย่อย Costume กรุณาแจ้ง GM";
 		close;
 	}
 
-	.@refine = getequiprefinerycnt(.@part);
-	setarray .@card[0],
-		getequipcardid(.@part, 0),
-		getequipcardid(.@part, 1),
-		getequipcardid(.@part, 2),
-		getequipcardid(.@part, 3);
+	callshop .shop_npc_name$, 2;
+	end;
+
+OnSellItem:
+	.@sold_size = getarraysize(@sold_nameid);
+	if (.@sold_size <= 0)
+		close;
 
 	mes .mes$;
-	mes "รายการที่เลือก: ^0000FF" + getitemname(.@equip_id) + "^000000";
-	mes "ของรางวัล: ^009900" + getitemname(.ticket_id) + " x" + .ticket_amount + "^000000";
+	mes "รายการ Costume ที่เลือก:";
+	for (.@i = 0; .@i < .@sold_size; .@i++) {
+		.@loc = getiteminfo(@sold_nameid[.@i], ITEMINFO_LOCATIONS);
+		if (@sold_quantity[.@i] != 1 || !(.@loc & .costume_locations) || ((.@loc & .costume_locations) != .@loc)) {
+			mes "^FF0000มีไอเท็มที่ไม่สามารถย่อยได้^000000";
+			close;
+		}
+		mes " - " + getitemname(@sold_nameid[.@i]);
+	}
+	mes "ของรางวัล: ^009900" + getitemname(.ticket_id) + " x" + (.ticket_amount * .@sold_size) + "^000000";
 	mes "ต้องการดำเนินการต่อหรือไม่?";
 	next;
 	if (select("ยืนยัน:ยกเลิก") == 2)
 		close;
 
-	if (callfunc("F_IsEquipIDHack", .@part, .@equip_id) ||
-	    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
-	    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+	if (checkweight(.ticket_id, .ticket_amount * .@sold_size) == 0) {
+		mes .mes$;
+		mes "น้ำหนักเกิน กรุณาลดน้ำหนักก่อน";
 		close;
+	}
 
-	delequip .@part;
-	getitem .ticket_id, .ticket_amount;
+	for (.@i = 0; .@i < .@sold_size; .@i++) {
+		if (!delitemidx(@sold_idx[.@i], 1)) {
+			mes .mes$;
+			mes "^FF0000ลบ Costume ที่เลือกไม่สำเร็จ^000000";
+			close;
+		}
+	}
+	getitem .ticket_id, .ticket_amount * .@sold_size;
 	specialeffect2 154;
 
 	mes .mes$;
@@ -56,8 +75,12 @@ OnInit:
 	.mes$ = "^FF3300[ " + strnpcinfo(0) + " ]^000000";
 	.ticket_id = 1030003;
 	.ticket_amount = 1;
+	.shop_npc_name$ = "hi_costume_recycle_shop";
+	.costume_locations = EQP_COSTUME_HEAD_TOP | EQP_COSTUME_HEAD_MID | EQP_COSTUME_HEAD_LOW | EQP_COSTUME_GARMENT;
+	npcshopsellfilter .shop_npc_name$, .costume_locations, 1, 1;
 	end;
 }
+
 
 morocc,135,106,4	script	NPC Option Costume#sheet	82,{
 	disable_items;
