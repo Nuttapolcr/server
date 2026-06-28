@@ -209,11 +209,11 @@ OnInit:
 	callfunc "F_RandomCostumeCash_AddRange", "Middle", 63783, 64323, EQP_COSTUME_HEAD_MID;
 	callfunc "F_RandomCostumeCash_AddRange", "Middle", 1001010, 1001011, EQP_COSTUME_HEAD_MID;
 
-	callfunc "F_RandomCostumeCash_AddRange", "Lower", 62997, 62999, EQP_COSTUME_HEAD_LOW;
 	callfunc "F_RandomCostumeCash_AddRange", "Lower", 64324, 64772, EQP_COSTUME_HEAD_LOW;
 	callfunc "F_RandomCostumeCash_AddRange", "Lower", 1001013, 1001015, EQP_COSTUME_HEAD_LOW;
 
-	callfunc "F_RandomCostumeCash_AddRange", "Garment", 250011, 250027, EQP_COSTUME_GARMENT;
+	callfunc "F_RandomCostumeCash_AddRange", "Garment", 250011, 250020, EQP_COSTUME_GARMENT;
+	callfunc "F_RandomCostumeCash_AddRange", "Garment", 250022, 250022, EQP_COSTUME_GARMENT;
 	callfunc "F_RandomCostumeCash_AddRange", "Garment", 1001005, 1001006, EQP_COSTUME_GARMENT;
 	callfunc "F_RandomCostumeCash_AddRange", "Garment", 1001501, 1001510, EQP_COSTUME_GARMENT;
 	end;
