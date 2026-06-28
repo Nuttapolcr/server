@@ -258,14 +258,24 @@ static int storage_additem(map_session_data* sd, struct s_storage *stor, struct 
 			sprintf(output_msg,msg_txt(sd,1641),item_db.create_item_link(cdata).c_str());
 			clif_messagecolor(&sd->bl, color_table[COLOR_CYAN], output_msg, false, SELF);
 			return 1;
-		}else if (item_is_collection(it->nameid) && !item_is_collection_stack(it->nameid) && pc_premium_storage_exists(sd,it->nameid)){
-			sprintf(output_msg,msg_txt(sd,1644),item_db.create_item_link(cdata).c_str());
-			clif_messagecolor(&sd->bl, color_table[COLOR_CYAN], output_msg, false, SELF);
-			return 1;
-		}else if (item_is_collection_stack(it->nameid) && (amount + pc_premium_storage_count(sd,it->nameid)) > battle_config.collection_max_stored){
-			sprintf(output_msg,msg_txt(sd,1645),item_db.create_item_link(cdata).c_str(), battle_config.collection_max_stored);
-			clif_messagecolor(&sd->bl, color_table[COLOR_CYAN], output_msg, false, SELF);
-			return 1;
+		}else{
+			int stored_amount = pc_premium_storage_total(sd,it->nameid);
+
+			if (item_is_collection_stack(it->nameid)) {
+				if ((amount + stored_amount) > battle_config.collection_max_stored) {
+					sprintf(output_msg,msg_txt(sd,1645),item_db.create_item_link(cdata).c_str(), battle_config.collection_max_stored);
+					clif_messagecolor(&sd->bl, color_table[COLOR_CYAN], output_msg, false, SELF);
+					return 1;
+				}
+			}else{
+				int collection_amount = max(data->collection_amount, 1);
+
+				if ((amount + stored_amount) > collection_amount) {
+					sprintf(output_msg,msg_txt(sd,1645),item_db.create_item_link(cdata).c_str(), collection_amount);
+					clif_messagecolor(&sd->bl, color_table[COLOR_CYAN], output_msg, false, SELF);
+					return 1;
+				}
+			}
 		}
 
 		int fee = mapreg_readreg(add_str("$collection_fee"));

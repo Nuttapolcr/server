@@ -35537,6 +35537,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bShortAtkRate,1;
       bonus2 bDropAddClass,Class_All,2;
@@ -35548,6 +35549,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bAspdRate,1;
       bonus2 bDropAddClass,Class_All,2;
@@ -35559,6 +35561,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bDelayrate,-1;
       bonus2 bDropAddClass,Class_All,2;
@@ -35570,6 +35573,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bCritical,5;
       bonus2 bDropAddClass,Class_All,2;
@@ -35581,6 +35585,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bDropAddClass_C,Class_All,10;
       bonus2 bDropAddClass,Class_All,2;
@@ -35592,6 +35597,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bMaxSP,100;
       bonus2 bDropAddClass,Class_All,2;
@@ -35603,6 +35609,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bCritAtkRate,5;
       bonus2 bDropAddClass,Class_All,2;
@@ -35614,6 +35621,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bFlee2,5;
       bonus2 bDropAddClass,Class_All,2;
@@ -35625,6 +35633,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddClass,Class_All,1;
       bonus2 bDropAddClass,Class_All,2;
@@ -35636,6 +35645,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bMagicAddClass,Class_All,1;
       bonus2 bDropAddClass,Class_All,2;
@@ -35647,6 +35657,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Freeze,200;
       bonus bAddMaxWeight,1000;
@@ -35659,6 +35670,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Stun,200;
       bonus bAddMaxWeight,1000;
@@ -35671,6 +35683,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Stone,200;
       bonus bAddMaxWeight,1000;
@@ -35683,6 +35696,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Sleep,200;
       bonus bAddMaxWeight,1000;
@@ -35695,6 +35709,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Silence,200;
       bonus bAddMaxWeight,1000;
@@ -35707,6 +35722,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Curse,200;
       bonus bAddMaxWeight,1000;
@@ -35719,6 +35735,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Confusion,200;
       bonus bAddMaxWeight,1000;
@@ -35731,6 +35748,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       skill "AL_INCAGI",10;
       bonus bAddMaxWeight,1000;
@@ -35743,6 +35761,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       skill "PR_IMPOSITIO",5;
       bonus bAddMaxWeight,1000;
@@ -35755,6 +35774,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       skill "AL_BLESSING",10;
       bonus bAddMaxWeight,1000;
@@ -35767,6 +35787,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bAllStats,2;
       bonus bAspd,1;
@@ -35781,6 +35802,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bAllStats,2;
       bonus bFlee,30;
@@ -35796,6 +35818,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bAllStats,1;
       bonus bAspdRate,10;
@@ -35810,6 +35833,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bResEff,Eff_Stun,5000;
       bonus2 bAddEff2,Eff_Freeze,10000;
@@ -35824,6 +35848,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddClass,Class_Boss,35;
       bonus2 bAddEff2,SC_COMA,100;
@@ -35839,6 +35864,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bShortWeaponDamageReturn,-100;
       bonus bAddMaxWeight,3000;
@@ -35852,6 +35878,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bMagicDamageReturn,100;
       bonus bAddMaxWeight,3000;
@@ -35865,6 +35892,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       sc_start SC_ENDURE,INFINITE_TICK,1;
       bonus bAddMaxWeight,3000;
@@ -35878,6 +35906,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus bNoGemStone;
       bonus bAddMaxWeight,3000;
@@ -35891,6 +35920,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEff,Eff_Stun,1000;
       bonus2 bAddEff,Eff_Curse,1000;
@@ -35908,6 +35938,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 2
     CollectionScript: |-
       c_autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
       bonus bAddMaxWeight,5000;
@@ -35921,6 +35952,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 2
     CollectionScript: |-
       c_autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
       bonus bAddMaxWeight,5000;
@@ -35934,6 +35966,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 2
     CollectionScript: |-
       bonus bCritical,50;
       bonus bCritAtkRate,20;
@@ -35948,6 +35981,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 2
     CollectionScript: |-
       bonus bBaseAtk,70;
       bonus bShortAtkRate,3;
@@ -35963,6 +35997,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 2
     CollectionScript: |-
       bonus bMatk,150;
       bonus bMatkRate,10;
@@ -35979,6 +36014,7 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    CollectionAmount: 2
     CollectionScript: |-
       bonus bMaxHPrate,50;
       bonus bDef,100;
@@ -36144,3 +36180,4 @@ Body:
     AegisName: Pet_Friendly_Ticket
     Name: Pet Friendly Ticket
     Script: setpetintimacy PET_INTIMATE_MAX;
+    Type: Cash

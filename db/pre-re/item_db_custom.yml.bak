@@ -36143,3 +36143,5 @@ Body:
   - Id: 1030005
     AegisName: Pet_Friendly_Ticket
     Name: Pet Friendly Ticket
+    Script: setpetintimacy PET_INTIMATE_MAX;
+    Type: Usable
