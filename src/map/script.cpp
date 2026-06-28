@@ -15999,6 +15999,27 @@ BUILDIN_FUNC(getpetinfo)
 }
 
 /*==========================================
+ * Set the invoking character's pet intimacy.
+ * setpetintimacy <value>{,<char_id>};
+ *------------------------------------------*/
+BUILDIN_FUNC(setpetintimacy)
+{
+	TBL_PC *sd;
+	TBL_PET *pd;
+	int value = script_getnum(st, 2);
+
+	if (!script_charid2sd(3, sd) || !(pd = sd->pd)) {
+		script_pushint(st, 0);
+		return SCRIPT_CMD_SUCCESS;
+	}
+
+	pet_set_intimate(pd, value);
+	clif_send_petdata(sd, pd, 1, pd->pet.intimate);
+	script_pushint(st, 1);
+	return SCRIPT_CMD_SUCCESS;
+}
+
+/*==========================================
  * Get your homunculus info: gethominfo <type>{,<char_id>};
  * type -> 0:hom_id 1:class 2:name
  * 3:friendly 4:hungry, 5: rename flag.
@@ -30943,6 +30964,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(dispbottom,"s??"), //added from jA [Lupus]
 	BUILDIN_DEF(recovery,"i???"),
 	BUILDIN_DEF(getpetinfo,"i?"),
+	BUILDIN_DEF(setpetintimacy,"i?"),
 	BUILDIN_DEF(gethominfo,"i?"),
 	BUILDIN_DEF(addhomintimacy,"i?"),
 	BUILDIN_DEF(getmercinfo,"i?"),

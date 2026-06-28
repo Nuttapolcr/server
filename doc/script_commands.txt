@@ -10417,6 +10417,18 @@ Example:
 		mes "seems to love you very much!";
 	close;
 
+*setpetintimacy(<value>{,<char_id>})
+
+This function sets the active pet's intimacy value. The value is capped between
+PET_INTIMATE_NONE and PET_INTIMATE_MAX. It returns 1 on success, or 0 if the
+character has no active pet.
+
+Example:
+	if (setpetintimacy(PET_INTIMATE_MAX))
+		dispbottom "Your pet's intimacy is now maxed.";
+	else
+		dispbottom "You need to call your pet first.";
+
 ---------------------------------------
 
 =============================

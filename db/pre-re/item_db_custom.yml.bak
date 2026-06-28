@@ -30752,6 +30752,7 @@ Body:
     Jobs:
       Novice: false
       SuperNovice: false
+      All: true
     Locations:
       Garment: true
     ArmorLevel: 1
