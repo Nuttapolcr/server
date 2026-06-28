@@ -30202,23 +30202,6 @@ Body:
     Weight: 300
     Defense: 21
     Slots: 1
-    Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Gunslinger: true
-      Hunter: true
-      Knight: true
-      Merchant: true
-      Rebellion: true
-      Rogue: true
-      StarGladiator: true
-      Swordman: true
-      Taekwon: true
-      Thief: true
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -30767,9 +30750,9 @@ Body:
     Defense: 13
     Slots: 1
     Jobs:
-      All: true
       Novice: false
       SuperNovice: false
+      All: true
     Locations:
       Garment: true
     ArmorLevel: 1

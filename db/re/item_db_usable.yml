@@ -14426,7 +14426,7 @@ Body:
   - Id: 12858
     AegisName: Golden_Potion_RG
     Name: RG Golden Potion
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 30
     Delay:
       Duration: 1000
@@ -73585,7 +73585,6 @@ Body:
     Name: "[Scroll] DEX Biscuit Stick"
     Type: Usable
     Weight: 10
-    Trade:
     Script: |
       sc_start SC_FOOD_DEX_CASH,1800000,15;
       sc_start SC_HITFOOD,600000,rand(11,33);
@@ -73594,7 +73593,6 @@ Body:
     Name: "[Scroll] VIT Biscuit Stick"
     Type: Usable
     Weight: 10
-    Trade:
     Script: |
       sc_start SC_FOOD_VIT_CASH,1800000,15;
       bonus_script "{ bonus bHPRecovRate,rand(11,33); }",1800,1;
@@ -73696,7 +73694,7 @@ Body:
   - Id: 101357
     AegisName: BlessOfRabbit
     Name: Rabbit's Blessed Egg
-    Type: Delayconsume
+    Type: DelayConsume
     Script: |
       itemskill "AL_BLESSING",10;
   - Id: 101359

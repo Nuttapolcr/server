@@ -29734,22 +29734,7 @@ Body:
     Defense: 21
     Slots: 1
     Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Gunslinger: true
-      Hunter: true
-      Knight: true
-      Merchant: true
-      Rebellion: true
-      Rogue: true
-      StarGladiator: true
-      Swordman: true
-      Taekwon: true
-      Thief: true
+      All: true
     Locations:
       Shoes: true
     ArmorLevel: 1
@@ -29758,6 +29743,8 @@ Body:
       NoDrop: true
     Script: |
       bonus bMaxHPrate,3;
+    Classes:
+      All: true
   - Id: 2461
     AegisName: Upg_Greave
     Name: Upg Greaves
@@ -57237,294 +57224,294 @@ Body:
   - Id: 9001
     AegisName: Poring_Egg
     Name: Poring Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9002
     AegisName: Drops_Egg
     Name: Drops Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9003
     AegisName: Poporing_Egg
     Name: Poporing Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9004
     AegisName: Lunatic_Egg
     Name: Lunatic Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9005
     AegisName: Picky_Egg
     Name: Picky Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9006
     AegisName: Chonchon_Egg
     Name: Chonchon Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9007
     AegisName: Steel_Chonchon_Egg
     Name: Steel Chonchon Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9008
     AegisName: Hunter_Fly_Egg
     Name: Hunter Fly Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9009
     AegisName: Savage_Bebe_Egg
     Name: Savage Babe Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9010
     AegisName: Baby_Desert_Wolf_Egg
     Name: Baby Desert Wolf Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9011
     AegisName: Rocker_Egg
     Name: Rocker Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9012
     AegisName: Spore_Egg
     Name: Spore Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9013
     AegisName: Poison_Spore_Egg
     Name: Poison Spore Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9014
     AegisName: PecoPeco_Egg
     Name: Peco Peco Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9015
     AegisName: Smokie_Egg
     Name: Smokie Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9016
     AegisName: Yoyo_Egg
     Name: Yoyo Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9017
     AegisName: Orc_Warrior_Egg
     Name: Orc Warrior Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9018
     AegisName: Munak_Egg
     Name: Munak Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9019
     AegisName: Dokkaebi_Egg
     Name: Dokebi Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9020
     AegisName: Sohee_Egg
     Name: Sohee Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9021
     AegisName: Isis_Egg
     Name: Isis Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9022
     AegisName: Green_Petite_Egg
     Name: Green Petite Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9023
     AegisName: Deviruchi_Egg
     Name: Deviruchi Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9024
     AegisName: Bapho_Jr._Egg
     Name: Bapho Jr. Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9025
     AegisName: Bongun_Egg
     Name: Bongun Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9026
     AegisName: Zherlthsh_Egg
     Name: Zealotus Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9027
     AegisName: Alice_Egg
     Name: Alice Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9028
     AegisName: Rice_Cake_Egg
     Name: Hard Rice Cake
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
     Trade:
       NoDrop: true
   - Id: 9029
     AegisName: Santa_Goblin_Egg
     Name: Christmas Goblin's Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9030
     AegisName: Chung_E_Egg
     Name: Green Maiden Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9031
     AegisName: Spring_Rabbit_Egg
     Name: Spring Rabbit Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9032
     AegisName: Knife_Goblin_Egg
     Name: Knife Goblin Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9033
     AegisName: Flail_Goblin_Egg
     Name: Flail Goblin Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9034
     AegisName: Hammer_Goblin_Egg
     Name: Hammer Goblin Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9035
     AegisName: Red_Deleter_Egg
     Name: Red Deleter Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9036
     AegisName: Diabolic_Egg
     Name: Diabolic Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9037
     AegisName: Wanderer_Egg
     Name: Wanderer Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9038
     AegisName: New_Year_Doll_Egg
     Name: New Year Doll Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9039
     AegisName: Bacsojin_Egg
     Name: Bacsojin Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9040
     AegisName: Civil_Servant_Egg
     Name: Civil Servant Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9041
     AegisName: Leaf_Cat_Egg
     Name: Leaf Cat Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9042
     AegisName: Loli_Ruri_Egg
     Name: Loli Ruri Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9043
     AegisName: Marionette_Egg
     Name: Marionette Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9044
     AegisName: Shinobi_Egg
     Name: Shinobi Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9045
     AegisName: Whisper_Egg
     Name: Whisper Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9046
     AegisName: Goblin_Leader_Egg
     Name: Goblin Leader Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9047
     AegisName: Wicked_Nymph_Egg
     Name: Wicked Nymph Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9048
     AegisName: Miyabi_Ningyo_Egg
     Name: Miyabi Ningyo Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9049
     AegisName: Dullahan_Egg
     Name: Dullahan Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9050
     AegisName: Medusa_Egg
     Name: Medusa Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9051
     AegisName: Stone_Shooter_Egg
     Name: Stone Shooter Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9052
     AegisName: Incubus_Egg
     Name: Incubus Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9053
     AegisName: Golem_Egg
     Name: Golem Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9054
     AegisName: Nightmare_Terror_Egg
     Name: Nightmare Terror Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9055
     AegisName: Succubus_Egg
     Name: Succubus Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9056
     AegisName: Imp_Egg
     Name: Imp Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9057
     AegisName: Egg_Of_Tiny
     Name: Egg Of Tiny
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9058
     AegisName: Snow_Rabbit_Egg
     Name: Christmas Snow Rabbit Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
     Trade:
       NoDrop: true
@@ -57536,297 +57523,297 @@ Body:
   - Id: 9059
     AegisName: Tikbalang_Pet
     Name: Tikbalang Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9060
     AegisName: Brownie_Egg
     Name: Domovoi Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9061
     AegisName: Marin_Egg
     Name: Marin Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9062
     AegisName: Novice_Poring_Egg
     Name: Novice Poring Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9063
     AegisName: Woodie_Egg
     Name: Woodie Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9064
     AegisName: Elephant_Egg
     Name: Elephant Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9065
     AegisName: Gorilla_Egg
     Name: Gorilla Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9066
     AegisName: Lion_Egg
     Name: Lion Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9067
     AegisName: Rhino_Egg
     Name: Rhino Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9068
     AegisName: Blue_Unicorn_Egg
     Name: Blue Unicorn Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9069
     AegisName: Mastering_Egg
     Name: Mastering Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9070
     AegisName: Savage_Egg
     Name: Savage Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9071
     AegisName: Grand_Peco_Egg
     Name: Grand Peco Peco Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9072
     AegisName: Orc_Hero_Egg
     Name: Orc Hero Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9073
     AegisName: Orc_Lord_Egg
     Name: Orc Lord Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9074
     AegisName: Rubylit_Egg
     Name: Rubylit Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9075
     AegisName: Sapphilit_Egg
     Name: Sapphilit Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9076
     AegisName: Emelit_Egg
     Name: Emelit Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9077
     AegisName: Topalit_Egg
     Name: Topalit Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9078
     AegisName: Amelit_Egg
     Name: Amelit Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9079
     AegisName: Mythlit_Egg
     Name: Mythlit Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9080
     AegisName: Tamadora_Egg
     Name: Tamadora Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9087
     AegisName: High_Orc_Egg
     Name: High Orc Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9088
     AegisName: Angeling_Egg
     Name: Angeling Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9089
     AegisName: Ammut_Egg
     Name: Am Mut Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9090
     AegisName: Littleisis_Egg
     Name: Little Isis Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9091
     AegisName: Choco_Egg
     Name: Choco Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9092
     AegisName: Eggring_Egg
     Name: Eggring Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9093
     AegisName: Hyegun_Egg
     Name: Hyegun Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9094
     AegisName: Leaf_Lunatic_Egg
     Name: Leaf Lunatic Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9095
     AegisName: Nine_Tail_Egg
     Name: Nine Tail Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9096
     AegisName: Cat_O_Nine_Tail_Egg
     Name: Cat o Nine Tail Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9097
     AegisName: Diabolic_Egg2
     Name: Diabolic Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9098
     AegisName: Red_Deleter_Egg2
     Name: Fire Deleter Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9099
     AegisName: Teddy_Bear_Egg
     Name: Teddy Bear Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9100
     AegisName: Gremlin_Egg
     Name: Gremlin Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9101
     AegisName: Scatletoncarrier
     Name: Scatleton's Cage
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9102
     AegisName: Mummy_Egg
     Name: Mummy Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9103
     AegisName: Wilow_Egg
     Name: Willow Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9104
     AegisName: Roween_Egg
     Name: Roween Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9105
     AegisName: Hodremlin_Egg
     Name: Hodremlin Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9106
     AegisName: Metaller_Egg
     Name: Metaller Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9107
     AegisName: Ancient_Mummy_Egg
     Name: Ancient Mummy Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9108
     AegisName: Xm_Teddybear_Egg
     Name: Xmas Teddy Bear Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9109
     AegisName: Sweets_Drops_Egg
     Name: Sweet Drops Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9111
     AegisName: Phreeoni_Egg
     Name: Phreeoni Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9112
     AegisName: Moonlight_Egg
     Name: Moonlight Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9113
     AegisName: Roost_Of_Skelion
     Name: Roost Of Skelion
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9114
     AegisName: Pouring_Egg
     Name: Pouring Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9115
     AegisName: Bacsojin_Egg2
     Name: Bacsojin Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9116
     AegisName: Nightmare_TerrorH_EGG
     Name: Rigid Nightmare Terror Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9117
     AegisName: Wanderer_H_EGG
     Name: Contaminated Wanderer Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9118
     AegisName: Aliot_EGG
     Name: Aliot Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9119
     AegisName: Alicel_EGG
     Name: Alicel Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9120
     AegisName: Aliza_EGG
     Name: Aliza Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9121
     AegisName: Ork_Hero_EGG
     Name: Orc Hero Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9122
     AegisName: Gloom_Under_Egg
     Name: Gloom Under Night Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9123
     AegisName: Ep17_2_C_Admin1_Egg
     Name: Child Admin Beta Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9124
     AegisName: Ep17_2_C_Admin2_Egg
     Name: Child Admin Alpha Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9125
     AegisName: E_Duckling_Egg
@@ -57840,7 +57827,7 @@ Body:
   - Id: 9128
     AegisName: Dark_Priest_Egg
     Name: Dark Priest Egg
-    Type: Petegg
+    Type: PetEgg
     Buy: 20
   - Id: 9129
     AegisName: Desert_Wolf_Egg
@@ -57931,212 +57918,212 @@ Body:
   - Id: 10001
     AegisName: Skull_Helm
     Name: Skull Helm
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10002
     AegisName: Monster_Oxygen_Mask
     Name: Monster Oxygen Mask
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10003
     AegisName: Transparent_Headgear
     Name: Transparent Head Protector
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10004
     AegisName: Pacifier
     Name: Pacifier
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10005
     AegisName: Wig
     Name: Wig
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10006
     AegisName: Queen's_Hair_Ornament
     Name: Queen's Hair Ornament
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10007
     AegisName: Silk_Ribbon
     Name: Silk Ribbon
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10008
     AegisName: Punisher
     Name: Punisher
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10009
     AegisName: Wild_Flower
     Name: Wild Flower
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10010
     AegisName: Battered_Pot
     Name: Battered Pot
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10011
     AegisName: Stellar_Hairpin
     Name: Stellar Hairpin
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10012
     AegisName: Tiny_Egg_Shell
     Name: Tiny Egg Shell
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10013
     AegisName: Backpack
     Name: Backpack
-    Type: Petarmor
+    Type: PetArmor
     Buy: 1500
   - Id: 10014
     AegisName: Rocker_Glasses
     Name: Rocker Glasses
-    Type: Petarmor
+    Type: PetArmor
     Buy: 2000
   - Id: 10015
     AegisName: Green_Lace
     Name: Green Lace
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10016
     AegisName: Golden_Bell
     Name: Golden Bell
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10017
     AegisName: Bark_Shorts
     Name: Bark Shorts
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10018
     AegisName: Monkey_Circlet
     Name: Monkey Circlet
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10019
     AegisName: Red_Muffler
     Name: Red Scarf
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10020
     AegisName: Sword_Of_Grave_Keeper
     Name: Grave Keeper's Sword
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10021
     AegisName: Round_Hair_Ornament
     Name: Circular Headgear
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10022
     AegisName: Golden_Earing
     Name: Gold Earring
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10023
     AegisName: Green_Lucky_Bag
     Name: Green Jewel Bag
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10024
     AegisName: Fashionable_Glasses
     Name: Fashion Glasses
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10025
     AegisName: Star_Hairband
     Name: Hairband Of Stars
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10026
     AegisName: Wine_On_Sleeve
     Name: Tassel for Durumagi
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10027
     AegisName: Spirit_Chain_
     Name: Pet Soul Ring
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10028
     AegisName: Nice_Badge
     Name: Beautiful Badges
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10029
     AegisName: Jade_Trinket
     Name: Jade Trinket
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10030
     AegisName: Summer_Fan
     Name: Summer Fan
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10031
     AegisName: Death_Coil
     Name: Ring Of Death
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10032
     AegisName: Queen's_Coronet
     Name: Queen's Coronet
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10033
     AegisName: Apro_Hair
     Name: Afro
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10034
     AegisName: Ball_Mask
     Name: Masked Ball
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10035
     AegisName: Windup_Spring
     Name: Spring
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10036
     AegisName: Hell_Horn
     Name: Horn Of Hell
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10037
     AegisName: Black_Butterfly_Mask
     Name: Black Butterfly Mask
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10038
     AegisName: Horn_Protector
     Name: Horn Barrier
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10039
     AegisName: Tw_Backpack
     Name: Tw Backpack
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10040
     AegisName: Red_Chorker_Bell
     Name: Red Bell Necklace
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10041
     AegisName: Twinkle_Star_Button
     Name: Shiny Star Button
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10042
     AegisName: Dark_Mane
     Name: Dark Mane
-    Type: Petarmor
+    Type: PetArmor
     Buy: 20
   - Id: 10043
     AegisName: Ep_17_2_C_Admin1_Acc
@@ -72994,7 +72981,7 @@ Body:
   - Id: 15280
     AegisName: S_CriticalHit_Armor
     Name: Critical Hit Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120173,7 +120160,7 @@ Body:
   - Id: 24000
     AegisName: T_Str1_Armor_S
     Name: Shadow Armor (Tier 1)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120184,7 +120171,7 @@ Body:
   - Id: 24001
     AegisName: T_Dex1_Weapon_S
     Name: Shadow Gauntlets (Tier 1)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -120197,7 +120184,7 @@ Body:
   - Id: 24002
     AegisName: T_Luk1_Shield_S
     Name: Shadow Shield (Tier 1)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120208,7 +120195,7 @@ Body:
   - Id: 24003
     AegisName: T_Agi1_Shoes_S
     Name: Shadow Shoes (Tier 1)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -120219,7 +120206,7 @@ Body:
   - Id: 24004
     AegisName: T_Vit1_Acc_R_S
     Name: Shadow Ring (Tier 1)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -120230,7 +120217,7 @@ Body:
   - Id: 24005
     AegisName: T_Int1_Acc_L_S
     Name: Shadow Pendant (Tier 1)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -120241,7 +120228,7 @@ Body:
   - Id: 24006
     AegisName: T_Str2_Armor_S
     Name: Shadow Armor (Tier 2)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120252,7 +120239,7 @@ Body:
   - Id: 24007
     AegisName: T_Dex2_Weapon_S
     Name: Shadow Gauntlets (Tier 2)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 30
@@ -120265,7 +120252,7 @@ Body:
   - Id: 24008
     AegisName: T_Luk2_Shield_S
     Name: Shadow Shield (Tier 2)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 60
@@ -120276,7 +120263,7 @@ Body:
   - Id: 24009
     AegisName: T_Agi2_Shoes_S
     Name: Shadow Shoes (Tier 2)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 90
@@ -120287,7 +120274,7 @@ Body:
   - Id: 24010
     AegisName: T_Vit2_Acc_R_S
     Name: Shadow Ring (Tier 2)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 120
@@ -120298,7 +120285,7 @@ Body:
   - Id: 24011
     AegisName: T_Int2_Acc_L_S
     Name: Shadow Pendant (Tier 2)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 150
@@ -120309,7 +120296,7 @@ Body:
   - Id: 24012
     AegisName: S_Promotion_Weapon
     Name: Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -120322,7 +120309,7 @@ Body:
   - Id: 24013
     AegisName: S_Promotion_Armor
     Name: Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120333,7 +120320,7 @@ Body:
   - Id: 24014
     AegisName: S_Promotion_Shoes
     Name: Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -120344,7 +120331,7 @@ Body:
   - Id: 24015
     AegisName: S_Promotion_Shield
     Name: Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120355,7 +120342,7 @@ Body:
   - Id: 24016
     AegisName: S_Promotion_Earring
     Name: Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -120366,7 +120353,7 @@ Body:
   - Id: 24017
     AegisName: S_Promotion_Pendant
     Name: Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -120377,7 +120364,7 @@ Body:
   - Id: 24018
     AegisName: S_Physical_Earring
     Name: Physical Earring (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -120389,7 +120376,7 @@ Body:
   - Id: 24019
     AegisName: S_Physical_Weapon
     Name: Physical Weapon (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -120404,7 +120391,7 @@ Body:
   - Id: 24020
     AegisName: S_Physical_Pendant
     Name: Physical Pendant (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -120419,7 +120406,7 @@ Body:
   - Id: 24021
     AegisName: S_Magical_Earring
     Name: Magical Earring (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -120431,7 +120418,7 @@ Body:
   - Id: 24022
     AegisName: S_Magical_Weapon
     Name: Magical Weapon (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -120447,7 +120434,7 @@ Body:
   - Id: 24023
     AegisName: S_Magical_Pendant
     Name: Magical Pencil (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -120462,7 +120449,7 @@ Body:
   - Id: 24024
     AegisName: S_Breezy_Armor
     Name: Breeze Armor (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120477,7 +120464,7 @@ Body:
   - Id: 24025
     AegisName: S_Champion_Shoes
     Name: Champion Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -120493,7 +120480,7 @@ Body:
   - Id: 24026
     AegisName: S_Athena_Shield
     Name: Athena Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120508,7 +120495,7 @@ Body:
   - Id: 24027
     AegisName: S_Immune_Armor
     Name: Immune Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120519,7 +120506,7 @@ Body:
   - Id: 24028
     AegisName: S_Hard_Armor
     Name: Hard Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120534,7 +120521,7 @@ Body:
   - Id: 24029
     AegisName: S_Ancient_Armor
     Name: Ancient Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120549,7 +120536,7 @@ Body:
   - Id: 24030
     AegisName: S_Critical_Armor
     Name: Critital Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120564,7 +120551,7 @@ Body:
   - Id: 24031
     AegisName: S_Kingbird_Weapon
     Name: Kingbird's Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -120579,7 +120566,7 @@ Body:
   - Id: 24032
     AegisName: S_Cri_Hit_Weapon
     Name: Critical Hit Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -120594,7 +120581,7 @@ Body:
   - Id: 24033
     AegisName: S_Healing_Weapon
     Name: Healing Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -120608,7 +120595,7 @@ Body:
   - Id: 24034
     AegisName: S_Lucky_Weapon
     Name: Lucky Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -120627,7 +120614,7 @@ Body:
   - Id: 24035
     AegisName: S_Power_Earring
     Name: Power Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -120645,7 +120632,7 @@ Body:
   - Id: 24036
     AegisName: S_Int_Pendant
     Name: Intelligent Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -120663,7 +120650,7 @@ Body:
   - Id: 24037
     AegisName: S_Dexterous_Armor
     Name: Dexterous Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120681,7 +120668,7 @@ Body:
   - Id: 24038
     AegisName: S_Vital_Shoes
     Name: Vital Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -120699,7 +120686,7 @@ Body:
   - Id: 24039
     AegisName: S_Athletic_Shield
     Name: Athletic Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120717,7 +120704,7 @@ Body:
   - Id: 24040
     AegisName: S_Lucky_Armor
     Name: Lucky Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -120730,7 +120717,7 @@ Body:
   - Id: 24041
     AegisName: S_Power_Pendant
     Name: Power Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -120743,7 +120730,7 @@ Body:
   - Id: 24042
     AegisName: S_Int_Earring
     Name: Intelligent Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -120756,7 +120743,7 @@ Body:
   - Id: 24043
     AegisName: S_Dexterous_Weapon
     Name: Dexterous Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -120770,7 +120757,7 @@ Body:
   - Id: 24044
     AegisName: S_Vital_Shield
     Name: Vital Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120783,7 +120770,7 @@ Body:
   - Id: 24045
     AegisName: S_Athletic_Shoes
     Name: Athletic Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -120796,7 +120783,7 @@ Body:
   - Id: 24046
     AegisName: S_Resist_Spell_Pendant
     Name: Resist Spell Power Pendant (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -120811,7 +120798,7 @@ Body:
   - Id: 24047
     AegisName: S_Rapid_Pendant
     Name: Rapid Pendant (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -120829,7 +120816,7 @@ Body:
   - Id: 24048
     AegisName: S_Caster_Pendant
     Name: Caster Pendant (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -120847,7 +120834,7 @@ Body:
   - Id: 24049
     AegisName: S_Hard_Earring
     Name: Hard Earring (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -120864,7 +120851,7 @@ Body:
   - Id: 24050
     AegisName: S_Wise_Earring
     Name: Wise Earring (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -120882,7 +120869,7 @@ Body:
   - Id: 24051
     AegisName: S_Athena_Earring
     Name: Athena Earring (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Defense: 10
     Locations:
       Shadow_Right_Accessory: true
@@ -120897,7 +120884,7 @@ Body:
   - Id: 24052
     AegisName: S_Cranial_Shield
     Name: Cranial Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120918,7 +120905,7 @@ Body:
   - Id: 24053
     AegisName: S_Safeguard_Shield
     Name: Safeguard Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120936,7 +120923,7 @@ Body:
   - Id: 24054
     AegisName: S_Brutal_Shield
     Name: Brutal Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120957,7 +120944,7 @@ Body:
   - Id: 24055
     AegisName: S_Gargantua_Shield
     Name: Gargantua Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120975,7 +120962,7 @@ Body:
   - Id: 24056
     AegisName: S_Homers_Shield
     Name: Homers Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -120993,7 +120980,7 @@ Body:
   - Id: 24057
     AegisName: S_Dragoon_Shield
     Name: Dragoon Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121011,7 +120998,7 @@ Body:
   - Id: 24058
     AegisName: S_Satanic_Shield
     Name: Satanic Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121029,7 +121016,7 @@ Body:
   - Id: 24059
     AegisName: S_Flameguard_Shield
     Name: Flameguard Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121047,7 +121034,7 @@ Body:
   - Id: 24060
     AegisName: S_Requiem_Shield
     Name: Requiem Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121065,7 +121052,7 @@ Body:
   - Id: 24061
     AegisName: S_Cadi_Shield
     Name: Cadi Shield (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121083,7 +121070,7 @@ Body:
   - Id: 24062
     AegisName: S_Bloody_Shoes
     Name: Bloody Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121110,7 +121097,7 @@ Body:
   - Id: 24063
     AegisName: S_Liberation_Shoes
     Name: Liberation Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121128,7 +121115,7 @@ Body:
   - Id: 24064
     AegisName: S_Chemical_Shoes
     Name: Chemical Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121149,7 +121136,7 @@ Body:
   - Id: 24065
     AegisName: S_Clamorous_Shoes
     Name: Clamorous Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121176,7 +121163,7 @@ Body:
   - Id: 24066
     AegisName: S_Insecticide_Shoes
     Name: Insecticide Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121197,7 +121184,7 @@ Body:
   - Id: 24067
     AegisName: S_Fisher_Shoes
     Name: Fisher Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121218,7 +121205,7 @@ Body:
   - Id: 24068
     AegisName: S_Seraphim_Shoes
     Name: Seraphim Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121239,7 +121226,7 @@ Body:
   - Id: 24069
     AegisName: S_Beholder_Shoes
     Name: Beholder Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121260,7 +121247,7 @@ Body:
   - Id: 24070
     AegisName: S_Divine_Shoes
     Name: Divine Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121281,7 +121268,7 @@ Body:
   - Id: 24071
     AegisName: S_Dragoon_Shoes
     Name: Dragoon Shoes (Shadow)
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121302,7 +121289,7 @@ Body:
   - Id: 24072
     AegisName: S_Big_Armor
     Name: Large Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121320,7 +121307,7 @@ Body:
   - Id: 24073
     AegisName: S_Medium_Armor
     Name: Medium Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121338,7 +121325,7 @@ Body:
   - Id: 24074
     AegisName: S_Small_Armor
     Name: Small Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121356,7 +121343,7 @@ Body:
   - Id: 24075
     AegisName: S_Big_Weapon
     Name: Large Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -121378,7 +121365,7 @@ Body:
   - Id: 24076
     AegisName: S_Medium_Weapon
     Name: Medium Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -121400,7 +121387,7 @@ Body:
   - Id: 24077
     AegisName: S_Small_Weapon
     Name: Small Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -121422,7 +121409,7 @@ Body:
   - Id: 24078
     AegisName: S_Spiritual_Weapon
     Name: Spiritual Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -121437,7 +121424,7 @@ Body:
   - Id: 24079
     AegisName: S_Spiritual_Earring
     Name: Spiritual Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -121451,7 +121438,7 @@ Body:
   - Id: 24080
     AegisName: S_Spiritual_Pendent
     Name: Spiritual Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -121463,7 +121450,7 @@ Body:
   - Id: 24081
     AegisName: S_Malicious_Armor
     Name: Malicious Shas Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121477,7 +121464,7 @@ Body:
   - Id: 24082
     AegisName: S_Malicious_Shoes
     Name: Malicious Shas Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121492,7 +121479,7 @@ Body:
   - Id: 24083
     AegisName: S_Malicious_Shield
     Name: Malicious Shas Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121507,7 +121494,7 @@ Body:
   - Id: 24084
     AegisName: S_Gemstone_Armor
     Name: Gemstone Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121519,7 +121506,7 @@ Body:
   - Id: 24085
     AegisName: S_Gemstone_Shoes
     Name: Gemstone Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121531,7 +121518,7 @@ Body:
   - Id: 24086
     AegisName: S_Gemstone_Shield
     Name: Gemstone Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121543,7 +121530,7 @@ Body:
   - Id: 24087
     AegisName: S_Gemstone_Weapon
     Name: Gemstone Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -121556,7 +121543,7 @@ Body:
   - Id: 24088
     AegisName: S_Gemstone_Earring
     Name: Gemstone Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -121568,7 +121555,7 @@ Body:
   - Id: 24089
     AegisName: S_Gemstone_Pendent
     Name: Gemstone Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -121580,7 +121567,7 @@ Body:
   - Id: 24090
     AegisName: S_Stability_Shield
     Name: Stability Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121600,7 +121587,7 @@ Body:
   - Id: 24091
     AegisName: S_Plasterer's_Armor
     Name: Harrods Plaster Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121613,7 +121600,7 @@ Body:
   - Id: 24092
     AegisName: S_Plasterer's_Shoes
     Name: Harrods Plaster Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121626,7 +121613,7 @@ Body:
   - Id: 24093
     AegisName: S_Insomniac_Armor
     Name: Insomnia Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121639,7 +121626,7 @@ Body:
   - Id: 24094
     AegisName: S_Insomniac_Shoes
     Name: Insomnia Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121652,7 +121639,7 @@ Body:
   - Id: 24095
     AegisName: S_Peerless_Armor
     Name: Peerless Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121665,7 +121652,7 @@ Body:
   - Id: 24096
     AegisName: S_Peerless_Shoes
     Name: Peerless Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121678,7 +121665,7 @@ Body:
   - Id: 24097
     AegisName: S_Adurate_Armor
     Name: Andre Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121691,7 +121678,7 @@ Body:
   - Id: 24098
     AegisName: S_Adurate_Shoes
     Name: Andre Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121704,7 +121691,7 @@ Body:
   - Id: 24099
     AegisName: Unfreez_Weapon_S
     Name: Unfreezing Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Weapon: true
@@ -121719,7 +121706,7 @@ Body:
   - Id: 24100
     AegisName: Unfreeze_Earing_S
     Name: Unfreezing Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Right_Accessory: true
@@ -121733,7 +121720,7 @@ Body:
   - Id: 24101
     AegisName: Unfreeze_Pendent_S
     Name: Unfreezing Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Left_Accessory: true
@@ -121747,7 +121734,7 @@ Body:
   - Id: 24102
     AegisName: Vitality_Earing_S
     Name: Vitality Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Right_Accessory: true
@@ -121761,7 +121748,7 @@ Body:
   - Id: 24103
     AegisName: Vitality_Pendant_S
     Name: Vitality Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Left_Accessory: true
@@ -121775,7 +121762,7 @@ Body:
   - Id: 24104
     AegisName: S_Neutral_Weapon
     Name: Neutral Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -121789,7 +121776,7 @@ Body:
   - Id: 24105
     AegisName: S_Neutral_Earring
     Name: Neutral Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -121802,7 +121789,7 @@ Body:
   - Id: 24106
     AegisName: S_Neutral_Pendent
     Name: Neutral Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -121815,7 +121802,7 @@ Body:
   - Id: 24107
     AegisName: S_Curse_Lift_Earring
     Name: Frozen Curse Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -121828,7 +121815,7 @@ Body:
   - Id: 24108
     AegisName: S_Curse_Lift_Pendent
     Name: Frozen Curse Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -121841,7 +121828,7 @@ Body:
   - Id: 24109
     AegisName: S_Caster_earring
     Name: Caster Shadow Earrings
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -121853,7 +121840,7 @@ Body:
   - Id: 24110
     AegisName: S_Caster_Weapon
     Name: Caster Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -121866,7 +121853,7 @@ Body:
   - Id: 24111
     AegisName: S_Spell_Flow_Shoes
     Name: Spellflow Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121880,7 +121867,7 @@ Body:
   - Id: 24112
     AegisName: S_Spell_Flow_Armor
     Name: Spellflow Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121898,7 +121885,7 @@ Body:
   - Id: 24113
     AegisName: S_Spell_Flow_Shield
     Name: Spellflow Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121912,7 +121899,7 @@ Body:
   - Id: 24114
     AegisName: S_Greed_Armor
     Name: Grid Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -121925,7 +121912,7 @@ Body:
   - Id: 24115
     AegisName: S_Greed_Shoes
     Name: Grid Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -121938,7 +121925,7 @@ Body:
   - Id: 24116
     AegisName: S_Greed_Shield
     Name: Grid Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -121951,7 +121938,7 @@ Body:
   - Id: 24117
     AegisName: S_Greed_Weapon
     Name: Grid Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -121965,7 +121952,7 @@ Body:
   - Id: 24118
     AegisName: S_Greed_Earring
     Name: Grid Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -121978,7 +121965,7 @@ Body:
   - Id: 24119
     AegisName: S_Greed_Pendant
     Name: Grid Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -121991,7 +121978,7 @@ Body:
   - Id: 24120
     AegisName: S_Heal_Armor
     Name: Heal Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122004,7 +121991,7 @@ Body:
   - Id: 24121
     AegisName: S_Heal_Shoes
     Name: Heal Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -122017,7 +122004,7 @@ Body:
   - Id: 24122
     AegisName: S_Heal_Shield
     Name: Heal Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -122030,7 +122017,7 @@ Body:
   - Id: 24123
     AegisName: S_Heal_Weapon
     Name: Heal Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122044,7 +122031,7 @@ Body:
   - Id: 24124
     AegisName: S_Heal_Earring
     Name: Heal Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122057,7 +122044,7 @@ Body:
   - Id: 24125
     AegisName: S_Heal_Pendant
     Name: Heal Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122070,7 +122057,7 @@ Body:
   - Id: 24126
     AegisName: S_Hiding_Armor
     Name: Hiding Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122085,7 +122072,7 @@ Body:
   - Id: 24127
     AegisName: S_Hiding_Shoes
     Name: Hiding Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -122100,7 +122087,7 @@ Body:
   - Id: 24128
     AegisName: S_Hiding_Shield
     Name: Hiding Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -122115,7 +122102,7 @@ Body:
   - Id: 24129
     AegisName: S_Hiding_Weapon
     Name: Hiding Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122131,7 +122118,7 @@ Body:
   - Id: 24130
     AegisName: S_Hiding_Earring
     Name: Hiding Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122146,7 +122133,7 @@ Body:
   - Id: 24131
     AegisName: S_Hiding_Pendant
     Name: Hiding Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122161,7 +122148,7 @@ Body:
   - Id: 24132
     AegisName: S_Cloaking_Armor
     Name: Cloaking Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122176,7 +122163,7 @@ Body:
   - Id: 24133
     AegisName: S_Cloaking_Shoes
     Name: Cloaking Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -122191,7 +122178,7 @@ Body:
   - Id: 24134
     AegisName: S_Cloaking_Shield
     Name: Cloaking Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -122206,7 +122193,7 @@ Body:
   - Id: 24135
     AegisName: S_Cloaking_Weapon
     Name: Cloaking Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122222,7 +122209,7 @@ Body:
   - Id: 24136
     AegisName: S_Cloaking_Earring
     Name: Cloaking Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122237,7 +122224,7 @@ Body:
   - Id: 24137
     AegisName: S_Cloaking_Pendant
     Name: Cloaking Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122252,7 +122239,7 @@ Body:
   - Id: 24138
     AegisName: S_Teleport_Armor
     Name: Teleport Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122265,7 +122252,7 @@ Body:
   - Id: 24139
     AegisName: S_Teleport_Shoes
     Name: Teleport Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -122278,7 +122265,7 @@ Body:
   - Id: 24140
     AegisName: S_Teleport_Shield
     Name: Teleport Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -122291,7 +122278,7 @@ Body:
   - Id: 24141
     AegisName: S_Teleport_Weapon
     Name: Teleport Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122305,7 +122292,7 @@ Body:
   - Id: 24142
     AegisName: S_Teleport_Earring
     Name: Teleport Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122318,7 +122305,7 @@ Body:
   - Id: 24143
     AegisName: S_Teleport_Pendant
     Name: Teleport Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122331,7 +122318,7 @@ Body:
   - Id: 24144
     AegisName: S_Steal_Armor
     Name: Steal Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122344,7 +122331,7 @@ Body:
   - Id: 24145
     AegisName: S_Steal_Shoes
     Name: Steal Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -122357,7 +122344,7 @@ Body:
   - Id: 24146
     AegisName: S_Steal_Shield
     Name: Steal Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -122370,7 +122357,7 @@ Body:
   - Id: 24147
     AegisName: S_Steal_Weapon
     Name: Steal Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122384,7 +122371,7 @@ Body:
   - Id: 24148
     AegisName: S_Steal_Earring
     Name: Steal Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122397,7 +122384,7 @@ Body:
   - Id: 24149
     AegisName: S_Steal_Pendant
     Name: Steal Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122410,7 +122397,7 @@ Body:
   - Id: 24150
     AegisName: S_Infinity_Earring
     Name: Infinity Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122431,7 +122418,7 @@ Body:
   - Id: 24151
     AegisName: S_Infinity_Pendant
     Name: Infinity Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122443,7 +122430,7 @@ Body:
   - Id: 24152
     AegisName: S_Solid_Weapon
     Name: Solid Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122455,7 +122442,7 @@ Body:
   - Id: 24153
     AegisName: S_Solid_Earring
     Name: Solid Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122467,7 +122454,7 @@ Body:
   - Id: 24154
     AegisName: S_Immortal_Armor
     Name: Solid Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122479,7 +122466,7 @@ Body:
   - Id: 24155
     AegisName: S_Immortal_Pendant
     Name: Solid Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122491,7 +122478,7 @@ Body:
   - Id: 24156
     AegisName: S_Executioner_Weapon
     Name: Demi-Human Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122504,7 +122491,7 @@ Body:
   - Id: 24157
     AegisName: S_Exorcist_Weapon
     Name: Exorcist Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122517,7 +122504,7 @@ Body:
   - Id: 24158
     AegisName: S_Hunting_Weapon
     Name: Hunting Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122531,7 +122518,7 @@ Body:
   - Id: 24159
     AegisName: S_Insect_Net_Weapon
     Name: Insect Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122544,7 +122531,7 @@ Body:
   - Id: 24160
     AegisName: S_Fishing_Weapon
     Name: Fishing Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122557,7 +122544,7 @@ Body:
   - Id: 24161
     AegisName: S_Dragon_Killer_Weapon
     Name: Dragon Killer Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122570,7 +122557,7 @@ Body:
   - Id: 24162
     AegisName: S_Corrupt_Weapon
     Name: Angelus Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122583,7 +122570,7 @@ Body:
   - Id: 24163
     AegisName: S_Vibration_Weapon
     Name: Formless Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122596,7 +122583,7 @@ Body:
   - Id: 24164
     AegisName: S_Holy_Water_Weapon
     Name: Holy Water Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122609,7 +122596,7 @@ Body:
   - Id: 24165
     AegisName: S_Scissors_Weapon
     Name: Plant Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122622,7 +122609,7 @@ Body:
   - Id: 24166
     AegisName: S_Penetration_Earring
     Name: Penetration Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122634,7 +122621,7 @@ Body:
   - Id: 24167
     AegisName: S_Penetration_Pendent
     Name: Penetration Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122646,7 +122633,7 @@ Body:
   - Id: 24168
     AegisName: S_Tempest_Earring
     Name: Tempest Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122658,7 +122645,7 @@ Body:
   - Id: 24169
     AegisName: S_Tempest_Pendent
     Name: Tempest Pendant Shadow
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122670,7 +122657,7 @@ Body:
   - Id: 24170
     AegisName: S_M_Executioner_Weapon
     Name: Magic Demi-Human Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122683,7 +122670,7 @@ Body:
   - Id: 24171
     AegisName: S_M_Exorcist_Weapon
     Name: Magic Exorcist Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122696,7 +122683,7 @@ Body:
   - Id: 24172
     AegisName: S_M_Hunting_Weapon
     Name: Magic Hunting Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122710,7 +122697,7 @@ Body:
   - Id: 24173
     AegisName: S_M_Insect_Net_Weapon
     Name: Magic Insect Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122723,7 +122710,7 @@ Body:
   - Id: 24174
     AegisName: S_M_Fishing_Weapon
     Name: Magic Fishing Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122736,7 +122723,7 @@ Body:
   - Id: 24175
     AegisName: S_M_Dragon_K_Weapon
     Name: Magic Dragon Killer Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122749,7 +122736,7 @@ Body:
   - Id: 24176
     AegisName: S_M_Corrupt_Weapon
     Name: Magic Angelus Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122762,7 +122749,7 @@ Body:
   - Id: 24177
     AegisName: S_M_Vibration_Weapon
     Name: Magic Formless Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122775,7 +122762,7 @@ Body:
   - Id: 24178
     AegisName: S_M_Holy_Water_Weapon
     Name: Magic Holy Water Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122788,7 +122775,7 @@ Body:
   - Id: 24179
     AegisName: S_M_Scissors_Weapon
     Name: Magic Caesars Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122801,7 +122788,7 @@ Body:
   - Id: 24180
     AegisName: S_Bearers_Armor
     Name: Bearer's Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122813,7 +122800,7 @@ Body:
   - Id: 24181
     AegisName: S_Bearers_Shoes
     Name: Bearer's Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -122825,7 +122812,7 @@ Body:
   - Id: 24182
     AegisName: S_Bearers_Shield
     Name: Bearer's Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -122837,7 +122824,7 @@ Body:
   - Id: 24183
     AegisName: S_Bearers_Weapon
     Name: Bearer's Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -122850,7 +122837,7 @@ Body:
   - Id: 24184
     AegisName: S_Bearers_Earring
     Name: Bearer's Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -122862,7 +122849,7 @@ Body:
   - Id: 24185
     AegisName: S_Bearers_Pendent
     Name: Bearer's Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -122874,7 +122861,7 @@ Body:
   - Id: 24186
     AegisName: S_Basis_Armor
     Name: Basis Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122887,7 +122874,7 @@ Body:
   - Id: 24187
     AegisName: S_Hallowed_Armor
     Name: Hallowed Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122900,7 +122887,7 @@ Body:
   - Id: 24188
     AegisName: S_Saharic_Armor
     Name: Underneith Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122913,7 +122900,7 @@ Body:
   - Id: 24189
     AegisName: S_Underneath_Armor
     Name: Underneath Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122926,7 +122913,7 @@ Body:
   - Id: 24190
     AegisName: S_Flam_Armor
     Name: Flame Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122939,7 +122926,7 @@ Body:
   - Id: 24191
     AegisName: S_Windy_Armor
     Name: Windy Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122952,7 +122939,7 @@ Body:
   - Id: 24192
     AegisName: S_Envenom_Armor
     Name: Envenom Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122965,7 +122952,7 @@ Body:
   - Id: 24193
     AegisName: S_Damned_Armor
     Name: Damned Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122978,7 +122965,7 @@ Body:
   - Id: 24194
     AegisName: S_Geist_Armor
     Name: Exorcism Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -122991,7 +122978,7 @@ Body:
   - Id: 24195
     AegisName: S_Divine_Armor
     Name: Divine Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -123004,7 +122991,7 @@ Body:
   - Id: 24196
     AegisName: S_Hasty_Shoes
     Name: Hasty Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123016,7 +123003,7 @@ Body:
   - Id: 24197
     AegisName: S_Hasty_Armor
     Name: Hasty Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -123028,7 +123015,7 @@ Body:
   - Id: 24198
     AegisName: S_Basis_Shield
     Name: Basis Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123041,7 +123028,7 @@ Body:
   - Id: 24199
     AegisName: S_Hallowed_Shield
     Name: Hallowed Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123054,7 +123041,7 @@ Body:
   - Id: 24200
     AegisName: S_Saharic_Shield
     Name: Saharic Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123067,7 +123054,7 @@ Body:
   - Id: 24201
     AegisName: S_Underneath_Shield
     Name: Underneath Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123080,7 +123067,7 @@ Body:
   - Id: 24202
     AegisName: S_Flam_Shield
     Name: Flame Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123093,7 +123080,7 @@ Body:
   - Id: 24203
     AegisName: S_Windy_Shield
     Name: Windy Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123106,7 +123093,7 @@ Body:
   - Id: 24204
     AegisName: S_Envenom_Shield
     Name: Envenom Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123119,7 +123106,7 @@ Body:
   - Id: 24205
     AegisName: S_Damned_Shield
     Name: Damned Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123132,7 +123119,7 @@ Body:
   - Id: 24206
     AegisName: S_Geist_Shield
     Name: Exorcism Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123145,7 +123132,7 @@ Body:
   - Id: 24207
     AegisName: S_Divine_Shield
     Name: Divine Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123158,7 +123145,7 @@ Body:
   - Id: 24208
     AegisName: S_Expert_Shoes
     Name: Expert Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Weight: 100
     Locations:
       Shadow_Shoes: true
@@ -123172,7 +123159,7 @@ Body:
   - Id: 24209
     AegisName: S_Expert_Shield
     Name: Expert Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 150
@@ -123185,7 +123172,7 @@ Body:
   - Id: 24210
     AegisName: S_Beginner_Shoes
     Name: Beginner Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123198,7 +123185,7 @@ Body:
   - Id: 24211
     AegisName: S_Beginner_Shield
     Name: Beginner Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123211,7 +123198,7 @@ Body:
   - Id: 24212
     AegisName: S_Rookie_Shoes
     Name: Rookie Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 50
@@ -123224,7 +123211,7 @@ Body:
   - Id: 24213
     AegisName: S_Rookie_Shield
     Name: Rookie Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 50
@@ -123237,7 +123224,7 @@ Body:
   - Id: 24214
     AegisName: S_Advanced_Shoes
     Name: Advanced Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 100
@@ -123250,7 +123237,7 @@ Body:
   - Id: 24215
     AegisName: S_Advanced_Shield
     Name: Advanced Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 100
@@ -123263,7 +123250,7 @@ Body:
   - Id: 24216
     AegisName: S_Attack_Armor
     Name: Attack Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -123276,7 +123263,7 @@ Body:
   - Id: 24217
     AegisName: S_Blitz_Earring
     Name: Blitz Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Right_Accessory: true
@@ -123292,7 +123279,7 @@ Body:
   - Id: 24218
     AegisName: S_Blitz_Pendent
     Name: Blitz Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Left_Accessory: true
@@ -123308,7 +123295,7 @@ Body:
   - Id: 24219
     AegisName: S_ColdBolt_Armor
     Name: Cold Bolt Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -123322,7 +123309,7 @@ Body:
   - Id: 24220
     AegisName: S_FireBolt_Armor
     Name: Fire Bolt Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -123336,7 +123323,7 @@ Body:
   - Id: 24221
     AegisName: S_LightingBolt_Armor
     Name: Lightning Bolt Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -123350,7 +123337,7 @@ Body:
   - Id: 24222
     AegisName: S_EarthSpike_Armor
     Name: Earth Spike Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -123364,7 +123351,7 @@ Body:
   - Id: 24223
     AegisName: S_Enhance_Force_Weapon
     Name: Enhanced Force Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Alchemist: true
@@ -123394,7 +123381,7 @@ Body:
   - Id: 24224
     AegisName: S_Force_Weapon
     Name: Force Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Weapon: true
@@ -123408,7 +123395,7 @@ Body:
   - Id: 24225
     AegisName: S_Force_Earring
     Name: Force Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Right_Accessory: true
@@ -123427,7 +123414,7 @@ Body:
   - Id: 24226
     AegisName: S_Force_Pendant
     Name: Force Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Left_Accessory: true
@@ -123444,7 +123431,7 @@ Body:
   - Id: 24227
     AegisName: S_Enhance_Spirit_Weapon
     Name: Enhanced Soul Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Alchemist: true
@@ -123474,7 +123461,7 @@ Body:
   - Id: 24228
     AegisName: S_Spirit_Weapon
     Name: Soul Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Weapon: true
@@ -123488,7 +123475,7 @@ Body:
   - Id: 24229
     AegisName: S_Spirit_Earring
     Name: Soul Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Right_Accessory: true
@@ -123505,7 +123492,7 @@ Body:
   - Id: 24230
     AegisName: S_Spirit_Pendant
     Name: Soul Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Left_Accessory: true
@@ -123522,7 +123509,7 @@ Body:
   - Id: 24231
     AegisName: S_Blitz_Shoes
     Name: Blitz Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123540,7 +123527,7 @@ Body:
   - Id: 24232
     AegisName: S_Blitz_Shield
     Name: Blitz Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123558,7 +123545,7 @@ Body:
   - Id: 24233
     AegisName: S_Exceed_Weapon
     Name: Exceeding Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 100
@@ -123572,7 +123559,7 @@ Body:
   - Id: 24234
     AegisName: S_Titan_Earring
     Name: Titan Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -123586,7 +123573,7 @@ Body:
   - Id: 24235
     AegisName: S_Titan_Pendant
     Name: Titan Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -123600,7 +123587,7 @@ Body:
   - Id: 24236
     AegisName: S_Boned_Earring
     Name: Boned Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -123614,7 +123601,7 @@ Body:
   - Id: 24237
     AegisName: S_Boned_Pendant
     Name: Boned Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -123628,7 +123615,7 @@ Body:
   - Id: 24238
     AegisName: S_Gigantic_Earring
     Name: Gigantic Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -123642,7 +123629,7 @@ Body:
   - Id: 24239
     AegisName: S_Gigantic_Pendant
     Name: Gigantic Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -123656,7 +123643,7 @@ Body:
   - Id: 24240
     AegisName: S_Caster_Shoes
     Name: Caster Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123670,7 +123657,7 @@ Body:
   - Id: 24241
     AegisName: S_Caster_Shield
     Name: Caster Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123684,7 +123671,7 @@ Body:
   - Id: 24242
     AegisName: S_Caster_Armor
     Name: Caster Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -123698,7 +123685,7 @@ Body:
   - Id: 24243
     AegisName: S_Reload_Shoes
     Name: Reload Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123710,7 +123697,7 @@ Body:
   - Id: 24244
     AegisName: S_Reload_Shield
     Name: Reload Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -123722,7 +123709,7 @@ Body:
   - Id: 24245
     AegisName: S_Reload_Armor
     Name: Reload Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -123734,7 +123721,7 @@ Body:
   - Id: 24246
     AegisName: S_Swordman_earring
     Name: Swordman Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -123746,7 +123733,7 @@ Body:
   - Id: 24247
     AegisName: S_Merchant_earring
     Name: Merchant Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -123758,7 +123745,7 @@ Body:
   - Id: 24248
     AegisName: S_Acolyte_earring
     Name: Acolyte Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -123770,7 +123757,7 @@ Body:
   - Id: 24249
     AegisName: S_Magician_earring
     Name: Magician Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -123784,7 +123771,7 @@ Body:
   - Id: 24250
     AegisName: S_Swordman_Pendant
     Name: Swordman Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -123796,7 +123783,7 @@ Body:
   - Id: 24251
     AegisName: S_Merchant_Pendant
     Name: Merchant Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -123808,7 +123795,7 @@ Body:
   - Id: 24252
     AegisName: S_Acolyte_Pendant
     Name: Acolyte Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     Refineable: true
@@ -123819,7 +123806,7 @@ Body:
   - Id: 24253
     AegisName: S_Thief_Pendant
     Name: Thief Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -123831,7 +123818,7 @@ Body:
   - Id: 24254
     AegisName: S_Magician_Pendant
     Name: Magician Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -123843,7 +123830,7 @@ Body:
   - Id: 24255
     AegisName: S_Archer_Pendant
     Name: Archer Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -123855,7 +123842,7 @@ Body:
   - Id: 24256
     AegisName: S_Knight_Shoes
     Name: Knight Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123867,7 +123854,7 @@ Body:
   - Id: 24257
     AegisName: S_Crusader_Shoes
     Name: Crusader Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123879,7 +123866,7 @@ Body:
   - Id: 24258
     AegisName: S_Blacksmith_Shoes
     Name: Blacksmith Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123893,7 +123880,7 @@ Body:
   - Id: 24259
     AegisName: S_Alchemist_Shoes
     Name: Alchemist Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123906,7 +123893,7 @@ Body:
   - Id: 24260
     AegisName: S_Priest_Shoes
     Name: Priest Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123920,7 +123907,7 @@ Body:
   - Id: 24261
     AegisName: S_Monk_Shoes
     Name: Monk Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123932,7 +123919,7 @@ Body:
   - Id: 24262
     AegisName: S_Assassin_Shoes
     Name: Assassin Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123944,7 +123931,7 @@ Body:
   - Id: 24263
     AegisName: S_Rogue_Shoes
     Name: Rogue Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123958,7 +123945,7 @@ Body:
   - Id: 24264
     AegisName: S_Wizard_Shoes
     Name: Wizard Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123972,7 +123959,7 @@ Body:
   - Id: 24265
     AegisName: S_Sage_Shoes
     Name: Sage Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123984,7 +123971,7 @@ Body:
   - Id: 24266
     AegisName: S_Hunter_Shoes
     Name: Hunter Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -123997,7 +123984,7 @@ Body:
   - Id: 24267
     AegisName: S_Bard_Shoes
     Name: Bard Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -124011,7 +123998,7 @@ Body:
   - Id: 24268
     AegisName: S_Dancer_Shoes
     Name: Dancer Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -124025,7 +124012,7 @@ Body:
   - Id: 24269
     AegisName: S_Knight_Armor
     Name: Knight Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124038,7 +124025,7 @@ Body:
   - Id: 24270
     AegisName: S_Crusader_Armor
     Name: Crusader Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124051,7 +124038,7 @@ Body:
   - Id: 24271
     AegisName: S_Blacksmith_Armor
     Name: Blacksmith Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124068,7 +124055,7 @@ Body:
   - Id: 24272
     AegisName: S_Alchemist_Armor
     Name: Alchemist Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124083,7 +124070,7 @@ Body:
   - Id: 24273
     AegisName: S_Priest_Armor
     Name: Priest Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124096,7 +124083,7 @@ Body:
   - Id: 24274
     AegisName: S_Monk_Armor
     Name: Monk Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124110,7 +124097,7 @@ Body:
   - Id: 24275
     AegisName: S_Assassin_Armor
     Name: Assassin Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124123,7 +124110,7 @@ Body:
   - Id: 24276
     AegisName: S_Rogue_Armor
     Name: Rogue Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124136,7 +124123,7 @@ Body:
   - Id: 24277
     AegisName: S_Wizard_Armor
     Name: Wizard Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124149,7 +124136,7 @@ Body:
   - Id: 24278
     AegisName: S_Sage_Armor
     Name: Sage Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124161,7 +124148,7 @@ Body:
   - Id: 24279
     AegisName: S_Hunter_Armor
     Name: Hunter Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124175,7 +124162,7 @@ Body:
   - Id: 24280
     AegisName: S_Bard_Armor
     Name: Bard Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124192,7 +124179,7 @@ Body:
   - Id: 24281
     AegisName: S_Dancer_Armor
     Name: Dancer Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Locations:
       Shadow_Armor: true
@@ -124209,7 +124196,7 @@ Body:
   - Id: 24282
     AegisName: S_SuperNovice_Weapon
     Name: Super Novice Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Novice: true
       SuperNovice: true
@@ -124237,7 +124224,7 @@ Body:
   - Id: 24283
     AegisName: S_Gunslinger_Weapon
     Name: Gunslinger Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Gunslinger: true
       Rebellion: true
@@ -124263,7 +124250,7 @@ Body:
   - Id: 24284
     AegisName: S_Taekwon_Weapon
     Name: Taekwondo Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       SoulLinker: true
       StarGladiator: true
@@ -124292,7 +124279,7 @@ Body:
   - Id: 24285
     AegisName: S_Ninja_Weapon
     Name: Ninja Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       KagerouOboro: true
       Ninja: true
@@ -124317,7 +124304,7 @@ Body:
   - Id: 24286
     AegisName: S_DoramMagical_Weapon
     Name: Doram Magical Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Summoner: true
       Spirit_Handler: true
@@ -124342,7 +124329,7 @@ Body:
   - Id: 24287
     AegisName: S_DoramPhysical_Weapon
     Name: Doram Physical Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Summoner: true
       Spirit_Handler: true
@@ -124364,7 +124351,7 @@ Body:
   - Id: 24288
     AegisName: S_Runeknight_Weapon
     Name: Rune Knight Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Knight: true
@@ -124383,7 +124370,7 @@ Body:
   - Id: 24289
     AegisName: S_Royalguard_Weapon
     Name: Royal Guard Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Crusader: true
@@ -124402,7 +124389,7 @@ Body:
   - Id: 24290
     AegisName: S_Mechanic_weapon
     Name: Mechanic Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Blacksmith: true
@@ -124421,7 +124408,7 @@ Body:
   - Id: 24291
     AegisName: S_Genetic_Weapon
     Name: Genetic Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Alchemist: true
@@ -124440,7 +124427,7 @@ Body:
   - Id: 24292
     AegisName: S_Archbishop_Weapon
     Name: Arch Bishop Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Priest: true
@@ -124460,7 +124447,7 @@ Body:
   - Id: 24293
     AegisName: S_Sura_weapon
     Name: Sura Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Monk: true
@@ -124479,7 +124466,7 @@ Body:
   - Id: 24294
     AegisName: S_Guillotine_Weapon
     Name: Guillotine Cross Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Assassin: true
@@ -124498,7 +124485,7 @@ Body:
   - Id: 24295
     AegisName: S_Shadowchaser_Weapon
     Name: Shadow Chaser Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Rogue: true
@@ -124517,7 +124504,7 @@ Body:
   - Id: 24296
     AegisName: S_Warlock_Weapon
     Name: Warlock Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Wizard: true
@@ -124536,7 +124523,7 @@ Body:
   - Id: 24297
     AegisName: S_Sorcerer_Weapon
     Name: Sorcerer Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Sage: true
@@ -124555,7 +124542,7 @@ Body:
   - Id: 24298
     AegisName: S_Ranger_Weapon
     Name: Ranger Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Hunter: true
@@ -124574,7 +124561,7 @@ Body:
   - Id: 24299
     AegisName: S_Minstrel_Weapon
     Name: Maestro Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       BardDancer: true
@@ -124595,7 +124582,7 @@ Body:
   - Id: 24300
     AegisName: S_Wanderer_Weapon
     Name: Wanderer Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       BardDancer: true
@@ -124616,7 +124603,7 @@ Body:
   - Id: 24301
     AegisName: S_Runeknight_Shield
     Name: Rune Knight Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -124633,7 +124620,7 @@ Body:
   - Id: 24302
     AegisName: S_Royalguard_Shield
     Name: Royal Guard Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Crusader: true
@@ -124651,7 +124638,7 @@ Body:
   - Id: 24303
     AegisName: S_Mechanic_Shield
     Name: Mechanic Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Blacksmith: true
@@ -124669,7 +124656,7 @@ Body:
   - Id: 24304
     AegisName: S_Genetic_Shield
     Name: Genetic Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Alchemist: true
@@ -124688,7 +124675,7 @@ Body:
   - Id: 24305
     AegisName: S_Archbishop_Shield
     Name: Archbishop Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Priest: true
@@ -124706,7 +124693,7 @@ Body:
   - Id: 24306
     AegisName: S_Sura_Shield
     Name: Sura Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Monk: true
@@ -124724,7 +124711,7 @@ Body:
   - Id: 24307
     AegisName: S_Guillotine_Shield
     Name: Guillotine Cross Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Assassin: true
@@ -124742,7 +124729,7 @@ Body:
   - Id: 24308
     AegisName: S_Shadowchaser_Shield
     Name: Shadow Chaser Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Rogue: true
@@ -124760,7 +124747,7 @@ Body:
   - Id: 24309
     AegisName: S_Warlock_Shield
     Name: Warlock Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Wizard: true
@@ -124778,7 +124765,7 @@ Body:
   - Id: 24310
     AegisName: S_Sorcerer_Shield
     Name: Sorcerer Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Sage: true
@@ -124796,7 +124783,7 @@ Body:
   - Id: 24311
     AegisName: S_Ranger_Shield
     Name: Ranger Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Hunter: true
@@ -124814,7 +124801,7 @@ Body:
   - Id: 24312
     AegisName: S_Minstrel_Shield
     Name: Minstrel Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       BardDancer: true
@@ -124834,7 +124821,7 @@ Body:
   - Id: 24313
     AegisName: S_Wanderer_Shield
     Name: Wanderer Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       BardDancer: true
@@ -124854,7 +124841,7 @@ Body:
   - Id: 24314
     AegisName: S_Ninja_Shield
     Name: Ninja Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       KagerouOboro: true
@@ -124881,7 +124868,7 @@ Body:
   - Id: 24315
     AegisName: S_Taekwon_Shield
     Name: Taekwon Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       SoulLinker: true
@@ -124908,7 +124895,7 @@ Body:
   - Id: 24316
     AegisName: S_DoramPhysical_Shield
     Name: Doram Physical Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Summoner: true
@@ -124930,7 +124917,7 @@ Body:
   - Id: 24317
     AegisName: S_DoramMagical_Shield
     Name: Doram Magical Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Summoner: true
@@ -124952,7 +124939,7 @@ Body:
   - Id: 24318
     AegisName: S_SuperNovice_Shield
     Name: Super Novice Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Novice: true
@@ -124979,7 +124966,7 @@ Body:
   - Id: 24319
     AegisName: S_Gunslinger_Shield
     Name: Gunslinger Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Gunslinger: true
@@ -125000,7 +124987,7 @@ Body:
   - Id: 24320
     AegisName: S2_Hasty_Shoes
     Name: Hasty Shadow Shoes II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -125018,7 +125005,7 @@ Body:
   - Id: 24321
     AegisName: S2_Bearers_Pendent
     Name: Bearer's Shadow Pendant II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -125037,7 +125024,7 @@ Body:
   - Id: 24322
     AegisName: S2_Gemstone_Earring
     Name: Gemstone Shadow Earring II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -125056,7 +125043,7 @@ Body:
   - Id: 24323
     AegisName: S2_Spell_Flow_Shield
     Name: Spellflow Shadow Shield II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -125069,7 +125056,7 @@ Body:
   - Id: 24324
     AegisName: S2_Spiritual_Weapon
     Name: Spiritual Shadow Weapon II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125083,7 +125070,7 @@ Body:
   - Id: 24325
     AegisName: S2_Malicious_Armor
     Name: Malicious Shadow Armor II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125095,7 +125082,7 @@ Body:
   - Id: 24326
     AegisName: S_Sigrun_Armor
     Name: Sigrun Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125118,7 +125105,7 @@ Body:
   - Id: 24327
     AegisName: S_Sigrun_Shield
     Name: Sigrun Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -125143,7 +125130,7 @@ Body:
   - Id: 24328
     AegisName: S2_Force_Ex_Weapon
     Name: Force Executioner Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125156,7 +125143,7 @@ Body:
   - Id: 24329
     AegisName: S2_Spirit_M_E_Weapon
     Name: Spirit Magic Executioner Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125169,7 +125156,7 @@ Body:
   - Id: 24330
     AegisName: S2_Caster_Armor
     Name: Caster Shadow Armor II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125183,7 +125170,7 @@ Body:
   - Id: 24331
     AegisName: S2_Reload_Armor
     Name: Reload Shadow Armor II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125197,7 +125184,7 @@ Body:
   - Id: 24332
     AegisName: S_Critical_Shield
     Name: Critical Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -125214,7 +125201,7 @@ Body:
   - Id: 24333
     AegisName: S_Critical_Shoes
     Name: Critical Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -125231,7 +125218,7 @@ Body:
   - Id: 24334
     AegisName: S_MagicCompose_Armor
     Name: Magic Compose Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125250,7 +125237,7 @@ Body:
   - Id: 24335
     AegisName: S2_Gemstone_Weapon
     Name: Gemstone Shadow Weapon II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125269,7 +125256,7 @@ Body:
   - Id: 24336
     AegisName: S2_Gemstone_Shield
     Name: Gemstone Shadow Shield II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -125287,7 +125274,7 @@ Body:
   - Id: 24337
     AegisName: S2_Bearers_Armor
     Name: Bearer's Shadow Armor II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125305,7 +125292,7 @@ Body:
   - Id: 24338
     AegisName: S2_Bearers_Shoes
     Name: Bearer's Shadow Shoes II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -125323,7 +125310,7 @@ Body:
   - Id: 24339
     AegisName: S_AllMighty_Earring
     Name: Almighty Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -125335,7 +125322,7 @@ Body:
   - Id: 24340
     AegisName: S_AllMighty_Pendant
     Name: Almighty Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -125347,7 +125334,7 @@ Body:
   - Id: 24341
     AegisName: S_AllRace_Shoes
     Name: All Race Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -125368,7 +125355,7 @@ Body:
   - Id: 24342
     AegisName: S_AllRace_Shield
     Name: All Race Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -125388,7 +125375,7 @@ Body:
   - Id: 24343
     AegisName: S_Blitz_Weapon
     Name: Blitz Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125407,7 +125394,7 @@ Body:
   - Id: 24344
     AegisName: S_Blitz_Armor
     Name: Blitz Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125425,7 +125412,7 @@ Body:
   - Id: 24345
     AegisName: S_Tempest_Shield
     Name: Tempest Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -125437,7 +125424,7 @@ Body:
   - Id: 24346
     AegisName: S_Tempest_Shoes
     Name: Tempest Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -125449,7 +125436,7 @@ Body:
   - Id: 24347
     AegisName: S_M_ExeHoly_Armor
     Name: Magic Executioner Holy Water Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125463,7 +125450,7 @@ Body:
   - Id: 24348
     AegisName: S_M_ExoCorrupt_Armor
     Name: Magic Exorcist Corrupted Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125477,7 +125464,7 @@ Body:
   - Id: 24349
     AegisName: S_M_DragonVib_Armor
     Name: Magic Vibration Dragon Killer Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125491,7 +125478,7 @@ Body:
   - Id: 24350
     AegisName: S_M_SciHunting_Armor
     Name: Magic Scissor Hunting Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125505,7 +125492,7 @@ Body:
   - Id: 24351
     AegisName: S_M_FishInsect_Armor
     Name: Magic Fishing Insect Net Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125519,7 +125506,7 @@ Body:
   - Id: 24352
     AegisName: S2_Plasterer's_Armor
     Name: Plasterer's Shadow Armor II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125532,7 +125519,7 @@ Body:
   - Id: 24353
     AegisName: S2_Insomniac_Shoes
     Name: Insomniac Shadow Shoes II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -125545,7 +125532,7 @@ Body:
   - Id: 24354
     AegisName: S2_Peerless_Armor
     Name: Peerless Shadow Armor II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125558,7 +125545,7 @@ Body:
   - Id: 24355
     AegisName: S2_Adurate_Shoes
     Name: Adulate Shadow Shoes II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -125571,7 +125558,7 @@ Body:
   - Id: 24356
     AegisName: Unfreez_Weapon_S2
     Name: Unfreezing Shadow Weapon II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125585,7 +125572,7 @@ Body:
   - Id: 24357
     AegisName: Vitality_Earing_S2
     Name: Vitality Shadow Earring II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -125598,7 +125585,7 @@ Body:
   - Id: 24358
     AegisName: S2_Neutral_Weapon
     Name: Neutral Shadow Weapon II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125612,7 +125599,7 @@ Body:
   - Id: 24359
     AegisName: S2_Curse_Lift_Pendent
     Name: Uncursed Shadow Pendant II
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -125625,7 +125612,7 @@ Body:
   - Id: 24360
     AegisName: S_Tension_Weapon
     Name: Tension Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125638,7 +125625,7 @@ Body:
   - Id: 24361
     AegisName: S_Tension_Earring
     Name: Tension Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -125651,7 +125638,7 @@ Body:
   - Id: 24362
     AegisName: S_Tension_Pendent
     Name: Tension Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -125666,7 +125653,7 @@ Body:
   - Id: 24363
     AegisName: S_Elegant_Weapon
     Name: Elegant Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125679,7 +125666,7 @@ Body:
   - Id: 24364
     AegisName: S_Elegant_Earring
     Name: Elegant Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -125692,7 +125679,7 @@ Body:
   - Id: 24365
     AegisName: S_Elegant_Pendent
     Name: Elegant Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -125707,7 +125694,7 @@ Body:
   - Id: 24366
     AegisName: S_Healing_Shield
     Name: Healing Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -125726,7 +125713,7 @@ Body:
   - Id: 24367
     AegisName: S_Healing_Shoes
     Name: Healing Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -125745,7 +125732,7 @@ Body:
   - Id: 24368
     AegisName: S_Restore_Earring
     Name: Restore Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -125765,7 +125752,7 @@ Body:
   - Id: 24369
     AegisName: S_Restore_Pendent
     Name: Restore Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -125785,7 +125772,7 @@ Body:
   - Id: 24370
     AegisName: S_MortalBlow_Weapon
     Name: Mortal Blow Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125806,7 +125793,7 @@ Body:
   - Id: 24371
     AegisName: S_MortalBlow_Earring
     Name: Mortal Blow Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -125826,7 +125813,7 @@ Body:
   - Id: 24372
     AegisName: S_MortalBlow_Pendent
     Name: Mortal Blow Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -125846,7 +125833,7 @@ Body:
   - Id: 24373
     AegisName: S_Penetration_Shoes
     Name: Penetration Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -125858,7 +125845,7 @@ Body:
   - Id: 24374
     AegisName: S_Penetration_Shield
     Name: Penetration Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -125870,7 +125857,7 @@ Body:
   - Id: 24375
     AegisName: S_ExeHoly_Armor
     Name: Executioner Holy Water Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125884,7 +125871,7 @@ Body:
   - Id: 24376
     AegisName: S_ExoCorrupt_Armor
     Name: Exorcist Corrupted Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125898,7 +125885,7 @@ Body:
   - Id: 24377
     AegisName: S_DragonVib_Armor
     Name: Vibration Dragon Killer Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125912,7 +125899,7 @@ Body:
   - Id: 24378
     AegisName: S_SciHunting_Armor
     Name: Scissor Hunting Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125926,7 +125913,7 @@ Body:
   - Id: 24379
     AegisName: S_FishInsect_Armor
     Name: Fishing Insect Net Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -125940,7 +125927,7 @@ Body:
   - Id: 24380
     AegisName: Sentimental_Weapone_S
     Name: Sentimental Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125953,7 +125940,7 @@ Body:
   - Id: 24381
     AegisName: Sentimental_Earring_S
     Name: Sentimental Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -125967,7 +125954,7 @@ Body:
   - Id: 24382
     AegisName: Sentimental_Pendant_S
     Name: Sentimental Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -125980,7 +125967,7 @@ Body:
   - Id: 24383
     AegisName: Enchanting_Weapone_S
     Name: Enchanting Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -125993,7 +125980,7 @@ Body:
   - Id: 24384
     AegisName: Enchanting_Earring_S
     Name: Enchanting Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -126007,7 +125994,7 @@ Body:
   - Id: 24385
     AegisName: Enchanting_Pendant_S
     Name: Enchanting Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -126020,7 +126007,7 @@ Body:
   - Id: 24386
     AegisName: S_Infinity_Weapon
     Name: Infinity Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -126041,7 +126028,7 @@ Body:
   - Id: 24387
     AegisName: Rebeginer_Armor_S
     Name: Beginner's Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 100
@@ -126060,7 +126047,7 @@ Body:
   - Id: 24388
     AegisName: Rebeginer_Shield_S
     Name: Beginner's Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 100
@@ -126079,7 +126066,7 @@ Body:
   - Id: 24389
     AegisName: Rebeginer_Shoes_S
     Name: Beginner's Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 100
@@ -126098,7 +126085,7 @@ Body:
   - Id: 24390
     AegisName: Rebeginer_Weapon_S
     Name: Beginner's Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 100
@@ -126119,7 +126106,7 @@ Body:
   - Id: 24391
     AegisName: Rebeginer_Earring_S
     Name: Beginner's Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 100
@@ -126138,7 +126125,7 @@ Body:
   - Id: 24392
     AegisName: Rebeginer_Pendant_S
     Name: Beginner's Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 100
@@ -126157,7 +126144,7 @@ Body:
   - Id: 24393
     AegisName: S_Physical_Shoes
     Name: Physical Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -126176,7 +126163,7 @@ Body:
   - Id: 24394
     AegisName: S_Physical_Shield
     Name: Physical Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -126192,7 +126179,7 @@ Body:
   - Id: 24395
     AegisName: S_Physical_Armor
     Name: Physical Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -126209,7 +126196,7 @@ Body:
   - Id: 24396
     AegisName: S_Magical_Shoes
     Name: Magical Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -126228,7 +126215,7 @@ Body:
   - Id: 24397
     AegisName: S_Magical_Shield
     Name: Magical Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -126245,7 +126232,7 @@ Body:
   - Id: 24398
     AegisName: S_Magical_Armor
     Name: Magical Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -126262,7 +126249,7 @@ Body:
   - Id: 24399
     AegisName: S_ImmunedAthena_Shield
     Name: Immune Athena Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -126274,7 +126261,7 @@ Body:
   - Id: 24400
     AegisName: S_HardChamption_Shoes
     Name: Hard Champion Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -126288,7 +126275,7 @@ Body:
   - Id: 24401
     AegisName: S_KingbirdAncient_Armor
     Name: Kingbird Ancient Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -126307,7 +126294,7 @@ Body:
   - Id: 24402
     AegisName: S_Rebellion_Armor
     Name: Rebellion Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Gunslinger: true
@@ -126323,7 +126310,7 @@ Body:
   - Id: 24403
     AegisName: S_Kagerou_Armor
     Name: Kagerou Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       KagerouOboro: true
@@ -126339,7 +126326,7 @@ Body:
   - Id: 24404
     AegisName: S_Oboro_Armor
     Name: Oboro Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       KagerouOboro: true
@@ -126357,7 +126344,7 @@ Body:
   - Id: 24405
     AegisName: S_Rebellion_Shoes
     Name: Rebellion Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Gunslinger: true
@@ -126373,7 +126360,7 @@ Body:
   - Id: 24406
     AegisName: S_Kagerou_Shoes
     Name: Kagerou Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       KagerouOboro: true
@@ -126389,7 +126376,7 @@ Body:
   - Id: 24407
     AegisName: S_Oboro_Shoes
     Name: Oboro Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       KagerouOboro: true
@@ -126405,7 +126392,7 @@ Body:
   - Id: 24408
     AegisName: S_DoramPhysical_Armor
     Name: Doram Physical Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Summoner: true
@@ -126422,7 +126409,7 @@ Body:
   - Id: 24409
     AegisName: S_DoramPhysical_Shoes
     Name: Doram Physical Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Summoner: true
@@ -126438,7 +126425,7 @@ Body:
   - Id: 24410
     AegisName: S_DoramMagical_Armor
     Name: Doram Magical Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Summoner: true
@@ -126455,7 +126442,7 @@ Body:
   - Id: 24411
     AegisName: S_DoramMagical_Shoes
     Name: Doram Magical Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       Summoner: true
@@ -126471,7 +126458,7 @@ Body:
   - Id: 24412
     AegisName: S_Star_Emperor_Armor
     Name: Star Emperor Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       StarGladiator: true
@@ -126490,7 +126477,7 @@ Body:
   - Id: 24413
     AegisName: S_Star_Emperor_Shoes
     Name: Star Emperor Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       StarGladiator: true
@@ -126508,7 +126495,7 @@ Body:
   - Id: 24414
     AegisName: S_Soul_Reaper_Armor
     Name: Soul Reaper Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       SoulLinker: true
@@ -126527,7 +126514,7 @@ Body:
   - Id: 24415
     AegisName: S_Soul_Reaper_Shoes
     Name: Soul Reaper Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Buy: 10
     Jobs:
       SoulLinker: true
@@ -126545,7 +126532,7 @@ Body:
   - Id: 24416
     AegisName: S_Timeoverload_Weapon
     Name: Temporal Transcendent Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -126566,7 +126553,7 @@ Body:
   - Id: 24417
     AegisName: S_Timeoverload_Armor
     Name: Temporal Transcendent Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 1
@@ -126585,7 +126572,7 @@ Body:
   - Id: 24418
     AegisName: S_Timeoverload_Shield
     Name: Temporal Transcendent Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 1
@@ -126604,7 +126591,7 @@ Body:
   - Id: 24419
     AegisName: S_Timeoverload_Shoes
     Name: Temporal Transcendent Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 1
@@ -126623,7 +126610,7 @@ Body:
   - Id: 24420
     AegisName: S_Timeoverload_Earing
     Name: Temporal Transcendent Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -126642,7 +126629,7 @@ Body:
   - Id: 24421
     AegisName: S_Timeoverload_Pandent
     Name: Temporal Transcendent Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 1
@@ -126661,7 +126648,7 @@ Body:
   - Id: 24423
     AegisName: S_Tempest_Weapon
     Name: Tempest Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126673,7 +126660,7 @@ Body:
   - Id: 24424
     AegisName: S_Tempest_Armor
     Name: Tempest Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     Refineable: true
@@ -126684,7 +126671,7 @@ Body:
   - Id: 24425
     AegisName: S_PerfectSize_Weapon
     Name: Perfect Size Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126705,7 +126692,7 @@ Body:
   - Id: 24426
     AegisName: S_PerfectSize_Armor
     Name: Perfect Size Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     Refineable: true
@@ -126723,7 +126710,7 @@ Body:
   - Id: 24427
     AegisName: S_M_Exo_Co_Weapon
     Name: Magic Exorcist Current Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126736,7 +126723,7 @@ Body:
   - Id: 24428
     AegisName: S_M_Viv_Dr_Weapon
     Name: Magic Vibration Dragon Killer Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126749,7 +126736,7 @@ Body:
   - Id: 24429
     AegisName: S_M_Sci_Hu_Weapon
     Name: Magic Caesars Hunting Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126762,7 +126749,7 @@ Body:
   - Id: 24430
     AegisName: S_M_Fis_In_Weapon
     Name: Magic Fishing Insect Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126775,7 +126762,7 @@ Body:
   - Id: 24431
     AegisName: S_M_Exe_Ho_Weapon
     Name: Magic Executioner Holy Water Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126788,7 +126775,7 @@ Body:
   - Id: 24432
     AegisName: S_Penetration_Weapon
     Name: Penetration Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126800,7 +126787,7 @@ Body:
   - Id: 24433
     AegisName: S_Penetration_Armor
     Name: Penetration Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     Refineable: true
@@ -126811,7 +126798,7 @@ Body:
   - Id: 24434
     AegisName: S_Exe_Ho_Weapon
     Name: Executioner Holy Water Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126824,7 +126811,7 @@ Body:
   - Id: 24435
     AegisName: S_Fis_In_Weapon
     Name: Fishing Insect Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126837,7 +126824,7 @@ Body:
   - Id: 24436
     AegisName: S_Sci_Hu_Weapon
     Name: Scissors Hunting Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126850,7 +126837,7 @@ Body:
   - Id: 24437
     AegisName: S_Viv_Dr_Weapon
     Name: Vibration Dragon Killer Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126863,7 +126850,7 @@ Body:
   - Id: 24438
     AegisName: S_Exo_Co_Weapon
     Name: Exorcist Corrupt Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Refineable: true
@@ -126876,7 +126863,7 @@ Body:
   - Id: 24439
     AegisName: S_Hasty_Weapon
     Name: Hasty Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     EquipLevelMin: 1
@@ -126896,7 +126883,7 @@ Body:
   - Id: 24440
     AegisName: S_Sonic_Armor
     Name: Sonic Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -126913,7 +126900,7 @@ Body:
   - Id: 24441
     AegisName: S_Sonic_Shield
     Name: Sonic Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -126930,7 +126917,7 @@ Body:
   - Id: 24442
     AegisName: S_Sonic_Shoes
     Name: Sonic Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -126947,7 +126934,7 @@ Body:
   - Id: 24443
     AegisName: S_Ignition_Weapon
     Name: Ignition Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -126965,7 +126952,7 @@ Body:
   - Id: 24444
     AegisName: S_Ignition_Pendant
     Name: Ignition Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -126982,7 +126969,7 @@ Body:
   - Id: 24445
     AegisName: S_Ignition_Earing
     Name: Ignition Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -126999,7 +126986,7 @@ Body:
   - Id: 24446
     AegisName: S_W_Breath_Armor
     Name: Cold Breath Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -127016,7 +127003,7 @@ Body:
   - Id: 24447
     AegisName: S_W_Breath_Shield
     Name: Cold Breath Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -127033,7 +127020,7 @@ Body:
   - Id: 24448
     AegisName: S_W_Breath_Shoes
     Name: Cold Breath Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -127050,7 +127037,7 @@ Body:
   - Id: 24449
     AegisName: S_F_Breath_Weapon
     Name: Fire Breath Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -127068,7 +127055,7 @@ Body:
   - Id: 24450
     AegisName: S_F_Breath_Pendant
     Name: Fire Breath Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -127085,7 +127072,7 @@ Body:
   - Id: 24451
     AegisName: S_F_Breath_Earing
     Name: Fire Breath Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -127102,7 +127089,7 @@ Body:
   - Id: 24452
     AegisName: S_Cluster_Armor
     Name: Cluster Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127119,7 +127106,7 @@ Body:
   - Id: 24453
     AegisName: S_Cluster_Shield
     Name: Cluster Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127136,7 +127123,7 @@ Body:
   - Id: 24454
     AegisName: S_Cluster_Shoes
     Name: Cluster Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127153,7 +127140,7 @@ Body:
   - Id: 24455
     AegisName: S_Aimed_Weapon
     Name: Aimed Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127171,7 +127158,7 @@ Body:
   - Id: 24456
     AegisName: S_Aimed_Pendant
     Name: Aimed Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127188,7 +127175,7 @@ Body:
   - Id: 24457
     AegisName: S_Aimed_Earing
     Name: Aimed Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127205,7 +127192,7 @@ Body:
   - Id: 24458
     AegisName: S_Arrow_Armor
     Name: Arrow Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127222,7 +127209,7 @@ Body:
   - Id: 24459
     AegisName: S_Arrow_Shield
     Name: Arrow Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127239,7 +127226,7 @@ Body:
   - Id: 24460
     AegisName: S_Arrow_Shoes
     Name: Arrow Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127256,7 +127243,7 @@ Body:
   - Id: 24461
     AegisName: S_Shooting_Weapon
     Name: Shooting Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127274,7 +127261,7 @@ Body:
   - Id: 24462
     AegisName: S_Shooting_Pendant
     Name: Shooting Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127291,7 +127278,7 @@ Body:
   - Id: 24463
     AegisName: S_Shooting_Earing
     Name: Shooting Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -127308,7 +127295,7 @@ Body:
   - Id: 24464
     AegisName: S_Tornado_Armor
     Name: Tornado Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127325,7 +127312,7 @@ Body:
   - Id: 24465
     AegisName: S_Tornado_Shield
     Name: Tornado Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127342,7 +127329,7 @@ Body:
   - Id: 24466
     AegisName: S_Tornado_Shoes
     Name: Tornado Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127359,7 +127346,7 @@ Body:
   - Id: 24467
     AegisName: S_Boomerang_Weapon
     Name: Boomerang Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127377,7 +127364,7 @@ Body:
   - Id: 24468
     AegisName: S_Boomerang_Pendant
     Name: Boomerang Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127394,7 +127381,7 @@ Body:
   - Id: 24469
     AegisName: S_Boomerang_Earing
     Name: Boomerang Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127411,7 +127398,7 @@ Body:
   - Id: 24470
     AegisName: S_Vulcan_Armor
     Name: Vulcan Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127428,7 +127415,7 @@ Body:
   - Id: 24471
     AegisName: S_Vulcan_Shield
     Name: Vulcan Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127445,7 +127432,7 @@ Body:
   - Id: 24472
     AegisName: S_Vulcan_Shoes
     Name: Vulcan Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127462,7 +127449,7 @@ Body:
   - Id: 24473
     AegisName: S_Arms_Weapon
     Name: Arm Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127480,7 +127467,7 @@ Body:
   - Id: 24474
     AegisName: S_Arms_Pendant
     Name: Arm Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -127497,7 +127484,7 @@ Body:
   - Id: 24475
     AegisName: S_Arms_Earing
     Name: Arm Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -131543,7 +131530,7 @@ Body:
   - Id: 24687
     AegisName: S_1Para_Weapon
     Name: Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Weapon: true
     Trade:
@@ -131564,7 +131551,7 @@ Body:
   - Id: 24688
     AegisName: S_1Para_Shield
     Name: Paradise Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     Trade:
@@ -131582,7 +131569,7 @@ Body:
   - Id: 24689
     AegisName: S_1Para_Armor
     Name: Paradise Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     Trade:
@@ -131600,7 +131587,7 @@ Body:
   - Id: 24690
     AegisName: S_1Para_Shoes
     Name: Paradise Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     Trade:
@@ -131618,7 +131605,7 @@ Body:
   - Id: 24691
     AegisName: S_1Para_Earing
     Name: Paradise Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     Trade:
@@ -131636,7 +131623,7 @@ Body:
   - Id: 24692
     AegisName: S_1Para_Pendant
     Name: Paradise Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     Trade:
@@ -131654,7 +131641,7 @@ Body:
   - Id: 24693
     AegisName: S_2Para_Shield
     Name: Advanced Paradise Shadow Shield
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 100
@@ -131673,7 +131660,7 @@ Body:
   - Id: 24694
     AegisName: S_2Para_Armor
     Name: Advanced Paradise Shadow Armor
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 100
@@ -131692,7 +131679,7 @@ Body:
   - Id: 24695
     AegisName: S_2Para_Shoes
     Name: Advanced Paradise Shadow Shoes
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 100
@@ -131711,7 +131698,7 @@ Body:
   - Id: 24696
     AegisName: S_2Para_Earing
     Name: Advanced Paradise Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 100
@@ -131730,7 +131717,7 @@ Body:
   - Id: 24697
     AegisName: S_2Para_Pendant
     Name: Advanced Paradise Shadow Pendant
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 100
@@ -131749,7 +131736,7 @@ Body:
   - Id: 24698
     AegisName: S_2Para_RK_Weapon
     Name: Rune Knight Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Knight: true
     Classes:
@@ -131773,7 +131760,7 @@ Body:
   - Id: 24699
     AegisName: S_2Para_LG_Weapon
     Name: Royal Guard Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Crusader: true
     Classes:
@@ -131797,7 +131784,7 @@ Body:
   - Id: 24700
     AegisName: S_2Para_NC_Weapon
     Name: Mechanic Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Blacksmith: true
     Classes:
@@ -131821,7 +131808,7 @@ Body:
   - Id: 24701
     AegisName: S_2Para_GN_Weapon
     Name: Genetic Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Alchemist: true
     Classes:
@@ -131845,7 +131832,7 @@ Body:
   - Id: 24702
     AegisName: S_2Para_GC_Weapon
     Name: Guillotine Cross Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Assassin: true
     Classes:
@@ -131869,7 +131856,7 @@ Body:
   - Id: 24703
     AegisName: S_2Para_SC_Weapon
     Name: Shadow Chaser Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Rogue: true
     Classes:
@@ -131893,7 +131880,7 @@ Body:
   - Id: 24704
     AegisName: S_2Para_WL_Weapon
     Name: Warlock Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Wizard: true
     Classes:
@@ -131917,7 +131904,7 @@ Body:
   - Id: 24705
     AegisName: S_2Para_SO_Weapon
     Name: Sorcerer Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Sage: true
     Classes:
@@ -131941,7 +131928,7 @@ Body:
   - Id: 24706
     AegisName: S_2Para_AB_Weapon
     Name: Arch Bishop Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Priest: true
     Classes:
@@ -131965,7 +131952,7 @@ Body:
   - Id: 24707
     AegisName: S_2Para_SR_Weapon
     Name: Sura Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Monk: true
     Classes:
@@ -131989,7 +131976,7 @@ Body:
   - Id: 24708
     AegisName: S_2Para_RA_Weapon
     Name: Ranger Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Hunter: true
     Classes:
@@ -132012,9 +131999,8 @@ Body:
       bonus bMatk,10;
   - Id: 24709
     AegisName: S_2Para_WM_Weapon
-#   Name: Minstrel & Wanderer Advanced Paradise Shadow Weapon
     Name: Minstrel & Wanderer Adva
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       BardDancer: true
     Classes:
@@ -132038,7 +132024,7 @@ Body:
   - Id: 24710
     AegisName: S_2Para_KO_Weapon
     Name: Kagerou & Oboro Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       KagerouOboro: true
     Locations:
@@ -132059,7 +132045,7 @@ Body:
   - Id: 24711
     AegisName: S_2Para_RL_Weapon
     Name: Rebellion Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Rebellion: true
     Locations:
@@ -132080,7 +132066,7 @@ Body:
   - Id: 24712
     AegisName: S_2Para_SJ_Weapon
     Name: Star Emperor Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       StarGladiator: true
     Classes:
@@ -132104,7 +132090,7 @@ Body:
   - Id: 24713
     AegisName: S_2Para_SP_Weapon
     Name: Soul Reaper Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       SoulLinker: true
     Classes:
@@ -132128,7 +132114,7 @@ Body:
   - Id: 24714
     AegisName: S_2Para_SU_Weapon
     Name: Doram Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       Summoner: true
       Spirit_Handler: true
@@ -132150,7 +132136,7 @@ Body:
   - Id: 24715
     AegisName: S_2Para_NV_Weapon
     Name: Super Novice Advanced Paradise Shadow Weapon
-    Type: Shadowgear
+    Type: ShadowGear
     Jobs:
       SuperNovice: true
     Locations:
@@ -140466,7 +140452,7 @@ Body:
   - Id: 28391
     AegisName: S_Thief_earring
     Name: Thief Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
@@ -140478,7 +140464,7 @@ Body:
   - Id: 28392
     AegisName: S_Archer_earring
     Name: Archer Shadow Earring
-    Type: Shadowgear
+    Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1

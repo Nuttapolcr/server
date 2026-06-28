@@ -86414,7 +86414,7 @@ Body:
     AegisName: IDTest_canon
     Name: IDTest canon
     Type: Ammo
-    SubType: CannonBall
+    SubType: Cannonball
     Weight: 10
     Attack: 10
     Locations:
@@ -86425,7 +86425,7 @@ Body:
     AegisName: IDTest_throw
     Name: IDTest throw
     Type: Ammo
-    SubType: CannonBall
+    SubType: Cannonball
     Weight: 10
     Attack: 10
     Locations:
