@@ -569,120 +569,120 @@ ein_in01,38,29,0	script	Paul Spanner	63,{
 	}
 }
 //
-//// Weapon/Armor Refiners
-////============================================================
-//prt_in,63,60,0	script	Hollgrehenn	4_M_03,{
-//	if( getbattleflag( "feature.refineui" ) ){
-//		mes "[Hollgrehenn]";
-//		mes "ข้าเป็นช่างอาวุธ";
-//		mes "ข้าสามารถตีอุปกรณ์ให้ท่านได้ทุกชนิด";
-//		mes " บอกมาเลยว่าท่านต้องการให้ข้าจัดการ";
-//		mes "กับอุปกรณ์ชิ้นใด";
-//		close2;
-//		refineui();
-//		end;
-//	}else{
-//		callfunc "refinemain","Hollgrehenn",0;
-//		end;
+// Weapon/Armor Refiners
+//============================================================
+prt_in,63,60,0	script	Hollgrehenn	4_M_03,{
+	if( getbattleflag( "feature.refineui" ) ){
+		mes "[Hollgrehenn]";
+		mes "ข้าเป็นช่างอาวุธ";
+		mes "ข้าสามารถตีอุปกรณ์ให้ท่านได้ทุกชนิด";
+		mes " บอกมาเลยว่าท่านต้องการให้ข้าจัดการ";
+		mes "กับอุปกรณ์ชิ้นใด";
+		close2;
+		refineui();
+		end;
+	}else{
+		callfunc "refinemain","Hollgrehenn",0;
+		end;
+	}
+}
+
+morocc_in,73,38,4	script	Aragham	4W_M_03,{
+	if( getbattleflag( "feature.refineui" ) ){
+		mes "[Aragham]";
+		mes "ข้า ช่างอาวุธ ~ แห่งทะเลทราย ~";
+		mes "Aragham Ssaleh~ ใช่ข้าคือ Aragham";
+		mes "ข้าตีอุปกรณ์ได้ทุกอย่าง ~ลาล้า";
+		mes "ให้ข้าดูสิ่งที่ท่านต้องการจะตี ~";
+		close2;
+		refineui();
+		end;
+	}else{
+		callfunc "refinemain","Aragham",0;
+		end;
+	}
+}
+
+payon_in01,81,31,4	script	Antonio	4_M_ORIENT01,{
+	if( getbattleflag( "feature.refineui" ) ){
+		mes "[Antonio]";
+		mes "หยุดจู้จี้แล้วหาอุปกรณ์ที่ท่านต้องการตีมาให้ข้า";
+		close2;
+		refineui();
+		end;
+	}else{
+		callfunc "refinemain","Antonio",0;
+		end;
+	}
+}
+
+alberta_in,28,58,0	script	Fredrik	4_M_03,{
+	if( getbattleflag( "feature.refineui" ) ){
+		mes "[Fredrik Hermanthorn]";
+		mes "ข้าเป็นช่างตีเหล็กที่ตีอาวุธหรืออุปกรณ์ของท่านได้";
+		mes "ท่านมีสิ่งที่ต้องการตีหรือไม่?";
+		close2;
+		refineui();
+		end;
+	}else{
+		callfunc "refinemain","Fredrik",0;
+		end;
+	}
+}
+
+yuno_in01,171,21,4	script	Lambert	4_M_ORIENT01,{
+//	if (countitem(35411) >= 1) {
+//		mes "^FF0000คุณมีหมวก refine challenger เอาไปเก็บซะ^000000";
+//		close;
 //	}
-//}
-//
-//morocc_in,73,38,4	script	Aragham	4W_M_03,{
-//	if( getbattleflag( "feature.refineui" ) ){
-//		mes "[Aragham]";
-//		mes "ข้า ช่างอาวุธ ~ แห่งทะเลทราย ~";
-//		mes "Aragham Ssaleh~ ใช่ข้าคือ Aragham";
-//		mes "ข้าตีอุปกรณ์ได้ทุกอย่าง ~ลาล้า";
-//		mes "ให้ข้าดูสิ่งที่ท่านต้องการจะตี ~";
-//		close2;
-//		refineui();
-//		end;
-//	}else{
-//		callfunc "refinemain","Aragham",0;
-//		end;
+	if( getbattleflag( "feature.refineui" ) ){
+		mes "[Lambert]";
+		mes "อืม...มา...นี่คือ...โรงตีเหล็กที่ดีที่สุด...ในจูโน";
+		close2;
+		refineui();
+		end;
+	}else{
+		callfunc "refinemain","Lambert",0;
+		end;
+	}
+}
+
+ein_in01,24,87,5	script	Manthasman	4_M_DWARF,{
+//	if (countitem(35411) >= 1) {
+//		mes "^FF0000คุณมีหมวก refine challenger เอาไปเก็บซะ^000000";
+//		close;
 //	}
-//}
-//
-//payon_in01,81,31,4	script	Antonio	4_M_ORIENT01,{
-//	if( getbattleflag( "feature.refineui" ) ){
-//		mes "[Antonio]";
-//		mes "หยุดจู้จี้แล้วหาอุปกรณ์ที่ท่านต้องการตีมาให้ข้า";
-//		close2;
-//		refineui();
-//		end;
-//	}else{
-//		callfunc "refinemain","Antonio",0;
-//		end;
+	if( getbattleflag( "feature.refineui" ) ){
+		mes "[Manthasman Pruhag]";
+		mes "Hahaha, you already knew it. So you'd like to refine something?";
+		mes "Let's try something risky today!";
+		close2;
+		refineui();
+		end;
+	}else{
+		callfunc "refinemain","Manthasman Pruhag",0;
+		end;
+	}
+}
+
+lhz_in02,282,20,7	script	Fulerr	4_M_LGTMAN,{
+//	if (countitem(35411) >= 1) {
+//		mes "^FF0000คุณมีหมวก refine challenger เอาไปเก็บซะ^000000";
+//		close;
 //	}
-//}
-//
-//alberta_in,28,58,0	script	Fredrik	4_M_03,{
-//	if( getbattleflag( "feature.refineui" ) ){
-//		mes "[Fredrik Hermanthorn]";
-//		mes "ข้าเป็นช่างตีเหล็กที่ตีอาวุธหรืออุปกรณ์ของท่านได้";
-//		mes "ท่านมีสิ่งที่ต้องการตีหรือไม่?";
-//		close2;
-//		refineui();
-//		end;
-//	}else{
-//		callfunc "refinemain","Fredrik",0;
-//		end;
-//	}
-//}
-//
-//yuno_in01,171,21,4	script	Lambert	4_M_ORIENT01,{
-////	if (countitem(35411) >= 1) {
-////		mes "^FF0000คุณมีหมวก refine challenger เอาไปเก็บซะ^000000";
-////		close;
-////	}
-//	if( getbattleflag( "feature.refineui" ) ){
-//		mes "[Lambert]";
-//		mes "อืม...มา...นี่คือ...โรงตีเหล็กที่ดีที่สุด...ในจูโน";
-//		close2;
-//		refineui();
-//		end;
-//	}else{
-//		callfunc "refinemain","Lambert",0;
-//		end;
-//	}
-//}
-//
-//ein_in01,24,87,5	script	Manthasman	4_M_DWARF,{
-////	if (countitem(35411) >= 1) {
-////		mes "^FF0000คุณมีหมวก refine challenger เอาไปเก็บซะ^000000";
-////		close;
-////	}
-//	if( getbattleflag( "feature.refineui" ) ){
-//		mes "[Manthasman Pruhag]";
-//		mes "Hahaha, you already knew it. So you'd like to refine something?";
-//		mes "Let's try something risky today!";
-//		close2;
-//		refineui();
-//		end;
-//	}else{
-//		callfunc "refinemain","Manthasman Pruhag",0;
-//		end;
-//	}
-//}
-//
-//lhz_in02,282,20,7	script	Fulerr	4_M_LGTMAN,{
-////	if (countitem(35411) >= 1) {
-////		mes "^FF0000คุณมีหมวก refine challenger เอาไปเก็บซะ^000000";
-////		close;
-////	}
-//	if( getbattleflag( "feature.refineui" ) ){
-//		mes "[Fulerr]";
-//		mes "Hehe... You wanna refine?";
-//		mes "Hehe.. Consider it done..";
-//		mes "Hehe....";
-//		close2;
-//		refineui();
-//		end;
-//	}else{
-//		callfunc "refinemain","Fulerr",0;
-//		end;
-//	}
-//}
+	if( getbattleflag( "feature.refineui" ) ){
+		mes "[Fulerr]";
+		mes "Hehe... You wanna refine?";
+		mes "Hehe.. Consider it done..";
+		mes "Hehe....";
+		close2;
+		refineui();
+		end;
+	}else{
+		callfunc "refinemain","Fulerr",0;
+		end;
+	}
+}
 
 //============================================================
 //= Main Refiner Function
@@ -969,36 +969,36 @@ function	script	refinemain	{
 	close;
 }
 
-//// Material Salesmen
-////============================================================
-//prt_in,56,68,5	script	Vurewell	86,{
-//	callfunc "phramain","Vurewell";
-//	end;
-//}
-//payon_in01,77,27,4	script	Begnahd	88,{
-//	callfunc "phramain","Begnahd";
-//	end;
-//}
-//morocc_in,63,32,6	script	Sade	99,{
-//	callfunc "phramain","Sade";
-//	end;
-//}
-//alberta_in,13,71,3	script	Kahlamanlith	86,{
-//	callfunc "phramain","Kahlamanlith";
-//	end;
-//}
-//yuno_in01,171,27,4	script	Dilemma	88,{
-//	callfunc "phramain","Dilemma";
-//	end;
-//}
-//ein_in01,15,87,3	script	Tirehaus	86,{
-//	callfunc "phramain","Tirehaus";
-//	end;
-//}
-//lhz_in02,278,24,3	script	Krugg	86,{
-//	callfunc "phramain","Krugg";
-//	end;
-//}
+// Material Salesmen
+//============================================================
+prt_in,56,68,5	script	Vurewell	86,{
+	callfunc "phramain","Vurewell";
+	end;
+}
+payon_in01,77,27,4	script	Begnahd	88,{
+	callfunc "phramain","Begnahd";
+	end;
+}
+morocc_in,63,32,6	script	Sade	99,{
+	callfunc "phramain","Sade";
+	end;
+}
+alberta_in,13,71,3	script	Kahlamanlith	86,{
+	callfunc "phramain","Kahlamanlith";
+	end;
+}
+yuno_in01,171,27,4	script	Dilemma	88,{
+	callfunc "phramain","Dilemma";
+	end;
+}
+ein_in01,15,87,3	script	Tirehaus	86,{
+	callfunc "phramain","Tirehaus";
+	end;
+}
+lhz_in02,278,24,3	script	Krugg	86,{
+	callfunc "phramain","Krugg";
+	end;
+}
 
 // Material Salesmen Functions
 //============================================================
@@ -1091,18 +1091,18 @@ alberta_in,21,63,5	script	Xenophon	84,{
 }
 
 
-//yuno_in01,164,27,4	script	Delight	88,{
-//	callfunc "orimain","Delight";
-//	end;
-//}
-//ein_in01,18,82,6	script	Matestein	84,{
-//	callfunc "orimain","Matestein";
-//	end;
-//}
-//lhz_in02,281,24,5	script	Fruel	84,{
-//	callfunc "orimain","Fruel";
-//	end;
-//}
+yuno_in01,164,27,4	script	Delight	88,{
+	callfunc "orimain","Delight";
+	end;
+}
+ein_in01,18,82,6	script	Matestein	84,{
+	callfunc "orimain","Matestein";
+	end;
+}
+lhz_in02,281,24,5	script	Fruel	84,{
+	callfunc "orimain","Fruel";
+	end;
+}
 
 // Ori/Elu Functions
 //============================================================
