@@ -14864,6 +14864,16 @@ Body:
     Type: Etc
     Buy: 2
     Weight: 10
+    Trade:
+      NoCart: true
+      NoAuction: true
+      NoDrop: true
+      NoTrade: true
+      NoStorage: true
+      NoGuildStorage: true
+      TradePartner: true
+      NoSell: true
+      NoMail: true
   - Id: 6294
     AegisName: F_Marriage_Covenant
     Name: F Marriage Covenant

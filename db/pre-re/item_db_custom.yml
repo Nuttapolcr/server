@@ -1071,12 +1071,6 @@ Body:
       Costume_Head_Low: true
     ArmorLevel: 1
     View: 5001
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
     Trade:
       Override: 100
       NoDrop: true
@@ -1087,6 +1081,12 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 62998
     AegisName: Credit_20K
     Name: Credit 20K
@@ -1095,12 +1095,6 @@ Body:
       Costume_Head_Low: true
     ArmorLevel: 1
     View: 5002
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
     Trade:
       Override: 100
       NoDrop: true
@@ -1111,6 +1105,12 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 62999
     AegisName: Credit_30K
     Name: Credit 30K
@@ -1119,12 +1119,6 @@ Body:
       Costume_Head_Low: true
     ArmorLevel: 1
     View: 5003
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
     Trade:
       Override: 100
       NoDrop: true
@@ -1135,6 +1129,12 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 63000
     AegisName: C_21587
     Name: C 21587
@@ -2515,17 +2515,17 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 3098
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 63099
     AegisName: C_costumez513
     Name: Costume Feather of Ascension
@@ -2534,17 +2534,17 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 3099
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 63100
     AegisName: C_costumez514
     Name: C costumez514
@@ -4733,17 +4733,17 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 3255
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 63256
     AegisName: C_qq00114
     Name: C qq00114
@@ -5035,18 +5035,18 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 3276
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
     Trade:
       NoDrop: true
       NoTrade: true
       NoSell: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 63277
     AegisName: C_RAG 2468
     Name: C RAG 2468
@@ -9217,17 +9217,17 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 3574
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 63575
     AegisName: C_RAG FLAMINGGOATS BLU
     Name: C RAG FLAMINGGOATS BLU
@@ -9460,17 +9460,17 @@ Body:
       Costume_Head_Top: true
     ArmorLevel: 1
     View: 3591
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 63592
     AegisName: C_RAG Gear0052
     Name: C RAG Gear0052
@@ -12313,17 +12313,17 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3794
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 63795
     AegisName: C_Bear Guitar
     Name: C Bear Guitar
@@ -12836,17 +12836,17 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3831
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 63832
     AegisName: C_costume1472
     Name: C costume1472
@@ -15389,18 +15389,18 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 4013
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
     Trade:
       NoDrop: true
       NoTrade: true
       NoSell: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 64014
     AegisName: C_RAG 2473
     Name: C RAG 2473
@@ -16683,17 +16683,17 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 4105
+    Trade:
+      NoDrop: true
+      NoSell: true
+      NoMail: true
+      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
   - Id: 64106
     AegisName: C_RAG 2687
     Name: C RAG 2687
@@ -17447,12 +17447,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 4159
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
     Trade:
       NoDrop: true
       NoTrade: true
@@ -17460,6 +17454,12 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 64160
     AegisName: C_RAG 3175
     Name: C RAG 3175
@@ -35537,10 +35537,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bShortAtkRate,1;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001726
     AegisName: Col_Maya
     Name: "[ Collection ] Maya"
@@ -35549,10 +35549,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bAspdRate,1;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001727
     AegisName: Col_Eddga
     Name: "[ Collection ] Eddga"
@@ -35561,10 +35561,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bDelayrate,-1;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001728
     AegisName: Col_Dark_Lord
     Name: "[ Collection ] Dark Lord"
@@ -35573,10 +35573,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bCritical,5;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001729
     AegisName: Col_Baphomet
     Name: "[ Collection ] Baphomet"
@@ -35585,10 +35585,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bDropAddClass_C,Class_All,10;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001730
     AegisName: Col_Orc_Lord
     Name: "[ Collection ] Orc Lord"
@@ -35597,10 +35597,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bMaxSP,100;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001731
     AegisName: Col_Lady_Tanee
     Name: "[ Collection ] Lady Tanee"
@@ -35609,10 +35609,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bCritAtkRate,5;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001732
     AegisName: Col_Phreeoni
     Name: "[ Collection ] Phreeoni"
@@ -35621,10 +35621,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bFlee2,5;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001733
     AegisName: Col_Orc_Hero
     Name: "[ Collection ] Orc Hero"
@@ -35633,10 +35633,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddClass,Class_All,1;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001734
     AegisName: Col_Amon_Ra
     Name: "[ Collection ] Amon Ra"
@@ -35645,10 +35645,10 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bMagicAddClass,Class_All,1;
       bonus2 bDropAddClass,Class_All,2;
+    CollectionAmount: 5
   - Id: 1001735
     AegisName: Col_Pharaoh
     Name: "[ Collection ] Pharaoh"
@@ -35657,11 +35657,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Freeze,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001736
     AegisName: Col_Bacsojin
     Name: "[ Collection ] Bacsojin"
@@ -35670,11 +35670,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Stun,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001737
     AegisName: Col_Osiris
     Name: "[ Collection ] Osiris"
@@ -35683,11 +35683,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Stone,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001738
     AegisName: Col_Dracula
     Name: "[ Collection ] Dracula"
@@ -35696,11 +35696,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Sleep,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001739
     AegisName: Col_Doppelganger
     Name: "[ Collection ] Doppelganger"
@@ -35709,11 +35709,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Silence,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001740
     AegisName: Col_Mistress
     Name: "[ Collection ] Mistress"
@@ -35722,11 +35722,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Curse,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001741
     AegisName: Col_Moonlight
     Name: "[ Collection ] Moonlight"
@@ -35735,11 +35735,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEffWhenHit,Eff_Confusion,200;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001742
     AegisName: Col_Drake
     Name: "[ Collection ] Drake"
@@ -35748,11 +35748,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       skill "AL_INCAGI",10;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001743
     AegisName: Col_Stormy_Knight
     Name: "[ Collection ] Stormy Knight"
@@ -35761,11 +35761,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       skill "PR_IMPOSITIO",5;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001744
     AegisName: Col_Lord_of_Death
     Name: "[ Collection ] Lord of Death"
@@ -35774,11 +35774,11 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       skill "AL_BLESSING",10;
       bonus bAddMaxWeight,1000;
       bonus2 bDropAddClass,Class_All,3;
+    CollectionAmount: 5
   - Id: 1001745
     AegisName: Col_Seyren
     Name: "[ Collection ] Seyren"
@@ -35787,13 +35787,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bAllStats,2;
       bonus bAspd,1;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001746
     AegisName: Col_Eremes
     Name: "[ Collection ] Eremes"
@@ -35802,7 +35802,6 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bAllStats,2;
       bonus bFlee,30;
@@ -35810,6 +35809,7 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001747
     AegisName: Col_Howard
     Name: "[ Collection ] Howard"
@@ -35818,13 +35818,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bAllStats,1;
       bonus bAspdRate,10;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001748
     AegisName: Col_Margaretha
     Name: "[ Collection ] Margaretha"
@@ -35833,13 +35833,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bResEff,Eff_Stun,5000;
       bonus2 bAddEff2,Eff_Freeze,10000;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001749
     AegisName: Col_Cecil
     Name: "[ Collection ] Cecil"
@@ -35848,7 +35848,6 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddClass,Class_Boss,35;
       bonus2 bAddEff2,SC_COMA,100;
@@ -35856,6 +35855,7 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001750
     AegisName: Col_Kathryne
     Name: "[ Collection ] Kathryne"
@@ -35864,12 +35864,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bShortWeaponDamageReturn,-100;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001751
     AegisName: Col_Randel
     Name: "[ Collection ] Randel"
@@ -35878,12 +35878,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bMagicDamageReturn,100;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001752
     AegisName: Col_Flamel
     Name: "[ Collection ] Flamel"
@@ -35892,12 +35892,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       sc_start SC_ENDURE,INFINITE_TICK,1;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001753
     AegisName: Col_Celia
     Name: "[ Collection ] Celia"
@@ -35906,12 +35906,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus bNoGemStone;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001754
     AegisName: Col_Chen
     Name: "[ Collection ] Chen"
@@ -35920,7 +35920,6 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 5
     CollectionScript: |-
       bonus2 bAddEff,Eff_Stun,1000;
       bonus2 bAddEff,Eff_Curse,1000;
@@ -35930,6 +35929,7 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+    CollectionAmount: 5
   - Id: 1001755
     AegisName: Col_MedJay
     Name: "[ Collection ] MedJay"
@@ -35938,12 +35938,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 2
     CollectionScript: |-
       c_autobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001756
     AegisName: Col_MedJee
     Name: "[ Collection ] MedJee"
@@ -35952,12 +35952,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 2
     CollectionScript: |-
       c_autobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001757
     AegisName: Col_MedJed
     Name: "[ Collection ] MedJed"
@@ -35966,13 +35966,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 2
     CollectionScript: |-
       bonus bCritical,50;
       bonus bCritAtkRate,20;
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001758
     AegisName: Col_Spirit_Flame
     Name: "[ Collection ] Spirit Flame"
@@ -35981,7 +35981,6 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 2
     CollectionScript: |-
       bonus bBaseAtk,70;
       bonus bShortAtkRate,3;
@@ -35989,6 +35988,7 @@ Body:
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001759
     AegisName: Col_Spirit_Water
     Name: "[ Collection ] Spirit Water"
@@ -35997,7 +35997,6 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 2
     CollectionScript: |-
       bonus bMatk,150;
       bonus bMatkRate,10;
@@ -36006,6 +36005,7 @@ Body:
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1001760
     AegisName: Col_Spirit_Wind
     Name: "[ Collection ] Spirit Wind"
@@ -36014,13 +36014,13 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionAmount: 2
     CollectionScript: |-
       bonus bMaxHPrate,50;
       bonus bDef,100;
       bonus bAddMaxWeight,5000;
       bonus bMaxHP,1000;
       bonus2 bDropAddClass,Class_All,20;
+    CollectionAmount: 2
   - Id: 1000619
     AegisName: aegis_1000619
     Name: iPhone 20
@@ -36179,5 +36179,9 @@ Body:
   - Id: 1030005
     AegisName: Pet_Friendly_Ticket
     Name: Pet Friendly Ticket
-    Script: setpetintimacy PET_INTIMATE_MAX;
     Type: Cash
+    Script: setpetintimacy PET_INTIMATE_MAX;
+  - Id: 1030006
+    AegisName: Poring_Slot_Coin
+    Name: Poring Slot Coin
+    Type: Etc
