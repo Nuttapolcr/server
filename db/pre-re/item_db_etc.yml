@@ -14860,20 +14860,20 @@ Body:
     Weight: 10
   - Id: 6293
     AegisName: F_Token_Of_Siegfried
-    Name: F Token Of Siegfried
+    Name: Token Of Siegfried (NT)
     Type: Etc
     Buy: 2
     Weight: 10
     Trade:
-      NoCart: true
-      NoAuction: true
       NoDrop: true
       NoTrade: true
-      NoStorage: true
-      NoGuildStorage: true
       TradePartner: true
       NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
       NoMail: true
+      NoAuction: true
   - Id: 6294
     AegisName: F_Marriage_Covenant
     Name: F Marriage Covenant
@@ -24070,7 +24070,7 @@ Body:
     Weight: 100
   - Id: 25798
     AegisName: SuraStone_Bottom2
-    Name: Sura Stone II (Lower)
+    Name: Champion Stone II(Lower)
     Type: Etc
     Weight: 100
   - Id: 25411
@@ -24189,12 +24189,12 @@ Body:
     Weight: 100
   - Id: 25802
     AegisName: SorcererStone_Bottom2
-    Name: Sorcerer Stone II (Lower)
+    Name: Scholar Stone II(Lower)
     Type: Etc
     Weight: 100
   - Id: 25419
     AegisName: SorcererStone_Bottom
-    Name: Scholar Stone (Lower)
+    Name: Professor Stone(Lower)
     Type: Etc
     Buy: 20
     Weight: 100
@@ -24222,7 +24222,7 @@ Body:
     Weight: 100
   - Id: 25806
     AegisName: ShadowchasStone_Bottom2
-    Name: Shadow Chaser Stone II (Lower)
+    Name: Stalker Stone II(Lower)
     Type: Etc
     Weight: 100
   - Id: 25492
@@ -24255,7 +24255,7 @@ Body:
     Weight: 100
   - Id: 25496
     AegisName: MechanicStone_Bottom
-    Name: Mastersmith Stone (Lower)
+    Name: Whitesmith Stone(Lower)
     Type: Etc
     Buy: 20
     Weight: 100
@@ -24271,7 +24271,7 @@ Body:
     Weight: 100
   - Id: 25799
     AegisName: SuraStone_Middle2
-    Name: Sura Stone II (Middle)
+    Name: Champion Stone II(Middle)
     Type: Etc
     Weight: 100
   - Id: 25410
@@ -24378,12 +24378,12 @@ Body:
     Weight: 100
   - Id: 25803
     AegisName: SorcererStone_Middle2
-    Name: Sorcerer Stone II (Middle)
+    Name: Scholar Stone II(Middle)
     Type: Etc
     Weight: 100
   - Id: 25418
     AegisName: SorcererStone_Middle
-    Name: Scholar Stone (Middle)
+    Name: Professor Stone(Middle)
     Type: Etc
     Buy: 20
     Weight: 100
@@ -24406,7 +24406,7 @@ Body:
     Weight: 100
   - Id: 25807
     AegisName: ShadowchasStone_Middle2
-    Name: Shadow Chaser Stone II (Middle)
+    Name: Stalker Stone II(Middle)
     Type: Etc
     Weight: 100
   - Id: 25491
@@ -24433,7 +24433,7 @@ Body:
     Weight: 100
   - Id: 25495
     AegisName: MechanicStone_Middle
-    Name: Mastersmith Stone (Middle)
+    Name: Whitesmith Stone(Middle)
     Type: Etc
     Buy: 20
     Weight: 100
@@ -24455,7 +24455,7 @@ Body:
     Weight: 100
   - Id: 25800
     AegisName: SuraStone_Top2
-    Name: Sura Stone II (Upper)
+    Name: Champion Stone II(Upper)
     Type: Etc
     Weight: 100
   - Id: 25409
@@ -24556,12 +24556,12 @@ Body:
     Weight: 100
   - Id: 25804
     AegisName: SorcererStone_Top2
-    Name: Sorcerer Stone II (Upper)
+    Name: Scholar Stone II(Upper)
     Type: Etc
     Weight: 100
   - Id: 25417
     AegisName: SorcererStone_Top
-    Name: Scholar Stone (Upper)
+    Name: Professor Stone(Upper)
     Type: Etc
     Buy: 20
     Weight: 100
@@ -24588,7 +24588,7 @@ Body:
     Weight: 100
   - Id: 25808
     AegisName: ShadowchaserStone_Top2
-    Name: Shadow Chaser Stone II (Upper)
+    Name: Stalker Stone II(Upper)
     Type: Etc
     Weight: 100
   - Id: 25490
@@ -24615,7 +24615,7 @@ Body:
     Weight: 100
   - Id: 25494
     AegisName: MechanicStone_Top
-    Name: Mastersmith Stone (Upper)
+    Name: Whitesmith Stone(Upper)
     Type: Etc
     Buy: 20
     Weight: 100
@@ -25037,7 +25037,7 @@ Body:
       bonus2 bSkillAtk,"CH_CHAINCRUSH",15;
   - Id: 29615
     AegisName: Sorcerer_Bottom2
-    Name: Sorcerer Stone II (Lower)
+    Name: Scholar Stone II(Lower)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25051,7 +25051,7 @@ Body:
       bonus bInt,2*((getskilllv("SA_FLAMELAUNCHER")+getskilllv("SA_LIGHTNINGLOADER")+getskilllv("SA_FROSTWEAPON"))/3);
   - Id: 29617
     AegisName: Sorcerer_Top2
-    Name: Sorcerer Stone II (Upper)
+    Name: Scholar Stone II(Upper)
     Type: Card
     SubType: Enchant
     Script: |
@@ -25072,7 +25072,7 @@ Body:
       bonus bFlee,getskilllv("RG_STEALCOIN");
   - Id: 29621
     AegisName: Shadowchaser_Top2
-    Name: Shadow Chaser Stone II (Upper)
+    Name: Stalker Stone II(Upper)
     Type: Card
     SubType: Enchant
     Script: |
