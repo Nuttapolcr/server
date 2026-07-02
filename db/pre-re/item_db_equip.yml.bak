@@ -24161,6 +24161,7 @@ Body:
       sc_start SC_SUMMER,INFINITE_TICK,0;
     UnEquipScript: |
       sc_end SC_SUMMER;
+    Slots: 1
   - Id: 2777
     AegisName: Shaman_Ring
     Name: Shaman Ring
@@ -27264,6 +27265,7 @@ Body:
       bonus bVit,1;
       bonus2 bSubRace,RC_DemiHuman,5;
       bonus2 bSubRace,RC_Player_Human,5;
+    Slots: 1
   - Id: 5143
     AegisName: Kabuki_Mask
     Name: Kabuki Mask
@@ -30336,6 +30338,7 @@ Body:
     Script: |
       bonus bMdef,3;
       bonus3 bAutoSpellWhenHit,"DC_WINKCHARM",1,50;
+    Slots: 1
   - Id: 5308
     AegisName: Brazilian_Flag_Hat
     Name: Brazil National Flag Hat
@@ -30568,6 +30571,7 @@ Body:
     View: 341
     Script: |
       bonus bLuk,3;
+    Slots: 1
   - Id: 5320
     AegisName: Champion_Wreath
     Name: Champion Wreath
@@ -30828,6 +30832,7 @@ Body:
     Script: |
       bonus bLuk,2;
       bonus bMdef,2;
+    Slots: 1
   - Id: 5335
     AegisName: Jumping_Poring
     Name: Jumping Poring
@@ -32080,6 +32085,7 @@ Body:
     Script: |
       bonus bUnbreakableHelm, 0;
       bonus bFlee2, 3;
+    Slots: 1
   - Id: 5403
     AegisName: Fish_In_Mouth
     Name: Fish In Mouth
@@ -32239,6 +32245,7 @@ Body:
     View: 413
     Script: |
       bonus bDex,2;
+    Slots: 1
   - Id: 5412
     AegisName: Sweet_Candy
     Name: Sweet Candy
@@ -32398,6 +32405,7 @@ Body:
       bonus3 bAutoSpell,"MG_FIREBOLT",3,50;
     UnEquipScript: |
       sc_end SC_SIGHT;
+    Slots: 1
   - Id: 5421
     AegisName: Ifrit's_Ear
     Name: Ears Of Ifrit
@@ -33617,6 +33625,7 @@ Body:
     Script: |
       bonus bVit,5;
       bonus bFlee,10;
+    Slots: 1
   - Id: 5499
     AegisName: Pizza_Hat
     Name: Pizza Hat
@@ -34490,6 +34499,7 @@ Body:
          bonus bDef,1;
          bonus bVit,1;
       }
+    Slots: 1
   - Id: 5546
     AegisName: Aries_Crown
     Name: Aries Crown
@@ -34514,6 +34524,7 @@ Body:
          bonus bDef,1;
          bonus bVit,1;
       }
+    Slots: 1
   - Id: 5547
     AegisName: RJC_Katusa
     Name: RJC Katusa Flower
@@ -34926,6 +34937,7 @@ Body:
          bonus bMAtkRate,8;
          bonus2 bSubEle,Ele_Wind,5;
       }
+    Slots: 1
   - Id: 5570
     AegisName: Gemini_Crown
     Name: Gemini Crown
@@ -34953,6 +34965,7 @@ Body:
          bonus bFlee,10;
          bonus2 bSubEle,Ele_Wind,5;
       }
+    Slots: 1
   - Id: 5572
     AegisName: Savage_Baby_Hat
     Name: Savage Babe Hat
@@ -35439,6 +35452,7 @@ Body:
     View: 589
     Script: |
       bonus3 bAutoSpell,"SA_FLAMELAUNCHER",1,5;
+    Slots: 1
   - Id: 5659
     AegisName: Sleepr_Hat
     Name: Sleeper Hat
@@ -35469,6 +35483,7 @@ Body:
     View: 591
     Script: |
       bonus3 bAutoSpell,"SA_LIGHTNINGLOADER",1,5;
+    Slots: 1
   - Id: 5664
     AegisName: Filir_Wing
     Name: Filir's Pinions
@@ -35884,6 +35899,7 @@ Body:
       NoAuction: true
     Script: |
       bonus bLuk,1;
+    Slots: 1
   - Id: 5788
     AegisName: 3D_Glasses
     Name: 3D Glasses
@@ -41691,21 +41707,21 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
-      if (getmapflag(strcharinfo(3),MF_PVP) || getmapflag(strcharinfo(3),MF_GVG) || getmapflag(strcharinfo(3),MF_GVG_CASTLE)) end;
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
+      bonus2 bAddMonsterDropItem,905027,50;
       if (getequipid(EQI_SHADOW_ARMOR) == 24000
        && getequipid(EQI_SHADOW_SHOES) == 24002
        && getequipid(EQI_SHADOW_SHIELD) == 24001
        && getequipid(EQI_SHADOW_ACC_R) == 24003
        && getequipid(EQI_SHADOW_ACC_L) == 24004
-       && getequiprefinerycnt(EQI_SHADOW_ARMOR) >= 5
-       && getequiprefinerycnt(EQI_SHADOW_SHOES) >= 5
-       && getequiprefinerycnt(EQI_SHADOW_SHIELD) >= 5
-       && getequiprefinerycnt(EQI_SHADOW_ACC_R) >= 5
-       && getequiprefinerycnt(EQI_SHADOW_ACC_L) >= 5) {
-        bonus2 bAddMonsterDropItem,905027,100;
+       && getequiprefinerycnt(EQI_SHADOW_ARMOR) >= 10
+       && getequiprefinerycnt(EQI_SHADOW_SHOES) >= 10
+       && getequiprefinerycnt(EQI_SHADOW_SHIELD) >= 10
+       && getequiprefinerycnt(EQI_SHADOW_ACC_R) >= 10
+       && getequiprefinerycnt(EQI_SHADOW_ACC_L) >= 10) {
+        bonus2 bAddMonsterDropItem,905027,1000;
       }
     UnEquipScript: |
       callfunc "F_ClearPowerShadowSC_Armor";
@@ -41721,10 +41737,10 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
-      if (getmapflag(strcharinfo(3),MF_PVP) || getmapflag(strcharinfo(3),MF_GVG) || getmapflag(strcharinfo(3),MF_GVG_CASTLE)) end;
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
+      bonus2 bAddMonsterDropItem,905027,50;
     UnEquipScript: |
       callfunc "F_ClearPowerShadowSC_Shield";
   - Id: 24002
@@ -41739,10 +41755,10 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
-      if (getmapflag(strcharinfo(3),MF_PVP) || getmapflag(strcharinfo(3),MF_GVG) || getmapflag(strcharinfo(3),MF_GVG_CASTLE)) end;
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
+      bonus2 bAddMonsterDropItem,905027,50;
     UnEquipScript: |
       callfunc "F_ClearPowerShadowSC_Shoes";
   - Id: 24003
@@ -41757,10 +41773,10 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
-      if (getmapflag(strcharinfo(3),MF_PVP) || getmapflag(strcharinfo(3),MF_GVG) || getmapflag(strcharinfo(3),MF_GVG_CASTLE)) end;
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
+      bonus2 bAddMonsterDropItem,905027,50;
   - Id: 24004
     AegisName: aegis_24004
     Name: CBT Shadow Pendant
@@ -41773,10 +41789,10 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
-      if (getmapflag(strcharinfo(3),MF_PVP) || getmapflag(strcharinfo(3),MF_GVG) || getmapflag(strcharinfo(3),MF_GVG_CASTLE)) end;
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
+      bonus2 bAddMonsterDropItem,905027,50;
   - Id: 24417
     AegisName: S_Timeoverload_Armor
     Name: Temporal Transcendent Shadow Armor

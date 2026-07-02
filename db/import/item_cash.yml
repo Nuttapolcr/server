@@ -49,24 +49,24 @@ Body:
         Price: 89
       - Item: Munin_Egg01
         Price: 89
-      - Item: aegis_1001012
-        Price: 59
   - Tab: Hot
     Items:
+      - Item: aegis_1000602
+        Price: 19
       - Item: CASH
         Price: 1
       - Item: Cash_Coin_Bag
         Price: 1000
       - Item: Blacksmith_Blessing
-        Price: 29
+        Price: 49
       - Item: HD_Elunium
-        Price: 29
+        Price: 69
       - Item: HD_Oridecon
-        Price: 29
+        Price: 69
       - Item: HD_Elu_Box
-        Price: 279
+        Price: 590
       - Item: HD_Ori_Box
-        Price: 279
+        Price: 590
       - Item: Enriched_Elunium
         Price: 29
       - Item: Enriched_Oridecon
@@ -76,49 +76,49 @@ Body:
       - Item: Enriched_Oridecon_Box
         Price: 279
       - Item: Valor_Stone
-        Price: 29
+        Price: 39
       - Item: Valor_Stone_Box
-        Price: 279
+        Price: 379
       - Item: Pet_Friendly_Ticket
         Price: 499
   - Tab: Permanent
     Items:
       - Item: Upg_Katar
-        Price: 890
+        Price: 2490
       - Item: Upg_Two_Handed_Axe
-        Price: 890
+        Price: 2490
       - Item: Upg_Lance
-        Price: 890
+        Price: 2490
       - Item: Upg_Book
-        Price: 890
+        Price: 2490
       - Item: Upg_Staff
-        Price: 890
+        Price: 2490
       - Item: Upg_Dagger
-        Price: 890
+        Price: 2490
       - Item: Upg_Revolver
-        Price: 890
+        Price: 2490
       - Item: Upg_Twohand_Sword
-        Price: 890
+        Price: 2490
       - Item: Upg_Mace
-        Price: 890
+        Price: 2490
       - Item: Upg_Bow
-        Price: 890
+        Price: 2490
       - Item: Upg_Huuma_Shuriken
-        Price: 890
+        Price: 2490
       - Item: Upg_Adv_Suit
-        Price: 890
+        Price: 2490
       - Item: Upg_Guard
-        Price: 890
+        Price: 2490
       - Item: Upg_Boots
-        Price: 890
+        Price: 2490
       - Item: Upg_Muffler
-        Price: 890
+        Price: 2490
   - Tab: Consumables
     Items:
       - Item: Bubble_Gum
-        Price: 19
+        Price: 29
       - Item: Bubble_Gum_Box
-        Price: 179
+        Price: 279
       - Item: Str_Dish10_
         Price: 2
       - Item: Agi_Dish10_
@@ -138,7 +138,7 @@ Body:
       - Item: Aspersio_5_Scroll
         Price: 2
       - Item: Megaphone_
-        Price: 9
+        Price: 10
       - Item: Kafra_Card
         Price: 6
       - Item: Tasty_Colonel
@@ -150,7 +150,7 @@ Body:
       - Item: Abrasive
         Price: 2
       - Item: Max_Weight_Up_Scroll
-        Price: 59
+        Price: 79
       - Item: Elemental_Fire
         Price: 1
       - Item: Elemental_Water
@@ -173,5 +173,5 @@ Body:
         Price: 2
       - Item: Honey_Pastry
         Price: 2
-      - Item: F_Token_Of_Siegfried
-        Price: 6
+      - Item: Token_Of_Siegfried
+        Price: 8

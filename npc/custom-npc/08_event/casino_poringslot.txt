@@ -66,11 +66,12 @@ end;
 morocc,207,40,4	script	PoringSlotsPlay	10162,{
 	goto PLZ_Main;
 	PLZ_Main:
+		set .@FSC_CoinID,30001;
 		mes "[ ^0000FFPoring Slots Play^000000 ]";
 		mes " ยินดีต้อนรับเซียนทุกๆท่าน";
 		mes " คุณจะให้ข้าหมุนแล้วหรือยัง";
-		mes " คุณต้องเสีย ^0000FF"+getitemname(30001)+"^000000";
-		mes " จำนวน  : ^0000FF 1 ^000000 ea. ให้แก่ข้า";
+		mes " คุณต้องเสีย ^0000FF"+getitemname(.@FSC_CoinID)+"^000000";
+		mes " จำนวน  : ^0000FF 29 ^000000 ea. ให้แก่ข้า";
 		next;
 		if(getgmlevel()>90) {
 			
@@ -100,13 +101,13 @@ morocc,207,40,4	script	PoringSlotsPlay	10162,{
 		close;
 		}
 		
-		if(countitem(30001)<1){
+		if(countitem(30001)<29){
 		mes "[ ^0000FFPoring Slots Play^000000 ]";
-		mes " คุณมี ^0000FF"+getitemname(30001)+"^000000 ไม่พอสำหรับค่าหมุน";
+		mes " คุณมี ^0000FF"+getitemname(.@FSC_CoinID)+"^000000 ไม่พอสำหรับค่าหมุน";
 		close;
 		}
 		
-		delitem 30001,1;
+		delitem 30001,29;
 		mes "[ ^0000FFPoring Slots Play^000000 ]";
 		mes "ตอนนี้กิจกรรมกำลังเล่นอยู่ค่ะ";
 		set $@PoringSlotsPlaying,1;
@@ -227,16 +228,17 @@ function	script	FuncPoringSlotsChoose	{
 	
 	set .@FSC_Poring,getarg(0);
 	set .@FSC_GetPoint,getarg(1);
+	set .@FSC_CoinID,1030006;
 	if(getd("FSC_Coin"+.@FSC_Poring)>0){
 		if(getd("PoringSlotsRound"+.@FSC_Poring)==$PoringSlotsRound-1&&.@FSC_Poring==$FSC_Win){
 			set .@FSC_Temp,getd("FSC_Coin"+.@FSC_Poring)*.@FSC_GetPoint;
-			if (.@FSC_Temp + countitem(30001) > 30000){
-				delitem 30001,countitem(30001);
-				getitem 30001,30000;
+			if (.@FSC_Temp + countitem(.@FSC_CoinID) > 30000){
+				delitem .@FSC_CoinID,countitem(.@FSC_CoinID);
+				getitem .@FSC_CoinID,30000;
 				//atcommand "@cleanmap";
 				cleanmap "morocc";
 			} else {
-				getitem 30001,.@FSC_Temp;
+				getitem .@FSC_CoinID,.@FSC_Temp;
 				//atcommand "@cleanmap";
 				cleanmap "morocc";
 				}
@@ -264,27 +266,24 @@ function	script	FuncPoringSlotsChoose	{
 	next;
 	mes "[ ^0000FFPoring Slots Play^000000 ]";
 	mes " เลือกจำนวนที่ต้องการแทง";
-	switch(select( "~ ยกเลิก ","~ แทง 10","~ แทง 50","~ แทง 100","~ แทง 300","~ แทง 500","~ แทง 1000"))
+	switch(select("~ ยกเลิก ","~ แทง 1","~ แทง 3","~ แทง 5","~ แทง 10","~ แทง 15"))
 	{
 	case 1:
 	close;
 	case 2:
-		set .@FSC_Input,10;
+		set .@FSC_Input,1;
 	break;
 	case 3:
-		set .@FSC_Input,50;
+		set .@FSC_Input,3;
 	break;
 	case 4:
-		set .@FSC_Input,100;
+		set .@FSC_Input,5;
 	break;
 	case 5:
-		set .@FSC_Input,300;
+		set .@FSC_Input,10;
 	break;
 	case 6:
-		set .@FSC_Input,500;
-	break;
-	case 7:
-		set .@FSC_Input,1000;
+		set .@FSC_Input,15;
 	break;
 	}
 	next;
@@ -303,9 +302,9 @@ function	script	FuncPoringSlotsChoose	{
 	}
 	if(select("^00CD00~^000000 ถูกต้อง","^FF0000~^000000 ยกเลิก")==2)
 		close;
-	if(countitem(30001)<.@FSC_Input){
+	if(countitem(.@FSC_CoinID)<.@FSC_Input){
 		mes "[ ^0000FFPoring Slots Play^000000 ]";
-		mes " คุณมี  ^0000FF"+getitemname(30001)+"^000000 ไม่พอค่ะ";
+		mes " คุณมี  ^0000FF"+getitemname(.@FSC_CoinID)+"^000000 ไม่พอค่ะ";
 		close;
 		return;
 	}
@@ -315,7 +314,7 @@ function	script	FuncPoringSlotsChoose	{
 		close;
 		return;
 	}
-	delitem 30001,.@FSC_Input;
+	delitem .@FSC_CoinID,.@FSC_Input;
 	setd "FSC_Coin"+.@FSC_Poring,.@FSC_Input;
 	delwaitingroom "PoringSlotsChoose#0"+.@FSC_Poring;
 	setd "$FSC_Coin"+.@FSC_Poring,getd("$FSC_Coin"+.@FSC_Poring)+.@FSC_Input;
@@ -329,7 +328,7 @@ function	script	FuncPoringSlotsChoose	{
 }
 
 morocc,220,45,5	script	PoringSlotsChoose#01	1002,{
-	callfunc("FuncPoringSlotsChoose",1,2);
+	callfunc("FuncPoringSlotsChoose",1,1);
 end;
 OnEffect:
 	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
@@ -349,7 +348,7 @@ end;
 }
 
 morocc,220,42,5	script	PoringSlotsChoose#02	1113,{
-	callfunc("FuncPoringSlotsChoose",2,5);
+	callfunc("FuncPoringSlotsChoose",2,2);
 end;
 OnEffect:
 	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
@@ -369,7 +368,7 @@ end;
 }
 
 morocc,220,39,5	script	PoringSlotsChoose#03	1031,{
-	callfunc("FuncPoringSlotsChoose",3,8);
+	callfunc("FuncPoringSlotsChoose",3,3);
 end;
 OnEffect:
 	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
@@ -389,7 +388,7 @@ end;*/
 }
 
 morocc,220,36,5	script	PoringSlotsChoose#04	1388,{
-	callfunc("FuncPoringSlotsChoose",4,13);
+	callfunc("FuncPoringSlotsChoose",4,6);
 end;
 OnEffect:
 	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
@@ -409,7 +408,7 @@ end;
 }
 
 morocc,220,33,5	script	PoringSlotsChoose#05	1096,{
-	callfunc("FuncPoringSlotsChoose",5,17);
+	callfunc("FuncPoringSlotsChoose",5,12);
 end;
 OnEffect:
 	for(set $@FSC_i,1;$@FSC_i<15;set $@FSC_i,$@FSC_i+1){
@@ -426,4 +425,57 @@ end;
 OnInit:
 	waitingroom"เดิมพัน Angeling",0;
 end;
+}
+
+
+morocc,211,40,4	script	แลกของ Poring Slot	561,{
+	set .@CoinID,1030006;
+	mes "[ แลกของ Poring Slot ]";
+	mes "เหรียญ Poring Slot: ^0000FF"+countitem(.@CoinID)+"^000000";
+	next;
+
+	set .@menu$,"";
+	for(set .@i,0;.@i<getarraysize(.RewardID);set .@i,.@i+1)
+		set .@menu$,.@menu$+getitemname(.RewardID[.@i])+" - "+.RewardCost[.@i]+" เหรียญ:";
+	set .@menu$,.@menu$+"ยกเลิก";
+
+	set .@select,select(.@menu$);
+	if(.@select>getarraysize(.RewardID))
+		close;
+
+	set .@idx,.@select-1;
+	set .@item,.RewardID[.@idx];
+	set .@amount,.RewardAmount[.@idx];
+	set .@cost,.RewardCost[.@idx];
+
+	mes "[ แลกของ Poring Slot ]";
+	mes "ของรางวัล: ^0000FF"+getitemname(.@item)+"^000000 x "+.@amount;
+	mes "ใช้เหรียญ Poring Slot: ^FF0000"+.@cost+"^000000";
+	next;
+	if(select("ยืนยัน","ยกเลิก")==2)
+		close;
+
+	if(countitem(.@CoinID)<.@cost){
+		mes "[ แลกของ Poring Slot ]";
+		mes "เหรียญ Poring Slot ไม่พอ";
+		close;
+	}
+	if(!checkweight(.@item,.@amount)){
+		mes "[ แลกของ Poring Slot ]";
+		mes "น้ำหนักหรือช่องเก็บของไม่พอ";
+		close;
+	}
+
+	delitem .@CoinID,.@cost;
+	getitem .@item,.@amount;
+	mes "[ แลกของ Poring Slot ]";
+	mes "แลกของเรียบร้อย";
+	close;
+
+OnInit:
+	waitingroom "แลกของ Poring Slot",0;
+	setarray .RewardID[0],24584,24585,24586,24587,24588;
+	setarray .RewardAmount[0],1,1,1,1,1;
+	setarray .RewardCost[0],18,18,18,18,18;
+	end;
 }

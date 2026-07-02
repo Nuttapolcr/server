@@ -26680,8 +26680,7 @@ Body:
       DropEffect: RED_PILLAR
   - Id: 905027
     AegisName: RANK_FARM_BOOK
-    Name: Rank Farm Book
-    Type: DelayConsume
+    Type: Etc
     Flags:
       DropEffect: RED_PILLAR
     Script: |
@@ -26696,6 +26695,7 @@ Body:
       delitem .@coin, .@cnt;
       .@rank = callfunc("FRM_RecalcAndApply", .@acc);
       dispbottom "[System] : Rank Farm +"+callfunc("F_InsertComma", .@add)+" ("+.@cnt+" ea) | Rank "+.@rank;
+    Name: CBT Book
   - Id: 1001000
     AegisName: aegis_1001000
     Name: CBT PROMOTION 3K
@@ -36185,3 +36185,19 @@ Body:
     AegisName: Poring_Slot_Coin
     Name: Poring Slot Coin
     Type: Etc
+  - Id: 1030007
+    AegisName: Charm_CBT
+    Name: Charm CBT
+    Type: Charm
+    CharmScript: |-
+      bonus2 bDropAddClass,Class_All,10;
+      bonus bBossBoxSpeed,5;
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoMail: true
+      NoGuildStorage: true
+      NoCart: true
+      TradePartner: true
+      NoAuction: true

@@ -131,6 +131,7 @@ OnTimer70000:
 	
 OnTimer90000:
 	setarray $@ELT_Point[1],1,2,3,4,5,6;
+	set $@ELT_Round,0;
 	initnpctimer("dice_control#3");
 	end;
 }
@@ -165,14 +166,8 @@ OnTimer1000:
 			break;
 		}
 	}
-	
- 	.@pc_count = getmapunits(BL_PC,"quiz_02",.@pc_name$[0]);
- 	for(.@c=0;.@c<.@pc_count;.@c++){
- 		.@aid = convertpcinfo(.@pc_name$[.@c],CPC_ACCOUNT);
- 		getitem 7619,1,.@aid; // Enriched Elunium
- 		getitem 7620,1,.@aid; // Enriched Oridecon
- 	}
-	
+	set $@ELT_Round,$@ELT_Round+1;
+	callsub S_GiveDiceReward,$@ELT_Round,.ELT_Slot;
 	mapannounce "quiz_02","[กิจกรรมทอยเต๋า] : ห้องที่โชคร้ายได้แก่ ห้องหมายเลข [ "+.ELT_Slot+" ] เสียใจด้วยจริงๆ!",0xFFFF00;
 	sleep 2500;
 	donpcevent "#eff_room_"+.ELT_Slot+"::OnUnlucky";
@@ -189,14 +184,62 @@ OnTimer1000:
 	
 OnAnn:
 	mapannounce "quiz_02","[กิจกรรมทอยเต๋า] : ห้องที่โชคดีได้แก่ ห้องหมายเลข ["+ $@ELT_Point[1] +"] จบกิจกรรมแล้ว",bc_map,0xFFFF00;
-	.@winner_count = getmapunits(BL_PC,"quiz_02",.@pc_name$[0]);
-	for(.@c=0;.@c<.@winner_count;.@c++){
-		.@aid = convertpcinfo(.@pc_name$[.@c],CPC_ACCOUNT);
-		getitem 1001004,1,.@aid;		
-	}
+	callsub S_GiveDiceReward,6,$@ELT_Point[1];
 	donpcevent "Dice_Wall_CTRL::OnHideWall";
 	end;
+S_GiveDiceReward:
+	set .@round,getarg(0);
+	set .@slot,getarg(1);
+	set .@count,getareaunits(BL_PC,"quiz_02",.RoomX1[.@slot],.RoomY1[.@slot],.RoomX2[.@slot],.RoomY2[.@slot],.@pc_name$[0]);
+	for(set .@i,0;.@i<.@count;set .@i,.@i+1){
+		set .@aid,convertpcinfo(.@pc_name$[.@i],CPC_ACCOUNT);
+		switch(.@round){
+		case 1:
+			getitem 1000603,1,.@aid;
+			getitem 1000373,5,.@aid;
+			getitem 984,2,.@aid;
+			break;
+		case 2:
+			getitem 1000603,1,.@aid;
+			getitem 1000373,5,.@aid;
+			getitem 985,2,.@aid;
+			break;
+		case 3:
+			getitem 1000603,2,.@aid;
+			getitem 1000373,5,.@aid;
+			getitem 985,2,.@aid;
+			getitem 984,2,.@aid;
+			break;
+		case 4:
+			getitem 1000603,2,.@aid;
+			getitem 1000373,10,.@aid;
+			getitem 616,1,.@aid;
+			break;
+		case 5:
+			getitem 1000603,2,.@aid;
+			getitem 1000373,10,.@aid;
+			getitem 616,1,.@aid;
+			break;
+		case 6:
+			getitem 1000603,2,.@aid;
+			getitem 1000373,10,.@aid;
+			getitem 616,1,.@aid;
+			getitem 6293,2,.@aid;
+			getitem 1001720,1,.@aid;
+			break;
+		}
+		message rid2name(.@aid),"[กิจกรรมทอยเต๋า] : คุณได้รับของรางวัลออกรอบ "+.@round+" แล้ว";
+	}
+	return;
+
+OnInit:
+	setarray .RoomX1[1],289,289,289,307,307,307;
+	setarray .RoomY1[1],256,247,238,256,247,238;
+	setarray .RoomX2[1],301,301,301,319,319,319;
+	setarray .RoomY2[1],263,254,245,263,254,245;
+	end;
 }
+
 
 -	script	Dice_Wall_CTRL	-1,{
 	
