@@ -228,7 +228,7 @@ function	script	FuncPoringSlotsChoose	{
 	
 	set .@FSC_Poring,getarg(0);
 	set .@FSC_GetPoint,getarg(1);
-	set .@FSC_CoinID,1030006;
+	set .@FSC_CoinID,30001;
 	if(getd("FSC_Coin"+.@FSC_Poring)>0){
 		if(getd("PoringSlotsRound"+.@FSC_Poring)==$PoringSlotsRound-1&&.@FSC_Poring==$FSC_Win){
 			set .@FSC_Temp,getd("FSC_Coin"+.@FSC_Poring)*.@FSC_GetPoint;
