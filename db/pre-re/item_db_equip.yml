@@ -41723,8 +41723,8 @@ Body:
        && getequiprefinerycnt(EQI_SHADOW_ACC_L) >= 10) {
         bonus2 bAddMonsterDropItem,905027,1500;
       }
-    UnEquipScript: |
-      callfunc "F_ClearPowerShadowSC_Armor";
+    # UnEquipScript: |
+    #   callfunc "F_ClearPowerShadowSC_Armor";
   - Id: 24001
     AegisName: aegis_24001
     Name: CBT Shadow Shield
@@ -41741,8 +41741,8 @@ Body:
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
       bonus2 bAddMonsterDropItem,905027,100;
-    UnEquipScript: |
-      callfunc "F_ClearPowerShadowSC_Shield";
+    # UnEquipScript: |
+    #   callfunc "F_ClearPowerShadowSC_Shield";
   - Id: 24002
     AegisName: aegis_24002
     Name: CBT Shadow Shoes
@@ -41759,8 +41759,8 @@ Body:
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
       bonus2 bAddMonsterDropItem,905027,100;
-    UnEquipScript: |
-      callfunc "F_ClearPowerShadowSC_Shoes";
+    # UnEquipScript: |
+    #   callfunc "F_ClearPowerShadowSC_Shoes";
   - Id: 24003
     AegisName: aegis_24003
     Name: CBT Shadow Earring

@@ -26683,18 +26683,18 @@ Body:
     Type: Etc
     Flags:
       DropEffect: RED_PILLAR
-    Script: |
-      .@coin = 905027;
-      .@cnt = countitem(.@coin);
-      if (.@cnt <= 0) end;
-      .@acc = getcharid(3);
-      .@per = 10000;
-      .@add = .@cnt * .@per;
-      query_sql("INSERT INTO `farm_system` (`account_id`,`userid`,`farm_level`,`farm_point`) SELECT "+.@acc+",'',0,0 FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM `farm_system` WHERE account_id="+.@acc+")");
-      query_sql("UPDATE `farm_system` SET `farm_point` = `farm_point` + "+.@add+" WHERE account_id = "+.@acc);
-      delitem .@coin, .@cnt;
-      .@rank = callfunc("FRM_RecalcAndApply", .@acc);
-      dispbottom "[System] : Rank Farm +"+callfunc("F_InsertComma", .@add)+" ("+.@cnt+" ea) | Rank "+.@rank;
+    # Script: |
+    #   .@coin = 905027;
+    #   .@cnt = countitem(.@coin);
+    #   if (.@cnt <= 0) end;
+    #   .@acc = getcharid(3);
+    #   .@per = 10000;
+    #   .@add = .@cnt * .@per;
+    #   query_sql("INSERT INTO `farm_system` (`account_id`,`userid`,`farm_level`,`farm_point`) SELECT "+.@acc+",'',0,0 FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM `farm_system` WHERE account_id="+.@acc+")");
+    #   query_sql("UPDATE `farm_system` SET `farm_point` = `farm_point` + "+.@add+" WHERE account_id = "+.@acc);
+    #   delitem .@coin, .@cnt;
+    #   .@rank = callfunc("FRM_RecalcAndApply", .@acc);
+    #   dispbottom "[System] : Rank Farm +"+callfunc("F_InsertComma", .@add)+" ("+.@cnt+" ea) | Rank "+.@rank;
     Name: CBT Book
   - Id: 1001000
     AegisName: aegis_1001000
@@ -30159,7 +30159,7 @@ Body:
     Script: |
       getgroupitem(IG_MUNIN_EGG01);
   - Id: 1001600
-    AegisName: ìž ê¸´ì‹¤ë²„ê°‘ì˜·ìƒìž
+    AegisName: ìÿ ê¸´ìÿ¤ë²ÿê°‘ìÿ·ìÿÿìÿÿ
     Name: Fragment Stone Box
     Type: Usable
     Weight: 10
@@ -35506,12 +35506,12 @@ Body:
       bonus bBaseAtk,15;
   - Id: 1000602
     AegisName: aegis_1000602
-    Name: à¸šà¸±à¸•à¸£à¸§à¸²à¸›à¸šà¸­à¸ª
+    Name: à¸ÿà¸±à¸•à¸£à¸§à¸²à¸ÿà¸ÿà¸­à¸ª
     Type: Etc
     Weight: 0
   - Id: 1000603
     AegisName: aegis_1000603
-    Name: à¸šà¸±à¸•à¸£à¸§à¸²à¸›à¸šà¸­à¸ª (NT)
+    Name: à¸ÿà¸±à¸•à¸£à¸§à¸²à¸ÿà¸ÿà¸­à¸ª (NT)
     Type: Etc
     Weight: 0
     Trade:
