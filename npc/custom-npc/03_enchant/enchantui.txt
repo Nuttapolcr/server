@@ -1,5 +1,5 @@
 //!rathena
-morocc,150,145,4	script	NPC Enchant	712,{
+morocc,180,142,4	script	NPC Enchant	712,{
 	mes "[NPC Enchant]";
 	mes "Choose an enchant group.";
 	next;

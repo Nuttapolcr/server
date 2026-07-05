@@ -86,7 +86,7 @@ morocc,180,153,4	script	·≈°¢Õß∫Õ 	619,{
 OnInit:
 	waitingroom "·≈°¢Õß∫Õ ",0;
 
-	setarray .RewardID[0], 101856,12246,12698;
+	setarray .RewardID[0], 1001600,12246,12698;
 	setarray .RewardAmount[0], 1,1,1;
 	setarray .RewardCost[0], 1,50,1000;
 	end;

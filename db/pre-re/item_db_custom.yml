@@ -30159,7 +30159,7 @@ Body:
     Script: |
       getgroupitem(IG_MUNIN_EGG01);
   - Id: 1001600
-    AegisName: ìÿ ê¸´ìÿ¤ë²ÿê°‘ìÿ·ìÿÿìÿÿ
+    AegisName: ï¿½ï¿½ï¿½ê¸´ï¿½ï¿½ï¿½ï¿½ï¿½ê°‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     Name: Fragment Stone Box
     Type: Usable
     Weight: 10
@@ -35457,9 +35457,11 @@ Body:
       Shadow_Armor: true
     EquipLevelMin: 1
     Refineable: true
-    Script: |
+    Script: |-
+      .@r = getrefine();
       bonus bMaxHP,100;
       bonus bAspd,1;
+      bonus2 bDropAddRace,RC_All,.@r/2*1;
   - Id: 24585
     AegisName: S_Booster_Shield
     Name: Booster Shadow Shield
@@ -35468,9 +35470,11 @@ Body:
       Shadow_Shield: true
     EquipLevelMin: 1
     Refineable: true
-    Script: |
+    Script: |-
+      .@r = getrefine();
       bonus bMaxHP,100;
       bonus bVariableCastrate,-5;
+      bonus2 bDropAddRace,RC_All,.@r/2*1;
   - Id: 24586
     AegisName: S_Booster_Shoes
     Name: Booster Shadow Shoes
@@ -35480,8 +35484,10 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
+      .@r = getrefine();
       bonus bMaxHP,100;
       bonus bAspdRate,5;
+      bonus2 bDropAddRace,RC_All,.@r/2*1;
   - Id: 24587
     AegisName: S_Booster_Earing
     Name: Booster Shadow Earring
@@ -35491,8 +35497,10 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
+      .@r = getrefine();
       bonus bMatk,15;
       bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,.@r/2*1;
   - Id: 24588
     AegisName: S_Booster_Pandent
     Name: Booster Shadow Pendant
@@ -35502,16 +35510,18 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
+      .@r = getrefine();
       bonus bMaxHP,100;
       bonus bBaseAtk,15;
+      bonus2 bDropAddRace,RC_All,.@r/2*1;
   - Id: 1000602
     AegisName: aegis_1000602
-    Name: à¸ÿà¸±à¸•à¸£à¸§à¸²à¸ÿà¸ÿà¸­à¸ª
+    Name: ï¿½ï¿½à¸±à¸•à¸£à¸§à¸²ï¿½ï¿½ï¿½ï¿½à¸­à¸ª
     Type: Etc
     Weight: 0
   - Id: 1000603
     AegisName: aegis_1000603
-    Name: à¸ÿà¸±à¸•à¸£à¸§à¸²à¸ÿà¸ÿà¸­à¸ª (NT)
+    Name: ï¿½ï¿½à¸±à¸•à¸£à¸§à¸²ï¿½ï¿½ï¿½ï¿½à¸­à¸ª (NT)
     Type: Etc
     Weight: 0
     Trade:

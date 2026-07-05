@@ -71,7 +71,7 @@ morocc,207,40,4	script	PoringSlotsPlay	10162,{
 		mes " ยินดีต้อนรับเซียนทุกๆท่าน";
 		mes " คุณจะให้ข้าหมุนแล้วหรือยัง";
 		mes " คุณต้องเสีย ^0000FF"+getitemname(.@FSC_CoinID)+"^000000";
-		mes " จำนวน  : ^0000FF 29 ^000000 ea. ให้แก่ข้า";
+		mes " จำนวน  : ^0000FF 1 ^000000 ea. ให้แก่ข้า";
 		next;
 		if(getgmlevel()>90) {
 			
@@ -101,13 +101,13 @@ morocc,207,40,4	script	PoringSlotsPlay	10162,{
 		close;
 		}
 		
-		if(countitem(30001)<29){
+		if(countitem(30001)<1){
 		mes "[ ^0000FFPoring Slots Play^000000 ]";
 		mes " คุณมี ^0000FF"+getitemname(.@FSC_CoinID)+"^000000 ไม่พอสำหรับค่าหมุน";
 		close;
 		}
 		
-		delitem 30001,29;
+		delitem 30001,1;
 		mes "[ ^0000FFPoring Slots Play^000000 ]";
 		mes "ตอนนี้กิจกรรมกำลังเล่นอยู่ค่ะ";
 		set $@PoringSlotsPlaying,1;
@@ -238,7 +238,8 @@ function	script	FuncPoringSlotsChoose	{
 				//atcommand "@cleanmap";
 				cleanmap "morocc";
 			} else {
-				getitem .@FSC_CoinID,.@FSC_Temp;
+				//getitem .@FSC_CoinID,.@FSC_Temp;
+				getitem 1030006, .@FSC_Temp;
 				//atcommand "@cleanmap";
 				cleanmap "morocc";
 				}
