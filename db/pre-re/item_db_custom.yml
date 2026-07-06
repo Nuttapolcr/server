@@ -35516,12 +35516,12 @@ Body:
       bonus2 bDropAddRace,RC_All,.@r/2*1;
   - Id: 1000602
     AegisName: aegis_1000602
-    Name: ��ัตรวา����อส
+    Name: บัตรวาปบอส
     Type: Etc
     Weight: 0
   - Id: 1000603
     AegisName: aegis_1000603
-    Name: ��ัตรวา����อส (NT)
+    Name: บัตรวาปบอส (NT)
     Type: Etc
     Weight: 0
     Trade:

@@ -1,0 +1,132 @@
+// HICLASS CBT Book reward exchange
+// Source: HICLASS sheet, tab CBT, rows 1-22.
+
+morocc,171,87,4	script	NPC CBT Book	617,{
+	if (getmapflag(strcharinfo(3),MF_PVP) || getmapflag(strcharinfo(3),MF_GVG) || getmapflag(strcharinfo(3),MF_GVG_CASTLE))
+		end;
+
+	.@book_id = 905027; // CBT Book
+	.@book_count = countitem(.@book_id);
+
+	mes .name$;
+	mes "Exchange CBT Book for OBT rewards.";
+	mes "Current CBT Book: ^00AA00"+.@book_count+"^000000";
+	next;
+
+	switch(select(
+		"500 Books",
+		"1000 Books",
+		"1500 Books",
+		"3000 Books",
+		"5000 Books",
+		"Cancel"
+	)) {
+	case 1:
+		if (#hiclass_cbt_book_500) {
+			callsub S_AlreadyClaimed;
+			close;
+		}
+		if (.@book_count < 500) {
+			callsub S_NotEnough, .@book_id, 500;
+			close;
+		}
+		delitem .@book_id,500;
+		getitem 1001720,1; // Premium Service 1Day [NT]
+		getitem 1000603,10; // Boss warp ticket (NT)
+		#hiclass_cbt_book_500 = 1;
+		callsub S_Done;
+		close;
+	case 2:
+		if (#hiclass_cbt_book_1000) {
+			callsub S_AlreadyClaimed;
+			close;
+		}
+		if (.@book_count < 1000) {
+			callsub S_NotEnough, .@book_id, 1000;
+			close;
+		}
+		delitem .@book_id,1000;
+		getitem 1001720,1; // Premium Service 1Day [NT]
+		getitem 1000603,15; // Boss warp ticket (NT)
+		#hiclass_cbt_book_1000 = 1;
+		callsub S_Done;
+		close;
+	case 3:
+		if (#hiclass_cbt_book_1500) {
+			callsub S_AlreadyClaimed;
+			close;
+		}
+		if (.@book_count < 1500) {
+			callsub S_NotEnough, .@book_id, 1500;
+			close;
+		}
+		delitem .@book_id,1500;
+		getitem 1001720,1; // Premium Service 1Day [NT]
+		getitem 1000603,10; // Boss warp ticket (NT)
+		getitem 22571,1; // Pet Egg
+		#hiclass_cbt_book_1500 = 1;
+		callsub S_Done;
+		close;
+	case 4:
+		if (#hiclass_cbt_book_3000) {
+			callsub S_AlreadyClaimed;
+			close;
+		}
+		if (.@book_count < 3000) {
+			callsub S_NotEnough, .@book_id, 3000;
+			close;
+		}
+		delitem .@book_id,3000;
+		getitem 1001721,1; // Premium Service 3Day [NT]
+		getitem 1000603,10; // Boss warp ticket (NT)
+		getitem 22571,1; // Pet Egg
+		getitem 101194,1; // Weapon Stone Egg
+		getitem 12804,1; // Armor Stone Egg
+		getitem 14455,1; // Accessory Stone Egg
+		#hiclass_cbt_book_3000 = 1;
+		callsub S_Done;
+		close;
+	case 5:
+		if (#hiclass_cbt_book_5000) {
+			callsub S_AlreadyClaimed;
+			close;
+		}
+		if (.@book_count < 5000) {
+			callsub S_NotEnough, .@book_id, 5000;
+			close;
+		}
+		delitem .@book_id,5000;
+		getitem 1001721,2; // Premium Service 3Day [NT]
+		getitem 1000603,30; // Boss warp ticket (NT)
+		getitem 22571,2; // Pet Egg
+		getitem 101194,2; // Weapon Stone Egg
+		getitem 12804,2; // Armor Stone Egg
+		getitem 14455,2; // Accessory Stone Egg
+		getitem 1030007,1; // Charm CBT [NT]
+		#hiclass_cbt_book_5000 = 1;
+		callsub S_Done;
+		close;
+	default:
+		close;
+	}
+
+S_NotEnough:
+	mes .name$;
+	mes "You need "+getarg(1)+" "+getitemname(getarg(0))+".";
+	return;
+
+S_AlreadyClaimed:
+	mes .name$;
+	mes "This reward tier was already claimed by this account.";
+	return;
+
+S_Done:
+	mes .name$;
+	mes "Reward complete.";
+	return;
+
+OnInit:
+	.name$ = "[^0000FFNPC CBT Book^000000]";
+	waitingroom "NPC CBT Book",0;
+	end;
+}

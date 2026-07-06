@@ -200,32 +200,39 @@ S_GiveDiceReward:
 			getitem 984,2,.@aid;
 			break;
 		case 2:
-			getitem 1000603,1,.@aid;
-			getitem 1000373,5,.@aid;
-			getitem 985,2,.@aid;
-			break;
-		case 3:
 			getitem 1000603,2,.@aid;
-			getitem 1000373,5,.@aid;
+			getitem 1000373,10,.@aid;
 			getitem 985,2,.@aid;
 			getitem 984,2,.@aid;
 			break;
+		case 3:
+			getitem 1000603,4,.@aid;
+			getitem 1000373,15,.@aid;
+			getitem 985,4,.@aid;
+			getitem 984,4,.@aid;
+			break;
 		case 4:
-			getitem 1000603,2,.@aid;
-			getitem 1000373,10,.@aid;
+			getitem 1000603,6,.@aid;
+			getitem 1000373,25,.@aid;
 			getitem 616,1,.@aid;
+			getitem 985,4,.@aid;
+			getitem 984,4,.@aid;
 			break;
 		case 5:
-			getitem 1000603,2,.@aid;
-			getitem 1000373,10,.@aid;
-			getitem 616,1,.@aid;
+			getitem 1000603,8,.@aid;
+			getitem 1000373,35,.@aid;
+			getitem 616,2,.@aid;
+			getitem 985,4,.@aid;
+			getitem 984,4,.@aid;
 			break;
 		case 6:
-			getitem 1000603,2,.@aid;
-			getitem 1000373,10,.@aid;
-			getitem 616,1,.@aid;
+			getitem 1000603,10,.@aid;
+			getitem 1000373,45,.@aid;
+			getitem 616,3,.@aid;
 			getitem 6293,2,.@aid;
 			getitem 1001720,1,.@aid;
+			getitem 985,4,.@aid;
+			getitem 984,4,.@aid;
 			break;
 		}
 		message rid2name(.@aid),"[กิจกรรมทอยเต๋า] : คุณได้รับของรางวัลออกรอบ "+.@round+" แล้ว";
