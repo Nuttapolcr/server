@@ -1,7 +1,7 @@
-// แลกรางวัล HICLASS CBT Book
-// แหล่งที่มา: HICLASS sheet, tab CBT, rows 1-22.
+// ระบบส่ง HICLASS CBT Book เพื่อสะสมแต้ม
+// ตัวแปรบัญชี: #hiclass_cbt_book_point
 
-morocc,171,87,4	script	NPC แลก CBT Book	617,{
+morocc,171,87,4	script	NPC แลกแต้ม CBT Book	617,{
 	if (getmapflag(strcharinfo(3),MF_PVP) || getmapflag(strcharinfo(3),MF_GVG) || getmapflag(strcharinfo(3),MF_GVG_CASTLE))
 		end;
 
@@ -9,124 +9,71 @@ morocc,171,87,4	script	NPC แลก CBT Book	617,{
 	.@book_count = countitem(.@book_id);
 
 	mes .name$;
-	mes "แลก CBT Book เป็นของรางวัลช่วง OBT";
+	mes "ส่ง CBT Book เพื่อสะสมแต้มในบัญชี";
 	mes "CBT Book ที่มีตอนนี้: ^00AA00"+.@book_count+"^000000";
+	mes "แต้มบัญชีของคุณ: ^00AA00"+#hiclass_cbt_book_point+"^000000";
 	next;
 
 	switch(select(
-		"500 เล่ม",
-		"1000 เล่ม",
-		"1500 เล่ม",
-		"3000 เล่ม",
-		"5000 เล่ม",
+		"ส่ง CBT Book ทั้งหมด",
+		"ส่งตามจำนวนที่กำหนด",
+		"ดูแต้มของฉัน",
 		"ยกเลิก"
 	)) {
 	case 1:
-		if (#hiclass_cbt_book_500) {
-			callsub S_AlreadyClaimed;
+		if (.@book_count <= 0) {
+			callsub S_NotEnough, .@book_id;
 			close;
 		}
-		if (.@book_count < 500) {
-			callsub S_NotEnough, .@book_id, 500;
-			close;
-		}
-		delitem .@book_id,500;
-		getitem 1001720,1; // Premium Service 1Day [NT]
-		getitem 1000603,10; // Boss warp ticket (NT)
-		#hiclass_cbt_book_500 = 1;
-		callsub S_Done;
+		callsub S_DepositBook, .@book_id, .@book_count;
 		close;
 	case 2:
-		if (#hiclass_cbt_book_1000) {
-			callsub S_AlreadyClaimed;
+		if (.@book_count <= 0) {
+			callsub S_NotEnough, .@book_id;
 			close;
 		}
-		if (.@book_count < 1000) {
-			callsub S_NotEnough, .@book_id, 1000;
-			close;
-		}
-		delitem .@book_id,1000;
-		getitem 1001720,1; // Premium Service 1Day [NT]
-		getitem 1000603,15; // Boss warp ticket (NT)
-		#hiclass_cbt_book_1000 = 1;
-		callsub S_Done;
+		mes .name$;
+		mes "กรุณาใส่จำนวนที่ต้องการส่ง";
+		mes "จำนวนที่มี: ^00AA00"+.@book_count+"^000000";
+		next;
+		input .@amount, 1, .@book_count;
+		callsub S_DepositBook, .@book_id, .@amount;
 		close;
 	case 3:
-		if (#hiclass_cbt_book_1500) {
-			callsub S_AlreadyClaimed;
-			close;
-		}
-		if (.@book_count < 1500) {
-			callsub S_NotEnough, .@book_id, 1500;
-			close;
-		}
-		delitem .@book_id,1500;
-		getitem 1001720,1; // Premium Service 1Day [NT]
-		getitem 1000603,10; // Boss warp ticket (NT)
-		getitem 22571,1; // Pet Egg
-		#hiclass_cbt_book_1500 = 1;
-		callsub S_Done;
-		close;
-	case 4:
-		if (#hiclass_cbt_book_3000) {
-			callsub S_AlreadyClaimed;
-			close;
-		}
-		if (.@book_count < 3000) {
-			callsub S_NotEnough, .@book_id, 3000;
-			close;
-		}
-		delitem .@book_id,3000;
-		getitem 1001721,1; // Premium Service 3Day [NT]
-		getitem 1000603,10; // Boss warp ticket (NT)
-		getitem 22571,1; // Pet Egg
-		getitem 101194,1; // Weapon Stone Egg
-		getitem 12804,1; // Armor Stone Egg
-		getitem 14455,1; // Accessory Stone Egg
-		#hiclass_cbt_book_3000 = 1;
-		callsub S_Done;
-		close;
-	case 5:
-		if (#hiclass_cbt_book_5000) {
-			callsub S_AlreadyClaimed;
-			close;
-		}
-		if (.@book_count < 5000) {
-			callsub S_NotEnough, .@book_id, 5000;
-			close;
-		}
-		delitem .@book_id,5000;
-		getitem 1001721,2; // Premium Service 3Day [NT]
-		getitem 1000603,30; // Boss warp ticket (NT)
-		getitem 22571,2; // Pet Egg
-		getitem 101194,2; // Weapon Stone Egg
-		getitem 12804,2; // Armor Stone Egg
-		getitem 14455,2; // Accessory Stone Egg
-		getitem 1030007,1; // Charm CBT [NT]
-		#hiclass_cbt_book_5000 = 1;
-		callsub S_Done;
+		callsub S_ShowPoints;
 		close;
 	default:
 		close;
 	}
 
+S_DepositBook:
+	.@item_id = getarg(0);
+	.@amount = getarg(1);
+	if (.@amount <= 0)
+		return;
+	if (countitem(.@item_id) < .@amount) {
+		callsub S_NotEnough, .@item_id;
+		return;
+	}
+	delitem .@item_id, .@amount;
+	#hiclass_cbt_book_point += .@amount;
+	mes .name$;
+	mes "ส่ง CBT Book แล้ว: ^00AA00"+.@amount+"^000000 เล่ม";
+	mes "แต้มบัญชีปัจจุบัน: ^00AA00"+#hiclass_cbt_book_point+"^000000";
+	return;
+
 S_NotEnough:
 	mes .name$;
-	mes "คุณต้องใช้ "+getarg(1)+" "+getitemname(getarg(0))+".";
+	mes "คุณไม่มี "+getitemname(getarg(0))+".";
 	return;
 
-S_AlreadyClaimed:
+S_ShowPoints:
 	mes .name$;
-	mes "บัญชีนี้รับรางวัลระดับนี้ไปแล้ว";
-	return;
-
-S_Done:
-	mes .name$;
-	mes "รับรางวัลเรียบร้อยแล้ว";
+	mes "แต้มบัญชีของคุณ: ^00AA00"+#hiclass_cbt_book_point+"^000000";
 	return;
 
 OnInit:
-	.name$ = "[^0000FFNPC แลก CBT Book^000000]";
-	waitingroom "NPC แลก CBT Book",0;
+	.name$ = "[^0000FFNPC แลกแต้ม CBT Book^000000]";
+	waitingroom "NPC แลกแต้ม CBT Book",0;
 	end;
 }

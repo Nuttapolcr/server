@@ -1,4 +1,4 @@
-morocc,159,161,4	script	[CBT ทั่วไป]::Sample_Shop	93,{
+morocc,159,104,4	script	[CBT ทั่วไป]::Sample_Shop	93,{
 	mes "[ CBT ทั่วไป ]";
 	mes "ยินดีต้อนรับ! ต้องการซื้ออะไรหรือไม่?";
 	next;

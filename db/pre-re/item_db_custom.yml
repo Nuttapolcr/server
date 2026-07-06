@@ -26785,7 +26785,7 @@ Body:
        } else {
       getitem 64383,1;
       specialeffect2 EF_FIREWORK;
-      announce strcharinfo(0)+" à¹€ï¿½ï¿½à¸´à¸”ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¸”ï¿½ï¿½ï¿½ï¿½à¸­ï¿½ï¿½ï¿½ï¿½à¸£à¸£ï¿½ï¿½!",bc_all;
+      announce strcharinfo(0)+" à»Ô´¡ÅèÍ§ä´éÃÑº¢Í§ÃÒ§ÇÑÅ!",bc_all;
       }
   - Id: 1001005
     AegisName: aegis_1001005
@@ -27600,7 +27600,7 @@ Body:
     Script: |
       specialeffect2 EF_MONEY;
       #Rubbish_Etc_point += 50000;
-      dispbottom "Â¤Ø³ä´©Ã‘Âº Rubbish Point +50,000";
+      dispbottom "¤Ø³ä´éÃÑº Rubbish Point +50,000";
       delitem 1001515,1;
   - Id: 1001516
     AegisName: aegis_1001516
@@ -35516,12 +35516,12 @@ Body:
       bonus2 bDropAddRace,RC_All,.@r/2*1;
   - Id: 1000602
     AegisName: aegis_1000602
-    Name: à¸šà¸±à¸•à¸£à¸§à¸²à¸›à¸šà¸­à¸ª
+    Name: ºÑµÃÇÒ»ºÍÊ
     Type: Etc
     Weight: 0
   - Id: 1000603
     AegisName: aegis_1000603
-    Name: à¸šà¸±à¸•à¸£à¸§à¸²à¸›à¸šà¸­à¸ª (NT)
+    Name: ºÑµÃÇÒ»ºÍÊ (NT)
     Type: Etc
     Weight: 0
     Trade:
