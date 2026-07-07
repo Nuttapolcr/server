@@ -189,42 +189,6 @@ Body:
           - Index: 0
             Item: B_Chen_Egg
             Amount: 1
-      - Index: 30
-        Item: Col_MedJay
-        RequiredItems:
-          - Index: 0
-            Item: Medjay_Egg
-            Amount: 1
-      - Index: 31
-        Item: Col_MedJee
-        RequiredItems:
-          - Index: 0
-            Item: Cp_Heka_Egg
-            Amount: 1
-      - Index: 32
-        Item: Col_MedJed
-        RequiredItems:
-          - Index: 0
-            Item: Medjed_Egg
-            Amount: 1
-      - Index: 33
-        Item: Col_Spirit_Flame
-        RequiredItems:
-          - Index: 0
-            Item: Spirit_R_Flame_Sl_Egg
-            Amount: 1
-      - Index: 34
-        Item: Col_Spirit_Water
-        RequiredItems:
-          - Index: 0
-            Item: Spirit_I_Water_M_Egg
-            Amount: 1
-      - Index: 35
-        Item: Col_Spirit_Wind
-        RequiredItems:
-          - Index: 0
-            Item: Spirit_S_Wind_M_Egg
-            Amount: 1
 
   - Name: HICLASS_PET_COLLECTION_TO_EGG
     CraftBarter: false
@@ -408,40 +372,4 @@ Body:
         RequiredItems:
           - Index: 0
             Item: Col_Chen
-            Amount: 1
-      - Index: 30
-        Item: Medjay_Egg
-        RequiredItems:
-          - Index: 0
-            Item: Col_MedJay
-            Amount: 1
-      - Index: 31
-        Item: Cp_Heka_Egg
-        RequiredItems:
-          - Index: 0
-            Item: Col_MedJee
-            Amount: 1
-      - Index: 32
-        Item: Medjed_Egg
-        RequiredItems:
-          - Index: 0
-            Item: Col_MedJed
-            Amount: 1
-      - Index: 33
-        Item: Spirit_R_Flame_Sl_Egg
-        RequiredItems:
-          - Index: 0
-            Item: Col_Spirit_Flame
-            Amount: 1
-      - Index: 34
-        Item: Spirit_I_Water_M_Egg
-        RequiredItems:
-          - Index: 0
-            Item: Col_Spirit_Water
-            Amount: 1
-      - Index: 35
-        Item: Spirit_S_Wind_M_Egg
-        RequiredItems:
-          - Index: 0
-            Item: Col_Spirit_Wind
             Amount: 1

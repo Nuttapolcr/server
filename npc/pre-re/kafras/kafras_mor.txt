@@ -26,11 +26,8 @@ morocc,160,258,4	script	Kafra Express::Morocc#02	114,{
 	mes "สวัสดีค่ะ ท่าน , ^FF0000"+strcharinfo(0)+" ^000000"; 
 	mes "Kafra Corporation ยินดีให้บริการ";
 	mes "ต้องการให้ข้าช่วยเหลืออะไรไหมคะ ?";
-	callfunc "F_Kafra",5,0,0,60,930;
-
-	M_Save:
-		savepoint "morocc",188,282;
-		callfunc "F_KafEnd",0,1,"Morroc";
+	callfunc "F_Kafra",5,9,0,60,930;
+	end;
 }
 
 
@@ -43,11 +40,8 @@ morocc,36,175,4	script	Kafra Express::Morocc#04	114,{
 	mes "Kafra Corporation ยินดีให้บริการ";
 	mes "ต้องการให้ข้าช่วยเหลืออะไรไหมคะ ?";
 	//callfunc "F_Kafra",5,0,0,60,930;
-	callfunc "F_Kafra",5,1,1,90,1200;
-
-	M_Save:
-		savepoint "morocc",38,168;
-		callfunc "F_KafEnd",0,1,"Morroc";
+	callfunc "F_Kafra",5,2,1,90,1200;
+	end;
 }
 
 
