@@ -1152,68 +1152,68 @@ OnInit:
 // --------------------------------------------------
 //	Duplicates:
 // --------------------------------------------------
-alb2trea,57,70,6	duplicate(Warper)	Warper#tre	10371
-alberta,28,240,4	duplicate(Warper)	Warper#alb	10371
-aldebaran,145,118,4	duplicate(Warper)	Warper#alde	10371
-amatsu,203,87,4	duplicate(Warper)	Warper#ama	10371
-ayothaya,209,169,6	duplicate(Warper)	Warper#ayo	10371
-comodo,194,158,4	duplicate(Warper)	Warper#com	10371
-einbech,59,38,6	duplicate(Warper)	Warper#einbe	10371
-einbroch,69,202,4	duplicate(Warper)	Warper#einbr	10371
-gef_fild10,71,339,4	duplicate(Warper)	Warper#orc	10371
-geffen,124,72,4	duplicate(Warper)	Warper#gef	10371
-glast_01,372,308,4	duplicate(Warper)	Warper#glh	10371
-gonryun,162,122,4	duplicate(Warper)	Warper#gon	10371
-hugel,101,151,4	duplicate(Warper)	Warper#hug	10371
-izlu2dun,110,92,4	duplicate(Warper)	Warper#izd	10371
-izlude,134,150,4	duplicate(Warper)	Warper#izl	10371	//Pre-RE: (132,120)
-jawaii,253,138,4	duplicate(Warper)	Warper#jaw	10371
-lighthalzen,162,102,4	duplicate(Warper)	Warper#lhz	10371
-louyang,208,103,6	duplicate(Warper)	Warper#lou	10371
-manuk,274,146,6	duplicate(Warper)	Warper#man	10371
-mid_camp,216,288,4	duplicate(Warper)	Warper#mid	10371
-mjolnir_02,85,364,4	duplicate(Warper)	Warper#mjo	10371
-moc_ruins,64,164,4	duplicate(Warper)	Warper#moc	10371
+//alb2trea,57,70,6	duplicate(Warper)	Warper#tre	10371
+//alberta,28,240,4	duplicate(Warper)	Warper#alb	10371
+//aldebaran,145,118,4	duplicate(Warper)	Warper#alde	10371
+//amatsu,203,87,4	duplicate(Warper)	Warper#ama	10371
+//ayothaya,209,169,6	duplicate(Warper)	Warper#ayo	10371
+//comodo,194,158,4	duplicate(Warper)	Warper#com	10371
+//einbech,59,38,6	duplicate(Warper)	Warper#einbe	10371
+//einbroch,69,202,4	duplicate(Warper)	Warper#einbr	10371
+//gef_fild10,71,339,4	duplicate(Warper)	Warper#orc	10371
+//geffen,124,72,4	duplicate(Warper)	Warper#gef	10371
+//glast_01,372,308,4	duplicate(Warper)	Warper#glh	10371
+//gonryun,162,122,4	duplicate(Warper)	Warper#gon	10371
+//hugel,101,151,4	duplicate(Warper)	Warper#hug	10371
+//izlu2dun,110,92,4	duplicate(Warper)	Warper#izd	10371
+//izlude,134,150,4	duplicate(Warper)	Warper#izl	10371	//Pre-RE: (132,120)
+//jawaii,253,138,4	duplicate(Warper)	Warper#jaw	10371
+//lighthalzen,162,102,4	duplicate(Warper)	Warper#lhz	10371
+//louyang,208,103,6	duplicate(Warper)	Warper#lou	10371
+//manuk,274,146,6	duplicate(Warper)	Warper#man	10371
+//mid_camp,216,288,4	duplicate(Warper)	Warper#mid	10371
+//mjolnir_02,85,364,4	duplicate(Warper)	Warper#mjo	10371
+//moc_ruins,64,164,4	duplicate(Warper)	Warper#moc	10371
 morocc,163,97,4	duplicate(Warper)	Warper#mor	10371
-moscovia,229,191,4	duplicate(Warper)	Warper#mos	10371
-nameless_n,259,213,4	duplicate(Warper)	Warper#nam	10371
-niflheim,205,179,4	duplicate(Warper)	Warper#nif	10371
-pay_arche,42,134,4	duplicate(Warper)	Warper#arc	10371
-payon,182,108,4	duplicate(Warper)	Warper#pay	10371
-prontera,159,192,4	duplicate(Warper)	Warper#prt	10371
-prt_fild05,279,223,6	duplicate(Warper)	Warper#cul	10371
-rachel,135,116,4	duplicate(Warper)	Warper#rac	10371
-splendide,205,153,4	duplicate(Warper)	Warper#spl	10371
-thor_camp,249,76,4	duplicate(Warper)	Warper#thor	10371
-umbala,106,150,3	duplicate(Warper)	Warper#umb	10371
-veins,214,123,4	duplicate(Warper)	Warper#ve	10371
-xmas,150,136,6	duplicate(Warper)	Warper#xmas	10371
-yuno,162,47,4	duplicate(Warper)	Warper#yuno	10371
-
-// --------------------------------------------------
-//	Duplicates (Renewal):
-// --------------------------------------------------
-brasilis,201,222,4	duplicate(Warper)	Warper#bra	10371
-dewata,204,186,6	duplicate(Warper)	Warper#dew	10371
-dicastes01,194,194,6	duplicate(Warper)	Warper#dic	10371
-ecl_in01,51,60,4	duplicate(Warper)	Warper#ecl	10371
-lasagna,196,187,4	duplicate(Warper)	Warper#las	10371
-malangdo,134,117,6	duplicate(Warper)	Warper#mal	10371
-malaya,231,204,4	duplicate(Warper)	Warper#ma	10371
-mora,57,152,4	duplicate(Warper)	Warper#mora	10371
-
-
-
-morocc,113,112,4	duplicate(Warper)	Warp Service#2	10371
-morocc,120,54,4	duplicate(Warper)	Warp Service#4	10371
-morocc,201,112,4	duplicate(Warper)	Warp Service#5	10371
-morocc,218,63,4	duplicate(Warper)	Warp Service#6	10371
-morocc,264,136,4	duplicate(Warper)	Warp Service#7	10371
-morocc,179,37,4	duplicate(Warper)	Warp Service#8	10371
-morocc,164,144,4	duplicate(Warper)	Warp Service#9	10371
-morocc,165,257,4	duplicate(Warper)	Warp Service#10	10371
-morocc,80,250,4	duplicate(Warper)	Warp Service#11	10371
-morocc,84,200,4	duplicate(Warper)	Warp Service#12	10371
-morocc,71,112,4	duplicate(Warper)	Warp Service#13	10371
+//moscovia,229,191,4	duplicate(Warper)	Warper#mos	10371
+//nameless_n,259,213,4	duplicate(Warper)	Warper#nam	10371
+//niflheim,205,179,4	duplicate(Warper)	Warper#nif	10371
+//pay_arche,42,134,4	duplicate(Warper)	Warper#arc	10371
+//payon,182,108,4	duplicate(Warper)	Warper#pay	10371
+//prontera,159,192,4	duplicate(Warper)	Warper#prt	10371
+//prt_fild05,279,223,6	duplicate(Warper)	Warper#cul	10371
+//rachel,135,116,4	duplicate(Warper)	Warper#rac	10371
+//splendide,205,153,4	duplicate(Warper)	Warper#spl	10371
+//thor_camp,249,76,4	duplicate(Warper)	Warper#thor	10371
+//umbala,106,150,3	duplicate(Warper)	Warper#umb	10371
+//veins,214,123,4	duplicate(Warper)	Warper#ve	10371
+//xmas,150,136,6	duplicate(Warper)	Warper#xmas	10371
+//yuno,162,47,4	duplicate(Warper)	Warper#yuno	10371
+//
+//// --------------------------------------------------
+////	Duplicates (Renewal):
+//// --------------------------------------------------
+//brasilis,201,222,4	duplicate(Warper)	Warper#bra	10371
+//dewata,204,186,6	duplicate(Warper)	Warper#dew	10371
+//dicastes01,194,194,6	duplicate(Warper)	Warper#dic	10371
+//ecl_in01,51,60,4	duplicate(Warper)	Warper#ecl	10371
+//lasagna,196,187,4	duplicate(Warper)	Warper#las	10371
+//malangdo,134,117,6	duplicate(Warper)	Warper#mal	10371
+//malaya,231,204,4	duplicate(Warper)	Warper#ma	10371
+//mora,57,152,4	duplicate(Warper)	Warper#mora	10371
+//
+//
+//
+//morocc,113,112,4	duplicate(Warper)	Warp Service#2	10371
+//morocc,120,54,4	duplicate(Warper)	Warp Service#4	10371
+//morocc,201,112,4	duplicate(Warper)	Warp Service#5	10371
+//morocc,218,63,4	duplicate(Warper)	Warp Service#6	10371
+//morocc,264,136,4	duplicate(Warper)	Warp Service#7	10371
+//morocc,179,37,4	duplicate(Warper)	Warp Service#8	10371
+//morocc,164,144,4	duplicate(Warper)	Warp Service#9	10371
+//morocc,165,257,4	duplicate(Warper)	Warp Service#10	10371
+//morocc,80,250,4	duplicate(Warper)	Warp Service#11	10371
+//morocc,84,200,4	duplicate(Warper)	Warp Service#12	10371
+//morocc,71,112,4	duplicate(Warper)	Warp Service#13	10371
 
 

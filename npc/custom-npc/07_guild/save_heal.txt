@@ -240,10 +240,10 @@ function	script	F_war_days_text	{
 // =====================================================
 // NPC duplicates (ตำแหน่งเดิมตามที่ให้มา)
 // =====================================================
-new_1-3,91,33,5	duplicate(Buffer Service)	Buffer Service#novice_1	4_F_SISTER
+//new_1-3,91,33,5	duplicate(Buffer Service)	Buffer Service#novice_1	4_F_SISTER
 morocc,160,97,4	duplicate(Buffer Service)	Buffer Service#moc_1	4_F_SISTER
-morocc,149,254,5	duplicate(Buffer Service)	Buffer Service#moc_2	4_F_SISTER
-morocc,288,214,4	duplicate(Buffer Service)	Buffer Service#moc_3	4_F_SISTER
+//morocc,149,254,5	duplicate(Buffer Service)	Buffer Service#moc_2	4_F_SISTER
+//morocc,288,214,4	duplicate(Buffer Service)	Buffer Service#moc_3	4_F_SISTER
 //morocc,35,174,4	duplicate(Buffer Service)	Buffer Service#moc_4	4_F_SISTER
 
 //prontera,149,29,7	duplicate(Buffer Service)	Buffer Service#Porn01	4_F_SISTER
