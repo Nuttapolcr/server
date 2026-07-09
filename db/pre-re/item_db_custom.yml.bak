@@ -26680,22 +26680,10 @@ Body:
       DropEffect: RED_PILLAR
   - Id: 905027
     AegisName: RANK_FARM_BOOK
+    Name: CBT Book
     Type: Etc
     Flags:
       DropEffect: RED_PILLAR
-    # Script: |
-    #   .@coin = 905027;
-    #   .@cnt = countitem(.@coin);
-    #   if (.@cnt <= 0) end;
-    #   .@acc = getcharid(3);
-    #   .@per = 10000;
-    #   .@add = .@cnt * .@per;
-    #   query_sql("INSERT INTO `farm_system` (`account_id`,`userid`,`farm_level`,`farm_point`) SELECT "+.@acc+",'',0,0 FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM `farm_system` WHERE account_id="+.@acc+")");
-    #   query_sql("UPDATE `farm_system` SET `farm_point` = `farm_point` + "+.@add+" WHERE account_id = "+.@acc);
-    #   delitem .@coin, .@cnt;
-    #   .@rank = callfunc("FRM_RecalcAndApply", .@acc);
-    #   dispbottom "[System] : Rank Farm +"+callfunc("F_InsertComma", .@add)+" ("+.@cnt+" ea) | Rank "+.@rank;
-    Name: CBT Book
   - Id: 1001000
     AegisName: aegis_1001000
     Name: CBT PROMOTION 3K
@@ -26785,7 +26773,7 @@ Body:
        } else {
       getitem 64383,1;
       specialeffect2 EF_FIREWORK;
-      announce strcharinfo(0)+" เ��ิด��������ด����อ����รร��!",bc_all;
+      announce strcharinfo(0)+" �Դ���ͧ���Ѻ�ͧ�ҧ���!",bc_all;
       }
   - Id: 1001005
     AegisName: aegis_1001005
@@ -27600,7 +27588,7 @@ Body:
     Script: |
       specialeffect2 EF_MONEY;
       #Rubbish_Etc_point += 50000;
-      dispbottom "¤س䴩Ñº Rubbish Point +50,000";
+      dispbottom "�س���Ѻ Rubbish Point +50,000";
       delitem 1001515,1;
   - Id: 1001516
     AegisName: aegis_1001516
@@ -30159,7 +30147,7 @@ Body:
     Script: |
       getgroupitem(IG_MUNIN_EGG01);
   - Id: 1001600
-    AegisName: ���긴�����갑���������
+    AegisName: Fragment_Stone_Box
     Name: Fragment Stone Box
     Type: Usable
     Weight: 10
@@ -35516,12 +35504,12 @@ Body:
       bonus2 bDropAddRace,RC_All,.@r/2*1;
   - Id: 1000602
     AegisName: aegis_1000602
-    Name: ��ัตรวา����อส
+    Name: Warp Boss Ticket
     Type: Etc
     Weight: 0
   - Id: 1000603
     AegisName: aegis_1000603
-    Name: ��ัตรวา����อส (NT)
+    Name: Warp Boss Ticket (NT)
     Type: Etc
     Weight: 0
     Trade:
@@ -36199,15 +36187,34 @@ Body:
     AegisName: Charm_CBT
     Name: Charm CBT
     Type: Charm
-    CharmScript: |-
-      bonus2 bDropAddClass,Class_All,10;
-      bonus bBossBoxSpeed,5;
     Trade:
       NoDrop: true
       NoTrade: true
-      NoSell: true
-      NoMail: true
-      NoGuildStorage: true
-      NoCart: true
       TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
       NoAuction: true
+    CharmScript: |-
+      bonus2 bDropAddClass,Class_All,10;
+      bonus bBossBoxSpeed,5;
+  - Id: 1030008
+    AegisName: PVP_cbt_Champion_SET
+    Name: PVP Champion SET
+    Script: |-
+      getitem 5265,1;                     // Apple of Archer
+      getitem 2291,1;                     // Masquerade
+      getitem 5361,1;                     // Gangster Scarf
+      getitem2 2302,1,1,0,0,4021,0,0,0;      // Cotton Shirt Rocker x1
+      getitem2 1520,1,1,0,0,4035,4035,4092,0; // Chain + Hydra x2 +Worker x1
+      getitem2 1802,1,1,0,0,4004,4004,4004,4004; // Waghnak + Drop x4
+      getitem2 2102,1,1,0,0,4058,0,0,0;   // Guard + Thara
+      getitem2 2502,1,1,0,0,4133,0,0,0;   // Hood + Raydric
+      getitem2 2402,1,1,0,0,4100,0,0,0;   // Sandals + Sohee
+      getitem2 2624,1,1,0,0,4064,0,0,0; // Glove + Zerom x1
+      getitem2 2624,1,1,0,0,4064,0,0,0; // Glove + Zerom x1
+      getitem2 2624,1,1,0,0,4044,0,0,0; // Glove + Smokie x1
+
+          specialeffect2 EF_BLESSING;
+    Type: Cash

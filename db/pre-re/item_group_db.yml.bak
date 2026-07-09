@@ -10685,6 +10685,7 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 2600
+            Amount: 3
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 1200
@@ -10766,6 +10767,7 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 1600
+            Amount: 5
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 800
@@ -10858,6 +10860,7 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 3500
+            Amount: 3
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 3300
@@ -10886,6 +10889,7 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 2650
+            Amount: 5
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 1200
@@ -10923,6 +10927,7 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 1500
+            Amount: 10
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 800
@@ -11129,15 +11134,15 @@ Body:
             Amount: 12
           - Index: 8
             Item: Meteorite_Fragment
-            Rate: 90
+            Rate: 45
             Amount: 13
           - Index: 9
             Item: Meteorite_Fragment
-            Rate: 90
+            Rate: 45
             Amount: 14
           - Index: 10
             Item: Meteorite_Fragment
-            Rate: 90
+            Rate: 45
             Amount: 15
 
   - Group: CLOSEDMIND_BOX

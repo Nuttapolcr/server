@@ -41,7 +41,7 @@ Body:
           - aegis_24003
           - aegis_24004
     Script: |
-      bonus2 bAddMonsterDropItem,905027,1500;
+      bonus2 bAddMonsterDropItem,905027,500;
   - Combos:
       - Combo:
           - Dragon_Slayer

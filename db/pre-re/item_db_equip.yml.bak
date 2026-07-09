@@ -41707,24 +41707,16 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
+      .@r = getrefine();
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
-      bonus2 bAddMonsterDropItem,905027,50;
-      if (getequipid(EQI_SHADOW_ARMOR) == 24000
-       && getequipid(EQI_SHADOW_SHOES) == 24002
-       && getequipid(EQI_SHADOW_SHIELD) == 24001
-       && getequipid(EQI_SHADOW_ACC_R) == 24003
-       && getequipid(EQI_SHADOW_ACC_L) == 24004
-       && getequiprefinerycnt(EQI_SHADOW_ARMOR) >= 10
-       && getequiprefinerycnt(EQI_SHADOW_SHOES) >= 10
-       && getequiprefinerycnt(EQI_SHADOW_SHIELD) >= 10
-       && getequiprefinerycnt(EQI_SHADOW_ACC_R) >= 10
-       && getequiprefinerycnt(EQI_SHADOW_ACC_L) >= 10) {
-        bonus2 bAddMonsterDropItem,905027,1000;
+      bonus2 bAddMonsterDropItem,905027,100;
+      if (.@r>=10) {
+      bonus2 bAddMonsterDropItem,905027,500;
       }
-    UnEquipScript: |
-      callfunc "F_ClearPowerShadowSC_Armor";
+    # UnEquipScript: |
+    #   callfunc "F_ClearPowerShadowSC_Armor";
   - Id: 24001
     AegisName: aegis_24001
     Name: CBT Shadow Shield
@@ -41736,13 +41728,18 @@ Body:
       Shadow_Shield: true
     EquipLevelMin: 1
     Refineable: true
-    Script: |
+    Script: |+
+      .@r = getrefine();
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
-      bonus2 bAddMonsterDropItem,905027,50;
-    UnEquipScript: |
-      callfunc "F_ClearPowerShadowSC_Shield";
+      bonus2 bAddMonsterDropItem,905027,100;
+      if (.@r>=10) {
+      bonus2 bAddMonsterDropItem,905027,500;
+      }
+
+    # UnEquipScript: |
+    #   callfunc "F_ClearPowerShadowSC_Shield";
   - Id: 24002
     AegisName: aegis_24002
     Name: CBT Shadow Shoes
@@ -41755,12 +41752,16 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
+      .@r = getrefine();
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
-      bonus2 bAddMonsterDropItem,905027,50;
-    UnEquipScript: |
-      callfunc "F_ClearPowerShadowSC_Shoes";
+      bonus2 bAddMonsterDropItem,905027,100;
+      if (.@r>=10) {
+      bonus2 bAddMonsterDropItem,905027,500;
+      }
+    # UnEquipScript: |
+    #   callfunc "F_ClearPowerShadowSC_Shoes";
   - Id: 24003
     AegisName: aegis_24003
     Name: CBT Shadow Earring
@@ -41772,11 +41773,16 @@ Body:
       Shadow_Right_Accessory: true
     EquipLevelMin: 1
     Refineable: true
-    Script: |
+    Script: |+
+      .@r = getrefine();
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
-      bonus2 bAddMonsterDropItem,905027,50;
+      bonus2 bAddMonsterDropItem,905027,100;
+      if (.@r>=10) {
+      bonus2 bAddMonsterDropItem,905027,500;
+      }
+
   - Id: 24004
     AegisName: aegis_24004
     Name: CBT Shadow Pendant
@@ -41789,10 +41795,14 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     Script: |
+      .@r = getrefine();
       bonus2 bExpAddClass,Class_All,5;
       bonus2 bDropAddClass,Class_All,2;
       bonus bAddMaxWeight,500;
-      bonus2 bAddMonsterDropItem,905027,50;
+      bonus2 bAddMonsterDropItem,905027,100;
+      if (.@r>=10) {
+      bonus2 bAddMonsterDropItem,905027,500;
+      }
   - Id: 24417
     AegisName: S_Timeoverload_Armor
     Name: Temporal Transcendent Shadow Armor
