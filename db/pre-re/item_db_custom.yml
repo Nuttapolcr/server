@@ -33840,6 +33840,8 @@ Body:
     Script: |
       bonus bHPGainValue,100;
       bonus bSPGainValue,10;
+      bonus bLongHPGainValue,100;
+      bonus bLongSPGainValue,10;
   - Id: 312446
     AegisName: aegis_312446
     Name: Magic Ore
