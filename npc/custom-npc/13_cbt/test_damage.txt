@@ -1,50 +1,7 @@
-// Training dummies on the east side of tra_fild.
-// Layout follows the official damage-test map: size, race and element zones.
+// Damage test dummies in Morocc.
+// Size: Small, Medium, Large; Race: Demi-Human.
 
-prontera,220,211,4	script	Training Master	4_M_ORIENT01,{
-	mes "[Training Master]";
-	mes "กรุณาเลือกประเภทของเสาทดสอบดาเมจ";
-	next;
-	switch (select("ทดสอบตามขนาด:ทดสอบตามเผ่า:ทดสอบตามธาตุ:ยกเลิก")) {
-	case 1:
-		warp "tra_fild",165,130;
-		end;
-	case 2:
-		warp "tra_fild",155,90;
-		end;
-	case 3:
-		warp "tra_fild",155,45;
-		end;
-	default:
-		close;
-	}
-}
-
-// Size (north)
-tra_fild,145,145,0,0	monster	Dummy (Small)	21064,1
-tra_fild,165,145,0,0	monster	Dummy (Medium)	21065,1
-tra_fild,185,145,0,0	monster	Dummy (Large)	21066,1
-
-// Race (middle)
-tra_fild,125,115,0,0	monster	Dummy (Formless)	21067,1
-tra_fild,140,115,0,0	monster	Dummy (Dragon)	21068,1
-tra_fild,155,115,0,0	monster	Dummy (Brute)	21069,1
-tra_fild,170,115,0,0	monster	Dummy (Demi-Human)	21070,1
-tra_fild,185,115,0,0	monster	Dummy (Insect)	21071,1
-tra_fild,125,100,0,0	monster	Dummy (Fish)	21072,1
-tra_fild,140,100,0,0	monster	Dummy (Demon)	21073,1
-tra_fild,155,100,0,0	monster	Dummy (Plant)	21074,1
-tra_fild,170,100,0,0	monster	Dummy (Angel)	21075,1
-tra_fild,185,100,0,0	monster	Dummy (Undead Race)	21076,1
-
-// Element (south)
-tra_fild,125,70,0,0	monster	Dummy (Neutral Lv1)	21077,1
-tra_fild,140,70,0,0	monster	Dummy (Water Lv1)	21078,1
-tra_fild,155,70,0,0	monster	Dummy (Earth Lv1)	21079,1
-tra_fild,170,70,0,0	monster	Dummy (Fire Lv1)	21080,1
-tra_fild,185,70,0,0	monster	Dummy (Wind Lv1)	21081,1
-tra_fild,125,55,0,0	monster	Dummy (Poison Lv1)	21082,1
-tra_fild,140,55,0,0	monster	Dummy (Holy Lv1)	21083,1
-tra_fild,155,55,0,0	monster	Dummy (Shadow Lv1)	21084,1
-tra_fild,170,55,0,0	monster	Dummy (Ghost Lv1)	21085,1
-tra_fild,185,55,0,0	monster	Dummy (Undead Lv1)	21086,1
+morocc,186,109,0,0	monster	Dummy (Small)	21064,1
+morocc,190,109,0,0	monster	Dummy (Medium)	21065,1
+morocc,194,109,0,0	monster	Dummy (Large)	21066,1
+morocc,198,109,0,0	monster	Dummy (Demi-Human)	21070,1
