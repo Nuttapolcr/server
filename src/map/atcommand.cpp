@@ -9016,6 +9016,49 @@ ACMD_FUNC(rates)
 }
 
 /*==========================================
+ * Enable or disable Collection bonuses server-wide.
+ * Usage: @collection <on|off>
+ *------------------------------------------*/
+ACMD_FUNC(collection)
+{
+	map_session_data *pl_sd;
+	struct s_mapiterator *iter;
+	bool enabled;
+
+	nullpo_retr(-1, sd);
+
+	if (!message || !*message) {
+		clif_displaymessage(fd, "Usage: @collection <on|off>");
+		return -1;
+	}
+
+	if (!strcmpi(message, "on"))
+		enabled = true;
+	else if (!strcmpi(message, "off"))
+		enabled = false;
+	else {
+		clif_displaymessage(fd, "Usage: @collection <on|off>");
+		return -1;
+	}
+
+	if (battle_config.collection_enable_bonus == enabled) {
+		clif_displaymessage(fd, enabled ? "Collection bonuses are already enabled." : "Collection bonuses are already disabled.");
+		return -1;
+	}
+
+	battle_config.collection_enable_bonus = enabled;
+
+	iter = mapit_getallusers();
+	for (pl_sd = (TBL_PC *)mapit_first(iter); mapit_exists(iter); pl_sd = (TBL_PC *)mapit_next(iter)) {
+		status_calc_pc(pl_sd, SCO_FORCE);
+		clif_displaymessage(pl_sd->fd, enabled ? "Collection bonuses have been enabled." : "Collection bonuses have been disabled.");
+	}
+	mapit_free(iter);
+
+	return 0;
+}
+
+/*==========================================
  * @me by lordalfa
  * => Displays the OUTPUT string on top of the Visible players Heads.
  *------------------------------------------*/
@@ -12726,6 +12769,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(version),
 		ACMD_DEF(mutearea),
 		ACMD_DEF(rates),
+		ACMD_DEF(collection),
 		ACMD_DEF(iteminfo),
 		ACMD_DEF(whodrops),
 		ACMD_DEF(whereis),

@@ -85,6 +85,10 @@ Body:
   - Command: rates
     Help: |
       Displays the server's current rates.
+  - Command: collection
+    Help: |
+      Params: <on|off>
+      Enables or disables Collection bonuses server-wide.
   - Command: uptime
     Help: |
       Displays how long the server has been online.

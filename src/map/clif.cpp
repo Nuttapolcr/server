@@ -5975,6 +5975,11 @@ int clif_insight(struct block_list *bl,va_list ap)
 
 /// Updates whole skill tree (ZC_SKILLINFO_LIST).
 /// 010f <packet len>.W { <skill id>.W <type>.L <level>.W <sp cost>.W <attack range>.W <skill name>.24B <upgradable>.B }*
+static bool clif_hide_custom_mastery_skill(uint16 skill_id)
+{
+	return skill_id >= KN_PIERCE_MASTERY && skill_id <= MO_ASURA_MASTERY;
+}
+
 void clif_skillinfoblock(map_session_data *sd)
 {
 	int fd;
@@ -5993,6 +5998,11 @@ void clif_skillinfoblock(map_session_data *sd)
 	{
 		if( (id = sd->status.skill[i].id) != 0 )
 		{
+			// Custom Mastery skills are passive server-side bonuses and should not
+			// appear as extra entries at the bottom of the client's skill tree.
+			if (clif_hide_custom_mastery_skill(id))
+				continue;
+
 			// workaround for bugreport:5348
 			if (len + 37 > 8192)
 				break;
@@ -6027,7 +6037,7 @@ void clif_skillinfoblock(map_session_data *sd)
 	// workaround for bugreport:5348; send the remaining skills one by one to bypass packet size limit
 	for ( ; i < MAX_SKILL; i++)
 	{
-		if( (id = sd->status.skill[i].id) != 0 && ( id != WE_CALLPARTNER || !haveCallPartnerSkill ) )
+		if( (id = sd->status.skill[i].id) != 0 && !clif_hide_custom_mastery_skill(id) && ( id != WE_CALLPARTNER || !haveCallPartnerSkill ) )
 		{
 			clif_addskill(sd, id);
 			clif_skillinfo(sd, id, 0);
@@ -6043,6 +6053,9 @@ void clif_skillinfoblock(map_session_data *sd)
 void clif_addskill(map_session_data *sd, int skill_id)
 {
 	nullpo_retv(sd);
+
+	if (clif_hide_custom_mastery_skill(skill_id))
+		return;
 
 	int fd = sd->fd;
 	uint16 idx = skill_get_index(skill_id);

@@ -855,16 +855,21 @@ static TIMER_FUNC(pet_hungry){
 	else
 		interval = pet_db_ptr->hungry_delay;
 
+	// Loyal pets no longer become hungry. Keep the timer running in case their
+	// intimacy is lowered later, so normal hunger behavior can resume.
+	if (pd->pet.intimate >= PET_INTIMATE_LOYAL) {
+		interval = max(interval, 1);
+		pd->pet_hungry_timer = add_timer(tick+interval,pet_hungry,sd->bl.id,0);
+		return 0;
+	}
+
 	pd->pet.hungry -= pet_db_ptr->fullness;
 
 	if( pd->pet.hungry < PET_HUNGRY_NONE ) {
 		pet_stop_attack(pd);
 		pd->pet.hungry = PET_HUNGRY_NONE;
-		pet_set_intimate(pd, pd->pet.intimate + pet_db_ptr->hungry_intimacy_dec);
-
-		if( pd->pet.intimate <= PET_INTIMATE_NONE ) {
-			pd->status.speed = pd->get_pet_walk_speed();
-		}
+		// Starvation may reduce intimacy, but it must never make the pet leave.
+		pet_set_intimate(pd, max(static_cast<int>(PET_INTIMATE_AWKWARD), pd->pet.intimate + pet_db_ptr->hungry_intimacy_dec));
 
 		status_calc_pet(pd,SCO_NONE);
 		clif_send_petdata(sd,pd,1,pd->pet.intimate);
