@@ -123,3 +123,11 @@ Body:
       Map: 1@glast
       X: 367
       Y: 304
+  - Id: 900
+    Name: Champion GM Arena
+    TimeLimit: 21600
+    IdleTimeOut: 21600
+    Enter:
+      Map: 1@ge_st
+      X: 104
+      Y: 62

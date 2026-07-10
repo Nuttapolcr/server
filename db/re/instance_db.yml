@@ -576,3 +576,11 @@ Body:
       Map: 1@jorlab
       X: 57
       Y: 45
+  - Id: 900
+    Name: Champion GM Arena
+    TimeLimit: 21600
+    IdleTimeOut: 21600
+    Enter:
+      Map: 1@ge_st
+      X: 104
+      Y: 62

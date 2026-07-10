@@ -1,0 +1,237 @@
+//============================================================
+//= GM-controlled Champion Arena (BO1)
+//= Uses an instance clone of the Geffen Tournament stage.
+//============================================================
+
+-	script	ChampionArenaControl	-1,{
+
+OnInit:
+	bindatcmd "champcreate", strnpcinfo(3)+"::OnCreate", 99, 99;
+	bindatcmd "champpull", strnpcinfo(3)+"::OnPull", 99, 99;
+	bindatcmd "champspec", strnpcinfo(3)+"::OnSpectator", 99, 99;
+	bindatcmd "champstart", strnpcinfo(3)+"::OnStart", 99, 99;
+	bindatcmd "champreset", strnpcinfo(3)+"::OnReset", 99, 99;
+	bindatcmd "champclose", strnpcinfo(3)+"::OnClose", 99, 99;
+	end;
+
+OnCreate:
+	if ($@ChampArena_Instance > 0) {
+		dispbottom "[Champion Arena] Arena is already open. Use @champclose first.";
+		end;
+	}
+	.@instance_id = instance_create("Champion GM Arena", IM_CHAR, getcharid(0));
+	if (.@instance_id < 0) {
+		dispbottom "[Champion Arena] Cannot create instance (error "+.@instance_id+").";
+		end;
+	}
+	$@ChampArena_Instance = .@instance_id;
+	$@ChampArena_Map$ = instance_mapname("1@ge_st", .@instance_id);
+	$@ChampArena_State = 1;
+	$@ChampArena_Fighter[0] = 0;
+	$@ChampArena_Fighter[1] = 0;
+	$@ChampArena_Name$[0] = "";
+	$@ChampArena_Name$[1] = "";
+	setmapflag $@ChampArena_Map$, MF_PVP_NOPARTY;
+	setmapflag $@ChampArena_Map$, MF_PVP_NOGUILD;
+	setmapflag $@ChampArena_Map$, MF_PVP_NOCALCRANK;
+	setmapflag $@ChampArena_Map$, MF_NOPENALTY;
+	warp $@ChampArena_Map$,104,62;
+	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
+	dispbottom "[Champion Arena] Opened. Use @champpull <name> twice, then @champstart.";
+	end;
+
+OnPull:
+	if ($@ChampArena_Instance <= 0 || $@ChampArena_State != 1) {
+		dispbottom "[Champion Arena] Arena is not accepting competitors.";
+		end;
+	}
+	if (.@atcmd_numparameters < 1) {
+		dispbottom "Usage: @champpull <character name>";
+		end;
+	}
+	.@name$ = implode(.@atcmd_parameters$, " ");
+	.@target_aid = getcharid(3, .@name$);
+	if (.@target_aid <= 0 || !isloggedin(.@target_aid)) {
+		dispbottom "[Champion Arena] Player is not online: "+.@name$;
+		end;
+	}
+	if (.@target_aid == $@ChampArena_Fighter[0] || .@target_aid == $@ChampArena_Fighter[1]) {
+		dispbottom "[Champion Arena] This player is already a competitor.";
+		end;
+	}
+	if ($@ChampArena_Fighter[0] && $@ChampArena_Fighter[1]) {
+		dispbottom "[Champion Arena] Both competitor slots are full.";
+		end;
+	}
+	.@gm_aid = getcharid(3);
+	if (!attachrid(.@target_aid)) {
+		attachrid(.@gm_aid);
+		dispbottom "[Champion Arena] Player went offline.";
+		end;
+	}
+	if (Class != Job_Champion) {
+		attachrid(.@gm_aid);
+		dispbottom "[Champion Arena] Only the Champion class is allowed.";
+		end;
+	}
+	.@slot = ($@ChampArena_Fighter[0] == 0) ? 0 : 1;
+	$@ChampArena_Fighter[.@slot] = getcharid(3);
+	$@ChampArena_Name$[.@slot] = strcharinfo(0);
+	percentheal 100,100;
+	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
+	if (.@slot == 0)
+		warp $@ChampArena_Map$,99,50;
+	else
+		warp $@ChampArena_Map$,109,50;
+	announce "[ Champion Arena ] "+$@ChampArena_Name$[.@slot]+" enters side "+(.@slot+1)+".", bc_all|bc_blue;
+	attachrid(.@gm_aid);
+	dispbottom "[Champion Arena] Pulled "+$@ChampArena_Name$[.@slot]+" into the arena.";
+	end;
+
+OnSpectator:
+	if ($@ChampArena_Instance <= 0) {
+		dispbottom "[Champion Arena] Arena is not open.";
+		end;
+	}
+	if (.@atcmd_numparameters < 1) {
+		dispbottom "Usage: @champspec <character name>";
+		end;
+	}
+	.@name$ = implode(.@atcmd_parameters$, " ");
+	.@target_aid = getcharid(3, .@name$);
+	if (.@target_aid <= 0 || !isloggedin(.@target_aid)) {
+		dispbottom "[Champion Arena] Player is not online: "+.@name$;
+		end;
+	}
+	if (.@target_aid == $@ChampArena_Fighter[0] || .@target_aid == $@ChampArena_Fighter[1]) {
+		dispbottom "[Champion Arena] A competitor cannot become a spectator.";
+		end;
+	}
+	.@gm_aid = getcharid(3);
+	if (!attachrid(.@target_aid)) {
+		attachrid(.@gm_aid);
+		dispbottom "[Champion Arena] Player went offline.";
+		end;
+	}
+	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
+	warp $@ChampArena_Map$,104,62;
+	dispbottom "[Champion Arena] You are now in the spectator area.";
+	attachrid(.@gm_aid);
+	dispbottom "[Champion Arena] Pulled "+.@name$+" into the spectator area.";
+	end;
+
+OnStart:
+	if ($@ChampArena_Instance <= 0 || $@ChampArena_State != 1) {
+		dispbottom "[Champion Arena] Arena is not ready to start.";
+		end;
+	}
+	if (!$@ChampArena_Fighter[0] || !$@ChampArena_Fighter[1]) {
+		dispbottom "[Champion Arena] Two Champion competitors are required.";
+		end;
+	}
+	if (!isloggedin($@ChampArena_Fighter[0]) || !isloggedin($@ChampArena_Fighter[1])) {
+		dispbottom "[Champion Arena] A competitor is offline.";
+		end;
+	}
+	for (.@i = 0; .@i < 2; ++.@i) {
+		if (getmapxy(.@fighter_map$,.@fighter_x,.@fighter_y,BL_PC,$@ChampArena_Name$[.@i]) != 0 || .@fighter_map$ != $@ChampArena_Map$) {
+			dispbottom "[Champion Arena] "+$@ChampArena_Name$[.@i]+" is not inside the arena.";
+			end;
+		}
+	}
+	$@ChampArena_State = 2;
+	mapannounce $@ChampArena_Map$, "[ Champion Arena ] "+$@ChampArena_Name$[0]+" VS "+$@ChampArena_Name$[1], bc_map|bc_blue;
+	mapannounce $@ChampArena_Map$, "The match starts in 5 seconds.", bc_map|bc_yellow;
+	sleep 2000;
+	mapannounce $@ChampArena_Map$, "3", bc_map|bc_yellow;
+	sleep 1000;
+	mapannounce $@ChampArena_Map$, "2", bc_map|bc_yellow;
+	sleep 1000;
+	mapannounce $@ChampArena_Map$, "1", bc_map|bc_yellow;
+	sleep 1000;
+	if ($@ChampArena_State != 2) end;
+	setmapflag $@ChampArena_Map$, MF_PVP;
+	for (.@i = 0; .@i < 2; ++.@i) {
+		if (attachrid($@ChampArena_Fighter[.@i])) {
+			percentheal 100,100;
+			setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, false;
+		}
+	}
+	$@ChampArena_State = 3;
+	mapannounce $@ChampArena_Map$, "FIGHT!", bc_map|bc_red;
+	detachrid;
+	end;
+
+OnPCDieEvent:
+	if ($@ChampArena_State != 3 || strcharinfo(3) != $@ChampArena_Map$) end;
+	.@loser = getcharid(3);
+	if (.@loser != $@ChampArena_Fighter[0] && .@loser != $@ChampArena_Fighter[1]) end;
+	.@winner_slot = (.@loser == $@ChampArena_Fighter[0]) ? 1 : 0;
+	$@ChampArena_State = 4;
+	removemapflag $@ChampArena_Map$, MF_PVP;
+	announce "[ Champion Arena ] Winner: "+$@ChampArena_Name$[.@winner_slot]+"!", bc_all|bc_blue;
+	mapannounce $@ChampArena_Map$, "Use @champreset to prepare the next match.", bc_map|bc_yellow;
+	if (attachrid($@ChampArena_Fighter[.@winner_slot]))
+		setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
+	end;
+
+OnPCLogoutEvent:
+	if ($@ChampArena_State != 3 || strcharinfo(3) != $@ChampArena_Map$) end;
+	.@loser = getcharid(3);
+	if (.@loser != $@ChampArena_Fighter[0] && .@loser != $@ChampArena_Fighter[1]) end;
+	.@winner_slot = (.@loser == $@ChampArena_Fighter[0]) ? 1 : 0;
+	$@ChampArena_State = 4;
+	removemapflag $@ChampArena_Map$, MF_PVP;
+	announce "[ Champion Arena ] "+$@ChampArena_Name$[.@winner_slot]+" wins because the opponent disconnected!", bc_all|bc_blue;
+	if (attachrid($@ChampArena_Fighter[.@winner_slot]))
+		setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
+	end;
+
+OnReset:
+	if ($@ChampArena_Instance <= 0) {
+		dispbottom "[Champion Arena] Arena is not open.";
+		end;
+	}
+	.@gm_aid = getcharid(3);
+	callsub S_ClearArena;
+	$@ChampArena_State = 1;
+	$@ChampArena_Fighter[0] = 0;
+	$@ChampArena_Fighter[1] = 0;
+	$@ChampArena_Name$[0] = "";
+	$@ChampArena_Name$[1] = "";
+	attachrid(.@gm_aid);
+	dispbottom "[Champion Arena] Arena reset. Ready for the next match.";
+	end;
+
+OnClose:
+	if ($@ChampArena_Instance <= 0) {
+		dispbottom "[Champion Arena] Arena is not open.";
+		end;
+	}
+	.@gm_aid = getcharid(3);
+	.@instance_id = $@ChampArena_Instance;
+	callsub S_ClearArena;
+	$@ChampArena_Instance = 0;
+	$@ChampArena_State = 0;
+	$@ChampArena_Map$ = "";
+	$@ChampArena_Fighter[0] = 0;
+	$@ChampArena_Fighter[1] = 0;
+	$@ChampArena_Name$[0] = "";
+	$@ChampArena_Name$[1] = "";
+	instance_destroy .@instance_id;
+	attachrid(.@gm_aid);
+	dispbottom "[Champion Arena] Arena closed.";
+	end;
+
+S_ClearArena:
+	removemapflag $@ChampArena_Map$, MF_PVP;
+	.@count = getmapunits(BL_PC, $@ChampArena_Map$, .@players[0]);
+	for (.@i = 0; .@i < .@count; ++.@i) {
+		if (!attachrid(.@players[.@i])) continue;
+		setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, false;
+		if (Hp <= 0) atcommand "@alive";
+		warp "SavePoint",0,0;
+	}
+	detachrid;
+	return;
+}
