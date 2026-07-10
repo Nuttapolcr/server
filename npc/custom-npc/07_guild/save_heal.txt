@@ -60,6 +60,12 @@ function	script	F_war_days_text	{
 // =====================================================
 // NPC: Buffer Service
 // =====================================================
+function	script	F_PremiumServiceStatsBuff	{
+	if (sc_check(SC_PREMIUMSERVICE))
+		sc_start SC_INCALLSTATUS,getarg(0),3;
+	return;
+}
+
 -	script	Buffer Service	-1,{
 
 	// ===== Main click (top-level) =====
@@ -82,6 +88,7 @@ function	script	F_war_days_text	{
 
 			sc_start SC_INCREASEAGI,900000,10;
 			sc_start SC_BLESSING,900000,10;
+			callfunc "F_PremiumServiceStatsBuff",900000;
 
 			atcommand "@repairall";
 			percentheal 100,0;
@@ -131,6 +138,7 @@ function	script	F_war_days_text	{
 		sc_end SC_BLESSING;
 		sc_start SC_INCREASEAGI,300000,10;
 		sc_start SC_BLESSING,300000,10;
+		callfunc "F_PremiumServiceStatsBuff",300000;
 		specialeffect2 EF_BLESSING;
 		specialeffect2 EF_INCAGILITY;
 		sc_end SC_POSION;
@@ -161,6 +169,7 @@ function	script	F_war_days_text	{
 
 		sc_start SC_INCREASEAGI,300000,5;
 		sc_start SC_BLESSING,300000,5;
+		callfunc "F_PremiumServiceStatsBuff",300000;
 
 		atcommand "@repairall";
 		specialeffect2 509;
@@ -214,6 +223,7 @@ function	script	F_war_days_text	{
 
 	sc_start SC_INCREASEAGI,900000,5;
 	sc_start SC_BLESSING,900000,5;
+	callfunc "F_PremiumServiceStatsBuff",900000;
 
 	specialeffect2 509;
 	specialeffect2 EF_BLESSING;
