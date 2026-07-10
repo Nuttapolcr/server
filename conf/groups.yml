@@ -46,6 +46,7 @@ Body:
     Name: Player
     Level: 0
     Commands:
+      load: true
       changedress: true
       resurrect: true
       time: true
@@ -229,7 +230,7 @@ Body:
       who_display_aid: true
       hack_info: true
       any_warp: true
-      view_hpmeter: true
+      view_hpmeter: false
       macro_detect: true
   - Id: 99
     Name: Admin
