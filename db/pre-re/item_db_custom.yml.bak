@@ -26067,11 +26067,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 128
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26092,11 +26087,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 129
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26117,11 +26107,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 130
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26142,11 +26127,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 131
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26166,11 +26146,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 132
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26190,11 +26165,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 133
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26215,11 +26185,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 134
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26240,11 +26205,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 135
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26265,11 +26225,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 136
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26290,11 +26245,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 137
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26333,11 +26283,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 139
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26357,11 +26302,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 141
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26381,11 +26321,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 142
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26405,11 +26340,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 143
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26429,11 +26359,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 144
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26453,11 +26378,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 145
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -36185,7 +36105,7 @@ Body:
     Type: Etc
   - Id: 1030007
     AegisName: Charm_CBT
-    Name: Charm CBT
+    Name: Charm CBT (NT)
     Type: Charm
     Trade:
       NoDrop: true

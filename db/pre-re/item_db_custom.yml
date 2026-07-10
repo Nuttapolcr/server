@@ -14241,12 +14241,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3931
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 63932
     AegisName: C_PETFAIRYFOREST SMR
     Name: C PETFAIRYFOREST SMR
@@ -14255,12 +14256,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3932
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 63933
     AegisName: C_PETFAIRYFOREST SPR
     Name: C PETFAIRYFOREST SPR
@@ -14269,12 +14271,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3933
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 63934
     AegisName: C_PETFAIRYFOREST WTR
     Name: C PETFAIRYFOREST WTR
@@ -14283,12 +14286,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3934
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 63935
     AegisName: C_PhoenixWings
     Name: C PhoenixWings
@@ -15137,12 +15141,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3995
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 63996
     AegisName: C_RAG 2367
     Name: C RAG 2367
@@ -15151,12 +15156,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3996
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 63997
     AegisName: C_RAG 2368
     Name: C RAG 2368
@@ -15165,12 +15171,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3997
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 63998
     AegisName: C_RAG 2369
     Name: C RAG 2369
@@ -15179,12 +15186,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3998
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 63999
     AegisName: C_RAG 2370
     Name: Cos butterfly
@@ -15193,12 +15201,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 3999
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 64000
     AegisName: C_RAG 2432
     Name: C RAG 2432
@@ -15535,12 +15544,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 4023
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 64024
     AegisName: C_RAG 2495
     Name: C RAG 2495
@@ -15549,12 +15559,13 @@ Body:
       Costume_Head_Mid: true
     ArmorLevel: 1
     View: 4024
-    Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+    Script: |-
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 64025
     AegisName: C_RAG 2543
     Name: C RAG 2543
@@ -16815,11 +16826,12 @@ Body:
     ArmorLevel: 1
     View: 4114
     Script: |
-      bonus2 bDropAddRace,RC_All,5;
-      bonus bAtkRate,3;
-      bonus bMatkRate,3;
-      bonus2 bAddClass,Class_Boss,5;
-      bonus2 bMagicAddClass,Class_Boss,5;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bBossBoxSpeed,10;
   - Id: 64115
     AegisName: C_RAG 2799
     Name: C RAG 2799
@@ -26067,11 +26079,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 128
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26092,11 +26099,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 129
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26117,11 +26119,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 130
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26142,11 +26139,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 131
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26166,11 +26158,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 132
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26190,11 +26177,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 133
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26215,11 +26197,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 134
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26240,11 +26217,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 135
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26265,11 +26237,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 136
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26290,11 +26257,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 137
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,10;
       bonus bAtkRate,10;
@@ -26333,11 +26295,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 139
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26357,11 +26314,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 141
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26381,11 +26333,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 142
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26405,11 +26352,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 143
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26429,11 +26371,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 144
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
@@ -26453,11 +26390,6 @@ Body:
     EquipLevelMin: 1
     Refineable: true
     View: 145
-    Trade:
-      NoDrop: true
-      NoSell: true
-      NoMail: true
-      NoAuction: true
     Script: |
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,5;
