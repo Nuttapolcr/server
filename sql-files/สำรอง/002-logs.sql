@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `atcommandlog` (
   PRIMARY KEY  (`atcommand_id`),
   INDEX (`account_id`),
   INDEX (`char_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=tis620 COLLATE=tis620_thai_ci;
 
 --
 -- Table structure for table `branchlog`
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `chatlog` (
   PRIMARY KEY  (`id`),
   INDEX (`src_accountid`),
   INDEX (`src_charid`)
-) ENGINE=MyISAM AUTO_INCREMENT=1;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=tis620 COLLATE=tis620_thai_ci;
 
 --
 -- Table structure for table `feedinglog`
