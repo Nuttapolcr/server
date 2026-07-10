@@ -10721,6 +10721,7 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 2525
+            Amount: 3
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 1200
@@ -10803,6 +10804,7 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 1494
+            Amount: 5
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 800

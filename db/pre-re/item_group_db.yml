@@ -11105,47 +11105,47 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 90
-            Amount: 5
+            Amount: 1
           - Index: 1
             Item: Meteorite_Fragment
             Rate: 90
-            Amount: 6
+            Amount: 1
           - Index: 2
             Item: Meteorite_Fragment
             Rate: 90
-            Amount: 7
+            Amount: 1
           - Index: 3
             Item: Meteorite_Fragment
             Rate: 90
-            Amount: 8
+            Amount: 2
           - Index: 4
             Item: Meteorite_Fragment
             Rate: 90
-            Amount: 9
+            Amount: 2
           - Index: 5
             Item: Meteorite_Fragment
             Rate: 90
-            Amount: 10
+            Amount: 3
           - Index: 6
             Item: Meteorite_Fragment
             Rate: 90
-            Amount: 11
+            Amount: 3
           - Index: 7
             Item: Meteorite_Fragment
             Rate: 90
-            Amount: 12
+            Amount: 4
           - Index: 8
             Item: Meteorite_Fragment
             Rate: 45
-            Amount: 13
+            Amount: 5
           - Index: 9
             Item: Meteorite_Fragment
             Rate: 45
-            Amount: 14
+            Amount: 5
           - Index: 10
             Item: Meteorite_Fragment
             Rate: 45
-            Amount: 15
+            Amount: 6
 
   - Group: CLOSEDMIND_BOX
     SubGroups:
