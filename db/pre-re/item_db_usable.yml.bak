@@ -22079,3 +22079,25 @@ Body:
       Container: true
     Script: |
       getgroupitem(IG_PAYPROMOTION_BOX);
+  - Id: 11563
+    AegisName: Hot_Tee
+    Name: Hot Tea
+    Type: Usable
+    Buy: 10
+    Weight: 20
+    Flags:
+      BuyingStore: true
+    Script: |
+      itemheal 0,100;
+      if (getequipid(EQI_HEAD_MID) == 15385)
+         warp "xmas",233,296;
+  - Id: 11564
+    AegisName: Sweet_Canape
+    Name: Sweet Canape
+    Type: Usable
+    Buy: 10
+    Weight: 20
+    Flags:
+      BuyingStore: true
+    Script: |
+      itemheal 1000,0;

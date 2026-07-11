@@ -12301,7 +12301,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus bDef,100;
+      bonus bDef,20;
   - Id: 4985
     AegisName: Reactor_A_AVOI
     Name: PD Supplement Reactor

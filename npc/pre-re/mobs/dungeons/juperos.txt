@@ -21,29 +21,29 @@
 // - Juperos 01
 //========================================================================================
 
-juperos_01,100,180,60,70	monster	Venatu	1679,15,300000
-juperos_01,100,180,60,70	monster	Venatu	1676,25,300000
-juperos_01,100,180,60,70	monster	Venatu	1677,20,300000
-juperos_01,100,180,60,70	monster	Venatu	1678,25,300000
-juperos_01,192,132,60,80	monster	Venatu	1679,35,300000
-juperos_01,192,132,60,80	monster	Venatu	1676,45,300000
-juperos_01,192,132,60,80	monster	Venatu	1677,50,300000
-juperos_01,192,132,60,80	monster	Venatu	1678,45,300000
-juperos_01,0,0	monster	Dimik	1670,5
-juperos_01,0,0	monster	Dimik	1671,5
-juperos_01,0,0	monster	Dimik	1672,5
-juperos_01,0,0	monster	Dimik	1673,5
-juperos_01,232,202,25,25	monster	Dimik	1670,5,420000
+juperos_01,100,180,60,70	monster	Venatu	1679,60,300000
+juperos_01,100,180,60,70	monster	Venatu	1676,100,300000
+juperos_01,100,180,60,70	monster	Venatu	1677,80,300000
+juperos_01,100,180,60,70	monster	Venatu	1678,100,300000
+juperos_01,192,132,60,80	monster	Venatu	1679,140,300000
+juperos_01,192,132,60,80	monster	Venatu	1676,180,300000
+juperos_01,192,132,60,80	monster	Venatu	1677,200,300000
+juperos_01,192,132,60,80	monster	Venatu	1678,180,300000
+juperos_01,0,0	monster	Dimik	1670,20
+juperos_01,0,0	monster	Dimik	1671,20
+juperos_01,0,0	monster	Dimik	1672,20
+juperos_01,0,0	monster	Dimik	1673,20
+juperos_01,232,202,25,25	monster	Dimik	1670,20,420000
 
 //========================================================================================
 // - Juperos 02
 //========================================================================================
 
-juperos_02,0,0	monster	Venatu	1679,50
-juperos_02,0,0	monster	Venatu	1676,65
-juperos_02,0,0	monster	Venatu	1677,65
-juperos_02,0,0	monster	Venatu	1678,65
-juperos_02,0,0	monster	Apocalypse	1365,70
+juperos_02,0,0	monster	Venatu	1679,200
+juperos_02,0,0	monster	Venatu	1676,260
+juperos_02,0,0	monster	Venatu	1677,260
+juperos_02,0,0	monster	Venatu	1678,260
+juperos_02,0,0	monster	Apocalypse	1365,280
 
 //========================================================================================
 // - Juperos Core

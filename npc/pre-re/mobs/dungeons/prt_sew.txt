@@ -44,10 +44,10 @@ prt_sewb3,0,0	monster	Familiar	1005,20
 //==================================================
 // prt_sewb4 - Prontera Culvert F4
 //==================================================
-prt_sewb4,0,0	monster	Thief Bug Egg	1048,10
-prt_sewb4,0,0	monster	Thief Bug	1051,20
-prt_sewb4,0,0	monster	Thief Bug Female	1053,20
-prt_sewb4,0,0	monster	Thief Bug Male	1054,70
-prt_sewb4,0,0	monster	Drainliar	1111,20
-prt_sewb4,0,0	monster	Cramp	1209,5
+prt_sewb4,0,0	monster	Thief Bug Egg	1048,40
+prt_sewb4,0,0	monster	Thief Bug	1051,80
+prt_sewb4,0,0	monster	Thief Bug Female	1053,80
+prt_sewb4,0,0	monster	Thief Bug Male	1054,280
+prt_sewb4,0,0	monster	Drainliar	1111,80
+prt_sewb4,0,0	monster	Cramp	1209,20
 prt_sewb4,0,0,0,0	boss_monster	Golden Thief Bug	1086,1,3600000,0,1

@@ -21025,7 +21025,7 @@ Body:
   - Id: 23165
     AegisName: Service30_AID_Buff
     Name: Premium Service Staff
-    Type: DelayConsume
+    Type: Etc
     Trade:
       Override: 100
       NoDrop: false

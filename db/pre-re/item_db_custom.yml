@@ -28471,14 +28471,12 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bVit,6;
       bonus2 bAddClass,Class_Boss,30;
       bonus bMaxHPrate,5;
       bonus2 bSkillAtk,"CR_HOLYCROSS",30;
       bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/3*2;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
       bonus2 bAddClass,Class_Boss,10;
       }
@@ -28494,19 +28492,17 @@ Body:
     Jobs:
       Wizard: true
     Locations:
-      Both_Hand: true
+      Right_Hand: true
     WeaponLevel: 3
     EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bInt,6;
       bonus bMatkRate,10;
       bonus2 bMagicAddClass,Class_Boss,30;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
       bonus bMatk,50;
       bonus bMatkRate,20;
       bonus2 bMagicAddClass,Class_Boss,25;
@@ -28530,7 +28526,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,6;
       bonus bVit,3;
       bonus bAspdRate,3;
@@ -28538,7 +28533,6 @@ Body:
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
       bonus bMaxHPrate,10;
       bonus2 bSubEle,Ele_Neutral,2;
       }
@@ -28560,14 +28554,12 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,5;
       bonus bAgi,5;
       bonus2 bSkillAtk,"WS_CARTTERMINATION",50;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
       }
   - Id: 500013
@@ -28588,7 +28580,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,3;
       bonus bInt,3;
       bonus bDelayrate,-5;
@@ -28597,7 +28588,6 @@ Body:
       bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*3;
       bonus bDelayrate,-(.@r/3*1);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus bInt,3;
       bonus2 bAddClass,Class_Boss,10;
@@ -28620,7 +28610,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,3;
       bonus bVit,8;
       bonus bInt,3;
@@ -28632,7 +28621,6 @@ Body:
       bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
       bonus2 bMagicAddClass,Class_Boss,30;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus bInt,3;
       bonus bMatkRate,20;
@@ -28657,7 +28645,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,3;
       bonus bDex,3;
       bonus2 bAddClass,Class_Boss,30;
@@ -28666,7 +28653,6 @@ Body:
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",10;
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*3;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
       bonus2 bAddClass,Class_Boss,10;
       }
@@ -28688,7 +28674,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,3;
       bonus bLuk,8;
       bonus2 bAddClass,Class_Boss,30;
@@ -28698,7 +28683,6 @@ Body:
       bonus bCritAtkRate,.@r/3*3;
       bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*5;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
       bonus2 bAddClass,Class_Boss,10;
       }
@@ -28720,7 +28704,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,3;
       bonus bLuk,8;
       bonus2 bAddClass,Class_Boss,30;
@@ -28731,7 +28714,6 @@ Body:
       bonus bCritAtkRate,.@r/3*3;
       bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*6;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
       bonus2 bAddClass,Class_Boss,10;
       }
@@ -28754,7 +28736,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,8;
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,3;
@@ -28763,7 +28744,6 @@ Body:
       bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*7;
       if (.@r>=7) {
          bonus bAtkRate,5;
-      bonus bMaxHP,500;
          bonus2 bAddClass,Class_Boss,10;
       }
   - Id: 570009
@@ -28785,7 +28765,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,8;
       bonus bVit,3;
       bonus bAspdRate,3;
@@ -28793,7 +28772,6 @@ Body:
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
       bonus bMaxHPrate,10;
       bonus2 bSubEle,Ele_Neutral,2;
       }
@@ -28816,7 +28794,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,8;
       bonus bVit,3;
       bonus bAspdRate,3;
@@ -28824,7 +28801,6 @@ Body:
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
       bonus bMaxHPrate,10;
       bonus2 bSubEle,Ele_Neutral,2;
       }
@@ -28846,7 +28822,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,6;
       bonus bAtkRate,10;
       bonus2 bSkillAtk,"TK_STORMKICK",100;
@@ -28865,7 +28840,6 @@ Body:
       bonus2 bSkillAtk,"TK_JUMPKICK",.@r/3*15;
 
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtk,100;
          bonus bAtkRate,5;
          bonus bShortAtkRate,10;
@@ -28893,7 +28867,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,3;
       bonus bVit,5;
       bonus bInt,3;
@@ -28905,7 +28878,6 @@ Body:
       bonus2 bSkillAtk,"SL_SMA",.@r/3*7;
       bonus2 bAddClass,Class_Boss,30;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus bInt,3;
       bonus2 bAddClass,Class_Boss,10;
@@ -28930,7 +28902,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,3;
       bonus bDex,3;
       bonus bVariableCastrate,-10;
@@ -28941,7 +28912,6 @@ Body:
       bonus2 bSkillAtk,"NJ_HUUMA",.@r/3*15;
       bonus bDelayrate,-(.@r/3*3);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bStr,3;
          bonus bDex,3;
       bonus2 bAddClass,Class_Boss,10;
@@ -29000,7 +28970,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,6;
       bonus bAgi,6;
       bonus bVit,6;
@@ -29016,7 +28985,6 @@ Body:
       bonus bVariableCastrate,-(.@r/3*1);
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
       bonus2 bAddClass,Class_Boss,10;
       }
@@ -29038,7 +29006,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,3;
       bonus bDex,3;
       bonus2 bAddClass,Class_Boss,30;
@@ -29046,7 +29013,6 @@ Body:
       bonus2 bSkillAtk,"KN_BOWLINGBASH",20;
       bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*2;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -29055,7 +29021,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,10;
       }
   - Id: 630012
@@ -29076,14 +29041,12 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bVit,6;
       bonus2 bAddClass,Class_Boss,30;
       bonus bMaxHPrate,5;
       bonus2 bSkillAtk,"CR_HOLYCROSS",30;
       bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/3*2;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -29092,7 +29055,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,10;
       }
   - Id: 640020
@@ -29106,20 +29068,16 @@ Body:
     Slots: 1
     Jobs:
       Wizard: true
-    Locations:
-      Both_Hand: true
     WeaponLevel: 3
     EquipLevelMin: 1
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bInt,6;
       bonus bMatkRate,10;
       bonus2 bMagicAddClass,Class_Boss,30;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
       bonus bMatk,50;
       bonus bMatkRate,20;
          bonus2 bMagicAddClass,Class_Boss,25;
@@ -29130,11 +29088,12 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bDex,6;
          bonus bInt,4;
          bonus bDelayrate,-5;
       }
+    Locations:
+      Right_Hand: true
   - Id: 540020
     AegisName: Adulter_F_P_Book
     Name: "[Epic] Professor Weapon"
@@ -29153,7 +29112,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,6;
       bonus bVit,3;
       bonus bAspdRate,3;
@@ -29161,7 +29119,6 @@ Body:
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
          bonus2 bSubEle,Ele_Neutral,2;
       }
@@ -29170,7 +29127,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,8;
       }
   - Id: 520008
@@ -29191,14 +29147,12 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,5;
       bonus bAgi,5;
       bonus2 bSkillAtk,"WS_CARTTERMINATION",50;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
       }
       if (.@r>=9) {
@@ -29206,7 +29160,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,10;
       }
   - Id: 500026
@@ -29227,7 +29180,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,3;
       bonus bInt,3;
       bonus bDelayrate,-5;
@@ -29236,7 +29188,6 @@ Body:
       bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*3;
       bonus bDelayrate,-(.@r/3*1);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus bInt,3;
          bonus2 bAddClass,Class_Boss,10;
@@ -29247,7 +29198,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,10;
       }
   - Id: 550024
@@ -29268,7 +29218,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,3;
       bonus bVit,8;
       bonus bInt,3;
@@ -29280,7 +29229,6 @@ Body:
       bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
       bonus2 bMagicAddClass,Class_Boss,30;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus bInt,3;
       bonus bMatkRate,20;
@@ -29293,7 +29241,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,6;
       }
   - Id: 560018
@@ -29314,7 +29261,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,3;
       bonus bDex,3;
       bonus2 bAddClass,Class_Boss,30;
@@ -29323,7 +29269,6 @@ Body:
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",10;
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*3;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -29332,7 +29277,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,7;
       }
   - Id: 610021
@@ -29353,7 +29297,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,3;
       bonus bLuk,8;
       bonus2 bAddClass,Class_Boss,30;
@@ -29363,7 +29306,6 @@ Body:
       bonus bCritAtkRate,.@r/3*3;
       bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*5;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -29372,7 +29314,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,7;
       }
   - Id: 510032
@@ -29393,7 +29334,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,3;
       bonus bLuk,8;
       bonus2 bAddClass,Class_Boss,30;
@@ -29404,7 +29344,6 @@ Body:
       bonus bCritAtkRate,.@r/3*3;
       bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*6;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -29413,7 +29352,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,7;
       }
   - Id: 700032
@@ -29435,7 +29373,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,8;
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,3;
@@ -29443,7 +29380,6 @@ Body:
       bonus bDex,.@r/3*1;
       bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*7;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -29452,7 +29388,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,8;
       }
   - Id: 570018
@@ -29474,7 +29409,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,8;
       bonus bVit,3;
       bonus bAspdRate,3;
@@ -29482,7 +29416,6 @@ Body:
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
          bonus2 bSubEle,Ele_Neutral,2;
       }
@@ -29491,7 +29424,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,8;
       }
   - Id: 580017
@@ -29513,7 +29445,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,8;
       bonus bVit,3;
       bonus bAspdRate,3;
@@ -29521,7 +29452,6 @@ Body:
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
          bonus2 bSubEle,Ele_Neutral,2;
       }
@@ -29530,7 +29460,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,8;
       }
   - Id: 540023
@@ -29551,7 +29480,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,6;
       bonus bAtkRate,10;
       bonus2 bSkillAtk,"TK_STORMKICK",100;
@@ -29570,7 +29498,6 @@ Body:
       bonus2 bSkillAtk,"TK_JUMPKICK",.@r/3*15;
 
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtk,100;
          bonus bAtkRate,5;
          bonus bShortAtkRate,10;
@@ -29586,7 +29513,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,7;
       }
   - Id: 550026
@@ -29607,7 +29533,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,3;
       bonus bVit,5;
       bonus bInt,3;
@@ -29619,7 +29544,6 @@ Body:
       bonus2 bSkillAtk,"SL_SMA",.@r/3*7;
       bonus2 bAddClass,Class_Boss,30;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus bInt,3;
          bonus2 bAddClass,Class_Boss,10;
@@ -29630,7 +29554,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,7;
       }
   - Id: 650009
@@ -29652,7 +29575,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,3;
       bonus bDex,3;
       bonus bVariableCastrate,-10;
@@ -29663,7 +29585,6 @@ Body:
       bonus2 bSkillAtk,"NJ_HUUMA",.@r/3*15;
       bonus bDelayrate,-(.@r/3*3);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bStr,3;
          bonus bDex,3;
       bonus2 bAddClass,Class_Boss,10;
@@ -29674,7 +29595,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,7;
       }
   - Id: 800003
@@ -29738,7 +29658,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bStr,6;
       bonus bAgi,6;
       bonus bVit,6;
@@ -29754,7 +29673,6 @@ Body:
       bonus bVariableCastrate,-(.@r/3*1);
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -29763,7 +29681,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,7;
       }
   - Id: 1000373
@@ -30246,7 +30163,6 @@ Body:
       bonus bAspdRate,5;
       bonus bAtkRate,.@r/3*3;
       bonus bStr,.@r/3*1;
-
       bonus2 bSkillAtk,"TK_STORMKICK",.@r/3*25;
       bonus2 bSkillAtk,"TK_DOWNKICK",.@r/3*25;
       bonus2 bSkillAtk,"TK_TURNKICK",.@r/3*15;
@@ -30270,8 +30186,8 @@ Body:
       }
       if (.@r>=11) {
          bonus bAspdRate,10;
-         bonus2 bSubRace,RC_Player_Human,10;
-         bonus2 bSubRace,RC_Player_Doram,10;
+         bonus2 bSubRace,RC_Player_Human,5;
+         bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
          bonus bAtkRate,5;
@@ -30855,11 +30771,11 @@ Body:
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
-      bonus bDef,10;
-      bonus bMdef,5;
+      bonus bDef,5;
+      bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
       }
   - Id: 452029
     AegisName: Epic_Melee_Armor
@@ -30974,19 +30890,18 @@ Body:
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
-      bonus bDef,10;
-      bonus bMdef,5;
+      bonus bDef,5;
+      bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
       }
       if (.@r>=9) {
          bonus bMaxHPrate,6;
-         bonus2 bSubEle,Ele_Neutral,5;
       }
       if (.@r>=11) {
-         bonus bMaxHP,3000;
-         bonus bDef,10;
+         bonus bMaxHP,1500;
+         bonus bDef,5;
          bonus2 bSubEle,Ele_Neutral,5;
       }
   - Id: 452033
@@ -31190,19 +31105,18 @@ Body:
       .@g = getenchantgrade();
       bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
-      bonus bDef,15;
-      bonus bMdef,5;
+      bonus bDef,5;
+      bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
       }
       if (.@r>=9) {
          bonus bMaxHPrate,6;
-         bonus2 bSubEle,Ele_Neutral,5;
       }
       if (.@r>=11) {
-         bonus bMaxHP,3000;
-         bonus bDef,10;
+         bonus bMaxHP,1500;
+         bonus bDef,5;
          bonus2 bSubEle,Ele_Neutral,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
@@ -31318,11 +31232,11 @@ Body:
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
-      bonus bDef,10;
-      bonus bMdef,5;
+      bonus bDef,5;
+      bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
       }
   - Id: 480425
     AegisName: Epic_Melee_Muffler
@@ -31437,19 +31351,18 @@ Body:
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
-      bonus bDef,10;
-      bonus bMdef,5;
+      bonus bDef,5;
+      bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
       }
       if (.@r>=9) {
          bonus bMaxHPrate,6;
-         bonus2 bSubEle,Ele_Neutral,5;
       }
       if (.@r>=11) {
-         bonus bMaxHP,3000;
-         bonus bDef,10;
+         bonus bMaxHP,1500;
+         bonus bDef,5;
          bonus2 bSubEle,Ele_Neutral,5;
       }
   - Id: 480429
@@ -31653,19 +31566,18 @@ Body:
       .@g = getenchantgrade();
       bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
-      bonus bDef,15;
-      bonus bMdef,5;
+      bonus bDef,5;
+      bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
       }
       if (.@r>=9) {
          bonus bMaxHPrate,6;
-         bonus2 bSubEle,Ele_Neutral,5;
       }
       if (.@r>=11) {
-         bonus bMaxHP,3000;
-         bonus bDef,10;
+         bonus bMaxHP,1500;
+         bonus bDef,5;
          bonus2 bSubEle,Ele_Neutral,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
@@ -31781,11 +31693,11 @@ Body:
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
-      bonus bDef,10;
-      bonus bMdef,5;
+      bonus bDef,5;
+      bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
       }
   - Id: 470282
     AegisName: Epic_Melee_Boots
@@ -31900,19 +31812,18 @@ Body:
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
-      bonus bDef,10;
-      bonus bMdef,5;
+      bonus bDef,5;
+      bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
       }
       if (.@r>=9) {
          bonus bMaxHPrate,6;
-         bonus2 bSubEle,Ele_Neutral,5;
       }
       if (.@r>=11) {
-         bonus bMaxHP,3000;
-         bonus bDef,10;
+         bonus bMaxHP,1500;
+         bonus bDef,5;
          bonus2 bSubEle,Ele_Neutral,5;
       }
   - Id: 470286
@@ -32116,19 +32027,18 @@ Body:
       .@g = getenchantgrade();
       bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
-      bonus bDef,15;
-      bonus bMdef,5;
+      bonus bDef,5;
+      bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
       }
       if (.@r>=9) {
          bonus bMaxHPrate,6;
-         bonus2 bSubEle,Ele_Neutral,5;
       }
       if (.@r>=11) {
-         bonus bMaxHP,3000;
-         bonus bDef,10;
+         bonus bMaxHP,1500;
+         bonus bDef,5;
          bonus2 bSubEle,Ele_Neutral,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
@@ -32176,7 +32086,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bStr,5;
       bonus bDex,5;
       bonus2 bAddClass,Class_Boss,40;
@@ -32184,7 +32093,6 @@ Body:
       bonus2 bSkillAtk,"KN_BOWLINGBASH",30;
       bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*3;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -32193,34 +32101,29 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,15;
       bonus2 bSubRace,RC_Player_Human,20;
       bonus2 bSubRace,RC_Player_Doram,20;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*3;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*3;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*3;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
@@ -32247,14 +32150,12 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bVit,10;
       bonus2 bAddClass,Class_Boss,40;
       bonus bMaxHPrate,5;
       bonus2 bSkillAtk,"CR_HOLYCROSS",50;
       bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/3*3;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -32263,34 +32164,29 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,15;
       bonus2 bSubRace,RC_Player_Human,20;
       bonus2 bSubRace,RC_Player_Doram,20;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/3*3;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/3*3;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/2*3;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
@@ -32317,13 +32213,11 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bInt,10;
       bonus bMatkRate,20;
       bonus2 bMagicAddClass,Class_Boss,50;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
       bonus bMatk,50;
       bonus bMatkRate,20;
          bonus2 bMagicAddClass,Class_Boss,25;
@@ -32334,36 +32228,31 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bDex,10;
          bonus bInt,6;
          bonus bDelayrate,-8;
-      bonus2 bSubRace,RC_Player_Human,20;
-      bonus2 bSubRace,RC_Player_Doram,20;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bMatkRate,5;
          bonus bMatk,20;
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bMatkRate,5;
          bonus bMatk,20;
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bMatkRate,5;
          bonus bMatk,20;
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bDelayrate,-(.@r/2*2);
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bMatkRate,5;
          bonus bMatk,20;
          bonus2 bMagicAddClass,Class_Boss,10;
@@ -32407,8 +32296,8 @@ Body:
       }
       if (.@r>=11) {
          bonus bAspdRate,10;
-         bonus2 bSubRace,RC_Player_Human,10;
-         bonus2 bSubRace,RC_Player_Doram,10;
+         bonus2 bSubRace,RC_Player_Human,5;
+         bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
          bonus bMaxHPrate,10;
@@ -32426,13 +32315,13 @@ Body:
          bonus bMaxHPrate,10;
          bonus bLongAtkDef,2;
          bonus bDex,.@r/2*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
+         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,10;
          bonus bLongAtkDef,2;
          bonus bDex,.@r/2*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
+         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
   - Id: 28107
     AegisName: Sinister_Twohand_Axe
@@ -32455,14 +32344,12 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bStr,5;
       bonus bAgi,5;
       bonus2 bSkillAtk,"WS_CARTTERMINATION",50;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
       }
       if (.@r>=9) {
@@ -32470,31 +32357,26 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
       bonus2 bSubRace,RC_Player_Human,20;
       bonus2 bSubRace,RC_Player_Doram,20;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
@@ -32520,7 +32402,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bDex,5;
       bonus bInt,5;
       bonus bDelayrate,-10;
@@ -32528,7 +32409,6 @@ Body:
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*5;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
@@ -32539,34 +32419,29 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
-      bonus2 bSubRace,RC_Player_Human,20;
-      bonus2 bSubRace,RC_Player_Doram,20;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
          bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
          bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
          bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/2*5;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
@@ -32593,7 +32468,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bDex,5;
       bonus bVit,10;
       bonus bInt,5;
@@ -32605,7 +32479,6 @@ Body:
       bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
          bonus2 bMagicAddClass,Class_Boss,40;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
       bonus bMatkRate,20;
@@ -32618,13 +32491,11 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
-      bonus2 bSubRace,RC_Player_Human,20;
-      bonus2 bSubRace,RC_Player_Doram,20;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
          bonus bMaxHPrate,5;
@@ -32633,7 +32504,6 @@ Body:
       bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
          bonus bMaxHPrate,5;
@@ -32642,7 +32512,6 @@ Body:
       bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
          bonus bMaxHPrate,5;
@@ -32651,7 +32520,6 @@ Body:
       bonus2 bSkillAtk,"PR_MAGNUS",.@r/2*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
          bonus bMaxHPrate,5;
@@ -32680,7 +32548,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bStr,5;
       bonus bDex,5;
       bonus2 bAddClass,Class_Boss,40;
@@ -32689,7 +32556,6 @@ Body:
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",15;
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*5;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -32698,34 +32564,29 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,15;
-      bonus2 bSubRace,RC_Player_Human,20;
-      bonus2 bSubRace,RC_Player_Doram,20;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bAspdRate,5;
          bonus bMaxSPrate,10;
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bAspdRate,5;
          bonus bMaxSPrate,10;
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bAspdRate,5;
          bonus bMaxSPrate,10;
          bonus2 bAddClass,Class_Boss,10;
          bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/2*5;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bAspdRate,5;
          bonus bMaxSPrate,10;
          bonus2 bAddClass,Class_Boss,10;
@@ -32752,7 +32613,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bStr,5;
       bonus bLuk,15;
       bonus2 bAddClass,Class_Boss,40;
@@ -32762,7 +32622,6 @@ Body:
       bonus bCritAtkRate,.@r/3*5;
       bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -32771,13 +32630,11 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
       bonus2 bSubRace,RC_Player_Human,20;
       bonus2 bSubRace,RC_Player_Doram,20;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
@@ -32785,7 +32642,6 @@ Body:
          bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
@@ -32793,7 +32649,6 @@ Body:
          bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
@@ -32801,7 +32656,6 @@ Body:
          bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
@@ -32829,7 +32683,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bStr,5;
       bonus bLuk,15;
       bonus2 bAddClass,Class_Boss,40;
@@ -32840,7 +32693,6 @@ Body:
       bonus bCritAtkRate,.@r/3*5;
       bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*10;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -32849,13 +32701,11 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
-      bonus2 bSubRace,RC_Player_Human,20;
-      bonus2 bSubRace,RC_Player_Doram,20;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus bCritical,5;
@@ -32864,7 +32714,6 @@ Body:
          bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus bCritical,10;
@@ -32873,7 +32722,6 @@ Body:
          bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus bCritical,15;
@@ -32882,7 +32730,6 @@ Body:
          bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus bCritical,20;
@@ -32989,7 +32836,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bDex,15;
       bonus bVit,10;
       bonus bAspdRate,7;
@@ -32997,48 +32843,42 @@ Body:
       bonus bDex,.@r/3*2;
       bonus bDelayrate,-(.@r/3*3);
       if (.@r>=7) {
-      bonus bMaxHP,500;
       bonus bMaxHPrate,15;
       bonus2 bSubEle,Ele_Neutral,3;
       }
 
       if (.@r>=9) {
-         bonus bLongAtkDef,10;
+         bonus bLongAtkDef,5;
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
-         bonus2 bSubRace,RC_Player_Human,20;
-         bonus2 bSubRace,RC_Player_Doram,20;
+         bonus2 bSubRace,RC_Player_Human,5;
+         bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,1;
          bonus bDex,.@r/3*2;
          bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,1;
          bonus bDex,.@r/3*2;
          bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,1;
          bonus bDex,.@r/2*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
+         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,1;
          bonus bDex,.@r/2*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
+         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
   - Id: 1996
     AegisName: Sinister_Wire
@@ -33062,7 +32902,6 @@ Body:
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bDex,15;
       bonus bVit,10;
       bonus bAspdRate,7;
@@ -33070,48 +32909,42 @@ Body:
       bonus bDex,.@r/3*2;
       bonus bDelayrate,-(.@r/3*3);
       if (.@r>=7) {
-      bonus bMaxHP,500;
       bonus bMaxHPrate,15;
       bonus2 bSubEle,Ele_Neutral,3;
       }
 
       if (.@r>=9) {
-         bonus bLongAtkDef,10;
+         bonus bLongAtkDef,5;
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
-         bonus2 bSubRace,RC_Player_Human,20;
-         bonus2 bSubRace,RC_Player_Doram,20;
+         bonus2 bSubRace,RC_Player_Human,5;
+         bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,1;
          bonus bDex,.@r/3*2;
          bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,1;
          bonus bDex,.@r/3*2;
          bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,1;
          bonus bDex,.@r/2*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
+         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,1;
          bonus bDex,.@r/2*2;
-         bonus2 bSubEle,Ele_Neutral,.@r/2*1;
+         bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
   - Id: 2026
     AegisName: Sinister_Staff
@@ -33134,7 +32967,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bDex,5;
       bonus bVit,10;
       bonus bInt,5;
@@ -33146,7 +32978,6 @@ Body:
          bonus2 bAddClass,Class_Boss,40;
       bonus2 bSkillAtk,"SL_SMA",.@r/3*10;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bDex,5;
          bonus bInt,5;
          bonus2 bAddClass,Class_Boss,10;
@@ -33157,13 +32988,11 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
       bonus2 bSubRace,RC_Player_Human,20;
       bonus2 bSubRace,RC_Player_Doram,20;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bInt,5;
          bonus2 bSkillAtk,"SL_SMA",10;
          bonus2 bAddClass,Class_Boss,10;
@@ -33172,7 +33001,6 @@ Body:
          bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bInt,5;
          bonus2 bSkillAtk,"SL_SMA",10;
          bonus2 bAddClass,Class_Boss,10;
@@ -33181,7 +33009,6 @@ Body:
          bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bInt,5;
          bonus2 bSkillAtk,"SL_SMA",10;
          bonus2 bAddClass,Class_Boss,10;
@@ -33190,7 +33017,6 @@ Body:
          bonus bDelayrate,-(.@r/2*2);
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bInt,5;
          bonus2 bSkillAtk,"SL_SMA",10;
          bonus2 bAddClass,Class_Boss,10;
@@ -33220,7 +33046,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bStr,5;
       bonus bDex,5;
       bonus bVariableCastrate,-15;
@@ -33231,7 +33056,6 @@ Body:
       bonus2 bSkillAtk,"NJ_HUUMA",.@r/3*30;
       bonus bDelayrate,-(.@r/3*3);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bStr,5;
          bonus bDex,5;
       bonus2 bAddClass,Class_Boss,10;
@@ -33242,13 +33066,11 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
       bonus2 bSubRace,RC_Player_Human,20;
       bonus2 bSubRace,RC_Player_Doram,20;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus2 bSkillAtk,"NJ_HUUMA",50;
          bonus2 bAddClass,Class_Boss,10;
@@ -33257,7 +33079,6 @@ Body:
          bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus2 bSkillAtk,"NJ_HUUMA",50;
          bonus2 bAddClass,Class_Boss,10;
@@ -33266,7 +33087,6 @@ Body:
          bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus2 bSkillAtk,"NJ_HUUMA",50;
          bonus2 bAddClass,Class_Boss,10;
@@ -33275,7 +33095,6 @@ Body:
          bonus bDelayrate,-(.@r/2*2);
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bDex,3;
          bonus2 bSkillAtk,"NJ_HUUMA",50;
          bonus2 bAddClass,Class_Boss,10;
@@ -33305,7 +33124,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bDex,15;
       bonus2 bAddClass,Class_Boss,40;
       bonus bAspdRate,5;
@@ -33317,7 +33135,6 @@ Body:
       bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*10;
       bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*10;
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -33326,13 +33143,11 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
       bonus2 bSubRace,RC_Player_Human,20;
       bonus2 bSubRace,RC_Player_Doram,20;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus bCritical,5;
@@ -33343,7 +33158,6 @@ Body:
          bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
@@ -33353,7 +33167,6 @@ Body:
          bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
@@ -33363,7 +33176,6 @@ Body:
          bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/2*5;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
@@ -33394,7 +33206,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bStr,10;
       bonus bAgi,10;
       bonus bVit,10;
@@ -33416,7 +33227,6 @@ Body:
       bonus bVariableCastrate,-(.@r/3*1);
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -33425,13 +33235,11 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
-      bonus2 bSubRace,RC_Player_Human,20;
-      bonus2 bSubRace,RC_Player_Doram,20;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bMaxHP,1000;
          bonus2 bAddClass,Class_Boss,10;
@@ -33445,7 +33253,6 @@ Body:
          bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bMaxHP,1000;
          bonus2 bAddClass,Class_Boss,10;
@@ -33459,7 +33266,6 @@ Body:
          bonus bDelayrate,-(.@r/3*2);
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bMaxHP,1000;
          bonus2 bAddClass,Class_Boss,10;
@@ -33473,7 +33279,6 @@ Body:
          bonus bDelayrate,-(.@r/2*2);
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bMaxHP,1000;
          bonus2 bAddClass,Class_Boss,10;
@@ -33559,7 +33364,7 @@ Body:
     Script: |-
       bonus bAllStats,1;
       bonus bShortAtkRate,5;
-      bonus bMaxHP,500;
+      bonus bMaxHP,300;
       bonus2 bResEff,Eff_Stun,500;
       bonus2 bResEff,Eff_Freeze,500;
       bonus2 bResEff,Eff_Stone,500;
@@ -33583,7 +33388,7 @@ Body:
     Script: |-
       bonus bAllStats,1;
       bonus bLongAtkRate,5;
-      bonus bMaxHP,500;
+      bonus bMaxHP,300;
       bonus2 bResEff,Eff_Stun,500;
       bonus2 bResEff,Eff_Freeze,500;
       bonus2 bResEff,Eff_Stone,500;
@@ -33607,7 +33412,7 @@ Body:
     Script: |-
       bonus bAllStats,1;
       bonus bMatkRate,5;
-      bonus bMaxHP,500;
+      bonus bMaxHP,300;
       bonus2 bResEff,Eff_Stun,500;
       bonus2 bResEff,Eff_Freeze,500;
       bonus2 bResEff,Eff_Stone,500;
@@ -33631,7 +33436,7 @@ Body:
     Script: |-
       bonus bAllStats,1;
       bonus bMaxHPrate,5;
-      bonus bMaxHP,500;
+      bonus bMaxHP,300;
       bonus2 bResEff,Eff_Stun,500;
       bonus2 bResEff,Eff_Freeze,500;
       bonus2 bResEff,Eff_Stone,500;
@@ -33655,7 +33460,7 @@ Body:
     Script: |-
       bonus bAllStats,2;
       bonus bShortAtkRate,8;
-      bonus bMaxHP,1000;
+      bonus bMaxHP,600;
       bonus2 bResEff,Eff_Stun,1000;
       bonus2 bResEff,Eff_Freeze,1000;
       bonus2 bResEff,Eff_Stone,1000;
@@ -33679,7 +33484,7 @@ Body:
     Script: |-
       bonus bAllStats,2;
       bonus bLongAtkRate,8;
-      bonus bMaxHP,1000;
+      bonus bMaxHP,600;
       bonus2 bResEff,Eff_Stun,1000;
       bonus2 bResEff,Eff_Freeze,1000;
       bonus2 bResEff,Eff_Stone,1000;
@@ -33703,7 +33508,7 @@ Body:
     Script: |-
       bonus bAllStats,2;
       bonus bMatkRate,8;
-      bonus bMaxHP,1000;
+      bonus bMaxHP,600;
       bonus2 bResEff,Eff_Stun,1000;
       bonus2 bResEff,Eff_Freeze,1000;
       bonus2 bResEff,Eff_Stone,1000;
@@ -33727,7 +33532,7 @@ Body:
     Script: |-
       bonus bAllStats,2;
       bonus bMaxHPrate,8;
-      bonus bMaxHP,1000;
+      bonus bMaxHP,600;
       bonus2 bResEff,Eff_Stun,1000;
       bonus2 bResEff,Eff_Freeze,1000;
       bonus2 bResEff,Eff_Stone,1000;
@@ -33751,7 +33556,7 @@ Body:
     Script: |-
       bonus bAllStats,3;
       bonus bShortAtkRate,10;
-      bonus bMaxHP,1500;
+      bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
       bonus2 bResEff,Eff_Stone,1500;
@@ -33775,7 +33580,7 @@ Body:
     Script: |-
       bonus bAllStats,3;
       bonus bLongAtkRate,10;
-      bonus bMaxHP,1500;
+      bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
       bonus2 bResEff,Eff_Stone,1500;
@@ -33799,7 +33604,7 @@ Body:
     Script: |-
       bonus bAllStats,3;
       bonus bMatkRate,10;
-      bonus bMaxHP,1500;
+      bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
       bonus2 bResEff,Eff_Stone,1500;
@@ -33823,7 +33628,7 @@ Body:
     Script: |-
       bonus bAllStats,3;
       bonus bMaxHPrate,10;
-      bonus bMaxHP,1500;
+      bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
       bonus2 bResEff,Eff_Stone,1500;
@@ -33847,7 +33652,7 @@ Body:
     Script: |-
       bonus bAllStats,1;
       bonus bShortAtkRate,5;
-      bonus bMaxHP,500;
+      bonus bMaxHP,300;
       bonus2 bResEff,Eff_Stun,500;
       bonus2 bResEff,Eff_Freeze,500;
       bonus2 bResEff,Eff_Stone,500;
@@ -33871,7 +33676,7 @@ Body:
     Script: |-
       bonus bAllStats,1;
       bonus bLongAtkRate,5;
-      bonus bMaxHP,500;
+      bonus bMaxHP,300;
       bonus2 bResEff,Eff_Stun,500;
       bonus2 bResEff,Eff_Freeze,500;
       bonus2 bResEff,Eff_Stone,500;
@@ -33895,7 +33700,7 @@ Body:
     Script: |-
       bonus bAllStats,1;
       bonus bMatkRate,5;
-      bonus bMaxHP,500;
+      bonus bMaxHP,300;
       bonus2 bResEff,Eff_Stun,500;
       bonus2 bResEff,Eff_Freeze,500;
       bonus2 bResEff,Eff_Stone,500;
@@ -33919,7 +33724,7 @@ Body:
     Script: |-
       bonus bAllStats,1;
       bonus bMaxHPrate,5;
-      bonus bMaxHP,500;
+      bonus bMaxHP,300;
       bonus2 bResEff,Eff_Stun,500;
       bonus2 bResEff,Eff_Freeze,500;
       bonus2 bResEff,Eff_Stone,500;
@@ -33943,7 +33748,7 @@ Body:
     Script: |-
       bonus bAllStats,2;
       bonus bShortAtkRate,8;
-      bonus bMaxHP,1000;
+      bonus bMaxHP,600;
       bonus2 bResEff,Eff_Stun,1000;
       bonus2 bResEff,Eff_Freeze,1000;
       bonus2 bResEff,Eff_Stone,1000;
@@ -33967,7 +33772,7 @@ Body:
     Script: |-
       bonus bAllStats,2;
       bonus bLongAtkRate,8;
-      bonus bMaxHP,1000;
+      bonus bMaxHP,600;
       bonus2 bResEff,Eff_Stun,1000;
       bonus2 bResEff,Eff_Freeze,1000;
       bonus2 bResEff,Eff_Stone,1000;
@@ -33991,7 +33796,7 @@ Body:
     Script: |-
       bonus bAllStats,2;
       bonus bMatkRate,8;
-      bonus bMaxHP,1000;
+      bonus bMaxHP,600;
       bonus2 bResEff,Eff_Stun,1000;
       bonus2 bResEff,Eff_Freeze,1000;
       bonus2 bResEff,Eff_Stone,1000;
@@ -34015,7 +33820,7 @@ Body:
     Script: |-
       bonus bAllStats,2;
       bonus bMaxHPrate,8;
-      bonus bMaxHP,1000;
+      bonus bMaxHP,600;
       bonus2 bResEff,Eff_Stun,1000;
       bonus2 bResEff,Eff_Freeze,1000;
       bonus2 bResEff,Eff_Stone,1000;
@@ -34039,7 +33844,7 @@ Body:
     Script: |-
       bonus bAllStats,3;
       bonus bShortAtkRate,10;
-      bonus bMaxHP,1500;
+      bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
       bonus2 bResEff,Eff_Stone,1500;
@@ -34063,7 +33868,7 @@ Body:
     Script: |-
       bonus bAllStats,3;
       bonus bLongAtkRate,10;
-      bonus bMaxHP,1500;
+      bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
       bonus2 bResEff,Eff_Stone,1500;
@@ -34087,7 +33892,7 @@ Body:
     Script: |-
       bonus bAllStats,3;
       bonus bMatkRate,10;
-      bonus bMaxHP,1500;
+      bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
       bonus2 bResEff,Eff_Stone,1500;
@@ -34111,7 +33916,7 @@ Body:
     Script: |-
       bonus bAllStats,3;
       bonus bMaxHPrate,10;
-      bonus bMaxHP,1500;
+      bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
       bonus2 bResEff,Eff_Stone,1500;
@@ -34136,7 +33941,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      autobonus "{ bonus bFlee2,100; bonus2 bAddClass,Class_Boss,100; }",100,10000,BF_WEAPON;
+      autobonus "{ bonus bFlee2,30; bonus2 bAddClass,Class_Boss,100; }",100,10000,BF_WEAPON;
       /*Unknow Rate*/
   - Id: 29371
     AegisName: Release_Of_Magic
@@ -34144,7 +33949,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      autobonus "{ bonus bFlee2,100; bonus2 bMagicAddClass,Class_Boss,100; }",100,10000,BF_MAGIC,"{ active_transform 1639,10000; }";
+      autobonus "{ bonus bFlee2,30; bonus2 bMagicAddClass,Class_Boss,100; }",100,10000,BF_MAGIC,"{ active_transform 1639,10000; }";
       /*Unknow Rate*/
   - Id: 29436
     AegisName: Dynast
@@ -34160,8 +33965,8 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus bMaxHPrate,15;
-      bonus bMaxSPrate,15;
+      bonus bMaxHPrate,10;
+      bonus bMaxSPrate,10;
   - Id: 312421
     AegisName: aegis_312421
     Name: Ruler of the Farthest
@@ -36491,17 +36296,17 @@ Body:
     Slots: 1
     Locations:
       Left_Hand: true
-    Refineable: true
-    EquipLevelMin: 1
     ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
     Script: |-
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,500;
       bonus bMaxHPrate,.@r/3*1;
       if (.@r>=7) {
-         bonus bMaxHP,1000;
-         bonus2 bSubEle,Ele_Neutral,3;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
          bonus2 bSubRace,RC_Player_Human,3;
          bonus2 bSubRace,RC_Player_Doram,3;
       }
@@ -36514,35 +36319,35 @@ Body:
     Slots: 1
     Locations:
       Left_Hand: true
-    Refineable: true
-    EquipLevelMin: 1
     ArmorLevel: 1
+    EquipLevelMin: 1
+    Refineable: true
     Script: |-
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,500;
       bonus bMaxHPrate,.@r/3*1;
       if (.@r>=7) {
-         bonus bMaxHP,1000;
-         bonus2 bSubEle,Ele_Neutral,3;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
          bonus2 bSubRace,RC_Player_Human,3;
          bonus2 bSubRace,RC_Player_Doram,3;
       }
       if (.@r>=9) {
-         bonus bMaxHPrate,10;
+         bonus bMaxHPrate,5;
          bonus bLongAtkDef,5;
       }
       if (.@r>=11) {
-         bonus bMaxHP,2000;    
-          bonus2 bSubEle,Ele_Water,15;
-          bonus2 bSubEle,Ele_Earth,15;
-          bonus2 bSubEle,Ele_Fire,15;
-          bonus2 bSubEle,Ele_Wind,15;
-          bonus2 bSubEle,Ele_Poison,15;
-          bonus2 bSubEle,Ele_Holy,15;
-          bonus2 bSubEle,Ele_Dark,15;
-          bonus2 bSubEle,Ele_Ghost,15;
-          bonus2 bSubEle,Ele_Undead,15;
+         bonus bMaxHP,1000;    
+          bonus2 bSubEle,Ele_Water,10;
+          bonus2 bSubEle,Ele_Earth,10;
+          bonus2 bSubEle,Ele_Fire,10;
+          bonus2 bSubEle,Ele_Wind,10;
+          bonus2 bSubEle,Ele_Poison,10;
+          bonus2 bSubEle,Ele_Holy,10;
+          bonus2 bSubEle,Ele_Dark,10;
+          bonus2 bSubEle,Ele_Ghost,10;
+          bonus2 bSubEle,Ele_Undead,10;
   - Id: 1030011
     AegisName: New_Item_1030011
     Name: "[Legend] Shield"
@@ -36552,7 +36357,10 @@ Body:
     Slots: 1
     Locations:
       Left_Hand: true
+    ArmorLevel: 2
+    EquipLevelMin: 1
     Refineable: true
+    Gradable: true
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
@@ -36560,30 +36368,30 @@ Body:
       bonus bMaxHP,500;
       bonus bMaxHPrate,.@r/3*1;
       if (.@r>=7) {
-         bonus bMaxHP,1000;
-         bonus2 bSubEle,Ele_Neutral,3;
+         bonus bMaxHP,500;
+         bonus2 bSubEle,Ele_Neutral,1;
          bonus2 bSubRace,RC_Player_Human,3;
          bonus2 bSubRace,RC_Player_Doram,3;
       }
       if (.@r>=9) {
-         bonus bMaxHPrate,10;
+         bonus bMaxHPrate,5;
          bonus bLongAtkDef,5;
       }
       if (.@r>=11) {
-         bonus bMaxHP,2000;    
-          bonus2 bSubEle,Ele_Water,15;
-          bonus2 bSubEle,Ele_Earth,15;
-          bonus2 bSubEle,Ele_Fire,15;
-          bonus2 bSubEle,Ele_Wind,15;
-          bonus2 bSubEle,Ele_Poison,15;
-          bonus2 bSubEle,Ele_Holy,15;
-          bonus2 bSubEle,Ele_Dark,15;
-          bonus2 bSubEle,Ele_Ghost,15;
-          bonus2 bSubEle,Ele_Undead,15;
+         bonus bMaxHP,1000;    
+          bonus2 bSubEle,Ele_Water,10;
+          bonus2 bSubEle,Ele_Earth,10;
+          bonus2 bSubEle,Ele_Fire,10;
+          bonus2 bSubEle,Ele_Wind,10;
+          bonus2 bSubEle,Ele_Poison,10;
+          bonus2 bSubEle,Ele_Holy,10;
+          bonus2 bSubEle,Ele_Dark,10;
+          bonus2 bSubEle,Ele_Ghost,10;
+          bonus2 bSubEle,Ele_Undead,10;
       }
       if (.@g >= ENCHANTGRADE_D) {
-         bonus bMaxHPrate,3;
-         bonus bMaxHP,800;    
+         bonus bMaxHPrate,2;
+         bonus bMaxHP,500;    
          bonus2 bSubRace,RC_Player_Human,1;
          bonus2 bSubRace,RC_Player_Doram,1;
           bonus2 bSubEle,Ele_Water,2;
@@ -36599,8 +36407,8 @@ Body:
          bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_C) {
-         bonus bMaxHPrate,3;
-         bonus bMaxHP,800;
+         bonus bMaxHPrate,2;
+         bonus bMaxHP,500;
          bonus2 bSubRace,RC_Player_Human,1;
          bonus2 bSubRace,RC_Player_Doram,1;
           bonus2 bSubEle,Ele_Water,2;
@@ -36616,8 +36424,8 @@ Body:
          bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_B) {
-         bonus bMaxHPrate,3;
-         bonus bMaxHP,800;
+         bonus bMaxHPrate,2;
+         bonus bMaxHP,500;
          bonus2 bSubRace,RC_Player_Human,1;
          bonus2 bSubRace,RC_Player_Doram,1;
           bonus2 bSubEle,Ele_Water,2;
@@ -36633,8 +36441,8 @@ Body:
          bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_A) {
-         bonus bMaxHPrate,3;
-         bonus bMaxHP,800;
+         bonus bMaxHPrate,2;
+         bonus bMaxHP,500;
          bonus2 bSubRace,RC_Player_Human,2;
          bonus2 bSubRace,RC_Player_Doram,2;
           bonus2 bSubEle,Ele_Water,2;
@@ -36649,6 +36457,3 @@ Body:
          bonus2 bSubEle,Ele_Neutral,1;
          bonus bMaxHPrate,.@r/3*1;
       }
-    Gradable: true
-    EquipLevelMin: 1
-    ArmorLevel: 2
