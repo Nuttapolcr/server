@@ -4391,6 +4391,12 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 		if( sd )
 			skill_onskillusage(sd, bl, skill_id, tick);
 	}
+	// Elemental Sword chains Fire Bolt -> Lightning Bolt -> Earth Spike from
+	// its Cold Bolt autocast.  On-skill bonuses describe skill usage, so the
+	// chain must still be evaluated when an elemental immunity reduces a bolt
+	// to zero damage.  Positive damage is already handled above.
+	else if (sd && (skill_id == MG_COLDBOLT || skill_id == MG_FIREBOLT || skill_id == MG_LIGHTNINGBOLT))
+		skill_onskillusage(sd, bl, skill_id, tick);
 
 	if (!(flag&2)) {
 		switch (skill_id) {

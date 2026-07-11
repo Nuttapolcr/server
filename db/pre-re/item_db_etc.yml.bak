@@ -12287,9 +12287,6 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      if (getrefine()>=7) {
-         .@bonus = 10;
-      }
       bonus bBaseAtk,.@bonus + 5*(readparam(bStr)/10);
   - Id: 4983
     AegisName: Reactor_A_INT
@@ -12297,9 +12294,6 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      if (getrefine()>=7) {
-         .@bonus = 10;
-      }
       bonus bMatk,.@bonus + 5*(readparam(bInt)/10);
   - Id: 4984
     AegisName: Reactor_A_DEF

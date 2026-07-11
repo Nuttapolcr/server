@@ -28746,6 +28746,7 @@ Body:
     Slots: 1
     Jobs:
       Hunter: true
+      Rogue: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
@@ -29428,6 +29429,7 @@ Body:
     Slots: 1
     Jobs:
       Hunter: true
+      Rogue: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
@@ -32919,6 +32921,7 @@ Body:
     Slots: 1
     Jobs:
       Hunter: true
+      Rogue: true
     Locations:
       Both_Hand: true
     WeaponLevel: 4
@@ -36502,27 +36505,68 @@ Body:
     AegisName: New_Item_1030009
     Name: "[Rare] Shield"
     Type: Armor
+    Weight: 10
+    Defense: 25
+    Slots: 1
     Locations:
       Left_Hand: true
     Refineable: true
-    Weight: 150
-    Slots: 1
-    Defense: 25
+    EquipLevelMin: 1
+    ArmorLevel: 1
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,500;
+      bonus bMaxHPrate,.@r/3*1;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+         bonus2 bSubEle,Ele_Neutral,3;
+         bonus2 bSubRace,RC_Player_Human,3;
+         bonus2 bSubRace,RC_Player_Doram,3;
+      }
   - Id: 1030010
     AegisName: New_Item_1030010
     Name: "[Epic] Shield"
-    Refineable: true
-    Locations:
-      Left_Hand: true
     Type: Armor
-    Weight: 150
+    Weight: 10
     Defense: 25
     Slots: 1
+    Locations:
+      Left_Hand: true
+    Refineable: true
+    EquipLevelMin: 1
+    ArmorLevel: 1
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHPrate,5;
+      bonus bMaxHP,500;
+      bonus bMaxHPrate,.@r/3*1;
+      if (.@r>=7) {
+         bonus bMaxHP,1000;
+         bonus2 bSubEle,Ele_Neutral,3;
+         bonus2 bSubRace,RC_Player_Human,3;
+         bonus2 bSubRace,RC_Player_Doram,3;
+      }
+      if (.@r>=9) {
+         bonus bMaxHPrate,10;
+         bonus bLongAtkDef,5;
+      }
+      if (.@r>=11) {
+         bonus bMaxHP,2000;    
+          bonus2 bSubEle,Ele_Water,15;
+          bonus2 bSubEle,Ele_Earth,15;
+          bonus2 bSubEle,Ele_Fire,15;
+          bonus2 bSubEle,Ele_Wind,15;
+          bonus2 bSubEle,Ele_Poison,15;
+          bonus2 bSubEle,Ele_Holy,15;
+          bonus2 bSubEle,Ele_Dark,15;
+          bonus2 bSubEle,Ele_Ghost,15;
+          bonus2 bSubEle,Ele_Undead,15;
   - Id: 1030011
     AegisName: New_Item_1030011
     Name: "[Legend] Shield"
     Type: Armor
-    Weight: 150
+    Weight: 10
     Defense: 25
     Slots: 1
     Locations:

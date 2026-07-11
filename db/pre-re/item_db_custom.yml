@@ -28746,6 +28746,7 @@ Body:
     Slots: 1
     Jobs:
       Hunter: true
+      Rogue: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
@@ -28965,7 +28966,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,7;
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,3;
@@ -28978,7 +28978,6 @@ Body:
       bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*5;
       if (.@r>=7) {
          bonus bAtkRate,5;
-      bonus bMaxHP,500;
       bonus2 bAddClass,Class_Boss,10;
       }
   - Id: 510071
@@ -29428,6 +29427,7 @@ Body:
     Slots: 1
     Jobs:
       Hunter: true
+      Rogue: true
     Locations:
       Both_Hand: true
     WeaponLevel: 3
@@ -29696,7 +29696,6 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMaxHP,500;
       bonus bDex,7;
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,3;
@@ -29709,7 +29708,6 @@ Body:
       bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*5;
 
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -29718,7 +29716,6 @@ Body:
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
-      bonus bMaxHP,1000;
          bonus bAspdRate,7;
       }
   - Id: 500025
@@ -30239,7 +30236,6 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bStr,10;
       bonus bAtkRate,20;
       bonus2 bSkillAtk,"TK_STORMKICK",150;
@@ -30258,7 +30254,6 @@ Body:
       bonus2 bSkillAtk,"TK_JUMPKICK",.@r/3*15;
 
       if (.@r>=7) {
-      bonus bMaxHP,500;
          bonus bAtk,100;
          bonus bAtkRate,7;
          bonus bShortAtkRate,10;
@@ -30274,13 +30269,11 @@ Body:
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
-         bonus2 bSubRace,RC_Player_Human,20;
-         bonus2 bSubRace,RC_Player_Doram,20;
+         bonus2 bSubRace,RC_Player_Human,10;
+         bonus2 bSubRace,RC_Player_Doram,10;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
       bonus2 bSkillAtk,"TK_STORMKICK",50;
@@ -30292,7 +30285,6 @@ Body:
          bonus bAtkRate,.@r/3*3;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
       bonus2 bSkillAtk,"TK_STORMKICK",50;
@@ -30304,7 +30296,6 @@ Body:
          bonus bAtkRate,.@r/3*3;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
       bonus2 bSkillAtk,"TK_STORMKICK",50;
@@ -30316,7 +30307,6 @@ Body:
          bonus bAtkRate,.@r/2*3;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
       bonus2 bSkillAtk,"TK_STORMKICK",50;
@@ -32400,7 +32390,6 @@ Body:
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHP,500;
       bonus bDex,12;
       bonus bVit,10;
       bonus bAspdRate,7;
@@ -32408,46 +32397,40 @@ Body:
       bonus bDex,.@r/3*2;
       bonus bDelayrate,-(.@r/3*3);
       if (.@r>=7) {
-      bonus bMaxHP,500;
       bonus bMaxHPrate,15;
       bonus2 bSubEle,Ele_Neutral,3;
       }
 
       if (.@r>=9) {
-         bonus bLongAtkDef,10;
+         bonus bLongAtkDef,5;
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
-      bonus bMaxHP,500;
          bonus bAspdRate,10;
-         bonus2 bSubRace,RC_Player_Human,20;
-         bonus2 bSubRace,RC_Player_Doram,20;
+         bonus2 bSubRace,RC_Player_Human,10;
+         bonus2 bSubRace,RC_Player_Doram,10;
       }
       if (.@g >= ENCHANTGRADE_D) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,2;
          bonus bDex,.@r/3*2;
          bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_C) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,2;
          bonus bDex,.@r/3*2;
          bonus2 bSubEle,Ele_Neutral,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_B) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,2;
          bonus bDex,.@r/2*2;
          bonus2 bSubEle,Ele_Neutral,.@r/2*1;
       }
       if (.@g >= ENCHANTGRADE_A) {
-      bonus bMaxHP,500;
          bonus bMaxHPrate,10;
-         bonus bLongAtkDef,5;
+         bonus bLongAtkDef,2;
          bonus bDex,.@r/2*2;
          bonus2 bSubEle,Ele_Neutral,.@r/2*1;
       }
@@ -32919,6 +32902,7 @@ Body:
     Slots: 1
     Jobs:
       Hunter: true
+      Rogue: true
     Locations:
       Both_Hand: true
     WeaponLevel: 4

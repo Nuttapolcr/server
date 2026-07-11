@@ -13,7 +13,7 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 		"- ตรวจสอบอันดับของฉัน",
 		"- รายละเอียดของรางวัล",
 		"",
-		(getgmlevel() >= 99) ? "- GM: สร้างรายชื่อรางวัล Top 5" : "",
+		(getgmlevel() >= 99) ? "- GM: สร้างรายชื่อรางวัล Top 3" : "",
 		"- ยกเลิก"
 	);
 
@@ -65,13 +65,13 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 	if (.@menu == 3) {
 		clear;
 		mes .npc$;
-		mes "GM สามารถสร้างรายชื่อรางวัล Top 5 ได้";
+		mes "GM สามารถสร้างรายชื่อรางวัล Top 3 ได้";
 		mes "แต่ละตัวละครรับรางวัลได้เพียงครั้งเดียว";
 		next;
 		mes .npc$;
-		mes "อันดับ 1: ^0055FF"+callfunc("F_InsertComma", .reward_cash[0])+" Cash^000000";
-		mes "อันดับ 2-3: ^0055FF"+callfunc("F_InsertComma", .reward_cash[1])+" Cash^000000";
-		mes "อันดับ 4-5: ^0055FF"+callfunc("F_InsertComma", .reward_cash[2])+" Cash^000000";
+		mes "อันดับ 1: ^0055FF"+callfunc("F_InsertComma", .reward_coin[0])+" Cash Coin^000000 และเงินสด ^FF9900"+callfunc("F_InsertComma", .reward_money[0])+" บาท^000000";
+		mes "อันดับ 2: ^0055FF"+callfunc("F_InsertComma", .reward_coin[1])+" Cash Coin^000000 และเงินสด ^FF9900"+callfunc("F_InsertComma", .reward_money[1])+" บาท^000000";
+		mes "อันดับ 3: ^0055FF"+callfunc("F_InsertComma", .reward_coin[2])+" Cash Coin^000000 และเงินสด ^FF9900"+callfunc("F_InsertComma", .reward_money[2])+" บาท^000000";
 		close;
 	}
 
@@ -91,34 +91,45 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 			mes "คุณรับรางวัลนี้ไปแล้ว";
 			close;
 		}
+		if (.@rank_no < 1 || .@rank_no > 3) {
+			mes "รายการรางวัลนี้หมดอายุแล้ว กรุณาติดต่อทีมงาน";
+			close;
+		}
 		mes "อันดับรางวัล: ^FF9900"+.@rank_no+"^000000";
 		mes "แต้มตอนบันทึกอันดับ: ^0055FF"+callfunc("F_InsertComma", .@score)+"^000000";
-		mes "รางวัล: ^0055FF"+callfunc("F_InsertComma", .@cash_reward)+" Cash^000000";
+		mes "Cash Coin: ^0055FF"+callfunc("F_InsertComma", .@cash_reward)+" ea^000000";
+		mes "เงินสด: ^FF9900"+callfunc("F_InsertComma", .reward_money[.@rank_no - 1])+" บาท^000000";
 		next;
 		if (select("- รับรางวัล:- ยกเลิก") == 2)
 			close;
 
-		#CASHPOINTS = #CASHPOINTS + .@cash_reward;
+		if (!checkweight(.reward_item_id, .@cash_reward)) {
+			mes .npc$;
+			mes "กรุณาเคลียร์ช่องเก็บของก่อนรับรางวัล";
+			close;
+		}
+		getitem .reward_item_id, .@cash_reward;
 		query_sql(
 			"UPDATE `ranking_mvp_boss_rewards` SET `claimed` = 1, `claimed_at` = NOW() "+
 			"WHERE `char_id` = "+getcharid(0)+" AND `claimed` = 0 LIMIT 1"
 		);
 		mes .npc$;
-		mes "คุณได้รับ ^0055FF"+callfunc("F_InsertComma", .@cash_reward)+" Cash^000000 เรียบร้อยแล้ว";
+		mes "คุณได้รับ ^0055FF"+callfunc("F_InsertComma", .@cash_reward)+" Cash Coin^000000 เรียบร้อยแล้ว";
+		mes "เงินสด ^FF9900"+callfunc("F_InsertComma", .reward_money[.@rank_no - 1])+" บาท^000000 ติดต่อรับกับทีมงาน";
 		close;
 	}
 
 	if (.@menu == 5 && getgmlevel() >= 99) {
 		clear;
 		mes .npc$;
-		mes "ต้องการสร้างรายชื่อรางวัลจาก Top 5 ปัจจุบันหรือไม่?";
+		mes "ต้องการสร้างรายชื่อรางวัลจาก Top 3 ปัจจุบันหรือไม่?";
 		mes "ตัวละครที่เคยรับรางวัลแล้วจะถูกข้าม";
 		next;
 		if (select("- สร้างรายชื่อ:- ยกเลิก") == 2)
 			close;
 		donpcevent strnpcinfo(3)+"::OnCreateReward";
 		mes .npc$;
-		mes "สร้างรายชื่อรางวัล Top 5 เรียบร้อยแล้ว";
+		mes "สร้างรายชื่อรางวัล Top 3 เรียบร้อยแล้ว";
 		close;
 	}
 
@@ -127,7 +138,9 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 OnInit:
 	set .npc$, "[ จัดอันดับ MVP บอส ]";
 	set .query_limit, 10;
-	setarray .reward_cash[0], 2000, 1000, 500;
+	set .reward_item_id, 30001; // Cash Coin
+	setarray .reward_coin[0], 1000, 500, 300;
+	setarray .reward_money[0], 2000, 1000, 500;
 
 	query_sql(
 		"CREATE TABLE IF NOT EXISTS `ranking_mvp_boss` ("+
@@ -180,12 +193,12 @@ OnInit:
 OnCreateReward:
 	query_sql(
 		"SELECT `account_id`, `char_id`, `player_name`, `total_score` FROM `ranking_mvp_boss` "+
-		"ORDER BY `total_score` DESC, `total_kill` DESC, `last_kill_at` ASC LIMIT 5",
+		"ORDER BY `total_score` DESC, `total_kill` DESC, `last_kill_at` ASC LIMIT 3",
 		.@account_id, .@char_id, .@player_name$, .@score
 	);
 	for (.@i = 0; .@i < getarraysize(.@char_id); .@i++) {
 		.@rank = .@i + 1;
-		.@cash = (.@rank == 1) ? .reward_cash[0] : ((.@rank <= 3) ? .reward_cash[1] : .reward_cash[2]);
+		.@cash = .reward_coin[.@i];
 		.@claimed = 0;
 		query_sql("SELECT `claimed` FROM `ranking_mvp_boss_rewards` WHERE `char_id` = "+.@char_id[.@i]+" LIMIT 1", .@claimed);
 		if (.@claimed)
