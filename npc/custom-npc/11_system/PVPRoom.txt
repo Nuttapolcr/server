@@ -9,7 +9,8 @@ mes "สวัสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
 mes "ต้องการเข้าสู่สนามประลอง";
 mes "เพื่อทดสอบฝีมือของคุณไหม";
 menu 
-"^CC0000Death Match [ "+getmapusers("pvp_y_7-2")+"/100 ]^000000",Mm_pvp01,
+"",Mm_pvp01,
+//"^CC0000Death Match [ "+getmapusers("pvp_y_7-2")+"/100 ]^000000",Mm_pvp01,
 "^003300Izlude [ "+getmapusers("pvp_y_8-2")+"/100 ]^000000",Mm_pvp02,
 "^3333FFProntera [ "+getmapusers("pvp_y_8-1")+"/100 ]^000000",Mm_pvp03,
 "^FF99001 VS 1 [ "+getmapusers("pvp_n_1-3")+"/2 ]^000000",Mm_pvp04,

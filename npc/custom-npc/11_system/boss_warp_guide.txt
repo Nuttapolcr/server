@@ -1,0 +1,10 @@
+// Clickable bulletin board leading to the boss-warp area.
+
+morocc,144,101,4	script	Boss Warp Guide#morocc	837,{
+	warp "morocc",158,174;
+	end;
+
+OnInit:
+	waitingroom "‰ª®ÿ¥«“ª∫Õ ",0;
+	end;
+}

@@ -749,7 +749,7 @@ int battle_calc_cardfix(int attack_type, struct block_list *src, struct block_li
 				cardfix = 1000; // reset var for target
 
 				if( !nk[NK_IGNOREELEMENT] ) { // Affected by Element modifier bonuses
-					int ele_fix = tsd->indexed_bonus.subele[rh_ele] + tsd->indexed_bonus.subele[ELE_ALL] + tsd->indexed_bonus.subele_script[rh_ele] + tsd->indexed_bonus.subele_script[ELE_ALL];
+					int ele_fix = min(tsd->indexed_bonus.subele[rh_ele] + tsd->indexed_bonus.subele[ELE_ALL] + tsd->indexed_bonus.subele_script[rh_ele] + tsd->indexed_bonus.subele_script[ELE_ALL], battle_config.max_subele_resist);
 
 					for (const auto &it : tsd->subele2) {
 						if (it.ele != ELE_ALL && it.ele != rh_ele)
@@ -959,7 +959,7 @@ int battle_calc_cardfix(int attack_type, struct block_list *src, struct block_li
 			// Affected by target DEF bonuses
 			else if( tsd && !nk[NK_IGNOREDEFCARD] && !(left&2) ) {
 				if( !nk[NK_IGNOREELEMENT] ) { // Affected by Element modifier bonuses
-					int ele_fix = tsd->indexed_bonus.subele[rh_ele] + tsd->indexed_bonus.subele[ELE_ALL] + tsd->indexed_bonus.subele_script[rh_ele] + tsd->indexed_bonus.subele_script[ELE_ALL];
+					int ele_fix = min(tsd->indexed_bonus.subele[rh_ele] + tsd->indexed_bonus.subele[ELE_ALL] + tsd->indexed_bonus.subele_script[rh_ele] + tsd->indexed_bonus.subele_script[ELE_ALL], battle_config.max_subele_resist);
 
 					for (const auto &it : tsd->subele2) {
 						if (it.ele != ELE_ALL && it.ele != rh_ele)
@@ -973,7 +973,7 @@ int battle_calc_cardfix(int attack_type, struct block_list *src, struct block_li
 					cardfix = cardfix * (100 - ele_fix) / 100;
 
 					if( left&1 && lh_ele != rh_ele ) {
-						int ele_fix_lh = tsd->indexed_bonus.subele[lh_ele] + tsd->indexed_bonus.subele[ELE_ALL] + tsd->indexed_bonus.subele_script[lh_ele] + tsd->indexed_bonus.subele_script[ELE_ALL];
+						int ele_fix_lh = min(tsd->indexed_bonus.subele[lh_ele] + tsd->indexed_bonus.subele[ELE_ALL] + tsd->indexed_bonus.subele_script[lh_ele] + tsd->indexed_bonus.subele_script[ELE_ALL], battle_config.max_subele_resist);
 
 						for (const auto &it : tsd->subele2) {
 							if (it.ele != ELE_ALL && it.ele != lh_ele)
@@ -1029,7 +1029,7 @@ int battle_calc_cardfix(int attack_type, struct block_list *src, struct block_li
 			// Affected by target DEF bonuses
 			if( tsd && !nk[NK_IGNOREDEFCARD] ) {
 				if( !nk[NK_IGNOREELEMENT] ) { // Affected by Element modifier bonuses
-					int ele_fix = tsd->indexed_bonus.subele[rh_ele] + tsd->indexed_bonus.subele[ELE_ALL] + tsd->indexed_bonus.subele_script[rh_ele] + tsd->indexed_bonus.subele_script[ELE_ALL];
+					int ele_fix = min(tsd->indexed_bonus.subele[rh_ele] + tsd->indexed_bonus.subele[ELE_ALL] + tsd->indexed_bonus.subele_script[rh_ele] + tsd->indexed_bonus.subele_script[ELE_ALL], battle_config.max_subele_resist);
 
 					for (const auto &it : tsd->subele2) {
 						if (it.ele != rh_ele)
@@ -12212,7 +12212,7 @@ static const struct _battle_data {
 	{ "autoattack_coinflip_coin",			&battle_config.autoattack_coinflip_coin,		0,		0,		INT_MAX,		},
 
 	// max % resistance
-	{ "max_subele_resist",					&battle_config.max_subele_resist,				0,      0,      100,			},
+	{ "max_subele_resist",					&battle_config.max_subele_resist,				100,    0,      100,			},
 	{ "max_subdefele_resist",				&battle_config.max_subdefele_resist,			0,      0,      100,			},
 	{ "max_magicsubdefele_resist",			&battle_config.max_magicsubdefele_resist,		0,      0,      100,			},
 	{ "max_subrace_resist",					&battle_config.max_subrace_resist,				0,      0,      100,			},

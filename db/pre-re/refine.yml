@@ -294,16 +294,6 @@ Body:
                 Price: 5000
                 Material: HD_Elunium
                 DowngradeAmount: 1
-          - Level: 16
-            Bonus: 1050
-            BroadcastSuccess: true
-            BroadcastFailure: true
-            Chances:
-              - Type: HD
-                Rate: 700
-                Price: 5000
-                Material: HD_Elunium
-                DowngradeAmount: 1
 
       - Level: 2
         RefineLevels:
@@ -542,16 +532,6 @@ Body:
                 Material: Enriched_Elunium
                 BreakingRate: 10000
           - Level: 15
-            Bonus: 1050
-            BroadcastSuccess: true
-            BroadcastFailure: true
-            Chances:
-              - Type: HD
-                Rate: 700
-                Price: 5000
-                Material: HD_Elunium
-                DowngradeAmount: 1
-          - Level: 16
             Bonus: 1050
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -810,16 +790,6 @@ Body:
                 Price: 3000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
-          - Level: 16
-            Bonus: 3000
-            BroadcastSuccess: true
-            BroadcastFailure: true
-            Chances:
-              - Type: HD
-                Rate: 1800
-                Price: 3000
-                Material: HD_Oridecon
-                DowngradeAmount: 1
 
       - Level: 2
         RefineLevels:
@@ -1058,16 +1028,6 @@ Body:
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
           - Level: 15
-            Bonus: 4500
-            BroadcastSuccess: true
-            BroadcastFailure: true
-            Chances:
-              - Type: HD
-                Rate: 1800
-                Price: 3000
-                Material: HD_Oridecon
-                DowngradeAmount: 1
-          - Level: 16
             Bonus: 4500
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -1324,16 +1284,6 @@ Body:
                 Price: 5000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
-          - Level: 16
-            Bonus: 7500
-            BroadcastSuccess: true
-            BroadcastFailure: true
-            Chances:
-              - Type: HD
-                Rate: 1800
-                Price: 5000
-                Material: HD_Oridecon
-                DowngradeAmount: 1
 
       - Level: 4
         RefineLevels:
@@ -1572,16 +1522,6 @@ Body:
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
           - Level: 15
-            Bonus: 10500
-            BroadcastSuccess: true
-            BroadcastFailure: true
-            Chances:
-              - Type: HD
-                Rate: 700
-                Price: 5000
-                Material: HD_Oridecon
-                DowngradeAmount: 1
-          - Level: 16
             Bonus: 10500
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -1907,14 +1847,6 @@ Body:
                 Price: 20000
                 Material: Blessed_Oridecon
           - Level: 15
-            BroadcastSuccess: true
-            BroadcastFailure: true
-            Chances:
-              - Type: Normal
-                Rate: 2500
-                Price: 20000
-                Material: Blessed_Oridecon
-          - Level: 16
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:

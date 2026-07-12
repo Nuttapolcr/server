@@ -36,7 +36,7 @@ menu	"^FF0000•^000000 ÇÒÃì»ÅèÒÊØ´ ^777777["+lastwarp$+"]^000000",-,
     	"^FF0000•^000000 Dungeons^000000",Dungeons,
 		"^FF0000•^000000 Guild Castle^000000",Castles,
     	"^FF0000•^000000 Guild Dungeons",Guild_Dungeons,
-    	//"^FF0000•^000000 ^0000FF Instances (New) ^000000",Instances,
+	"^FF0000ï¿½^000000 ^0000FF Instances (New) ^000000",Instances,
     	"^FF0000•^000000^0000FF Special Areas^000000",Special;
 
 	if (lastwarp$ == "")
@@ -466,7 +466,7 @@ G6: Go("schg_dun01",200,124);
 menu	"Bakonawa Lake",I1, "Bangungot Hospital 2F",I2, "Buwaya Cave",I3,
 		"Devil Tower",I4, "Eclage Interior",I5, "Endless Tower",I6,
 		"Faceworms Nest",I7, "Geffen Magic Tournament",I8, "Ghost Palace",I9,
-		"Hazy Forest",I10, "Horror Toy Factory",I11, "Malangdo Culvert",I12,
+		"Hazy Forest",I10, "Malangdo Culvert",I12,
 		"Nidhoggur's Nest",I13, "Octopus Cave",I14, "Old Glast Heim",I15,
 		"Orc's Memory",I16, "Sarah and Fenrir",I17, "Sara Memory",I18,
 		"Sealed Shrine",I19, "Wolfchev's Laboratory",I20;
@@ -481,17 +481,15 @@ I4: Restrict("RE");
 	Go("dali02",137,115);
 I5: Restrict("RE");
 	Go("ecl_hub01",129,12);
-I6: Go("e_tower",72,112);
+I6: Go("e_tower",81,105);
 I7: Restrict("RE");
-	Go("dali",85,64);
+	Go("dali",80,60);
 I8: Restrict("RE");
-	Go("dali",94,141);
+	Go("dali",98,141);
 I9: Restrict("RE");
-	Go("dali02",46,128);
+	Go("dali02",43,129);
 I10: Restrict("RE");
 	Go("bif_fild01",161,334);
-I11: Restrict("RE");
-	Go("xmas",234,298);
 I12: Restrict("RE");
 	Go("mal_in01",164,21);
 I13: Go("nyd_dun02",95,193);
@@ -501,7 +499,7 @@ I15: Restrict("RE");
 	Go("glast_01",204,268);
 I16: Go("gef_fild10",240,198);
 I17: Restrict("RE");
-	Go("dali02",92,141);
+	Go("dali02",97,142);
 I18: Restrict("RE");
 	Go("dali",133,108);
 I19: Go("monk_test",306,143);
@@ -1105,7 +1103,7 @@ OnNaviGenerate:
 	end;
 
 	// instances
-	naviregisterwarp("Warper > Endless Tower", "e_tower", 72, 112);
+	naviregisterwarp("Warper > Endless Tower", "e_tower", 81, 105);
 	naviregisterwarp("Warper > Nidhoggur's Nest", "nyd_dun02", 95, 193);
 	naviregisterwarp("Warper > Orc's Memory", "gef_fild10", 240, 198);
 	naviregisterwarp("Warper > Sealed Shrine", "monk_test", 306, 143);
@@ -1115,15 +1113,13 @@ OnNaviGenerate:
 		naviregisterwarp("Warper > Buwaya Cave", "ma_fild02", 316, 317);
 		naviregisterwarp("Warper > Devil Tower", "dali02", 137, 115);
 		naviregisterwarp("Warper > Eclage Interior", "ecl_hub01", 129, 12);
-		naviregisterwarp("Warper > Faceworms Nest", "dali", 85, 64);
-		naviregisterwarp("Warper > Geffen Magic Tournament", "dali", 94, 141);
-		naviregisterwarp("Warper > Ghost Palace", "dali02", 46, 128);
+		naviregisterwarp("Warper > Faceworms Nest", "dali", 80, 60);
+		naviregisterwarp("Warper > Geffen Magic Tournament", "dali", 98, 141);
+		naviregisterwarp("Warper > Ghost Palace", "dali02", 43, 129);
 		naviregisterwarp("Warper > Hazy Forest", "bif_fild01", 161, 334);
-		naviregisterwarp("Warper > Horror Toy Factory", "xmas", 234, 298);
 		naviregisterwarp("Warper > Malangdo Culvert", "mal_in01", 164, 21);
 		naviregisterwarp("Warper > Octopus Cave", "mal_dun01", 152, 230);
-		naviregisterwarp("Warper > Old Glast Heim", "glast_01", 204, 268);
-		naviregisterwarp("Warper > Sarah and Fenrir", "dali02", 92, 141);
+		naviregisterwarp("Warper > Sarah and Fenrir", "dali02", 97, 142);
 		naviregisterwarp("Warper > Sara Memory", "dali", 133, 108);
 		naviregisterwarp("Warper > Wolfchev's Laboratory", "lhz_dun04", 148, 269);
 	}
