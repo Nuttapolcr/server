@@ -32547,6 +32547,9 @@ Body:
       bonus bMaxSPrate,20;
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",15;
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*5;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
+
       if (.@r>=7) {
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
@@ -32613,9 +32616,9 @@ Body:
       bonus2 bSkillAtk,"AS_SONICBLOW",20;
       bonus bCritAtkRate,.@r/3*5;
       bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
-      bonus2 bIgnoreDefRaceRate,RC_Player,90;
-      bonus2 bAddRace,RC_DemiHuman,50;
-      bonus2 bAddRace,RC_Player_Human,50;
+      bonus2 bIgnoreDefRaceRate,RC_Player,30;
+      bonus2 bAddRace,RC_DemiHuman,30;
+      bonus2 bAddRace,RC_Player_Human,30;
 
       if (.@r>=7) {
          bonus bAtkRate,7;
@@ -32762,6 +32765,9 @@ Body:
       bonus2 bSkillAtk,"AC_DOUBLE",20;
       bonus bDex,.@r/3*2;
       bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*10;
+      bonus2 bIgnoreDefRaceRate,RC_Player,30;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       if (.@r>=7) {
       bonus bMaxHP,500;
          bonus bAtkRate,7;
@@ -33949,7 +33955,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      autobonus "{ bonus bStr,100; }",100,5000,BF_WEAPON,"{ active_transform 2221,5000; }";
+      autobonus "{ bonus bStr,100; }",100,5000,BF_WEAPON;
       /*Unknow Rate*/
   - Id: 29724
     AegisName: Murderous_Grudge
@@ -36291,6 +36297,7 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
+    View: 1
     Script: |-
       .@r = getrefine();
       bonus bMaxHPrate,5;
@@ -36314,6 +36321,7 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
+    View: 1
     Script: |-
       .@r = getrefine();
       bonus bMaxHPrate,5;
@@ -36340,6 +36348,7 @@ Body:
           bonus2 bSubEle,Ele_Dark,10;
           bonus2 bSubEle,Ele_Ghost,10;
           bonus2 bSubEle,Ele_Undead,10;
+      }
   - Id: 1030011
     AegisName: New_Item_1030011
     Name: "[Legend] Shield"
@@ -36352,6 +36361,7 @@ Body:
     ArmorLevel: 2
     EquipLevelMin: 1
     Refineable: true
+    View: 1
     Gradable: true
     Script: |-
       .@r = getrefine();

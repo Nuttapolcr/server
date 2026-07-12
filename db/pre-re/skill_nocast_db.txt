@@ -50,7 +50,6 @@
 81,8191    // WZ_SIGHTRASHER
 87,8191    // WZ_ICEWALL
 146,8191   // SM_AUTOBERSERK
-378,8191   // ASC_EDP (Enchant Deadly Poison)
 1013,8191  // BS_GREED
 //----------------------------------------------------------------------------
 // Normal

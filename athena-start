@@ -7,6 +7,11 @@ inst_launch_workaround
 PATH=./:$PATH
 LOG_DIR="./log"
 
+# Allow systemd-coredump to capture server crashes. The inherited soft limit
+# is commonly 0 for interactive sessions, which silently prevents core dumps.
+ulimit -Sc unlimited || echo "Warning: unable to enable core dumps" >&2
+ulimit -Sn 8196 || echo "Warning: unable to raise open-file limit to 8196" >&2
+
 print_start() {
 	#    more << EOF
 	echo "rAthena is starting..."
@@ -223,5 +228,3 @@ case $1 in
 		$0 $readEnterKey
 	;;
 esac
-
-

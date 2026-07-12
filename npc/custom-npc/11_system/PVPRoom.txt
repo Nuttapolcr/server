@@ -9,8 +9,8 @@ mes "สวัสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
 mes "ต้องการเข้าสู่สนามประลอง";
 mes "เพื่อทดสอบฝีมือของคุณไหม";
 menu 
-"",Mm_pvp01,
-//"^CC0000Death Match [ "+getmapusers("pvp_y_7-2")+"/100 ]^000000",Mm_pvp01,
+"^CC0000Death Match 1 [ "+getmapusers("guild_vs2")+"/100 ]^000000",Mm_dm01,
+"^CC0000Death Match 2 [ "+getmapusers("guild_vs3")+"/100 ]^000000",Mm_dm02,
 "^003300Izlude [ "+getmapusers("pvp_y_8-2")+"/100 ]^000000",Mm_pvp02,
 "^3333FFProntera [ "+getmapusers("pvp_y_8-1")+"/100 ]^000000",Mm_pvp03,
 "^FF99001 VS 1 [ "+getmapusers("pvp_n_1-3")+"/2 ]^000000",Mm_pvp04,
@@ -18,12 +18,20 @@ menu
 "ออก ",Lcancel;
 
 
-Mm_pvp01:
+Mm_dm01:
 sc_end SC_POEMBRAGI;
 sc_end SC_SERVICE4U;
-if (getmapusers("pvp_y_7-2")>= 100) goto MaxPlayerRoom;
-warp "pvp_y_7-2",127,109;
-announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Death Match แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_7-2")+"/100 ] คน",0;
+if (getmapusers("guild_vs2")>= 100) goto MaxPlayerRoom;
+warp "guild_vs2",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Death Match 1 แล้ว ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("guild_vs2")+"/100 ] คน",0;
+close;
+
+Mm_dm02:
+sc_end SC_POEMBRAGI;
+sc_end SC_SERVICE4U;
+if (getmapusers("guild_vs3")>= 100) goto MaxPlayerRoom;
+warp "guild_vs3",0,0;
+announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Death Match 2 แล้ว ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("guild_vs3")+"/100 ] คน",0;
 close;
 
 Mm_pvp02:
@@ -67,7 +75,7 @@ close;
 OnInit:
 do {
 delwaitingroom;
-waitingroom "ผู้เล่นในห้อง " +getmapusers("pvp_y_7-2")+ " คน",0;
+waitingroom "ผู้เล่น Death Match " +(getmapusers("guild_vs2") + getmapusers("guild_vs3"))+ " คน",0;
 sleep 1000; // Evites super infinity loop
 } while(1); // End Loop
 end;
@@ -111,6 +119,24 @@ pvp_y_7-2	mapflag	nowarp
 pvp_y_7-2	mapflag	noreturn
 pvp_y_7-2	mapflag	nodrop
 pvp_y_7-2	mapflag	nobranch
+
+guild_vs2	mapflag	pvp
+guild_vs2	mapflag	nomemo
+guild_vs2	mapflag	nosave	SavePoint
+guild_vs2	mapflag	noteleport
+guild_vs2	mapflag	nowarp
+guild_vs2	mapflag	noreturn
+guild_vs2	mapflag	nodrop
+guild_vs2	mapflag	nobranch
+
+guild_vs3	mapflag	pvp
+guild_vs3	mapflag	nomemo
+guild_vs3	mapflag	nosave	SavePoint
+guild_vs3	mapflag	noteleport
+guild_vs3	mapflag	nowarp
+guild_vs3	mapflag	noreturn
+guild_vs3	mapflag	nodrop
+guild_vs3	mapflag	nobranch
 
 
 pvp_y_8-1	mapflag	pvp
@@ -157,7 +183,7 @@ OnInit:
 set .time, 10;
 setarray .map$, 
 //กำหนดแผนที่
-"pvp_y_7-2";
+"guild_vs2", "guild_vs3";
 end;
 	
 OnPCDieEvent:

@@ -42,7 +42,6 @@
 Header:
   Type: MOB_AVAIL_DB
   Version: 1
-
 Body:
   - Mob: EMPELIUM_
     Sprite: EMPELIUM
@@ -84,3 +83,5 @@ Body:
     Sprite: Exclusive_Anolian
   - Mob: CITY_TITAN
     Sprite: MD_EP20_BOSS_LASGAND
+  - Mob: SCORPION
+    Sprite: SCORPION
