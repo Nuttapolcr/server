@@ -29068,6 +29068,8 @@ Body:
     Slots: 1
     Jobs:
       Wizard: true
+    Locations:
+      Right_Hand: true
     WeaponLevel: 3
     EquipLevelMin: 1
     Refineable: true
@@ -29092,8 +29094,6 @@ Body:
          bonus bInt,4;
          bonus bDelayrate,-5;
       }
-    Locations:
-      Right_Hand: true
   - Id: 540020
     AegisName: Adulter_F_P_Book
     Name: "[Epic] Professor Weapon"
@@ -31103,43 +31103,43 @@ Body:
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHPrate,5;
-      bonus bMaxHP,1000;
+      bonus bMaxHPrate,3;
+      bonus bMaxHP,500;
       bonus bDef,5;
       bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1000;
+         bonus bMaxHP,500;
       }
       if (.@r>=9) {
-         bonus bMaxHPrate,6;
+         bonus bMaxHPrate,4;
       }
       if (.@r>=11) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
          bonus bDef,5;
          bonus2 bSubEle,Ele_Neutral,2;
       }
       if (.@g >= ENCHANTGRADE_D) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/2*2;
+         bonus bMaxHPrate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/2*2;
+         bonus bMaxHPrate,.@r/3*2;
       }
   - Id: 480421
     AegisName: Rare_Melee_Muffler
@@ -31562,43 +31562,43 @@ Body:
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHPrate,5;
-      bonus bMaxHP,1000;
+      bonus bMaxHPrate,3;
+      bonus bMaxHP,500;
       bonus bDef,5;
       bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1000;
+         bonus bMaxHP,500;
       }
       if (.@r>=9) {
-         bonus bMaxHPrate,6;
+         bonus bMaxHPrate,4;
       }
       if (.@r>=11) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
          bonus bDef,5;
          bonus2 bSubEle,Ele_Neutral,2;
       }
       if (.@g >= ENCHANTGRADE_D) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/2*2;
+         bonus bMaxHPrate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/2*2;
+         bonus bMaxHPrate,.@r/3*2;
       }
   - Id: 470278
     AegisName: Rare_Melee_Boots
@@ -32021,43 +32021,43 @@ Body:
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMaxHPrate,5;
-      bonus bMaxHP,1000;
+      bonus bMaxHPrate,3;
+      bonus bMaxHP,500;
       bonus bDef,5;
       bonus bMdef,3;
       bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
-         bonus bMaxHP,1000;
+         bonus bMaxHP,500;
       }
       if (.@r>=9) {
-         bonus bMaxHPrate,6;
+         bonus bMaxHPrate,4;
       }
       if (.@r>=11) {
-         bonus bMaxHP,1500;
+         bonus bMaxHP,1000;
          bonus bDef,5;
          bonus2 bSubEle,Ele_Neutral,2;
       }
       if (.@g >= ENCHANTGRADE_D) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
-         bonus bMaxHPrate,.@r/3*2;
+         bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/2*2;
+         bonus bMaxHPrate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bMaxHPrate,5;
          bonus bMaxHP,1000;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/2*2;
+         bonus bMaxHPrate,.@r/3*2;
       }
   - Id: 21016
     AegisName: Sinister_Twohand_Sword
@@ -32082,10 +32082,14 @@ Body:
       .@g = getenchantgrade();
       bonus bStr,5;
       bonus bDex,5;
+      bonus bHit,30;
       bonus2 bAddClass,Class_Boss,40;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"KN_BOWLINGBASH",30;
-      bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*3;
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*30;
+      bonus2 bIgnoreDefRaceRate,RC_Player,20;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       if (.@r>=7) {
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
@@ -32103,25 +32107,25 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*3;
+         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*30;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*3;
+         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*30;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*3;
+         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*30;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*3;
+         bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*30;
       }
   - Id: 1450
     AegisName: Sinister_Lance
@@ -32340,7 +32344,10 @@ Body:
       bonus bAgi,5;
       bonus2 bSkillAtk,"WS_CARTTERMINATION",50;
       bonus bAspdRate,5;
-      bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
+      bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*70;
+      bonus2 bIgnoreDefRaceRate,RC_Player,20;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       if (.@r>=7) {
          bonus bAtkRate,7;
       }
@@ -32356,22 +32363,22 @@ Body:
       if (.@g >= ENCHANTGRADE_D) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
-         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
+         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*50;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
-         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*10;
+         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*50;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
-         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
+         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*70;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
-         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*10;
+         bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/2*70;
       }
   - Id: 13455
     AegisName: Sinister_Saber
@@ -32399,7 +32406,7 @@ Body:
       bonus bDelayrate,-10;
       bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",30;
       bonus bAspdRate,5;
-      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*5;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*25;
       if (.@r>=7) {
          bonus bDex,5;
          bonus bInt,5;
@@ -32419,25 +32426,25 @@ Body:
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
-         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*5;
+         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*25;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
-         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*5;
+         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*25;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
-         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/2*5;
+         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*25;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bDex,5;
          bonus bInt,5;
       bonus bDelayrate,-5;
-         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/2*5;
+         bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*25;
       }
   - Id: 16041
     AegisName: Sinister_Mace
@@ -32614,8 +32621,10 @@ Body:
       bonus bCritical,10;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"AS_SONICBLOW",20;
+      bonus2 bSkillAtk,"ASC_BREAKER",20;
       bonus bCritAtkRate,.@r/3*5;
       bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*10;
       bonus2 bIgnoreDefRaceRate,RC_Player,30;
       bonus2 bAddRace,RC_DemiHuman,30;
       bonus2 bAddRace,RC_Player_Human,30;
@@ -32639,6 +32648,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bCritAtkRate,.@r/3*5;
          bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bAtkRate,5;
@@ -32646,6 +32656,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bCritAtkRate,.@r/3*5;
          bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -32653,6 +32664,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bCritAtkRate,.@r/2*5;
          bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/2*10;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bAtkRate,5;
@@ -32660,6 +32672,7 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bCritAtkRate,.@r/2*5;
          bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/2*10;
       }
   - Id: 28706
     AegisName: Sinister_Dagger
@@ -32765,7 +32778,7 @@ Body:
       bonus2 bSkillAtk,"AC_DOUBLE",20;
       bonus bDex,.@r/3*2;
       bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*10;
-      bonus2 bIgnoreDefRaceRate,RC_Player,30;
+      bonus2 bIgnoreDefRaceRate,RC_Player,20;
       bonus2 bAddRace,RC_DemiHuman,40;
       bonus2 bAddRace,RC_Player_Human,40;
       if (.@r>=7) {
@@ -33625,7 +33638,7 @@ Body:
     ArmorLevel: 1
     Script: |-
       bonus bAllStats,3;
-      bonus bMaxHPrate,10;
+      bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
@@ -33913,7 +33926,7 @@ Body:
     ArmorLevel: 1
     Script: |-
       bonus bAllStats,3;
-      bonus bMaxHPrate,10;
+      bonus bMaxHPrate,5;
       bonus bMaxHP,1000;
       bonus2 bResEff,Eff_Stun,1500;
       bonus2 bResEff,Eff_Freeze,1500;
@@ -36361,8 +36374,8 @@ Body:
     ArmorLevel: 2
     EquipLevelMin: 1
     Refineable: true
-    View: 1
     Gradable: true
+    View: 1
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();

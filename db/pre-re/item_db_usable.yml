@@ -21594,14 +21594,13 @@ Body:
     Type: Healing
     Buy: 10
     Sell: 0
-    Weight: 70
+    Weight: 50
     Flags:
       BuyingStore: true
     Trade:
       Override: 100
       NoSell: true
-    Script: |
-      if((getmapflag(strcharinfo(3),MF_GVG_CASTLE) && getmapflag(strcharinfo(3),MF_GVG)) || strcharinfo(3) == "guild_vs01" || strcharinfo(3) == "guild_vs02" || strcharinfo(3) == "guild_vs03" || strcharinfo(3) == "guild_vs04" || strcharinfo(3) == "grandarena") itemheal rand(350,450),0;
+    Script: percentheal 10,0;
   - Id: 11549
     AegisName: Woe_Blue_Potion
     Name: Siege Blue Potion
@@ -21615,7 +21614,7 @@ Body:
       Override: 100
       NoSell: true
     Script: |
-      if((getmapflag(strcharinfo(3),MF_GVG_CASTLE) && getmapflag(strcharinfo(3),MF_GVG)) || strcharinfo(3) == "guild_vs01" || strcharinfo(3) == "guild_vs02" || strcharinfo(3) == "guild_vs03" || strcharinfo(3) == "guild_vs04" || strcharinfo(3) == "grandarena") itemheal 0,rand(50,70);
+      percentheal 0,10;
   - Id: 65888
     AegisName: Refine_Booster_Potion
     Name: Refine Booster Potion
