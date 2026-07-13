@@ -5,9 +5,9 @@
 //==============================================
 -	script	PvP	-1,{
 
-mes "สวัสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
-mes "ต้องการเข้าสู่สนามประลอง";
-mes "เพื่อทดสอบฝีมือของคุณไหม";
+mes "๏ฟฝ๏ฟฝ๏ฟฝสดีคุณ :^FF0000 "+strcharinfo(0)+" ^000000 ";
+mes "๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง";
+mes "๏ฟฝ๏ฟฝ๏ฟฝอท๏ฟฝ๏ฟฝอบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอของ๏ฟฝุณ๏ฟฝ๏ฟฝ๏ฟฝ";
 menu 
 "^CC0000Death Match 1 [ "+getmapusers("guild_vs2")+"/100 ]^000000",Mm_dm01,
 "^CC0000Death Match 2 [ "+getmapusers("guild_vs3")+"/100 ]^000000",Mm_dm02,
@@ -15,7 +15,7 @@ menu
 "^3333FFProntera [ "+getmapusers("pvp_y_8-1")+"/100 ]^000000",Mm_pvp03,
 "^FF99001 VS 1 [ "+getmapusers("pvp_n_1-3")+"/2 ]^000000",Mm_pvp04,
 "^3300002 VS 2 [ "+getmapusers("pvp_n_1-5")+"/4 ]^000000",Mm_pvp05,
-"ออก ",Lcancel;
+"๏ฟฝอก ",Lcancel;
 
 
 Mm_dm01:
@@ -23,7 +23,7 @@ sc_end SC_POEMBRAGI;
 sc_end SC_SERVICE4U;
 if (getmapusers("guild_vs2")>= 100) goto MaxPlayerRoom;
 warp "guild_vs2",0,0;
-announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Death Match 1 แล้ว ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("guild_vs2")+"/100 ] คน",0;
+announce "[๏ฟฝะบ๏ฟฝ] ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ ๏ฟฝุณ [ "+strcharinfo(0)+" ] ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง Death Match 1 ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ๏ฟฝีผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ่นท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ [ "+getmapusers("guild_vs2")+"/100 ] ๏ฟฝ๏ฟฝ",0;
 close;
 
 Mm_dm02:
@@ -31,7 +31,7 @@ sc_end SC_POEMBRAGI;
 sc_end SC_SERVICE4U;
 if (getmapusers("guild_vs3")>= 100) goto MaxPlayerRoom;
 warp "guild_vs3",0,0;
-announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Death Match 2 แล้ว ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("guild_vs3")+"/100 ] คน",0;
+announce "[๏ฟฝะบ๏ฟฝ] ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ ๏ฟฝุณ [ "+strcharinfo(0)+" ] ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง Death Match 2 ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ๏ฟฝีผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ่นท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ [ "+getmapusers("guild_vs3")+"/100 ] ๏ฟฝ๏ฟฝ",0;
 close;
 
 Mm_pvp02:
@@ -39,7 +39,7 @@ sc_end SC_POEMBRAGI;
 sc_end SC_SERVICE4U;
 if (getmapusers("pvp_y_8-2")>= 100) goto MaxPlayerRoom;
 warp "pvp_y_8-2",152,130;
-announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Izlude แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_8-2")+"/100 ] คน",0;
+announce "[๏ฟฝะบ๏ฟฝ] ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ ๏ฟฝุณ [ "+strcharinfo(0)+" ] ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง Izlude ๏ฟฝ๏ฟฝ๏ฟฝวจ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ๏ฟฝีผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ่นท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ [ "+getmapusers("pvp_y_8-2")+"/100 ] ๏ฟฝ๏ฟฝ",0;
 close;
 
 Mm_pvp03:
@@ -47,7 +47,7 @@ sc_end SC_POEMBRAGI;
 sc_end SC_SERVICE4U;
 if (getmapusers("pvp_y_8-1")>= 100) goto MaxPlayerRoom;
 warp "pvp_y_8-1",171,204;
-announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง Prontera แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_y_8-1")+"/100 ] คน",0;
+announce "[๏ฟฝะบ๏ฟฝ] ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ ๏ฟฝุณ [ "+strcharinfo(0)+" ] ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง Prontera ๏ฟฝ๏ฟฝ๏ฟฝวจ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ๏ฟฝีผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ่นท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ [ "+getmapusers("pvp_y_8-1")+"/100 ] ๏ฟฝ๏ฟฝ",0;
 close;
 
 Mm_pvp04:
@@ -55,7 +55,7 @@ sc_end SC_POEMBRAGI;
 sc_end SC_SERVICE4U;
 if (getmapusers("pvp_n_1-3")>= 2) goto MaxPlayerRoom;
 warp "pvp_n_1-3",0,0;
-announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง 1 VS 1 แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_n_1-3")+"/100 ] คน",0;
+announce "[๏ฟฝะบ๏ฟฝ] ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ ๏ฟฝุณ [ "+strcharinfo(0)+" ] ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง 1 VS 1 ๏ฟฝ๏ฟฝ๏ฟฝวจ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ๏ฟฝีผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ่นท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ [ "+getmapusers("pvp_n_1-3")+"/100 ] ๏ฟฝ๏ฟฝ",0;
 close;
 
 Mm_pvp05:
@@ -63,11 +63,11 @@ sc_end SC_POEMBRAGI;
 sc_end SC_SERVICE4U;
 if (getmapusers("pvp_n_1-5")>= 4) goto MaxPlayerRoom;
 warp "pvp_n_1-5",0,0;
-announce "[ระบบ] ขณะนี้ คุณ [ "+strcharinfo(0)+" ] ได้เข้าสู่สนามประลอง 2 VS 2 แล้วจ้า ขณะนี้มีผู้เล่นทั้งหมด [ "+getmapusers("pvp_n_1-3")+"/100 ] คน",0;
+announce "[๏ฟฝะบ๏ฟฝ] ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ ๏ฟฝุณ [ "+strcharinfo(0)+" ] ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง 2 VS 2 ๏ฟฝ๏ฟฝ๏ฟฝวจ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝ๏ฟฝีผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ่นท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ [ "+getmapusers("pvp_n_1-3")+"/100 ] ๏ฟฝ๏ฟฝ",0;
 close;
 
 MaxPlayerRoom:
-mes "ขณะนี้สนามประลองเต็ม";
+mes "๏ฟฝ๏ฟฝะน๏ฟฝ๏ฟฝสน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ";
 close;
 
 Lcancel:
@@ -75,7 +75,7 @@ close;
 OnInit:
 do {
 delwaitingroom;
-waitingroom "ผู้เล่น Death Match " +(getmapusers("guild_vs2") + getmapusers("guild_vs3"))+ " คน",0;
+waitingroom "๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Death Match " +(getmapusers("guild_vs2") + getmapusers("guild_vs3"))+ " ๏ฟฝ๏ฟฝ",0;
 sleep 1000; // Evites super infinity loop
 } while(1); // End Loop
 end;
@@ -120,7 +120,7 @@ pvp_y_7-2	mapflag	noreturn
 pvp_y_7-2	mapflag	nodrop
 pvp_y_7-2	mapflag	nobranch
 
-guild_vs2	mapflag	pvp
+//guild_vs2	mapflag	pvp
 guild_vs2	mapflag	nomemo
 guild_vs2	mapflag	nosave	SavePoint
 guild_vs2	mapflag	noteleport
@@ -129,7 +129,7 @@ guild_vs2	mapflag	noreturn
 guild_vs2	mapflag	nodrop
 guild_vs2	mapflag	nobranch
 
-guild_vs3	mapflag	pvp
+//guild_vs3	mapflag	pvp
 guild_vs3	mapflag	nomemo
 guild_vs3	mapflag	nosave	SavePoint
 guild_vs3	mapflag	noteleport
@@ -158,7 +158,7 @@ pvp_n_1-3	mapflag	nodrop
 pvp_n_1-3	mapflag	nobranch
 
 
-//----กิจกรรม
+//----๏ฟฝิจ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
 pvp_n_1-2	mapflag	pvp
 pvp_n_1-2	mapflag	nomemo
 pvp_n_1-2	mapflag	nosave	SavePoint
@@ -167,7 +167,7 @@ pvp_n_1-2	mapflag	nowarp
 pvp_n_1-2	mapflag	noreturn
 pvp_n_1-2	mapflag	nodrop
 pvp_n_1-2	mapflag	nobranch
-//----กิจกรรม
+//----๏ฟฝิจ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
 
 pvp_n_1-5	mapflag	pvp
 pvp_n_1-5	mapflag	nomemo
@@ -182,7 +182,7 @@ pvp_n_1-5	mapflag	nobranch
 OnInit:
 set .time, 10;
 setarray .map$, 
-//กำหนดแผนที่
+//๏ฟฝ๏ฟฝหน๏ฟฝแผน๏ฟฝ๏ฟฝ๏ฟฝ
 "guild_vs2", "guild_vs3";
 end;
 	
@@ -191,11 +191,11 @@ getmapxy( .@map$, .@x, .@y, BL_PC );
 for ( set .@i, 0; .@i < getarraysize(.map$); set .@i, .@i+1 ) {
 if ( .@map$ == .map$[.@i] ) {
 sleep2 1000;
-//เมื่อตายจะถูกชุบทันที
+//๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอต๏ฟฝยจะถูก๏ฟฝุบ๏ฟฝัน๏ฟฝ๏ฟฝ
 atcommand "@alive";
-//เช็คไอเทมที่เสียหายถ้ามีซ่อมให้ทันที
+//๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยถ๏ฟฝ๏ฟฝ๏ฟฝีซ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัน๏ฟฝ๏ฟฝ
 if (getbrokenid(1) > 0) { atcommand "@repairall"; }
-//แก้สถานะต่างๆ
+//๏ฟฝ๏ฟฝสถานะต๏ฟฝาง๏ฟฝ
 sc_end SC_POISON;
 sc_end SC_FREEZE;
 sc_end SC_SLEEP;
@@ -209,36 +209,36 @@ sc_end SC_CONFUSION;
 sc_end SC_CURSE;
 sc_end SC_HALLUCINATION;
 sc_end SC_ORCISH;
-//เพิ่มHPและSP 100%
+//๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝHP๏ฟฝ๏ฟฝ๏ฟฝSP 100%
 percentheal 100,100; 
 //==============================================
-//บัพค่าอาหาร 30นาที Support Hercules
+//๏ฟฝัพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 30๏ฟฝาท๏ฟฝ Support Hercules
 //sc_start SC_FOOD_STR, 1800000,5;
 //sc_start SC_FOOD_AGI, 1800000,5;
 //sc_start SC_FOOD_VIT, 1800000,5;
 //sc_start SC_FOOD_INT, 1800000,5;
 //sc_start SC_FOOD_DEX, 1800000,5;
 //sc_start SC_FOOD_LUK, 1800000,5;
-//บัพสกิลต่างๆ
+//๏ฟฝัพสก๏ฟฝลต๏ฟฝาง๏ฟฝ
 //sc_start SC_BLESSING,1800000,10;
 //sc_start SC_INC_AGI, 1800000,10;
-//sc_start 41,1800000,10; //กอเรีย
-//sc_start 40,1800000,10; // MAGNIFICAT เร่ง
+//sc_start 41,1800000,10; //๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+//sc_start 40,1800000,10; // MAGNIFICAT ๏ฟฝ๏ฟฝ๏ฟฝ
 //==============================================
-//บัพค่าอาหาร 30นาที Support rAthena
+//๏ฟฝัพ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ 30๏ฟฝาท๏ฟฝ Support rAthena
 //sc_start SC_STRFood, 1800000,5;
 //sc_start SC_AGIFood, 1800000,5;
 //sc_start SC_VITFood, 1800000,5;
 //sc_start SC_INTFood, 1800000,5;
 //sc_start SC_DEXFood, 1800000,5;
 //sc_start SC_LUKFood, 1800000,5;
-//บัพสกิลต่างๆ
+//๏ฟฝัพสก๏ฟฝลต๏ฟฝาง๏ฟฝ
 sc_start SC_BLESSING,1800000,10;
 sc_start SC_INCREASEAGI,1800000,10;
-sc_start 41,1800000,10; //กอเรีย
-sc_start 40,1800000,10; // MAGNIFICAT เร่ง
+sc_start 41,1800000,10; //๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+sc_start 40,1800000,10; // MAGNIFICAT ๏ฟฝ๏ฟฝ๏ฟฝ
 //==============================================
-//สุ่มเกิดในแผนที่
+//๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิด๏ฟฝแผน๏ฟฝ๏ฟฝ๏ฟฝ
 warp .map$[.@i], 0, 0;
 break;
 }
@@ -248,6 +248,6 @@ break;
 
 -	script	Die Message	-1,{
 OnPCDieEvent:
-//ข้อความที่จะแสดงว่าตายเหมือนผู้เล่นพิมเอง
-//message strcharinfo(0),"ตูตายอีกแล้วเดียวมาใหม่!!";
+//๏ฟฝ๏ฟฝอค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝาต๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ่นพ๏ฟฝ๏ฟฝ๏ฟฝอง
+//message strcharinfo(0),"๏ฟฝูต๏ฟฝ๏ฟฝ๏ฟฝีก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ!!";
 }
