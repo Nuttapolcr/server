@@ -1,0 +1,38 @@
+//============================================================
+// Guild Level 50
+//============================================================
+morocc,140,101,4	script	รับLevel Guild	620,{
+	mes "^0055FF[ รับLevel Guild ]^000000";
+
+	if (!getcharid(2)) {
+		mes "คุณยังไม่ได้เข้าร่วมกิลด์";
+		mes "กรุณาเข้าร่วมกิลด์ก่อนใช้บริการ";
+		close;
+	}
+	if (getcharid(0) != getguildmasterid(getcharid(2))) {
+		mes "เฉพาะ ^FF0000หัวหน้ากิลด์^000000 เท่านั้น";
+		mes "ที่สามารถรับ Guild Level 50 ได้";
+		close;
+	}
+
+	query_sql "SELECT `guild_lv` FROM `guild` WHERE `guild_id` = " + getcharid(2) + " LIMIT 1", .@guild_level;
+	if (.@guild_level >= MAX_GUILDLEVEL) {
+		mes "กิลด์ของคุณมีเลเวล ^00AA00" + MAX_GUILDLEVEL + "^000000 อยู่แล้ว";
+		close;
+	}
+
+	mes "กิลด์ของคุณมีเลเวล ^FF6600" + .@guild_level + "^000000";
+	mes "ต้องการรับ Guild Level ^00AA00" + MAX_GUILDLEVEL + "^000000 เลยหรือไม่?";
+	next;
+	if (select("รับ Guild Level " + MAX_GUILDLEVEL + ":ยกเลิก") == 2)
+		close;
+
+	atcommand "@guildlvlup " + MAX_GUILDLEVEL;
+	mes "^0055FF[ รับLevel Guild ]^000000";
+	mes "^00AA00ปรับ Guild Level เป็น " + MAX_GUILDLEVEL + " เรียบร้อยแล้ว^000000";
+	close;
+
+OnInit:
+	waitingroom "รับLevel Guild 50", 0;
+	end;
+}

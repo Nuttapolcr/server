@@ -35918,7 +35918,6 @@ Body:
       Collection: true
     CollectionScript: |-
       bonus2 bAddClass,Class_Boss,35;
-      bonus2 bAddEff2,SC_COMA,100;
       bonus2 bAddEff2,Eff_Curse,10000;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;

@@ -13110,7 +13110,7 @@ Body:
     AegisName: EMPELIUM
     Name: Emperium
     Level: 90
-    Hp: 68430
+    Hp: 1000
     Attack: 60
     Attack2: 71
     Defense: 40
@@ -13134,6 +13134,11 @@ Body:
     AttackMotion: 288
     DamageMotion: 384
     Class: Boss
+    Modes:
+      IgnoreMagic: true
+      IgnoreMelee: true
+      IgnoreMisc: true
+      IgnoreRanged: true
   - Id: 1289
     AegisName: MAYA_PUPLE
     Name: Maya Purple
