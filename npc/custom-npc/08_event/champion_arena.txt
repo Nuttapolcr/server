@@ -8,7 +8,6 @@
 OnInit:
 	bindatcmd "champcreate", strnpcinfo(3)+"::OnCreate", 99, 99;
 	bindatcmd "champpull", strnpcinfo(3)+"::OnPull", 99, 99;
-	bindatcmd "champspec", strnpcinfo(3)+"::OnSpectator", 99, 99;
 	bindatcmd "champstart", strnpcinfo(3)+"::OnStart", 99, 99;
 	bindatcmd "champreset", strnpcinfo(3)+"::OnReset", 99, 99;
 	bindatcmd "champclose", strnpcinfo(3)+"::OnClose", 99, 99;
@@ -37,7 +36,7 @@ OnCreate:
 	setmapflag $@ChampArena_Map$, MF_NOPENALTY;
 	warp $@ChampArena_Map$,104,62;
 	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
-	dispbottom "[Champion Arena] Opened. Use @champpull <name> twice, then @champstart.";
+	dispbottom "[Champion Arena] Opened. Use @champpull <account ID> twice, then @champstart.";
 	end;
 
 OnPull:
@@ -46,13 +45,12 @@ OnPull:
 		end;
 	}
 	if (.@atcmd_numparameters < 1) {
-		dispbottom "Usage: @champpull <character name>";
+		dispbottom "Usage: @champpull <account ID>";
 		end;
 	}
-	.@name$ = implode(.@atcmd_parameters$, " ");
-	.@target_aid = getcharid(3, .@name$);
+	.@target_aid = atoi(.@atcmd_parameters$[0]);
 	if (.@target_aid <= 0 || !isloggedin(.@target_aid)) {
-		dispbottom "[Champion Arena] Player is not online: "+.@name$;
+		dispbottom "[Champion Arena] Account ID is not online: "+.@atcmd_parameters$[0];
 		end;
 	}
 	if (.@target_aid == $@ChampArena_Fighter[0] || .@target_aid == $@ChampArena_Fighter[1]) {
@@ -74,6 +72,17 @@ OnPull:
 		dispbottom "[Champion Arena] Only the Champion class is allowed.";
 		end;
 	}
+	getinventorylist;
+	if (@inventorylist_count > 0) {
+		atcommand "@storeall";
+		getinventorylist;
+		if (@inventorylist_count > 0) {
+			dispbottom "[Champion Arena] Cannot enter: move all remaining items to storage first.";
+			attachrid(.@gm_aid);
+			dispbottom "[Champion Arena] Pull cancelled: the player's inventory is not empty (storage may be full).";
+			end;
+		}
+	}
 	.@slot = ($@ChampArena_Fighter[0] == 0) ? 0 : 1;
 	$@ChampArena_Fighter[.@slot] = getcharid(3);
 	$@ChampArena_Name$[.@slot] = strcharinfo(0);
@@ -86,38 +95,6 @@ OnPull:
 	announce "[ Champion Arena ] "+$@ChampArena_Name$[.@slot]+" enters side "+(.@slot+1)+".", bc_all|bc_blue;
 	attachrid(.@gm_aid);
 	dispbottom "[Champion Arena] Pulled "+$@ChampArena_Name$[.@slot]+" into the arena.";
-	end;
-
-OnSpectator:
-	if ($@ChampArena_Instance <= 0) {
-		dispbottom "[Champion Arena] Arena is not open.";
-		end;
-	}
-	if (.@atcmd_numparameters < 1) {
-		dispbottom "Usage: @champspec <character name>";
-		end;
-	}
-	.@name$ = implode(.@atcmd_parameters$, " ");
-	.@target_aid = getcharid(3, .@name$);
-	if (.@target_aid <= 0 || !isloggedin(.@target_aid)) {
-		dispbottom "[Champion Arena] Player is not online: "+.@name$;
-		end;
-	}
-	if (.@target_aid == $@ChampArena_Fighter[0] || .@target_aid == $@ChampArena_Fighter[1]) {
-		dispbottom "[Champion Arena] A competitor cannot become a spectator.";
-		end;
-	}
-	.@gm_aid = getcharid(3);
-	if (!attachrid(.@target_aid)) {
-		attachrid(.@gm_aid);
-		dispbottom "[Champion Arena] Player went offline.";
-		end;
-	}
-	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
-	warp $@ChampArena_Map$,104,62;
-	dispbottom "[Champion Arena] You are now in the spectator area.";
-	attachrid(.@gm_aid);
-	dispbottom "[Champion Arena] Pulled "+.@name$+" into the spectator area.";
 	end;
 
 OnStart:
@@ -234,4 +211,25 @@ S_ClearArena:
 	}
 	detachrid;
 	return;
+}
+
+// Spectators enter the active arena themselves instead of using @champspec.
+prontera,150,180,4	script	Champion Arena Spectator	4_M_MANAGER,{
+	mes "[ Champion Arena ]";
+	if ($@ChampArena_Instance <= 0 || $@ChampArena_Map$ == "") {
+		mes "The arena is not open right now.";
+		close;
+	}
+	if (getcharid(3) == $@ChampArena_Fighter[0] || getcharid(3) == $@ChampArena_Fighter[1]) {
+		mes "Competitors cannot enter through the spectator entrance.";
+		close;
+	}
+	mes "Would you like to enter the spectator area?";
+	if (select("Enter the arena:Cancel") == 2)
+		close;
+	close2;
+	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
+	warp $@ChampArena_Map$,104,62;
+	dispbottom "[Champion Arena] You are now in the spectator area.";
+	end;
 }

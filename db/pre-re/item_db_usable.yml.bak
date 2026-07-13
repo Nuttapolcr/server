@@ -9,7 +9,7 @@ Body:
     Buy: 50
     Weight: 70
     Script: |
-      itemheal rand(45,66),0;
+      itemheal rand(45,65),0;
   - Id: 502
     AegisName: Orange_Potion
     Name: Orange Potion
