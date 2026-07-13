@@ -2288,8 +2288,8 @@ Body:
     Fullness: 0
     HungryDelay: 120
     IntimacyFed: 0
-    IntimacyHungry: -5
     IntimacyOverfed: -100
+    IntimacyHungry: -5
     IntimacyOwnerDie: 0
     CaptureRate: 0
     AllowAutoFeed: true
@@ -2297,7 +2297,6 @@ Body:
       petloot 100;
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
-        bonus bShortWeaponDamageReturn,-100;
         bonus bAtkRate,-10;
         bonus2 bSubRace,RC_DemiHuman,5;
         bonus2 bSubRace,RC_Player_Human,5;
@@ -2309,8 +2308,8 @@ Body:
     Fullness: 0
     HungryDelay: 120
     IntimacyFed: 0
-    IntimacyHungry: -5
     IntimacyOverfed: -100
+    IntimacyHungry: -5
     IntimacyOwnerDie: 0
     CaptureRate: 0
     AllowAutoFeed: true
@@ -2318,7 +2317,6 @@ Body:
       petloot 100;
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
-        bonus bMagicDamageReturn,100;
         bonus bMatkRate,-10;
         bonus2 bSubRace,RC_DemiHuman,5;
         bonus2 bSubRace,RC_Player_Human,5;

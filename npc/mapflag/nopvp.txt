@@ -109,6 +109,11 @@ ve_in	mapflag	pvp	off
 ve_in02	mapflag	pvp	off
 cave	mapflag	pvp	off
 
+alde_gld	mapflag	pvp	off
+gef_fild13	mapflag	pvp	off
+pay_gld	mapflag	pvp	off
+prt_gld	mapflag	pvp	off
+
 e_tower	mapflag	pvp	off
 
 mid_camp	mapflag	pvp	off

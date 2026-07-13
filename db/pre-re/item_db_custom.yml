@@ -35932,7 +35932,6 @@ Body:
     Flags:
       Collection: true
     CollectionScript: |-
-      bonus bShortWeaponDamageReturn,-100;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
@@ -35946,7 +35945,6 @@ Body:
     Flags:
       Collection: true
     CollectionScript: |-
-      bonus bMagicDamageReturn,100;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
