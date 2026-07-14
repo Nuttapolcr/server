@@ -15,16 +15,16 @@ OnInit:
 
 OnCreate:
 	if ($@ChampArena_Instance > 0) {
-		dispbottom "[Champion Arena] Arena is already open. Use @champclose first.";
+		dispbottom "[สนามประลองแชมเปียน] สนามประลองเปิดอยู่แล้ว กรุณาใช้ @champclose ก่อน";
 		end;
 	}
 	.@instance_id = instance_create("Champion GM Arena", IM_CHAR, getcharid(0));
 	if (.@instance_id < 0) {
-		dispbottom "[Champion Arena] Cannot create instance (error "+.@instance_id+").";
+		dispbottom "[สนามประลองแชมเปียน] ไม่สามารถสร้างอินสแตนซ์ได้ (ข้อผิดพลาด "+.@instance_id+")";
 		end;
 	}
 	$@ChampArena_Instance = .@instance_id;
-	$@ChampArena_Map$ = instance_mapname("1@ge_st", .@instance_id);
+	$@ChampArena_Map$ = instance_mapname("champvs", .@instance_id);
 	$@ChampArena_State = 1;
 	$@ChampArena_Fighter[0] = 0;
 	$@ChampArena_Fighter[1] = 0;
@@ -34,42 +34,43 @@ OnCreate:
 	setmapflag $@ChampArena_Map$, MF_PVP_NOGUILD;
 	setmapflag $@ChampArena_Map$, MF_PVP_NOCALCRANK;
 	setmapflag $@ChampArena_Map$, MF_NOPENALTY;
+	enablenpc instance_npcname("ร้านค้าสนามประลอง#champ", .@instance_id);
 	warp $@ChampArena_Map$,104,62;
 	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
-	dispbottom "[Champion Arena] Opened. Use @champpull <account ID> twice, then @champstart.";
+	dispbottom "[สนามประลองแชมเปียน] เปิดสนามแล้ว ใช้ @champpull <Account ID> สองครั้ง แล้วใช้ @champstart";
 	end;
 
 OnPull:
 	if ($@ChampArena_Instance <= 0 || $@ChampArena_State != 1) {
-		dispbottom "[Champion Arena] Arena is not accepting competitors.";
+		dispbottom "[สนามประลองแชมเปียน] สนามประลองยังไม่เปิดรับผู้เข้าแข่งขัน";
 		end;
 	}
 	if (.@atcmd_numparameters < 1) {
-		dispbottom "Usage: @champpull <account ID>";
+		dispbottom "วิธีใช้: @champpull <Account ID>";
 		end;
 	}
 	.@target_aid = atoi(.@atcmd_parameters$[0]);
 	if (.@target_aid <= 0 || !isloggedin(.@target_aid)) {
-		dispbottom "[Champion Arena] Account ID is not online: "+.@atcmd_parameters$[0];
+		dispbottom "[สนามประลองแชมเปียน] Account ID นี้ไม่ได้ออนไลน์อยู่: "+.@atcmd_parameters$[0];
 		end;
 	}
 	if (.@target_aid == $@ChampArena_Fighter[0] || .@target_aid == $@ChampArena_Fighter[1]) {
-		dispbottom "[Champion Arena] This player is already a competitor.";
+		dispbottom "[สนามประลองแชมเปียน] ผู้เล่นคนนี้เป็นผู้เข้าแข่งขันอยู่แล้ว";
 		end;
 	}
 	if ($@ChampArena_Fighter[0] && $@ChampArena_Fighter[1]) {
-		dispbottom "[Champion Arena] Both competitor slots are full.";
+		dispbottom "[สนามประลองแชมเปียน] ช่องผู้เข้าแข่งขันเต็มทั้งสองช่องแล้ว";
 		end;
 	}
 	.@gm_aid = getcharid(3);
 	if (!attachrid(.@target_aid)) {
 		attachrid(.@gm_aid);
-		dispbottom "[Champion Arena] Player went offline.";
+		dispbottom "[สนามประลองแชมเปียน] ผู้เล่นออฟไลน์ไปแล้ว";
 		end;
 	}
 	if (Class != Job_Champion) {
 		attachrid(.@gm_aid);
-		dispbottom "[Champion Arena] Only the Champion class is allowed.";
+		dispbottom "[สนามประลองแชมเปียน] อนุญาตเฉพาะอาชีพ Champion เท่านั้น";
 		end;
 	}
 	getinventorylist;
@@ -77,9 +78,9 @@ OnPull:
 		atcommand "@storeall";
 		getinventorylist;
 		if (@inventorylist_count > 0) {
-			dispbottom "[Champion Arena] Cannot enter: move all remaining items to storage first.";
+			dispbottom "[สนามประลองแชมเปียน] ไม่สามารถเข้าได้ กรุณาย้ายไอเทมที่เหลือทั้งหมดเข้าคลังก่อน";
 			attachrid(.@gm_aid);
-			dispbottom "[Champion Arena] Pull cancelled: the player's inventory is not empty (storage may be full).";
+			dispbottom "[สนามประลองแชมเปียน] ยกเลิกการดึงตัว: ช่องเก็บของของผู้เล่นยังไม่ว่าง (คลังอาจเต็ม)";
 			end;
 		}
 	}
@@ -87,38 +88,39 @@ OnPull:
 	$@ChampArena_Fighter[.@slot] = getcharid(3);
 	$@ChampArena_Name$[.@slot] = strcharinfo(0);
 	percentheal 100,100;
-	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
+	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL, true;
 	if (.@slot == 0)
 		warp $@ChampArena_Map$,99,50;
 	else
 		warp $@ChampArena_Map$,109,50;
-	announce "[ Champion Arena ] "+$@ChampArena_Name$[.@slot]+" enters side "+(.@slot+1)+".", bc_all|bc_blue;
+	announce "[ สนามประลองแชมเปียน ] "+$@ChampArena_Name$[.@slot]+" เข้าประจำฝั่งที่ "+(.@slot+1)+"", bc_all|bc_blue;
 	attachrid(.@gm_aid);
-	dispbottom "[Champion Arena] Pulled "+$@ChampArena_Name$[.@slot]+" into the arena.";
+	dispbottom "[สนามประลองแชมเปียน] ดึงตัว "+$@ChampArena_Name$[.@slot]+" เข้าสู่สนามแล้ว";
 	end;
 
 OnStart:
 	if ($@ChampArena_Instance <= 0 || $@ChampArena_State != 1) {
-		dispbottom "[Champion Arena] Arena is not ready to start.";
+		dispbottom "[สนามประลองแชมเปียน] สนามประลองยังไม่พร้อมเริ่มการแข่งขัน";
 		end;
 	}
 	if (!$@ChampArena_Fighter[0] || !$@ChampArena_Fighter[1]) {
-		dispbottom "[Champion Arena] Two Champion competitors are required.";
+		dispbottom "[สนามประลองแชมเปียน] ต้องมีผู้เข้าแข่งขันอาชีพ Champion สองคน";
 		end;
 	}
 	if (!isloggedin($@ChampArena_Fighter[0]) || !isloggedin($@ChampArena_Fighter[1])) {
-		dispbottom "[Champion Arena] A competitor is offline.";
+		dispbottom "[สนามประลองแชมเปียน] มีผู้เข้าแข่งขันออฟไลน์";
 		end;
 	}
 	for (.@i = 0; .@i < 2; ++.@i) {
 		if (getmapxy(.@fighter_map$,.@fighter_x,.@fighter_y,BL_PC,$@ChampArena_Name$[.@i]) != 0 || .@fighter_map$ != $@ChampArena_Map$) {
-			dispbottom "[Champion Arena] "+$@ChampArena_Name$[.@i]+" is not inside the arena.";
+			dispbottom "[สนามประลองแชมเปียน] "+$@ChampArena_Name$[.@i]+" ไม่ได้อยู่ภายในสนาม";
 			end;
 		}
 	}
+	disablenpc instance_npcname("ร้านค้าสนามประลอง#champ", $@ChampArena_Instance);
 	$@ChampArena_State = 2;
-	mapannounce $@ChampArena_Map$, "[ Champion Arena ] "+$@ChampArena_Name$[0]+" VS "+$@ChampArena_Name$[1], bc_map|bc_blue;
-	mapannounce $@ChampArena_Map$, "The match starts in 5 seconds.", bc_map|bc_yellow;
+	mapannounce $@ChampArena_Map$, "[ สนามประลองแชมเปียน ] "+$@ChampArena_Name$[0]+" พบกับ "+$@ChampArena_Name$[1], bc_map|bc_blue;
+	mapannounce $@ChampArena_Map$, "การแข่งขันจะเริ่มในอีก 5 วินาที", bc_map|bc_yellow;
 	sleep 2000;
 	mapannounce $@ChampArena_Map$, "3", bc_map|bc_yellow;
 	sleep 1000;
@@ -131,11 +133,11 @@ OnStart:
 	for (.@i = 0; .@i < 2; ++.@i) {
 		if (attachrid($@ChampArena_Fighter[.@i])) {
 			percentheal 100,100;
-			setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, false;
+			setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL, false;
 		}
 	}
 	$@ChampArena_State = 3;
-	mapannounce $@ChampArena_Map$, "FIGHT!", bc_map|bc_red;
+	mapannounce $@ChampArena_Map$, "เริ่มต่อสู้!", bc_map|bc_red;
 	detachrid;
 	end;
 
@@ -146,8 +148,8 @@ OnPCDieEvent:
 	.@winner_slot = (.@loser == $@ChampArena_Fighter[0]) ? 1 : 0;
 	$@ChampArena_State = 4;
 	removemapflag $@ChampArena_Map$, MF_PVP;
-	announce "[ Champion Arena ] Winner: "+$@ChampArena_Name$[.@winner_slot]+"!", bc_all|bc_blue;
-	mapannounce $@ChampArena_Map$, "Use @champreset to prepare the next match.", bc_map|bc_yellow;
+	announce "[ สนามประลองแชมเปียน ] ผู้ชนะคือ "+$@ChampArena_Name$[.@winner_slot]+"!", bc_all|bc_blue;
+	mapannounce $@ChampArena_Map$, "ใช้ @champreset เพื่อเตรียมการแข่งขันรอบถัดไป", bc_map|bc_yellow;
 	if (attachrid($@ChampArena_Fighter[.@winner_slot]))
 		setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
 	end;
@@ -159,30 +161,31 @@ OnPCLogoutEvent:
 	.@winner_slot = (.@loser == $@ChampArena_Fighter[0]) ? 1 : 0;
 	$@ChampArena_State = 4;
 	removemapflag $@ChampArena_Map$, MF_PVP;
-	announce "[ Champion Arena ] "+$@ChampArena_Name$[.@winner_slot]+" wins because the opponent disconnected!", bc_all|bc_blue;
+	announce "[ สนามประลองแชมเปียน ] "+$@ChampArena_Name$[.@winner_slot]+" ชนะ เนื่องจากคู่ต่อสู้หลุดจากเกม!", bc_all|bc_blue;
 	if (attachrid($@ChampArena_Fighter[.@winner_slot]))
 		setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
 	end;
 
 OnReset:
 	if ($@ChampArena_Instance <= 0) {
-		dispbottom "[Champion Arena] Arena is not open.";
+		dispbottom "[สนามประลองแชมเปียน] สนามประลองยังไม่ได้เปิด";
 		end;
 	}
 	.@gm_aid = getcharid(3);
 	callsub S_ClearArena;
 	$@ChampArena_State = 1;
+	enablenpc instance_npcname("ร้านค้าสนามประลอง#champ", $@ChampArena_Instance);
 	$@ChampArena_Fighter[0] = 0;
 	$@ChampArena_Fighter[1] = 0;
 	$@ChampArena_Name$[0] = "";
 	$@ChampArena_Name$[1] = "";
 	attachrid(.@gm_aid);
-	dispbottom "[Champion Arena] Arena reset. Ready for the next match.";
+	dispbottom "[สนามประลองแชมเปียน] รีเซ็ตสนามแล้ว พร้อมสำหรับการแข่งขันรอบถัดไป";
 	end;
 
 OnClose:
 	if ($@ChampArena_Instance <= 0) {
-		dispbottom "[Champion Arena] Arena is not open.";
+		dispbottom "[สนามประลองแชมเปียน] สนามประลองยังไม่ได้เปิด";
 		end;
 	}
 	.@gm_aid = getcharid(3);
@@ -197,7 +200,7 @@ OnClose:
 	$@ChampArena_Name$[1] = "";
 	instance_destroy .@instance_id;
 	attachrid(.@gm_aid);
-	dispbottom "[Champion Arena] Arena closed.";
+	dispbottom "[สนามประลองแชมเปียน] ปิดสนามประลองแล้ว";
 	end;
 
 S_ClearArena:
@@ -213,23 +216,30 @@ S_ClearArena:
 	return;
 }
 
+// Arena supply shop. It is hidden while a match is running.
+champvs,104,50,4	shop	ร้านค้าสนามประลอง#champ	1_F_MERCHANT_01,1030008:1,656:1,525:1,11503:1,11504:1
+
 // Spectators enter the active arena themselves instead of using @champspec.
-prontera,150,180,4	script	Champion Arena Spectator	4_M_MANAGER,{
-	mes "[ Champion Arena ]";
+morocc,149,104,4	script	ผู้ชมสนามประลองแชมเปียน	4_M_MANAGER,{
+	mes "[ สนามประลองแชมเปียน ]";
 	if ($@ChampArena_Instance <= 0 || $@ChampArena_Map$ == "") {
-		mes "The arena is not open right now.";
+		mes "ขณะนี้สนามประลองยังไม่ได้เปิด";
 		close;
 	}
 	if (getcharid(3) == $@ChampArena_Fighter[0] || getcharid(3) == $@ChampArena_Fighter[1]) {
-		mes "Competitors cannot enter through the spectator entrance.";
+		mes "ผู้เข้าแข่งขันไม่สามารถเข้าทางประตูสำหรับผู้ชมได้";
 		close;
 	}
-	mes "Would you like to enter the spectator area?";
-	if (select("Enter the arena:Cancel") == 2)
+	mes "ต้องการเข้าสู่พื้นที่สำหรับผู้ชมหรือไม่?";
+	if (select("เข้าสู่สนามประลอง:ยกเลิก") == 2)
 		close;
 	close2;
 	setpcblock PCBLOCK_MOVE|PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, true;
 	warp $@ChampArena_Map$,104,62;
-	dispbottom "[Champion Arena] You are now in the spectator area.";
+	dispbottom "[สนามประลองแชมเปียน] คุณเข้าสู่พื้นที่สำหรับผู้ชมแล้ว";
+	end;
+
+OnInit:
+	waitingroom "เข้าชมการแข่งขัน Champ", 0;
 	end;
 }

@@ -944,11 +944,6 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 11
-    Script: |
-      bonus2 bDropAddRace,RC_All,10;
-      bonus2 bExpAddRace,RC_All,10;      
-      bonus bMAtkRate,3;      
-      bonus bAtkRate,3;   
   - Id: 55038
     AegisName: Hydra_Dragon_Mace
     Name: Cos Hydra Dragon Mace
@@ -976,11 +971,8 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 17
-    Script: |
-      bonus2 bDropAddRace,RC_All,10;
-      bonus2 bExpAddRace,RC_All,10;      
-      bonus bMAtkRate,3;      
-      bonus bAtkRate,3;      
+    Script: |+
+      
   - Id: 55040
     AegisName: Hydra_Dragon_Shuriken
     Name: Cos Hydra Dragon Shuriken
@@ -35926,7 +35918,6 @@ Body:
       Collection: true
     CollectionScript: |-
       bonus2 bAddClass,Class_Boss,35;
-      bonus2 bAddEff2,SC_COMA,100;
       bonus2 bAddEff2,Eff_Curse,10000;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
@@ -35941,7 +35932,6 @@ Body:
     Flags:
       Collection: true
     CollectionScript: |-
-      bonus bShortWeaponDamageReturn,-100;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
@@ -35955,7 +35945,6 @@ Body:
     Flags:
       Collection: true
     CollectionScript: |-
-      bonus bMagicDamageReturn,100;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;

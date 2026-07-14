@@ -128,6 +128,6 @@ Body:
     TimeLimit: 21600
     IdleTimeOut: 21600
     Enter:
-      Map: 1@ge_st
+      Map: champvs
       X: 104
       Y: 62

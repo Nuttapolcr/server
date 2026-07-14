@@ -3,22 +3,46 @@
 OnInit:
 	set $@CS2_event_menu_title$, "เลือกวาปที่ต้องการ";
 	set $@CS2_event_name$, "Test War CBT";
-	set $@CS2_event_date$, "13/07/26 และ 15/07/26";
+	set $@CS2_event_date$, "14/12/25";
 	set $@CS2_event_time$, "21:00-22:00";
 	set $@CS2_reward_unit$, "B";
 
 	deletearray $@CS2_castle_cfg$[0], getarraysize($@CS2_castle_cfg$);
 	setarray $@CS2_castle_cfg$[0],
+		"Yssnelf|1|ZONE",
+		"Lazrigees|0|0",
+		"Neuschwanstein|0|0",
+		"Hohenschwangau|0|0",
+		"Nuenberg|0|0",
+		"Wuerzburg|0|0",
+		"Rothenburg|0|0",
+		"Repherion|0|0",
+		"Eeyobriger|0|0",
+		"Bergel|0|0",
+		"Mersetzdeitz|0|0",
+		"Bright Arbor|0|0",
+		"Sacred Palace|0|0",
+		"Holy Shadow|0|0",
 		"Sacred Altar|0|0",
-		"Kriemhild|0|0";
+		"Bamboo Forest Hill|0|0",
+		"Kriemhild|0|0",
+		"Swanhild|0|0",
+		"Skoegul|0|0",
+		"Gondul|0|0";
 
 	deletearray $@CS2_maps$[0], getarraysize($@CS2_maps$);
 	setarray $@CS2_maps$[0],
-		"pay_gld","prt_gld";
+		"gef_fild13","prt_gld","alde_gld","alde_gld","alde_gld",
+		"alde_gld","alde_gld","gef_fild13","gef_fild13","gef_fild13",
+		"gef_fild13","pay_gld","pay_gld","pay_gld","pay_gld",
+		"pay_gld","prt_gld","prt_gld","prt_gld","prt_gld";
 
 	deletearray $@CS2_xy[0], getarraysize($@CS2_xy);
 	setarray $@CS2_xy[0],
-		140,160, 134,65;
+		143,240, 153,137,  48, 83,  95,249, 142, 85,
+		239,242, 264, 90, 214, 75, 308,240, 193,278,
+		305, 87, 121,233, 295,116, 317,293, 140,160,
+		204,266, 134, 65, 240,128, 111,240, 208,240;
 
 	set $@CS2_cnt, getarraysize($@CS2_castle_cfg$);
 	set $@CS2_ver, $@CS2_ver + 1;

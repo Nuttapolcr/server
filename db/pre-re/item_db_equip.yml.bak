@@ -41713,7 +41713,7 @@ Body:
       bonus bAddMaxWeight,500;
       bonus2 bAddMonsterDropItem,905027,100;
       if (.@r>=10) {
-      bonus2 bAddMonsterDropItem,905027,500;
+      bonus2 bAddMonsterDropItem,905027,700;
       }
     # UnEquipScript: |
     #   callfunc "F_ClearPowerShadowSC_Armor";
@@ -41735,7 +41735,7 @@ Body:
       bonus bAddMaxWeight,500;
       bonus2 bAddMonsterDropItem,905027,100;
       if (.@r>=10) {
-      bonus2 bAddMonsterDropItem,905027,500;
+      bonus2 bAddMonsterDropItem,905027,700;
       }
 
     # UnEquipScript: |
@@ -41758,7 +41758,7 @@ Body:
       bonus bAddMaxWeight,500;
       bonus2 bAddMonsterDropItem,905027,100;
       if (.@r>=10) {
-      bonus2 bAddMonsterDropItem,905027,500;
+      bonus2 bAddMonsterDropItem,905027,700;
       }
     # UnEquipScript: |
     #   callfunc "F_ClearPowerShadowSC_Shoes";
@@ -41780,7 +41780,7 @@ Body:
       bonus bAddMaxWeight,500;
       bonus2 bAddMonsterDropItem,905027,100;
       if (.@r>=10) {
-      bonus2 bAddMonsterDropItem,905027,500;
+      bonus2 bAddMonsterDropItem,905027,700;
       }
 
   - Id: 24004
@@ -41801,7 +41801,7 @@ Body:
       bonus bAddMaxWeight,500;
       bonus2 bAddMonsterDropItem,905027,100;
       if (.@r>=10) {
-      bonus2 bAddMonsterDropItem,905027,500;
+      bonus2 bAddMonsterDropItem,905027,700;
       }
   - Id: 24417
     AegisName: S_Timeoverload_Armor
