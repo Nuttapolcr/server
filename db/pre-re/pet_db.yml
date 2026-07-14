@@ -2298,6 +2298,7 @@ Body:
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus bAtkRate,-10;
+        bonus bReducePhysicalDamageReturn,100;
         bonus2 bSubRace,RC_DemiHuman,5;
         bonus2 bSubRace,RC_Player_Human,5;
       }
@@ -2318,6 +2319,7 @@ Body:
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus bMatkRate,-10;
+        bonus bReduceMagicDamageReturn,100;
         bonus2 bSubRace,RC_DemiHuman,5;
         bonus2 bSubRace,RC_Player_Human,5;
       }

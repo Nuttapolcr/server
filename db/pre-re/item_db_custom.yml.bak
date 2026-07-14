@@ -32212,12 +32212,12 @@ Body:
       bonus2 bMagicAddClass,Class_Boss,50;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMatk,50;
-      bonus bMatkRate,20;
+      bonus bMatk,30;
+      bonus bMatkRate,10;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
       if (.@r>=9) {
-         bonus bMatkRate,30;
+         bonus bMatkRate,20;
          bonus bDelayrate,-3;
          bonus2 bSubClass,Class_Boss,30;
       }
@@ -32465,9 +32465,9 @@ Body:
       .@g = getenchantgrade();
       bonus bDex,5;
       bonus bVit,10;
-      bonus bInt,5;
-      bonus bMatkRate,20;
-      bonus2 bSkillAtk,"PR_MAGNUS",30;
+      bonus bInt,3;
+      bonus bMatkRate,10;
+      bonus2 bSkillAtk,"PR_MAGNUS",20;
       bonus bAspdRate,5;
       bonus bFlee,20;
       bonus bHealPower,.@r/3*10;
@@ -32475,14 +32475,14 @@ Body:
          bonus2 bMagicAddClass,Class_Boss,40;
       if (.@r>=7) {
          bonus bDex,5;
-         bonus bInt,5;
-      bonus bMatkRate,20;
-      bonus bMatk,50;
+         bonus bInt,3;
+      bonus bMatkRate,10;
+      bonus bMatk,20;
       bonus2 bMagicAddClass,Class_Boss,25;
       }
       if (.@r>=9) {
          bonus bDex,5;
-         bonus bInt,5;
+         bonus bInt,3;
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
@@ -32492,7 +32492,7 @@ Body:
       }
       if (.@g >= ENCHANTGRADE_D) {
          bonus bDex,5;
-         bonus bInt,5;
+         bonus bInt,3;
          bonus bMaxHPrate,5;
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bHealPower,.@r/3*10;
@@ -32500,7 +32500,7 @@ Body:
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bDex,5;
-         bonus bInt,5;
+         bonus bInt,3;
          bonus bMaxHPrate,5;
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bHealPower,.@r/3*10;
@@ -32508,19 +32508,19 @@ Body:
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bDex,5;
-         bonus bInt,5;
+         bonus bInt,3;
          bonus bMaxHPrate,5;
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bHealPower,.@r/2*10;
-      bonus2 bSkillAtk,"PR_MAGNUS",.@r/2*2;
+      bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bDex,5;
-         bonus bInt,5;
+         bonus bInt,3;
          bonus bMaxHPrate,5;
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bHealPower,.@r/2*10;
-      bonus2 bSkillAtk,"PR_MAGNUS",.@r/2*2;
+      bonus2 bSkillAtk,"PR_MAGNUS",.@r/3*2;
       }
   - Id: 1800
     AegisName: Sinister_Fist
@@ -33135,6 +33135,9 @@ Body:
       bonus bHit,.@r/3*5;
       bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*10;
       bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*10;
+      bonus2 bIgnoreDefRaceRate,RC_Player,30;
+      bonus2 bAddRace,RC_DemiHuman,20;
+      bonus2 bAddRace,RC_Player_Human,20;
       if (.@r>=7) {
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
@@ -33173,8 +33176,8 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bDex,.@r/2*2;
          bonus bHit,.@r/2*5;
-         bonus2 bSkillAtk,"GS_DESPERADO",.@r/2*5;
-         bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/2*5;
+         bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*5;
+         bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bAtkRate,5;
@@ -33182,8 +33185,8 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bDex,.@r/2*2;
          bonus bHit,.@r/2*5;
-         bonus2 bSkillAtk,"GS_DESPERADO",.@r/2*5;
-         bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/2*5;
+         bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*5;
+         bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*5;
       }
   - Id: 13468
     AegisName: Sinister_Saber_J
@@ -35935,6 +35938,7 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+      bonus bReducePhysicalDamageReturn,100;
     CollectionAmount: 5
   - Id: 1001751
     AegisName: Col_Randel
@@ -35948,6 +35952,7 @@ Body:
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+      bonus bReduceMagicDamageReturn,100;
     CollectionAmount: 5
   - Id: 1001752
     AegisName: Col_Flamel
@@ -36097,7 +36102,6 @@ Body:
       TradePartner: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true

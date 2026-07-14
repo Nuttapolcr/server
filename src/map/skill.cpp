@@ -3943,6 +3943,9 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 				if (tsd && tsd->bonus.reduce_damage_return != 0) {
 					reduce += tsd->bonus.reduce_damage_return;
 				}
+				if (tsd && tsd->bonus.reduce_magic_damage_return != 0) {
+					reduce += tsd->bonus.reduce_magic_damage_return;
+				}
 				if (tsc && tsc->getSCE(SC_REFLECTDAMAGE)) {
 					reduce += (tsc->getSCE(SC_REFLECTDAMAGE)->val2);
 				}

@@ -873,7 +873,7 @@ public:
 		int get_zeny_num; //Added Get Zeny Rate [Skotlex]
 		int drop_cap_rate;
 		int double_add_rate;
-		int short_weapon_damage_return,long_weapon_damage_return,reduce_damage_return;
+		int short_weapon_damage_return,long_weapon_damage_return,reduce_damage_return,reduce_magic_damage_return,reduce_physical_damage_return;
 		int magic_damage_return; // AppleGirl Was Here
 		int break_weapon_rate,break_armor_rate;
 		int crit_atk_rate;

@@ -446,6 +446,8 @@ bonus bShortWeaponDamageReturn,n;	Reflects n% of received melee damage back to t
 bonus bLongWeaponDamageReturn,n; 	Reflects n% of received ranged damage back to the enemy that caused it
 bonus bMagicDamageReturn,n;      	Adds a n% chance to reflect targetted magic spells back to the enemy that caused it
 bonus bReduceDamageReturn,n;		Reduces reflected damage (melee/ranged/magic) by n%
+bonus bReduceMagicDamageReturn,n;	Reduces reflected magic damage by n%
+bonus bReducePhysicalDamageReturn,n;    Reduces reflected melee and ranged damage by n%
 
 Strip/Break equipment
 ---------------------

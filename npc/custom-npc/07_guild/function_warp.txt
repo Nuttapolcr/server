@@ -31,16 +31,21 @@ function	script	F_CS2_Open	{
 	.@ver = $@CS2_ver;
 
 	.@menu$ = "";
+	.@menu_count = 0;
 	for (.@i = 0; .@i < $@CS2_cnt; ++.@i) {
 		explode(.@p$, $@CS2_castle_cfg$[.@i], "|"); // [0]=ชื่อ [1]=เปิด(0/1) [2]=ท้าย
 		.@is_open  = atoi(.@p$[1]);
+		if (!.@is_open)
+			continue;
 		.@status$  = ( .@is_open ? "^00AA00[เปิด]^000000" : "^777777[ปิด]^000000" );
 		.@tail$    = ( .@p$[2] == "0" ? "" : .@p$[2] );
 		.@suffix$  = ( getstrlen(.@tail$) > 0 ) ? " (" + ( .@is_open ? "^FF0000"+.@tail$+"^000000" : "^777777"+.@tail$+"^000000" ) + ")" : "";
-		.@menu$    = .@menu$ + ( .@i ? ":" : "" ) + "~" + .@p$[0] + " " + .@status$ + .@suffix$;
+		.@menu$    = .@menu$ + ( .@menu_count ? ":" : "" ) + "~" + .@p$[0] + " " + .@status$ + .@suffix$;
+		.@menu_idx[.@menu_count] = .@i;
+		++.@menu_count;
 	}
 
-	.@sel = select(.@menu$) - 1;
+	.@sel = .@menu_idx[select(.@menu$) - 1];
 
 	if ($@CS2_ver != .@ver) {
 		message strcharinfo(0), "[แจ้งเตือน] มีการอัพเดทตั้งค่า โปรดลองใหม่อีกครั้ง.";
