@@ -28,18 +28,18 @@
 
 // (^~_~^) Gepard Shield Start
 
-#define  LICENSE_ID  854811511
+#define  LICENSE_ID  3833369033
 #define  CODE_VERSION  2021030301
 
-#define  SESSION_CONST_1  0x711DF38
-#define  SESSION_CONST_2  0xB9D003EA
+#define  SESSION_CONST_1  0x1CBF1E68
+#define  SESSION_CONST_2  0x89BD9D58
 
-#define  ALGO_KEY_1  0x6F
-#define  ALGO_KEY_2  0xA2
-#define  ALGO_KEY_3  0x2C
+#define  ALGO_KEY_1  0x6A
+#define  ALGO_KEY_2  0x7E
+#define  ALGO_KEY_3  0xA5
 
-#define  DATA_HASH_CONST_1  0xAD944A2A
-#define  DATA_HASH_CONST_2  0xA633BAA5
+#define  DATA_HASH_CONST_1  0x3784C052
+#define  DATA_HASH_CONST_2  0xA9611CB
 
 // (^~_~^) Gepard Shield End
 

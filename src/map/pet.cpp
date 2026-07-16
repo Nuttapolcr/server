@@ -1832,9 +1832,14 @@ static int pet_ai_sub_hard(struct pet_data *pd, map_session_data *sd, t_tick tic
 
 			if (battle_config.petloot_to_inventory == 1)
 			{
-				if(pd->loot->count < pd->loot->max) {
+				enum e_additem_result add_result = pc_additem(sd, &fitem->item, fitem->item.amount, LOG_TYPE_PICKDROP_PLAYER);
+
+				if (add_result == ADDITEM_SUCCESS) {
+					map_clearflooritem(target);
+				} else if (add_result == ADDITEM_OVERITEM && pd->loot->count < pd->loot->max) {
+					// Keep loot in the pet when the owner's inventory is full.
+					memcpy(&pd->loot->item[pd->loot->count++], &fitem->item, sizeof(pd->loot->item[0]));
 					pd->loot->weight += itemdb_weight(fitem->item.nameid) * fitem->item.amount;
-					if (!pc_additem(sd, &fitem->item, fitem->item.amount, LOG_TYPE_PICKDROP_PLAYER))
 					map_clearflooritem(target);
 				}
 			}

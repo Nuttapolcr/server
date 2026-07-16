@@ -278,7 +278,7 @@ void gepard_session_unit(unsigned int seed, struct gepard_crypt_unit* unit)
 
 	for (i = 0; i < 256; ++i)
 	{
-		unit->key[i] = (((seed += seed * SESSION_CONST_1 - SESSION_CONST_2 * i) >> 14) & 0xFF);
+		unit->key[i] = (((seed = seed * SESSION_CONST_1 - SESSION_CONST_2 * i) >> 10) & 0xFF);
 	}
 
 	unit->pos_1 = seed % 20;
@@ -292,11 +292,11 @@ void gepard_enc_dec(unsigned char* data, uint32 data_size, struct gepard_crypt_u
 
 	for(i = 0; i < data_size; ++i)
 	{
-		unit->pos_1 += unit->key[unit->pos_2] - ALGO_KEY_1;
-		unit->key[unit->pos_3] ^= unit->pos_1;
-		unit->pos_2 += unit->key[unit->pos_3] * ALGO_KEY_2;
-		unit->key[unit->pos_1] ^= unit->pos_2;
-		unit->pos_2 += unit->pos_1 * ALGO_KEY_3;
+		unit->pos_2 -= unit->key[unit->pos_1] * ALGO_KEY_1;
+		unit->key[unit->pos_2] ^= unit->pos_1;
+		unit->pos_1 += unit->key[unit->pos_2] * ALGO_KEY_2;
+		unit->key[unit->pos_3] ^= unit->pos_2;
+		unit->pos_2 -= unit->pos_3 * ALGO_KEY_3;
 		data[i] ^= unit->key[unit->pos_1];
 		unit->pos_1 ^= unit->pos_2 + (data_size % 0xFF);
 		unit->pos_3++;
@@ -516,7 +516,7 @@ bool gepard_process_cs_packet(int fd, struct socket_data* s, size_t packet_size)
 				return true;
 			}
 
-			if (packet_size < 36)
+			if (packet_size < 44)
 			{
 				ShowWarning("gepard_process_cs_packet: invalid size of CS_GEPARD_INIT_ACK packet: %lu\n", (unsigned long)packet_size);
 				gepard_set_eof(fd);
@@ -541,6 +541,14 @@ bool gepard_process_cs_packet(int fd, struct socket_data* s, size_t packet_size)
 			s->gepard_info.cs_packet_use_skill_to_ground = RFIFOW(fd, 32);
 			s->gepard_info.cs_packet_action_request = RFIFOW(fd, 34);
 			memcpy(s->gepard_info.mac_address, RFIFOP(fd,20), sizeof(s->gepard_info.mac_address));
+
+			if (packet_size >= 48)
+			{
+				unsigned int real_ip = RFIFOL(fd, 44);
+
+				if (real_ip)
+					s->client_addr = real_ip;
+			}
 
 			s->gepard_info.is_init_ack_received = true;
 
