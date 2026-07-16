@@ -46,7 +46,6 @@
 Header:
   Type: ITEM_GROUP_DB
   Version: 3
-
 Body:
   - Group: ACCESORY
     SubGroups:
@@ -10453,8 +10452,6 @@ Body:
             Item: Giant_Fly_Wing
           - Index: 2
             Item: N_Fly_Wing
-#          - Index: 3
-#            Item: E_Giant_Fly_Wing
           - Index: 4
             Item: F_Giant_Fly_Wing
   - Group: MF_NORETURN
@@ -10471,8 +10468,6 @@ Body:
             Item: Dun_Tele_Scroll2
           - Index: 4
             Item: Dun_Tele_Scroll3
-#          - Index: 5
-#            Item: E_Dun_Tele_Scroll1
           - Index: 6
             Item: F_Dun_Tele_Scroll1
           - Index: 7
@@ -10503,16 +10498,12 @@ Body:
             Item: Siege_Teleport_Scroll
           - Index: 20
             Item: Siege_Teleport_Scroll2
-#          - Index: 21
-#            Item: E_Siege_Teleport_Scroll
   - Group: GIANT_FLY_WING
     SubGroups:
       - SubGroup: 0
         List:
           - Index: 0
             Item: Giant_Fly_Wing
-#          - Index: 1
-#            Item: E_Giant_Fly_Wing
           - Index: 2
             Item: F_Giant_Fly_Wing
   - Group: WoeCardAlbum
@@ -10649,7 +10640,6 @@ Body:
           - Index: 33
             Item: Berzebub_Card
             Rate: 1
-# === Custom: MVP Treasure box loot pools (SubGroup 1 = Tier-A, SubGroup 2 = Tier-S) ===
   - Group: MVP_TREASURE_BLUE
     SubGroups:
       - SubGroup: 1
@@ -10657,15 +10647,19 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 3600
+            Amount: 3
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 3300
+            Amount: 2
           - Index: 2
             Item: Barmund_Ice_Essence_NT
             Rate: 500
+            Amount: 2
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
             Rate: 500
+            Amount: 2
           - Index: 4
             Item: Yggdrasilberry
             Rate: 1000
@@ -10685,16 +10679,19 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 2600
-            Amount: 3
+            Amount: 5
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 1200
+            Amount: 5
           - Index: 2
             Item: Barmund_Ice_Essence_NT
             Rate: 3300
+            Amount: 3
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
             Rate: 800
+            Amount: 3
           - Index: 4
             Item: Pow_Meteorite_Dust_NT
             Rate: 100
@@ -10721,16 +10718,19 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 2525
-            Amount: 3
+            Amount: 10
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 1200
+            Amount: 8
           - Index: 2
             Item: Barmund_Ice_Essence_NT
             Rate: 3300
+            Amount: 4
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
             Rate: 800
+            Amount: 4
           - Index: 4
             Item: Pow_Meteorite_Dust_NT
             Rate: 100
@@ -10768,19 +10768,23 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 1600
-            Amount: 5
+            Amount: 10
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 800
+            Amount: 8
           - Index: 2
             Item: Barmund_Ice_Essence_NT
             Rate: 1600
+            Amount: 4
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
             Rate: 3300
+            Amount: 4
           - Index: 4
             Item: Pow_Meteorite_Dust_NT
             Rate: 300
+            Amount: 1
           - Index: 5
             Item: Barmund_Flame_Essence_NT
             Rate: 300
@@ -10804,25 +10808,31 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 1494
-            Amount: 5
+            Amount: 15
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 800
+            Amount: 15
           - Index: 2
             Item: Barmund_Ice_Essence_NT
             Rate: 1600
+            Amount: 6
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
             Rate: 3300
+            Amount: 6
           - Index: 4
             Item: Pow_Meteorite_Dust_NT
             Rate: 300
+            Amount: 2
           - Index: 5
             Item: Barmund_Flame_Essence_NT
             Rate: 300
+            Amount: 2
           - Index: 6
             Item: Pow_Meteorite_Fragment_NT
             Rate: 300
+            Amount: 2
           - Index: 7
             Item: Weapon_Ore_1
             Rate: 100
@@ -10853,8 +10863,6 @@ Body:
           - Index: 18
             Item: Enriched_Oridecon
             Rate: 300
-
-  # === Custom: City Titan event loot pools (Google Sheet Titan A15:D51) ===
   - Group: CITY_TITAN_BLUE
     SubGroups:
       - SubGroup: 1
@@ -10862,16 +10870,19 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 3500
-            Amount: 3
+            Amount: 10
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 3300
+            Amount: 8
           - Index: 2
             Item: Barmund_Ice_Essence_NT
             Rate: 500
+            Amount: 4
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
             Rate: 500
+            Amount: 4
           - Index: 4
             Item: Blacksmith_Blessing
             Rate: 300
@@ -10891,16 +10902,19 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 2650
-            Amount: 5
+            Amount: 15
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 1200
+            Amount: 10
           - Index: 2
             Item: Barmund_Ice_Essence_NT
             Rate: 3000
+            Amount: 10
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
             Rate: 800
+            Amount: 10
           - Index: 4
             Item: Pow_Meteorite_Dust_NT
             Rate: 50
@@ -10929,25 +10943,31 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 1500
-            Amount: 10
+            Amount: 20
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 800
+            Amount: 20
           - Index: 2
             Item: Barmund_Ice_Essence_NT
             Rate: 1300
+            Amount: 10
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
             Rate: 2900
+            Amount: 10
           - Index: 4
             Item: Pow_Meteorite_Dust_NT
             Rate: 300
+            Amount: 2
           - Index: 5
             Item: Barmund_Flame_Essence_NT
             Rate: 300
+            Amount: 2
           - Index: 6
             Item: Pow_Meteorite_Fragment_NT
             Rate: 300
+            Amount: 2
           - Index: 7
             Item: Blacksmith_Blessing
             Rate: 500
@@ -10960,7 +10980,6 @@ Body:
           - Index: 12
             Item: Enriched_Oridecon
             Rate: 800
-
   - Group: EASTER_EGG
     SubGroups:
       - SubGroup: 1
@@ -11055,7 +11074,6 @@ Body:
           - Index: 29
             Item: B_Chen_Egg
             Rate: 10
-
   - Group: HERO_TOKEN_BOX
     SubGroups:
       - SubGroup: 1
@@ -11069,7 +11087,6 @@ Body:
           - Index: 2
             Item: Weapon_Ore_2
             Rate: 10
-
   - Group: CRU_SCROLL
     SubGroups:
       - SubGroup: 1
@@ -11083,7 +11100,6 @@ Body:
           - Index: 2
             Item: Armor_Ore_2
             Rate: 10
-
   - Group: MUNIN_EGG01
     SubGroups:
       - SubGroup: 1
@@ -11097,7 +11113,6 @@ Body:
           - Index: 2
             Item: Acc_Ore_2
             Rate: 10
-
   - Group: MAUTOSPELL_SELECT_BOX
     SubGroups:
       - SubGroup: 1
@@ -11146,7 +11161,6 @@ Body:
             Item: Meteorite_Fragment
             Rate: 45
             Amount: 6
-
   - Group: CLOSEDMIND_BOX
     SubGroups:
       - SubGroup: 6
@@ -11202,3 +11216,37 @@ Body:
             Item: Crystal_Jewel__
             Rate: 1000
             Amount: 10
+  - SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 50
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 40
+            Amount: 2
+          - Index: 2
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 30
+            Amount: 3
+          - Index: 3
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 20
+            Amount: 4
+          - Index: 4
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 10
+            Amount: 5
+          - Index: 5
+            Item: aegis_1000401
+            Rate: 50
+          - Index: 6
+            Item: aegis_1000401
+            Rate: 40
+            Amount: 2
+          - Index: 7
+            Item: aegis_1000401
+            Rate: 30
+            Amount: 3
+    Group: JEWEL_BOX_SET

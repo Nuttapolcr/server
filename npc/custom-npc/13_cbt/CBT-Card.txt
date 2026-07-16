@@ -6,10 +6,14 @@
 -	shop	CardGarmentA	-1,4129:-1,4285:-1,4088:-1,4106:-1,4095:-1,4133:-1,4102:-1,4178:-1
 -	shop	CardFootgearA	-1,4050:-1,4097:-1,4100:-1,4107:-1,4070:-1,4009:-1
 -	shop	CardAccessoryA	-1,4103:-1,4091:-1,4027:-1,4079:-1,4084:-1,4044:-1,4022:-1,4064:-1,4036:-1
+-	shop	CardJobSetA	-1,13871:20,13872:20,13873:20,13874:20,13875:20,13876:20
 
 morocc,165,121,6	script	Card	10032,{
 
-	switch (select("~ การ์ดทุกชนิด^FF0000  [ Card ]")) {
+	switch (select(
+		"~ การ์ดทุกชนิด^FF0000  [ Card ]",
+		"~ การ์ด Set อาชีพ^FF0000  [ Card ]"
+	)) {
 		case 1:
 			switch(select(
 				"~ การ์ดส่วน ^FF0000[Headgear]^000000",
@@ -28,6 +32,10 @@ morocc,165,121,6	script	Card	10032,{
 				case 6:	sleep2 100;	callshop "CardFootgearA",1;	break;
 				case 7:	sleep2 100;	callshop "CardAccessoryA",1;	break;
 			}
+			break;
+		case 2:
+			sleep2 100;
+			callshop "CardJobSetA",1;
 			break;
 	}
 	end;

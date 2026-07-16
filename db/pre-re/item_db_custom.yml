@@ -36463,3 +36463,26 @@ Body:
          bonus2 bSubEle,Ele_Neutral,1;
          bonus bMaxHPrate,.@r/3*1;
       }
+  - Id: 1030012
+    AegisName: Zeny_Random
+    Name: Zeny Random
+    Type: Usable
+    Trade:
+      NoSell: true
+    Script: |-
+      	.@zeny = rand(100000,500000);
+      	Zeny += .@zeny;
+      	dispbottom "คุณได้รับ "+F_InsertComma(.@zeny)+" Zeny!";
+      	specialeffect2 EF_MONEY;
+      	end;
+    Weight: 0
+  - Id: 1030013
+    AegisName: Jewel_Box
+    Name: Jewel Box
+    Type: Usable
+    Script: getgroupitem(IG_JEWEL_BOX_SET);
+    Weight: 0
+  - Id: 1030014
+    Name: DowngradeRefine
+    AegisName: DowngradeRefine
+    Weight: 0

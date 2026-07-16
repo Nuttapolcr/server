@@ -3951,8 +3951,11 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 				}
 				if (tsc && tsc->getSCE(SC_REF_T_POTION))
 					reduce += 100;
-				if (dmg.damage > 0) {
-					dmg.damage -= dmg.damage * i64min(100, reduce) / 100;
+				if (reduce >= 100) {
+					dmg.damage = dmg.damage2 = 0;
+					dmg.dmg_lv = ATK_MISS;
+				} else if (dmg.damage > 0) {
+					dmg.damage -= dmg.damage * reduce / 100;
 					dmg.damage = i64max(dmg.damage, dmg.div_);
 				}
 			}

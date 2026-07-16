@@ -32212,12 +32212,12 @@ Body:
       bonus2 bMagicAddClass,Class_Boss,50;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMatk,30;
-      bonus bMatkRate,10;
+      bonus bMatk,40;
+      bonus bMatkRate,15;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
       if (.@r>=9) {
-         bonus bMatkRate,20;
+         bonus bMatkRate,25;
          bonus bDelayrate,-3;
          bonus2 bSubClass,Class_Boss,30;
       }
@@ -36463,3 +36463,20 @@ Body:
          bonus2 bSubEle,Ele_Neutral,1;
          bonus bMaxHPrate,.@r/3*1;
       }
+  - Id: 1030012
+    AegisName: Zeny_Random
+    Name: Zeny Random
+    Script: |-
+      	.@zeny = rand(100000,500000);
+      	Zeny += .@zeny;
+      	dispbottom "คุณได้รับ "+F_InsertComma(.@zeny)+" Zeny!";
+      	specialeffect2 EF_MONEY;
+      	end;
+    Type: Usable
+    Trade:
+      NoSell: true
+  - Id: 1030013
+    AegisName: Jewel_Box
+    Name: Jewel Box
+    Type: Usable
+    Script: getgroupitem(IG_JEWEL_BOX_SET);

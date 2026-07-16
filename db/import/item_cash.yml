@@ -49,6 +49,8 @@ Body:
         Price: 89
       - Item: Munin_Egg01
         Price: 89
+      - Item: Pet_Friendly_Ticket
+        Price: 499
   - Tab: Hot
     Items:
       - Item: aegis_1000602
@@ -79,8 +81,6 @@ Body:
         Price: 39
       - Item: Valor_Stone_Box
         Price: 379
-      - Item: Pet_Friendly_Ticket
-        Price: 499
   - Tab: Permanent
     Items:
       - Item: Upg_Katar

@@ -4856,6 +4856,7 @@ Body:
       DropEffect: CLIENT
       Collection: true
       DropAnnounce: true
+    Script: bonus bMagicDamageReturn,30;
   - Id: 4147
     AegisName: Baphomet_Card
     Name: Baphomet Card
