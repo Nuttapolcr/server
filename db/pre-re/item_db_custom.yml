@@ -28370,7 +28370,7 @@ Body:
       rentitem 64159,259200;
   - Id: 21058
     AegisName: Up_Dragonic_Slayer
-    Name: NEW [Rare] Lord Knight2 Weapon
+    Name: "[Rare] Lord Knight2 Weapon"
     Type: Weapon
     SubType: 1hSpear
     Weight: 2000
@@ -28398,7 +28398,7 @@ Body:
       }
   - Id: 600009
     AegisName: uponimaru
-    Name: NEW [Rare] Lord Knight Weapon
+    Name: "[Rare] Lord Knight Weapon"
     Type: Weapon
     SubType: 2hSword
     Weight: 2000
@@ -36483,7 +36483,7 @@ Body:
     Weight: 0
     Trade:
       NoSell: true
-    Script: |-
+    Script: |
       .@zeny = rand(100000,500000);
       Zeny += .@zeny;
       dispbottom "You received "+F_InsertComma(.@zeny)+" Zeny!";
@@ -36504,7 +36504,7 @@ Body:
       refineui;
   - Id: 500014
     AegisName: up_slate_sword
-    Name: NEW [Rare] Attack Dagger
+    Name: "[Rare] Attack Dagger"
     Type: Weapon
     SubType: Dagger
     Weight: 1200
@@ -36543,7 +36543,7 @@ Body:
     EquipLevelMin: 1
   - Id: 700013
     AegisName: New_Item_1030018
-    Name: NEW [Rare] Sniper Focused Weapon
+    Name: "[Rare] Sniper Focused Weapon"
     Type: Weapon
     SubType: Bow
     Weight: 1800
@@ -36573,7 +36573,7 @@ Body:
       }
   - Id: 510020
     AegisName: New_Item_1030018
-    Name: NEW [Rare] Magic Dagger
+    Name: "[Rare] Magic Dagger"
     Type: Weapon
     SubType: Dagger
     Weight: 1200
@@ -36599,7 +36599,7 @@ Body:
       }
   - Id: 530013
     AegisName: adulter_f_g_spear
-    Name: NEW [Epic] Lord Knight2 Weapon
+    Name: "[Epic] Lord Knight2 Weapon"
     Type: Weapon
     SubType: 1hSpear
     Weight: 2200
@@ -36634,7 +36634,7 @@ Body:
       }
   - Id: 700031
     AegisName: Adulter_F_Ballista
-    Name: NEW [Epic] Sniper Focused Weapon
+    Name: "[Epic] Sniper Focused Weapon"
     Type: Weapon
     SubType: Bow
     Weight: 1800
@@ -36671,7 +36671,7 @@ Body:
       }
   - Id: 1030018
     AegisName: adulter_f_dagger2
-    Name: NEW [Epic] Attack Dagger
+    Name: "[Epic] Attack Dagger"
     Type: Weapon
     SubType: Dagger
     Weight: 1200
@@ -36708,7 +36708,7 @@ Body:
       }
   - Id: 1030019
     AegisName: adulter_f_dagger3
-    Name: NEW [Epic] Magic Dagger
+    Name: "[Epic] Magic Dagger"
     Type: Weapon
     SubType: Dagger
     Weight: 1200
@@ -36756,7 +36756,7 @@ Body:
       Right_Hand: true
   - Id: 1400
     AegisName: Sinister_Spear
-    Name: NEW [Legend] Lord Knight2 Weapon
+    Name: "[Legend] Lord Knight2 Weapon"
     Type: Weapon
     SubType: 1hSpear
     Weight: 2200
@@ -36823,7 +36823,7 @@ Body:
       }
   - Id: 1030022
     AegisName: Attack_Dagger001
-    Name: NEW [Legend] Attack Dagger
+    Name: "[Legend] Attack Dagger"
     Type: Weapon
     SubType: Dagger
     Weight: 1200
@@ -36896,7 +36896,7 @@ Body:
       }
   - Id: 1030023
     AegisName: Magic_Dagger002
-    Name: NEW [Legend] Magic Dagger
+    Name: "[Legend] Magic Dagger"
     Type: Weapon
     SubType: Dagger
     Weight: 1200
@@ -36962,7 +36962,7 @@ Body:
       }
   - Id: 1030024
     AegisName: Sniper_Focused_Weapon001
-    Name: NEW [Legend] Sniper Focused Weapon
+    Name: "[Legend] Sniper Focused Weapon"
     Type: Weapon
     SubType: Bow
     Weight: 1800
@@ -37039,7 +37039,7 @@ Body:
       }
   - Id: 1030025
     AegisName: Def_PK
-    Name: ‡πÉ‡∏ö‡∏Å‡∏±‡∏ôPK
+    Name: ‡πˇ‡∏ˇ‡∏ˇ‡∏±‡∏ˇPK
     Type: Usable
     Weight: 0
     Script: |
