@@ -1,0 +1,84 @@
+//=============================================================
+// Refill Auto (rAthena)
+//  - script ลับ (ไม่มี NPC ให้คุย) วน loop อ่าน donate.status = 1
+//  - attachrid(account_id) แจกเมื่อผู้เล่นออนไลน์ ? status = 2
+//
+// setarray .get_cash_amount[จำนวนบาท], Cash, BonusPoint, qtyไอเทม1, qtyไอเทม2, ...
+//   [0] = #CASHPOINTS
+//   [1] = #BONUSPOINT (ถ้า .@bonus_item = 0) หรือจำนวนไอเทมโบนัส (ถ้า .@bonus_item > 0)
+//   [2+] = จำนวนไอเทมใน .@extra_item[] ตามลำดับ
+//
+// แพ็กเกจตรง config/refill.php
+//=============================================================
+-	script	Refill_Auto	-1,{
+end;
+OnInit:
+	set .@bonus_item, 0;
+	// 0 = ค่า index+1 เป็น Bonus Point (#BONUSPOINT)
+	// >0 = แจกเป็นไอเทม (เช่น 501) ตามจำนวน index+1 แบบสคริปต์เก่า
+
+	setarray .@extra_item[0], 0;
+	// ไอเทมพิเศษเพิ่มต่อแพ็ก — ใส่ item id เช่น 502,503 หรือ 0 = ไม่แจก
+
+	// [บาท], Cash, Bonus/BonusItemQty, extra0, extra1, ...
+	setarray .get_cash_amount[50],    500,    0, 0, 0, 0;
+	setarray .get_cash_amount[100],   1000,   0, 0, 0, 0;
+	setarray .get_cash_amount[300],   3000,   300, 0, 0, 0;
+	setarray .get_cash_amount[500],   5000,   550, 0, 0, 0;
+	setarray .get_cash_amount[1000],  10000,  1200, 0, 0, 0;
+	setarray .get_cash_amount[1500],  15000,  2000, 0, 0, 0;
+	setarray .get_cash_amount[3000],  30000,  4500, 0, 0, 0;
+	setarray .get_cash_amount[5000],  50000,  7100, 0, 0, 0;
+	setarray .get_cash_amount[10000], 100000, 15000, 0, 0, 0;
+
+	while (1) {
+		query_sql "SELECT `id`,`amount`,`account_id` FROM `donate` WHERE `status` = 1 ORDER BY `id` ASC LIMIT 20",
+			.donate_id, .donate_amount, .donate_account_id;
+		sleep 500;
+
+		if (getarraysize(.donate_id) > 0) {
+			for (set .i, 0; .i < getarraysize(.donate_id); set .i, .i + 1) {
+				if (.donate_amount[.i] <= 0)
+					continue;
+				if (attachrid(.donate_account_id[.i]) != 1)
+					continue;
+
+				set .@amt, .donate_amount[.i];
+				set .@cash, .get_cash_amount[.@amt];
+				if (.@cash > 0) {
+					set #CASHPOINTS, #CASHPOINTS + .@cash;
+					dispbottom "[Refill] ได้รับ " + callfunc("F_InsertComma", .@cash) + " Cash รวม " + callfunc("F_InsertComma", #CASHPOINTS) + " Cash", 0xAEFF00;
+				}
+
+				set .@bonus_val, .get_cash_amount[(.@amt + 1)];
+				if (.@bonus_val > 0) {
+					if (.@bonus_item > 0) {
+						getitem .@bonus_item, .@bonus_val;
+						dispbottom "[Refill] ได้รับไอเทมโบนัส " + getitemname(.@bonus_item) + " x" + callfunc("F_InsertComma", .@bonus_val), 0xFFFB00;
+					} else {
+						set #BONUSPOINT, #BONUSPOINT + .@bonus_val;
+						dispbottom "[Refill] ได้รับโบนัส " + callfunc("F_InsertComma", .@bonus_val) + " Bonus Point", 0xFFFB00;
+					}
+				}
+
+				if (getarraysize(.@extra_item) > 0 && .@extra_item[0] > 0) {
+					for (set .b, 0; .b < getarraysize(.@extra_item); set .b, .b + 1) {
+						set .@qty, .get_cash_amount[(.@amt + 2 + .b)];
+						if (.@qty > 0) {
+							getitem .@extra_item[.b], .@qty;
+							dispbottom "[Refill] ได้รับ " + getitemname(.@extra_item[.b]) + " x" + callfunc("F_InsertComma", .@qty), 0xFFFFFF;
+						}
+					}
+				}
+
+				query_sql "UPDATE `donate` SET `status` = 2, `updated_at` = NOW() WHERE `id` = " + .donate_id[.i] + " AND `status` = 1 LIMIT 1";
+				detachrid;
+			}
+			deletearray .donate_id[0], getarraysize(.donate_id);
+			deletearray .donate_amount[0], getarraysize(.donate_amount);
+			deletearray .donate_account_id[0], getarraysize(.donate_account_id);
+		}
+		sleep 5000;
+	}
+	end;
+}
