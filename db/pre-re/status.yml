@@ -7236,6 +7236,8 @@ Body:
       NoBanishingBuster: true
       SendVal1: true
       NoClearance: true
+    Script: |
+      bonus bAllStats,3;
 
   - Status: PREMIUMSERVICE_EXPBOOST_A
     Icon: EFST_PREMIUMSERVICE_EXPBOOST_A
@@ -7348,16 +7350,17 @@ Body:
 #      NoAttack: false
 #      NoCast: false
 #      
-#  - Status: PK_DEFEND
-#    Icon: EFST_PK_DEFEND
-#    CalcFlags:
-#      None: true
-#    Flags:
-#      NoRemoveOnDead: true
-#      NoDispell: true
-#    States:
-#      NoAttack: false
-#      NoCast: false
+  - Status: PK_DEFEND
+    Icon: EFST_PKPASS_DEF
+    CalcFlags:
+      None: true
+    Flags:
+      NoRemoveOnDead: true
+      NoClearbuff: true
+      NoDispell: true
+      NoBanishingBuster: true
+      NoClearance: true
+      NoSave: true
       
   - Status: PKPASS_ATK
     Icon: EFST_PKPASS_ATK

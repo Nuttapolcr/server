@@ -88,6 +88,7 @@ function	script	F_PremiumServiceStatsBuff	{
 
 			sc_start SC_INCREASEAGI,900000,10;
 			sc_start SC_BLESSING,900000,10;
+			sc_start4 SC_POEMBRAGI,300000,5,70,90,10;
 			callfunc "F_PremiumServiceStatsBuff",900000;
 
 			atcommand "@repairall";
@@ -138,6 +139,7 @@ function	script	F_PremiumServiceStatsBuff	{
 		sc_end SC_BLESSING;
 		sc_start SC_INCREASEAGI,300000,10;
 		sc_start SC_BLESSING,300000,10;
+		sc_start4 SC_POEMBRAGI,300000,5,70,90,10;
 		callfunc "F_PremiumServiceStatsBuff",300000;
 		specialeffect2 EF_BLESSING;
 		specialeffect2 EF_INCAGILITY;
@@ -169,6 +171,7 @@ function	script	F_PremiumServiceStatsBuff	{
 
 		sc_start SC_INCREASEAGI,300000,5;
 		sc_start SC_BLESSING,300000,5;
+		sc_start4 SC_POEMBRAGI,300000,5,70,90,10;
 		callfunc "F_PremiumServiceStatsBuff",300000;
 
 		atcommand "@repairall";
@@ -223,6 +226,7 @@ function	script	F_PremiumServiceStatsBuff	{
 
 	sc_start SC_INCREASEAGI,900000,5;
 	sc_start SC_BLESSING,900000,5;
+	sc_start4 SC_POEMBRAGI,300000,5,70,90,10;
 	callfunc "F_PremiumServiceStatsBuff",900000;
 
 	specialeffect2 509;

@@ -11216,7 +11216,8 @@ Body:
             Item: Crystal_Jewel__
             Rate: 1000
             Amount: 10
-  - SubGroups:
+  - Group: JEWEL_BOX_SET
+    SubGroups:
       - SubGroup: 1
         List:
           - Index: 0
@@ -11249,4 +11250,3 @@ Body:
             Item: aegis_1000401
             Rate: 30
             Amount: 3
-    Group: JEWEL_BOX_SET

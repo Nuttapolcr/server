@@ -15,7 +15,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 20
@@ -25,7 +25,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -294,7 +294,7 @@ Body:
               - Item: aegis_313144
                 Chance: 4000
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -633,7 +633,7 @@ Body:
               - Item: aegis_313144
                 Chance: 3125
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -920,7 +920,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 40
@@ -930,7 +930,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -1139,7 +1139,7 @@ Body:
               - Item: aegis_313145
                 Chance: 5263
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -1388,7 +1388,7 @@ Body:
               - Item: aegis_313145
                 Chance: 4347
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -1615,7 +1615,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 60
@@ -1625,7 +1625,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -1754,7 +1754,7 @@ Body:
               - Item: aegis_313147
                 Chance: 9090
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -1943,7 +1943,7 @@ Body:
               - Item: Dynast
                 Chance: 5882
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -1954,181 +1954,157 @@ Body:
           - Enchantgrade: 0
             Items:
               - Item: Strength6
-                Chance: 7143
+                Chance: 8334
               - Item: Inteligence6
-                Chance: 7143
+                Chance: 8334
               - Item: Dexterity6
-                Chance: 7143
+                Chance: 8334
               - Item: Agility6
-                Chance: 7143
+                Chance: 8334
               - Item: Vitality6
-                Chance: 7143
+                Chance: 8333
               - Item: Luck6
-                Chance: 7143
-              - Item: aegis_313179
-                Chance: 7143
-              - Item: HP300
-                Chance: 7143
-              - Item: aegis_313199
-                Chance: 7143
-              - Item: aegis_313209
-                Chance: 7143
+                Chance: 8333
               - Item: aegis_313147
-                Chance: 7143
+                Chance: 8333
               - Item: Hero
-                Chance: 7143
+                Chance: 8333
               - Item: Release_Of_Magic
-                Chance: 7142
+                Chance: 8333
               - Item: Dynast
-                Chance: 7142
+                Chance: 8333
+              - Item: aegis_313268
+                Chance: 8333
+              - Item: aegis_313269
+                Chance: 8333
           - Enchantgrade: 1
             Items:
               - Item: Strength6
-                Chance: 7143
+                Chance: 8334
               - Item: Inteligence6
-                Chance: 7143
+                Chance: 8334
               - Item: Dexterity6
-                Chance: 7143
+                Chance: 8334
               - Item: Agility6
-                Chance: 7143
+                Chance: 8334
               - Item: Vitality6
-                Chance: 7143
+                Chance: 8333
               - Item: Luck6
-                Chance: 7143
-              - Item: aegis_313179
-                Chance: 7143
-              - Item: HP300
-                Chance: 7143
-              - Item: aegis_313199
-                Chance: 7143
-              - Item: aegis_313209
-                Chance: 7143
+                Chance: 8333
               - Item: aegis_313147
-                Chance: 7143
+                Chance: 8333
               - Item: Hero
-                Chance: 7143
+                Chance: 8333
               - Item: Release_Of_Magic
-                Chance: 7142
+                Chance: 8333
               - Item: Dynast
-                Chance: 7142
+                Chance: 8333
+              - Item: aegis_313268
+                Chance: 8333
+              - Item: aegis_313269
+                Chance: 8333
           - Enchantgrade: 2
             Items:
               - Item: Strength6
-                Chance: 6250
+                Chance: 8334
               - Item: Inteligence6
-                Chance: 6250
+                Chance: 8334
               - Item: Dexterity6
-                Chance: 6250
+                Chance: 8334
               - Item: Agility6
-                Chance: 6250
+                Chance: 8334
               - Item: Vitality6
-                Chance: 6250
+                Chance: 8333
               - Item: Luck6
-                Chance: 6250
-              - Item: aegis_313179
-                Chance: 6250
-              - Item: HP300
-                Chance: 6250
-              - Item: aegis_313199
-                Chance: 6250
-              - Item: aegis_313209
-                Chance: 6250
+                Chance: 8333
               - Item: aegis_313147
-                Chance: 6250
+                Chance: 8333
               - Item: Hero
-                Chance: 6250
+                Chance: 8333
               - Item: Release_Of_Magic
-                Chance: 6250
+                Chance: 8333
               - Item: Dynast
-                Chance: 6250
+                Chance: 8333
               - Item: aegis_313268
-                Chance: 6250
+                Chance: 8333
               - Item: aegis_313269
-                Chance: 6250
+                Chance: 8333
           - Enchantgrade: 3
             Items:
               - Item: Strength6
-                Chance: 7143
+                Chance: 8334
               - Item: Inteligence6
-                Chance: 7143
+                Chance: 8334
               - Item: Dexterity6
-                Chance: 7143
+                Chance: 8334
               - Item: Agility6
-                Chance: 7143
+                Chance: 8334
               - Item: Vitality6
-                Chance: 7143
+                Chance: 8333
               - Item: Luck6
-                Chance: 7143
-              - Item: aegis_313179
-                Chance: 7143
-              - Item: HP300
-                Chance: 7143
-              - Item: aegis_313199
-                Chance: 7143
-              - Item: aegis_313209
-                Chance: 7143
+                Chance: 8333
               - Item: aegis_313147
-                Chance: 7143
+                Chance: 8333
               - Item: Hero
-                Chance: 7143
+                Chance: 8333
               - Item: Release_Of_Magic
-                Chance: 7142
+                Chance: 8333
               - Item: Dynast
-                Chance: 7142
+                Chance: 8333
+              - Item: aegis_313268
+                Chance: 8333
+              - Item: aegis_313269
+                Chance: 8333
           - Enchantgrade: 4
             Items:
               - Item: Strength6
-                Chance: 7143
+                Chance: 8334
               - Item: Inteligence6
-                Chance: 7143
+                Chance: 8334
               - Item: Dexterity6
-                Chance: 7143
+                Chance: 8334
               - Item: Agility6
-                Chance: 7143
+                Chance: 8334
               - Item: Vitality6
-                Chance: 7143
+                Chance: 8333
               - Item: Luck6
-                Chance: 7143
-              - Item: aegis_313179
-                Chance: 7143
-              - Item: HP300
-                Chance: 7143
-              - Item: aegis_313199
-                Chance: 7143
-              - Item: aegis_313209
-                Chance: 7143
+                Chance: 8333
               - Item: aegis_313147
-                Chance: 7143
+                Chance: 8333
               - Item: Hero
-                Chance: 7143
+                Chance: 8333
               - Item: Release_Of_Magic
-                Chance: 7142
+                Chance: 8333
               - Item: Dynast
-                Chance: 7142
+                Chance: 8333
+              - Item: aegis_313268
+                Chance: 8333
+              - Item: aegis_313269
+                Chance: 8333
         PerfectEnchants:
           - Item: Hero
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Release_Of_Magic
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Dynast
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: aegis_313269
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
@@ -2143,7 +2119,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 20
@@ -2153,7 +2129,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -2472,7 +2448,7 @@ Body:
               - Item: aegis_313144
                 Chance: 3333
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -2721,7 +2697,7 @@ Body:
               - Item: aegis_313267
                 Chance: 4347
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -2998,7 +2974,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 40
@@ -3008,7 +2984,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -3257,7 +3233,7 @@ Body:
               - Item: aegis_313145
                 Chance: 4347
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -3436,7 +3412,7 @@ Body:
               - Item: aegis_313267
                 Chance: 6250
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -3653,7 +3629,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 60
@@ -3663,7 +3639,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -3802,7 +3778,7 @@ Body:
               - Item: aegis_313147
                 Chance: 8333
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -3901,7 +3877,7 @@ Body:
               - Item: aegis_313267
                 Chance: 12500
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -4031,14 +4007,14 @@ Body:
                 Chance: 9090
         PerfectEnchants:
           - Item: aegis_313147
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Murderous_Grudge
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
@@ -4053,7 +4029,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 20
@@ -4063,7 +4039,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Coagulated_Spell
             Amount: 20
@@ -4330,7 +4306,7 @@ Body:
               - Item: aegis_313269
                 Chance: 4000
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Coagulated_Spell
             Amount: 30
@@ -4587,7 +4563,7 @@ Body:
               - Item: aegis_313144
                 Chance: 4166
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Coagulated_Spell
             Amount: 40
@@ -4852,7 +4828,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 40
@@ -4862,7 +4838,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Coagulated_Spell
             Amount: 20
@@ -5039,7 +5015,7 @@ Body:
               - Item: aegis_313269
                 Chance: 6250
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Coagulated_Spell
             Amount: 30
@@ -5226,7 +5202,7 @@ Body:
               - Item: aegis_313145
                 Chance: 5882
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Coagulated_Spell
             Amount: 40
@@ -5431,7 +5407,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 60
@@ -5441,7 +5417,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Coagulated_Spell
             Amount: 20
@@ -5538,7 +5514,7 @@ Body:
               - Item: aegis_313269
                 Chance: 12500
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Coagulated_Spell
             Amount: 30
@@ -5695,7 +5671,7 @@ Body:
               - Item: Gh_md_dex
                 Chance: 7142
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Coagulated_Spell
             Amount: 40
@@ -5833,42 +5809,42 @@ Body:
                 Chance: 8333
         PerfectEnchants:
           - Item: Bear's_Power
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Runaway_Magic
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Speed_Of_Light
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Muscle_Fool
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Hawkeye
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Coagulated_Spell
                 Amount: 500
           - Item: Lucky_Day
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
@@ -5897,7 +5873,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 60
@@ -5907,7 +5883,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -6186,7 +6162,7 @@ Body:
               - Item: Gear_SS1
                 Chance: 3846
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -6435,7 +6411,7 @@ Body:
               - Item: aegis_313269
                 Chance: 4347
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -6706,7 +6682,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 60
@@ -6716,7 +6692,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -6955,7 +6931,7 @@ Body:
               - Item: Gear_SS1
                 Chance: 4545
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -7154,7 +7130,7 @@ Body:
               - Item: Murderous_Grudge
                 Chance: 5555
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -7415,7 +7391,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 60
@@ -7425,7 +7401,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -7594,7 +7570,7 @@ Body:
               - Item: Gear_SS1
                 Chance: 6666
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -7693,7 +7669,7 @@ Body:
               - Item: Murderous_Grudge
                 Chance: 12500
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -7863,70 +7839,70 @@ Body:
                 Chance: 6666
         PerfectEnchants:
           - Item: Murderous_Grudge
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Hero
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Release_Of_Magic
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Dynast
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Bear's_Power
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Runaway_Magic
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Speed_Of_Light
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Muscle_Fool
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Hawkeye
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Meteorite_Fragment
                 Amount: 1000
           - Item: Lucky_Day
-            Price: 0
+            Price: 10000000
             Materials:
               - Material: aegis_1001719
                 Amount: 1
@@ -7945,7 +7921,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 60
@@ -7955,10 +7931,8 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
-          - Material: Option_Ticket
-            Amount: 1
           - Material: Geffen_Magic_Coin
             Amount: 10
         Chance: 100000
@@ -8244,10 +8218,8 @@ Body:
               - Item: Spell3
                 Chance: 3703
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
-          - Material: Option_Ticket
-            Amount: 1
           - Material: Geffen_Magic_Coin
             Amount: 30
         Chance: 100000
@@ -8473,10 +8445,8 @@ Body:
               - Item: aegis_313265
                 Chance: 4761
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
-          - Material: Option_Ticket
-            Amount: 1
           - Material: Geffen_Magic_Coin
             Amount: 50
         Chance: 100000
@@ -8734,7 +8704,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 60
@@ -8744,10 +8714,8 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
-          - Material: Option_Ticket
-            Amount: 1
           - Material: Geffen_Magic_Coin
             Amount: 10
         Chance: 100000
@@ -8983,10 +8951,8 @@ Body:
               - Item: Spell4
                 Chance: 4545
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
-          - Material: Option_Ticket
-            Amount: 1
           - Material: Geffen_Magic_Coin
             Amount: 30
         Chance: 100000
@@ -9142,10 +9108,8 @@ Body:
               - Item: aegis_313265
                 Chance: 7142
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
-          - Material: Option_Ticket
-            Amount: 1
           - Material: Geffen_Magic_Coin
             Amount: 50
         Chance: 100000
@@ -9383,7 +9347,7 @@ Body:
     MinimumRefine: 0
     Reset:
       Chance: 100000
-      Price: 100000
+      Price: 300000
       Materials:
         - Material: Meteorite_Fragment
           Amount: 60
@@ -9393,7 +9357,7 @@ Body:
       - Slot: 1
     Slots:
       - Slot: 3
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -9502,7 +9466,7 @@ Body:
               - Item: Spell5
                 Chance: 11111
       - Slot: 2
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1
@@ -9591,7 +9555,7 @@ Body:
               - Item: aegis_313265
                 Chance: 14285
       - Slot: 1
-        Price: 0
+        Price: 500000
         Materials:
           - Material: Option_Ticket
             Amount: 1

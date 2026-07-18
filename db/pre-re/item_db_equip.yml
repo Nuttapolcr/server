@@ -40309,9 +40309,9 @@ Body:
       bonus bMatkRate,5;
       bonus2 bAddEle,Ele_Neutral,10;
       bonus3 bAutoSpell,"MG_COLDBOLT",3,50;
-      bonus4 bAutoSpellOnSkill,"MG_COLDBOLT","MG_FIREBOLT",3,1000;
-      bonus4 bAutoSpellOnSkill,"MG_FIREBOLT","MG_LIGHTNINGBOLT",3,1000;
-      bonus4 bAutoSpellOnSkill,"MG_LIGHTNINGBOLT","WZ_EARTHSPIKE",3,1000;
+      bonus4 bAutoSpellOnSkill,"MG_COLDBOLT","MG_FIREBOLT",3,10000;
+      bonus4 bAutoSpellOnSkill,"MG_FIREBOLT","MG_LIGHTNINGBOLT",3,10000;
+      bonus4 bAutoSpellOnSkill,"MG_LIGHTNINGBOLT","WZ_EARTHSPIKE",3,10000;
   - Id: 13415
     AegisName: N_Falchion
     Name: Novice Falchion

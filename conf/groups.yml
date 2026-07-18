@@ -48,6 +48,7 @@ Body:
     Commands:
       load: true
       changedress: true
+      sizeplayer: true
       resurrect: true
       time: true
       mobinfo: true
@@ -58,6 +59,7 @@ Body:
       autotrade: true
       CharCommands: true
       stats: true
+      mystats: true
       hidepet: true
       hidepetall: true
     Permissions:

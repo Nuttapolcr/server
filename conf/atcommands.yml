@@ -231,6 +231,9 @@ Body:
   - Command: size
     Help: |
       Params:  <0-2> Changes your size (0-Normal 1-Small 2-Large)
+  - Command: sizeplayer
+    Help: |
+      Params: <char name> <0-2> Changes a player's size (GM level 60 or higher).
   - Command: sizeall
     Help: |
       Changes the size of all players.

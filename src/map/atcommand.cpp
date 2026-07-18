@@ -8112,10 +8112,24 @@ ACMD_FUNC(mobinfo)
 			if (id == nullptr)
 				continue;
 
-			sprintf(atcmd_output2, " - %s  %02.02f%%",
-				item_db.create_item_link(id).c_str(),
-				(float)mob->dropitem[i].rate / 100
-			);
+			const int base_drop_rate = mob->dropitem[i].rate;
+			const int player_drop_rate = mob_getdroprate(&sd->bl, mob, id->type, base_drop_rate, 100);
+			const double drop_bonus = base_drop_rate > 0
+				? ((double)player_drop_rate / base_drop_rate - 1.0) * 100.0
+				: 0.0;
+
+			if (drop_bonus > 0.005) {
+				sprintf(atcmd_output2, " - %s  %02.02f%% (+%02.02f%%)",
+					item_db.create_item_link(id).c_str(),
+					(float)base_drop_rate / 100,
+					drop_bonus
+				);
+			} else {
+				sprintf(atcmd_output2, " - %s  %02.02f%%",
+					item_db.create_item_link(id).c_str(),
+					(float)base_drop_rate / 100
+				);
+			}
 
 			strcat(atcmd_output, atcmd_output2);
 			clif_displaymessage(fd, atcmd_output);
@@ -9106,6 +9120,72 @@ ACMD_FUNC(size)
 		clif_specialeffect(&sd->bl,EF_BABYBODY,AREA);
 	else if( size == SZ_BIG )
 		clif_specialeffect(&sd->bl,EF_GIANTBODY,AREA);
+
+	clif_displaymessage(fd, msg_txt(sd,1303)); // Size change applied.
+	return 0;
+}
+
+/*==========================================
+ * @sizeplayer
+ * => Resize another player's character sprite.
+ *------------------------------------------*/
+ACMD_FUNC(sizeplayer)
+{
+	map_session_data* pl_sd;
+	char player_name[NAME_LENGTH];
+	char* size_text;
+	int size;
+
+	nullpo_retr(-1, sd);
+
+	if (pc_get_group_level(sd) < 60) {
+		clif_displaymessage(fd, msg_txt(sd,81)); // Your GM level doesn't authorize you to perform this action on the specified player.
+		return -1;
+	}
+
+	if (!message || !*message) {
+		clif_displaymessage(fd, "Please enter a player name and size (usage: @sizeplayer <char name> <0-2>).");
+		return -1;
+	}
+
+	safestrncpy(player_name, message, sizeof(player_name));
+	size_text = strrchr(player_name, ' ');
+	if (!size_text || !*(++size_text)) {
+		clif_displaymessage(fd, "Please enter a player name and size (usage: @sizeplayer <char name> <0-2>).");
+		return -1;
+	}
+
+	*--size_text = '\0';
+	while (size_text > player_name && *(size_text - 1) == ' ')
+		*--size_text = '\0';
+
+	if (!*player_name || sscanf(size_text + 1, "%d", &size) != 1) {
+		clif_displaymessage(fd, "Please enter a player name and size (usage: @sizeplayer <char name> <0-2>).");
+		return -1;
+	}
+
+	pl_sd = map_nick2sd(player_name, true);
+	if (!pl_sd) {
+		clif_displaymessage(fd, msg_txt(sd,3)); // Character not found.
+		return -1;
+	}
+
+	if (pc_get_group_level(sd) < pc_get_group_level(pl_sd)) {
+		clif_displaymessage(fd, msg_txt(sd,81)); // Your GM level doesn't authorize you to perform this action on the specified player.
+		return -1;
+	}
+
+	size = cap_value(size, SZ_SMALL, SZ_BIG);
+	if (pl_sd->state.size) {
+		pl_sd->state.size = SZ_SMALL;
+		pc_setpos(pl_sd, pl_sd->mapindex, pl_sd->bl.x, pl_sd->bl.y, CLR_TELEPORT);
+	}
+
+	pl_sd->state.size = size;
+	if (size == SZ_MEDIUM)
+		clif_specialeffect(&pl_sd->bl, EF_BABYBODY, AREA);
+	else if (size == SZ_BIG)
+		clif_specialeffect(&pl_sd->bl, EF_GIANTBODY, AREA);
 
 	clif_displaymessage(fd, msg_txt(sd,1303)); // Size change applied.
 	return 0;
@@ -11415,6 +11495,27 @@ ACMD_FUNC(resist) {
 	}
 	return 0;
 }
+
+/*=========================================
+* Display core attack, damage bonuses and resistances in one command.
+*-----------------------------------------*/
+ACMD_FUNC(mystats) {
+	char output[CHAT_SIZE_MAX];
+
+	safesnprintf(output, sizeof(output), "======== ATK / MATK ========");
+	clif_messagecolor(&sd->bl, color_table[COLOR_WHITE], output, false, SELF);
+
+	safesnprintf(output, sizeof(output), "ATK: %d + %d", pc_leftside_atk(sd), pc_rightside_atk(sd));
+	clif_messagecolor(&sd->bl, color_table[COLOR_CYAN], output, false, SELF);
+
+	safesnprintf(output, sizeof(output), "MATK: %d ~ %d", pc_leftside_matk(sd), pc_rightside_matk(sd));
+	clif_messagecolor(&sd->bl, color_table[COLOR_CYAN], output, false, SELF);
+
+	atcommand_statsdamage(fd, sd, command, message);
+	atcommand_resist(fd, sd, command, message);
+
+	return 0;
+}
 /**
 * Clone other player's statuses/parameters using method same like ACMD_FUNC(param), doesn't use stat point
 * Usage: @clonestat <char name/ID>
@@ -12778,6 +12879,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(monsterignore),
 		ACMD_DEF(fakename),
 		ACMD_DEF(size),
+		ACMD_DEF(sizeplayer),
 		ACMD_DEF(showexp),
 		ACMD_DEF(showzeny),
 		ACMD_DEF(showdelay),
@@ -12853,6 +12955,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(reloadviprankdb),
 		ACMD_DEF(statsdamage),
 		ACMD_DEF(resist),
+		ACMD_DEF(mystats),
 		ACMD_DEF(fullstrip),
 		ACMD_DEF(costume),
 		ACMD_DEF(cloneequip),

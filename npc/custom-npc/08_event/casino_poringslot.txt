@@ -18,41 +18,41 @@ Contact Us. Dollaporn Naraphan [ FB ]
 
 -	script	PoringSlotsCh	-1,{end;}
 
-morocc,198,45,4	duplicate(PoringSlotsCh)	PoringSlots#01	1002
-morocc,198,43,4	duplicate(PoringSlotsCh)	PoringSlots#02	1002
-morocc,198,41,4	duplicate(PoringSlotsCh)	PoringSlots#03	1031
-morocc,198,39,4	duplicate(PoringSlotsCh)	PoringSlots#04	1113
-morocc,198,37,4	duplicate(PoringSlotsCh)	PoringSlots#05	1002
-morocc,198,35,4	duplicate(PoringSlotsCh)	PoringSlots#06	1582
-morocc,200,35,5	duplicate(PoringSlotsCh)	PoringSlots#07	1002
-morocc,202,35,5	duplicate(PoringSlotsCh)	PoringSlots#08	1388
-morocc,204,35,5	duplicate(PoringSlotsCh)	PoringSlots#09	1002
-morocc,206,35,5	duplicate(PoringSlotsCh)	PoringSlots#10	1113
-morocc,208,35,5	duplicate(PoringSlotsCh)	PoringSlots#11	1031
-morocc,210,35,5	duplicate(PoringSlotsCh)	PoringSlots#12	1002
-morocc,212,35,5	duplicate(PoringSlotsCh)	PoringSlots#13	1002
-morocc,214,35,5	duplicate(PoringSlotsCh)	PoringSlots#14	1113
-morocc,216,35,5	duplicate(PoringSlotsCh)	PoringSlots#15	1002
-morocc,216,37,5	duplicate(PoringSlotsCh)	PoringSlots#16	1031
-morocc,216,39,5	duplicate(PoringSlotsCh)	PoringSlots#17	1002
-morocc,216,41,5	duplicate(PoringSlotsCh)	PoringSlots#18	1113
-morocc,216,43,5	duplicate(PoringSlotsCh)	PoringSlots#19	1002
-morocc,216,45,6	duplicate(PoringSlotsCh)	PoringSlots#20	1582
-morocc,214,45,4	duplicate(PoringSlotsCh)	PoringSlots#21	1002
-morocc,212,45,4	duplicate(PoringSlotsCh)	PoringSlots#22	1031
-morocc,210,45,4	duplicate(PoringSlotsCh)	PoringSlots#23	1113
-morocc,208,45,4	duplicate(PoringSlotsCh)	PoringSlots#24	1002
-morocc,206,45,4	duplicate(PoringSlotsCh)	PoringSlots#25	1096
-morocc,204,45,4	duplicate(PoringSlotsCh)	PoringSlots#26	1113
-morocc,202,45,4	duplicate(PoringSlotsCh)	PoringSlots#27	1002
-morocc,200,45,4	duplicate(PoringSlotsCh)	PoringSlots#28	1388
+morocc,142,80,4	duplicate(PoringSlotsCh)	PoringSlots#01	1002
+morocc,142,78,4	duplicate(PoringSlotsCh)	PoringSlots#02	1002
+morocc,142,76,4	duplicate(PoringSlotsCh)	PoringSlots#03	1031
+morocc,142,74,4	duplicate(PoringSlotsCh)	PoringSlots#04	1113
+morocc,142,72,4	duplicate(PoringSlotsCh)	PoringSlots#05	1002
+morocc,142,70,4	duplicate(PoringSlotsCh)	PoringSlots#06	1582
+morocc,144,70,5	duplicate(PoringSlotsCh)	PoringSlots#07	1002
+morocc,146,70,5	duplicate(PoringSlotsCh)	PoringSlots#08	1388
+morocc,148,70,5	duplicate(PoringSlotsCh)	PoringSlots#09	1002
+morocc,150,70,5	duplicate(PoringSlotsCh)	PoringSlots#10	1113
+morocc,152,70,5	duplicate(PoringSlotsCh)	PoringSlots#11	1031
+morocc,154,70,5	duplicate(PoringSlotsCh)	PoringSlots#12	1002
+morocc,156,70,5	duplicate(PoringSlotsCh)	PoringSlots#13	1002
+morocc,158,70,5	duplicate(PoringSlotsCh)	PoringSlots#14	1113
+morocc,160,70,5	duplicate(PoringSlotsCh)	PoringSlots#15	1002
+morocc,160,72,5	duplicate(PoringSlotsCh)	PoringSlots#16	1031
+morocc,160,74,5	duplicate(PoringSlotsCh)	PoringSlots#17	1002
+morocc,160,76,5	duplicate(PoringSlotsCh)	PoringSlots#18	1113
+morocc,160,78,5	duplicate(PoringSlotsCh)	PoringSlots#19	1002
+morocc,160,80,6	duplicate(PoringSlotsCh)	PoringSlots#20	1582
+morocc,158,80,4	duplicate(PoringSlotsCh)	PoringSlots#21	1002
+morocc,156,80,4	duplicate(PoringSlotsCh)	PoringSlots#22	1031
+morocc,154,80,4	duplicate(PoringSlotsCh)	PoringSlots#23	1113
+morocc,152,80,4	duplicate(PoringSlotsCh)	PoringSlots#24	1002
+morocc,150,80,4	duplicate(PoringSlotsCh)	PoringSlots#25	1096
+morocc,148,80,4	duplicate(PoringSlotsCh)	PoringSlots#26	1113
+morocc,146,80,4	duplicate(PoringSlotsCh)	PoringSlots#27	1002
+morocc,144,80,4	duplicate(PoringSlotsCh)	PoringSlots#28	1388
 
-morocc,200,45,0	script	PoringSlotsPoint	45,1,{}
+morocc,144,80,0	script	PoringSlotsPoint	45,1,{}
 
 -	script	PoringSlotsSetter	-1,{
 OnInit:
-	setarray	$PoringSlotsX,198,198,198,198,198,198,200,202,204,206,208,210,212,214,216,216,216,216,216,216,214,212,210,208,206,204,202,200;
-	setarray	$PoringSlotsY,45,43,41,39,37,35,35,35,35,35,35,35,35,35,35,37,39,41,43,45,45,45,45,45,45,45,45,45;
+	setarray	$PoringSlotsX,142,142,142,142,142,142,144,146,148,150,152,154,156,158,160,160,160,160,160,160,158,156,154,152,150,148,146,144;
+	setarray	$PoringSlotsY,80,78,76,74,72,70,70,70,70,70,70,70,70,70,70,72,74,76,78,80,80,80,80,80,80,80,80,80;
 	set $@PoringSlotsPlaying,0;
 	set $@PoringSlotsRunning,0;
 	donpcevent "PoringSlotsChoose#01::OnResetRoom";
@@ -63,7 +63,7 @@ OnInit:
 end;
 }
 
-morocc,207,40,4	script	PoringSlotsPlay	10162,{
+morocc,151,75,4	script	PoringSlotsPlay	10162,{
 	goto PLZ_Main;
 	PLZ_Main:
 		set .@FSC_CoinID,30001;
@@ -328,7 +328,7 @@ function	script	FuncPoringSlotsChoose	{
 
 }
 
-morocc,220,45,5	script	PoringSlotsChoose#01	1002,{
+morocc,164,80,5	script	PoringSlotsChoose#01	1002,{
 	callfunc("FuncPoringSlotsChoose",1,1);
 end;
 OnEffect:
@@ -348,7 +348,7 @@ OnInit:
 end;
 }
 
-morocc,220,42,5	script	PoringSlotsChoose#02	1113,{
+morocc,164,77,5	script	PoringSlotsChoose#02	1113,{
 	callfunc("FuncPoringSlotsChoose",2,2);
 end;
 OnEffect:
@@ -368,7 +368,7 @@ OnInit:
 end;
 }
 
-morocc,220,39,5	script	PoringSlotsChoose#03	1031,{
+morocc,164,74,5	script	PoringSlotsChoose#03	1031,{
 	callfunc("FuncPoringSlotsChoose",3,3);
 end;
 OnEffect:
@@ -388,7 +388,7 @@ end;
 end;*/
 }
 
-morocc,220,36,5	script	PoringSlotsChoose#04	1388,{
+morocc,164,71,5	script	PoringSlotsChoose#04	1388,{
 	callfunc("FuncPoringSlotsChoose",4,6);
 end;
 OnEffect:
@@ -408,7 +408,7 @@ OnInit:
 end;
 }
 
-morocc,220,33,5	script	PoringSlotsChoose#05	1096,{
+morocc,164,68,5	script	PoringSlotsChoose#05	1096,{
 	callfunc("FuncPoringSlotsChoose",5,12);
 end;
 OnEffect:
@@ -429,54 +429,11 @@ end;
 }
 
 
-morocc,211,40,4	script	แลกของ Poring Slot	561,{
-	set .@CoinID,1030006;
-	mes "[ แลกของ Poring Slot ]";
-	mes "เหรียญ Poring Slot: ^0000FF"+countitem(.@CoinID)+"^000000";
-	next;
-
-	set .@menu$,"";
-	for(set .@i,0;.@i<getarraysize(.RewardID);set .@i,.@i+1)
-		set .@menu$,.@menu$+getitemname(.RewardID[.@i])+" - "+.RewardCost[.@i]+" เหรียญ:";
-	set .@menu$,.@menu$+"ยกเลิก";
-
-	set .@select,select(.@menu$);
-	if(.@select>getarraysize(.RewardID))
-		close;
-
-	set .@idx,.@select-1;
-	set .@item,.RewardID[.@idx];
-	set .@amount,.RewardAmount[.@idx];
-	set .@cost,.RewardCost[.@idx];
-
-	mes "[ แลกของ Poring Slot ]";
-	mes "ของรางวัล: ^0000FF"+getitemname(.@item)+"^000000 x "+.@amount;
-	mes "ใช้เหรียญ Poring Slot: ^FF0000"+.@cost+"^000000";
-	next;
-	if(select("ยืนยัน","ยกเลิก")==2)
-		close;
-
-	if(countitem(.@CoinID)<.@cost){
-		mes "[ แลกของ Poring Slot ]";
-		mes "เหรียญ Poring Slot ไม่พอ";
-		close;
-	}
-	if(!checkweight(.@item,.@amount)){
-		mes "[ แลกของ Poring Slot ]";
-		mes "น้ำหนักหรือช่องเก็บของไม่พอ";
-		close;
-	}
-
-	delitem .@CoinID,.@cost;
-	getitem .@item,.@amount;
-	mes "[ แลกของ Poring Slot ]";
-	mes "แลกของเรียบร้อย";
-	close;
+morocc,155,75,4	script	แลกของ Poring Slot	561,{
+	callshop "PORING_SLOT_BARTER",1;
+	end;
 
 OnInit:
 	waitingroom "แลกของ Poring Slot",0;
-	setarray .RewardID[0],24584,24585,24586,24587,24588;
-	setarray .RewardAmount[0],1,1,1,1,1;
-	setarray .RewardCost[0],18,18,18,18,18;
 	end;
 }

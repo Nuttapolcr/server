@@ -5080,6 +5080,10 @@ void pc_bonus(map_session_data *sd,int type,int val)
 			if (sd->state.lr_flag != 2)
 				sd->bonus.boss_box_speed += val;
 			break;
+		case SP_PET_LOOT_SPEED:
+			if (sd->state.lr_flag != 2)
+				sd->bonus.pet_loot_speed = cap_value(sd->bonus.pet_loot_speed + val, 0, 1000);
+			break;
 		case SP_REFINE_RATE:
 			if (sd->state.lr_flag != 2)
 				sd->bonus.refine_rate += val;
@@ -5447,6 +5451,26 @@ void pc_bonus2(map_session_data *sd,int type,int type2,int val)
 		}
 
 		pc_bonus_itembonus(sd->itemhealrate, type2, val, false);
+		break;
+	case SP_PET_LOOT_ITEM: // bonus2 bPetLootItem,iid,1;
+		if (sd->state.lr_flag == 2)
+			break;
+		if (!item_db.exists(type2)) {
+			ShowWarning("pc_bonus2: SP_PET_LOOT_ITEM: Invalid item with id %d.\n", type2);
+			break;
+		}
+		for (uint8 i = 0; i < sd->bonus.pet_loot_item_count; ++i) {
+			if (sd->bonus.pet_loot_item[i] == type2)
+				break;
+			if (i + 1 == sd->bonus.pet_loot_item_count) {
+				if (sd->bonus.pet_loot_item_count < 20)
+					sd->bonus.pet_loot_item[sd->bonus.pet_loot_item_count++] = type2;
+				else
+					ShowWarning("pc_bonus2: SP_PET_LOOT_ITEM: Reached max (20) specified loot items.\n");
+			}
+		}
+		if (sd->bonus.pet_loot_item_count == 0)
+			sd->bonus.pet_loot_item[sd->bonus.pet_loot_item_count++] = type2;
 		break;
 	case SP_ADD_ITEMGROUP_HEAL_RATE: // bonus2 bAddItemGroupHealRate,ig,n;
 		if (sd->state.lr_flag == 2)

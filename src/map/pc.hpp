@@ -903,6 +903,9 @@ public:
 		int refine_rate;
 		int32 barter_craft_bonus;
 		int32 boss_box_speed;
+		int pet_loot_speed;
+		t_itemid pet_loot_item[20];
+		uint8 pet_loot_item_count;
 	} bonus;
 	// zeroed vars end here.
 

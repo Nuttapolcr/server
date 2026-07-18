@@ -1,5 +1,5 @@
 //===== HICLASS Ore Upgrade ==================================
-//= Random ore upgrades from the red block in the HICLASS sheet.
+//= Random ore upgrades from the HICLASS sheet.
 //============================================================
 
 morocc,139,150,4	script	NPC อัพเกรดแร่	810,{
@@ -24,12 +24,13 @@ morocc,139,150,4	script	NPC อัพเกรดแร่	810,{
 
 	mes "[NPC อัพเกรดแร่]";
 	mes "วัตถุดิบที่ใช้:";
-	mes "- ^i[" + .InputItem[.@index] + "] x 10";
+	mes "- ^i[" + .InputItem[.@index] + "] x " + .InputAmount[.@index];
 	mes "- ^i[1000373] x " + .FragmentAmount[.@index];
+	mes "- Zeny " + .ZenyCost[.@index];
 	mes " ";
 	mes "โอกาสได้รับ:";
-	mes "- ^i[" + .TradeReward[.@index] + "] x 1 (20%)";
-	mes "- ^i[" + .NTReward[.@index] + "] x 1 (80%)";
+	mes "- ^i[" + .TradeReward[.@index] + "] x 1 (40%)";
+	mes "- ^i[" + .NTReward[.@index] + "] x 1 (60%)";
 	next;
 
 	if (select("ยืนยัน:ยกเลิก") == 2) {
@@ -37,18 +38,20 @@ morocc,139,150,4	script	NPC อัพเกรดแร่	810,{
 	}
 
 	if (
-		countitem(.InputItem[.@index]) < 10 ||
-		countitem(1000373) < .FragmentAmount[.@index]
+		countitem(.InputItem[.@index]) < .InputAmount[.@index] ||
+		countitem(1000373) < .FragmentAmount[.@index] ||
+		Zeny < .ZenyCost[.@index]
 	) {
 		mes "[NPC อัพเกรดแร่]";
 		mes "วัตถุดิบไม่เพียงพอ";
 		close;
 	}
 
-	delitem .InputItem[.@index],10;
+	delitem .InputItem[.@index],.InputAmount[.@index];
 	delitem 1000373,.FragmentAmount[.@index];
+	Zeny -= .ZenyCost[.@index];
 
-	if (rand(100) < 20) {
+	if (rand(100) < 40) {
 		.@reward = .TradeReward[.@index];
 	} else {
 		.@reward = .NTReward[.@index];
@@ -63,8 +66,12 @@ morocc,139,150,4	script	NPC อัพเกรดแร่	810,{
 OnInit:
 	setarray .InputItem[0],
 		1001685,1001686,1001688,1001689,1001691,1001692;
+	setarray .InputAmount[0],
+		5,10,5,10,5,10;
 	setarray .FragmentAmount[0],
-		20,40,20,40,20,40;
+		20,30,20,30,20,30;
+	setarray .ZenyCost[0],
+		100000,200000,100000,200000,100000,200000;
 	setarray .TradeReward[0],
 		1000398,1000403,1001139,1001141,1000442,1000447;
 	setarray .NTReward[0],

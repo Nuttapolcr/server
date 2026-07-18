@@ -86,7 +86,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 300
-                Zeny: 500000
+                Zeny: 10000000
 
           - Grade: D
             Chances:
@@ -112,7 +112,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 600
-                Zeny: 500000
+                Zeny: 20000000
 
           - Grade: C
             Chances:
@@ -138,7 +138,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 900
-                Zeny: 500000
+                Zeny: 40000000
 
           - Grade: B
             Chances:
@@ -164,7 +164,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 1200
-                Zeny: 500000
+                Zeny: 50000000
 
   - Type: Weapon
     Levels:
@@ -194,7 +194,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 300
-                Zeny: 500000
+                Zeny: 10000000
 
           - Grade: D
             Chances:
@@ -220,7 +220,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 600
-                Zeny: 500000
+                Zeny: 20000000
 
           - Grade: C
             Chances:
@@ -246,7 +246,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 900
-                Zeny: 500000
+                Zeny: 40000000
 
           - Grade: B
             Chances:
@@ -272,7 +272,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 1200
-                Zeny: 500000
+                Zeny: 50000000
 
       - Level: 5
         Grades:
@@ -300,7 +300,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 300
-                Zeny: 500000
+                Zeny: 10000000
 
           - Grade: D
             Chances:
@@ -326,7 +326,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 600
-                Zeny: 500000
+                Zeny: 20000000
 
           - Grade: C
             Chances:
@@ -352,7 +352,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 900
-                Zeny: 500000
+                Zeny: 40000000
 
           - Grade: B
             Chances:
@@ -378,7 +378,7 @@ Body:
               - Option: 0
                 Item: Meteorite_Fragment
                 Amount: 1200
-                Zeny: 500000
+                Zeny: 50000000
 
 #=============== enchantgrade.yml =================
 #  - Type: PetEgg

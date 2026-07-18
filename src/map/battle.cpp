@@ -7239,7 +7239,11 @@ static void battle_calc_attack_gvg_bg(struct Damage* wd, struct block_list *src,
 				t_tick tick = gettick(), rdelay = 0;
 
 				rdamage = battle_calc_return_damage(target, src, &damage, wd->flag, skill_id, false);
-				if( rdamage > 0 ) { //Item reflect gets calculated before any mapflag reducing is applicated
+				if (rdamage < 0) {
+					struct block_list *d_bl = battle_check_devotion(src);
+
+					clif_damage(src, (!d_bl) ? src : d_bl, tick, wd->amotion, sstatus->dmotion, 0, 1, DMG_NORMAL, 0, false);
+				} else if( rdamage > 0 ) { //Item reflect gets calculated before any mapflag reducing is applicated
 					struct block_list *d_bl = battle_check_devotion(src);
 
 					rdelay = clif_damage(src, (!d_bl) ? src : d_bl, tick, wd->amotion, sstatus->dmotion, rdamage, 1, DMG_ENDURE, 0, false);
@@ -7606,7 +7610,11 @@ void battle_do_reflect(int attack_type, struct Damage *wd, struct block_list* sr
 		// Calculate skill reflect damage separately
 		if ((ud && !ud->immune_attack) || !status_bl_has_mode(target, MD_SKILLIMMUNE))
 			rdamage = battle_calc_return_damage(target, src, &damage, wd->flag, skill_id,true);
-		if( rdamage > 0 ) {
+		if (rdamage < 0) {
+			struct block_list *d_bl = battle_check_devotion(src);
+
+			clif_damage(src, (!d_bl) ? src : d_bl, tick, wd->amotion, sstatus->dmotion, 0, 1, DMG_NORMAL, 0, false);
+		} else if( rdamage > 0 ) {
 			struct block_list *d_bl = battle_check_devotion(src);
 			status_change *sc = status_get_sc(src);
 
@@ -9998,6 +10006,9 @@ int64 battle_calc_return_damage(struct block_list* tbl, struct block_list *src, 
 		if (sc->getSCE(SC_REF_T_POTION))
 			reduce += 100;
 	}
+
+	if (rdamage > 0 && reduce >= 100)
+		return -1; // Reflected damage was fully blocked; signal callers to display Miss.
 
 	if (rdamage > 0) {
 		rdamage -= rdamage * i64min(100, reduce) / 100;

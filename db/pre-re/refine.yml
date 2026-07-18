@@ -51,7 +51,7 @@ Body:
       - Level: 1
         RefineLevels:
           - Level: 1
-            Bonus: 70
+            Bonus: 40
             Chances:
               - Type: Normal
                 Rate: 10000
@@ -68,8 +68,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 2
-            Bonus: 140
+            Bonus: 80
             Chances:
               - Type: Normal
                 Rate: 10000
@@ -86,8 +91,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 3
-            Bonus: 210
+            Bonus: 120
             Chances:
               - Type: Normal
                 Rate: 10000
@@ -104,8 +114,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 4
-            Bonus: 280
+            Bonus: 160
             Chances:
               - Type: Normal
                 Rate: 10000
@@ -122,8 +137,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 5
-            Bonus: 350
+            Bonus: 200
             Chances:
               - Type: Normal
                 Rate: 6000
@@ -140,8 +160,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 6
-            Bonus: 420
+            Bonus: 240
             Chances:
               - Type: Normal
                 Rate: 4000
@@ -158,8 +183,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 7
-            Bonus: 490
+            Bonus: 280
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -178,8 +208,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 8
-            Bonus: 560
+            Bonus: 320
             BlacksmithBlessingAmount: 1
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -194,8 +229,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 9
-            Bonus: 630
+            Bonus: 360
             BlacksmithBlessingAmount: 2
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -210,8 +250,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 10
-            Bonus: 700
+            Bonus: 400
             BlacksmithBlessingAmount: 6
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -226,8 +271,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 11
-            Bonus: 770
+            Bonus: 440
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -236,8 +286,13 @@ Body:
                 Price: 5000
                 Material: HD_Elunium
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 12
-            Bonus: 840
+            Bonus: 480
             BlacksmithBlessingAmount: 11
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -252,8 +307,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 13
-            Bonus: 910
+            Bonus: 520
             BlacksmithBlessingAmount: 16
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -268,8 +328,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 14
-            Bonus: 980
+            Bonus: 560
             BlacksmithBlessingAmount: 22
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -284,8 +349,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 15
-            Bonus: 1050
+            Bonus: 600
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -295,10 +365,15 @@ Body:
                 Material: HD_Elunium
                 DowngradeAmount: 1
 
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
       - Level: 2
         RefineLevels:
           - Level: 1
-            Bonus: 70
+            Bonus: 40
             Chances:
               - Type: Normal
                 Rate: 10000
@@ -315,8 +390,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 2
-            Bonus: 140
+            Bonus: 80
             Chances:
               - Type: Normal
                 Rate: 10000
@@ -333,8 +413,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 3
-            Bonus: 210
+            Bonus: 120
             Chances:
               - Type: Normal
                 Rate: 10000
@@ -351,8 +436,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 4
-            Bonus: 280
+            Bonus: 160
             Chances:
               - Type: Normal
                 Rate: 10000
@@ -369,8 +459,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 5
-            Bonus: 350
+            Bonus: 200
             Chances:
               - Type: Normal
                 Rate: 6000
@@ -387,8 +482,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 6
-            Bonus: 420
+            Bonus: 240
             Chances:
               - Type: Normal
                 Rate: 4000
@@ -405,8 +505,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 7
-            Bonus: 490
+            Bonus: 280
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -425,8 +530,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 8
-            Bonus: 560
+            Bonus: 320
             BlacksmithBlessingAmount: 1
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -441,8 +551,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 9
-            Bonus: 630
+            Bonus: 360
             BlacksmithBlessingAmount: 2
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -457,8 +572,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 10
-            Bonus: 700
+            Bonus: 400
             BlacksmithBlessingAmount: 6
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -473,8 +593,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 11
-            Bonus: 770
+            Bonus: 440
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -483,8 +608,13 @@ Body:
                 Price: 5000
                 Material: HD_Elunium
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 12
-            Bonus: 840
+            Bonus: 480
             BlacksmithBlessingAmount: 11
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -499,8 +629,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 13
-            Bonus: 910
+            Bonus: 520
             BlacksmithBlessingAmount: 16
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -515,8 +650,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 14
-            Bonus: 980
+            Bonus: 560
             BlacksmithBlessingAmount: 22
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -531,8 +671,13 @@ Body:
                 Price: 5000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 15
-            Bonus: 1050
+            Bonus: 600
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -542,6 +687,11 @@ Body:
                 Material: HD_Elunium
                 DowngradeAmount: 1
 
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
   - Group: Weapon
     Levels:
       - Level: 1
@@ -564,6 +714,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 2
             Bonus: 400
             Chances:
@@ -582,6 +737,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 3
             Bonus: 600
             Chances:
@@ -600,6 +760,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 4
             Bonus: 800
             Chances:
@@ -618,6 +783,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 5
             Bonus: 1000
             Chances:
@@ -636,6 +806,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 6
             Bonus: 1200
             Chances:
@@ -654,6 +829,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 7
             Bonus: 1400
             BroadcastSuccess: true
@@ -674,6 +854,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 8
             Bonus: 1600
             BlacksmithBlessingAmount: 1
@@ -690,6 +875,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 9
             Bonus: 1800
             BlacksmithBlessingAmount: 2
@@ -706,6 +896,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 10
             Bonus: 2000
             BlacksmithBlessingAmount: 6
@@ -722,6 +917,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 11
             Bonus: 2200
             BroadcastSuccess: true
@@ -731,6 +931,11 @@ Body:
                 Rate: 3000
                 Price: 3000
                 Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 12
             Bonus: 2400
@@ -748,6 +953,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 13
             Bonus: 2600
             BlacksmithBlessingAmount: 16
@@ -764,6 +974,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 14
             Bonus: 2800
             BlacksmithBlessingAmount: 22
@@ -780,6 +995,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 15
             Bonus: 3000
             BroadcastSuccess: true
@@ -791,6 +1011,11 @@ Body:
                 Material: HD_Oridecon
                 DowngradeAmount: 1
 
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
       - Level: 2
         RefineLevels:
           - Level: 1
@@ -811,6 +1036,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 2
             Bonus: 600
             Chances:
@@ -829,6 +1059,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 3
             Bonus: 900
             Chances:
@@ -847,6 +1082,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 4
             Bonus: 1200
             Chances:
@@ -865,6 +1105,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 5
             Bonus: 1500
             Chances:
@@ -883,6 +1128,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 6
             Bonus: 1800
             Chances:
@@ -901,6 +1151,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 7
             Bonus: 2100
             BroadcastSuccess: true
@@ -921,6 +1176,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 8
             Bonus: 2400
             BlacksmithBlessingAmount: 1
@@ -937,6 +1197,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 9
             Bonus: 2700
             BlacksmithBlessingAmount: 2
@@ -953,6 +1218,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 10
             Bonus: 3000
             BlacksmithBlessingAmount: 6
@@ -969,6 +1239,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 11
             Bonus: 3300
             BroadcastSuccess: true
@@ -978,6 +1253,11 @@ Body:
                 Rate: 3000
                 Price: 3000
                 Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 12
             Bonus: 3600
@@ -995,6 +1275,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 13
             Bonus: 3900
             BlacksmithBlessingAmount: 16
@@ -1011,6 +1296,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 14
             Bonus: 4200
             BlacksmithBlessingAmount: 22
@@ -1027,6 +1317,11 @@ Body:
                 Price: 3000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 15
             Bonus: 4500
             BroadcastSuccess: true
@@ -1038,6 +1333,11 @@ Body:
                 Material: HD_Oridecon
                 DowngradeAmount: 1
 
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
       - Level: 3
         RefineLevels:
           - Level: 1
@@ -1058,6 +1358,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 2
             Bonus: 1000
             Chances:
@@ -1076,6 +1381,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 3
             Bonus: 1500
             Chances:
@@ -1094,6 +1404,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 4
             Bonus: 2000
             Chances:
@@ -1112,6 +1427,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 5
             Bonus: 2500
             Chances:
@@ -1130,6 +1450,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 6
             Bonus: 3000
             Chances:
@@ -1148,6 +1473,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 7
             Bonus: 3500
             BroadcastSuccess: true
@@ -1168,6 +1498,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 8
             Bonus: 4000
             BlacksmithBlessingAmount: 1
@@ -1184,6 +1519,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 9
             Bonus: 4500
             BlacksmithBlessingAmount: 2
@@ -1200,6 +1540,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 10
             Bonus: 5000
             BlacksmithBlessingAmount: 6
@@ -1216,6 +1561,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 11
             Bonus: 5500
             BroadcastSuccess: true
@@ -1225,6 +1575,11 @@ Body:
                 Rate: 3000
                 Price: 5000
                 Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 12
             Bonus: 6000
@@ -1242,6 +1597,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 13
             Bonus: 6500
             BlacksmithBlessingAmount: 16
@@ -1258,6 +1618,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 14
             Bonus: 7000
             BlacksmithBlessingAmount: 22
@@ -1274,6 +1639,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 15
             Bonus: 7500
             BroadcastSuccess: true
@@ -1285,6 +1655,11 @@ Body:
                 Material: HD_Oridecon
                 DowngradeAmount: 1
 
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
       - Level: 4
         RefineLevels:
           - Level: 1
@@ -1305,6 +1680,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 2
             Bonus: 1400
             Chances:
@@ -1323,6 +1703,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 3
             Bonus: 2100
             Chances:
@@ -1341,6 +1726,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 4
             Bonus: 2800
             Chances:
@@ -1359,6 +1749,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 5
             Bonus: 3500
             Chances:
@@ -1377,6 +1772,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 6
             Bonus: 4200
             Chances:
@@ -1395,6 +1795,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 7
             Bonus: 5400
             BroadcastSuccess: true
@@ -1415,6 +1820,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 8
             Bonus: 5600
             BlacksmithBlessingAmount: 1
@@ -1431,6 +1841,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 9
             Bonus: 6300
             BlacksmithBlessingAmount: 2
@@ -1447,6 +1862,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 10
             Bonus: 7000
             BlacksmithBlessingAmount: 6
@@ -1463,6 +1883,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 11
             Bonus: 7700
             BroadcastSuccess: true
@@ -1472,6 +1897,11 @@ Body:
                 Rate: 3000
                 Price: 5000
                 Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 12
             Bonus: 8400
@@ -1489,6 +1919,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 13
             Bonus: 9100
             BlacksmithBlessingAmount: 16
@@ -1505,6 +1940,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 14
             Bonus: 9800
             BlacksmithBlessingAmount: 22
@@ -1521,6 +1961,11 @@ Body:
                 Price: 5000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 15
             Bonus: 10500
             BroadcastSuccess: true
@@ -1532,6 +1977,11 @@ Body:
                 Material: HD_Oridecon
                 DowngradeAmount: 1
 
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
   - Group: Shadow_Armor
     Levels:
       - Level: 1
@@ -1545,6 +1995,11 @@ Body:
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 2
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -1553,6 +2008,11 @@ Body:
                 Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 3
             BroadcastSuccess: true
@@ -1563,14 +2023,24 @@ Body:
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 4
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 10000
+                Rate: 9000
                 Price: 20000
                 Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 5
             BroadcastSuccess: true
@@ -1581,34 +2051,68 @@ Body:
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 6
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 6000
+                Rate: 7000
                 Price: 20000
                 Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 7
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 4500
+                Rate: 5000
                 Price: 20000
                 Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 8
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 3500
+                Rate: 4000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 9
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 3000
+                Price: 20000
+                Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
+          - Level: 10
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -1617,14 +2121,10 @@ Body:
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
-          - Level: 10
-            BroadcastSuccess: true
-            BroadcastFailure: true
-            Chances:
-              - Type: Normal
-                Rate: 2000
-                Price: 20000
-                Material: Valor_Stone
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
   - Group: Shadow_Weapon
     Levels:
@@ -1639,6 +2139,11 @@ Body:
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 2
             BroadcastSuccess: true
             BroadcastFailure: true
@@ -1647,6 +2152,11 @@ Body:
                 Rate: 10000
                 Price: 20000
                 Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 3
             BroadcastSuccess: true
@@ -1657,14 +2167,24 @@ Body:
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 4
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 10000
+                Rate: 9000
                 Price: 20000
                 Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 5
             BroadcastSuccess: true
@@ -1675,34 +2195,68 @@ Body:
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 6
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 6000
+                Rate: 7000
                 Price: 20000
                 Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 7
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 4500
+                Rate: 5000
                 Price: 20000
                 Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
           - Level: 8
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
               - Type: Normal
-                Rate: 3500
+                Rate: 4000
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
           - Level: 9
+            BroadcastSuccess: true
+            BroadcastFailure: true
+            Chances:
+              - Type: Normal
+                Rate: 3000
+                Price: 20000
+                Material: Valor_Stone
+                DowngradeAmount: 1
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
+                DowngradeAmount: 1
+          - Level: 10
             BroadcastSuccess: true
             BroadcastFailure: true
             Chances:
@@ -1711,14 +2265,10 @@ Body:
                 Price: 20000
                 Material: Valor_Stone
                 DowngradeAmount: 1
-          - Level: 10
-            BroadcastSuccess: true
-            BroadcastFailure: true
-            Chances:
-              - Type: Normal
-                Rate: 2000
-                Price: 20000
-                Material: Valor_Stone
+              - Type: Guarantee
+                Rate: 1
+                Price: 0
+                Material: DowngradeRefine
                 DowngradeAmount: 1
   - Group: Charm_Upgrade
     Levels:

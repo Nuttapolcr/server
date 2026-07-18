@@ -23625,8 +23625,12 @@ void clif_parse_refineui_refine( int fd, map_session_data* sd ){
 		bonus_chance += sd->bonus.refine_rate * 100;
 	}
 
+	// DowngradeRefine (1030014) must always enter the downgrade-on-failure path.
+	// Its database rate cannot be zero because the refine schema requires at least 1.
+	constexpr t_itemid ITEMID_DOWNGRADE_REFINE = 1030014;
+
 	// Try to refine the item
-	if( ( cost->chance + bonus_chance ) >= ( rnd() % 10000 ) ){
+	if( material != ITEMID_DOWNGRADE_REFINE && ( cost->chance + bonus_chance ) >= ( rnd() % 10000 ) ){
 		log_pick_pc( sd, LOG_TYPE_OTHER, -1, item );
 		// Success
 		item->refine = cap_value( item->refine + 1, 0, MAX_REFINE );

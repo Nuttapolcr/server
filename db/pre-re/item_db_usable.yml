@@ -21600,7 +21600,19 @@ Body:
     Trade:
       Override: 100
       NoSell: true
-    Script: percentheal 10,0;
+    Script: |
+      setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3", "m_pvp01", "pvp_y_8-2", "pvp_n_1-3", "pvp_n_6-5", "pvp_n_1-5";
+      .@map$ = strcharinfo(3);
+      if (inarray(.@deathmatch_maps$, .@map$) < 0
+          && !getmapflag(.@map$, MF_GVG)
+          && !getmapflag(.@map$, MF_GVG_CASTLE)
+          && !getmapflag(.@map$, MF_GVG_TE)
+          && !getmapflag(.@map$, MF_GVG_TE_CASTLE)) {
+        getitem 11548, 1;
+        dispbottom "This item can only be used in Deathmatch and GVG maps.";
+        end;
+      }
+      percentheal 10,0;
   - Id: 11549
     AegisName: Woe_Blue_Potion
     Name: Siege Blue Potion
@@ -21614,6 +21626,17 @@ Body:
       Override: 100
       NoSell: true
     Script: |
+      setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3", "m_pvp01", "pvp_y_8-2", "pvp_n_1-3", "pvp_n_6-5", "pvp_n_1-5";
+      .@map$ = strcharinfo(3);
+      if (inarray(.@deathmatch_maps$, .@map$) < 0
+          && !getmapflag(.@map$, MF_GVG)
+          && !getmapflag(.@map$, MF_GVG_CASTLE)
+          && !getmapflag(.@map$, MF_GVG_TE)
+          && !getmapflag(.@map$, MF_GVG_TE_CASTLE)) {
+        getitem 11549, 1;
+        dispbottom "This item can only be used in Deathmatch and GVG maps.";
+        end;
+      }
       percentheal 0,10;
   - Id: 65888
     AegisName: Refine_Booster_Potion
@@ -21623,6 +21646,30 @@ Body:
     Weight: 10
     Script: |
       sc_start SC_REFINE_BLESSING_BOOST,300000,5;
+  - Id: 1030015
+    AegisName: Refine_Booster_Potion_5
+    Name: Refine Booster Potion 5%
+    Type: Usable
+    Buy: 2
+    Weight: 0
+    Script: |
+      sc_start SC_REFINE_BLESSING_BOOST,60000,5;
+  - Id: 1030016
+    AegisName: Refine_Booster_Potion_10
+    Name: Refine Booster Potion 10%
+    Type: Usable
+    Buy: 2
+    Weight: 0
+    Script: |
+      sc_start SC_REFINE_BLESSING_BOOST,60000,10;
+  - Id: 1030017
+    AegisName: Refine_Booster_Potion_15
+    Name: Refine Booster Potion 15%
+    Type: Usable
+    Buy: 2
+    Weight: 0
+    Script: |
+      sc_start SC_REFINE_BLESSING_BOOST,60000,15;
   - Id: 65889
     AegisName: GMTest_Refine_Booster_Potion
     Name: GMTest Refine Booster Potion

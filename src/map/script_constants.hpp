@@ -836,6 +836,8 @@
 	export_constant2("bFixedCast",SP_ADD_FIXEDCAST);
 	export_constant2("bVariableCast",SP_ADD_VARIABLECAST);
 	export_constant2("bBossBoxSpeed", SP_BOSS_BOX_SPEED);
+	export_constant2("bPetLootSpeed", SP_PET_LOOT_SPEED);
+	export_constant2("bPetLootItem", SP_PET_LOOT_ITEM);
 	export_constant2("bSetDefRace",SP_SET_DEF_RACE);
 	export_constant2("bSetMDefRace",SP_SET_MDEF_RACE);
 	export_constant2("bHPVanishRate",SP_HP_VANISH_RATE);
@@ -8094,6 +8096,7 @@
 	export_constant(IG_CITY_TITAN_BLUE);
 	export_constant(IG_CITY_TITAN_RED);
 	export_constant(IG_CITY_TITAN_PURPLE);
+	export_constant(IG_JEWEL_BOX_SET);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);
@@ -8150,6 +8153,7 @@
 	export_deprecated_constant3("REFINE_COST_OVER10", REFINE_COST_NORMAL, "REFINE_COST_NORMAL");
 	export_constant(REFINE_COST_HD);
 	export_constant(REFINE_COST_ENRICHED);
+	export_constant(REFINE_COST_GUARANTEE);
 	export_deprecated_constant3("REFINE_COST_OVER10_HD", REFINE_COST_HD, "REFINE_COST_HD");
 	// These two have been re-hardcoded, but better default to normal than provide nothing
 	export_deprecated_constant3("REFINE_COST_HOLINK", REFINE_COST_NORMAL, "REFINE_COST_NORMAL");

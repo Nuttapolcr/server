@@ -1,0 +1,76 @@
+// PK Protection Leaf (item 1030025)
+// The account timer continues across death, map changes, and relogin.
+
+-	script	PKProtection	FAKE_NPC,{
+OnPCLoginEvent:
+OnPCDieEvent:
+OnPCLoadMapEvent:
+	callfunc "PKProtection_Refresh";
+	end;
+
+OnTimer1000:
+	callfunc "PKProtection_Refresh";
+	end;
+}
+
+function	script	PKProtection_Use	{
+	.@now = gettimetick(2);
+	.@day = gettime(7) * 10000 + gettime(6) * 100 + gettime(5);
+
+	if (#pk_protect_day != .@day) {
+		#pk_protect_day = .@day;
+		#pk_protect_uses = 0;
+	}
+
+	if (#pk_protect_uses >= 5) {
+		dispbottom "[PK Protection] Daily limit: 5 uses per account.";
+		getitem 1030025,1;
+		return;
+	}
+
+	if (#pk_protect_until > .@now) {
+		dispbottom "[PK Protection] Protection is already active.";
+		getitem 1030025,1;
+		return;
+	}
+
+	if (callfunc("PKProtection_IsGVG")) {
+		dispbottom "[PK Protection] Cannot be used in GVG maps.";
+		getitem 1030025,1;
+		return;
+	}
+
+	#pk_protect_uses++;
+	#pk_protect_until = .@now + 1800;
+	callfunc "PKProtection_Refresh";
+	dispbottom "[PK Protection] Active for 30 minutes. Daily uses: "+#pk_protect_uses+"/5.";
+	return;
+}
+
+function	script	PKProtection_Refresh	{
+	deltimer "PKProtection::OnTimer1000";
+	.@remaining = #pk_protect_until - gettimetick(2);
+	if (.@remaining <= 0) {
+		#pk_protect_until = 0;
+		sc_end SC_PK_DEFEND;
+		return;
+	}
+
+	if (callfunc("PKProtection_IsGVG")) {
+		sc_end SC_PK_DEFEND;
+		addtimer 1000, "PKProtection::OnTimer1000";
+		return;
+	}
+
+	sc_start SC_PK_DEFEND, .@remaining * 1000, 1;
+	addtimer 1000, "PKProtection::OnTimer1000";
+	return;
+}
+
+function	script	PKProtection_IsGVG	{
+	.@map$ = strcharinfo(3);
+	return getmapflag(.@map$, MF_GVG)
+		|| getmapflag(.@map$, MF_GVG_CASTLE)
+		|| getmapflag(.@map$, MF_GVG_TE)
+		|| getmapflag(.@map$, MF_GVG_TE_CASTLE);
+}

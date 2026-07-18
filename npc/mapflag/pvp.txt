@@ -12,6 +12,9 @@
 
 // PvP ========================
 
+// Death Match
+guild_vs2	mapflag	pvp
+guild_vs3	mapflag	pvp
 
 pvp_y_1-1	mapflag	pvp
 pvp_y_1-2	mapflag	pvp
@@ -99,5 +102,4 @@ pvp_2vs2	mapflag	pvp
 turbo_e_4	mapflag	pvp
 turbo_e_8	mapflag	pvp
 turbo_e_16	mapflag	pvp
-
 

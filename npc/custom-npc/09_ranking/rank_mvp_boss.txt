@@ -12,8 +12,8 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 		"- ตรวจสอบ 10 อันดับ MVP",
 		"- ตรวจสอบอันดับของฉัน",
 		"- รายละเอียดของรางวัล",
-		"",
-		(getgmlevel() >= 99) ? "- GM: สร้างรายชื่อรางวัล Top 3" : "",
+		"- รับของรางวัล",
+		(getgmlevel() >= 99) ? "- GM: Reset และสร้างรางวัล Top 3" : "",
 		"- ยกเลิก"
 	);
 
@@ -51,7 +51,7 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 		);
 		query_sql(
 			"SELECT `last_mob_name`, DATE_FORMAT(`last_kill_at`, '%Y-%m-%d %H:%i:%s') FROM `ranking_mvp_boss` "+
-			"WHERE `char_id` = "+getcharid(0)+" LIMIT 1",
+			"WHERE `account_id` = "+getcharid(3)+" ORDER BY `rank_no` ASC LIMIT 1",
 			.@last_mob$, .@last_time$
 		);
 		mes "อันดับปัจจุบัน: ^FF9900"+.@rank+"^000000";
@@ -69,9 +69,9 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 		mes "แต่ละตัวละครรับรางวัลได้เพียงครั้งเดียว";
 		next;
 		mes .npc$;
-		mes "อันดับ 1: ^0055FF"+callfunc("F_InsertComma", .reward_coin[0])+" Cash Coin^000000 และเงินสด ^FF9900"+callfunc("F_InsertComma", .reward_money[0])+" บาท^000000";
-		mes "อันดับ 2: ^0055FF"+callfunc("F_InsertComma", .reward_coin[1])+" Cash Coin^000000 และเงินสด ^FF9900"+callfunc("F_InsertComma", .reward_money[1])+" บาท^000000";
-		mes "อันดับ 3: ^0055FF"+callfunc("F_InsertComma", .reward_coin[2])+" Cash Coin^000000 และเงินสด ^FF9900"+callfunc("F_InsertComma", .reward_money[2])+" บาท^000000";
+		mes "อันดับ 1: ^0055FF"+callfunc("F_InsertComma", .reward_coin[0])+" Cash Coin^000000";
+		mes "อันดับ 2: ^0055FF"+callfunc("F_InsertComma", .reward_coin[1])+" Cash Coin^000000";
+		mes "อันดับ 3: ^0055FF"+callfunc("F_InsertComma", .reward_coin[2])+" Cash Coin^000000";
 		close;
 	}
 
@@ -98,7 +98,6 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 		mes "อันดับรางวัล: ^FF9900"+.@rank_no+"^000000";
 		mes "แต้มตอนบันทึกอันดับ: ^0055FF"+callfunc("F_InsertComma", .@score)+"^000000";
 		mes "Cash Coin: ^0055FF"+callfunc("F_InsertComma", .@cash_reward)+" ea^000000";
-		mes "เงินสด: ^FF9900"+callfunc("F_InsertComma", .reward_money[.@rank_no - 1])+" บาท^000000";
 		next;
 		if (select("- รับรางวัล:- ยกเลิก") == 2)
 			close;
@@ -111,21 +110,21 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 		getitem .reward_item_id, .@cash_reward;
 		query_sql(
 			"UPDATE `ranking_mvp_boss_rewards` SET `claimed` = 1, `claimed_at` = NOW() "+
-			"WHERE `char_id` = "+getcharid(0)+" AND `claimed` = 0 LIMIT 1"
+			"WHERE `account_id` = "+getcharid(3)+" AND `claimed` = 0"
 		);
 		mes .npc$;
 		mes "คุณได้รับ ^0055FF"+callfunc("F_InsertComma", .@cash_reward)+" Cash Coin^000000 เรียบร้อยแล้ว";
-		mes "เงินสด ^FF9900"+callfunc("F_InsertComma", .reward_money[.@rank_no - 1])+" บาท^000000 ติดต่อรับกับทีมงาน";
 		close;
 	}
 
 	if (.@menu == 5 && getgmlevel() >= 99) {
 		clear;
 		mes .npc$;
-		mes "ต้องการสร้างรายชื่อรางวัลจาก Top 3 ปัจจุบันหรือไม่?";
-		mes "ตัวละครที่เคยรับรางวัลแล้วจะถูกข้าม";
+		mes "ต้องการลบรายชื่อรางวัลเดิมทั้งหมด";
+		mes "และสร้างรายชื่อใหม่จาก Top 3 ปัจจุบันหรือไม่?";
+		mes "สถานะผู้ที่เคยรับรางวัลแล้วจะถูกลบด้วย";
 		next;
-		if (select("- สร้างรายชื่อ:- ยกเลิก") == 2)
+		if (select("- Reset และสร้างใหม่:- ยกเลิก") == 2)
 			close;
 		donpcevent strnpcinfo(3)+"::OnCreateReward";
 		mes .npc$;
@@ -140,7 +139,6 @@ OnInit:
 	set .query_limit, 10;
 	set .reward_item_id, 30001; // Cash Coin
 	setarray .reward_coin[0], 1000, 500, 300;
-	setarray .reward_money[0], 2000, 1000, 500;
 
 	query_sql(
 		"CREATE TABLE IF NOT EXISTS `ranking_mvp_boss` ("+
@@ -191,6 +189,7 @@ OnInit:
 	end;
 
 OnCreateReward:
+	query_sql("DELETE FROM `ranking_mvp_boss_rewards`");
 	query_sql(
 		"SELECT `account_id`, `char_id`, `player_name`, `total_score` FROM `ranking_mvp_boss` "+
 		"ORDER BY `total_score` DESC, `total_kill` DESC, `last_kill_at` ASC LIMIT 3",
@@ -199,9 +198,8 @@ OnCreateReward:
 	for (.@i = 0; .@i < getarraysize(.@char_id); .@i++) {
 		.@rank = .@i + 1;
 		.@cash = .reward_coin[.@i];
-		.@claimed = 0;
-		query_sql("SELECT `claimed` FROM `ranking_mvp_boss_rewards` WHERE `char_id` = "+.@char_id[.@i]+" LIMIT 1", .@claimed);
-		if (.@claimed)
+		query_sql("SELECT COUNT(*) FROM `ranking_mvp_boss_rewards` WHERE `account_id` = "+.@account_id[.@i]+" LIMIT 1", .@exists);
+		if (.@exists)
 			continue;
 		query_sql(
 			"REPLACE INTO `ranking_mvp_boss_rewards` "+
@@ -217,7 +215,7 @@ OnNPCKillEvent:
 	if (getmonsterinfo(killedrid, MOB_MVPEXP) <= 0)
 		end;
 
-	.@point = 1;
+	.@point = 0; // ปิดการนับคะแนน แต่ยังนับจำนวนฆ่าและบันทึก log
 	.@mob_name$ = getmonsterinfo(killedrid, MOB_NAME);
 	query_sql(
 		"INSERT INTO `ranking_mvp_boss` "+
@@ -226,7 +224,6 @@ OnNPCKillEvent:
 		"ON DUPLICATE KEY UPDATE "+
 		"`account_id` = VALUES(`account_id`), "+
 		"`player_name` = VALUES(`player_name`), "+
-		"`total_score` = `total_score` + "+.@point+", "+
 		"`total_kill` = `total_kill` + 1, "+
 		"`last_mob_id` = VALUES(`last_mob_id`), "+
 		"`last_mob_name` = VALUES(`last_mob_name`), "+
@@ -237,7 +234,7 @@ OnNPCKillEvent:
 		"(`account_id`, `char_id`, `player_name`, `mob_id`, `mob_name`, `point`, `kill_time`) VALUES ("+
 		getcharid(3)+", "+getcharid(0)+", '"+escape_sql(strcharinfo(0))+"', "+killedrid+", '"+escape_sql(.@mob_name$)+"', "+.@point+", NOW())"
 	);
-	query_sql("SELECT `total_score` FROM `ranking_mvp_boss` WHERE `char_id` = "+getcharid(0)+" LIMIT 1", .@total_score);
-	dispbottom "[จัดอันดับ MVP บอส] ได้รับ +"+.@point+" แต้ม จาก "+.@mob_name$+" รวมทั้งหมด "+callfunc("F_InsertComma", .@total_score)+" แต้ม";
+	query_sql("SELECT `total_kill` FROM `ranking_mvp_boss` WHERE `char_id` = "+getcharid(0)+" LIMIT 1", .@total_kill);
+	dispbottom "[จัดอันดับ MVP บอส] บันทึกการกำจัด "+.@mob_name$+" แล้ว รวมทั้งหมด "+callfunc("F_InsertComma", .@total_kill)+" ตัว";
 	end;
 }

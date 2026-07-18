@@ -49,4 +49,5 @@ Footer:
   Imports:
     - Path: npc/custom-npc/04_craft/hiclass_barters.yml
     - Path: npc/custom-npc/04_craft/pet_collection_barters.yml
+    - Path: npc/custom-npc/08_event/casino_poringslot_barter.yml
 #    - Path: npc/custom-npc/Barter/barters_Test.yml

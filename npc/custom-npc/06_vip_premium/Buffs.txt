@@ -74,9 +74,11 @@ BuffAndHeal:
 	#GLORIALV5 = gettimetick(2) + 1*15*60;
 	#MAGNIFICAT = gettimetick(2) + 1*15*60;
 
+	// บากิสำหรับผู้เล่นทุกคน 5 นาที
+	sc_start4 SC_POEMBRAGI, 300000, 5, 70, 90, 10;
+
 	//เพิ่มบัฟสำหรับVIP Status //ใส่ ! เพราะว่า ถ้าไม่ใช่ VIP ใส่เพราะเทสกับตัวGM GMไม่สามารถเป็น VIP ได้พอเทสถูกแล้วก็เอา ! ออกเพื่อให้มันมีผลกับ VIP
 	if(vip_status(VIP_STATUS_ACTIVE)){
-	sc_start4 SC_POEMBRAGI,60000,5,70,90,10;
 	sc_start4 SC_SERVICE4U,60000,5,40,40,10;
 	}//เข้าไอดีVIP
 

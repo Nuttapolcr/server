@@ -15175,6 +15175,18 @@ TIMER_FUNC(status_change_timer){
 // 			return 0;
 // 		}
 // 		break;
+	case SC_AUTOATTACK:
+		if (!sd || aa_status(sd) < 0) {
+			status_change_end(bl, type, tid);
+			return 0;
+		}
+
+		// aa_status() can stop the status itself (for example when overweight).
+		// Only schedule the next AI tick while the status is still active.
+		if (sc->getSCE(type))
+			sc_timer_next(battle_config.feature_autoattack_timer + tick);
+
+		return 0;
 	case SC_AUTOBUFF:
 		if (ab_status(sd, type))
 			sc_timer_next(battle_config.feature_autobuff_timer + tick);

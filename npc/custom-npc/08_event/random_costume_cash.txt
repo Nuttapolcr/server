@@ -28,65 +28,23 @@ function	script	F_RandomCostumeCash_AddRange	{
 
 function	script	F_RandomCostumeCash_ShowItems	{
 	.@type$ = getarg(0);
-	.@title$ = getarg(1);
+	.@shop$ = "RandomCostumeCash_Show_" + .@type$;
+	close2;
+	callshop .@shop$, 1;
+	npcshopattach .@shop$;
+	return;
+}
+
+function	script	F_RandomCostumeCash_BuildShop	{
+	.@type$ = getarg(0);
+	.@shop$ = "RandomCostumeCash_Show_" + .@type$;
 	.@size = getd("$@RandomCostumeCash_" + .@type$ + "_Size");
-	.@per_page = 12;
-	.@page = 0;
-
-	if (.@size <= 0) {
-		mes "[" + .@title$ + "]";
-		mes "ไม่มีรายการไอเทม";
-		close;
+	npcshopdelitem .@shop$, 501;
+	for (.@i = 0; .@i < .@size; .@i++) {
+		.@item_id = getd("$@RandomCostumeCash_" + .@type$ + "[" + .@i + "]");
+		npcshopadditem .@shop$, .@item_id, 0;
 	}
-
-	while (1) {
-		clear;
-		mes "[" + .@title$ + "]";
-		mes "^777777==============================^000000";
-		mes "รายการทั้งหมด: ^0000FF" + callfunc("F_InsertComma", .@size) + "^000000 ชิ้น";
-		mes "หน้า: ^0000FF" + (.@page + 1) + " / " + ((.@size + .@per_page - 1) / .@per_page) + "^000000";
-		mes "^777777==============================^000000";
-		next;
-
-		.@start = .@page * .@per_page;
-		.@end = .@start + .@per_page;
-		if (.@end > .@size)
-			.@end = .@size;
-
-		mes "^FF9900รายการของรางวัลในหน้านี้^000000";
-		mes "^777777------------------------------^000000";
-		for (.@i = .@start; .@i < .@end; .@i++) {
-			.@item_id = getd("$@RandomCostumeCash_" + .@type$ + "[" + .@i + "]");
-			mes "^FF9900" + (.@i + 1) + ".^000000 ^i[" + .@item_id + "] ^0000FF" + getitemname(.@item_id) + "^000000";
-		}
-		mes "^777777------------------------------^000000";
-		next;
-
-		if (.@page > 0 && .@end < .@size) {
-			.@select = select("ก่อนหน้า:ถัดไป:กลับ");
-			if (.@select == 1)
-				.@page--;
-			else if (.@select == 2)
-				.@page++;
-			else
-				return;
-		} else if (.@page > 0) {
-			.@select = select("ก่อนหน้า:กลับ");
-			if (.@select == 1)
-				.@page--;
-			else
-				return;
-		} else if (.@end < .@size) {
-			.@select = select("ถัดไป:กลับ");
-			if (.@select == 1)
-				.@page++;
-			else
-				return;
-		} else {
-			select("กลับ");
-			return;
-		}
-	}
+	return;
 }
 
 function	script	F_RandomCostumeCash	{
@@ -148,22 +106,59 @@ function	script	F_RandomCostumeCash	{
 morocc,120,106,4	script	ตู้สุ่มCos Upper#rccash1	562,{
 	callfunc "F_RandomCostumeCash", "Upper", "ตู้สุ่ม Cos Upper", $@RandomCostumeCash_Cost;
 	end;
+
+OnBuyItem:
+	deletearray @bought_nameid;
+	deletearray @bought_quantity;
+	mes "[ตู้สุ่ม Costume]";
+	mes "รายการนี้ใช้สำหรับแสดงตัวอย่างเท่านั้น";
+	mes "ไม่สามารถซื้อไอเทมจากหน้าต่างนี้ได้";
+	close;
 }
 
 morocc,123,106,4	script	ตู้สุ่มCos Middle#rccash2	562,{
 	callfunc "F_RandomCostumeCash", "Middle", "ตู้สุ่ม Cos Middle", $@RandomCostumeCash_Cost;
 	end;
+
+OnBuyItem:
+	deletearray @bought_nameid;
+	deletearray @bought_quantity;
+	mes "[ตู้สุ่ม Costume]";
+	mes "รายการนี้ใช้สำหรับแสดงตัวอย่างเท่านั้น";
+	mes "ไม่สามารถซื้อไอเทมจากหน้าต่างนี้ได้";
+	close;
 }
 
 morocc,126,106,4	script	ตู้สุ่มCos Lower#rccash3	562,{
 	callfunc "F_RandomCostumeCash", "Lower", "ตู้สุ่ม Cos Lower", $@RandomCostumeCash_Cost;
 	end;
+
+OnBuyItem:
+	deletearray @bought_nameid;
+	deletearray @bought_quantity;
+	mes "[ตู้สุ่ม Costume]";
+	mes "รายการนี้ใช้สำหรับแสดงตัวอย่างเท่านั้น";
+	mes "ไม่สามารถซื้อไอเทมจากหน้าต่างนี้ได้";
+	close;
 }
 
 morocc,129,106,4	script	ตู้สุ่มCos Garment#rccash4	562,{
 	callfunc "F_RandomCostumeCash", "Garment", "ตู้สุ่ม Cos Garment", $@RandomCostumeCash_Cost;
 	end;
+
+OnBuyItem:
+	deletearray @bought_nameid;
+	deletearray @bought_quantity;
+	mes "[ตู้สุ่ม Costume]";
+	mes "รายการนี้ใช้สำหรับแสดงตัวอย่างเท่านั้น";
+	mes "ไม่สามารถซื้อไอเทมจากหน้าต่างนี้ได้";
+	close;
 }
+
+-	shop	RandomCostumeCash_Show_Upper	-1,501:0
+-	shop	RandomCostumeCash_Show_Middle	-1,501:0
+-	shop	RandomCostumeCash_Show_Lower	-1,501:0
+-	shop	RandomCostumeCash_Show_Garment	-1,501:0
 
 -	script	RandomCostumeCash_Config	-1,{
 OnInit:
@@ -216,5 +211,10 @@ OnInit:
 	callfunc "F_RandomCostumeCash_AddRange", "Garment", 250022, 250022, EQP_COSTUME_GARMENT;
 	callfunc "F_RandomCostumeCash_AddRange", "Garment", 1001005, 1001006, EQP_COSTUME_GARMENT;
 	callfunc "F_RandomCostumeCash_AddRange", "Garment", 1001501, 1001510, EQP_COSTUME_GARMENT;
+
+	callfunc "F_RandomCostumeCash_BuildShop", "Upper";
+	callfunc "F_RandomCostumeCash_BuildShop", "Middle";
+	callfunc "F_RandomCostumeCash_BuildShop", "Lower";
+	callfunc "F_RandomCostumeCash_BuildShop", "Garment";
 	end;
 }

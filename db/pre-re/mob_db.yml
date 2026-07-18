@@ -1538,7 +1538,7 @@ Body:
       - Item: Oridecon
         Rate: 5000
       - Item: Spinx_Helm
-        Rate: 52
+        Rate: 1000
         StealProtected: true
       - Item: Osiris_Card
         Rate: 1
@@ -1587,7 +1587,7 @@ Body:
       - Item: Crescent_Scythe
         Rate: 140
       - Item: Magestic_Goat
-        Rate: 3
+        Rate: 1000
       - Item: Emperium
         Rate: 500
       - Item: Old_Violet_Box
@@ -1881,7 +1881,7 @@ Body:
       - Item: Zweihander
         Rate: 52
       - Item: Sharp_Gear
-        Rate: 122
+        Rate: 1000
       - Item: Lance_
         Rate: 192
       - Item: Elunium
@@ -2489,7 +2489,7 @@ Body:
       - Item: Honey
         Rate: 8000
       - Item: Coronet
-        Rate: 100
+        Rate: 1000
       - Item: Old_Card_Album
         Rate: 1000
       - Item: Young_Twig
@@ -3718,7 +3718,7 @@ Body:
       - Item: Golden_Mace
         Rate: 52
       - Item: Golden_Gear
-        Rate: 87
+        Rate: 1000
       - Item: Golden_Bell
         Rate: 1
       - Item: Emperium
@@ -4918,7 +4918,7 @@ Body:
       - Item: Hae_Dong_Gum_
         Rate: 140
       - Item: Corsair
-        Rate: 100
+        Rate: 1000
       - Item: Elunium
         Rate: 5000
         StealProtected: true
@@ -5063,7 +5063,7 @@ Body:
       - Item: Fire_Brand
         Rate: 52
       - Item: Smoking_Pipe
-        Rate: 150
+        Rate: 1000
       - Item: Honey
         Rate: 5000
       - Item: Tiger_Footskin
@@ -6467,9 +6467,9 @@ Body:
       - Item: Queen's_Hair_Ornament
         Rate: 1
       - Item: Safety_Ring
-        Rate: 70
+        Rate: 1000
       - Item: Tiara
-        Rate: 70
+        Rate: 1000
       - Item: Mother's_Nightmare
         Rate: 10
       - Item: Elunium
@@ -6945,7 +6945,7 @@ Body:
       - Item: Holy_Robe
         Rate: 52
       - Item: Gemmed_Crown
-        Rate: 175
+        Rate: 1000
       - Item: Tablet
         Rate: 105
       - Item: Bazerald
@@ -8180,7 +8180,7 @@ Body:
       - Item: Ring_
         Rate: 140
       - Item: Loard_Circlet
-        Rate: 100
+        Rate: 1000
       - Item: Voucher_Of_Orcish_Hero
         Rate: 5500
       - Item: Old_Violet_Box
@@ -10508,7 +10508,7 @@ Body:
       - Item: Elunium
         Rate: 3000
       - Item: Loard_Circlet
-        Rate: 1
+        Rate: 1000
       - Item: Oridecon
         Rate: 3000
         StealProtected: true
@@ -11481,7 +11481,7 @@ Body:
       - Item: Mage_Coat
         Rate: 450
       - Item: Cape_Of_Ancient_Lord
-        Rate: 150
+        Rate: 1000
       - Item: Elunium
         Rate: 3000
       - Item: Bone_Helm_
@@ -16384,7 +16384,7 @@ Body:
       - Item: Balistar
         Rate: 5
       - Item: Cape_Of_Ancient_Lord
-        Rate: 15
+        Rate: 1000
       - Item: Ring_
         Rate: 4
       - Item: Book_Of_The_Apocalypse
@@ -19633,7 +19633,7 @@ Body:
       - Item: Elunium
         Rate: 1600
       - Item: Assassin_Mask_
-        Rate: 500
+        Rate: 1000
       - Item: Yggdrasilberry
         Rate: 1600
       - Item: Steel
@@ -20453,9 +20453,9 @@ Body:
         Rate: 2500
     Drops:
       - Item: Spinx_Helm
-        Rate: 150
+        Rate: 1000
       - Item: Safety_Ring
-        Rate: 17
+        Rate: 1000
       - Item: Rojerta_Piece
         Rate: 2500
       - Item: Elunium
@@ -26866,13 +26866,13 @@ Body:
       - Item: Old_Violet_Box
         Rate: 1000
       - Item: Vesper_Core01
-        Rate: 100
+        Rate: 500
       - Item: Vesper_Core02
-        Rate: 100
+        Rate: 500
       - Item: Vesper_Core03
-        Rate: 100
+        Rate: 500
       - Item: Vesper_Core04
-        Rate: 100
+        Rate: 500
       - Item: Apocalips_H_Card
         Rate: 1
         StealProtected: true
@@ -28403,9 +28403,9 @@ Body:
         Rate: 1600
     Drops:
       - Item: Morpheus's_Armlet
-        Rate: 1000
+        Rate: 700
       - Item: Morpheus's_Ring
-        Rate: 1000
+        Rate: 700
       - Item: Treasure_Box
         Rate: 1600
       - Item: Scale_Of_Red_Dragon
@@ -28415,7 +28415,7 @@ Body:
       - Item: Pole_Axe
         Rate: 100
       - Item: Gemmed_Crown
-        Rate: 500
+        Rate: 700
       - Item: Detale_Card
         Rate: 1
         StealProtected: true
@@ -29490,11 +29490,11 @@ Body:
       - Item: Valhalla_Flower
         Rate: 1600
       - Item: Valkyrie_Armor
-        Rate: 1600
+        Rate: 600
       - Item: Valkyrie_Manteau
-        Rate: 1600
+        Rate: 600
       - Item: Valkyrie_Shoes
-        Rate: 1600
+        Rate: 600
       - Item: Helm_
         Rate: 1600
       - Item: Bloody_Edge
@@ -29998,7 +29998,7 @@ Body:
       - Item: Old_Violet_Box
         Rate: 100
       - Item: Valkyrja's_Shield
-        Rate: 500
+        Rate: 400
   - Id: 1766
     AegisName: EM_ANGELING
     Name: Angeling
@@ -30640,9 +30640,9 @@ Body:
       - Item: Old_Card_Album
         Rate: 1600
       - Item: Clack_Of_Servival
-        Rate: 1600
+        Rate: 1000
       - Item: Herald_Of_GOD
-        Rate: 1600
+        Rate: 1000
       - Item: Old_Violet_Box
         Rate: 1600
       - Item: Yggdrasilberry
@@ -30922,7 +30922,7 @@ Body:
       - Item: Yggdrasilberry
         Rate: 1600
       - Item: Ulle_Cap
-        Rate: 100
+        Rate: 700
       - Item: Altas_Weapon
         Rate: 100
       - Item: Atroce_Card
@@ -32548,17 +32548,17 @@ Body:
       - Item: Flame_Heart
         Rate: 1600
       - Item: Spiritual_Ring
-        Rate: 1600
+        Rate: 1000
       - Item: Ring_Of_Flame_Lord
-        Rate: 200
+        Rate: 300
       - Item: Ring_Of_Resonance
-        Rate: 200
+        Rate: 300
       - Item: Hell_Fire
-        Rate: 1600
+        Rate: 1000
       - Item: Fire_Brand
-        Rate: 1600
+        Rate: 1000
       - Item: Flame_Sprits_Armor_
-        Rate: 100
+        Rate: 300
       - Item: Ifrit_Card
         Rate: 1
         StealProtected: true
@@ -34123,7 +34123,7 @@ Body:
       - Item: Long_Horn
         Rate: 1000
       - Item: Spiritual_Ring
-        Rate: 500
+        Rate: 1000
       - Item: Hunting_Spear
         Rate: 1000
       - Item: Elunium
@@ -34236,13 +34236,13 @@ Body:
       - Item: Broken_Crown
         Rate: 1600
       - Item: Variant_Shoes
-        Rate: 1600
+        Rate: 400
       - Item: Death_Note
         Rate: 1600
       - Item: Destruction_Rod
         Rate: 1600
       - Item: Bison_Horn
-        Rate: 1600
+        Rate: 800
       - Item: Elunium
         Rate: 1600
       - Item: Chonchon_Doll
@@ -35561,13 +35561,13 @@ Body:
         Rate: 1600
     Drops:
       - Item: Diabolus_Helmet
-        Rate: 1000
+        Rate: 600
       - Item: Diabolus_Robe
-        Rate: 1600
+        Rate: 600
       - Item: Diabolus_Armor
-        Rate: 1600
+        Rate: 600
       - Item: Diabolus_Boots
-        Rate: 1600
+        Rate: 600
       - Item: Dark_Crystal
         Rate: 1600
       - Item: Dark_Debris

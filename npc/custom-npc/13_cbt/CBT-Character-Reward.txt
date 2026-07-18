@@ -1,0 +1,49 @@
+// รางวัล OBT สำหรับบัญชีที่มีตัวละครจาก CBT
+// สิทธิ์และสถานะรับรางวัลเก็บในตาราง cbt_obt_character_rewards
+
+morocc,171,85,4	script	NPC รับรางวัล CBT OBT	617,{
+	mes .name$;
+	.@rows = query_sql("SELECT `claimed` FROM `cbt_obt_character_rewards` WHERE `account_id` = "+getcharid(3)+" LIMIT 1", .@claimed);
+	if (!.@rows) {
+		mes "ไม่พบสิทธิ์รับรางวัลจาก CBT ของบัญชีนี้";
+		close;
+	}
+
+	if (.@claimed) {
+		mes "บัญชีนี้รับรางวัลจาก CBT ไปแล้ว";
+		close;
+	}
+
+	mes "บัญชีนี้มีสิทธิ์รับรางวัลจากการสร้างตัวละครใน CBT";
+	mes "คุณจะได้รับ Premium Service 1 Day [NT] 2 ชิ้น";
+	mes "และบัตรวาปมอลล์ [NT] 10 ชิ้น";
+	next;
+	if (select("รับรางวัล:ยกเลิก") == 2)
+		close;
+
+	if (!checkweight(1001720,2) || !checkweight(1000603,10)) {
+		mes .name$;
+		mes "กรุณาเคลียร์ช่องเก็บของก่อนรับรางวัล";
+		close;
+	}
+	getitem 1001720,2;
+	getitem 1000603,10;
+	query_sql("UPDATE `cbt_obt_character_rewards` SET `claimed` = 1, `claimed_char_id` = "+getcharid(0)+", `claimed_at` = NOW() WHERE `account_id` = "+getcharid(3)+" AND `claimed` = 0 LIMIT 1");
+	mes .name$;
+	mes "รับรางวัล CBT เรียบร้อยแล้ว";
+	close;
+
+OnInit:
+	.name$ = "[^0000FFNPC รับรางวัล CBT OBT^000000]";
+	query_sql("CREATE TABLE IF NOT EXISTS `cbt_obt_character_rewards` (`account_id` int(11) unsigned NOT NULL, `claimed` tinyint(1) unsigned NOT NULL DEFAULT 0, `claimed_char_id` int(11) unsigned DEFAULT NULL, `snapshot_at` datetime NOT NULL, `claimed_at` datetime DEFAULT NULL, PRIMARY KEY (`account_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
+	query_sql("CREATE TABLE IF NOT EXISTS `cbt_obt_reward_meta` (`key_name` varchar(32) NOT NULL, `value` varchar(32) NOT NULL, PRIMARY KEY (`key_name`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
+	query_sql("SELECT `value` FROM `cbt_obt_reward_meta` WHERE `key_name` = 'character_snapshot_done' LIMIT 1", .@snapshot_done$);
+	if (.@snapshot_done$ != "2") {
+		query_sql("DELETE FROM `cbt_obt_character_rewards`");
+		query_sql("INSERT IGNORE INTO `cbt_obt_character_rewards` (`account_id`, `snapshot_at`) SELECT DISTINCT `account_id`, NOW() FROM `char` WHERE `account_id` > 0");
+		query_sql("REPLACE INTO `cbt_obt_reward_meta` (`key_name`, `value`) VALUES ('character_snapshot_done', '2')");
+	}
+	query_sql("INSERT IGNORE INTO `cbt_obt_character_rewards` (`account_id`, `snapshot_at`) SELECT `account_id`, NOW() FROM `login` WHERE `userid` IN ('gmtest01','gmtest02','gmtest03')");
+	waitingroom "รับรางวัล CBT OBT",0;
+	end;
+}

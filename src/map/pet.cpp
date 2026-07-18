@@ -689,6 +689,7 @@ bool pet_create_egg(map_session_data *sd, t_itemid item_id)
 void pet_unlocktarget(struct pet_data *pd)
 {
 	nullpo_retv(pd);
+	pd->status.speed = pd->get_pet_walk_speed();
 
 	pd->target_id = 0;
 	pet_stop_attack(pd);
@@ -1823,6 +1824,8 @@ static int pet_ai_sub_hard(struct pet_data *pd, map_session_data *sd, t_tick tic
 		unit_attack(&pd->bl, pd->target_id, 1);
 	} else { // Item Targeted, attempt loot
 		if (!check_distance_bl(&pd->bl, target, 1)) { // Out of range
+			if (pd->master->bonus.pet_loot_speed > 0)
+				pd->status.speed = max(1, pd->get_pet_walk_speed() * 100 / (100 + pd->master->bonus.pet_loot_speed));
 			if(!unit_walktobl(&pd->bl, target, 1, 1)) // Unreachable target.
 				pet_unlocktarget(pd);
 
@@ -1914,6 +1917,13 @@ static int pet_ai_sub_hard_lootsearch(struct block_list *bl,va_list ap)
 
 	if(sd_charid && sd_charid != pd->master->status.char_id)
 		return 0;
+
+	if (pd->master->bonus.pet_loot_item_count) {
+		uint8 i;
+		ARR_FIND(0, pd->master->bonus.pet_loot_item_count, i, pd->master->bonus.pet_loot_item[i] == fitem->item.nameid);
+		if (i == pd->master->bonus.pet_loot_item_count)
+			return 0;
+	}
 
 	if(unit_can_reach_bl(&pd->bl,bl, pd->db->range2, 1, NULL, NULL) &&
 		((*target) == NULL || //New target closer than previous one.

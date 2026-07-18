@@ -109,6 +109,11 @@ OnSpawn:
 
 //=== Treasure chest template (clicked duplicates run this body) =============
 -	script	MvpTreasureChest	FAKE_NPC,{
+	if (#pk_protect_until > gettimetick(2)) {
+		dispbottom "[MVP Treasure] PK Protection users cannot open MVP Treasure.";
+		end;
+	}
+
 	// hidden name = "<color>_<tier>_<id>"
 	explode(.@p$, strnpcinfo(2), "_");
 	.@col$ = .@p$[0];
