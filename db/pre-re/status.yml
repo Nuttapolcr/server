@@ -1882,7 +1882,6 @@ Body:
     Flags:
       # NoRemoveOnDead: true
       NoClearance: true
-      RemoveOnMapWarp: true
   - Status: Appleidun
     Icon: EFST_APPLEIDUN
     DurationLookup: BA_APPLEIDUN
