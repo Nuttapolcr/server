@@ -51,6 +51,8 @@ Body:
         Price: 89
       - Item: Pet_Friendly_Ticket
         Price: 499
+      - Item: Def_PK
+        Price: 100
   - Tab: Hot
     Items:
       - Item: aegis_1000602

@@ -1,5 +1,6 @@
 // รางวัล OBT สำหรับบัญชีที่มีตัวละครจาก CBT
 // สิทธิ์และสถานะรับรางวัลเก็บในตาราง cbt_obt_character_rewards
+// ตารางต้นทางตัวละคร CBT: cbt_char_backup
 
 morocc,171,85,4	script	NPC รับรางวัล CBT OBT	617,{
 	mes .name$;
@@ -38,10 +39,10 @@ OnInit:
 	query_sql("CREATE TABLE IF NOT EXISTS `cbt_obt_character_rewards` (`account_id` int(11) unsigned NOT NULL, `claimed` tinyint(1) unsigned NOT NULL DEFAULT 0, `claimed_char_id` int(11) unsigned DEFAULT NULL, `snapshot_at` datetime NOT NULL, `claimed_at` datetime DEFAULT NULL, PRIMARY KEY (`account_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
 	query_sql("CREATE TABLE IF NOT EXISTS `cbt_obt_reward_meta` (`key_name` varchar(32) NOT NULL, `value` varchar(32) NOT NULL, PRIMARY KEY (`key_name`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
 	query_sql("SELECT `value` FROM `cbt_obt_reward_meta` WHERE `key_name` = 'character_snapshot_done' LIMIT 1", .@snapshot_done$);
-	if (.@snapshot_done$ != "2") {
+	if (.@snapshot_done$ != "3") {
 		query_sql("DELETE FROM `cbt_obt_character_rewards`");
-		query_sql("INSERT IGNORE INTO `cbt_obt_character_rewards` (`account_id`, `snapshot_at`) SELECT DISTINCT `account_id`, NOW() FROM `char` WHERE `account_id` > 0");
-		query_sql("REPLACE INTO `cbt_obt_reward_meta` (`key_name`, `value`) VALUES ('character_snapshot_done', '2')");
+		query_sql("INSERT IGNORE INTO `cbt_obt_character_rewards` (`account_id`, `snapshot_at`) SELECT DISTINCT `account_id`, NOW() FROM `cbt_char_backup` WHERE `account_id` > 0");
+		query_sql("REPLACE INTO `cbt_obt_reward_meta` (`key_name`, `value`) VALUES ('character_snapshot_done', '3')");
 	}
 	query_sql("INSERT IGNORE INTO `cbt_obt_character_rewards` (`account_id`, `snapshot_at`) SELECT `account_id`, NOW() FROM `login` WHERE `userid` IN ('gmtest01','gmtest02','gmtest03')");
 	waitingroom "รับรางวัล CBT OBT",0;

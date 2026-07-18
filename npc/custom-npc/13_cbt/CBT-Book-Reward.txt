@@ -1,5 +1,6 @@
 // ระบบรับรางวัล HICLASS CBT Book จากสิทธิ์ที่ snapshot ลง SQL
 // ตารางสิทธิ์: cbt_book_rewards
+// ตารางต้นทางแต้ม CBT: hiclass_cbt_book_point_backup
 
 morocc,171,87,4	script	NPC รับรางวัล CBT Book	617,{
 	if (getmapflag(strcharinfo(3),MF_PVP) || getmapflag(strcharinfo(3),MF_GVG) || getmapflag(strcharinfo(3),MF_GVG_CASTLE))
@@ -75,10 +76,10 @@ OnInit:
 	query_sql("CREATE TABLE IF NOT EXISTS `cbt_book_rewards` (`account_id` int(11) unsigned NOT NULL, `book_point` bigint(11) unsigned NOT NULL, `reward_tier` tinyint(1) unsigned NOT NULL, `claimed` tinyint(1) unsigned NOT NULL DEFAULT 0, `claimed_char_id` int(11) unsigned DEFAULT NULL, `snapshot_at` datetime NOT NULL, `claimed_at` datetime DEFAULT NULL, PRIMARY KEY (`account_id`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
 	query_sql("CREATE TABLE IF NOT EXISTS `cbt_book_reward_meta` (`key_name` varchar(32) NOT NULL, `value` varchar(32) NOT NULL, PRIMARY KEY (`key_name`)) ENGINE=MyISAM DEFAULT CHARSET=utf8;");
 	query_sql("SELECT `value` FROM `cbt_book_reward_meta` WHERE `key_name` = 'book_snapshot_done' LIMIT 1", .@snapshot_done$);
-	if (.@snapshot_done$ != "4") {
+	if (.@snapshot_done$ != "5") {
 		query_sql("DELETE FROM `cbt_book_rewards`");
-		query_sql("INSERT IGNORE INTO `cbt_book_rewards` (`account_id`, `book_point`, `reward_tier`, `snapshot_at`) SELECT `account_id`, `value`, CASE WHEN `value` >= 5000 THEN 4 WHEN `value` >= 3000 THEN 3 WHEN `value` >= 1500 THEN 2 WHEN `value` >= 1000 THEN 1 ELSE 0 END, NOW() FROM `acc_reg_num` WHERE `key` = '#hiclass_cbt_book_point' AND `index` = 0 AND `value` >= 500");
-		query_sql("REPLACE INTO `cbt_book_reward_meta` (`key_name`, `value`) VALUES ('book_snapshot_done', '4')");
+		query_sql("INSERT IGNORE INTO `cbt_book_rewards` (`account_id`, `book_point`, `reward_tier`, `snapshot_at`) SELECT `account_id`, `value`, CASE WHEN `value` >= 5000 THEN 4 WHEN `value` >= 3000 THEN 3 WHEN `value` >= 1500 THEN 2 WHEN `value` >= 1000 THEN 1 ELSE 0 END, NOW() FROM `hiclass_cbt_book_point_backup` WHERE `value` >= 500");
+		query_sql("REPLACE INTO `cbt_book_reward_meta` (`key_name`, `value`) VALUES ('book_snapshot_done', '5')");
 	}
 	query_sql("INSERT INTO `cbt_book_rewards` (`account_id`, `book_point`, `reward_tier`, `snapshot_at`) SELECT `account_id`, 5000, 4, NOW() FROM `login` WHERE `userid` IN ('gmtest01','gmtest02','gmtest03') ON DUPLICATE KEY UPDATE `book_point` = 5000, `reward_tier` = 4");
 	waitingroom "NPC รับรางวัล CBT Book",0;
