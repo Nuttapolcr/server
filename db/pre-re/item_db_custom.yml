@@ -37183,8 +37183,8 @@ Body:
     Name: Refine Pack
     Type: Cash
     Script: |-
-      getitem 6240,1;
-      getitem 6241,1;
+      getitem 12920,1;
+      getitem 12921,1;
       getitem 1030001,1;
       getitem 1030002,1;
       getitem 6635,50;
