@@ -9,7 +9,7 @@ morocc,142,89,4	script	กิจกรรมทอยเต๋า#1	864,{
 	mes	"^FF0000Lv.50^000000 ขึ้นไป ^000000";
 	mes	"คุณต้องการเข้าร่วมกิจกรรมหรือไม่?";
 	next;
-	switch(select("^FF0000•^000000 เข้าร่วมกิจกรรม ("+getmapusers("quiz_02")+" คน)","^FF0000•^000000 เปล่า,แค่แวะมาดูเฉยๆ")) {
+	switch(select("^FF0000•^000000 เข้าร่วมกิจกรรม","^FF0000•^000000 เปล่า,แค่แวะมาดูเฉยๆ")) {
 		case 1:
 			if ($@Looktao_block == 1) {
 				mes	"^0000FF[ กิจกรรมทอยเต๋า ]^000000";
@@ -25,11 +25,12 @@ morocc,142,89,4	script	กิจกรรมทอยเต๋า#1	864,{
 				end;
 			}
 			.@my_aid = getcharid(3);
-			.@my_ip  = getcharip();
+			//.@my_ip  = getcharip();
 			.@cnt = getmapunits(BL_PC,"quiz_02",.@pc_name$[0]);
 			for (.@i = 0; .@i < .@cnt; .@i++) {
 				.@aid = convertpcinfo(.@pc_name$[.@i],CPC_ACCOUNT);
 				if (.@aid == .@my_aid) continue; // ตัวเองไม่ต้องเช็ค
+				/*
 				if (attachrid(.@aid)) {
 					if (getcharip() == .@my_ip) {
 						attachrid(.@my_aid);
@@ -38,6 +39,7 @@ morocc,142,89,4	script	กิจกรรมทอยเต๋า#1	864,{
 						end;
 					}
 				}
+				*/
 			}
 			attachrid(.@my_aid);
 			
