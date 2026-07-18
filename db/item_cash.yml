@@ -31,7 +31,35 @@
 Header:
   Type: ITEM_CASH_DB
   Version: 1
-
+Body:
+  - Tab: Limited
+    Items:
+      - Item: New_Item_1030041
+        Price: 3500
+      - Item: Premium_Pack
+        Price: 3500
+      - Item: Katar_Starter_Pack
+        Price: 13500
+      - Item: Two-handed_Axe_Starter_Pack
+        Price: 13500
+      - Item: Spear_Starter_Pack
+        Price: 13500
+      - Item: Book_Starter_Pack
+        Price: 13500
+      - Item: Staff_Starter_Pack
+        Price: 13500
+      - Item: Dagger_Starter_Pack
+        Price: 13500
+      - Item: Revolver_Starter_Pack
+        Price: 13500
+      - Item: Two-handed_Sword_Starter_Pack
+        Price: 13500
+      - Item: Mace_Starter_Pack
+        Price: 13500
+      - Item: Bow_Starter_Pack
+        Price: 13500
+      - Item: Huuma_Shuriken_Starter_Pack
+        Price: 13500
 Footer:
   Imports:
     - Path: db/import/item_cash.yml

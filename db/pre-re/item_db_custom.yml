@@ -37194,6 +37194,6 @@ Body:
     Type: Cash
     Script: |-
       getitem 1001724,1;
-      getitem 7776,1;
-      getitem 22571,1;
+      getitem 7776,10;
+      getitem 22571,10;
       getitem 1030005,1;
