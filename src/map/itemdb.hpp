@@ -2844,6 +2844,7 @@ enum e_random_item_group {
 	IG_CITY_TITAN_RED,
 	IG_CITY_TITAN_PURPLE,
 	IG_JEWEL_BOX_SET,
+	IG_RANDOM_DROP_BOX,
 
 	IG_MAX,
 };

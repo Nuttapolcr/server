@@ -26775,7 +26775,7 @@ Body:
     EquipLevelMin: 1
     View: 2113
     Script: |
-      getitem 1030012,rand(1,2);
+      getgroupitem(IG_RANDOM_DROP_BOX);
   - Id: 1001013
     AegisName: aegis_1001013
     Name: C Drops Muffler
@@ -37069,12 +37069,131 @@ Body:
     Script: |
       rentitem 12887,43200;
   - Id: 1030030
-    AegisName: New_Item_1030030
+    AegisName: Katar_Starter_Pack
     Name: Katar Starter Pack
+    Type: Cash
     Script: |-
       getitem 1292,1;
       getitem 1030002,1;
       getitem 12921,1;
       getitem 6635,30;
       getitem 30005,1;
+  - Id: 1030032
+    AegisName: Spear_Starter_Pack
+    Name: Spear Starter Pack
     Type: Cash
+    Script: |-
+      getitem 1491,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030033
+    AegisName: Book_Starter_Pack
+    Name: Book Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 1585,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030034
+    AegisName: Staff_Starter_Pack
+    Name: Staff Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 2015,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030035
+    AegisName: Dagger_Starter_Pack
+    Name: Dagger Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 13071,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030036
+    AegisName: Revolver_Starter_Pack
+    Name: Revolver Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 13115,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030037
+    AegisName: Two-handed_Sword_Starter_Pack
+    Name: Two-handed Sword Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 21000,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030038
+    AegisName: Mace_Starter_Pack
+    Name: Mace Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 16019,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030039
+    AegisName: Bow_Starter_Pack
+    Name: Bow Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 18112,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030040
+    AegisName: Huuma_Shuriken_Starter_Pack
+    Name: Huuma Shuriken Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 13316,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030031
+    AegisName: Two-handed_Axe_Starter_Pack
+    Name: Two-handed Axe Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 1394,1;
+      getitem 1030002,1;
+      getitem 12921,1;
+      getitem 6635,30;
+      getitem 30005,1;
+  - Id: 1030041
+    AegisName: New_Item_1030041
+    Name: Refine Pack
+    Type: Cash
+    Script: |-
+      getitem 6240,1;
+      getitem 6241,1;
+      getitem 1030001,1;
+      getitem 1030002,1;
+      getitem 6635,50;
+  - Id: 1030042
+    AegisName: Premium_Pack
+    Name: Premium Pack
+    Type: Cash
+    Script: |-
+      getitem 1001724,1;
+      getitem 7776,1;
+      getitem 22571,1;
+      getitem 1030005,1;

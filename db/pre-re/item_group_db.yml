@@ -11250,3 +11250,11 @@ Body:
             Item: aegis_1000401
             Rate: 30
             Amount: 3
+  - Group: RANDOM_DROP_BOX
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Zeny_Random
+            Rate: 100
+            Amount: 1

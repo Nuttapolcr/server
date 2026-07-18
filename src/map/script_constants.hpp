@@ -8097,6 +8097,7 @@
 	export_constant(IG_CITY_TITAN_RED);
 	export_constant(IG_CITY_TITAN_PURPLE);
 	export_constant(IG_JEWEL_BOX_SET);
+	export_constant(IG_RANDOM_DROP_BOX);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);
