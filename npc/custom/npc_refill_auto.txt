@@ -13,6 +13,15 @@
 -	script	Refill_Auto	-1,{
 end;
 OnInit:
+	// ซิงก์ยอดเติมย้อนหลังทั้งหมดที่แจกสำเร็จแล้ว แยกตาม account_id
+	// rank = 0 เพื่อให้ระบบ VIP Rank คำนวณใหม่จาก YAML ตอนบัญชีล็อกอิน
+	query_sql(
+		"INSERT INTO `vip_rank_account` (`account_id`,`donation_total`,`rank`) "+
+		"SELECT `account_id`,SUM(`amount`),0 FROM `donate` "+
+		"WHERE `status` = 2 AND `amount` > 0 AND `account_id` > 0 GROUP BY `account_id` "+
+		"ON DUPLICATE KEY UPDATE `donation_total` = VALUES(`donation_total`), `rank` = 0"
+	);
+
 	set .@bonus_item, 0;
 	// 0 = ค่า index+1 เป็น Bonus Point (#BONUSPOINT)
 	// >0 = แจกเป็นไอเทม (เช่น 501) ตามจำนวน index+1 แบบสคริปต์เก่า
@@ -44,6 +53,13 @@ OnInit:
 					continue;
 
 				set .@amt, .donate_amount[.i];
+				set .@rank_ok, vip_rank_update(.@amt, 1, "refill:" + .donate_id[.i], "npc_refill_auto");
+				if (.@rank_ok != 1) {
+					dispbottom "[Refill] ไม่สามารถบันทึกยอดสะสม Rank ได้ กรุณาติดต่อทีมงาน", 0xFF0000;
+					detachrid;
+					continue;
+				}
+
 				set .@cash, .get_cash_amount[.@amt];
 				if (.@cash > 0) {
 					set #CASHPOINTS, #CASHPOINTS + .@cash;
