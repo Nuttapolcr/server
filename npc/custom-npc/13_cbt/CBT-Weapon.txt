@@ -20,47 +20,36 @@ morocc,165,129,6	script	Weapon	10032,{
 	switch(select("~ Sword:~ Staff:~ Mace:~ Bow:~ Dagger:~ Katar:~ Spear:~ Axe:~ Knuckle:~ Whip:~ Musical Instrument:ยกเลิก")) {
 	case 1:
 		callshop "SwordA",1;
-		npcshopattach "SwordA";
 		end;
 	case 2:
 		callshop "RodMaA",1;
-		npcshopattach "RodMaA";
 		end;
 	case 3:
 		callshop "MaceA",1;
-		npcshopattach "MaceA";
 		end;
 	case 4:
 		callshop "BowA",1;
-		npcshopattach "BowA";
 		end;
 	case 5:
 		callshop "DaA",1;
-		npcshopattach "DaA";
 		end;
 	case 6:
 		callshop "KaA",1;
-		npcshopattach "KaA";
 		end;
 	case 7:
 		callshop "SpearA",1;
-		npcshopattach "SpearA";
 		end;
 	case 8:
 		callshop "AxeA",1;
-		npcshopattach "AxeA";
 		end;
 	case 9:
 		callshop "KnuckleA",1;
-		npcshopattach "KnuckleA";
 		end;
 	case 10:
 		callshop "WhipA",1;
-		npcshopattach "WhipA";
 		end;
 	case 11:
 		callshop "InstrumentA",1;
-		npcshopattach "InstrumentA";
 		end;
 	default:
 		close;

@@ -6,7 +6,6 @@ morocc,154,121,6	script	Shield::Sample_Shop5 	10032,{
 	switch(select("ซื้อไอเท็ม:ออก")) {
 	case 1:
 		callshop "SampleShop5",1;
-		npcshopattach "SampleShop5";
 		end;
 	case 2:
 	default:

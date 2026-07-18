@@ -7,7 +7,6 @@ morocc,165,125,6	script	Accessory::Sample_Shop2 	10032,{
 	switch(select("ซื้อไอเท็ม:ออก")) {
 	case 1:
 		callshop "SampleShop2",1;
-		npcshopattach "SampleShop2";
 		end;
 	case 2:
 	default:

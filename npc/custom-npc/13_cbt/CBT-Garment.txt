@@ -6,7 +6,6 @@ morocc,154,125,6	script	Garment::Sample_Shop3 	10032,{
 	switch(select("ซื้อไอเท็ม:ออก")) {
 	case 1:
 		callshop "SampleShop3",1;
-		npcshopattach "SampleShop3";
 		end;
 	case 2:
 	default:

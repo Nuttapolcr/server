@@ -16,7 +16,6 @@ morocc,154,133,6	script	Headgear	10032,{
 		break;
 	}
 	callshop .@shop$,1;
-	npcshopattach .@shop$;
 	end;
 
 OnBuyItem:

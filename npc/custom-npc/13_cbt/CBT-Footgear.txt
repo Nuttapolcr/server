@@ -6,7 +6,6 @@ morocc,165,133,6	script	Footgear::Sample_Shop4 	10032,{
 	switch(select("ซื้อไอเท็ม:ออก")) {
 	case 1:
 		callshop "SampleShop4",1;
-		npcshopattach "SampleShop4";
 		end;
 	case 2:
 	default:
