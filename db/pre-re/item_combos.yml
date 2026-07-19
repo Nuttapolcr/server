@@ -864,7 +864,7 @@ Body:
       bonus bAgi,5;
       bonus bStr,5;
       bonus bAspdRate,5;
-      bonus bSpeedRate,25;
+      bonus bSpeedRate,5;
       bonus bSPDrainValue,1;
       if (BaseClass == Job_Thief)
          bonus bNoGemStone;

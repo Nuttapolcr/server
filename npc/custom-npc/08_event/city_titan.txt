@@ -29,7 +29,7 @@ OnClock2000:
 	if (.active) end;
 	.active = 1;
 	.ending = 0;
-	announce "[ City Titan ] Titan กำลังมุ่งหน้าสู่ใจกลาง Morocc อีก 30 วินาที!",bc_all|bc_blue;
+	announce "[ City Titan ] Titan กำลังมุ่งหน้าสู่แมพ Death Match2 อีก 30 วินาที!",bc_all|bc_blue;
 	sleep 10000;
 	if (!.active) end;
 	announce "[ City Titan ] Titan จะปรากฏในอีก 20 วินาที!",bc_all;
@@ -74,7 +74,7 @@ S_SpawnBoss:
 	.boss_y = .spawn_y;
 	.spawn_time = gettimetick(2);
 
-	announce "[ City Titan ] CITY TITAN ปรากฏตัวแล้ว ณ ใจกลาง Morocc!",bc_all|bc_blue;
+	announce "[ City Titan ] CITY TITAN ปรากฏตัวแล้ว ณ แมพ Death Match2!",bc_all|bc_blue;
 	announce "[ City Titan ] เมื่อ Titan ร่ายสกิล ทุกคนในบริเวณต้องนั่ง มิฉะนั้นจะเสียชีวิต!",bc_all;
 	monster .map$,.spawn_x,.spawn_y,"[City Titan]",.boss_id,1,strnpcinfo(0)+"::OnTitanKilled";
 	.boss_gid = $@mobid[0];
@@ -104,7 +104,7 @@ OnTimer1000:
 		killmonster .map$,strnpcinfo(0)+"::OnTitanKilled";
 		.boss_gid = 0;
 		.ending = 0;
-		announce "[ City Titan ] Titan หลบหนีออกจาก Morocc ไปแล้ว!",bc_all;
+		announce "[ City Titan ] Titan หลบหนีออกจากแมพ Death Match2 ไปแล้ว!",bc_all;
 		end;
 	}
 

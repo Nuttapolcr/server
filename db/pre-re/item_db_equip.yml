@@ -36772,8 +36772,6 @@ Body:
     Name: "[Rare] Bacsojin Egg"
     Type: PetEgg
     Buy: 20
-    Flags:
-      Collection: true
   - Id: 9040
     AegisName: Civil_Servant_Egg
     Name: Civil Servant Egg

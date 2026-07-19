@@ -10647,19 +10647,19 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 3600
-            Amount: 3
+            Amount: 1
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 3300
-            Amount: 2
+            Amount: 1
           - Index: 2
             Item: Barmund_Ice_Essence_NT
             Rate: 500
-            Amount: 2
+            Amount: 1
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
             Rate: 500
-            Amount: 2
+            Amount: 1
           - Index: 4
             Item: Yggdrasilberry
             Rate: 1000
@@ -10670,6 +10670,32 @@ Body:
             Item: Enriched_Elunium
             Rate: 50
           - Index: 9
+            Item: Enriched_Oridecon
+            Rate: 50
+      - SubGroup: 2
+        List:
+          - Index: 0
+            Item: Meteorite_Fragment
+            Rate: 3600
+            Amount: 3
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 3300
+            Amount: 2
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT
+            Rate: 500
+            Amount: 2
+          - Index: 3
+            Item: Yggdrasilberry
+            Rate: 1000
+          - Index: 4
+            Item: Seed_Of_Yggdrasil
+            Rate: 1000
+          - Index: 5
+            Item: Enriched_Elunium
+            Rate: 50
+          - Index: 6
             Item: Enriched_Oridecon
             Rate: 50
   - Group: MVP_TREASURE_RED
@@ -11256,5 +11282,42 @@ Body:
         List:
           - Index: 0
             Item: Zeny_Random
-            Rate: 100
+            Rate: 10000
             Amount: 1
+          - Index: 1
+            Item: Accessory_Box
+            Rate: 6000
+            Amount: 2
+          - Index: 2
+            Item: Zeny_Random
+            Rate: 10000
+            Amount: 2
+          - Index: 3
+            Item: Fragment_Stone_Box
+            Rate: 6000
+            Amount: 2
+          - Index: 4
+            Item: Pow_Meteorite_Dust
+            Rate: 500
+          - Index: 5
+            Item: Pow_Meteorite_Dust_NT
+            Rate: 500
+            Amount: 2
+          - Index: 6
+            Item: Barmund_Flame_Essence
+            Rate: 500
+          - Index: 7
+            Item: Barmund_Flame_Essence_NT
+            Rate: 500
+            Amount: 2
+          - Index: 8
+            Item: Pow_Meteorite_Fragment
+            Rate: 500
+          - Index: 9
+            Item: Pow_Meteorite_Fragment_NT
+            Rate: 500
+            Amount: 2
+          - Index: 10
+            Item: Zeny_Random
+            Rate: 1000
+            Amount: 3

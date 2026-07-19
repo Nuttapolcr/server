@@ -859,6 +859,10 @@ static TIMER_FUNC(pet_hungry){
 	// Loyal pets no longer become hungry. Keep the timer running in case their
 	// intimacy is lowered later, so normal hunger behavior can resume.
 	if (pd->pet.intimate >= PET_INTIMATE_LOYAL) {
+		if (pd->pet.hungry < PET_HUNGRY_STUFFED) {
+			pd->pet.hungry = PET_HUNGRY_STUFFED;
+			clif_send_petdata(sd, pd, 2, pd->pet.hungry);
+		}
 		interval = max(interval, 1);
 		pd->pet_hungry_timer = add_timer(tick+interval,pet_hungry,sd->bl.id,0);
 		return 0;

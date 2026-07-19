@@ -145,3 +145,6 @@ Thumbs.db
 
 # generated files
 generated
+
+# local backups
+/backups/

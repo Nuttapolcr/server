@@ -26770,7 +26770,7 @@ Body:
       bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 1001012
     AegisName: aegis_1001012
-    Name: Random Drop Box
+    Name: Random Box
     Type: Usable
     EquipLevelMin: 1
     View: 2113
@@ -28559,7 +28559,6 @@ Body:
       bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",15;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*15;
-      bonus bDelayrate,-(.@r/3*1);
       if (.@r>=7) {
          bonus bDex,3;
          bonus bInt,3;
@@ -29162,7 +29161,6 @@ Body:
       bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",15;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3*25;
-      bonus bDelayrate,-(.@r/3*1);
       if (.@r>=7) {
          bonus bDex,3;
          bonus bInt,3;
@@ -30504,6 +30502,8 @@ Body:
       .@r = getrefine();
       bonus bMatk,80;
       bonus bMatkRate,5;
+      bonus bDex,3;
+      bonus bInt,3;
       bonus bMatk,10*.@r;
       bonus bHealPower,.@r;
       bonus2 bAddClass,Class_Boss,10;
@@ -30515,6 +30515,8 @@ Body:
       if (.@r>=7) {
          bonus bMatk,80;
          bonus bMatkRate,10;
+      bonus bDex,2;
+      bonus bInt,2;
       }
   - Id: 18112
     AegisName: Upg_Bow
@@ -33136,7 +33138,6 @@ Body:
       if (.@g >= ENCHANTGRADE_D) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
-         bonus bCritical,5;
          bonus2 bAddClass,Class_Boss,10;
          bonus bDex,.@r/3*2;
          bonus bHit,.@r/3*5;
@@ -37039,7 +37040,7 @@ Body:
       }
   - Id: 1030025
     AegisName: Def_PK
-    Name: à¹ÿà¸ÿà¸ÿà¸±à¸ÿPK
+    Name: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¸±ï¿½ï¿½PK
     Type: Usable
     Weight: 0
     Script: |
