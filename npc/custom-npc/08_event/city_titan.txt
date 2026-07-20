@@ -239,6 +239,10 @@ S_ClearChests:
 		end;
 	}
 	if (!playerattached()) end;
+	if (#pk_protect_until > gettimetick(2)) {
+		dispbottom "[City Titan] ผู้เล่นที่ใช้ PK Protection ไม่สามารถเปิดกล่องสมบัติ Titan ได้";
+		end;
+	}
 
 	.@seconds = 10;
 	.@bar$ = "0x33B5FF";

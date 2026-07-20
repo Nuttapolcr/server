@@ -148,3 +148,8 @@ generated
 
 # local backups
 /backups/
+
+# local generated artifacts
+*.bak
+*.so
+*log
