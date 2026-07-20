@@ -30386,6 +30386,7 @@ Body:
       Swordman: true
       Thief: true
       Wizard: true
+      Assassin: true
     Locations:
       Right_Hand: true
     WeaponLevel: 3
@@ -37040,7 +37041,7 @@ Body:
       }
   - Id: 1030025
     AegisName: Def_PK
-    Name: ������ั��PK
+    Name: DEf PK
     Type: Usable
     Weight: 0
     Script: |
@@ -37198,3 +37199,15 @@ Body:
       getitem 7776,10;
       getitem 22571,10;
       getitem 1030005,1;
+  - Id: 1030043
+    AegisName: N_Charm_Valor_V.1
+    Name: "[N] Charm Valor V.1 (NO GVG)"
+    Type: Charm
+  - Id: 1030044
+    AegisName: R_Charm_Valor V.1
+    Name: "[R] Charm Valor V.1 (NO GVG)"
+    Type: Charm
+  - Id: 1030045
+    AegisName: E_Charm_Valor V.1
+    Name: "[E] Charm Valor V.1 (GVG)"
+    Type: Charm

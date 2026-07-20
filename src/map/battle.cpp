@@ -11135,6 +11135,9 @@ int battle_check_target( struct block_list *src, struct block_list *target,int f
 
 			if( ((sd->state.block_action & PCBLOCK_IMMUNE) || (sc->getSCE(SC_KINGS_GRACE) && s_bl->type != BL_PC)) && flag&BCT_ENEMY )
 				return 0; // Global immunity only to Attacks
+			if( s_bl->type == BL_PC && flag&BCT_ENEMY &&
+				(s_sc->getSCE(SC_PKPASS_DEF) || src_sd->special_state.pkpass_defense) )
+				return 0; // PK defense pass holders cannot attack other players
 			if (sc && sc->getSCE(SC_PK_DEFEND) && s_bl->type == BL_PC)
 				return 0; // PK Protection blocks player attacks outside MF_PKPASS too.
 			if( sc && (sc->getSCE(SC_PKPASS_DEF)||sd->special_state.pkpass_defense) && s_bl->type == BL_PC && (s_sc && s_sc->getSCE(SC_PKPASS_ATK)))

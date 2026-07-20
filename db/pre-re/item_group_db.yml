@@ -10654,11 +10654,11 @@ Body:
             Amount: 1
           - Index: 2
             Item: Barmund_Ice_Essence_NT
-            Rate: 500
+            Rate: 1000
             Amount: 1
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
-            Rate: 500
+            Rate: 1000
             Amount: 1
           - Index: 4
             Item: Yggdrasilberry
@@ -10684,7 +10684,7 @@ Body:
             Amount: 2
           - Index: 2
             Item: Barmund_Ice_Essence_NT
-            Rate: 500
+            Rate: 1000
             Amount: 2
           - Index: 3
             Item: Yggdrasilberry
@@ -10698,6 +10698,9 @@ Body:
           - Index: 6
             Item: Enriched_Oridecon
             Rate: 50
+          - Index: 7
+            Item: Crt_Meteorite_Fragment_NT
+            Rate: 1000
   - Group: MVP_TREASURE_RED
     SubGroups:
       - SubGroup: 1
@@ -10716,7 +10719,7 @@ Body:
             Amount: 3
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
-            Rate: 800
+            Rate: 1200
             Amount: 3
           - Index: 4
             Item: Pow_Meteorite_Dust_NT
@@ -10755,7 +10758,7 @@ Body:
             Amount: 4
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
-            Rate: 800
+            Rate: 1200
             Amount: 4
           - Index: 4
             Item: Pow_Meteorite_Dust_NT
@@ -11284,10 +11287,6 @@ Body:
             Item: Zeny_Random
             Rate: 10000
             Amount: 1
-          - Index: 1
-            Item: Accessory_Box
-            Rate: 6000
-            Amount: 2
           - Index: 2
             Item: Zeny_Random
             Rate: 10000
@@ -11321,3 +11320,7 @@ Body:
             Item: Zeny_Random
             Rate: 1000
             Amount: 3
+          - Index: 11
+            Item: Jewel_Box
+            Rate: 6000
+            Amount: 2

@@ -464,8 +464,7 @@ G6: Go("schg_dun01",200,124);
 	Instances:
 // --------------------------------------------------
 menu	"Endless Tower",I6, "Geffen Magic Tournament",I8,
-		"Ghost Palace",I9, "Old Glast Heim",I15,
-		"Faceworms Nest",I7, "Sarah and Fenrir",I17;
+		"Old Glast Heim",I15;
 
 I1: Restrict("RE");
 	Go("ma_scene01",172,175);
@@ -1101,11 +1100,8 @@ OnNaviGenerate:
 	// enabled instances
 	naviregisterwarp("Warper > Endless Tower", "e_tower", 81, 105);
 	if (checkre(0)) {
-		naviregisterwarp("Warper > Faceworms Nest", "dali", 80, 60);
 		naviregisterwarp("Warper > Geffen Magic Tournament", "dali", 98, 141);
-		naviregisterwarp("Warper > Ghost Palace", "dali02", 43, 129);
 		naviregisterwarp("Warper > Old Glast Heim", "glast_01", 204, 268);
-		naviregisterwarp("Warper > Sarah and Fenrir", "dali02", 97, 142);
 	}
 
 
@@ -1195,4 +1191,3 @@ morocc,163,97,4	duplicate(Warper)	Warper#mor	10371
 //morocc,80,250,4	duplicate(Warper)	Warp Service#11	10371
 //morocc,84,200,4	duplicate(Warper)	Warp Service#12	10371
 //morocc,71,112,4	duplicate(Warper)	Warp Service#13	10371
-
