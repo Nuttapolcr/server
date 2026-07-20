@@ -1,5 +1,5 @@
 //===== Custom NPC: MVP Treasure ============================================
-//= Source: Google Sheet gid=1934403543 rows 49-139
+//= Source: Google Sheet gid=838586176 (∫Õ ‡«Õ√Ï™—ËπÕ—æ‡°√¥ √«¡titan¥È«¬)
 //= When a listed MVP boss dies, clickable treasure chests spawn at the death
 //= spot. The player clicks a chest, a per-color "open" bar runs, and on
 //= completion the chest yields ONE weighted-random reward and is removed.
@@ -15,9 +15,8 @@
 //=
 //= Rewards come from item_group_db (db/pre-re/item_group_db.yml):
 //=   IG_MVP_TREASURE_BLUE / _RED / _PURPLE
-//=   SubGroup 1 = Tier-A (A3-A39), SubGroup 2 = Tier-S (A40-A44, adds stones).
-//=   Blue is identical for both tiers, so it always uses SubGroup 1.
-//=   One item is pulled per open via groupranditem() (Rate = weight per group).
+//=   SubGroup 1 = standard bosses; SubGroup 2 = rare bosses (adds stones).
+//=   One item is pulled per open via getrandgroupitem() (Rate = weight; Amount is honored).
 //=
 //= Implementation notes:
 //=  - Chests are runtime duplicates (duplicate()) with a treasure-chest sprite.
@@ -36,16 +35,16 @@
 	end;
 
 OnInit:
-	// --- Tier-A bosses (A4-A39): standard loot tables ---
+	// --- Standard bosses: standard loot tables ---
 	// NOTE: sheet's "Giant Eggring" (A3) has no pre-re mob entry; add its id here if created.
 	setarray .tierA[0],
-		1087,1147,1190,1115,1086,1038,1511,1159,1389,1046,	// OrcHero,Maya,OrcLord,Eddga,GTB,Osiris,AmonRa,Phreeoni,Dracula,Doppel
-		1059,1150,1688,1039,1157,1112,1251,2068,1373,1272,	// Mistress,Moonlight,LadyTanee,Baphomet,Pharaoh,Drake,StormyKnight,Boitata,LoD,DarkLord
-		1885,1630,1252,1779,1708,1623,1492,1418,1583,1312,	// Gopinich,WhiteLady,Hatii,Ktullanux,Thanatos,RSX,SamuraiSpecter,EvilSnakeLord,TaoGunka,TurtleGen
-		1785,1734,1685,1719,1871,1768;						// Atroce,KielD-01,Vesper,Detardeurus,FallingBishop,Gloom
-	// --- Tier-S bosses (A40-A44): high-tier loot (adds Rare/Epic stones) ---
+		1087,1147,1190,1115,1086,1038,1159,1389,1046,		// OrcHero,Maya,OrcLord,Eddga,GTB,Osiris,Phreeoni,Dracula,Doppel
+		1059,1150,1039,1157,1112,1251,2068,1373,1272,		// Mistress,Moonlight,Baphomet,Pharaoh,Drake,StormyKnight,Boitata,LoD,DarkLord
+		1885,1630,1252,1708,1623,1492,1583,1312,			// Gopinich,WhiteLady,Hatii,Thanatos,RSX,SamuraiSpecter,TaoGunka,TurtleGen
+		1785,1734,1685,1719;							// Atroce,KielD-01,Vesper,Detardeurus
+	// --- Rare bosses: high-tier loot (adds Rare/Epic stones) ---
 	setarray .tierS[0],
-		2022,1751,1832,1873,1917;							// S Nydhog,Valkyrie Randgris,Ifrit,Beelzebub,Wounded Morocc
+		1511,1418,1871,1768,1779,1688,1751,1832,1873,1917;	// AmonRa,EvilSnakeLord,FallenBishop,Gloom,Ktullanux,LadyTanee,ValkyrieRandgris,Ifrit,Beelzebub,WoundedMorocc
 
 	.chest_sprite = 1324;	// Treasure Chest sprite
 	.spawn_radius = 3;		// random scatter (cells) around the death spot
@@ -150,19 +149,12 @@ OnSpawn:
 	setd "$@mtbo_"+.@id, 1;	// claim
 	stopnpctimer;
 
-	// pull one weighted reward from item_group_db; SubGroup = tier (Blue shares SubGroup 1)
+	// Grant one weighted reward from item_group_db; quantity 0 uses its configured Amount.
 	.@grp = IG_MVP_TREASURE_BLUE;
 	if (.@col$ == "R")      .@grp = IG_MVP_TREASURE_RED;
 	else if (.@col$ == "P") .@grp = IG_MVP_TREASURE_PURPLE;
 	.@sub = .@tier;
-	if (.@col$ == "B") .@sub = 1;
-	.@reward = groupranditem(.@grp, .@sub);
-	getitem .@reward, 1;
-
-	// announce rare pulls (Epic items / equipment stones)
-	setarray .@rare[0], 1001686,1001689,1001692,1000419,1000423,1000426,1000422,1000425,1000428;
-	if (inarray(.@rare, .@reward) >= 0)
-		announce "[MVP Treasure] "+strcharinfo(0)+" ‰¥È√—∫ "+getitemname(.@reward)+" !", bc_all;
+	getrandgroupitem .@grp,0,.@sub;
 
 	disablenpc strnpcinfo(3);
 	end;

@@ -10647,25 +10647,25 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 3600
-            Amount: 1
+            Amount: 2
           - Index: 1
             Item: Crt_Meteorite_Dust_NT
             Rate: 3300
-            Amount: 1
+            Amount: 2
           - Index: 2
             Item: Barmund_Ice_Essence_NT
-            Rate: 1000
+            Rate: 1200
             Amount: 1
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
-            Rate: 1000
+            Rate: 1200
             Amount: 1
           - Index: 4
             Item: Yggdrasilberry
-            Rate: 1000
+            Rate: 300
           - Index: 5
             Item: Seed_Of_Yggdrasil
-            Rate: 1000
+            Rate: 300
           - Index: 8
             Item: Enriched_Elunium
             Rate: 50
@@ -10684,14 +10684,14 @@ Body:
             Amount: 2
           - Index: 2
             Item: Barmund_Ice_Essence_NT
-            Rate: 1000
+            Rate: 1200
             Amount: 2
           - Index: 3
             Item: Yggdrasilberry
-            Rate: 1000
+            Rate: 300
           - Index: 4
             Item: Seed_Of_Yggdrasil
-            Rate: 1000
+            Rate: 300
           - Index: 5
             Item: Enriched_Elunium
             Rate: 50
@@ -10700,7 +10700,8 @@ Body:
             Rate: 50
           - Index: 7
             Item: Crt_Meteorite_Fragment_NT
-            Rate: 1000
+            Rate: 1200
+            Amount: 2
   - Group: MVP_TREASURE_RED
     SubGroups:
       - SubGroup: 1
@@ -10719,7 +10720,7 @@ Body:
             Amount: 3
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
-            Rate: 1200
+            Rate: 800
             Amount: 3
           - Index: 4
             Item: Pow_Meteorite_Dust_NT
@@ -10758,7 +10759,7 @@ Body:
             Amount: 4
           - Index: 3
             Item: Crt_Meteorite_Fragment_NT
-            Rate: 1200
+            Rate: 800
             Amount: 4
           - Index: 4
             Item: Pow_Meteorite_Dust_NT

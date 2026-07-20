@@ -259,11 +259,8 @@ S_ClearChests:
 	setd "$@ctbo_"+.@id,1;
 	stopnpctimer;
 
-	.@reward = groupranditem(.@group,1);
-	getitem .@reward,1;
-	setarray .@rare[0],1001686,1001689,1001692;
-	if (inarray(.@rare,.@reward) >= 0)
-		announce "[ City Titan ] "+strcharinfo(0)+" ได้รับ "+getitemname(.@reward)+" จากกล่องสมบัติ!",bc_all;
+	// Quantity 0 uses the Amount configured for the selected item group entry.
+	getrandgroupitem .@group,0,1;
 
 	disablenpc strnpcinfo(3);
 	end;

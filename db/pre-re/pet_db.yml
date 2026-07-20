@@ -911,7 +911,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Girl_Ninetail_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -925,7 +925,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Angry_Penquin_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -939,7 +939,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Baby_Nymp_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -953,7 +953,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Ghost_Doll_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -967,7 +967,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Baby_Straw_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -981,7 +981,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Ballerina_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -995,7 +995,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Mushroom_Boy_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1009,7 +1009,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Japan_Evil_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1023,7 +1023,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Turtle_Boxer_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1037,7 +1037,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Lovely_Shell_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1051,7 +1051,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Pollywog_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1065,7 +1065,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Black_Bear_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1079,7 +1079,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Poison_Boa_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1093,7 +1093,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Cephalopoda_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1107,7 +1107,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Carboniferous_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1121,7 +1121,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Donkey_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1135,7 +1135,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Cat_Fanciers_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1149,7 +1149,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Pineapple_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1163,7 +1163,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Devil_Bat_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1177,7 +1177,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Physignathus_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1191,7 +1191,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Squamata_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1205,7 +1205,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: China_Ghost_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1219,7 +1219,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Mickey_Mushroom_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1233,7 +1233,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Lazy_Spore_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1247,7 +1247,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Ant_Soldier_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1261,7 +1261,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Clione_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1275,7 +1275,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Chrysocolla_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1289,7 +1289,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Mingo_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1303,7 +1303,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Devil_Snowman_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1317,7 +1317,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Ball_Joker_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1331,7 +1331,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Lovely_Straw_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1345,7 +1345,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Mummy_Boy_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1359,7 +1359,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Koom_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1373,7 +1373,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Illumicase_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1387,7 +1387,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Kunoichi_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1401,7 +1401,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Pirate_Skull_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1415,7 +1415,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Chibi_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1429,7 +1429,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Pikachu_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1443,7 +1443,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Amemachi_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1457,7 +1457,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Jirachi_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1471,7 +1471,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Luxray_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1485,7 +1485,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Shaymin_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1499,7 +1499,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Diancie_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1513,7 +1513,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Jivreth_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1527,7 +1527,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Imp_Orc_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1541,7 +1541,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Orc_Lantern_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1555,7 +1555,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Makaisenki_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1569,7 +1569,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Felynn_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1583,7 +1583,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Sephirens_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1597,7 +1597,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Mystic_Beast_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1611,7 +1611,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Scarecrow_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1625,7 +1625,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Madoka_Kaname_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1639,7 +1639,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Nezaria_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1653,7 +1653,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Sandeul_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1667,7 +1667,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Blank_Cat_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1681,7 +1681,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Smart_Cat_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1695,7 +1695,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Pirate_Cat_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1709,7 +1709,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Ninja_Cat_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1723,7 +1723,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Mummy_Cat_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1737,7 +1737,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Queen_Cat_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1751,7 +1751,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Electric_Cat_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1765,7 +1765,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Fennekin_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1779,7 +1779,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Usalia_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1793,7 +1793,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Golden_Bug_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1812,7 +1812,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Maya_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1831,7 +1831,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Eddga_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1850,7 +1850,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Dark_Lord_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1869,7 +1869,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Baphomet_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1887,7 +1887,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Orc_Lord_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1906,7 +1906,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Lady_Tanee_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1925,7 +1925,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Phreeoni_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1944,7 +1944,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Orc_Hero_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1963,7 +1963,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Amon_Ra_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -1982,7 +1982,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Pharaoh_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2000,7 +2000,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Bacsojin_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2019,7 +2019,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Osiris_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2038,7 +2038,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Dracula_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2057,7 +2057,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Doppelganger_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2076,7 +2076,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Mistress_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2095,7 +2095,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Moonlight_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2114,7 +2114,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Drake_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2133,7 +2133,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Knight_Of_Windstorm_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2159,7 +2159,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Lord_Of_Death_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2178,7 +2178,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Seyren_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2200,7 +2200,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Eremes_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2221,7 +2221,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Harword_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2242,7 +2242,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Magaleta_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2263,7 +2263,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Shecil_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2285,7 +2285,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Katrinn_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyOverfed: -100
@@ -2306,7 +2306,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Randel_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyOverfed: -100
@@ -2327,7 +2327,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Flamel_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2349,7 +2349,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Celia_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2371,7 +2371,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: B_Chen_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2395,7 +2395,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Medjay_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2417,7 +2417,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Cp_Heka_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2439,7 +2439,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Medjed_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2463,7 +2463,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Spirit_R_Flame_Sl_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2487,7 +2487,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Spirit_I_Water_M_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
@@ -2512,7 +2512,7 @@ Body:
     TameItem: Pet_Taming
     EggItem: Spirit_S_Wind_M_Egg
     FoodItem: Pet_Food
-    Fullness: 0
+    Fullness: 1
     HungryDelay: 120
     IntimacyFed: 0
     IntimacyHungry: -5
