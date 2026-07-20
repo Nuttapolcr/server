@@ -272,7 +272,7 @@ OnArm:
 	initnpctimer;
 	end;
 
-OnTimer120000:
+OnTimer1800000:
 	stopnpctimer;
 	disablenpc strnpcinfo(3);
 	end;

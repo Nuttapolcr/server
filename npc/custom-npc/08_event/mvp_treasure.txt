@@ -49,7 +49,7 @@ OnInit:
 
 	.chest_sprite = 1324;	// Treasure Chest sprite
 	.spawn_radius = 3;		// random scatter (cells) around the death spot
-	.despawn      = 120;	// seconds before an unopened chest disappears
+	.despawn      = 600;	// seconds before an unopened chest disappears
 	end;
 
 OnNPCKillEvent:
