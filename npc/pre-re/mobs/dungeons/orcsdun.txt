@@ -13,29 +13,29 @@
 //==================================================
 // orcsdun01 - Orc Dungeon F1
 //==================================================
-orcsdun01,0,0	monster	Steel Chonchon	1042,40
-orcsdun01,0,0	monster	Familiar	1005,60
-orcsdun01,0,0	monster	Drainliar	1111,20
-orcsdun01,0,0	monster	Orc Zombie	1153,40,3000,5000
-orcsdun01,0,0	monster	Orc Zombie	1153,120,60000,30000
-orcsdun01,0,0	monster	Orc Zombie	1153,160,120000,60000
-orcsdun01,0,0	monster	Orc Skeleton	1152,40,180000,60000
-orcsdun01,167,133,5,5	monster	Black Mushroom	1084,20,900000,450000
-orcsdun01,67,34,5,5	monster	Black Mushroom	1084,20,900000,450000
-orcsdun01,83,50,5,5	monster	White Plant	1082,8,180000,90000
-orcsdun01,58,67,10,10	monster	White Plant	1082,12,180000,90000
+orcsdun01,0,0	monster	Steel Chonchon	1042,25
+orcsdun01,0,0	monster	Familiar	1005,37
+orcsdun01,0,0	monster	Drainliar	1111,12
+orcsdun01,0,0	monster	Orc Zombie	1153,25,3000,5000
+orcsdun01,0,0	monster	Orc Zombie	1153,75,60000,30000
+orcsdun01,0,0	monster	Orc Zombie	1153,100,120000,60000
+orcsdun01,0,0	monster	Orc Skeleton	1152,25,180000,60000
+orcsdun01,167,133,5,5	monster	Black Mushroom	1084,12,900000,450000
+orcsdun01,67,34,5,5	monster	Black Mushroom	1084,12,900000,450000
+orcsdun01,83,50,5,5	monster	White Plant	1082,5,180000,90000
+orcsdun01,58,67,10,10	monster	White Plant	1082,7,180000,90000
 
 //==================================================
 // orcsdun02 - Orc Dungeon F2
 //==================================================
-orcsdun02,0,0	monster	Steel Chonchon	1042,80
-orcsdun02,0,0	monster	Drainliar	1111,80
-orcsdun02,0,0	monster	Orc Skeleton	1152,40,3000,5000
-orcsdun02,0,0	monster	Orc Skeleton	1152,80,60000,30000
-orcsdun02,0,0	monster	Orc Skeleton	1152,80,120000,60000
-orcsdun02,0,0	monster	Zenorc	1177,120,3000,5000
-orcsdun02,0,0	monster	Zenorc	1177,80,60000,30000
-orcsdun02,0,0	monster	Orc Archer	1189,20,1800000,900000
-orcsdun02,0,0	monster	Black Mushroom	1084,20,180000,90000
-orcsdun02,105,37,10,10	monster	White Plant	1082,8,180000,90000
-orcsdun02,37,44,10,10	monster	White Plant	1082,12,180000,90000
+orcsdun02,0,0	monster	Steel Chonchon	1042,50
+orcsdun02,0,0	monster	Drainliar	1111,50
+orcsdun02,0,0	monster	Orc Skeleton	1152,25,3000,5000
+orcsdun02,0,0	monster	Orc Skeleton	1152,50,60000,30000
+orcsdun02,0,0	monster	Orc Skeleton	1152,50,120000,60000
+orcsdun02,0,0	monster	Zenorc	1177,75,3000,5000
+orcsdun02,0,0	monster	Zenorc	1177,50,60000,30000
+orcsdun02,0,0	monster	Orc Archer	1189,12,1800000,900000
+orcsdun02,0,0	monster	Black Mushroom	1084,12,180000,90000
+orcsdun02,105,37,10,10	monster	White Plant	1082,5,180000,90000
+orcsdun02,37,44,10,10	monster	White Plant	1082,7,180000,90000

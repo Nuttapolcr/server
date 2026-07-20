@@ -21,10 +21,10 @@ alde_dun01,0,0	monster	Drainliar	1111,40
 //==================================================
 // alde_dun02 - Clock Tower B2
 //==================================================
-alde_dun02,0,0	monster	High Orc	1213,200
-alde_dun02,0,0	monster	Orc Archer	1189,80
-alde_dun02,0,0	monster	Brilight	1211,80
-alde_dun02,0,0	monster	Arclouze	1194,80
+alde_dun02,0,0	monster	High Orc	1213,125
+alde_dun02,0,0	monster	Orc Archer	1189,50
+alde_dun02,0,0	monster	Brilight	1211,50
+alde_dun02,0,0	monster	Arclouze	1194,50
 
 //==================================================
 // alde_dun03 - Clock Tower B3

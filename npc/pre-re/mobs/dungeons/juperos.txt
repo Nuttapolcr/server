@@ -21,29 +21,29 @@
 // - Juperos 01
 //========================================================================================
 
-juperos_01,100,180,60,70	monster	Venatu	1679,60,300000
-juperos_01,100,180,60,70	monster	Venatu	1676,100,300000
-juperos_01,100,180,60,70	monster	Venatu	1677,80,300000
-juperos_01,100,180,60,70	monster	Venatu	1678,100,300000
-juperos_01,192,132,60,80	monster	Venatu	1679,140,300000
-juperos_01,192,132,60,80	monster	Venatu	1676,180,300000
-juperos_01,192,132,60,80	monster	Venatu	1677,200,300000
-juperos_01,192,132,60,80	monster	Venatu	1678,180,300000
-juperos_01,0,0	monster	Dimik	1670,20
-juperos_01,0,0	monster	Dimik	1671,20
-juperos_01,0,0	monster	Dimik	1672,20
-juperos_01,0,0	monster	Dimik	1673,20
-juperos_01,232,202,25,25	monster	Dimik	1670,20,420000
+juperos_01,100,180,60,70	monster	Venatu	1679,37,300000
+juperos_01,100,180,60,70	monster	Venatu	1676,62,300000
+juperos_01,100,180,60,70	monster	Venatu	1677,50,300000
+juperos_01,100,180,60,70	monster	Venatu	1678,62,300000
+juperos_01,192,132,60,80	monster	Venatu	1679,87,300000
+juperos_01,192,132,60,80	monster	Venatu	1676,112,300000
+juperos_01,192,132,60,80	monster	Venatu	1677,125,300000
+juperos_01,192,132,60,80	monster	Venatu	1678,112,300000
+juperos_01,0,0	monster	Dimik	1670,12
+juperos_01,0,0	monster	Dimik	1671,12
+juperos_01,0,0	monster	Dimik	1672,12
+juperos_01,0,0	monster	Dimik	1673,12
+juperos_01,232,202,25,25	monster	Dimik	1670,12,420000
 
 //========================================================================================
 // - Juperos 02
 //========================================================================================
 
-juperos_02,0,0	monster	Venatu	1679,200
-juperos_02,0,0	monster	Venatu	1676,260
-juperos_02,0,0	monster	Venatu	1677,260
-juperos_02,0,0	monster	Venatu	1678,260
-juperos_02,0,0	monster	Apocalypse	1365,280
+juperos_02,0,0	monster	Venatu	1679,125
+juperos_02,0,0	monster	Venatu	1676,162
+juperos_02,0,0	monster	Venatu	1677,162
+juperos_02,0,0	monster	Venatu	1678,162
+juperos_02,0,0	monster	Apocalypse	1365,175
 
 //========================================================================================
 // - Juperos Core
