@@ -2276,7 +2276,6 @@ Body:
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus2 bAddClass,Class_Boss,40;
-        bonus2 bAddEff2,SC_COMA,100;
         bonus2 bAddEff2,Eff_Curse,500;
         bonus2 bSubRace,RC_DemiHuman,5;
         bonus2 bSubRace,RC_Player_Human,5;
