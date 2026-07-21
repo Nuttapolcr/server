@@ -2245,8 +2245,8 @@ Body:
     Fullness: 1
     HungryDelay: 120
     IntimacyFed: 5
-    IntimacyHungry: -5
     IntimacyOverfed: -100
+    IntimacyHungry: -5
     IntimacyOwnerDie: 0
     CaptureRate: 0
     AllowAutoFeed: true
@@ -2255,7 +2255,7 @@ Body:
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus2 bResEff,Eff_Stun,5000;
-        bonus2 bAddEff2,Eff_Freeze,10000;
+        bonus2 bAddEff2,Eff_Freeze,500;
         bonus2 bSubRace,RC_DemiHuman,5;
         bonus2 bSubRace,RC_Player_Human,5;
       }
@@ -2266,8 +2266,8 @@ Body:
     Fullness: 1
     HungryDelay: 120
     IntimacyFed: 5
-    IntimacyHungry: -5
     IntimacyOverfed: -100
+    IntimacyHungry: -5
     IntimacyOwnerDie: 0
     CaptureRate: 0
     AllowAutoFeed: true
@@ -2277,7 +2277,7 @@ Body:
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus2 bAddClass,Class_Boss,40;
         bonus2 bAddEff2,SC_COMA,100;
-        bonus2 bAddEff2,Eff_Curse,10000;
+        bonus2 bAddEff2,Eff_Curse,500;
         bonus2 bSubRace,RC_DemiHuman,5;
         bonus2 bSubRace,RC_Player_Human,5;
       }

@@ -3,6 +3,7 @@
 
 #include "int_guild.hpp"
 
+#include <algorithm>
 #include <memory>
 #include <unordered_map>
 
@@ -887,13 +888,8 @@ int guild_calcinfo( std::shared_ptr<CharGuild> g ){
 		g->guild.next_exp = guild_exp_db.get_nextexp(g->guild.guild_lv);
 	}
 
-	// Set the max number of members, Guild Extention skill - currently adds 6 to max per skill lv.
-	g->guild.max_member = 18 + guild_checkskill(g, GD_EXTENSION) * 1;
-	if(g->guild.max_member > MAX_GUILD)
-	{
-		ShowError("Guild %d:%s has capacity for too many guild members (%d), max supported is %d\n", g->guild.guild_id, g->guild.name, g->guild.max_member, MAX_GUILD);
-		g->guild.max_member = MAX_GUILD;
-	}
+	// Guild Extension adds one member per level to the base capacity of 18.
+	g->guild.max_member = std::min(14 + guild_checkskill(g, GD_EXTENSION), MAX_GUILD);
 
 	// Compute the guild average level
 	g->guild.average_lv=0;

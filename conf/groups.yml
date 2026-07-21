@@ -62,6 +62,7 @@ Body:
       mystats: true
       hidepet: true
       hidepetall: true
+      afk: true
     Permissions:
       # without this basic permissions regular players could not trade or party
       view_equipment: true

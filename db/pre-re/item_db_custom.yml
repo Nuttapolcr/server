@@ -28660,6 +28660,7 @@ Body:
       if (.@r>=7) {
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
+      }
   - Id: 510019
     AegisName: Up_Magic_Sword
     Name: "[Rare] Stalker Weapon"
@@ -32070,7 +32071,7 @@ Body:
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"KN_BOWLINGBASH",30;
       bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*30;
-      bonus2 bIgnoreDefRaceRate,RC_Player,20;
+      bonus2 bIgnoreDefRaceRate,RC_Player_Human,20;
       bonus2 bAddRace,RC_DemiHuman,40;
       bonus2 bAddRace,RC_Player_Human,40;
       if (.@r>=7) {
@@ -32329,7 +32330,7 @@ Body:
       bonus2 bSkillAtk,"WS_CARTTERMINATION",50;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"WS_CARTTERMINATION",.@r/3*70;
-      bonus2 bIgnoreDefRaceRate,RC_Player,20;
+      bonus2 bIgnoreDefRaceRate,RC_Player_Human,20;
       bonus2 bAddRace,RC_DemiHuman,40;
       bonus2 bAddRace,RC_Player_Human,40;
       if (.@r>=7) {
@@ -32610,7 +32611,7 @@ Body:
       bonus bCritAtkRate,.@r/3*5;
       bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
       bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*10;
-      bonus2 bIgnoreDefRaceRate,RC_Player,30;
+      bonus2 bIgnoreDefRaceRate,RC_Player_Human,30;
       bonus2 bAddRace,RC_DemiHuman,30;
       bonus2 bAddRace,RC_Player_Human,30;
 
@@ -33120,7 +33121,7 @@ Body:
       bonus bHit,.@r/3*5;
       bonus2 bSkillAtk,"GS_DESPERADO",.@r/3*10;
       bonus2 bSkillAtk,"GS_RAPIDSHOWER",.@r/3*10;
-      bonus2 bIgnoreDefRaceRate,RC_Player,30;
+      bonus2 bIgnoreDefRaceRate,RC_Player_Human,30;
       bonus2 bAddRace,RC_DemiHuman,20;
       bonus2 bAddRace,RC_Player_Human,20;
       if (.@r>=7) {
@@ -35921,7 +35922,6 @@ Body:
       Collection: true
     CollectionScript: |-
       bonus2 bResEff,Eff_Stun,5000;
-      bonus2 bAddEff2,Eff_Freeze,10000;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
@@ -35936,7 +35936,6 @@ Body:
       Collection: true
     CollectionScript: |-
       bonus2 bAddClass,Class_Boss,35;
-      bonus2 bAddEff2,Eff_Curse,10000;
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
@@ -36488,7 +36487,7 @@ Body:
     Script: |
       .@zeny = rand(100000,500000);
       Zeny += .@zeny;
-      dispbottom "You received "+F_InsertComma(.@zeny)+" Zeny!";
+      dispbottom "You received "+callfunc("F_InsertComma",.@zeny)+" Zeny!";
       specialeffect2 EF_MONEY;
       end;
   - Id: 1030013
@@ -36538,13 +36537,13 @@ Body:
     AegisName: up_slate_sword2
     Name: "[Rare] Attack Sword"
     Type: Weapon
-    SubType: Sword
+    SubType: 1hSword
     Locations:
       Right_Hand: true
     WeaponLevel: 3
     EquipLevelMin: 1
   - Id: 700013
-    AegisName: New_Item_1030018
+    AegisName: Up_Narcis_Bow
     Name: "[Rare] Sniper Focused Weapon"
     Type: Weapon
     SubType: Bow
@@ -36574,7 +36573,7 @@ Body:
          bonus bDelayrate,-10;
       }
   - Id: 510020
-    AegisName: New_Item_1030018
+    AegisName: Up_Fatalist
     Name: "[Rare] Magic Dagger"
     Type: Weapon
     SubType: Dagger
@@ -36750,12 +36749,13 @@ Body:
     AegisName: adulter_f_g_sword2
     Name: "[Epic] Attack Sword"
     Type: Weapon
-    SubType: Sword
+    SubType: 1hSword
     Jobs:
       Thief: true
       Swordman: true
     Locations:
       Right_Hand: true
+    WeaponLevel: 3
   - Id: 1400
     AegisName: Sinister_Spear
     Name: "[Legend] Lord Knight2 Weapon"
@@ -36783,7 +36783,7 @@ Body:
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"KN_PIERCE",50;
       bonus2 bSkillAtk,"KN_PIERCE",.@r/3*15;
-      bonus2 bIgnoreDefRaceRate,RC_Player,20;
+      bonus2 bIgnoreDefRaceRate,RC_Player_Human,20;
       bonus2 bAddRace,RC_DemiHuman,40;
       bonus2 bAddRace,RC_Player_Human,40;
       if (.@r>=7) {
@@ -37211,3 +37211,14 @@ Body:
     AegisName: E_Charm_Valor V.1
     Name: "[E] Charm Valor V.1 (GVG)"
     Type: Charm
+  - Id: 19163
+    AegisName: Catherina_Von_Blood
+    Name: Catherina Von Blood
+    Type: Armor
+    Defense: 3
+    Slots: 1
+    Refineable: true
+    EquipLevelMin: 1
+    ArmorLevel: 1
+    Locations:
+      Head_Top: true

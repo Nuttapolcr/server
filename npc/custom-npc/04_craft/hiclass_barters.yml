@@ -531,7 +531,7 @@ Body:
             Item: Meteorite_Fragment # 1000373
             Amount: 200
       - Index: 18
-        Item: New_Item_1030018 # 700013
+        Item: Up_Narcis_Bow # 700013
         Zeny: 10000000
         Rate: 10000
         IsNPC: true
@@ -581,7 +581,7 @@ Body:
             Item: Meteorite_Fragment # 1000373
             Amount: 200
       - Index: 20
-        Item: New_Item_1030018 # 510020
+        Item: Up_Fatalist # 510020
         Zeny: 10000000
         Rate: 10000
         IsNPC: true
@@ -1087,7 +1087,7 @@ Body:
         IsNPC: true
         RequiredItems:
           - Index: 0
-            Item: New_Item_1030018 # 700013
+            Item: Up_Narcis_Bow # 700013
             Amount: 1
             Refine: 11
           - Index: 1
@@ -1137,7 +1137,7 @@ Body:
         IsNPC: true
         RequiredItems:
           - Index: 0
-            Item: New_Item_1030018 # 510020
+            Item: Up_Fatalist # 510020
             Amount: 1
             Refine: 11
           - Index: 1
