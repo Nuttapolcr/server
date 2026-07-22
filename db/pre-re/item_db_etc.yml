@@ -2107,7 +2107,7 @@ Body:
     SubType: Arrow
     Buy: 1
     Sell: 0
-    Weight: 1
+    Weight: 0
     Attack: 25
     Jobs:
       Archer: true
@@ -2126,7 +2126,7 @@ Body:
     SubType: Arrow
     Buy: 3
     Sell: 0
-    Weight: 2
+    Weight: 0
     Attack: 30
     Jobs:
       Archer: true
@@ -2147,7 +2147,7 @@ Body:
     SubType: Arrow
     Buy: 3
     Sell: 0
-    Weight: 2
+    Weight: 0
     Attack: 30
     Jobs:
       Archer: true
@@ -2168,7 +2168,7 @@ Body:
     SubType: Arrow
     Buy: 4
     Sell: 0
-    Weight: 2
+    Weight: 0
     Attack: 40
     Jobs:
       Archer: true
@@ -2208,7 +2208,7 @@ Body:
     SubType: Arrow
     Buy: 3
     Sell: 0
-    Weight: 2
+    Weight: 0
     Attack: 30
     Jobs:
       Archer: true
@@ -2229,7 +2229,7 @@ Body:
     SubType: Arrow
     Buy: 3
     Sell: 0
-    Weight: 2
+    Weight: 0
     Attack: 30
     Jobs:
       Archer: true
@@ -2250,7 +2250,7 @@ Body:
     SubType: Arrow
     Buy: 3
     Sell: 0
-    Weight: 1
+    Weight: 0
     Attack: 30
     Jobs:
       Archer: true
@@ -2271,7 +2271,7 @@ Body:
     SubType: Arrow
     Buy: 10
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 1
     Jobs:
       Archer: true
@@ -2292,7 +2292,7 @@ Body:
     SubType: Arrow
     Buy: 10
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 1
     Jobs:
       Archer: true
@@ -2314,7 +2314,7 @@ Body:
     SubType: Arrow
     Buy: 10
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 1
     Jobs:
       Archer: true
@@ -2335,7 +2335,7 @@ Body:
     SubType: Arrow
     Buy: 10
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 1
     Jobs:
       Archer: true
@@ -2356,7 +2356,7 @@ Body:
     SubType: Arrow
     Buy: 3
     Sell: 0
-    Weight: 2
+    Weight: 0
     Attack: 30
     Jobs:
       Archer: true
@@ -2377,7 +2377,7 @@ Body:
     SubType: Arrow
     Buy: 10
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 1
     Jobs:
       Archer: true
@@ -2399,7 +2399,7 @@ Body:
     SubType: Arrow
     Buy: 20
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 10
     Jobs:
       Archer: true
@@ -2420,7 +2420,7 @@ Body:
     SubType: Arrow
     Buy: 30
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 50
     Jobs:
       Archer: true
@@ -2439,7 +2439,7 @@ Body:
     SubType: Arrow
     Buy: 40
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 50
     Jobs:
       Archer: true
@@ -2460,7 +2460,7 @@ Body:
     SubType: Arrow
     Buy: 3
     Sell: 0
-    Weight: 2
+    Weight: 0
     Attack: 30
     Jobs:
       Archer: true
@@ -2481,7 +2481,7 @@ Body:
     SubType: Arrow
     Buy: 10
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 1
     Jobs:
       Archer: true
@@ -2502,7 +2502,7 @@ Body:
     SubType: Arrow
     Buy: 10
     Sell: 0
-    Weight: 3
+    Weight: 0
     Attack: 1
     Jobs:
       Archer: true
@@ -2523,7 +2523,7 @@ Body:
     SubType: Arrow
     Buy: 2
     Sell: 0
-    Weight: 1
+    Weight: 0
     Attack: 30
     Jobs:
       Archer: true
@@ -2541,7 +2541,7 @@ Body:
     Type: Ammo
     SubType: Dagger
     Buy: 50
-    Weight: 5
+    Weight: 0
     Attack: 30
     Jobs:
       Assassin: true
@@ -2554,7 +2554,7 @@ Body:
     Type: Ammo
     SubType: Arrow
     Buy: 3
-    Weight: 2
+    Weight: 0
     Attack: 50
     Jobs:
       Archer: true
@@ -22734,7 +22734,7 @@ Body:
     Type: Ammo
     SubType: Bullet
     Buy: 1
-    Weight: 2
+    Weight: 0
     Attack: 10
     Jobs:
       Gunslinger: true
@@ -22762,7 +22762,7 @@ Body:
     Type: Ammo
     SubType: Bullet
     Buy: 30
-    Weight: 2
+    Weight: 0
     Attack: 30
     Jobs:
       Gunslinger: true
@@ -22777,7 +22777,7 @@ Body:
     Type: Ammo
     SubType: Grenade
     Buy: 80
-    Weight: 5
+    Weight: 0
     Attack: 50
     Jobs:
       Gunslinger: true
@@ -22792,7 +22792,7 @@ Body:
     Type: Ammo
     SubType: Grenade
     Buy: 80
-    Weight: 5
+    Weight: 0
     Attack: 50
     Jobs:
       Gunslinger: true
@@ -22807,7 +22807,7 @@ Body:
     Type: Ammo
     SubType: Grenade
     Buy: 80
-    Weight: 5
+    Weight: 0
     Attack: 50
     Jobs:
       Gunslinger: true
@@ -22823,7 +22823,7 @@ Body:
     Type: Ammo
     SubType: Grenade
     Buy: 80
-    Weight: 5
+    Weight: 0
     Attack: 50
     Jobs:
       Gunslinger: true
@@ -22839,7 +22839,7 @@ Body:
     Type: Ammo
     SubType: Grenade
     Buy: 80
-    Weight: 5
+    Weight: 0
     Attack: 50
     Jobs:
       Gunslinger: true
@@ -22854,7 +22854,7 @@ Body:
     Type: Ammo
     SubType: Shuriken
     Buy: 4
-    Weight: 5
+    Weight: 0
     Attack: 10
     Jobs:
       Ninja: true
@@ -22867,7 +22867,7 @@ Body:
     Type: Ammo
     SubType: Shuriken
     Buy: 10
-    Weight: 5
+    Weight: 0
     Attack: 30
     Jobs:
       Ninja: true
@@ -22880,7 +22880,7 @@ Body:
     Type: Ammo
     SubType: Shuriken
     Buy: 20
-    Weight: 5
+    Weight: 0
     Attack: 45
     Jobs:
       Ninja: true
@@ -22893,7 +22893,7 @@ Body:
     Type: Ammo
     SubType: Shuriken
     Buy: 40
-    Weight: 5
+    Weight: 0
     Attack: 70
     Jobs:
       Ninja: true
@@ -22906,7 +22906,7 @@ Body:
     Type: Ammo
     SubType: Shuriken
     Buy: 100
-    Weight: 5
+    Weight: 0
     Attack: 100
     Jobs:
       Ninja: true
@@ -22919,7 +22919,7 @@ Body:
     Type: Ammo
     SubType: Kunai
     Buy: 10
-    Weight: 20
+    Weight: 0
     Attack: 30
     Jobs:
       Ninja: true
@@ -22934,7 +22934,7 @@ Body:
     Type: Ammo
     SubType: Kunai
     Buy: 10
-    Weight: 20
+    Weight: 0
     Attack: 30
     Jobs:
       Ninja: true
@@ -22949,7 +22949,7 @@ Body:
     Type: Ammo
     SubType: Kunai
     Buy: 10
-    Weight: 20
+    Weight: 0
     Attack: 30
     Jobs:
       Ninja: true
@@ -22964,7 +22964,7 @@ Body:
     Type: Ammo
     SubType: Kunai
     Buy: 10
-    Weight: 20
+    Weight: 0
     Attack: 30
     Jobs:
       Ninja: true
@@ -22979,7 +22979,7 @@ Body:
     Type: Ammo
     SubType: Kunai
     Buy: 10
-    Weight: 20
+    Weight: 0
     Attack: 30
     Jobs:
       Ninja: true

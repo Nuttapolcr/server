@@ -34,32 +34,44 @@ Header:
 Body:
   - Tab: Limited
     Items:
-      - Item: New_Item_1030041
+      - Item: Refine_Pack
         Price: 3500
       - Item: Premium_Pack
         Price: 3500
+      - Item: Armor_Starter_Pack
+        Price: 3900
+      - Item: Armor_Starter_Pack_Copy
+        Price: 3900
+      - Item: Armor_Starter_Pack_Copy_Copy
+        Price: 3900
       - Item: Katar_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Two-handed_Axe_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Spear_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Book_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Staff_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Dagger_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Revolver_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Two-handed_Sword_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Mace_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Bow_Starter_Pack
-        Price: 13500
+        Price: 3900
       - Item: Huuma_Shuriken_Starter_Pack
-        Price: 13500
+        Price: 3900
+      - Item: One-handed_Mace_New_Starter_Pack
+        Price: 3900
+      - Item: Knuckle_Starter_Pack
+        Price: 3900
+      - Item: One-hand_Sword_Starter_Pack
+        Price: 3900
 Footer:
   Imports:
     - Path: db/import/item_cash.yml

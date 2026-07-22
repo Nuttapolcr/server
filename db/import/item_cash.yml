@@ -107,6 +107,12 @@ Body:
         Price: 2490
       - Item: Upg_Huuma_Shuriken
         Price: 2490
+      - Item: Upg_One-handed_Axe
+        Price: 2490
+      - Item: Upg_Knuckle
+        Price: 2490
+      - Item: Upg_One_Hand_Sword
+        Price: 2490
       - Item: Upg_Adv_Suit
         Price: 2490
       - Item: Upg_Guard
