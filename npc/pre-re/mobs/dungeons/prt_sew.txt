@@ -50,4 +50,4 @@ prt_sewb4,0,0	monster	Thief Bug Female	1053,50
 prt_sewb4,0,0	monster	Thief Bug Male	1054,175
 prt_sewb4,0,0	monster	Drainliar	1111,50
 prt_sewb4,0,0	monster	Cramp	1209,12
-prt_sewb4,0,0,0,0	boss_monster	Golden Thief Bug	1086,1,3600000,0,1
+prt_sewb4,0,0,0,0	boss_monster	Golden Thief Bug	1086,1,1800000,0,1

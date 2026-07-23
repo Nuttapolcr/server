@@ -15358,11 +15358,11 @@ Body:
       - Item: Burning_Heart
         Rate: 1500
       - Item: Plate_Armor_
-        Rate: 1
+        Rate: 20
       - Item: Plate_Armor
-        Rate: 3
+        Rate: 30
       - Item: Magma_Fist
-        Rate: 9
+        Rate: 20
       - Item: Lava_Golem_Card
         Rate: 1
         StealProtected: true
@@ -23234,7 +23234,7 @@ Body:
   - Id: 1600
     AegisName: G_HEATER
     Name: Heater
-    Level: 68
+    Level: 71
     Hp: 11020
     Attack: 683
     Attack2: 1008
@@ -23262,7 +23262,7 @@ Body:
   - Id: 1601
     AegisName: G_PERMETER
     Name: Permeter
-    Level: 63
+    Level: 71
     Hp: 8228
     Attack: 943
     Attack2: 1211
@@ -29045,7 +29045,7 @@ Body:
       - Item: Brigan
         Rate: 1600
       - Item: Morpheus's_Shawl
-        Rate: 10
+        Rate: 20
       - Item: Rosary_
         Rate: 10
       - Item: Alice's_Apron
@@ -29055,7 +29055,7 @@ Body:
       - Item: Sway_Apron
         Rate: 1
       - Item: Orleans_Server
-        Rate: 5
+        Rate: 20
       - Item: Aliza_Card
         Rate: 1
         StealProtected: true
@@ -33857,13 +33857,13 @@ Body:
       - Item: Clattering_Skull
         Rate: 1600
       - Item: Tidal_Shoes
-        Rate: 15
+        Rate: 30
       - Item: Mementos
         Rate: 1500
       - Item: Skel_Bone
         Rate: 1600
       - Item: Expert_Ring
-        Rate: 2
+        Rate: 10
       - Item: Wasteland_Outlaw
         Rate: 10
       - Item: Ragged_Zombie_Card
@@ -33953,11 +33953,11 @@ Body:
       - Item: Old_White_Cloth
         Rate: 1600
       - Item: Orleans_Gown
-        Rate: 10
+        Rate: 30
       - Item: Scalpel
-        Rate: 10
+        Rate: 30
       - Item: Wool_Scarf
-        Rate: 10
+        Rate: 30
       - Item: Mementos
         Rate: 1500
       - Item: Brigan
@@ -37580,7 +37580,7 @@ Body:
       - Item: Old_Blue_Box
         Rate: 2
       - Item: Linen_Glove
-        Rate: 2
+        Rate: 30
       - Item: Elunium
         Rate: 10
   - Id: 1976
@@ -38045,9 +38045,9 @@ Body:
       Detector: true
     Drops:
       - Item: Cold_Heart
-        Rate: 2
+        Rate: 20
       - Item: Black_Cat
-        Rate: 2
+        Rate: 20
       - Item: Cursed_Lyre
         Rate: 10
       - Item: Short_Leg
@@ -38142,7 +38142,7 @@ Body:
     Ai: 13
     Drops:
       - Item: Sprint_Shoes
-        Rate: 10
+        Rate: 20
       - Item: Horn_Of_Hilthrion
         Rate: 20
       - Item: Horn_Of_Hilsrion
@@ -38287,9 +38287,9 @@ Body:
     Ai: 03
     Drops:
       - Item: Sprint_Mail
-        Rate: 10
+        Rate: 20
       - Item: Angelic_Ring
-        Rate: 1
+        Rate: 20
       - Item: Mystic_Horn
         Rate: 1600
       - Item: Soft_Feather
@@ -38299,7 +38299,7 @@ Body:
       - Item: Snowy_Horn
         Rate: 2
       - Item: Long_Horn
-        Rate: 1
+        Rate: 20
       - Item: Cornus_Card
         Rate: 1
         StealProtected: true
@@ -38337,11 +38337,11 @@ Body:
     Ai: 21
     Drops:
       - Item: Armor_Of_Naga
-        Rate: 10
+        Rate: 20
       - Item: Shield_Of_Naga
-        Rate: 10
+        Rate: 20
       - Item: Battle_Fork
-        Rate: 10
+        Rate: 20
       - Item: Scale_Of_Snakes
         Rate: 1600
       - Item: Scales_Shell
@@ -38386,7 +38386,7 @@ Body:
       Detector: true
     Drops:
       - Item: Sprint_Ring
-        Rate: 2
+        Rate: 20
       - Item: Worm_Peelings
         Rate: 1600
       - Item: Bee_Sting
@@ -38695,9 +38695,9 @@ Body:
       - Item: Honey
         Rate: 500
       - Item: Dragon_Vest
-        Rate: 3
+        Rate: 30
       - Item: Dragon_Manteau
-        Rate: 3
+        Rate: 30
       - Item: Draco_Card
         Rate: 1
         StealProtected: true
@@ -39144,7 +39144,7 @@ Body:
       - Item: Purified_Bradium
         Rate: 500
       - Item: Bradium_Shield
-        Rate: 10
+        Rate: 20
   - Id: 2026
     AegisName: DANDELION_
     Name: Runaway Dandelion Member

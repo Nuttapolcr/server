@@ -5,9 +5,9 @@
 //= completion the chest yields ONE weighted-random reward and is removed.
 //=
 //= Box counts per kill (independent per-color rolls, total capped at 10):
-//=   Blue   : 100%       -> rand(2,6)   open 10s
-//=   Red    : 10%        -> rand(1,4)   open 20s
-//=   Purple : 1%         -> rand(1,3)   open 30s
+//=   Blue   : 100%       -> rand(2,6)   open 5s
+//=   Red    : 10%        -> rand(1,4)   open 10s
+//=   Purple : 1%         -> rand(1,3)   open 15s
 //=
 //= Loyal pet open-time bonuses from the Pet sheet:
 //=   Pharaoh : 20% faster
@@ -46,6 +46,23 @@ OnInit:
 	setarray .tierS[0],
 		1511,1418,1871,1768,1779,1688,1751,1832,1873,1917;	// AmonRa,EvilSnakeLord,FallenBishop,Gloom,Ktullanux,LadyTanee,ValkyrieRandgris,Ifrit,Beelzebub,WoundedMorocc
 
+	// Only these field/dungeon spawns use the public respawn announcement.
+	// Boss rooms, instances, and event maps are deliberately excluded.
+	setarray .natural_spawn$[0],
+		"abyss_03:1719","ama_dun03:1492","anthell02:1147","beach_dun:1583",
+		"bra_dun02:2068","ein_dun02:1623","gef_dun01:1389","gef_dun02:1046",
+		"gl_chyard:1272","gld_dun01:1115","gld_dun02:1046","gld_dun03:1147",
+		"gld_dun04:1272","in_sphinx5:1157","jupe_core:1685","kh_dun02:1734",
+		"lou_dun03:1630","moc_pryd04:1038","mosk_dun03:1885","pay_dun04:1150",
+		"prt_maze03:1039","prt_sewb4:1086","treasure02:1112","tur_dun04:1312",
+		"xmas_dun02:1251","gef_fild02:1087","gef_fild10:1190","gef_fild14:1087",
+		"xmas_fild01:1252","mjolnir_04:1059","moc_fild17:1159","niflheim:1373",
+		"pay_fild11:1115","ra_fild02:1785","ra_fild03:1785","ra_fild04:1785",
+		"ve_fild01:1785","ve_fild02:1785",
+		"abbey02:1871","abbey03:1873","ayo_dun02:1688","gon_dun03:1418",
+		"moc_pryd06:1511","odin_tem03:1751","ra_san05:1768","thor_v03:1832",
+		"moc_fild22:1917";
+
 	.chest_sprite = 1324;	// Treasure Chest sprite
 	.spawn_radius = 3;		// random scatter (cells) around the death spot
 	.despawn      = 600;	// seconds before an unopened chest disappears
@@ -72,6 +89,14 @@ OnNPCKillEvent:
 	callsub OnSpawn, .@m$, .@x, .@y, "P", .@tier, .@purple;
 	callsub OnSpawn, .@m$, .@x, .@y, "R", .@tier, .@red;
 	callsub OnSpawn, .@m$, .@x, .@y, "B", .@tier, .@blue;
+
+	// Natural bosses announce when their configured respawn delay completes.
+	if (inarray(.natural_spawn$, .@m$ + ":" + killedrid) >= 0) {
+		.@mob_id = killedrid;
+		.@respawn_delay = (.@tier == 2) ? 3600000 : 1800000;
+		sleep .@respawn_delay;
+		announce "บอส " + getmonsterinfo(.@mob_id, MOB_NAME) + " เกิดแล้ว", bc_all;
+	}
 	end;
 
 // callsub OnSpawn, <map$>, <x>, <y>, <color$>, <tier>, <count>
@@ -123,9 +148,9 @@ OnSpawn:
 	if (getd("$@mtbo_"+.@id)) { disablenpc strnpcinfo(3); end; }
 
 	// open time + bar color by box color
-	.@sec = 10; .@bar$ = "0x33B5FF";						// Blue
-	if (.@col$ == "R")      { .@sec = 20; .@bar$ = "0xFF3333"; }	// Red
-	else if (.@col$ == "P") { .@sec = 30; .@bar$ = "0xCC33FF"; }	// Purple
+	.@sec = 5; .@bar$ = "0x33B5FF";						// Blue
+	if (.@col$ == "R")      { .@sec = 10; .@bar$ = "0xFF3333"; }	// Red
+	else if (.@col$ == "P") { .@sec = 15; .@bar$ = "0xCC33FF"; }	// Purple
 
 	// Pet bonuses only apply at the same Loyal intimacy used by pet_db.yml.
 	if (getpetinfo(PETINFO_INTIMATE) >= PET_INTIMATE_LOYAL) {

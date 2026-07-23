@@ -69,8 +69,6 @@ main_menu:
 		case 2: mes "เก็บไอเทม    : ^FF0000ปิด^000000"; break;
 	}
 	
-	mes "ซื้ออัตโนมัติ : " + (aa_getautoattackint(15,1) > 0 ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
-	mes "ขายอัตโนมัติ : " + (aa_getautoattackint(21,0) > 0 ? "^008000เปิด (" + aa_getautoattackint(21,0) + " รายการ)^000000" : "^FF0000ปิด^000000");
 	mes "Token Siegfrd : " + (aa_getautoattackint(7,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
 	mes "กลับจุดเซฟ   : " + (aa_getautoattackint(6,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
 	
@@ -111,8 +109,6 @@ config_menu:
 			" ~ เลือกมอนสเตอร์",monsters_menu,
 			" ~ เลือกไอเทมเก็บ",pickupitems_menu,
 			" ~ วาร์ป",teleport_menu,
-			" ~ ซื้อไอเทมอัตโนมัติ",autobuy_menu,
-			" ~ ขายไอเทมอัตโนมัติ",autosell_menu,
 			" ~ การตั้งค่าอื่นๆ",others_menu,
 			" ~ รีเซ็ตทั้งหมด",reset_all;
 	end;

@@ -215,7 +215,7 @@ OnNPCKillEvent:
 	if (getmonsterinfo(killedrid, MOB_MVPEXP) <= 0)
 		end;
 
-	.@point = 0; // ปิดการนับคะแนน แต่ยังนับจำนวนฆ่าและบันทึก log
+	.@point = 1;
 	.@mob_name$ = getmonsterinfo(killedrid, MOB_NAME);
 	query_sql(
 		"INSERT INTO `ranking_mvp_boss` "+
@@ -224,6 +224,7 @@ OnNPCKillEvent:
 		"ON DUPLICATE KEY UPDATE "+
 		"`account_id` = VALUES(`account_id`), "+
 		"`player_name` = VALUES(`player_name`), "+
+		"`total_score` = `total_score` + "+.@point+", "+
 		"`total_kill` = `total_kill` + 1, "+
 		"`last_mob_id` = VALUES(`last_mob_id`), "+
 		"`last_mob_name` = VALUES(`last_mob_name`), "+
@@ -234,7 +235,7 @@ OnNPCKillEvent:
 		"(`account_id`, `char_id`, `player_name`, `mob_id`, `mob_name`, `point`, `kill_time`) VALUES ("+
 		getcharid(3)+", "+getcharid(0)+", '"+escape_sql(strcharinfo(0))+"', "+killedrid+", '"+escape_sql(.@mob_name$)+"', "+.@point+", NOW())"
 	);
-	query_sql("SELECT `total_kill` FROM `ranking_mvp_boss` WHERE `char_id` = "+getcharid(0)+" LIMIT 1", .@total_kill);
-	dispbottom "[จัดอันดับ MVP บอส] บันทึกการกำจัด "+.@mob_name$+" แล้ว รวมทั้งหมด "+callfunc("F_InsertComma", .@total_kill)+" ตัว";
+	query_sql("SELECT `total_score` FROM `ranking_mvp_boss` WHERE `char_id` = "+getcharid(0)+" LIMIT 1", .@total_score);
+	dispbottom "[จัดอันดับ MVP บอส] ได้รับ +"+.@point+" แต้ม จาก "+.@mob_name$+" รวมทั้งหมด "+callfunc("F_InsertComma", .@total_score)+" แต้ม";
 	end;
 }

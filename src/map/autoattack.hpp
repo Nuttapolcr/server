@@ -33,7 +33,7 @@ namespace AA_CONSTANTS {
 	constexpr int NARROW_PATH_BONUS = 100;
 }
 
-const std::vector<int> AA_HATEFFECTS = { 97, 131, 123, 31, 3 };
+const std::vector<int> AA_HATEFFECTS = { 31 };
 extern std::vector<t_itemid> AA_ITEMIDS;
 
 class map_session_data;

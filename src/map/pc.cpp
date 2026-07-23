@@ -4776,8 +4776,8 @@ void pc_bonus(map_session_data *sd,int type,int val)
 			sd->special_state.no_misc_damage = cap_value(val,0,100);
 			break;
 		case SP_NO_GEMSTONE:
-			if(sd->state.lr_flag != 2 && sd->special_state.no_gemstone != 2)
-				sd->special_state.no_gemstone = 1;
+			if(sd->state.lr_flag != 2)
+				sd->special_state.no_gemstone = cap_value(std::max<int32>(static_cast<int32>(sd->special_state.no_gemstone), val), 1, 2);
 			break;
 		case SP_INTRAVISION: // Maya Purple Card effect allowing to see Hiding/Cloaking people [DracoRPG]
 			if(sd->state.lr_flag != 2) {

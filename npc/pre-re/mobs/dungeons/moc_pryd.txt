@@ -44,7 +44,7 @@ moc_pryd04,0,0	monster	Mummy	1041,25
 moc_pryd04,0,0	monster	Ancient Mummy	1297,3
 moc_pryd04,0,0	monster	Isis	1029,50,150000,75000
 moc_pryd04,0,0	monster	Mimic	1191,15,600000,300000
-moc_pryd04,0,0,0,0	boss_monster	Osiris	1038,1,3600000,0,0
+moc_pryd04,0,0,0,0	boss_monster	Osiris	1038,1,1800000,0,0
 moc_pryd04,0,0	monster	Matyr	1146,20
 
 //==================================================

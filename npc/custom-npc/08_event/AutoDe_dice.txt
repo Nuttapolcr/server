@@ -74,16 +74,16 @@ OnDiceCommand:
 	dispbottom "ใช้คำสั่ง: @diceevent on (เปิดรับเข้าร่วม) / @diceevent off (ปิดรับ+เริ่มกิจกรรม)";
 	end;
 
-OnClock2000:
+OnClock2030:
 	announce "[กิจกรรมทอยเต๋า] : เปิดให้สามารถเข้าร่วมได้แล้ว. มีเวลาเข้าร่วม 3 นาทีก่อนประตูปิด",BC_ALL,0xFFFF00;
 	set $@Looktao_block,0;
 	end;
 
-OnClock2002:
+OnClock2032:
 	announce "[กิจกรรมทอยเต๋า] : เหลือเวลาเข้าร่วมกิจกรรมอีก 1 นาทีก่อนประตูปิด",BC_ALL,0xFFFF00;	
 	end;
 
-OnClock2003:
+OnClock2033:
 	set $@Looktao_block,1;
 	initnpctimer("dice_control#2");
 	end;

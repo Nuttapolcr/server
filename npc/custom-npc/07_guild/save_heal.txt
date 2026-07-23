@@ -92,6 +92,7 @@ function	script	F_PremiumServiceStatsBuff	{
 			callfunc "F_PremiumServiceStatsBuff",900000;
 
 			atcommand "@repairall";
+			identifyall;
 			percentheal 100,0;
 			specialeffect2 EF_BLESSING;
 			specialeffect2 EF_INCAGILITY;
@@ -135,6 +136,7 @@ function	script	F_PremiumServiceStatsBuff	{
 				//end;
 			}
 		}
+		identifyall;
 		sc_end SC_INCREASEAGI;
 		sc_end SC_BLESSING;
 		sc_start SC_INCREASEAGI,300000,10;
@@ -175,6 +177,7 @@ function	script	F_PremiumServiceStatsBuff	{
 		callfunc "F_PremiumServiceStatsBuff",300000;
 
 		atcommand "@repairall";
+		identifyall;
 		specialeffect2 509;
 		specialeffect2 EF_BLESSING;
 		specialeffect2 EF_INCAGILITY;
@@ -216,6 +219,7 @@ function	script	F_PremiumServiceStatsBuff	{
 			dispbottom "[Buff] คุณมี Zeny ไม่พอ (" + .@repair_cost2 + "z) ไม่สามารถซ่อมอุปกรณ์ได้";
 		}
 	}
+	identifyall;
 
 	set @delay_heal, gettimetick(2);
 	

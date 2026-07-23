@@ -1,4 +1,4 @@
-morocc,127,89,3	script	Stylist#super_stylist	10209,{
+morocc,167,111,3	script	Stylist#super_stylist	87,{
 	doevent "super_stylist_main::OnTalk";
 
 }
@@ -31,9 +31,9 @@ morocc,127,89,3	script	Stylist#super_stylist	10209,{
 					"~ ตัวอย่างทรงผม สีผม สีชุด"
 				)) {
 					case 1:
-						if(countitem(19551)<1) {
+						if(countitem(1030061)<1) {
 							mes "^FF0000[ Stylist ]^000000";
-							mes "ฉันต้องการ ^FF0000"+getitemname(19551)+" 1ea^000000";
+							mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
 							mes "หาซื้อได้ที่ ร้าน Kafra Shop";
 							cutin "",255;
 							close;
@@ -55,14 +55,14 @@ morocc,127,89,3	script	Stylist#super_stylist	10209,{
 							mes "หมายเลขทรงผม : " +.@hairstylemin+ " ถึง " +.@hairstylemaxf;
 						}
 						input .@hairstyle;
-						delitem 19551,1;
+						delitem 1030061,1;
 						
 						if ( .@hairstyle < 0 )
 						{
 							next;
 							mes "^FF0000[ Stylist ]^000000";
 							mes "หมายเลขไม่ถูกต้อง";
-							getitem 19551,1;
+							getitem 1030061,1;
 							cutin "",255;
 							close;
 						}
@@ -71,7 +71,7 @@ morocc,127,89,3	script	Stylist#super_stylist	10209,{
 							next;
 							mes "^FF0000[ Stylist ]^000000";
 							mes "หมายเลขไม่ถูกต้อง";
-							getitem 19551,1;
+							getitem 1030061,1;
 							cutin "",255;
 							close;
 						}

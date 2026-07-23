@@ -287,7 +287,7 @@ Body:
     Title: Getting back Professor Worm's memory
   - Id: 1261
     Title: Cursed Swordman
-    TimeLimit: 4h
+    TimeLimit: 5h
   - Id: 1263
     Title: Cursed Swordman
   - Id: 2000
@@ -3726,12 +3726,12 @@ Body:
     Title: Exploring the dimensional gap
   - Id: 9316
     Title: Re-exploring the crack of spaces
-    TimeLimit: 4h
+    TimeLimit: 5h
   - Id: 9335
     Title: Search for shards of Gigantes
   - Id: 9336
     Title: Go back to Professor Bernhard
-    TimeLimit: 7d 4h
+    TimeLimit: 5h
   - Id: 9337
     Title: Wrapping up the Adventure
   - Id: 10000
@@ -5321,7 +5321,7 @@ Body:
     Title: Meeting Hugin
   - Id: 12317
     Title: Fake Keyblade
-    TimeLimit: +23h
+    TimeLimit: 5h
   - Id: 12318
     Title: "Upper Cats: annoying guy"
   - Id: 12319
@@ -5334,24 +5334,24 @@ Body:
     Title: Space Distortion
   - Id: 12325
     Title: Faceworm's Nest after-effects
-    TimeLimit: 4h
+    TimeLimit: 5h
   - Id: 12326
     Title: The owner of old ring
-    TimeLimit: 4h
+    TimeLimit: 5h
   - Id: 12327
     Title: The memory of old photo album
-    TimeLimit: 4h
+    TimeLimit: 5h
   - Id: 12328
     Title: Dol-Seoi's Sorrow
-    TimeLimit: 4h
+    TimeLimit: 5h
   - Id: 12329
     Title: Keaton's Bracelet
-    TimeLimit: 4h
+    TimeLimit: 5h
   - Id: 12330
     Title: Skull-faced Girl
   - Id: 12331
     Title: Trail of Toy Factory
-    TimeLimit: 4h
+    TimeLimit: 5h
   - Id: 12363
     Title: ?????? ?? ??
   - Id: 13000
@@ -7139,7 +7139,7 @@ Body:
         Count: 150
   - Id: 60200
     Title: Endless Tower Effect
-    TimeLimit: +7d
+    TimeLimit: 5h
   - Id: 60201
     Title: Endless Tower Time Limit
     TimeLimit: +4h

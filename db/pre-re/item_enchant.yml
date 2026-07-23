@@ -5870,6 +5870,12 @@ Body:
       Up_Humma_Clear: true
       Up_Crimson_Rose: true
       Up_Blessed_Knife: true
+      uponimaru: true
+      Up_Narcis_Bow: true
+      up_slate_sword: true
+      Up_Fatalist: true
+      R_Whitesmith2_Weapon: true
+      R_Lord_Knight3_Weapon: true
     MinimumRefine: 0
     Reset:
       Chance: 100000
@@ -6679,6 +6685,12 @@ Body:
       Adulter_F_C_Humma: true
       Adulter_F_Revolver: true
       Adulter_F_G_Sword: true
+      Adulter_F_Ballista: true
+      adulter_f_dagger2: true
+      adulter_f_dagger3: true
+      adulter_f_g_spear: true
+      E_Lord_Knight3_Weapon: true
+      E_Whitesmith2_Weapon: true
     MinimumRefine: 0
     Reset:
       Chance: 100000
@@ -7388,6 +7400,12 @@ Body:
       Sinister_Huuma: true
       Sinister_Revolver: true
       Sinister_Saber_J: true
+      Sniper_Focused_Weapon001: true
+      Attack_Dagger001: true
+      Magic_Dagger002: true
+      Sinister_Spear: true
+      L_Lord_Knight3_Weapon: true
+      L_Whitesmith2_Weapon: true
     MinimumRefine: 0
     Reset:
       Chance: 100000

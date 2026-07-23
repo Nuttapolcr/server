@@ -70,7 +70,7 @@ gl_chyard,0,0	monster	Wraith	1192,55,5000
 gl_chyard,0,0	monster	Evil Druid	1117,15,5000
 gl_chyard,0,0	monster	Mimic	1191,4,5000
 gl_chyard,0,0	monster	Hunter Fly	1035,4,5000
-gl_chyard,0,0,0,0	boss_monster	Dark Lord	1272,1,3600000,0
+gl_chyard,0,0,0,0	boss_monster	Dark Lord	1272,1,1800000,0
 gl_chyard,0,0	monster	Dark Illusion	1302,1,3600000,1800000
 
 //==================================================

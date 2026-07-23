@@ -6,6 +6,7 @@ Header:
 # PveScript works like an item bonus script but is disabled on PvP/GvG/WoE/BG maps.
 # WoeScript works like an item bonus script and is active only on GvG/WoE/TE/Castle maps.
 # Icon accepts any valid EFST constant. Use EFST_BLANK to hide the icon.
+# AutoAttackDropReduction is applied after every other normal drop-rate modifier.
 # Example:
 #   WoeScript: |
 #     bonus bMaxHP,500;
@@ -17,6 +18,7 @@ Body:
     Name: Bronze
     Threshold: 3000
     BoxSpeed: 5
+    AutoAttackDropReduction: 65
     Icon: EFST_MEMBER1
     Script: |
       bonus bAddMaxWeight,10000;
@@ -26,6 +28,7 @@ Body:
     Name: Silver
     Threshold: 10000
     BoxSpeed: 10
+    AutoAttackDropReduction: 60
     Icon: EFST_MEMBER2
     Script: |
       bonus bAddMaxWeight,10000;
@@ -38,6 +41,7 @@ Body:
     Name: Gold
     Threshold: 15000
     BoxSpeed: 15
+    AutoAttackDropReduction: 50
     Icon: EFST_MEMBER3
     Script: |
       bonus bAddMaxWeight,10000;
@@ -51,6 +55,7 @@ Body:
     Name: Platinum
     Threshold: 30000
     BoxSpeed: 20
+    AutoAttackDropReduction: 40
     Icon: EFST_MEMBER4
     Script: |
       bonus bAddMaxWeight,15000;
@@ -64,6 +69,7 @@ Body:
     Name: Diamond
     Threshold: 35000
     BoxSpeed: 20
+    AutoAttackDropReduction: 30
     Icon: EFST_MEMBER5
     Script: |
       bonus bAddMaxWeight,15000;
@@ -78,6 +84,7 @@ Body:
     Name: Master
     Threshold: 40000
     BoxSpeed: 25
+    AutoAttackDropReduction: 20
     Icon: EFST_MEMBER6
     Script: |
       bonus bAddMaxWeight,15000;
@@ -94,6 +101,7 @@ Body:
     Name: Legend
     Threshold: 50000
     BoxSpeed: 30
+    AutoAttackDropReduction: 0
     Icon: EFST_MEMBER7
     Script: |
       bonus bAddMaxWeight,15000;

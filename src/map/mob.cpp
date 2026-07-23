@@ -41,6 +41,7 @@
 #include "pc.hpp"
 #include "pet.hpp"
 #include "quest.hpp"
+#include "vip_rank.hpp"
 
 using namespace rathena;
 
@@ -118,6 +119,36 @@ static inline int mob_apply_map_drop_nerf(int16 m, const std::shared_ptr<item_da
 
 	rate = rate * mult / 100;
 	return rate;
+}
+
+static inline int mob_apply_autoattack_drop_reduction(map_session_data* sd, const std::shared_ptr<item_data>& it, int rate) {
+	if (sd == nullptr || it == nullptr || rate <= 0 || !sd->state.autoattack || !battle_config.autoattack_drop_control)
+		return rate;
+
+	int32 mode = 0;
+	switch (it->type) {
+		case IT_HEALING: mode = 1; break;
+		case IT_USABLE: mode = 2; break;
+		case IT_ETC:
+		case IT_AMMO: mode = 4; break;
+		case IT_ARMOR: mode = 8; break;
+		case IT_WEAPON: mode = 16; break;
+		case IT_CARD: mode = 32; break;
+		default: return rate;
+	}
+
+	if (!(battle_config.autoattack_reduce_mode & mode))
+		return rate;
+
+	int32 reduction = battle_config.autoattack_reduce_droprate;
+	if (sd->vip_rank_loaded && sd->vip_rank > 0) {
+		std::shared_ptr<s_vip_rank> rank = vip_rank_db.find(sd->vip_rank);
+		if (rank != nullptr)
+			reduction = rank->autoattack_drop_reduction;
+	}
+
+	reduction = cap_value(reduction, 0, 100);
+	return rate * (100 - reduction) / 100;
 }
 
 /*==========================================
@@ -2931,27 +2962,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			
 			// Map Drop Nerf (Runtime) - (ETC/equip/Weapon/card)
 			drop_rate = mob_apply_map_drop_nerf(m, it, drop_rate);
-
-			// if(battle_config.autoattack_reduce_droprate && mvp_sd && mvp_sd->sc.getSCE(SC_AUTOATTACK)){
-
-			// 	if(it->type==IT_HEALING && battle_config.autoattack_reduce_mode&AA_HEALING)
-			// 		drop_rate = (!pc_isvip(mvp_sd) && battle_config.autoattack_free_nodrop) ? 0 : drop_rate * (100-battle_config.autoattack_reduce_droprate) / 100;
-
-			// 	if(it->type==IT_USABLE && battle_config.autoattack_reduce_mode&AA_USABLE)
-			// 		drop_rate = (!pc_isvip(mvp_sd) && battle_config.autoattack_free_nodrop) ? 0 : drop_rate * (100-battle_config.autoattack_reduce_droprate) / 100;
-
-			// 	if((it->type==IT_ETC || it->type==IT_AMMO) && battle_config.autoattack_reduce_mode&AA_ETC)
-			// 		drop_rate = (!pc_isvip(mvp_sd) && battle_config.autoattack_free_nodrop) ? 0 : drop_rate * (100-battle_config.autoattack_reduce_droprate) / 100;
-
-			// 	if(it->type==IT_ARMOR && battle_config.autoattack_reduce_mode&AA_ARMOR)
-			// 		drop_rate = (!pc_isvip(mvp_sd) && battle_config.autoattack_free_nodrop) ? 0 : drop_rate * (100-battle_config.autoattack_reduce_droprate) / 100;
-
-			// 	if(it->type==IT_WEAPON && battle_config.autoattack_reduce_mode&AA_WEAPON)
-			// 		drop_rate = (!pc_isvip(mvp_sd) && battle_config.autoattack_free_nodrop) ? 0 : drop_rate * (100-battle_config.autoattack_reduce_droprate) / 100;
-
-			// 	if(it->type==IT_CARD && battle_config.autoattack_reduce_mode&AA_CARD)
-			// 		drop_rate = (!pc_isvip(mvp_sd) && battle_config.autoattack_free_nodrop) ? 0 : drop_rate * (100-battle_config.autoattack_reduce_droprate) / 100;
-			// }
+			drop_rate = mob_apply_autoattack_drop_reduction(mvp_sd, it, drop_rate);
 
 			if(drop_rate < 0)
 				drop_rate = 0;
@@ -3095,7 +3106,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 					{
 						std::shared_ptr<item_data> it2 = item_db.find(dropid);
 						if (it2 != nullptr)
-							drop_rate = cap_value(mob_apply_map_drop_nerf(sd->bl.m, it2, drop_rate), 0, 10000);
+							drop_rate = cap_value(mob_apply_autoattack_drop_reduction(sd, it2, mob_apply_map_drop_nerf(sd->bl.m, it2, drop_rate)), 0, 10000);
 					}
 
 					if (rnd()%10000 >= drop_rate)
@@ -3145,7 +3156,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				{
 					std::shared_ptr<item_data> it2 = item_db.find(dropid);
 					if (it2 != nullptr)
-						drop_rate = cap_value(mob_apply_map_drop_nerf(sd->bl.m, it2, drop_rate), 0, 10000);
+						drop_rate = cap_value(mob_apply_autoattack_drop_reduction(sd, it2, mob_apply_map_drop_nerf(sd->bl.m, it2, drop_rate)), 0, 10000);
 				}
 
 				if (rnd()%10000 >= drop_rate)

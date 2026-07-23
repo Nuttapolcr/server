@@ -53,6 +53,7 @@ niflheim,0,0	monster	Gibbet	1503,10,1200000,600000
 niflheim,0,0	monster	Heirozoist	1510,10,1200000,600000
 niflheim,0,0	monster	Quve	1508,20,300000,150000
 niflheim,0,0	monster	Lude	1509,20,300000,150000
+niflheim,0,0,0,0	boss_monster	Lord of the Dead	1373,1,1800000,0,1
 
 niflheim,1,1,0	script	NifInvasion	-1,{
 OnInit:
@@ -68,7 +69,6 @@ OnTimer7980000:
 	{
 
 	case 0:
-		monster "niflheim",327,193,"Lord Of Death",1373,1,"NifInvasion::OnLoDDead";
 		monster "niflheim",330,193,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",324,193,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",327,196,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
@@ -80,7 +80,6 @@ OnTimer7980000:
 	break;
 
 	case 1:
-		monster "niflheim",337,252,"Lord Of Death",1373,1,"NifInvasion::OnLoDDead";
 		monster "niflheim",337,255,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",337,249,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",334,252,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
@@ -92,7 +91,6 @@ OnTimer7980000:
 	break;
 
 	case 2:
-		monster "niflheim",190,185,"Lord Of Death",1373,1,"NifInvasion::OnLoDDead";
 		monster "niflheim",190,188,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",190,182,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",193,185,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
@@ -104,7 +102,6 @@ OnTimer7980000:
 	break;
 
 	case 3:
-		monster "niflheim",131,138,"Lord Of Death",1373,1,"NifInvasion::OnLoDDead";
 		monster "niflheim",131,141,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",131,135,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",128,138,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
@@ -116,7 +113,6 @@ OnTimer7980000:
 	break;
 
 	case 4:
-		monster "niflheim",311,64,"Lord Of Death",1373,1,"NifInvasion::OnLoDDead";
 		monster "niflheim",311,67,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",311,61,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",308,64,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
@@ -128,7 +124,6 @@ OnTimer7980000:
 	break;
 
 	case 5:
-		monster "niflheim",238,131,"Lord Of Death",1373,1,"NifInvasion::OnLoDDead";
 		monster "niflheim",238,134,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",238,128,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",235,131,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
@@ -140,7 +135,6 @@ OnTimer7980000:
 	break;
 
 	case 6:
-		monster "niflheim",86,219,"Lord Of Death",1373,1,"NifInvasion::OnLoDDead";
 		monster "niflheim",86,222,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",86,216,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
 		monster "niflheim",89,219,"Bloody Murderer",1507,1,"NifInvasion::OnInvasionMonsters";
@@ -188,9 +182,6 @@ OnTimer7980000:
 
 OnInvasionMonsters:
 	end;
-
-OnLoDDead:
-	killmonster "niflheim","NifInvasion::OnInvasionMonsters";
 	}
 
 }

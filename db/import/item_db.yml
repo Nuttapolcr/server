@@ -159,7 +159,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      rentitem 97001,604800;
+      rentitem 97001,86400;
   - Id: 97004
     AegisName: AUTOBUFF_AI_RENT
     Name: AUTOBUFF AI RENT

@@ -39,7 +39,7 @@ const std::string VipRankDatabase::getDefaultLocation() {
 }
 
 uint64 VipRankDatabase::parseBodyNode(const ryml::NodeRef& node) {
-	if (!this->nodesExist(node, { "Rank", "Name", "Threshold", "BoxSpeed", "Icon", "Script" }))
+	if (!this->nodesExist(node, { "Rank", "Name", "Threshold", "BoxSpeed", "AutoAttackDropReduction", "Icon", "Script" }))
 		return 0;
 
 	uint16 rank;
@@ -55,7 +55,8 @@ uint64 VipRankDatabase::parseBodyNode(const ryml::NodeRef& node) {
 
 	if (!this->asString(node, "Name", entry->name) ||
 		!this->asInt64(node, "Threshold", entry->threshold) ||
-		!this->asUInt16(node, "BoxSpeed", entry->box_speed))
+		!this->asUInt16(node, "BoxSpeed", entry->box_speed) ||
+		!this->asUInt16(node, "AutoAttackDropReduction", entry->autoattack_drop_reduction))
 		return 0;
 
 	if (entry->threshold < 0) {
@@ -65,6 +66,11 @@ uint64 VipRankDatabase::parseBodyNode(const ryml::NodeRef& node) {
 
 	if (entry->box_speed > 90) {
 		this->invalidWarning(node["BoxSpeed"], "BoxSpeed must be between 0 and 90.\n");
+		return 0;
+	}
+
+	if (entry->autoattack_drop_reduction > 100) {
+		this->invalidWarning(node["AutoAttackDropReduction"], "AutoAttackDropReduction must be between 0 and 100.\n");
 		return 0;
 	}
 

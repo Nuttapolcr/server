@@ -616,7 +616,7 @@ dali,100,147,3	script	Dimensional Device#gefma	PORTAL,{
 			
 		.@ins_geffen_time = checkquest(9316,PLAYTIME);
 		
-		if ( GeffenTournament < gettimetick(2)) {
+		if (.@ins_geffen_time == -1 || .@ins_geffen_time == 2) {
 
 			.@party_id = getcharid(1);
 			.@p_name$ = getpartyname(.@party_id);
@@ -662,14 +662,13 @@ dali,100,147,3	script	Dimensional Device#gefma	PORTAL,{
 								end;
 							case 0:
 								mapannounce "dali02",strcharinfo(0)+" of the party, "+.@p_name$+" is entering the "+.@md_name$+".",bc_map,"0x00ff99";
-								GeffenTournament = gettimetick(2) + 82800;
 								if(.@ins_geffen_time != -1) erasequest 9316;
 								setquest 9316;
 								end;
 						}
 					end;
 			}
-		} else if ( GeffenTournament > gettimetick(2) ) {
+		} else {
 			mes .@n$;
 			mes "Looks like the window of opportunity is not open right now.";
 			end;
@@ -3978,7 +3977,7 @@ OnEnable:
 // Cutscenes
 
 
-//ϯϯϯϯϯϯϯϯϯ
+//_________
 //   Event 1
 //__________________
 1@gef,159,172,6	duplicate(#gmt_dummy)	Geffen Gangster#1	682
@@ -4235,7 +4234,7 @@ OnTimer1000:
 	end;
 }
 
-//ϯϯϯϯϯϯϯϯϯ
+//_________
 //   Event 2
 //__________________
 1@gef,75,172,4	duplicate(#gmt_dummy)	Geffen Bully#1	681
@@ -4525,7 +4524,7 @@ OnMobKilled:
 	end;
 }
 
-//ϯϯϯϯϯϯϯϯϯ
+//_________
 //   Event 3
 //__________________
 1@gef,111,146,4	duplicate(#gmt_dummy)	Geffen Resident#1	67

@@ -1960,9 +1960,7 @@ int aa_status(map_session_data* sd) {
 
 	struct party_data* p = (sd->status.party_id) ? party_search(sd->status.party_id) : nullptr;
 
-	if (status_get_regen_data(&sd->bl)->state.overweight) {
-	// can be changed to
-	// if (pc_is90overweight(sd)) {
+	if (pc_is90overweight(sd)) {
 		std::string msg = "Automessage - I'm overweight - System Off!";
 		aa_message(sd, "Overweight", msg.data(), 300, p);
 		status_change_end(&sd->bl, SC_AUTOATTACK);

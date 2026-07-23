@@ -1,4 +1,4 @@
-# Generated from HICLASS sheet "Barter - NPCคราฟของ" (gid 1968375192).
+# Generated from HICLASS sheet "Barter - NPCคราฟของNew" (gid 1616770677).
 # HICLASS_CRAFT_ORE contains the deterministic ore exchanges from the sheet.
 # The six 20% / 80% ore upgrades are handled by hiclass_ore_upgrade.txt because
 # normal barter cannot grant a fallback item when its random roll fails.
@@ -262,7 +262,7 @@ Body:
         IsNPC: true
         RequiredItems:
           - Index: 0
-            Item: Upg_Twohand_Sword # 21000
+            Item: Upg_Mace # 16019
             Amount: 1
             Refine: 11
           - Index: 1
@@ -312,7 +312,7 @@ Body:
         IsNPC: true
         RequiredItems:
           - Index: 0
-            Item: Upg_Mace # 16019
+            Item: Upg_Knuckle # 1030047
             Amount: 1
             Refine: 11
           - Index: 1
@@ -631,6 +631,56 @@ Body:
             Item: Meteorite_Fragment # 1000373
             Amount: 200
       - Index: 22
+        Item: R_Whitesmith2_Weapon # 1030049
+        Zeny: 10000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_One-handed_Axe # 1030046
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # 1001685
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # 1001688
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # 1001691
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # 1000419
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # 1000373
+            Amount: 200
+      - Index: 23
+        Item: R_Lord_Knight3_Weapon # 1030050
+        Zeny: 10000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_One_Hand_Sword # 1030048
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # 1001685
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # 1001688
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # 1001691
+            Amount: 20
+          - Index: 4
+            Item: Weapon_Ore_1 # 1000419
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # 1000373
+            Amount: 200
+      - Index: 24
         Item: Adulter_F_T_Sword # 600017
         Zeny: 50000000
         Rate: 10000
@@ -655,7 +705,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 23
+      - Index: 25
         Item: Adulter_F_Lance # 630012
         Zeny: 50000000
         Rate: 10000
@@ -680,7 +730,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 24
+      - Index: 26
         Item: Adulter_F_Rod # 640020
         Zeny: 50000000
         Rate: 10000
@@ -705,7 +755,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 25
+      - Index: 27
         Item: Adulter_F_P_Book # 540020
         Zeny: 50000000
         Rate: 10000
@@ -730,7 +780,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 26
+      - Index: 28
         Item: Adulter_F_Axe # 520008
         Zeny: 50000000
         Rate: 10000
@@ -755,7 +805,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 27
+      - Index: 29
         Item: Adulter_F_Lapier # 500026
         Zeny: 50000000
         Rate: 10000
@@ -780,7 +830,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 28
+      - Index: 30
         Item: Adulter_F_Wand # 550024
         Zeny: 50000000
         Rate: 10000
@@ -805,7 +855,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 29
+      - Index: 31
         Item: Adulter_F_Knuckle # 560018
         Zeny: 50000000
         Rate: 10000
@@ -830,7 +880,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 30
+      - Index: 32
         Item: Adulter_F_Katar # 610021
         Zeny: 50000000
         Rate: 10000
@@ -855,7 +905,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 31
+      - Index: 33
         Item: Adulter_F_Dagger # 510032
         Zeny: 50000000
         Rate: 10000
@@ -880,7 +930,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 32
+      - Index: 34
         Item: Adulter_F_A_Bow # 700032
         Zeny: 50000000
         Rate: 10000
@@ -905,7 +955,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 33
+      - Index: 35
         Item: Adulter_F_Harp # 570018
         Zeny: 50000000
         Rate: 10000
@@ -930,7 +980,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 34
+      - Index: 36
         Item: Adulter_F_C_Rope # 580017
         Zeny: 50000000
         Rate: 10000
@@ -955,7 +1005,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 35
+      - Index: 37
         Item: Adulter_F_Star_B # 540023
         Zeny: 50000000
         Rate: 10000
@@ -980,7 +1030,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 36
+      - Index: 38
         Item: Adulter_F_D_Wand # 550026
         Zeny: 50000000
         Rate: 10000
@@ -1005,7 +1055,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 37
+      - Index: 39
         Item: Adulter_F_C_Humma # 650009
         Zeny: 50000000
         Rate: 10000
@@ -1030,7 +1080,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 38
+      - Index: 40
         Item: Adulter_F_Revolver # 800003
         Zeny: 50000000
         Rate: 10000
@@ -1055,7 +1105,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 39
+      - Index: 41
         Item: Adulter_F_G_Sword # 500025
         Zeny: 50000000
         Rate: 10000
@@ -1080,7 +1130,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 40
+      - Index: 42
         Item: Adulter_F_Ballista # 700031
         Zeny: 50000000
         Rate: 10000
@@ -1105,7 +1155,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 41
+      - Index: 43
         Item: adulter_f_dagger2 # 1030018
         Zeny: 50000000
         Rate: 10000
@@ -1130,7 +1180,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 42
+      - Index: 44
         Item: adulter_f_dagger3 # 1030019
         Zeny: 50000000
         Rate: 10000
@@ -1155,7 +1205,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 43
+      - Index: 45
         Item: adulter_f_g_spear # 530013
         Zeny: 50000000
         Rate: 10000
@@ -1180,7 +1230,57 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 500
-      - Index: 44
+      - Index: 46
+        Item: E_Whitesmith2_Weapon # 1030052
+        Zeny: 50000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: R_Whitesmith2_Weapon # 1030049
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # 1001686
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # 1001689
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # 1001692
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # 1000422
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # 1000373
+            Amount: 500
+      - Index: 47
+        Item: E_Lord_Knight3_Weapon # 1030051
+        Zeny: 50000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: R_Lord_Knight3_Weapon # 1030050
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # 1001686
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # 1001689
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # 1001692
+            Amount: 50
+          - Index: 4
+            Item: Weapon_Ore_4 # 1000422
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # 1000373
+            Amount: 500
+      - Index: 48
         Item: Sinister_Twohand_Sword # 21016
         Zeny: 100000000
         Rate: 10000
@@ -1205,7 +1305,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 45
+      - Index: 49
         Item: Sinister_Lance # 1450
         Zeny: 100000000
         Rate: 10000
@@ -1230,7 +1330,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 46
+      - Index: 50
         Item: Sinister_Rod # 1600
         Zeny: 100000000
         Rate: 10000
@@ -1255,7 +1355,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 47
+      - Index: 51
         Item: Sinister_Book # 28605
         Zeny: 100000000
         Rate: 10000
@@ -1280,7 +1380,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 48
+      - Index: 52
         Item: Sinister_Twohand_Axe # 28107
         Zeny: 100000000
         Rate: 10000
@@ -1305,7 +1405,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 49
+      - Index: 53
         Item: Sinister_Saber # 13455
         Zeny: 100000000
         Rate: 10000
@@ -1330,7 +1430,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 50
+      - Index: 54
         Item: Sinister_Mace # 16041
         Zeny: 100000000
         Rate: 10000
@@ -1355,7 +1455,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 51
+      - Index: 55
         Item: Sinister_Fist # 1800
         Zeny: 100000000
         Rate: 10000
@@ -1380,7 +1480,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 52
+      - Index: 56
         Item: Sinister_Katar # 28008
         Zeny: 100000000
         Rate: 10000
@@ -1405,7 +1505,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 53
+      - Index: 57
         Item: Sinister_Dagger # 28706
         Zeny: 100000000
         Rate: 10000
@@ -1430,7 +1530,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 54
+      - Index: 58
         Item: Sinister_Bow # 18121
         Zeny: 100000000
         Rate: 10000
@@ -1455,7 +1555,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 55
+      - Index: 59
         Item: Sinister_Viollin # 1900
         Zeny: 100000000
         Rate: 10000
@@ -1480,7 +1580,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 56
+      - Index: 60
         Item: Sinister_Wire # 1996
         Zeny: 100000000
         Rate: 10000
@@ -1505,7 +1605,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 57
+      - Index: 61
         Item: Sinister_Book_PR105 # 1029019
         Zeny: 100000000
         Rate: 10000
@@ -1530,7 +1630,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 58
+      - Index: 62
         Item: Sinister_Staff # 2026
         Zeny: 100000000
         Rate: 10000
@@ -1555,7 +1655,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 59
+      - Index: 63
         Item: Sinister_Huuma # 13328
         Zeny: 100000000
         Rate: 10000
@@ -1580,7 +1680,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 60
+      - Index: 64
         Item: Sinister_Revolver # 13128
         Zeny: 100000000
         Rate: 10000
@@ -1605,7 +1705,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 61
+      - Index: 65
         Item: Sinister_Saber_J # 13468
         Zeny: 100000000
         Rate: 10000
@@ -1630,7 +1730,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 62
+      - Index: 66
         Item: Sniper_Focused_Weapon001 # 1030024
         Zeny: 100000000
         Rate: 10000
@@ -1655,7 +1755,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 63
+      - Index: 67
         Item: Attack_Dagger001 # 1030022
         Zeny: 100000000
         Rate: 10000
@@ -1680,7 +1780,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 64
+      - Index: 68
         Item: Magic_Dagger002 # 1030023
         Zeny: 100000000
         Rate: 10000
@@ -1705,7 +1805,7 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
-      - Index: 65
+      - Index: 69
         Item: Sinister_Spear # 1400
         Zeny: 100000000
         Rate: 10000
@@ -1713,6 +1813,56 @@ Body:
         RequiredItems:
           - Index: 0
             Item: adulter_f_g_spear # 530013
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # 1001687
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # 1001690
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # 1001693
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # 1000420
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # 1000373
+            Amount: 2000
+      - Index: 70
+        Item: L_Lord_Knight3_Weapon # 1030053
+        Zeny: 100000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: E_Lord_Knight3_Weapon # 1030051
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # 1001687
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # 1001690
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # 1001693
+            Amount: 100
+          - Index: 4
+            Item: Weapon_Ore_2 # 1000420
+            Amount: 1
+          - Index: 5
+            Item: Meteorite_Fragment # 1000373
+            Amount: 2000
+      - Index: 71
+        Item: L_Whitesmith2_Weapon # 1030054
+        Zeny: 100000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: E_Whitesmith2_Weapon # 1030052
             Amount: 1
             Refine: 11
           - Index: 1

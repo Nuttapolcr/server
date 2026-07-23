@@ -17,6 +17,7 @@ struct s_vip_rank {
 	std::string name;
 	int64 threshold;
 	uint16 box_speed;
+	uint16 autoattack_drop_reduction;
 	int32 icon = -1; // EFST_BLANK
 	script_code* script = nullptr;
 	script_code* pve_script = nullptr;

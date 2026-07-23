@@ -34116,7 +34116,7 @@ Body:
     Type: Card
     SubType: Enchant
     Script: |
-      bonus bNoGemStone;
+      bonus bNoGemStone,2;
   - Id: 29244
     AegisName: PlayerTolerance1
     Name: Player Resistance 1
@@ -37328,15 +37328,15 @@ Body:
       getitem 1030005,1;
   - Id: 1030043
     AegisName: N_Charm_Valor_V.1
-    Name: "[N] Charm Valor V.1 (NO GVG)"
+    Name: "[N] Charm Valor V.1"
     Type: Charm
   - Id: 1030044
     AegisName: R_Charm_Valor V.1
-    Name: "[R] Charm Valor V.1 (NO GVG)"
+    Name: "[R] Charm Valor V.1"
     Type: Charm
   - Id: 1030045
     AegisName: E_Charm_Valor V.1
-    Name: "[E] Charm Valor V.1 (GVG)"
+    Name: "[E] Charm Valor V.1"
     Type: Charm
   - Id: 19163
     AegisName: Catherina_Von_Blood
@@ -37428,6 +37428,8 @@ Body:
       Crusader: true
       Knight: true
       Swordman: true
+    Locations:
+      Right_Hand: true
     WeaponLevel: 3
     EquipLevelMin: 1
     Refineable: true
@@ -37755,3 +37757,7 @@ Body:
       getitem 1030001,1;
       getitem 12920,1;
       getitem 6635,30;
+  - Id: 1030061
+    AegisName: Barber_Ticket
+    Name: Barber Ticket
+    Type: Etc

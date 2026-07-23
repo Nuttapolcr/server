@@ -1,6 +1,6 @@
 //===== Custom NPC: City Titan Event ========================================
 //= Source: Google Sheet "Titan" (gid=234041347)
-//= Spawns in Death Match 2 (guild_vs3 49,49) at 08:00 / 12:00 / 16:00 / 20:00.
+//= Spawns in Death Match 2 (guild_vs3 49,49) at 18:00 / 20:00 / 22:00 / 00:00.
 //= At 75%, 50%, and 25% HP, standing players within 25 cells die.
 //===========================================================================
 
@@ -22,10 +22,10 @@ OnInit:
 	.boss_y = .spawn_y;
 	end;
 
-OnClock0800:
-OnClock1200:
-OnClock1600:
+OnClock1800:
 OnClock2000:
+OnClock2200:
+OnClock0000:
 	if (.active) end;
 	.active = 1;
 	.ending = 0;
