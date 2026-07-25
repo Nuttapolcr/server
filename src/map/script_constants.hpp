@@ -8099,6 +8099,9 @@
 	export_constant(IG_JEWEL_BOX_SET);
 	export_constant(IG_RANDOM_DROP_BOX);
 
+	export_constant(IG_TEST01);
+	export_constant(IG_TEST02);
+
 	/* unit stop walking */
 	export_constant(USW_NONE);
 	export_constant(USW_FIXPOS);

@@ -5271,7 +5271,7 @@ Body:
       sc_start SC_EXPBOOST,1800000,50;
   - Id: 12264
     AegisName: Comp_Bubble_Gum
-    Name: Bubble Gum
+    Name: "[NT] Bubble Gum"
     Type: Usable
     Buy: 2
     Weight: 10

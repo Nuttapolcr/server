@@ -51,7 +51,7 @@ morocc,165,150,4	script	Rank MVP บอส#rank_mvp_boss	615,{
 		);
 		query_sql(
 			"SELECT `last_mob_name`, DATE_FORMAT(`last_kill_at`, '%Y-%m-%d %H:%i:%s') FROM `ranking_mvp_boss` "+
-			"WHERE `account_id` = "+getcharid(3)+" ORDER BY `rank_no` ASC LIMIT 1",
+			"WHERE `account_id` = "+getcharid(3)+" ORDER BY `last_kill_at` DESC LIMIT 1",
 			.@last_mob$, .@last_time$
 		);
 		mes "อันดับปัจจุบัน: ^FF9900"+.@rank+"^000000";
@@ -211,11 +211,15 @@ OnCreateReward:
 }
 
 -	script	rank_mvp_boss_counter	FAKE_NPC,{
+OnInit:
+	.score_enabled = 0; // 0 = ปิดการสะสมแต้ม แต่ยังนับจำนวนฆ่า
+	end;
+
 OnNPCKillEvent:
 	if (getmonsterinfo(killedrid, MOB_MVPEXP) <= 0)
 		end;
 
-	.@point = 1;
+	.@point = .score_enabled ? 1 : 0;
 	.@mob_name$ = getmonsterinfo(killedrid, MOB_NAME);
 	query_sql(
 		"INSERT INTO `ranking_mvp_boss` "+
@@ -235,7 +239,7 @@ OnNPCKillEvent:
 		"(`account_id`, `char_id`, `player_name`, `mob_id`, `mob_name`, `point`, `kill_time`) VALUES ("+
 		getcharid(3)+", "+getcharid(0)+", '"+escape_sql(strcharinfo(0))+"', "+killedrid+", '"+escape_sql(.@mob_name$)+"', "+.@point+", NOW())"
 	);
-	query_sql("SELECT `total_score` FROM `ranking_mvp_boss` WHERE `char_id` = "+getcharid(0)+" LIMIT 1", .@total_score);
-	dispbottom "[จัดอันดับ MVP บอส] ได้รับ +"+.@point+" แต้ม จาก "+.@mob_name$+" รวมทั้งหมด "+callfunc("F_InsertComma", .@total_score)+" แต้ม";
+	query_sql("SELECT `total_kill` FROM `ranking_mvp_boss` WHERE `char_id` = "+getcharid(0)+" LIMIT 1", .@total_kill);
+	dispbottom "[จัดอันดับ MVP บอส] บันทึกการฆ่า "+.@mob_name$+" รวมทั้งหมด "+callfunc("F_InsertComma", .@total_kill)+" ตัว";
 	end;
 }

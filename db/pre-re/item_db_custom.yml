@@ -26,7 +26,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      getitem 11548,30;
+      getitem 11548,100;
   - Id: 12680
     AegisName: Sg_Blue_Potion_Box
     Name: Siege Blue Potion Box
@@ -36,7 +36,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      getitem 11549,10;
+      getitem 11549,50;
   - Id: 22777
     AegisName: BuffGiftBox
     Name: Gift Buff Set
@@ -26523,7 +26523,6 @@ Body:
     View: 1358
     Trade:
       NoDrop: true
-      NoSell: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -28419,10 +28418,12 @@ Body:
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"KN_BOWLINGBASH",20;
-      bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*20;
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*26;
       if (.@r>=7) {
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,60;
+      bonus2 bAddRace,RC_Player_Human,60;
       }
   - Id: 530006
     AegisName: Up_Undine_Spear_K
@@ -28447,10 +28448,12 @@ Body:
       bonus2 bAddClass,Class_Boss,30;
       bonus bMaxHPrate,5;
       bonus2 bSkillAtk,"CR_HOLYCROSS",30;
-      bonus2 bSkillAtk,"CR_HOLYCROSS",.@r/3*15;
+      bonus2 bSkillAtk,"CR_HOLYCROSS",.@r*40;
       if (.@r>=7) {
          bonus bAtkRate,5;
       bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,60;
+      bonus2 bAddRace,RC_Player_Human,60;
       }
   - Id: 640012
     AegisName: Up_Blue_Crystal_Staff
@@ -28471,12 +28474,14 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bInt,6;
-      bonus bMatkRate,10;
+      bonus bDex,3;
+      bonus bMatkRate,20;
+      bonus bMatk,50;
       bonus2 bMagicAddClass,Class_Boss,30;
       bonus bDelayrate,-(.@r/3*1);
       if (.@r>=7) {
-      bonus bMatk,20;
-      bonus bMatkRate,15;
+      bonus bMatk,70;
+      bonus bMatkRate,25;
       bonus2 bMagicAddClass,Class_Boss,25;
       }
   - Id: 540011
@@ -28664,6 +28669,8 @@ Body:
          bonus2 bAddClass,Class_Boss,10;
          bonus bBaseAtk,100;
          bonus bCritAtkRate,20;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       }
   - Id: 510019
     AegisName: Up_Magic_Sword
@@ -28718,12 +28725,14 @@ Body:
       bonus bDex,8;
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,3;
-      bonus2 bSkillAtk,"AC_DOUBLE",10;
+      bonus2 bSkillAtk,"AC_DOUBLE",20;
       bonus bDex,.@r/3*1;
       bonus2 bSkillAtk,"AC_DOUBLE",.@r/3*7;
       if (.@r>=7) {
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,60;
+      bonus2 bAddRace,RC_Player_Human,60;
       }
   - Id: 570009
     AegisName: Up_Trumpet_Shell_K
@@ -29061,12 +29070,13 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bInt,6;
-      bonus bMatkRate,10;
+      bonus bDex,3;
+      bonus bMatkRate,20;
       bonus2 bMagicAddClass,Class_Boss,30;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMatk,30;
-      bonus bMatkRate,15;
+      bonus bMatk,70;
+      bonus bMatkRate,25;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
       if (.@r>=9) {
@@ -29887,7 +29897,6 @@ Body:
       NoDrop: true
       NoTrade: true
       TradePartner: true
-      NoSell: true
       NoCart: true
       NoGuildStorage: true
       NoMail: true
@@ -30335,12 +30344,15 @@ Body:
       .@r = getrefine();
       bonus bBaseAtk,15*.@r;
       bonus2 bAddClass,Class_Boss,10;
+      bonus2 bSkillAtk,"CR_HOLYCROSS",.@r*18;
       if (.@r>=5) {
          bonus2 bAddClass,Class_Boss,10;
       }
       if (.@r>=7) {
          bonus bBaseAtk,30;
          bonus bAtkRate,15;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       }
   - Id: 1585
     AegisName: Upg_Book
@@ -30407,7 +30419,7 @@ Body:
       NoDrop: true
     Script: |-
       .@r = getrefine();
-      bonus bMatk,70;
+      bonus bMatk,50;
       bonus bMatkRate,5;
       bonus bMatk,10*.@r;
       bonus bHealPower,.@r;
@@ -30416,7 +30428,7 @@ Body:
          bonus2 bMagicAddClass,Class_Boss,10;
       }
       if (.@r>=7) {
-         bonus bMatk,80;
+         bonus bMatk,50;
          bonus bMatkRate,10;
       }
   - Id: 13071
@@ -30525,13 +30537,15 @@ Body:
       NoDrop: true
     Script: |-
       .@r = getrefine();
-      bonus bBaseAtk,15*.@r;
+      bonus bBaseAtk,24*.@r;
       bonus2 bAddClass,Class_Boss,10;
       if (.@r>=5) {
          bonus2 bAddClass,Class_Boss,10;
       }
       if (.@r>=7) {
          bonus bBaseAtk,30;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       }
   - Id: 16019
     AegisName: Upg_Mace
@@ -30609,12 +30623,16 @@ Body:
       bonus bBaseAtk,10*.@r;
       bonus bLongAtkRate,2*.@r;
       bonus2 bAddClass,Class_Boss,10;
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r*2;
       if (.@r>=5) {
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bSkillAtk,"AC_DOUBLE",10;
       }
       if (.@r>=7) {
          bonus bBaseAtk,30;
          bonus bLongAtkRate,10;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       }
   - Id: 13316
     AegisName: Upg_Huuma_Shuriken
@@ -32330,12 +32348,13 @@ Body:
       .@r = getrefine();
       .@g = getenchantgrade();
       bonus bInt,10;
-      bonus bMatkRate,20;
+      bonus bDex,5;
+      bonus bMatkRate,25;
       bonus2 bMagicAddClass,Class_Boss,50;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
-      bonus bMatk,30;
-      bonus bMatkRate,15;
+      bonus bMatk,80;
+      bonus bMatkRate,25;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
       if (.@r>=9) {
@@ -33490,7 +33509,7 @@ Body:
     Type: Armor
     Weight: 10
     Defense: 0
-    Slots: 0
+    Slots: 1
     Locations:
       Left_Accessory: true
     ArmorLevel: 1
@@ -33514,7 +33533,7 @@ Body:
     Type: Armor
     Weight: 10
     Defense: 0
-    Slots: 0
+    Slots: 1
     Locations:
       Left_Accessory: true
     ArmorLevel: 1
@@ -33538,7 +33557,7 @@ Body:
     Type: Armor
     Weight: 10
     Defense: 0
-    Slots: 0
+    Slots: 1
     Locations:
       Left_Accessory: true
     ArmorLevel: 1
@@ -33562,7 +33581,7 @@ Body:
     Type: Armor
     Weight: 10
     Defense: 0
-    Slots: 0
+    Slots: 1
     Locations:
       Left_Accessory: true
     ArmorLevel: 1
@@ -33778,7 +33797,7 @@ Body:
     Type: Armor
     Weight: 10
     Defense: 0
-    Slots: 0
+    Slots: 1
     Locations:
       Right_Accessory: true
     ArmorLevel: 1
@@ -33802,7 +33821,7 @@ Body:
     Type: Armor
     Weight: 10
     Defense: 0
-    Slots: 0
+    Slots: 1
     Locations:
       Right_Accessory: true
     ArmorLevel: 1
@@ -33826,7 +33845,7 @@ Body:
     Type: Armor
     Weight: 10
     Defense: 0
-    Slots: 0
+    Slots: 1
     Locations:
       Right_Accessory: true
     ArmorLevel: 1
@@ -33850,7 +33869,7 @@ Body:
     Type: Armor
     Weight: 10
     Defense: 0
-    Slots: 0
+    Slots: 1
     Locations:
       Right_Accessory: true
     ArmorLevel: 1
@@ -36120,11 +36139,12 @@ Body:
     Weight: 10
     Flags:
       Collection: true
-    CollectionScript: |-
-      sc_start SC_ENDURE,INFINITE_TICK,1;
+    CollectionScript: |
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      sc_start SC_ENDURE,INFINITE_TICK,1;
     CollectionAmount: 5
   - Id: 1001753
     AegisName: Col_Celia
@@ -36700,12 +36720,14 @@ Body:
       bonus bAspdRate,3;
       bonus bCritical,10;
       bonus2 bSkillAtk,"SN_SHARPSHOOTING",10;
-      bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*5;
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*13;
       bonus bDex,.@r/3*1;
       if (.@r>=7) {
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
          bonus bDelayrate,-10;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       }
   - Id: 510020
     AegisName: Up_Fatalist
@@ -37186,14 +37208,32 @@ Body:
       callfunc "PKProtection_Use";
   - Id: 1030026
     AegisName: Wing_Unlimit_1hr_Box
-    Name: "[1hr] Wing (Unlimit) box"
+    Name: "[1hr] Wing (Unlimit) box [NT]"
     Type: Cash
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
     Script: |
       rentitem 12887,3600;
   - Id: 1030027
     AegisName: Wing_Unlimit_4hr_Box
-    Name: "[4hr] Wing (Unlimit) box"
+    Name: "[4hr] Wing (Unlimit) box [NT]"
     Type: Cash
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
     Script: |
       rentitem 12887,14400;
   - Id: 1030028
@@ -37437,13 +37477,15 @@ Body:
       NoDrop: true
     Script: |-
       .@r = getrefine();
-      bonus bBaseAtk,10*.@r;
+      bonus bBaseAtk,15*.@r;
       bonus2 bAddClass,Class_Boss,10;
       if (.@r>=5) {
          bonus2 bAddClass,Class_Boss,10;
       }
       if (.@r>=7) {
-         bonus bBaseAtk,20;
+         bonus bBaseAtk,30;
+      bonus2 bAddRace,RC_DemiHuman,20;
+      bonus2 bAddRace,RC_Player_Human,20;
       }
   - Id: 1030049
     AegisName: R_Whitesmith2_Weapon
@@ -37496,10 +37538,12 @@ Body:
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,5;
       bonus2 bSkillAtk,"KN_BOWLINGBASH",12;
-      bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/3*12;
+      bonus2 bSkillAtk,"KN_BOWLINGBASH",.@r/2*12;
       if (.@r>=7) {
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,60;
+      bonus2 bAddRace,RC_Player_Human,60;
       }
   - Id: 1030051
     AegisName: E_Lord_Knight3_Weapon
@@ -37761,3 +37805,58 @@ Body:
     AegisName: Barber_Ticket
     Name: Barber Ticket
     Type: Etc
+  - Id: 1030062
+    AegisName: New_Item_1030062
+    Name: Winner GVG box
+    Type: Cash
+    Script: |-
+      getitem 22571,10;
+      getitem 101194,10;
+      getitem 12804,10;
+      getitem 14455,10;
+      getitem 6635,40;
+      getitem 30001,600;
+      getitem 1000401,75;
+      getitem 1001140,20;
+      getitem 1000445,20;
+      getitem 1001600,20;
+      getitem 1001718,20;
+      getitem 12679,10;
+      getitem 12680,5;
+  - Id: 1030063
+    AegisName: New_Item_1030063
+    Name: Normal GVG box
+    Type: Cash
+    Script: |-
+      getitem 12679,10;
+      getitem 12680,5;
+      getitem 30001,100;
+  - Id: 1030064
+    AegisName: New_Item_1030064
+    Name: Test gacha V.1
+    Type: Usable
+    Script: getgroupitem(IG_TEST01);
+  - Id: 1030065
+    AegisName: New_Item_1030065
+    Name: Test gacha V.2
+    Type: Usable
+    Script: getgroupitem(IG_TEST02);
+  - Id: 1030066
+    AegisName: Coin_Varlor_V.1
+    Name: Coin Varlor V.1
+    Type: Etc
+  - Id: 1030067
+    AegisName: Handkerchief_In_Mouth
+    Name: Handkerchief In Mouth
+    Type: Armor
+    Weight: 10
+    Locations:
+      Head_Low: true
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+    Script: |-
+      bonus2 bSubRace,RC_DemiHuman,3;
+      bonus2 bSubRace,RC_Player_Human,3;
+    Slots: 0
+    ArmorLevel: 1

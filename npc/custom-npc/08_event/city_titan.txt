@@ -244,16 +244,16 @@ S_ClearChests:
 		end;
 	}
 
-	.@seconds = 10;
+	.@seconds = 5;
 	.@bar$ = "0x33B5FF";
 	.@group = IG_CITY_TITAN_BLUE;
 	if (.@color$ == "R") {
-		.@seconds = 20;
+		.@seconds = 10;
 		.@bar$ = "0xFF3333";
 		.@group = IG_CITY_TITAN_RED;
 	}
 	else if (.@color$ == "P") {
-		.@seconds = 30;
+		.@seconds = 15;
 		.@bar$ = "0xCC33FF";
 		.@group = IG_CITY_TITAN_PURPLE;
 	}

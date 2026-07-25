@@ -2187,7 +2187,7 @@ Body:
     SubType: Arrow
     Buy: 3
     Sell: 0
-    Weight: 2
+    Weight: 0
     Attack: 30
     Jobs:
       Archer: true
@@ -14524,7 +14524,6 @@ Body:
       TradePartner: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -22747,7 +22746,7 @@ Body:
     Type: Ammo
     SubType: Bullet
     Buy: 15
-    Weight: 2
+    Weight: 0
     Attack: 15
     Jobs:
       Gunslinger: true

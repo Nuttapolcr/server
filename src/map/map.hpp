@@ -38,6 +38,7 @@ namespace rathena{
 				MapServer() : Core( e_core_type::MAP ){
 
 				}
+				void signal_crash() override;
 		};
 	}
 }

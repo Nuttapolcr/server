@@ -13274,3 +13274,183 @@ Body:
             Item: Jewel_Box
             Rate: 6000
             Amount: 2
+  - Group: TEST01
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Woe_White_Potion
+            Rate: 1800
+            Amount: 5
+          - Index: 1
+            Item: Woe_Blue_Potion
+            Rate: 1800
+            Amount: 5
+          - Index: 2
+            Item: White_Slim_Potion
+            Rate: 1500
+            Amount: 2
+          - Index: 3
+            Item: Fire_Bottle
+            Rate: 1000
+            Amount: 2
+          - Index: 4
+            Item: Acid_Bottle
+            Rate: 1000
+            Amount: 2
+          - Index: 5
+            Item: Aloebera
+            Rate: 1000
+            Amount: 1
+          - Index: 6
+            Item: Poison_Bottle
+            Rate: 1200
+            Amount: 2
+          - Index: 7
+            Item: Awakening_Potion
+            Rate: 1000
+            Amount: 1
+          - Index: 8
+            Item: Berserk_Potion
+            Rate: 1000
+            Amount: 1
+          - Index: 9
+            Item: Siege_White_Potion
+            Rate: 1500
+            Amount: 10
+          - Index: 10
+            Item: Siege_Blue_Potion
+            Rate: 1500
+            Amount: 10
+          - Index: 11
+            Item: Meteorite_Fragment
+            Rate: 900
+            Amount: 5
+          - Index: 12
+            Item: N_Charm_Valor_V.1
+            Rate: 5
+            Amount: 1
+          - Index: 13
+            Item: R_Charm_Valor V.1
+            Rate: 5
+            Amount: 1
+          - Index: 14
+            Item: E_Charm_Valor V.1
+            Rate: 5
+            Amount: 1
+          - Index: 15
+            Item: Wing_Unlimit_1hr_Box
+            Rate: 300
+            Amount: 1
+          - Index: 16
+            Item: Wing_Unlimit_4hr_Box
+            Rate: 200
+            Amount: 1
+          - Index: 17
+            Item: Wing_Unlimit_6hr_Box
+            Rate: 150
+            Amount: 1
+          - Index: 18
+            Item: Max_Weight_Up_Scroll
+            Rate: 150
+            Amount: 1
+          - Index: 19
+            Item: Kafra_Card
+            Rate: 150
+            Amount: 1
+          - Index: 20
+            Item: Pet_Friendly_Ticket
+            Rate: 20
+            Amount: 1
+  - Group: TEST02
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: aegis_1000401
+            Rate: 1000
+            Amount: 3
+          - Index: 1
+            Item: Barmund_Ice_Essence
+            Rate: 1000
+            Amount: 2
+          - Index: 2
+            Item: Crt_Meteorite_Fragment
+            Rate: 1000
+            Amount: 2
+          - Index: 3
+            Item: Weapon_Ore_1
+            Rate: 1300
+            Amount: 1
+          - Index: 4
+            Item: Armor_Ore_1
+            Rate: 1300
+            Amount: 1
+          - Index: 5
+            Item: Acc_Ore_1
+            Rate: 1300
+            Amount: 1
+          - Index: 6
+            Item: Meteorite_Fragment
+            Rate: 700
+            Amount: 10
+          - Index: 7
+            Item: Basic_Siege_Supply_Box
+            Rate: 700
+            Amount: 2
+          - Index: 8
+            Item: Str_Dish10_
+            Rate: 700
+            Amount: 3
+          - Index: 9
+            Item: Agi_Dish10_
+            Rate: 700
+            Amount: 3
+          - Index: 10
+            Item: Int_Dish10_
+            Rate: 700
+            Amount: 3
+          - Index: 11
+            Item: Dex_Dish10_
+            Rate: 700
+            Amount: 3
+          - Index: 12
+            Item: Luk_Dish10_
+            Rate: 700
+            Amount: 3
+          - Index: 13
+            Item: Vit_Dish10_
+            Rate: 700
+            Amount: 3
+          - Index: 14
+            Item: Kafra_Card
+            Rate: 1000
+            Amount: 2
+          - Index: 15
+            Item: N_Charm_Valor_V.1
+            Rate: 200
+            Amount: 1
+          - Index: 16
+            Item: R_Charm_Valor V.1
+            Rate: 200
+            Amount: 1
+          - Index: 17
+            Item: E_Charm_Valor V.1
+            Rate: 200
+            Amount: 1
+          - Index: 18
+            Item: Bloody_Dead_Branch
+            Rate: 100
+            Amount: 1
+          - Index: 19
+            Item: Wing_Unlimit_6hr_Box
+            Rate: 300
+            Amount: 1
+          - Index: 20
+            Item: Wing_Unlimit_12hr_Box
+            Rate: 300
+            Amount: 1
+          - Index: 21
+            Item: B_Flamel_Egg
+            Rate: 20
+            Amount: 1

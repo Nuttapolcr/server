@@ -755,6 +755,8 @@ Body:
       - Item: Wind_Scroll_1_3
         Rate: 1
         StealProtected: true
+      - Item: Creamy_Card
+        Rate: 1
   - Id: 1019
     AegisName: PECOPECO
     Name: Peco Peco
@@ -6803,6 +6805,8 @@ Body:
       - Item: Pasana_Card
         Rate: 1
         StealProtected: true
+      - Item: Undershirt
+        Rate: 100
   - Id: 1155
     AegisName: PETIT
     Name: Petite
@@ -8138,6 +8142,8 @@ Body:
       - Item: Orc_Archer_Card
         Rate: 1
         StealProtected: true
+      - Item: Orc_Archer_Bow
+        Rate: 20
   - Id: 1190
     AegisName: ORC_LORD
     Name: Orc Lord

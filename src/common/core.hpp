@@ -87,7 +87,7 @@ namespace rathena{
 				bool is_running();
 				// TODO: refactor to protected
 				void set_run_once( bool run_once );
-				void signal_crash();
+				virtual void signal_crash();
 				void signal_shutdown();
 				int start( int argc, char* argv[] );
 				int wstart(int argc, char* argv[]);

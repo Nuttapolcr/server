@@ -2846,6 +2846,9 @@ enum e_random_item_group {
 	IG_JEWEL_BOX_SET,
 	IG_RANDOM_DROP_BOX,
 
+	IG_TEST01,
+	IG_TEST02,
+
 	IG_MAX,
 };
 

@@ -4623,6 +4623,7 @@ Body:
       if (.@r>=7) {
          bonus bBaseAtk,30;
          bonus bCritAtkRate,20;
+      bonus2 bSkillAtk,"AS_SONICBLOW",25;
       }
   - Id: 1301
     AegisName: Axe
@@ -29564,7 +29565,6 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoSell: true
       NoCart: true
       NoGuildStorage: true
       NoMail: true
@@ -30478,7 +30478,6 @@ Body:
     View: 336
     Trade:
       NoDrop: true
-      NoSell: true
       NoGuildStorage: true
     Script: |
       bonus2 bAddRace,RC_DemiHuman,5;
@@ -31301,7 +31300,6 @@ Body:
     View: 369
     Trade:
       NoDrop: true
-      NoSell: true
       NoGuildStorage: true
     Script: |
       bonus bBaseAtk,10;
@@ -31593,7 +31591,6 @@ Body:
     View: 382
     Trade:
       NoDrop: true
-      NoSell: true
       NoGuildStorage: true
     Script: |
       bonus bMaxSP,120;
@@ -31610,7 +31607,6 @@ Body:
     View: 383
     Trade:
       NoDrop: true
-      NoSell: true
       NoGuildStorage: true
     Script: |
       bonus2 bSubRace,RC_DemiHuman,2;

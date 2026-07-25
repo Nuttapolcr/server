@@ -8,6 +8,14 @@
 #include <chrono>
 #include <future>
 
+#ifndef _WIN32
+#include <execinfo.h>
+#include <fcntl.h>
+#include <signal.h>
+#include <sys/resource.h>
+#include <unistd.h>
+#endif
+
 #include <config/core.hpp>
 
 #include <common/cbasetypes.hpp>
@@ -5088,6 +5096,75 @@ static int map_abort_sub(map_session_data* sd, va_list ap)
 	return 1;
 }
 
+#ifndef _WIN32
+static volatile sig_atomic_t map_crash_backtrace_running = 0;
+
+static bool map_enable_core_dumps() {
+	struct rlimit core_limit = {};
+
+	if (getrlimit(RLIMIT_CORE, &core_limit) != 0)
+		return false;
+
+	if (core_limit.rlim_cur != core_limit.rlim_max) {
+		struct rlimit requested_limit = core_limit;
+		requested_limit.rlim_cur = requested_limit.rlim_max;
+		if (setrlimit(RLIMIT_CORE, &requested_limit) != 0)
+			return false;
+	}
+
+	return core_limit.rlim_max != 0;
+}
+
+static void map_crash_diagnostics_early_init() {
+	map_enable_core_dumps();
+
+	// Preload the unwinder before a crash so the signal path does less work.
+	void* warmup[1];
+	backtrace(warmup, 1);
+}
+
+static void map_crash_diagnostics_report() {
+	map_enable_core_dumps();
+
+	struct rlimit core_limit = {};
+	if (getrlimit(RLIMIT_CORE, &core_limit) != 0) {
+		ShowWarning("Unable to read the core dump size limit.\n");
+	} else if (core_limit.rlim_cur == 0) {
+		ShowWarning("Core dumps remain disabled because the hard limit is 0 or the limit could not be raised.\n");
+	} else if (core_limit.rlim_cur != RLIM_INFINITY) {
+		ShowWarning("Core dumps are enabled with a finite size limit of %llu bytes.\n",
+			static_cast<unsigned long long>(core_limit.rlim_cur));
+	} else {
+		ShowStatus("Core dumps enabled for map-server (unlimited).\n");
+	}
+}
+
+static void map_crash_backtrace_write() {
+	if (map_crash_backtrace_running)
+		return;
+	map_crash_backtrace_running = 1;
+
+	void* frames[64];
+	int frame_count = backtrace(frames, static_cast<int>(ARRAYLENGTH(frames)));
+	static const char header[] =
+		"\n[Crash Backtrace] SIGSEGV/SIGFPE native frames:\n";
+	static const char footer[] =
+		"[Crash Backtrace] End native frames.\n";
+
+	write(STDERR_FILENO, header, sizeof(header) - 1);
+	backtrace_symbols_fd(frames, frame_count, STDERR_FILENO);
+	write(STDERR_FILENO, footer, sizeof(footer) - 1);
+
+	int log_fd = open(console_log_filepath, O_WRONLY | O_CREAT | O_APPEND, 0664);
+	if (log_fd >= 0) {
+		write(log_fd, header, sizeof(header) - 1);
+		backtrace_symbols_fd(frames, frame_count, log_fd);
+		write(log_fd, footer, sizeof(footer) - 1);
+		close(log_fd);
+	}
+}
+#endif
+
 #ifdef _WIN32
 #include <windows.h>
 #include <tlhelp32.h>
@@ -5099,6 +5176,18 @@ static int map_abort_sub(map_session_data* sd, va_list ap)
 // Function called when the server
 // has received a crash signal.
 //------------------------------
+void MapServer::signal_crash() {
+#ifndef _WIN32
+	// Run low-level diagnostics before Core::signal_crash() reaches stdio,
+	// database access, or character-saving code.
+	signal(SIGSEGV, SIG_DFL);
+	signal(SIGFPE, SIG_DFL);
+	map_crash_backtrace_write();
+#endif
+
+	Core::signal_crash();
+}
+
 void MapServer::handle_crash() {
 	static int run = 0;
 	if (run) {
@@ -5354,6 +5443,9 @@ bool MapServer::initialize( int argc, char *argv[] ){
 	SCRIPT_CONF_NAME = "conf/script_athena.conf";
 	GRF_PATH_FILENAME = "conf/grf-files.txt";
 	safestrncpy(console_log_filepath, "./log/map-msg_log.log", sizeof(console_log_filepath));
+#ifndef _WIN32
+	map_crash_diagnostics_report();
+#endif
 
 	/* Multilanguage */
 	MSG_CONF_NAME_EN = "conf/msg_conf/map_msg.conf"; // English (default)
@@ -5526,5 +5618,9 @@ bool MapServer::initialize( int argc, char *argv[] ){
 }
 
 int main( int argc, char *argv[] ){
+	safestrncpy(console_log_filepath, "./log/map-msg_log.log", sizeof(console_log_filepath));
+#ifndef _WIN32
+	map_crash_diagnostics_early_init();
+#endif
 	return main_core<MapServer>( argc, argv );
 }
