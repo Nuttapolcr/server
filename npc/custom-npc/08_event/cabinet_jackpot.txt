@@ -67,7 +67,6 @@ function	script	F_Cabinet_ResetRank	{
 morocc,120,101,4	script	ตู้ Zeny#cabinet	563,{
 
 L_Main:
-	clear;
 	.@menu$ = "กดตู้ (500,000 Zeny):ดูอันดับ 1-10";
 	if (getgmlevel() >= 99)
 		.@menu$ += ":GM รีเซ็ตอันดับ";
@@ -151,7 +150,6 @@ OnUpdateSign:
 morocc,120,97,4	script	ตู้ Cash#cabinet	563,{
 
 L_Main:
-	clear;
 	.@menu$ = "กดตู้ (200 Cash Point):ดูอันดับ 1-10";
 	if (getgmlevel() >= 99)
 		.@menu$ += ":GM รีเซ็ตอันดับ";

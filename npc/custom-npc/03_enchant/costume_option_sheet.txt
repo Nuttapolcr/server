@@ -26,6 +26,7 @@ morocc,132,106,4	script	NPC ย่อย Costume#sheet	89,{
 		close;
 	}
 
+	close2;
 	callshop .shop_npc_name$, 2;
 	end;
 
