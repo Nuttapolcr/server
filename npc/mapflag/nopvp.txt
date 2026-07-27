@@ -25,11 +25,18 @@ bat_c01	mapflag	pvp	off
 bat_c02	mapflag	pvp	off
 bat_c03	mapflag	pvp	off
 
-//guild_vs1	mapflag	pvp	off
-//guild_vs2	mapflag	pvp	off
+guild_vs1	mapflag	pvp	off
+guild_vs2	mapflag	pvp	off
 guild_vs3	mapflag	pvp	off
 guild_vs4	mapflag	pvp	off
 guild_vs5	mapflag	pvp	off
+
+// PK-mode exclusions requested for MA 27/7/69
+quiz_02	mapflag	pvp	off
+alde_gld	mapflag	pvp	off
+gef_fild13	mapflag	pvp	off
+pay_gld	mapflag	pvp	off
+prt_gld	mapflag	pvp	off
 
 ayo_in01	mapflag	pvp	off
 ayo_in02	mapflag	pvp	off

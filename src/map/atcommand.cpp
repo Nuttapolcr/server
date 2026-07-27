@@ -1179,6 +1179,11 @@ ACMD_FUNC(save)
 ACMD_FUNC(load){
 	nullpo_retr(-1, sd);
 
+	if (pc_pvp_warp_locked(sd)) {
+		pc_pvp_warp_lock_message(sd);
+		return -1;
+	}
+
 	uint16 mapindex = mapindex_name2id( sd->status.save_point.map );
 
 	int16 m = map_mapindex2mapid( mapindex );
@@ -11960,85 +11965,34 @@ ACMD_FUNC(setcard)
 }
 
 /*==========================================
-* @afk "<Message>"
+* @afk [Message]
 *==========================================*/
 ACMD_FUNC(afk) {
 	nullpo_retr(-1, sd);
 
-	char msg[CHAT_SIZE_MAX];
-	
-	if (pc_isdead(sd)) {
-		clif_displaymessage(fd, msg_txt(sd, 1710));
-		return -1;
+	char msg[CHAT_SIZE_MAX] = "";
+	if (message != nullptr)
+		safestrncpy(msg, message, sizeof(msg));
+
+	// AFK is available immediately on every map and with no required message.
+	sd->state.autotrade = 1;
+	sd->state.afk = 1;
+	sd->state.block_action |= PCBLOCK_IMMUNE;
+	pc_setsit(sd);
+	skill_sit(sd, 1);
+	clif_sitting(&sd->bl);
+	clif_changelook(&sd->bl, LOOK_HEAD_TOP, ITEMID_AFK_HAT);
+	clif_specialeffect(&sd->bl, 234, AREA);
+
+	if (battle_config.afk_timeout) {
+		int timeout = atoi(msg);
+		status_change_start(NULL, &sd->bl, SC_AUTOTRADE, 10000, 0, 0, 0, 0, ((timeout > 0) ? min(timeout, battle_config.afk_timeout) : battle_config.afk_timeout) * 60000, 0);
 	}
 
-	if (sd->state.vending || sd->state.buyingstore) {
-		clif_displaymessage(fd, msg_txt(sd, 1711));
-		return 1;
-	}
-
-	{
-		int i = 0, j = 0, l = strlen(message) + 1;
-		char *temp = (char*)aMalloc(strlen(message) + 1);
-
-		if (message[i] != '\"') {
-			clif_displaymessage(fd, msg_txt(sd, 1713));
-			clif_displaymessage(fd, msg_txt(sd, 1712));
-			return -1;
-		}
-
-		i++;
-		j = 0;
-
-		while (i <= l) {
-			if (message[i] == '\"' || message[i] == '\0')
-				break;
-			else
-				temp[j++] = message[i];
-			i++;
-		}
-
-		if (message[i] != '\"') {
-			clif_displaymessage(fd, msg_txt(sd, 1714));
-			clif_displaymessage(fd, msg_txt(sd, 1712));
-			return -1;
-		}
-
-		temp[j] = '\0';
-		safestrncpy(msg, temp, CHAT_SIZE_MAX);
-		aFree(temp);
-	}
-
-	if (map_getmapflag(sd->bl.m, MF_AUTOTRADE) == battle_config.autotrade_mapflag && !map_getmapflag(sd->bl.m, MF_NOAFK)) {
-
-		if (map_getmapflag(sd->bl.m, MF_PVP) || map_getmapflag(sd->bl.m, MF_GVG)) {
-			clif_displaymessage(fd, msg_txt(sd, 1715));
-			return -1;
-		}
-
-		sd->state.autotrade = 1;
-		sd->state.afk = 1;
-		sd->state.block_action |= PCBLOCK_IMMUNE;
-		pc_setsit(sd);
-		skill_sit(sd, 1);
-		clif_sitting(&sd->bl);
-		clif_changelook(&sd->bl, LOOK_HEAD_TOP, ITEMID_AFK_HAT);
-		clif_specialeffect(&sd->bl, 234, AREA);   
-						
-		if (battle_config.afk_timeout) {
-			int timeout = atoi(message);
-			status_change_start(NULL, &sd->bl, SC_AUTOTRADE, 10000, 0, 0, 0, 0, ((timeout > 0) ? min(timeout, battle_config.afk_timeout) : battle_config.afk_timeout) * 60000, 0);
-		}
-
-		safestrncpy(sd->message_to_afk, msg, CHAT_SIZE_MAX);
-		channel_pcquit(sd, 0xF); //leave all chan
-		clif_authfail_fd(sd->fd, 15);
-		chrif_save(sd, CSAVE_AUTOTRADE);
-
-	} else {
-		clif_displaymessage(fd, msg_txt(sd, 1706));
-		return -1;
-	}
+	safestrncpy(sd->message_to_afk, msg, sizeof(sd->message_to_afk));
+	channel_pcquit(sd, 0xF); //leave all chan
+	clif_authfail_fd(sd->fd, 15);
+	chrif_save(sd, CSAVE_AUTOTRADE);
 
 	return 0;
 }

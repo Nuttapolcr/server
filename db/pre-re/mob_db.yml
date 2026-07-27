@@ -6757,7 +6757,7 @@ Body:
       - Item: Sticky_Mucus
         Rate: 1500
       - Item: Emperium
-        Rate: 1
+        Rate: 100
       - Item: Orc_Zombie_Card
         Rate: 1
         StealProtected: true

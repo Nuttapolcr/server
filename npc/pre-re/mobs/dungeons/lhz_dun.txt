@@ -101,6 +101,8 @@ OnInit:
 	end;
 
 OnMyMVPDead:
+	// Forward the killer-attached event to the shared Tier A MVP Treasure system.
+	doevent "MvpTreasure::OnLhzCloneMvpDead";
 	killmonster "lhz_dun03",strnpcinfo(3)+"::OnMy99Dead";
 	initnpctimer;
 OnMy99Dead:

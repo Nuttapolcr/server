@@ -118,7 +118,7 @@ static void logclif_auth_ok(struct login_session_data* sd) {
 
 // (^~_~^) Gepard Shield Start
 
-	account_gepard_update_last_unique_id(sd->account_id, session[fd]->gepard_info.unique_id);
+	account_gepard_update_last_device(sd->account_id, session[fd]->gepard_info.unique_id, session[fd]->gepard_info.mac_address);
 	login_gepard_log(fd, ip, sd->userid, 100, "login ok");
 
 // (^~_~^) Gepard Shield End

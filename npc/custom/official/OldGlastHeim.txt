@@ -991,12 +991,7 @@ OnMyMobDead:
 1@gl_k,221,82,3	script	A dead man#1	4_M_DIEMAN,5,5,{
 	end;
 OnTouch_:
-	.@i = rand(1,10);
-	if (.@i == 1) .@mobs = 3;
-	else if (.@i == 2) .@mobs = 4;
-	else if (.@i == 3) .@mobs = 5;
-	else if (.@i < 7) .@mobs = 6;
-	else .@mobs = 7;
+	.@mobs = 3;
 	getmapxy .@map$,.@x,.@y, BL_NPC;
 	specialeffect EF_VENOMDUST;
 	monster .@map$,.@x,.@y,"Maggot",2467,.@mobs;
@@ -1611,12 +1606,7 @@ OnTouch_:
 	end;
 OnTouch_:
 	disablenpc();
-	.@i = rand(1,10);
-	if (.@i == 1) .@mobs = 3;
-	else if (.@i == 2) .@mobs = 4;
-	else if (.@i == 3) .@mobs = 5;
-	else if (.@i < 7) .@mobs = 6;
-	else .@mobs = 7;
+	.@mobs = 3;
 	.@event$ = instance_npcname( strnpcinfo(0) ) + "::OnMobDead";
 	killmonster 'map_name$[1], .@event$;
 	getmapxy .@map$,.@x,.@y, BL_NPC;

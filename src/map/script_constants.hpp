@@ -893,6 +893,7 @@
 	export_constant2("bAutoSkill",SP_AUTOSKILL);
 	export_constant2("bPerfectPierce",SP_PERFECT_PIERCE);
 	export_constant2("bPerfectBowling", SP_PERFECT_BOWLING);
+	export_constant2("bNoGutterLine", SP_NO_GUTTER_LINE);
 
 	/* equip indices */
 	export_constant(EQI_COMPOUND_ON);
@@ -2113,6 +2114,8 @@
 
 	export_constant(SC_PKPASS_ATK);
 	export_constant(SC_PKPASS_DEF);
+	export_constant(SC_PVP_WARP_LOCK_ATK);
+	export_constant(SC_PVP_WARP_LOCK_DEF);
 	export_constant(SC_ITEMBOOST_E);
 	export_constant(SC_ITEMBOOST_C);
  	export_constant(SC_ITEMBOOST_W);

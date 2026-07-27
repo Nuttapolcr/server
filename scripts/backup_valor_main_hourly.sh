@@ -53,8 +53,13 @@ MYSQL_PWD="$db_pass" mysqldump \
 gzip -t "$partial_file"
 mv "$partial_file" "$final_file"
 
-# Keep completed hourly backups for exactly seven days.
+# Keep completed hourly backups from today and the previous calendar day only.
+today="$(date +%Y%m%d)"
+yesterday="$(date --date='yesterday' +%Y%m%d)"
 find "$backup_dir" -maxdepth 1 -type f \
-	-name 'valor_main_hourly_*.sql.gz' -mmin +10080 -delete
+	-name 'valor_main_hourly_*.sql.gz' \
+	! -name "valor_main_hourly_${today}_*.sql.gz" \
+	! -name "valor_main_hourly_${yesterday}_*.sql.gz" \
+	-delete
 
 printf 'Created %s\n' "$final_file"

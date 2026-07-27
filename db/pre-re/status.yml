@@ -7376,6 +7376,24 @@ Body:
       NoBanishingBuster: true
       NoClearance: true
 
+  - Status: PVP_WARP_LOCK_ATK
+    Icon: EFST_PK_ATTACK
+    Flags:
+      NoClearbuff: true
+      NoDispell: true
+      NoBanishingBuster: true
+      NoClearance: true
+      NoSave: true
+
+  - Status: PVP_WARP_LOCK_DEF
+    Icon: EFST_PK_REVENGE
+    Flags:
+      NoClearbuff: true
+      NoDispell: true
+      NoBanishingBuster: true
+      NoClearance: true
+      NoSave: true
+
 # ============================================================
 # FARM RANK BUFF (Farming)
 # Rank 1-7

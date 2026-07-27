@@ -6351,7 +6351,13 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 				min_y = src->y - battle_config.bowling_bash_area;
 				max_y = src->y + battle_config.bowling_bash_area;
 			}
-			if (sd && sd->special_state.perfect_bowling) {
+			if (sd && sd->special_state.no_gutter_line) {
+				// Ignore the 40-cell Gutter Line grid for this character.
+				min_x = src->x - 20;
+				max_x = src->x + 20;
+				min_y = src->y - 20;
+				max_y = src->y + 20;
+			} else if (sd && sd->special_state.perfect_bowling) {
 				// Gutter line system without demi gutter bug
 				min_x = src->x - (src->x) % 40;
 				max_x = min_x + 39;
@@ -9720,6 +9726,11 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 														 
 				clif_displaymessage(sd->fd, msg_txt(NULL,2100));
 				break;
+			}
+
+			if (pc_pvp_warp_locked(sd)) {
+				pc_pvp_warp_lock_message(sd);
+				return 1;
 			}
 
 			if(DIFF_TICK(sd->pk_teleport_cooldown,gettick()) > 0){
@@ -16544,6 +16555,11 @@ int skill_unit_onplace_timer(struct skill_unit *unit, struct block_list *bl, t_t
 						tsc->sg_counter=0; //Attack absorbed.
 					break;
 #endif
+				case WZ_HEAVENDRIVE:
+					// Heaven's Drive detects Hiding targets; reveal them before applying the hit.
+					status_change_end(bl, SC_HIDING);
+					skill_attack(skill_get_type(sg->skill_id),ss,&unit->bl,bl,sg->skill_id,sg->skill_lv,tick,0);
+					break;
 				case GS_DESPERADO:
 					if (rnd()%100 < unit->val1)
 						skill_attack(BF_WEAPON,ss,&unit->bl,bl,sg->skill_id,sg->skill_lv,tick,0);

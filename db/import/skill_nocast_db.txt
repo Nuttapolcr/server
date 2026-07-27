@@ -22,3 +22,4 @@
 // Example:
 // 8,6  // Endure cannot be used in PvP and GvG maps (2+4)
 
+457,15 // SL_ASSASIN is disabled in normal, PvP, GvG, and Battleground maps.

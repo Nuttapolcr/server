@@ -4219,6 +4219,12 @@ e_purchase_result npc_barter_purchase( struct map_session_data& sd, std::shared_
 								continue;
 							}
 
+							// An active pet's egg remains in the inventory with the broken
+							// attribute set. Never consume it as barter material.
+							if( id->type == IT_PETEGG && sd.inventory.u.items_inventory[j].attribute != 0 ){
+								continue;
+							}
+
 							// If necessary, check if the refine rate matches
 							if( requirement->refine >= 0 && sd.inventory.u.items_inventory[j].refine != requirement->refine ){
 								// Refine does not match, continue with next item
@@ -4270,6 +4276,12 @@ e_purchase_result npc_barter_purchase( struct map_session_data& sd, std::shared_
 
 										// Server is configured to hide favorite items on selling
 										if( battle_config.hide_fav_sell && sd.inventory.u.items_inventory[j].favorite ){
+											continue;
+										}
+
+										// An active pet's egg remains in the inventory with the broken
+										// attribute set. Never consume it as barter material.
+										if( id->type == IT_PETEGG && sd.inventory.u.items_inventory[j].attribute != 0 ){
 											continue;
 										}
 

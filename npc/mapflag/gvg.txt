@@ -97,16 +97,19 @@ nguild_prt	mapflag	gvg_castle
 //nguild_prt	mapflag	monster_noteleport
 
 // Guild Dungeons =========
-gld_dun01	mapflag	gvg_dungeon
-gld_dun02	mapflag	gvg_dungeon
-gld_dun03	mapflag	gvg_dungeon
-gld_dun04	mapflag	gvg_dungeon
-gld_dun01	mapflag	gvg
-gld_dun02	mapflag	gvg
-gld_dun03	mapflag	gvg
-gld_dun04	mapflag	gvg
+gld_dun01	mapflag	gvg_dungeon	off
+gld_dun02	mapflag	gvg_dungeon	off
+gld_dun03	mapflag	gvg_dungeon	off
+gld_dun04	mapflag	gvg_dungeon	off
+gld_dun01	mapflag	gvg	off
+gld_dun02	mapflag	gvg	off
+gld_dun03	mapflag	gvg	off
+gld_dun04	mapflag	gvg	off
+gld_dun01	mapflag	pvp
+gld_dun02	mapflag	pvp
+gld_dun03	mapflag	pvp
+gld_dun04	mapflag	pvp
 
 arug_dun01	mapflag	gvg_dungeon
 schg_dun01	mapflag	gvg_dungeon
-
 

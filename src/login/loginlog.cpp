@@ -68,6 +68,7 @@ void login_gepard_log(int fd, uint32 ip, const char* username, int rcode, const 
 {
 	char esc_username[NAME_LENGTH*2+1];
 	char esc_message[255*2+1];
+	char mac_address[18] = "";
 	unsigned int unique_id = 0;
 	int retcode;
 
@@ -77,14 +78,19 @@ void login_gepard_log(int fd, uint32 ip, const char* username, int rcode, const 
 	if (fd != 0)
 	{
 		unique_id = session[fd]->gepard_info.unique_id;
+		if (session[fd]->gepard_info.is_init_ack_received)
+		{
+			const unsigned char* mac = session[fd]->gepard_info.mac_address;
+			safesnprintf(mac_address, sizeof(mac_address), "%02X:%02X:%02X:%02X:%02X:%02X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+		}
 	}
 
 	Sql_EscapeStringLen(sql_handle, esc_username, username, strnlen(username, NAME_LENGTH));
 	Sql_EscapeStringLen(sql_handle, esc_message, message, strnlen(message, 255));
 
 	retcode = Sql_Query(sql_handle,
-		"INSERT INTO `%s`(`time`,`ip`,`user`,`rcode`, `unique_id`,`log`) VALUES (NOW(), '%s', '%s', '%d', '%u', '%s')",
-		log_login_db.c_str(), ip2str(ip,NULL), esc_username, rcode, unique_id, esc_message);
+		"INSERT INTO `%s`(`time`,`ip`,`user`,`rcode`, `unique_id`,`mac_address`,`log`) VALUES (NOW(), '%s', '%s', '%d', '%u', '%s', '%s')",
+		log_login_db.c_str(), ip2str(ip,NULL), esc_username, rcode, unique_id, mac_address, esc_message);
 
 	if( retcode != SQL_SUCCESS )
 		Sql_ShowDebug(sql_handle);
@@ -166,6 +172,23 @@ void loginlog_gepard_init(void)
 	if (Sql_NumRows(sql_handle) == 0)
 	{
 		if (SQL_SUCCESS != Sql_Query(sql_handle, "ALTER TABLE `loginlog` ADD `unique_id` INT(11) UNSIGNED NOT NULL DEFAULT '0';"))
+		{
+			Sql_ShowDebug(sql_handle);
+			Sql_Free(sql_handle);
+			exit(EXIT_FAILURE);
+		}
+	}
+
+	if (SQL_SUCCESS != Sql_Query(sql_handle, "SHOW COLUMNS FROM `loginlog` LIKE 'mac_address'"))
+	{
+		Sql_ShowDebug(sql_handle);
+		Sql_Free(sql_handle);
+		exit(EXIT_FAILURE);
+	}
+
+	if (Sql_NumRows(sql_handle) == 0)
+	{
+		if (SQL_SUCCESS != Sql_Query(sql_handle, "ALTER TABLE `loginlog` ADD `mac_address` CHAR(17) NOT NULL DEFAULT '';"))
 		{
 			Sql_ShowDebug(sql_handle);
 			Sql_Free(sql_handle);

@@ -5100,6 +5100,10 @@ void pc_bonus(map_session_data *sd,int type,int val)
 			if (sd->state.lr_flag != 2)
 				sd->special_state.perfect_bowling = 1;
 			break;
+		case SP_NO_GUTTER_LINE:
+			if (sd->state.lr_flag != 2)
+				sd->special_state.no_gutter_line = 1;
+			break;
 		case SP_DROP_CAPRATE:
 			if (sd->state.lr_flag != 2)
 				sd->bonus.drop_cap_rate += val;
@@ -7003,10 +7007,10 @@ bool pc_isUseitem(map_session_data *sd,int n)
 
 	if(mapdata->getMapFlag(MF_NOITEMCONSUMPTION)) //consumable but mapflag prevent it
 		return false;
-	//Prevent mass item usage. [Skotlex]
-	if( DIFF_TICK(sd->canuseitem_tick,gettick()) > 0 ||
-		(itemdb_group.item_exists(IG_CASH_FOOD, nameid) && DIFF_TICK(sd->canusecashfood_tick,gettick()) > 0)
-	)
+	// Cash food contains only the six dishes (12202-12207) and must remain
+	// immediately usable without inheriting the generic consumable delay.
+	const bool cash_food = itemdb_group.item_exists(IG_CASH_FOOD, nameid);
+	if( !cash_food && DIFF_TICK(sd->canuseitem_tick,gettick()) > 0 )
 		return false;
 
 	if( (item->item_usage.sitting) && (pc_issit(sd) == 1) && (pc_get_group_level(sd) < item->item_usage.override) ) {
@@ -7237,10 +7241,9 @@ int pc_useitem(map_session_data *sd,int n)
 	if (item.card[0]==CARD0_CREATE && pc_famerank(MakeDWord(item.card[2],item.card[3]), MAPID_ALCHEMIST))
 	    potion_flag = 2; // Famous player's potions have 50% more efficiency
 
-	//Update item use time.
-	sd->canuseitem_tick = tick + battle_config.item_use_interval;
-	if( itemdb_group.item_exists(IG_CASH_FOOD, nameid) )
-		sd->canusecashfood_tick = tick + battle_config.cashfood_use_interval;
+	// Cash food (12202-12207) intentionally has no shared item-use cooldown.
+	if( !itemdb_group.item_exists(IG_CASH_FOOD, nameid) )
+		sd->canuseitem_tick = tick + battle_config.item_use_interval;
 
 	run_script(script,0,sd->bl.id,fake_nd->bl.id);
 	potion_flag = 0;
@@ -10504,6 +10507,68 @@ TIMER_FUNC(pc_revenge_time)
 	return 0;
 }
 
+static constexpr t_tick PVP_WARP_LOCK_ATTACKER_DURATION = 15000;
+static constexpr t_tick PVP_WARP_LOCK_DEFENDER_DURATION = 7000;
+
+static t_tick pc_pvp_warp_lock_remaining_ms(map_session_data *sd, sc_type type)
+{
+	if (!sd)
+		return 0;
+
+	status_change_entry *sce = sd->sc.getSCE(type);
+	if (!sce || sce->timer == INVALID_TIMER)
+		return 0;
+
+	const TimerData *timer = get_timer(sce->timer);
+	if (!timer)
+		return 0;
+
+	t_tick remaining = DIFF_TICK(timer->tick, gettick());
+	return remaining > 0 ? remaining : 0;
+}
+
+bool pc_pvp_warp_locked(map_session_data *sd)
+{
+	return pc_pvp_warp_lock_remaining_ms(sd, SC_PVP_WARP_LOCK_ATK) > 0 ||
+		pc_pvp_warp_lock_remaining_ms(sd, SC_PVP_WARP_LOCK_DEF) > 0;
+}
+
+int32 pc_pvp_warp_lock_remaining(map_session_data *sd)
+{
+	t_tick attacker = pc_pvp_warp_lock_remaining_ms(sd, SC_PVP_WARP_LOCK_ATK);
+	t_tick defender = pc_pvp_warp_lock_remaining_ms(sd, SC_PVP_WARP_LOCK_DEF);
+	t_tick remaining = attacker > defender ? attacker : defender;
+
+	return remaining > 0 ? static_cast<int32>((remaining + 999) / 1000) : 0;
+}
+
+void pc_pvp_warp_lock_message(map_session_data *sd)
+{
+	if (!sd)
+		return;
+
+	char output[CHAT_SIZE_MAX];
+	safesnprintf(output, sizeof(output), msg_txt(sd, 2620), pc_pvp_warp_lock_remaining(sd));
+	clif_displaymessage(sd->fd, output);
+}
+
+static void pc_pvp_warp_lock_start(map_session_data *sd, sc_type type, t_tick duration)
+{
+	if (!sd)
+		return;
+
+	if (type == SC_PVP_WARP_LOCK_DEF && sd->sc.getSCE(SC_PVP_WARP_LOCK_ATK)) {
+		if (pc_pvp_warp_lock_remaining_ms(sd, SC_PVP_WARP_LOCK_ATK) < duration)
+			status_change_start(&sd->bl, &sd->bl, SC_PVP_WARP_LOCK_ATK, 10000, 1, 0, 0, 0, duration, SCSTART_NOAVOID);
+		return;
+	}
+
+	if (type == SC_PVP_WARP_LOCK_ATK && sd->sc.getSCE(SC_PVP_WARP_LOCK_DEF))
+		status_change_end(&sd->bl, SC_PVP_WARP_LOCK_DEF);
+
+	status_change_start(&sd->bl, &sd->bl, type, 10000, 1, 0, 0, 0, duration, SCSTART_NOAVOID);
+}
+
 /*==========================================
  * Invoked when a player has received damage
  *------------------------------------------*/
@@ -10521,6 +10586,11 @@ void pc_damage(map_session_data *sd,struct block_list *src,unsigned int hp, unsi
 
 	if (src->type == BL_PC) {
 		map_session_data *ssd = BL_CAST(BL_PC,src);
+
+		if (ssd && ssd != sd) {
+			pc_pvp_warp_lock_start(ssd, SC_PVP_WARP_LOCK_ATK, PVP_WARP_LOCK_ATTACKER_DURATION);
+			pc_pvp_warp_lock_start(sd, SC_PVP_WARP_LOCK_DEF, PVP_WARP_LOCK_DEFENDER_DURATION);
+		}
 
 		if(ssd && ssd->sc.getSCE(SC_PKPASS_ATK)){
 			int delay = battle_config.pkpass_revenge_time * 60000;
@@ -11272,6 +11342,7 @@ int64 pc_readparam(map_session_data* sd,int64 type)
 		case SP_ADD_ITEM_SPHEAL_RATE: val = sd->bonus.itemsphealrate2; break;
 		case SP_GOLDPC_POINTS: val = pc_readreg2( sd, GOLDPC_POINT_VAR ); break;
 		case SP_NO_DEATH_PENALTY:     val = sd->special_state.no_death_penalty ? 1 : 0; break;
+		case SP_NO_GUTTER_LINE:       val = sd->special_state.no_gutter_line ? 1 : 0; break;
 		default:
 			ShowError("pc_readparam: Attempt to read unknown parameter '%lld'.\n", type);
 			return -1;

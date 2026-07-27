@@ -110,6 +110,21 @@ void account_gepard_init(AccountDB* self)
 		}
 	}
 
+	if (SQL_SUCCESS != Sql_Query(db_sql->accounts, "SHOW COLUMNS FROM `login` LIKE 'last_mac_address'"))
+	{
+		Sql_ShowDebug(db_sql->accounts);
+		exit(EXIT_FAILURE);
+	}
+
+	if (Sql_NumRows(db_sql->accounts) == 0)
+	{
+		if (SQL_SUCCESS != Sql_Query(db_sql->accounts, "ALTER TABLE `login` ADD `last_mac_address` CHAR(17) NOT NULL DEFAULT '';"))
+		{
+			Sql_ShowDebug(db_sql->accounts);
+			exit(EXIT_FAILURE);
+		}
+	}
+
 	if (SQL_SUCCESS != Sql_Query(db_sql->accounts, "SHOW COLUMNS FROM `login` LIKE 'blocked_unique_id'"))
 	{
 		Sql_ShowDebug(db_sql->accounts);
@@ -126,14 +141,19 @@ void account_gepard_init(AccountDB* self)
 	}
 }
 
-void account_gepard_update_last_unique_id(int account_id, unsigned int unique_id)
+void account_gepard_update_last_device(int account_id, unsigned int unique_id, const unsigned char mac_address[6])
 {
+	char formatted_mac_address[18];
+
 	if (is_gepard_active == false)
 	{
 		return;
 	}
 
-	if (SQL_SUCCESS != Sql_Query(db_sql->accounts, "UPDATE `login` SET `last_unique_id`= '%u' WHERE `account_id` = '%d'", unique_id, account_id))
+	safesnprintf(formatted_mac_address, sizeof(formatted_mac_address), "%02X:%02X:%02X:%02X:%02X:%02X",
+		mac_address[0], mac_address[1], mac_address[2], mac_address[3], mac_address[4], mac_address[5]);
+
+	if (SQL_SUCCESS != Sql_Query(db_sql->accounts, "UPDATE `login` SET `last_unique_id`= '%u', `last_mac_address`= '%s' WHERE `account_id` = '%d'", unique_id, formatted_mac_address, account_id))
 	{
 		Sql_ShowDebug(db_sql->accounts);
 	}

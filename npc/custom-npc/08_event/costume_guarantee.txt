@@ -1,0 +1,126 @@
+//!rathena
+// Costume Guarantee Selector: ใช้รายการคอสตูมจาก random_costume_cash.txt
+// และใช้ Costume Option & Guarantee Ticket (1030003) จำนวน 5 ชิ้นต่อคอสตูม
+
+morocc,136,110,4	script	ตู้การันตีคอสตูม	506,{
+	mes "[ตู้การันตีคอสตูม]";
+	mes "เลือกประเภทคอสตูมที่ต้องการแลก";
+	mes "คอสตูม 1 ชิ้น ใช้ ^FF99005^000000 Costume Option & Guarantee Ticket";
+	mes "คุณมี: ^009900" + countitem(1030003) + "^000000 ชิ้น";
+	next;
+
+	switch (select("Cos Upper:Cos Middle:Cos Lower:Cos Garment:ยกเลิก")) {
+	case 1:
+		callsub S_OpenCostumeShop, "Upper";
+		end;
+	case 2:
+		callsub S_OpenCostumeShop, "Middle";
+		end;
+	case 3:
+		callsub S_OpenCostumeShop, "Lower";
+		end;
+	case 4:
+		callsub S_OpenCostumeShop, "Garment";
+		end;
+	default:
+		close;
+	}
+
+S_OpenCostumeShop:
+	.@type$ = getarg(0);
+	.@shop$ = "RandomCostumeCash_Show_" + .@type$;
+	if (getd("$@RandomCostumeCash_" + .@type$ + "_Size") <= 0) {
+		mes "[ตู้การันตีคอสตูม]";
+		mes "ยังไม่มีรายการคอสตูมในหมวดนี้";
+		close;
+	}
+
+	@CostumeGuaranteeType$ = .@type$;
+	close2;
+	callshop .@shop$, 1;
+	npcshopattach .@shop$;
+	end;
+
+OnBuyItem:
+	.@type$ = @CostumeGuaranteeType$;
+	@CostumeGuaranteeType$ = "";
+	if (.@type$ == "") {
+		deletearray @bought_nameid;
+		deletearray @bought_quantity;
+		end;
+	}
+
+	.@pool_size = getd("$@RandomCostumeCash_" + .@type$ + "_Size");
+	.@total = 0;
+	.@weight = 0;
+	for (.@i = 0; .@i < getarraysize(@bought_nameid); .@i++) {
+		.@item_id = @bought_nameid[.@i];
+		.@quantity = @bought_quantity[.@i];
+		if (.@item_id <= 0 || .@quantity <= 0)
+			continue;
+		if (.@quantity > 100) {
+			mes "[ตู้การันตีคอสตูม]";
+			mes "แลกคอสตูมชนิดเดียวกันได้สูงสุดครั้งละ 100 ชิ้น";
+			deletearray @bought_nameid;
+			deletearray @bought_quantity;
+			close;
+		}
+
+		.@valid = 0;
+		for (.@j = 0; .@j < .@pool_size; .@j++) {
+			if (.@item_id == getd("$@RandomCostumeCash_" + .@type$ + "[" + .@j + "]")) {
+				.@valid = 1;
+				break;
+			}
+		}
+		if (!.@valid) {
+			mes "[ตู้การันตีคอสตูม]";
+			mes "รายการคอสตูมไม่ถูกต้อง";
+			deletearray @bought_nameid;
+			deletearray @bought_quantity;
+			close;
+		}
+
+		.@total += .@quantity;
+		.@weight += getiteminfo(.@item_id, ITEMINFO_WEIGHT) * .@quantity;
+	}
+
+	if (.@total <= 0) {
+		deletearray @bought_nameid;
+		deletearray @bought_quantity;
+		end;
+	}
+
+	.@cost = .@total * 5;
+	if (countitem(1030003) < .@cost) {
+		mes "[ตู้การันตีคอสตูม]";
+		mes "ต้องใช้ Costume Option & Guarantee Ticket จำนวน ^FF0000" + .@cost + "^000000 ชิ้น";
+		mes "คุณมี: ^009900" + countitem(1030003) + "^000000 ชิ้น";
+		mes "ไอเทมรหัส: ^7777771030003^000000";
+		deletearray @bought_nameid;
+		deletearray @bought_quantity;
+		close;
+	}
+	if (Weight + .@weight > MaxWeight) {
+		mes "[ตู้การันตีคอสตูม]";
+		mes "น้ำหนักเกิน กรุณาจัดกระเป๋าก่อนแลก";
+		deletearray @bought_nameid;
+		deletearray @bought_quantity;
+		close;
+	}
+
+	delitem 1030003, .@cost;
+	for (.@i = 0; .@i < getarraysize(@bought_nameid); .@i++) {
+		if (@bought_nameid[.@i] <= 0 || @bought_quantity[.@i] <= 0)
+			continue;
+		getitem @bought_nameid[.@i], @bought_quantity[.@i];
+		announce "[ตู้การันตีคอสตูม] " + strcharinfo(0) + " ได้รับ " + getitemname(@bought_nameid[.@i]) + " x" + @bought_quantity[.@i] + ".", bc_all, 0xFFFF00;
+	}
+
+	deletearray @bought_nameid;
+	deletearray @bought_quantity;
+	mes "[ตู้การันตีคอสตูม]";
+	mes "แลกคอสตูมเรียบร้อยแล้ว";
+	mes "Costume Option & Guarantee Ticket คงเหลือ: ^009900" + countitem(1030003) + "^000000 ชิ้น";
+	close;
+}

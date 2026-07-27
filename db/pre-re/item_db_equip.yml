@@ -31319,7 +31319,7 @@ Body:
       NoSell: true
       NoGuildStorage: true
     Script: |
-      bonus bMatkRate,2;
+      bonus bMatkRate,1;
   - Id: 5363
     AegisName: Helm_Of_Abyss
     Name: Helm Of Abyss
@@ -33972,6 +33972,7 @@ Body:
     View: 23
     Script: |
       bonus bDex,1;
+      bonus bLongAtkRate,3;
   - Id: 5517
     AegisName: Hawk_Eyes02
     Name: Hawk Eyes
@@ -35007,7 +35008,6 @@ Body:
       NoGuildStorage: true
     Script: |
       bonus bdex,2;
-      bonus bInt,1;      
       bonus bHitRate,3;
   - Id: 5575
     AegisName: Onigiri_Hat

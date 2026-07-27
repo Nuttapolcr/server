@@ -4452,6 +4452,9 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
       DropAnnounce: true
+    Script: |
+      bonus bNoMagicDamage,100;
+      bonus bUseSPrate,100;
   - Id: 4129
     AegisName: Baphomet__Card
     Name: Bapho Jr. Card
@@ -5501,6 +5504,8 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
       DropAnnounce: true
+    Script: |
+      bonus bIntravision;
   - Id: 4199
     AegisName: Merman_Card
     Name: Merman Card

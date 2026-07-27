@@ -75,8 +75,30 @@ OnNPCKillEvent:
 	else if (inarray(.tierS, killedrid) >= 0) .@tier = 2;
 	if (!.@tier) end;
 
-	// death spot ~ killer's location
+	callsub OnCreateChests, .@tier;
+
+	// Natural bosses announce when their configured respawn delay completes.
 	if (getmapxy(.@m$, .@x, .@y, BL_PC) != 0) end;
+	if (inarray(.natural_spawn$, .@m$ + ":" + killedrid) >= 0) {
+		.@mob_id = killedrid;
+		.@respawn_delay = (.@tier == 2) ? 3600000 : 1800000;
+		sleep .@respawn_delay;
+		announce "บอส " + getmonsterinfo(.@mob_id, MOB_NAME) + " เกิดแล้ว", bc_all;
+	}
+	end;
+
+// Bio Lab 3 MVP clones are spawned with their own death event, so they do not
+// reach OnNPCKillEvent. lhz_dun.txt forwards that event here with the killer RID.
+OnLhzCloneMvpDead:
+	if (killedrid < 1646 || killedrid > 1651) end;
+	callsub OnCreateChests, 1;	// Tier A
+	end;
+
+// callsub OnCreateChests, <tier>
+OnCreateChests:
+	.@tier = getarg(0);
+	// death spot ~ killer's location
+	if (getmapxy(.@m$, .@x, .@y, BL_PC) != 0) return;
 
 	// independent per-color box counts, capped at 10 total (trim Blue first)
 	.@blue   = rand(2,6);							// 100%
@@ -89,15 +111,7 @@ OnNPCKillEvent:
 	callsub OnSpawn, .@m$, .@x, .@y, "P", .@tier, .@purple;
 	callsub OnSpawn, .@m$, .@x, .@y, "R", .@tier, .@red;
 	callsub OnSpawn, .@m$, .@x, .@y, "B", .@tier, .@blue;
-
-	// Natural bosses announce when their configured respawn delay completes.
-	if (inarray(.natural_spawn$, .@m$ + ":" + killedrid) >= 0) {
-		.@mob_id = killedrid;
-		.@respawn_delay = (.@tier == 2) ? 3600000 : 1800000;
-		sleep .@respawn_delay;
-		announce "บอส " + getmonsterinfo(.@mob_id, MOB_NAME) + " เกิดแล้ว", bc_all;
-	}
-	end;
+	return;
 
 // callsub OnSpawn, <map$>, <x>, <y>, <color$>, <tier>, <count>
 OnSpawn:

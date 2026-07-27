@@ -680,6 +680,7 @@ public:
 		unsigned int no_death_penalty : 1;
 		unsigned int perfect_pierce : 1;
 		unsigned int perfect_bowling : 1;
+		unsigned int no_gutter_line : 1;
 	} special_state;
 	uint32 login_id1, login_id2;
 	uint64 class_;	//This is the internal job ID used by the map server to simplify comparisons/queries/etc. [Skotlex]
@@ -1855,6 +1856,9 @@ int pc_skillheal_bonus(map_session_data *sd, uint16 skill_id);
 int pc_skillheal2_bonus(map_session_data *sd, uint16 skill_id);
 
 void pc_damage(map_session_data *sd,struct block_list *src,unsigned int hp, unsigned int sp, unsigned int ap);
+bool pc_pvp_warp_locked(map_session_data *sd);
+int32 pc_pvp_warp_lock_remaining(map_session_data *sd);
+void pc_pvp_warp_lock_message(map_session_data *sd);
 int pc_dead(map_session_data *sd,struct block_list *src);
 void pc_revive(map_session_data *sd,unsigned int hp, unsigned int sp, unsigned int ap = 0);
 bool pc_revive_item(map_session_data *sd);

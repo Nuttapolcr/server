@@ -12,7 +12,7 @@
 
 #include <common/socket.hpp>
 
-void account_gepard_update_last_unique_id(int account_id, unsigned int unique_id);
+void account_gepard_update_last_device(int account_id, unsigned int unique_id, const unsigned char mac_address[6]);
 bool account_gepard_check_unique_id(int fd, struct socket_data* s);
 int account_gepard_check_license_version(struct socket_data* s, int fd, int group_id);
 

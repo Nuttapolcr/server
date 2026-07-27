@@ -63,3 +63,17 @@ Body:
       NoClearance: true
       NoRemoveOnDead: true
       NoSave: true
+  # Food items 12202, 12203, 12206 and 12207 must expire on death.
+  # These statuses remain saved on logout and character select by default.
+  - Status: Food_Str_Cash
+    Flags:
+      NoRemoveOnDead: false
+  - Status: Food_Agi_Cash
+    Flags:
+      NoRemoveOnDead: false
+  - Status: Food_Vit_Cash
+    Flags:
+      NoRemoveOnDead: false
+  - Status: Food_Luk_Cash
+    Flags:
+      NoRemoveOnDead: false

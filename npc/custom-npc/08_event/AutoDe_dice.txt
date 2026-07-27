@@ -198,43 +198,56 @@ S_GiveDiceReward:
 		switch(.@round){
 		case 1:
 			getitem 1000603,1,.@aid;
+			getitem 12264,1,.@aid;
 			getitem 1000373,5,.@aid;
 			getitem 984,2,.@aid;
 			break;
 		case 2:
 			getitem 1000603,2,.@aid;
+			getitem 12264,1,.@aid;
 			getitem 1000373,10,.@aid;
 			getitem 985,2,.@aid;
 			getitem 984,2,.@aid;
 			break;
 		case 3:
 			getitem 1000603,4,.@aid;
+			getitem 12264,2,.@aid;
+			getitem 1030026,1,.@aid;
 			getitem 1000373,15,.@aid;
 			getitem 985,4,.@aid;
 			getitem 984,4,.@aid;
 			break;
 		case 4:
 			getitem 1000603,6,.@aid;
+			getitem 12264,2,.@aid;
+			getitem 1030026,1,.@aid;
 			getitem 1000373,25,.@aid;
+			getitem 1001685,3,.@aid;
 			getitem 616,1,.@aid;
 			getitem 985,4,.@aid;
 			getitem 984,4,.@aid;
 			break;
 		case 5:
 			getitem 1000603,8,.@aid;
+			getitem 12264,2,.@aid;
+			getitem 1030026,2,.@aid;
 			getitem 1000373,35,.@aid;
+			getitem 1001685,5,.@aid;
 			getitem 616,2,.@aid;
-			getitem 985,4,.@aid;
-			getitem 984,4,.@aid;
+			getitem 985,5,.@aid;
+			getitem 984,5,.@aid;
 			break;
 		case 6:
 			getitem 1000603,10,.@aid;
+			getitem 12264,2,.@aid;
+			getitem 1030027,1,.@aid;
 			getitem 1000373,45,.@aid;
+			getitem 1001685,10,.@aid;
 			getitem 616,3,.@aid;
 			getitem 6293,2,.@aid;
 			getitem 1001720,1,.@aid;
-			getitem 985,4,.@aid;
-			getitem 984,4,.@aid;
+			getitem 985,10,.@aid;
+			getitem 984,10,.@aid;
 			break;
 		}
 		message rid2name(.@aid),"[กิจกรรมทอยเต๋า] : คุณได้รับของรางวัลออกรอบ "+.@round+" แล้ว";
@@ -286,7 +299,8 @@ OnHideWall:
 	end;
 	
 OnRestoreWall:
-	areawarp "quiz_02",303,264,305,240,"prontera",156,187;
+	// Include the wall NPC cells (858) at x=302 and x=306 so no player is trapped.
+	areawarp "quiz_02",302,264,306,240,"prontera",156,187;
 	setcell "quiz_02",302,263,302,256,cell_walkable,0;
 	hideoffnpc "Wall#33";
 	hideoffnpc "Wall#34";
