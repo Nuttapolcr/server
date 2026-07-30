@@ -30113,14 +30113,6 @@ Body:
     Weight: 10
     Flags:
       Container: true
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     Script: |
       getgroupitem(IG_CRU_SCROLL);
   - Id: 14455
@@ -37883,7 +37875,7 @@ Body:
     Type: Etc
   - Id: 1030062
     AegisName: New_Item_1030062
-    Name: Winner GVG box
+    Name: "[Big] Winner GVG box"
     Type: Cash
     Script: |-
       getitem 22571,10;
@@ -37896,7 +37888,25 @@ Body:
       getitem 1001140,20;
       getitem 1000445,20;
       getitem 1001600,20;
-      getitem 1001718,20;
+      getitem 1001718,10;
+      getitem 12679,10;
+      getitem 12680,5;
+  - Id: 1030073
+    AegisName: New_Item_1030073
+    Name: "[Small] Winner GVG box"
+    Type: Cash
+    Script: |-
+      getitem 22571,6;
+      getitem 101194,6;
+      getitem 12804,6;
+      getitem 14455,6;
+      getitem 6635,20;
+      getitem 30001,400;
+      getitem 1000401,50;
+      getitem 1001140,12;
+      getitem 1000445,12;
+      getitem 1001600,12;
+      getitem 1001718,6;
       getitem 12679,10;
       getitem 12680,5;
   - Id: 1030063
@@ -37919,7 +37929,7 @@ Body:
     Script: getgroupitem(IG_TEST02);
   - Id: 1030066
     AegisName: Coin_Varlor_V.1
-    Name: Coin Varlor V.1
+    Name: Coin Valor V.1
     Type: Etc
   - Id: 1030067
     AegisName: Handkerchief_In_Mouth
@@ -37941,3 +37951,19 @@ Body:
     Name: "[12hr] Wing (Unlimit) Pack"
     Type: Cash
     Script: getitem 1030029,4;
+  - Id: 1030069
+    AegisName: New_Item_1030069
+    Name: Golden Apple Slice
+    Type: Etc
+  - Id: 1030070
+    AegisName: New_Item_1030070
+    Name: Golden Apple
+    Type: Etc
+  - Id: 1030071
+    AegisName: Gold_Ticket_MVP_Battlefield
+    Name: Gold Ticket MVP Battlefield
+    Type: Etc
+  - Id: 1030072
+    AegisName: Swap_item_Card
+    Name: Swap item Card
+    Type: Etc

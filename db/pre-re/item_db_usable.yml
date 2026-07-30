@@ -39,7 +39,7 @@ Body:
     AegisName: Blue_Potion
     Name: Blue Potion
     Type: Healing
-    Buy: 5000
+    Buy: 1200
     Weight: 150
     Script: |
       itemheal 0,rand(40,60);
