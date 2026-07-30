@@ -1,6 +1,6 @@
 //===== HICLASS Card Remover ================================
 //= Removes every card from one equipped item.
-//= Cost per operation: 1,000,000 Zeny + 20 Fragment Stones.
+//= Cost per operation: 500,000 Zeny.
 //============================================================
 
 morocc,180,150,4	script	ช่างถอดการ์ด#fragment	869,{
@@ -11,8 +11,7 @@ morocc,180,150,4	script	ช่างถอดการ์ด#fragment	869,{
 	mes "ออกจากอุปกรณ์ที่สวมใส่ได้";
 	mes " ";
 	mes "ค่าบริการ:";
-	mes "- 1,000,000 Zeny";
-	mes "- ^i[1000373] Fragment Stone จำนวน 20 ชิ้น";
+	mes "- 500,000 Zeny";
 	next;
 
 	if (select("ถอดการ์ด:ยกเลิก") == 2) {
@@ -100,21 +99,16 @@ morocc,180,150,4	script	ช่างถอดการ์ด#fragment	869,{
 		close;
 	}
 
-	if (
-		Zeny < .ZenyCost ||
-		countitem(.FragmentStone) < .FragmentAmount
-	) {
+	if (Zeny < .ZenyCost) {
 		mes "[ช่างถอดการ์ด]";
-		mes "คุณมีวัตถุดิบไม่เพียงพอ";
+		mes "คุณมี Zeny ไม่เพียงพอ";
 		mes " ";
-		mes "วัตถุดิบที่ต้องใช้:";
+		mes "ค่าบริการ:";
 		mes "- " + callfunc("F_InsertComma", .ZenyCost) + " Zeny";
-		mes "- ^i[" + .FragmentStone + "] Fragment Stone จำนวน " + .FragmentAmount + " ชิ้น";
 		close;
 	}
 
 	Zeny -= .ZenyCost;
-	delitem .FragmentStone, .FragmentAmount;
 	successremovecards .@part;
 
 	mes "[ช่างถอดการ์ด]";
@@ -122,9 +116,7 @@ morocc,180,150,4	script	ช่างถอดการ์ด#fragment	869,{
 	close;
 
 OnInit:
-	.ZenyCost = 1000000;
-	.FragmentStone = 1000373;
-	.FragmentAmount = 20;
+	.ZenyCost = 500000;
 	waitingroom "ถอดการ์ด", 0;
 	end;
 }

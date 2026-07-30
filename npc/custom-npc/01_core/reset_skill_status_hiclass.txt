@@ -2,14 +2,14 @@
 //= Source: HICLASS sheet, gid 1060400011
 //= Location: morocc 150 107
 //= Sprite: 624
-//= Costs: Status 5m, Skills 1m, Both 5m
+//= Costs: Status 2m, Skills 500k, Both 2m
 //============================================================
 
 morocc,150,107,4	script	Reset Skill&Status#hiclass	624,{
 	disable_items;
 
 	.@npc$ = "[Reset Skill&Status]";
-	setarray .@Cost[0], 5000000, 1000000, 5000000;
+	setarray .@Cost[0], 2000000, 500000, 2000000;
 
 	mes .@npc$;
 	mes "กรุณาเลือกบริการที่ต้องการ";
