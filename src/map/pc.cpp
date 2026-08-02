@@ -10587,7 +10587,7 @@ void pc_damage(map_session_data *sd,struct block_list *src,unsigned int hp, unsi
 	if (src->type == BL_PC) {
 		map_session_data *ssd = BL_CAST(BL_PC,src);
 
-		if (ssd && ssd != sd) {
+		if (ssd && ssd != sd && !map_flag_gvg2(sd->bl.m) && !map_flag_gvg2(ssd->bl.m)) {
 			pc_pvp_warp_lock_start(ssd, SC_PVP_WARP_LOCK_ATK, PVP_WARP_LOCK_ATTACKER_DURATION);
 			pc_pvp_warp_lock_start(sd, SC_PVP_WARP_LOCK_DEF, PVP_WARP_LOCK_DEFENDER_DURATION);
 		}

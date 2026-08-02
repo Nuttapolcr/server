@@ -280,9 +280,15 @@ void mvptomb_create(struct mob_data *md, char *killer, time_t time)
 	else
 		nd->u.tomb.killer_name[0] = '\0';
 
-	map_addnpc(nd->bl.m, nd);
-	if(map_addblock(&nd->bl))
+	if (!map_addnpc(nd->bl.m, nd)) {
+		md->tomb_nid = 0;
+		aFree(nd);
 		return;
+	}
+	if(map_addblock(&nd->bl)) {
+		mvptomb_destroy(md);
+		return;
+	}
 	status_set_viewdata(&nd->bl, nd->class_);
 	status_change_init(&nd->bl);
 	unit_dataset(&nd->bl);

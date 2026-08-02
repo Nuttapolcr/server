@@ -1870,13 +1870,10 @@ void clif_weather(int16 m)
 static inline bool clif_npc_mayapurple(block_list *bl) {
 	nullpo_retr(false, bl);
 
-	if (bl->type == BL_NPC) {
-		npc_data *nd = map_id2nd(bl->id);
-
-		// TODO: Confirm if waitingroom cause any special cases
-		if (/* nd->chat_id == 0 && */ nd->is_invisible)
-			return true;
-	}
+	// The block itself is the source of truth here. An NPC can be present in a
+	// map iteration before or without a matching id_db entry.
+	if (bl->type == BL_NPC && ((TBL_NPC*)bl)->is_invisible)
+		return true;
 
 	return false;
 }
