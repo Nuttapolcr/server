@@ -35,6 +35,10 @@ Header:
 Body:
   - Tab: New
     Items:
+      - Item: Happy_Meal_Pet_Box
+        Price: 990
+      - Item: The_Box_Pet
+        Price: 2790
       - Item: aegis_1001722
         Price: 590
       - Item: aegis_1001723
@@ -83,6 +87,8 @@ Body:
         Price: 39
       - Item: Valor_Stone_Box
         Price: 379
+      - Item: DowngradeRefine
+        Price: 100
   - Tab: Permanent
     Items:
       - Item: Upg_Katar

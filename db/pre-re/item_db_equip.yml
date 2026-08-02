@@ -15547,6 +15547,22 @@ Body:
     ArmorLevel: 1
     Refineable: true
     View: 2
+  - Id: 1030093
+    AegisName: Cat_Hairband_Copy
+    Name: Cos Kitty Band
+    Type: Armor
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 2
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+    Jobs:
+      All: true
   - Id: 2214
     AegisName: Bunny_Band
     Name: Bunny Band
@@ -15936,6 +15952,24 @@ Body:
     View: 19
     Script: |
       bonus bInt,2;
+  - Id: 1030090
+    AegisName: Tiara_Copy
+    Name: Cos Tiara
+    Type: Armor
+    Jobs:
+      Novice: false
+      SuperNovice: false
+      All: true
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 19
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 2235
     AegisName: Crown
     Name: Crown
@@ -15955,6 +15989,24 @@ Body:
     View: 45
     Script: |
       bonus bInt,2;
+  - Id: 1030080
+    AegisName: Cos_Crown
+    Name: Cos Crown
+    Type: Armor
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 45
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 2236
     AegisName: Santa's_Hat
     Name: Santa Hat
@@ -16089,6 +16141,24 @@ Body:
     View: 30
     Script: |
       bonus bUnbreakableHelm;
+  - Id: 1030082
+    AegisName: Golden_Gear_Copy
+    Name: Cos Golden Gear
+    Type: Armor
+    Jobs:
+      Novice: false
+      SuperNovice: false
+      All: true
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 30
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 2247
     AegisName: Oldman's_Romance
     Name: Romantic Gent
@@ -16139,6 +16209,24 @@ Body:
     View: 33
     Script: |
       bonus bInt,1;
+  - Id: 1030083
+    AegisName: Coronet_Copy
+    Name: Cos Coronet
+    Type: Armor
+    Jobs:
+      Novice: false
+      SuperNovice: false
+      All: true
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 33
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 2250
     AegisName: Fillet
     Name: Cute Ribbon
@@ -16270,6 +16358,22 @@ Body:
     View: 41
     Script: |
       bonus bStr,1;
+  - Id: 1030092
+    AegisName: Magestic_Goat_Copy
+    Name: Cos Majestic Goat
+    Type: Armor
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 41
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+    Jobs:
+      All: true
   - Id: 2257
     AegisName: Snowy_Horn
     Name: Unicorn Horn
@@ -16310,6 +16414,22 @@ Body:
     EquipLevelMin: 50
     Refineable: true
     View: 43
+  - Id: 1030086
+    AegisName: Sharp_Gear_Copy
+    Name: Cos Spiky Band
+    Type: Armor
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 43
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+    Jobs:
+      All: true
   - Id: 2259
     AegisName: Mini_Propeller
     Name: Mini Propeller
@@ -16458,6 +16578,24 @@ Body:
     View: 55
     Script: |
       bonus2 bSubRace,RC_Insect,3;
+  - Id: 1030087
+    AegisName: Smoking_Pipe_Copy
+    Name: Cos Pipe
+    Type: Armor
+    Jobs:
+      Novice: false
+      SuperNovice: false
+      All: true
+    Locations:
+      Costume_Head_Low: true
+    ArmorLevel: 1
+    View: 55
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 2269
     AegisName: Centimental_Flower
     Name: Romantic Flower
@@ -16756,6 +16894,24 @@ Body:
       Head_Mid: true
     ArmorLevel: 1
     View: 75
+  - Id: 1030091
+    AegisName: Mr_Scream_Copy
+    Name: Cos Mr. Scream
+    Type: Armor
+    Jobs:
+      Novice: false
+      SuperNovice: false
+      All: true
+    Locations:
+      Costume_Head_Mid: true
+    ArmorLevel: 1
+    View: 75
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 2289
     AegisName: Poo_Poo_Hat
     Name: Poo Poo Hat
@@ -24155,6 +24311,7 @@ Body:
     Type: Armor
     Buy: 20
     Weight: 100
+    Slots: 1
     Locations:
       Both_Accessory: true
     ArmorLevel: 1
@@ -24162,7 +24319,6 @@ Body:
       sc_start SC_SUMMER,INFINITE_TICK,0;
     UnEquipScript: |
       sc_end SC_SUMMER;
-    Slots: 1
   - Id: 2777
     AegisName: Shaman_Ring
     Name: Shaman Ring
@@ -25009,6 +25165,22 @@ Body:
       bonus bInt,2;
       bonus bLuk,1;
       bonus bMdef,3;
+  - Id: 1030088
+    AegisName: Gemmed_Crown_Copy
+    Name: Cos Jewel Crown
+    Type: Armor
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 88
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+    Jobs:
+      All: true
   - Id: 5003
     AegisName: Joker_Jester
     Name: Joker Jester
@@ -25099,6 +25271,24 @@ Body:
       bonus bInt,1;
       bonus bLuk,1;
       bonus bMdef,4;
+  - Id: 1030084
+    AegisName: Loard_Circlet_Copy
+    Name: Cos Grand Circlet
+    Type: Armor
+    Jobs:
+      Novice: false
+      SuperNovice: false
+      All: true
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 93
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5008
     AegisName: Puppy_Love
     Name: Puppy Love
@@ -25293,6 +25483,24 @@ Body:
     View: 105
     Script: |
       bonus bVit,1;
+  - Id: 1030085
+    AegisName: Corsair_Copy
+    Name: Cos Corsair
+    Type: Armor
+    Jobs:
+      Novice: false
+      SuperNovice: false
+      All: true
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 105
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5020
     AegisName: Kafra_Band
     Name: Kafra Band
@@ -25665,6 +25873,22 @@ Body:
       Head_Mid: true
     ArmorLevel: 1
     View: 125
+  - Id: 1030094
+    AegisName: Blush_Copy
+    Name: Cos Blush
+    Type: Armor
+    Locations:
+      Costume_Head_Mid: true
+    ArmorLevel: 1
+    View: 125
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+    Jobs:
+      All: true
   - Id: 5041
     AegisName: Heart_Hair_Pin
     Name: Heart Hairpin
@@ -26902,6 +27126,25 @@ Body:
     Script: |
       bonus bDex,2;
       bonus bAgi,1;
+  - Id: 1030081
+    AegisName: Ulle_Cap_Copy
+    Name: Cos Ulle's Cap
+    Type: Armor
+    Weight: 0
+    Jobs:
+      Novice: false
+      SuperNovice: false
+      All: true
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 254
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5124
     AegisName: Fricca_Circlet
     Name: Fricca's Circlet
@@ -27248,6 +27491,7 @@ Body:
     Buy: 20
     Weight: 3000
     Defense: 8
+    Slots: 1
     Jobs:
       Alchemist: true
       Blacksmith: true
@@ -27266,7 +27510,6 @@ Body:
       bonus bVit,1;
       bonus2 bSubRace,RC_DemiHuman,5;
       bonus2 bSubRace,RC_Player_Human,5;
-    Slots: 1
   - Id: 5143
     AegisName: Kabuki_Mask
     Name: Kabuki Mask
@@ -30325,6 +30568,7 @@ Body:
     Buy: 20
     Weight: 400
     Defense: 3
+    Slots: 1
     Locations:
       Head_Top: true
     ArmorLevel: 1
@@ -30337,7 +30581,6 @@ Body:
     Script: |
       bonus bMdef,3;
       bonus3 bAutoSpellWhenHit,"DC_WINKCHARM",1,50;
-    Slots: 1
   - Id: 5308
     AegisName: Brazilian_Flag_Hat
     Name: Brazil National Flag Hat
@@ -30557,6 +30800,7 @@ Body:
     Buy: 20
     Weight: 200
     Defense: 2
+    Slots: 1
     Jobs:
       All: true
       Novice: false
@@ -30569,7 +30813,6 @@ Body:
     View: 341
     Script: |
       bonus bLuk,3;
-    Slots: 1
   - Id: 5320
     AegisName: Champion_Wreath
     Name: Champion Wreath
@@ -30822,6 +31065,7 @@ Body:
     Name: Flapping Angeling
     Type: Armor
     Weight: 700
+    Slots: 1
     Locations:
       Head_Top: true
     ArmorLevel: 1
@@ -30830,7 +31074,6 @@ Body:
     Script: |
       bonus bLuk,2;
       bonus bMdef,2;
-    Slots: 1
   - Id: 5335
     AegisName: Jumping_Poring
     Name: Jumping Poring
@@ -32068,6 +32311,7 @@ Body:
     Buy: 10
     Weight: 200
     Defense: 1
+    Slots: 1
     Locations:
       Head_Mid: true
     ArmorLevel: 1
@@ -32080,7 +32324,6 @@ Body:
     Script: |
       bonus bUnbreakableHelm, 0;
       bonus bFlee2, 3;
-    Slots: 1
   - Id: 5403
     AegisName: Fish_In_Mouth
     Name: Fish In Mouth
@@ -32233,6 +32476,7 @@ Body:
     Buy: 20
     Weight: 500
     Defense: 2
+    Slots: 1
     Locations:
       Head_Top: true
     ArmorLevel: 1
@@ -32240,7 +32484,6 @@ Body:
     View: 413
     Script: |
       bonus bDex,2;
-    Slots: 1
   - Id: 5412
     AegisName: Sweet_Candy
     Name: Sweet Candy
@@ -32374,6 +32617,7 @@ Body:
     Name: Mask Of Ifrit
     Type: Armor
     Defense: 8
+    Slots: 1
     Jobs:
       All: true
       Novice: false
@@ -32400,7 +32644,6 @@ Body:
       bonus3 bAutoSpell,"MG_FIREBOLT",3,50;
     UnEquipScript: |
       sc_end SC_SIGHT;
-    Slots: 1
   - Id: 5421
     AegisName: Ifrit's_Ear
     Name: Ears Of Ifrit
@@ -33602,6 +33845,7 @@ Body:
     Buy: 20
     Weight: 600
     Defense: 5
+    Slots: 1
     Jobs:
       All: true
       Novice: false
@@ -33620,7 +33864,6 @@ Body:
     Script: |
       bonus bVit,5;
       bonus bFlee,10;
-    Slots: 1
   - Id: 5499
     AegisName: Pizza_Hat
     Name: Pizza Hat
@@ -34478,6 +34721,7 @@ Body:
     Buy: 20
     Weight: 400
     Defense: 3
+    Slots: 1
     Locations:
       Head_Top: true
     ArmorLevel: 1
@@ -34495,7 +34739,6 @@ Body:
          bonus bDef,1;
          bonus bVit,1;
       }
-    Slots: 1
   - Id: 5546
     AegisName: Aries_Crown
     Name: Aries Crown
@@ -34503,6 +34746,7 @@ Body:
     Buy: 20
     Weight: 400
     Defense: 3
+    Slots: 1
     Locations:
       Head_Top: true
     ArmorLevel: 1
@@ -34520,7 +34764,6 @@ Body:
          bonus bDef,1;
          bonus bVit,1;
       }
-    Slots: 1
   - Id: 5547
     AegisName: RJC_Katusa
     Name: RJC Katusa Flower
@@ -34915,6 +35158,7 @@ Body:
     Buy: 20
     Weight: 300
     Defense: 4
+    Slots: 1
     Locations:
       Head_Top: true
     ArmorLevel: 1
@@ -34933,7 +35177,6 @@ Body:
          bonus bMAtkRate,8;
          bonus2 bSubEle,Ele_Wind,5;
       }
-    Slots: 1
   - Id: 5570
     AegisName: Gemini_Crown
     Name: Gemini Crown
@@ -34941,6 +35184,7 @@ Body:
     Buy: 20
     Weight: 300
     Defense: 4
+    Slots: 1
     Locations:
       Head_Top: true
     ArmorLevel: 1
@@ -34961,7 +35205,6 @@ Body:
          bonus bFlee,10;
          bonus2 bSubEle,Ele_Wind,5;
       }
-    Slots: 1
   - Id: 5572
     AegisName: Savage_Baby_Hat
     Name: Savage Babe Hat
@@ -35439,6 +35682,7 @@ Body:
     Buy: 20
     Weight: 400
     Defense: 1
+    Slots: 1
     Locations:
       Head_Top: true
     ArmorLevel: 1
@@ -35447,7 +35691,6 @@ Body:
     View: 589
     Script: |
       bonus3 bAutoSpell,"SA_FLAMELAUNCHER",1,5;
-    Slots: 1
   - Id: 5659
     AegisName: Sleepr_Hat
     Name: Sleeper Hat
@@ -35470,6 +35713,7 @@ Body:
     Buy: 20
     Weight: 400
     Defense: 1
+    Slots: 1
     Locations:
       Head_Top: true
     ArmorLevel: 1
@@ -35478,7 +35722,6 @@ Body:
     View: 591
     Script: |
       bonus3 bAutoSpell,"SA_LIGHTNINGLOADER",1,5;
-    Slots: 1
   - Id: 5664
     AegisName: Filir_Wing
     Name: Filir's Pinions
@@ -35879,6 +36122,7 @@ Body:
     Buy: 10
     Weight: 200
     Defense: 1
+    Slots: 1
     Locations:
       Head_Mid: true
     ArmorLevel: 1
@@ -35894,7 +36138,6 @@ Body:
       NoAuction: true
     Script: |
       bonus bLuk,1;
-    Slots: 1
   - Id: 5788
     AegisName: 3D_Glasses
     Name: 3D Glasses
@@ -36178,6 +36421,22 @@ Body:
       bonus2 bResEff,Eff_Stone,2000+(getrefine()*200);
       bonus2 bResEff,Eff_Freeze,2000+(getrefine()*200);
       bonus2 bResEff,Eff_Stun,2000+(getrefine()*200);
+  - Id: 1030089
+    AegisName: Diabolus_Helmet_Copy
+    Name: Cos Dark Bacilium
+    Type: Armor
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 364
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+    Jobs:
+      All: true
   - Id: 5809
     AegisName: Boom_Boom_Hat
     Name: Boom Boom Hat
@@ -41708,8 +41967,6 @@ Body:
       if (.@r>=10) {
       bonus2 bAddMonsterDropItem,905027,700;
       }
-    # UnEquipScript: |
-    #   callfunc "F_ClearPowerShadowSC_Armor";
   - Id: 24001
     AegisName: aegis_24001
     Name: CBT Shadow Shield
@@ -41731,8 +41988,6 @@ Body:
       bonus2 bAddMonsterDropItem,905027,700;
       }
 
-    # UnEquipScript: |
-    #   callfunc "F_ClearPowerShadowSC_Shield";
   - Id: 24002
     AegisName: aegis_24002
     Name: CBT Shadow Shoes
@@ -41753,8 +42008,6 @@ Body:
       if (.@r>=10) {
       bonus2 bAddMonsterDropItem,905027,700;
       }
-    # UnEquipScript: |
-    #   callfunc "F_ClearPowerShadowSC_Shoes";
   - Id: 24003
     AegisName: aegis_24003
     Name: CBT Shadow Earring
