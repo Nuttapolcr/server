@@ -12133,7 +12133,6 @@ Body:
     Trade:
       NoDrop: true
       NoTrade: true
-      NoSell: true
       NoCart: true
       NoGuildStorage: true
       NoMail: true
@@ -14522,7 +14521,7 @@ Body:
     Name: Token Of Siegfried (NT)
     Type: Etc
     Buy: 2
-    Weight: 10
+    Weight: 0
     Trade:
       NoDrop: true
       NoTrade: true
@@ -14631,7 +14630,7 @@ Body:
     Name: E Token Of Siegfried
     Type: Etc
     Buy: 2
-    Weight: 10
+    Weight: 0
   - Id: 6319
     AegisName: Small_Bradium
     Name: Small Bradium
@@ -19992,7 +19991,7 @@ Body:
     Name: Token Of Siegfried
     Type: Etc
     Buy: 2
-    Weight: 10
+    Weight: 0
   - Id: 7622
     AegisName: New_Style_Coupon
     Name: Hairstyle Coupon

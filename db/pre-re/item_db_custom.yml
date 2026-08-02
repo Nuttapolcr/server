@@ -36706,12 +36706,14 @@ Body:
       .@r = getrefine();
       bonus bStr,3;
       bonus bLuk,5;
+      bonus bBaseAtk,50;
       bonus2 bAddClass,Class_Boss,30;
       bonus bCritical,10;
       bonus bAspdRate,4;
       bonus bAtkRate,5;
       bonus bAtkRate,.@r/3*2;
       if (.@r>=7) {
+      bonus bBaseAtk,100;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
       }
@@ -36768,12 +36770,13 @@ Body:
     Refineable: true
     Script: |-
       .@r = getrefine();
+      bonus bMatk,100;
       bonus bInt,6;
       bonus bMatkRate,10;
       bonus2 bMagicAddClass,Class_Boss,30;
       bonus bMatkRate,(.@r/3*1);
       if (.@r>=7) {
-      bonus bMatk,30;
+      bonus bMatk,80;
       bonus bMatkRate,10;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
@@ -37967,3 +37970,291 @@ Body:
     AegisName: Swap_item_Card
     Name: Swap item Card
     Type: Etc
+  - Id: 1030074
+    AegisName: N_Quest_Clear_Coin
+    Name: "[N] Quest Clear Coin"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1030095
+    AegisName: C_Quest_Clear_Coin
+    Name: "[C] Quest Clear Coin"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1030075
+    AegisName: N_Geffen_Clear_Coin
+    Name: "[N] Geffen Clear Coin"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1030096
+    AegisName: C_Geffen_Clear_Coin
+    Name: "[C] Geffen Clear Coin"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1030076
+    AegisName: N_Endless_Clear_Coin
+    Name: "[N] Endless Clear Coin"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1030097
+    AegisName: C_Endless_Clear_Coin
+    Name: "[C] Endless Clear Coin"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1030077
+    AegisName: N_OGH_Clear_Coin
+    Name: "[N] OGH Clear Coin"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1030098
+    AegisName: C_OGH_Clear_Coin
+    Name: "[C] OGH Clear Coin"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1030078
+    AegisName: Rookie_Weapon_Box
+    Name: Rookie Box
+    Type: Usable
+    Flags:
+      NoConsume: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+    Script: |
+      callfunc "F_RookieWeaponBox";
+  - Id: 1030079
+    AegisName: New_Item_1030079
+    Name: "[E] Charm MVP Battlefield"
+    Type: Charm
+  - Id: 1030099
+    AegisName: New_Item_1030099
+    Name: "[Event] Warp Boss Ticket"
+    Type: Etc
+  - Id: 1030100
+    AegisName: Happy_Meal_Pet_Box
+    Name: Happy Meal Pet Box
+    Type: Cash
+    Script: getitem 22571,10;
+  - Id: 1030101
+    AegisName: The_Box_Pet
+    Name: The Box Pet
+    Type: Cash
+    Script: getitem 22571,30;
+  - Id: 1030102
+    AegisName: C_Quest_Clear_Coin_Box
+    Name: "[C] Quest Clear Coin Box"
+    Script: getitem 1030095,2;
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      NoTrade: true
+      TradePartner: true
+      NoAuction: true
+      NoStorage: true
+      NoCart: true
+    Flags:
+      BuyingStore: true
+  - Id: 1030103
+    AegisName: C_Geffen_Clear_Coin_Box
+    Name: "[C] Geffen Clear Coin Box"
+    Script: getitem 1030096,2;
+    Type: Usable
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoMail: true
+      TradePartner: true
+      NoAuction: true
+      NoTrade: true
+      NoGuildStorage: true
+      NoCart: true
+      NoStorage: true
+  - Id: 1030104
+    AegisName: C_Endless_Clear_Coin_Box
+    Name: "[C] Endless Clear Coin Box"
+    Script: getitem 1030097,2;
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoMail: true
+      NoTrade: true
+      TradePartner: true
+      NoAuction: true
+      NoGuildStorage: true
+      NoCart: true
+      NoStorage: true
+    Flags:
+      BuyingStore: true
+  - Id: 1030105
+    AegisName: Token_Of_Siegfried_NT_5_Box
+    Name: Token Of Siegfried (NT) 5 Box
+    Script: getitem 6293,5;
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      TradePartner: true
+      NoAuction: true
+      NoTrade: true
+      NoCart: true
+    Flags:
+      BuyingStore: true
+  - Id: 1030106
+    AegisName: Token_Of_Siegfried_NT_10_Box
+    Name: Token Of Siegfried (NT) 10 Box
+    Script: getitem 6293,10;
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoTrade: true
+      NoMail: true
+      NoAuction: true
+      TradePartner: true
+      NoCart: true
+    Flags:
+      BuyingStore: true
+  - Id: 1030107
+    AegisName: Fragment Stone_2_Box
+    Name: Fragment Stone 2 Box
+    Type: Usable
+    Script: getitem 1001600,2;
+    Trade:
+      NoDrop: true
+      NoMail: true
+      NoGuildStorage: true
+      NoTrade: true
+      TradePartner: true
+      NoAuction: true
+      NoCart: true
+    Flags:
+      BuyingStore: true
+  - Id: 1030108
+    AegisName: Fragment Stone_3_Box
+    Name: Fragment Stone 3 Box
+    Type: Usable
+    Script: getitem 1001600,3;
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoTrade: true
+      NoMail: true
+      NoAuction: true
+      TradePartner: true
+      NoCart: true
+  - Id: 1030109
+    AegisName: Fragment Stone_5_Box
+    Name: Fragment Stone 5 Box
+    Type: Usable
+    Script: getitem 1001600,5;
+    Trade:
+      NoCart: true
+      NoAuction: true
+      TradePartner: true
+      NoTrade: true
+      NoMail: true
+      NoDrop: true
+      NoGuildStorage: true
+    Flags:
+      BuyingStore: true
+  - Id: 1030110
+    AegisName: C_OGH_Clear_Coin_Box
+    Name: "[C] OGH Clear Coin Box"
+    Script: getitem 1030098,2;
+    Trade:
+      NoGuildStorage: true
+      NoDrop: true
+      NoTrade: true
+      NoMail: true
+      NoAuction: true
+      NoCart: true
+      NoStorage: true
+      TradePartner: true
+    Flags:
+      BuyingStore: true
+    Type: Usable

@@ -13,6 +13,7 @@
 -	script	Refill_Auto	-1,{
 end;
 OnInit:
+	bindatcmd "testpromo22", strnpcinfo(3)+"::OnTestPromo22", 99, 99;
 	// ซิงก์ยอดเติมย้อนหลังทั้งหมดที่แจกสำเร็จแล้ว แยกตาม account_id
 	// rank = 0 เพื่อให้ระบบ VIP Rank คำนวณใหม่จาก YAML ตอนบัญชีล็อกอิน
 	query_sql(
@@ -39,6 +40,16 @@ OnInit:
 	setarray .get_cash_amount[3000],  30000,  4500, 0, 0, 0;
 	setarray .get_cash_amount[5000],  50000,  7100, 0, 0, 0;
 	setarray .get_cash_amount[10000], 100000, 15000, 0, 0, 0;
+
+	// โปรโมชั่นเติมเงิน 3 ส.ค. 2569 09:00 - 9 ส.ค. 2569 23:59 (เวลาเซิร์ฟเวอร์)
+	// รางวัลแจกต่อ 1 รายการเติมเงิน และทำงานก่อนเปลี่ยน donate.status เป็น 2
+	setarray .promo_amount[0], 300, 500, 1000, 3000, 5000, 10000;
+	setarray .promo_bsb[0], 5, 9, 18, 54, 90, 180;
+	setarray .promo_pet_egg[0], 3, 5, 12, 40, 75, 180;
+	setarray .promo_bloody_branch[0], 0, 2, 4, 12, 20, 40;
+	setarray .promo_refine_5[0], 0, 0, 1, 3, 5, 10;
+	setarray .promo_refine_10[0], 0, 0, 0, 1, 3, 5;
+	setarray .promo_refine_15[0], 0, 0, 0, 0, 1, 3;
 
 	while (1) {
 		query_sql "SELECT `id`,`amount`,`account_id` FROM `donate` WHERE `status` = 1 ORDER BY `id` ASC LIMIT 20",
@@ -77,6 +88,24 @@ OnInit:
 					}
 				}
 
+				// ใช้เวลาของ map-server เพื่อไม่ให้รับรางวัลนอกช่วงโปรโมชั่น
+				.@promo_now = gettime(DT_YEAR) * 100000000 + gettime(DT_MONTH) * 1000000 + gettime(DT_DAYOFMONTH) * 10000 + gettime(DT_HOUR) * 100 + gettime(DT_MINUTE);
+				if (.@promo_now <= 202608092359) {
+					.@promo_index = inarray(.promo_amount[0], .@amt);
+					if (.@promo_index >= 0) {
+						getitem 6635, .promo_bsb[.@promo_index];
+						getitem 22571, .promo_pet_egg[.@promo_index];
+						getitem 12103, .promo_bloody_branch[.@promo_index];
+						if (.promo_refine_5[.@promo_index] > 0)
+							getitem 1030015, .promo_refine_5[.@promo_index];
+						if (.promo_refine_10[.@promo_index] > 0)
+							getitem 1030016, .promo_refine_10[.@promo_index];
+						if (.promo_refine_15[.@promo_index] > 0)
+							getitem 1030017, .promo_refine_15[.@promo_index];
+						dispbottom "[โปรโมชั่นเติมเงิน] ได้รับรางวัลพิเศษตามยอดเติม " + callfunc("F_InsertComma", .@amt) + " บาท", 0x66CCFF;
+					}
+				}
+
 				if (getarraysize(.@extra_item) > 0 && .@extra_item[0] > 0) {
 					for (set .b, 0; .b < getarraysize(.@extra_item); set .b, .b + 1) {
 						set .@qty, .get_cash_amount[(.@amt + 2 + .b)];
@@ -96,5 +125,30 @@ OnInit:
 		}
 		sleep 5000;
 	}
+	end;
+
+OnTestPromo22:
+	if (.@atcmd_numparameters < 1) {
+		dispbottom "วิธีใช้: @testpromo22 <300|500|1000|3000|5000|10000>";
+		end;
+	}
+
+	.@amt = atoi(.@atcmd_parameters$[0]);
+	.@promo_index = inarray(.promo_amount[0], .@amt);
+	if (.@promo_index < 0) {
+		dispbottom "ยอดทดสอบไม่ถูกต้อง: ใช้ได้เฉพาะ 300, 500, 1000, 3000, 5000 หรือ 10000";
+		end;
+	}
+
+	getitem 6635, .promo_bsb[.@promo_index];
+	getitem 22571, .promo_pet_egg[.@promo_index];
+	getitem 12103, .promo_bloody_branch[.@promo_index];
+	if (.promo_refine_5[.@promo_index] > 0)
+		getitem 1030015, .promo_refine_5[.@promo_index];
+	if (.promo_refine_10[.@promo_index] > 0)
+		getitem 1030016, .promo_refine_10[.@promo_index];
+	if (.promo_refine_15[.@promo_index] > 0)
+		getitem 1030017, .promo_refine_15[.@promo_index];
+	dispbottom "[ทดสอบโปรโมชั่นเติมเงิน] ได้รับรางวัลของยอด " + callfunc("F_InsertComma", .@amt) + " บาทแล้ว", 0x66CCFF;
 	end;
 }
