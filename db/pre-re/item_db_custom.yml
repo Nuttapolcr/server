@@ -107,7 +107,7 @@ Body:
   - Id: 22529
     AegisName: Shadow_Mix_Recipe
     Name: Shadow Exchange SynthesisBox
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 10
     Script: |
       laphine_synthesis();
@@ -147,7 +147,7 @@ Body:
       callfunc "F_autobufftoggle";
   - Id: 97003
     AegisName: AUTOATTACK_AI_RENT
-    Name: AUTOATTACK AI RENT
+    Name: Ai Box 24 hr
     Type: Usable
     Trade:
       NoDrop: true
@@ -178,7 +178,7 @@ Body:
   - Id: 1500000
     AegisName: Combine_Common_Pet_Laphine
     Name: Common Pet Combination
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 0
     Trade:
       NoDrop: true
@@ -193,7 +193,7 @@ Body:
   - Id: 1500001
     AegisName: Combine_Rare_Pet_Laphine
     Name: Rare Pet Combination
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 0
     Trade:
       NoDrop: true
@@ -208,7 +208,7 @@ Body:
   - Id: 1500002
     AegisName: Combine_Rare_Weapon_Stone_Laphine
     Name: Rare Weapon Stone Combination
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 0
     Trade:
       NoDrop: true
@@ -223,7 +223,7 @@ Body:
   - Id: 1500003
     AegisName: Combine_Epic_Weapon_Stone_Laphine
     Name: Epic Weapon Stone Combination
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 0
     Trade:
       NoDrop: true
@@ -238,7 +238,7 @@ Body:
   - Id: 1500004
     AegisName: Combine_Rare_Armor_Stone_Laphine
     Name: Rare Armor Stone Combination
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 0
     Trade:
       NoDrop: true
@@ -253,7 +253,7 @@ Body:
   - Id: 1500005
     AegisName: Combine_Epic_Armor_Stone_Laphine
     Name: Epic Armor Stone Combination
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 0
     Trade:
       NoDrop: true
@@ -268,7 +268,7 @@ Body:
   - Id: 1500006
     AegisName: Combine_Rare_Acc_Stone_Laphine
     Name: Rare Acc Stone Combination
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 0
     Trade:
       NoDrop: true
@@ -283,7 +283,7 @@ Body:
   - Id: 1500007
     AegisName: Combine_Epic_Acc_Stone_Laphine
     Name: Epic Acc Stone Combination
-    Type: Delayconsume
+    Type: DelayConsume
     Weight: 0
     Trade:
       NoDrop: true
