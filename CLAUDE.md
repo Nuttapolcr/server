@@ -50,3 +50,13 @@ bonus code, script pattern, workflow rule, external reference. **ห้ามจดเป็น chan
 | แหล่งข้อมูลภายนอก, link | `docs/knowledge.md` หัวข้อ References |
 
 ห้ามปล่อยให้ความรู้หายไปกับ session
+
+---
+
+## Deploy Workflow — server-test -> server
+
+- server และ server-test เป็น git repo แยกกัน คนละ remote — deploy = copy ไฟล์ที่เปลี่ยนใน server-test ไปทับ path เดียวกันใน server แล้ว commit แยกกันทั้งสองฝั่ง (commit ฝั่ง server มักขึ้นต้นด้วย "Deploy")
+- **ก่อน deploy ทุกครั้งต้องเช็ค `git status`/`git diff` ของ server (production) ก่อนเสมอ** — production อาจมีการแก้ไขที่ยังไม่ commit อยู่แล้ว (hotfix ที่แก้ตรงบน production หรือผ่าน tool อื่น) ถ้ามีไฟล์ที่สองฝั่งแก้ไม่ตรงกัน ต้อง diff ดูเนื้อหาจริงก่อนตัดสินใจ ห้ามเดาแล้ว copy ทับตรงๆ
+- บางไฟล์เป็น **live state เฉพาะ environment ไม่ใช่ deployable content** เช่น `npc/custom-npc/07_guild/war_warper.txt` (flag ปราสาท CS2 ปัจจุบันของแต่ละ server ต่างกันโดยธรรมชาติ) — ห้าม copy ทับ ให้ exclude ออกจาก deploy เสมอ
+- ถ้า production มี hotfix ที่ไม่เคยเข้า server-test (เคยเจอ: `db/pre-re/skill_nocast_db.txt`) ต้อง backport เข้า server-test ด้วยทุกครั้ง ไม่งั้น deploy รอบถัดไปจะทับ hotfix นั้นทิ้งโดยไม่รู้ตัว
+- `src/map/*.cpp`, `*.hpp` เป็น source code — deploy แค่ copy+commit ไม่ทำให้ live process รันโค้ดใหม่ ต้อง `make server` แล้ว restart tmux (`live_login`/`live_char`/`live_map`) เองแยกต่างหาก ห้ามทำอัตโนมัติโดยไม่ถามก่อน เพราะ live server มีผู้เล่นต่ออยู่จริง
