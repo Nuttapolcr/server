@@ -58,7 +58,7 @@ function	script	F_GoldenAppleCabinet_RecordSpin	{
 	return;
 }
 
-morocc,123,101,4	script	ตู้ Golden Apple Slice#cabinet	563,{
+morocc,120,101,4	script	ตู้ Golden Apple Slice#cabinet	563,{
 L_Main:
 	mes "[ตู้ Golden Apple Slice]";
 	.@choice = select("หมุนตู้ (Golden Apple Slice x2 + 100,000 Zeny):แสดงไอเทมในตู้:อันดับผู้หมุน 1-10:ยกเลิก");
@@ -103,7 +103,7 @@ OnBuyItem:
 	end;
 }
 
-morocc,123,97,4	script	ตู้ Golden Apple#cabinet	563,{
+morocc,120,97,4	script	ตู้ Golden Apple#cabinet	563,{
 L_Main:
 	mes "[ตู้ Golden Apple]";
 	.@choice = select("หมุนตู้ (Golden Apple x1 + 100,000 Zeny + 50 Cash Point):แสดงไอเทมในตู้:อันดับผู้หมุน 1-10:ยกเลิก");
