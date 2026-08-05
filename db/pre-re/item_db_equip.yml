@@ -15612,6 +15612,36 @@ Body:
     AegisName: Cat_Hairband_Copy
     Name: Cos Kitty Band
     Type: Armor
+    Jobs:
+      All: true
+      Rebellion: true
+      Mage: true
+      Blacksmith: true
+      SuperNovice: true
+      Swordman: true
+      Rogue: true
+      Crusader: true
+      Merchant: true
+      Acolyte: true
+      Gunslinger: true
+      Monk: true
+      Alchemist: true
+      Sage: true
+      Taekwon: true
+      Thief: true
+      SoulLinker: true
+      Ninja: true
+      Hunter: true
+      Archer: true
+      Assassin: true
+      KagerouOboro: true
+      Novice: true
+      StarGladiator: true
+      Wizard: true
+      Summoner: true
+      Priest: true
+      Knight: true
+      BardDancer: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -15622,7 +15652,7 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Jobs:
+    Classes:
       All: true
   - Id: 2214
     AegisName: Bunny_Band
@@ -16018,9 +16048,35 @@ Body:
     Name: Cos Tiara
     Type: Armor
     Jobs:
-      Novice: false
-      SuperNovice: false
+      Novice: true
+      SuperNovice: true
       All: true
+      Mage: true
+      Blacksmith: true
+      Rebellion: true
+      Swordman: true
+      Rogue: true
+      Merchant: true
+      Crusader: true
+      Acolyte: true
+      Alchemist: true
+      Gunslinger: true
+      Monk: true
+      Sage: true
+      Taekwon: true
+      Thief: true
+      SoulLinker: true
+      Ninja: true
+      Hunter: true
+      Archer: true
+      Assassin: true
+      KagerouOboro: true
+      StarGladiator: true
+      Wizard: true
+      Summoner: true
+      Priest: true
+      Knight: true
+      BardDancer: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16031,6 +16087,8 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
+    Classes:
+      All: true
   - Id: 2235
     AegisName: Crown
     Name: Crown
@@ -16056,8 +16114,34 @@ Body:
     Type: Armor
     Jobs:
       All: true
-      Novice: false
-      SuperNovice: false
+      Novice: true
+      SuperNovice: true
+      Swordman: true
+      Taekwon: true
+      Thief: true
+      Wizard: true
+      StarGladiator: true
+      KagerouOboro: true
+      Priest: true
+      Summoner: true
+      Knight: true
+      BardDancer: true
+      Assassin: true
+      Archer: true
+      Hunter: true
+      SoulLinker: true
+      Ninja: true
+      Sage: true
+      Monk: true
+      Gunslinger: true
+      Alchemist: true
+      Acolyte: true
+      Crusader: true
+      Merchant: true
+      Rogue: true
+      Rebellion: true
+      Blacksmith: true
+      Mage: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16068,6 +16152,8 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
+    Classes:
+      All: true
   - Id: 2236
     AegisName: Santa's_Hat
     Name: Santa Hat
@@ -16207,9 +16293,35 @@ Body:
     Name: Cos Golden Gear
     Type: Armor
     Jobs:
-      Novice: false
-      SuperNovice: false
+      Novice: true
+      SuperNovice: true
       All: true
+      Blacksmith: true
+      Mage: true
+      Rebellion: true
+      Swordman: true
+      Rogue: true
+      Merchant: true
+      Crusader: true
+      Acolyte: true
+      Alchemist: true
+      Gunslinger: true
+      Monk: true
+      Sage: true
+      Taekwon: true
+      Thief: true
+      SoulLinker: true
+      Ninja: true
+      Hunter: true
+      Archer: true
+      Assassin: true
+      KagerouOboro: true
+      StarGladiator: true
+      Wizard: true
+      Summoner: true
+      Priest: true
+      Knight: true
+      BardDancer: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16220,6 +16332,8 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
+    Classes:
+      All: true
   - Id: 2247
     AegisName: Oldman's_Romance
     Name: Romantic Gent
@@ -16275,9 +16389,35 @@ Body:
     Name: Cos Coronet
     Type: Armor
     Jobs:
-      Novice: false
-      SuperNovice: false
+      Novice: true
+      SuperNovice: true
       All: true
+      Blacksmith: true
+      Mage: true
+      Rebellion: true
+      Crusader: true
+      Acolyte: true
+      Merchant: true
+      Rogue: true
+      Swordman: true
+      Taekwon: true
+      Sage: true
+      Monk: true
+      Gunslinger: true
+      Alchemist: true
+      Archer: true
+      Hunter: true
+      Ninja: true
+      SoulLinker: true
+      Thief: true
+      Wizard: true
+      StarGladiator: true
+      KagerouOboro: true
+      Assassin: true
+      BardDancer: true
+      Knight: true
+      Priest: true
+      Summoner: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16288,6 +16428,8 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
+    Classes:
+      All: true
   - Id: 2250
     AegisName: Fillet
     Name: Cute Ribbon
@@ -16423,6 +16565,36 @@ Body:
     AegisName: Magestic_Goat_Copy
     Name: Cos Majestic Goat
     Type: Armor
+    Jobs:
+      All: true
+      Blacksmith: true
+      Mage: true
+      Rebellion: true
+      Rogue: true
+      Swordman: true
+      SuperNovice: true
+      Crusader: true
+      Merchant: true
+      Acolyte: true
+      Alchemist: true
+      Gunslinger: true
+      Monk: true
+      Sage: true
+      Taekwon: true
+      Thief: true
+      SoulLinker: true
+      Ninja: true
+      Hunter: true
+      Archer: true
+      Assassin: true
+      KagerouOboro: true
+      StarGladiator: true
+      Novice: true
+      Wizard: true
+      Summoner: true
+      Priest: true
+      Knight: true
+      BardDancer: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16433,7 +16605,7 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Jobs:
+    Classes:
       All: true
   - Id: 2257
     AegisName: Snowy_Horn
@@ -16479,6 +16651,36 @@ Body:
     AegisName: Sharp_Gear_Copy
     Name: Cos Spiky Band
     Type: Armor
+    Jobs:
+      All: true
+      Blacksmith: true
+      Mage: true
+      Rebellion: true
+      SuperNovice: true
+      Rogue: true
+      Merchant: true
+      Acolyte: true
+      Crusader: true
+      Swordman: true
+      Taekwon: true
+      Sage: true
+      Monk: true
+      Alchemist: true
+      Gunslinger: true
+      Hunter: true
+      Archer: true
+      Ninja: true
+      SoulLinker: true
+      Thief: true
+      Wizard: true
+      StarGladiator: true
+      Novice: true
+      KagerouOboro: true
+      Assassin: true
+      BardDancer: true
+      Knight: true
+      Priest: true
+      Summoner: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16489,7 +16691,7 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Jobs:
+    Classes:
       All: true
   - Id: 2259
     AegisName: Mini_Propeller
@@ -16644,9 +16846,35 @@ Body:
     Name: Cos Pipe
     Type: Armor
     Jobs:
-      Novice: false
-      SuperNovice: false
+      Novice: true
+      SuperNovice: true
       All: true
+      Rebellion: true
+      Mage: true
+      Blacksmith: true
+      Swordman: true
+      Rogue: true
+      Merchant: true
+      Crusader: true
+      Acolyte: true
+      Monk: true
+      Gunslinger: true
+      Alchemist: true
+      Sage: true
+      Taekwon: true
+      Thief: true
+      SoulLinker: true
+      Ninja: true
+      Hunter: true
+      Archer: true
+      Assassin: true
+      KagerouOboro: true
+      StarGladiator: true
+      Wizard: true
+      Summoner: true
+      Priest: true
+      Knight: true
+      BardDancer: true
     Locations:
       Costume_Head_Low: true
     ArmorLevel: 1
@@ -16657,6 +16885,8 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
+    Classes:
+      All: true
   - Id: 2269
     AegisName: Centimental_Flower
     Name: Romantic Flower
@@ -16961,9 +17191,35 @@ Body:
     Name: Cos Mr. Scream
     Type: Armor
     Jobs:
-      Novice: false
-      SuperNovice: false
+      Novice: true
+      SuperNovice: true
       All: true
+      Blacksmith: true
+      Mage: true
+      Rebellion: true
+      Rogue: true
+      Swordman: true
+      Merchant: true
+      Acolyte: true
+      Crusader: true
+      Alchemist: true
+      Gunslinger: true
+      Monk: true
+      Sage: true
+      Taekwon: true
+      Thief: true
+      SoulLinker: true
+      Ninja: true
+      Hunter: true
+      Archer: true
+      Assassin: true
+      StarGladiator: true
+      KagerouOboro: true
+      Wizard: true
+      Summoner: true
+      Priest: true
+      Knight: true
+      BardDancer: true
     Locations:
       Costume_Head_Mid: true
     ArmorLevel: 1
@@ -16974,6 +17230,8 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
+    Classes:
+      All: true
   - Id: 2289
     AegisName: Poo_Poo_Hat
     Name: Poo Poo Hat
@@ -25251,6 +25509,36 @@ Body:
     AegisName: Gemmed_Crown_Copy
     Name: Cos Jewel Crown
     Type: Armor
+    Jobs:
+      All: true
+      Mage: true
+      Rebellion: true
+      SuperNovice: true
+      Blacksmith: true
+      Crusader: true
+      Acolyte: true
+      Merchant: true
+      Rogue: true
+      Swordman: true
+      Taekwon: true
+      Sage: true
+      Monk: true
+      Gunslinger: true
+      Alchemist: true
+      Archer: true
+      Hunter: true
+      SoulLinker: true
+      Ninja: true
+      Thief: true
+      Wizard: true
+      StarGladiator: true
+      Novice: true
+      KagerouOboro: true
+      Assassin: true
+      BardDancer: true
+      Priest: true
+      Knight: true
+      Summoner: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -25261,7 +25549,7 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Jobs:
+    Classes:
       All: true
   - Id: 5003
     AegisName: Joker_Jester
@@ -25358,9 +25646,35 @@ Body:
     Name: Cos Grand Circlet
     Type: Armor
     Jobs:
-      Novice: false
-      SuperNovice: false
+      Novice: true
+      SuperNovice: true
       All: true
+      Blacksmith: true
+      Mage: true
+      Rebellion: true
+      Swordman: true
+      Merchant: true
+      Crusader: true
+      Acolyte: true
+      Rogue: true
+      Taekwon: true
+      Sage: true
+      Gunslinger: true
+      Alchemist: true
+      Monk: true
+      Ninja: true
+      Archer: true
+      Hunter: true
+      SoulLinker: true
+      Thief: true
+      Wizard: true
+      StarGladiator: true
+      KagerouOboro: true
+      Assassin: true
+      BardDancer: true
+      Priest: true
+      Knight: true
+      Summoner: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -25371,6 +25685,8 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
+    Classes:
+      All: true
   - Id: 5008
     AegisName: Puppy_Love
     Name: Puppy Love
@@ -25570,9 +25886,35 @@ Body:
     Name: Cos Corsair
     Type: Armor
     Jobs:
-      Novice: false
-      SuperNovice: false
+      Novice: true
+      SuperNovice: true
       All: true
+      Blacksmith: true
+      Mage: true
+      Rebellion: true
+      Rogue: true
+      Acolyte: true
+      Merchant: true
+      Crusader: true
+      Swordman: true
+      Taekwon: true
+      Sage: true
+      Gunslinger: true
+      Monk: true
+      Alchemist: true
+      Archer: true
+      Ninja: true
+      SoulLinker: true
+      Hunter: true
+      Thief: true
+      Wizard: true
+      StarGladiator: true
+      KagerouOboro: true
+      Assassin: true
+      BardDancer: true
+      Knight: true
+      Priest: true
+      Summoner: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -25583,6 +25925,8 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
+    Classes:
+      All: true
   - Id: 5020
     AegisName: Kafra_Band
     Name: Kafra Band
@@ -25959,6 +26303,36 @@ Body:
     AegisName: Blush_Copy
     Name: Cos Blush
     Type: Armor
+    Jobs:
+      All: true
+      Mage: true
+      Blacksmith: true
+      Rebellion: true
+      SuperNovice: true
+      Swordman: true
+      Rogue: true
+      Merchant: true
+      Crusader: true
+      Acolyte: true
+      Alchemist: true
+      Gunslinger: true
+      Monk: true
+      Sage: true
+      Taekwon: true
+      Thief: true
+      SoulLinker: true
+      Ninja: true
+      Hunter: true
+      Archer: true
+      Assassin: true
+      KagerouOboro: true
+      Novice: true
+      StarGladiator: true
+      Wizard: true
+      Priest: true
+      Knight: true
+      BardDancer: true
+      Summoner: true
     Locations:
       Costume_Head_Mid: true
     ArmorLevel: 1
@@ -25969,7 +26343,7 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Jobs:
+    Classes:
       All: true
   - Id: 5041
     AegisName: Heart_Hair_Pin
@@ -27215,9 +27589,35 @@ Body:
     Type: Armor
     Weight: 0
     Jobs:
-      Novice: false
-      SuperNovice: false
+      Novice: true
+      SuperNovice: true
       All: true
+      Mage: true
+      Blacksmith: true
+      Rebellion: true
+      Swordman: true
+      Rogue: true
+      Merchant: true
+      Crusader: true
+      Acolyte: true
+      Gunslinger: true
+      Alchemist: true
+      Taekwon: true
+      Sage: true
+      Monk: true
+      Thief: true
+      SoulLinker: true
+      Ninja: true
+      Archer: true
+      Hunter: true
+      Assassin: true
+      KagerouOboro: true
+      StarGladiator: true
+      Wizard: true
+      Summoner: true
+      Priest: true
+      Knight: true
+      BardDancer: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -27228,6 +27628,8 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
+    Classes:
+      All: true
   - Id: 5124
     AegisName: Fricca_Circlet
     Name: Fricca's Circlet
@@ -36539,6 +36941,36 @@ Body:
     AegisName: Diabolus_Helmet_Copy
     Name: Cos Dark Bacilium
     Type: Armor
+    Jobs:
+      All: true
+      SuperNovice: true
+      Rebellion: true
+      Mage: true
+      Blacksmith: true
+      Acolyte: true
+      Crusader: true
+      Merchant: true
+      Rogue: true
+      Taekwon: true
+      Sage: true
+      Monk: true
+      Gunslinger: true
+      Alchemist: true
+      Swordman: true
+      Thief: true
+      SoulLinker: true
+      Ninja: true
+      Hunter: true
+      Archer: true
+      Assassin: true
+      KagerouOboro: true
+      Novice: true
+      StarGladiator: true
+      Wizard: true
+      Summoner: true
+      Priest: true
+      Knight: true
+      BardDancer: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -36549,7 +36981,7 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Jobs:
+    Classes:
       All: true
   - Id: 5809
     AegisName: Boom_Boom_Hat
