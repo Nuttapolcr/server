@@ -78,6 +78,7 @@ function	script	F_Cabinet_ResetRank	{
 	return;
 }
 
+/*
 morocc,120,101,4	script	ตู้ Zeny#cabinet	563,{
 
 L_Main:
@@ -171,7 +172,9 @@ OnUpdateSign:
 	waitingroom "ตู้Zeny (Zenyสะสม " + callfunc("F_InsertComma", $CabinetZenyJackpot) + ")", 0;
 	end;
 }
+*/
 
+/*
 morocc,120,97,4	script	ตู้ Cash#cabinet	563,{
 
 L_Main:
@@ -265,6 +268,7 @@ OnUpdateSign:
 	waitingroom "ตู้Cash (Cashสะสม " + callfunc("F_InsertComma", $CabinetCashJackpot) + ")", 0;
 	end;
 }
+*/
 
 morocc,152,138,4	script	ตู้แลกของการันตี#cabinet	564,{
 	mes "[ตู้แลกของการันตี]";
