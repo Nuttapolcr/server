@@ -38866,6 +38866,12 @@ Body:
     AegisName: New_Item_1030079
     Name: "[E] Charm MVP Battlefield"
     Type: Charm
+    CharmScript: |-
+      if (strcharinfo(3) != "valor_pk") end;
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus bInt,15;
+      bonus2 bAddClass,Class_Boss,50;
+      bonus2 bMagicAddClass,Class_Boss,50;
   - Id: 1030099
     AegisName: New_Item_1030099
     Name: "[Event] Warp Boss Ticket"

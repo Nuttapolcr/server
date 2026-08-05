@@ -161,6 +161,14 @@ bonus2 bSkillAtk,"SKILL",N;      # Skill damage +N%
 
 ## Script Patterns
 
+### Charm Item (CharmScript)
+
+- Type `Charm` ใช้ field `CharmScript` แทน `Script` — engine ของ fork นี้ประเมิน CharmScript ใหม่ทุกครั้งที่คำนวณ stat แค่พกไว้ในกระเป๋าก็มีผลทันที ไม่ต้องสวมใส่หรือใช้งาน
+- พก Charm คนละ ID พร้อมกันได้ ผลรวมกัน แต่ Charm ID เดียวกันมีผลแค่ครั้งเดียวเสมอไม่ว่าจะพกกี่ชิ้น (engine จัดการเอง ห้ามเขียน script กันซ้ำเอง)
+- Pattern ban GVG: `if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;`
+- Pattern จำกัดเฉพาะแมพ: `if (strcharinfo(3) != "<mapname>") end;`
+- ตัวอย่างจริงใน `db/pre-re/item_db_custom.yml`: ID 1030007 (`Charm_CBT`), 1030043-1030045 (`N/R/E_Charm_Valor V.1`), 1030079 (boss dmg +50% เฉพาะแมพ `valor_pk` — ชดเชย mapflag ที่ลด dmg ใส่ Class_Boss เหลือ 50% บนแมพนี้ ดูที่มาใน `npc/custom-npc/08_event/valor_mvp_battlefield.txt`)
+
 ## Workflow — สร้าง NPC จาก Google Sheet
 
 ใช้เมื่อลูกค้าส่ง Google Sheet แล้วขอให้ “สร้าง NPC ตามลิงก์”
