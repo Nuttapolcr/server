@@ -40,7 +40,7 @@ Body:
       - Item: The_Box_Pet
         Price: 2790
       - Item: Swap_item_Card
-        Price: 2990
+        Price: 990
       - Item: AUTOATTACK_AI_RENT
         Price: 399
       - Item: aegis_1001722
