@@ -295,6 +295,8 @@ struct s_map_mob_drop{
 
 struct s_map_drops{
 	uint16 mapid;
+	bool replace_mob_drops = false;
+	bool affected_by_drop_rate = false;
 	std::unordered_map<uint16, std::shared_ptr<s_mob_drop>> globals;
 	std::unordered_map<uint16, std::unordered_map<uint16, std::shared_ptr<s_mob_drop>>> specific;
 };

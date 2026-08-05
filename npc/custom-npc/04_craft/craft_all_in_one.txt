@@ -1,0 +1,79 @@
+//===== rAthena Script =======================================
+//= Craft All in One - Barter Shop menu
+//============================================================
+
+function	script	F_RookieWeaponBox	{
+	mes "[Rookie Box]";
+	mes "เลือกของ Rookie ได้ 1 ชิ้น";
+	next;
+
+	switch(select(
+		getitemname(1292)+":"+getitemname(1394)+":"+getitemname(1491)+":"+
+		getitemname(1585)+":"+getitemname(2015)+":"+getitemname(13071)+":"+
+		getitemname(13115)+":"+getitemname(21000)+":"+getitemname(16019)+":"+
+		getitemname(18112)+":"+getitemname(13316)+":"+getitemname(1030046)+":"+
+		getitemname(1030047)+":"+getitemname(1030048)+":"+getitemname(15015)+":"+
+		getitemname(2562)+":"+getitemname(2460)+":"+getitemname(2149)+":ยกเลิก")) {
+		case 1: .@item_id = 1292; break;
+		case 2: .@item_id = 1394; break;
+		case 3: .@item_id = 1491; break;
+		case 4: .@item_id = 1585; break;
+		case 5: .@item_id = 2015; break;
+		case 6: .@item_id = 13071; break;
+		case 7: .@item_id = 13115; break;
+		case 8: .@item_id = 21000; break;
+		case 9: .@item_id = 16019; break;
+		case 10: .@item_id = 18112; break;
+		case 11: .@item_id = 13316; break;
+		case 12: .@item_id = 1030046; break;
+		case 13: .@item_id = 1030047; break;
+		case 14: .@item_id = 1030048; break;
+		case 15: .@item_id = 15015; break;
+		case 16: .@item_id = 2562; break;
+		case 17: .@item_id = 2460; break;
+		case 18: .@item_id = 2149; break;
+		default:
+			mes "[Rookie Box]";
+			mes "ยกเลิกการเลือก กล่องยังอยู่ในตัวคุณ";
+			close;
+	}
+
+	if (!checkweight(.@item_id,1)) {
+		mes "[Rookie Box]";
+		mes "น้ำหนักในตัวคุณไม่เพียงพอ";
+		close;
+	}
+
+	delitem 1030078,1;
+	getitem .@item_id,1;
+	mes "[Rookie Box]";
+	mes "คุณได้รับ ^00AA00"+getitemname(.@item_id)+"^000000";
+	close;
+}
+
+morocc,142,139,4	script	Craft All in One	120,{
+	mes "[Craft All in One]";
+	mes "เลือกหมวด Barter Shop ที่ต้องการ";
+	next;
+
+	switch(select("คราฟเหรียญ:คราฟ Costume Boss:คราฟของทั่วไป:ยกเลิก")) {
+	case 1:
+		close2;
+		callshop "CRAFT_ALL_IN_ONE_COIN",1;
+		end;
+	case 2:
+		close2;
+		callshop "CRAFT_ALL_IN_ONE_COSTUME",1;
+		end;
+	case 3:
+		close2;
+		callshop "CRAFT_ALL_IN_ONE_GENERAL",1;
+		end;
+	default:
+		close;
+	}
+
+OnInit:
+	waitingroom "Craft All in One",0;
+	end;
+}

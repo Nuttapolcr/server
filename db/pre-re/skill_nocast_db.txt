@@ -35,7 +35,7 @@
 290,8191
 
 //Can use in GvG Only
-288,1 //SA_LANDPROTECTOR
+//288,1 //SA_LANDPROTECTOR
 328,1 //Forget
 
 //Can use in GvG , Town alde_dun02 , beach_dun

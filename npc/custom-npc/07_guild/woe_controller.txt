@@ -76,8 +76,8 @@ OnInit:
 	setarray .Days$[0],"อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์";
 	setarray .Regions$[0],"Prontera","Payon","Geffen","Aldebaran";
 	setarray .Map$[0],"prt_gld","pay_gld","gef_fild13","alde_gld";
-	setarray .MapX[0], 0,0,0,0,0,   0,0,0,0,0,   0,0,0,0,0,   0,0,0,0,0;
-	setarray .MapY[0], 0,0,0,0,0,   0,0,0,0,0,   0,0,0,0,0,   0,0,0,0,0;
+	setarray .MapX[0], 134,240,153,111,208,   121,295,317,140,204,   214,308,143,193,305,   48,95,142,239,264;
+	setarray .MapY[0],  65,128,137,240,240,   233,116,293,160,266,    75,240,240,278, 87,   83,249, 85,242, 90;
 
 	set .CastleCount, getarraysize(.Castles$);     // = 20
 	set .RegionCount, getarraysize(.Regions$);     // = 4
@@ -169,7 +169,7 @@ OnReward:
 		if (getarg(0)&(1<<.@i)) {
 			set .@GID, getcastledata(.Castles$[.@i],1);
 			if (!.@GID) continue;
-			set .@size, query_sql("SELECT account_id,char_id FROM `guild_member` WHERE guild_id = '"+.@GID+"' AND "+.@sql$,.@aid,.@cid);
+			set .@size, query_sql("SELECT `char`.`account_id`,`guild_member`.`char_id` FROM `guild_member` INNER JOIN `char` ON `guild_member`.`char_id` = `char`.`char_id` WHERE `guild_member`.`guild_id` = '"+.@GID+"' AND "+.@sql$,.@aid,.@cid);
 			for(set .@j,0; .@j<.@size; set .@j,.@j+1) {
 				if (.Options&8 && !(.Options&4)) {
 					set .@ip$, replacestr(getcharip(.@aid[.@j]),".","a");

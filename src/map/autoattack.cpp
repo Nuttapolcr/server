@@ -65,7 +65,7 @@ bool aa_avoid_collision(struct map_session_data* sd, unsigned int now_tick) {
     struct mob_data* target_md = BL_CAST(BL_MOB, map_id2bl(sd->aa.target_id));
     if (!target_md) return false;
     
-    if (target_md->ud.dir != -1 && target_md->ud.walktimer != NULL) {
+    if (target_md->ud.dir != -1 && target_md->ud.walktimer != INVALID_TIMER) {
         int mob_dir = target_md->ud.dir;
         int char_dir = sd->ud.dir;
         
@@ -1400,7 +1400,10 @@ bool aa_teleport(map_session_data* sd) {
 		}
 
 		if (inventory_index >= 0) {
-			if (requires_consumption) {
+			// The AI performs the warp itself. Keep a rented Fly Wing until its
+			// rental timer expires; consume only a normal Fly Wing.
+			const bool is_rental_flywing = sd->inventory.u.items_inventory[inventory_index].expire_time > 0;
+			if (requires_consumption && !is_rental_flywing) {
 				pc_delitem(sd, inventory_index, 1, 0, 0, LOG_TYPE_OTHER);
 			}
 			pc_randomwarp(sd, CLR_TELEPORT);
@@ -1988,10 +1991,12 @@ int aa_status(map_session_data* sd) {
 	aa_sellitem(sd);
 
 	// Priority 2 - Buff item
-	aa_status_buffitem(sd, last_tick);
+	if (aa_status_buffitem(sd, last_tick))
+		return 2;
 
 	// Priority 3 - potion
-	aa_status_potion(sd, status);
+	if (aa_status_potion(sd, status))
+		return 4;
 
 	// Priority 4 - heal
 	if (aa_status_heal(sd, status, last_tick)) return 3;
@@ -2210,32 +2215,31 @@ bool aa_status_heal(map_session_data* sd, const status_data* status, t_tick last
 
 //Healing potions
 bool aa_status_potion(map_session_data* sd, const status_data* status) {
-	bool potion_used = false;
 	// Check if the auto-potion feature is enabled
-	if (!battle_config.feature_autoattack_autopotion || sd->aa.autopotion.empty())
+	if (!battle_config.feature_autoattack_autopotion || sd->aa.autopotion.empty() || sd->st != nullptr || sd->npc_id != 0)
 		return false;
 
 	// Iterate through the auto-potion configuration
 	for (const auto& potion : sd->aa.autopotion) {
-		struct status_data* curent_status = status_get_status_data(&sd->bl);
-		sd->canuseitem_tick = gettick();
+		// These Death Match potions must never be used by Auto Attack.
+		if (potion.item_id == 11548 || potion.item_id == 11549)
+			continue;
 
-		// Check and use a potion for HP if the threshold is met
-		auto check_and_use_potion = [&](int current_stat, int max_stat, int threshold) {
-			if (get_percentage(current_stat, max_stat) < threshold) {
-				int index = pc_search_inventory(sd, potion.item_id);
-				if (index >= 0) {
-					if (pc_useitem(sd, index))
-						potion_used = true;
-				}
-			}
-			};
+		const status_data* current_status = status_get_status_data(&sd->bl);
+		const bool needs_hp = potion.min_hp > 0 &&
+			get_percentage(current_status->hp, current_status->max_hp) < potion.min_hp;
+		const bool needs_sp = potion.min_sp > 0 &&
+			get_percentage(current_status->sp, current_status->max_sp) < potion.min_sp;
 
-		check_and_use_potion(curent_status->hp, curent_status->max_hp, potion.min_hp);
-		check_and_use_potion(curent_status->sp, curent_status->max_sp, potion.min_sp);
+		if (!needs_hp && !needs_sp)
+			continue;
+
+		const int index = pc_search_inventory(sd, potion.item_id);
+		if (index >= 0 && pc_useitem(sd, index))
+			return true;
 	}
 
-	return potion_used;
+	return false;
 }
 
 // Automatically sit to rest or stand when conditions are met
@@ -2425,11 +2429,9 @@ bool aa_checkactivestatus(map_session_data* sd, sc_type type) {
 // Automatically use buff items
 bool aa_status_buffitem(map_session_data* sd, t_tick last_tick) {
     // Return early if the feature is disabled or no buff items are configured
-    if (!battle_config.feature_autoattack_buffitems || sd->aa.autobuffitems.empty()) {
+    if (!battle_config.feature_autoattack_buffitems || sd->aa.autobuffitems.empty() || sd->st != nullptr || sd->npc_id != 0) {
         return false;
     }
-
-    bool used_item = false;
 
     // Iterate through configured auto-buff items
     for (auto& autobuffitem : sd->aa.autobuffitems) {
@@ -2444,10 +2446,10 @@ bool aa_status_buffitem(map_session_data* sd, t_tick last_tick) {
         // Check inventory for the item and use it if available
         int inventory_index = pc_search_inventory(sd, autobuffitem.item_id);
         if (inventory_index >= 0 && pc_useitem(sd, inventory_index))
-            used_item = true;
+            return true;
     }
 
-	return used_item;
+	return false;
 }
 
 // Handles auto-attack skills in combat

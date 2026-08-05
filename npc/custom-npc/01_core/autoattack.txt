@@ -789,7 +789,7 @@ potion_menu:
 	mes "--- การตั้งค่าปัจจุบัน ---";
 	mes "คุณสามารถเพิ่ม / แก้ไข หรือลบยาต่อไปนี้";
 	
-	setarray .@lpotion_disable_list[0],14875,14876;
+	setarray .@lpotion_disable_list[0],11548,11549,14875,14876;
 	mes aa_getautoattackstring(1,0);
 	
 	if(getarraysize(.@potion_menu_ids) == 0){

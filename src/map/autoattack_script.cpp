@@ -311,6 +311,9 @@ void handle_autoattack_potions(std::ostringstream& os_buf, int index, script_sta
 	int j = 0;
 
 	std::map<int, std::string> unique_items;
+	const auto is_disabled_potion = [](t_itemid item_id) {
+		return item_id == 11548 || item_id == 11549;
+	};
 
 	// Helper function to build potion item string
 	auto buildPotionItemString = [](const std::string& status, const std::string& item_name, short amount = 0, uint16 min_hp = 0, uint16 min_sp = 0) {
@@ -327,6 +330,8 @@ void handle_autoattack_potions(std::ostringstream& os_buf, int index, script_sta
 
 	// Process active autobuff potions
 	for (const auto& itAutopotion : sd->aa.autopotion) {
+		if (is_disabled_potion(itAutopotion.item_id))
+			continue;
 		if (auto item_data = item_db.find(itAutopotion.item_id)) {
 			unique_items[itAutopotion.item_id] = buildPotionItemString("^008000(ON)^000000", item_data->ename, 0, itAutopotion.min_hp, itAutopotion.min_sp);
 			set_reg_num(st, sd, reference_uid(add_str(potion_menu_state), itAutopotion.item_id), potion_menu_state, 1, nullptr);
@@ -342,6 +347,8 @@ void handle_autoattack_potions(std::ostringstream& os_buf, int index, script_sta
 	aa_getusablepotions(sd, inventory_potion_id, inventory_potion_amount, inventory_potion_name, &amount);
 
 	for (int i = 0; i < amount; ++i) {
+		if (is_disabled_potion(inventory_potion_id[i]))
+			continue;
 		if (unique_items.count(inventory_potion_id[i]) > 0) {
 			unique_items[inventory_potion_id[i]] += " - x" + std::to_string(inventory_potion_amount[i]); // append the amount
 		}
@@ -909,6 +916,15 @@ void handleAutoPotion(const std::vector<std::string>& result, map_session_data* 
 	auto item_data = item_db.find(nameid);
 	if (!item_data || item_data->type != IT_HEALING)
 		return; // Item doesn't exist or isn't a healing item
+	if (nameid == 11548 || nameid == 11549) {
+		sd->aa.autopotion.erase(
+			std::remove_if(sd->aa.autopotion.begin(), sd->aa.autopotion.end(), [nameid](const s_autopotion& v) {
+				return v.item_id == nameid;
+			}),
+			sd->aa.autopotion.end()
+		);
+		return;
+	}
 
 	if (!is_active || (min_hp == 0 && min_sp == 0)) {
 		sd->aa.autopotion.erase(

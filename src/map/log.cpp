@@ -348,7 +348,10 @@ void log_mvpdrop(map_session_data* sd, int monster_id, t_itemid nameid, t_exp ex
 /// logs used atcommands
 void log_atcommand(map_session_data* sd, const char* message)
 {
-	nullpo_retv(sd);
+	// Console commands use a pseudo-session without a player group.
+	// nullpo_retv() is a no-op in non-debug builds, so guard explicitly.
+	if (sd == nullptr || sd->group == nullptr)
+		return;
 
 	if( !log_config.commands ||
 	    !pc_should_log_commands(sd) )

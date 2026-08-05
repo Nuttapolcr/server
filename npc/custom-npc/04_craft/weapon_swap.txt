@@ -1,0 +1,172 @@
+//===== HICLASS =============================================================
+//= Weapon Swapper
+//= Exchanges one weapon for another weapon of the same Rare/Epic/Legend tier.
+//===========================================================================
+
+morocc,139,141,4	script	ช่างสลับอาวุธ#hiclass	110,{
+	disable_items;
+
+	mes "[ ช่างสลับอาวุธ ]";
+	mes "เลือกอาวุธในกระเป๋าที่ต้องการสลับ";
+	mes "ระบบจะคงค่า refine, การ์ด, ออปชัน และ Grade ไว้";
+	next;
+
+	switch (select("สลับอาวุธ Rare:สลับอาวุธ Epic:สลับอาวุธ Legend:ยกเลิก")) {
+	case 1:
+		callsub S_Swap, 0;
+		break;
+	case 2:
+		callsub S_Swap, 1;
+		break;
+	case 3:
+		callsub S_Swap, 2;
+		break;
+	default:
+		close;
+	}
+	close;
+
+S_Swap:
+	.@tier = getarg(0);
+	.@start = .TierStart[.@tier];
+	.@end = .@start + .TierCount[.@tier];
+	.@card_cost = .CardCost[.@tier];
+	.@zeny_cost = .ZenyCost[.@tier];
+
+	getinventorylist;
+	.@source_count = 0;
+	.@menu$ = "";
+	for (.@i = 0; .@i < @inventorylist_count; ++.@i) {
+		if (@inventorylist_equip[.@i] || @inventorylist_expire[.@i] || @inventorylist_favorite[.@i])
+			continue;
+
+		for (.@j = .@start; .@j < .@end; ++.@j) {
+			if (@inventorylist_id[.@i] != .Weapon[.@j])
+				continue;
+
+			.@menu$ = .@menu$ + (.@source_count ? ":" : "") + "~ " + getitemname(@inventorylist_id[.@i]) + " ^0000FF+" + @inventorylist_refine[.@i] + "^000000";
+			.@source_list_idx[.@source_count] = .@i;
+			++.@source_count;
+			break;
+		}
+	}
+
+	if (!.@source_count) {
+		mes "[ ช่างสลับอาวุธ ]";
+		mes "ไม่พบอาวุธ " + .TierName$[.@tier] + " ที่สลับได้";
+		mes "ไอเทมต้องอยู่ในกระเป๋า, ไม่สวมใส่, ไม่ใช่ของเช่า และไม่ติด Favorite";
+		return;
+	}
+
+	mes "[ ช่างสลับอาวุธ ]";
+	mes "เลือกอาวุธต้นทาง";
+	.@source_pos = .@source_list_idx[select(.@menu$) - 1];
+	.@source_id = @inventorylist_id[.@source_pos];
+	.@source_slot = @inventorylist_idx[.@source_pos];
+
+	.@target_count = 0;
+	.@menu$ = "";
+	for (.@i = .@start; .@i < .@end; ++.@i) {
+		if (.Weapon[.@i] == .@source_id)
+			continue;
+
+		.@menu$ = .@menu$ + (.@target_count ? ":" : "") + "~ " + getitemname(.Weapon[.@i]);
+		.@target_id[.@target_count] = .Weapon[.@i];
+		++.@target_count;
+	}
+
+	mes "[ ช่างสลับอาวุธ ]";
+	mes "เลือกอาวุธปลายทาง";
+	.@target_id = .@target_id[select(.@menu$) - 1];
+
+	mes "[ ช่างสลับอาวุธ ]";
+	mes "^0000FF" + getitemname(.@source_id) + "^000000";
+	mes "เปลี่ยนเป็น";
+	mes "^00AA00" + getitemname(.@target_id) + "^000000";
+	mes " ";
+	mes "ค่าใช้จ่าย:";
+	mes "^i[" + .SwapCard + "] " + getitemname(.SwapCard) + " x" + .@card_cost;
+	mes "^777777" + .@zeny_cost + " Zeny^000000";
+	next;
+	if (select("ยืนยันการสลับ:ยกเลิก") == 2)
+		return;
+
+	getinventorylist;
+	.@source_pos = -1;
+	for (.@i = 0; .@i < @inventorylist_count; ++.@i) {
+		if (@inventorylist_idx[.@i] != .@source_slot || @inventorylist_id[.@i] != .@source_id)
+			continue;
+		if (@inventorylist_equip[.@i] || @inventorylist_expire[.@i] || @inventorylist_favorite[.@i])
+			continue;
+		.@source_pos = .@i;
+		break;
+	}
+
+	if (.@source_pos < 0) {
+		mes "[ ช่างสลับอาวุธ ]";
+		mes "ไม่พบอาวุธต้นทางที่เลือก โปรดลองใหม่อีกครั้ง";
+		return;
+	}
+
+	if (Zeny < .@zeny_cost || countitem(.SwapCard) < .@card_cost) {
+		mes "[ ช่างสลับอาวุธ ]";
+		mes "เงินหรือ Swap item Card ไม่เพียงพอ";
+		return;
+	}
+
+	.@weight_after = Weight - getiteminfo(.@source_id, ITEMINFO_WEIGHT) - (getiteminfo(.SwapCard, ITEMINFO_WEIGHT) * .@card_cost) + getiteminfo(.@target_id, ITEMINFO_WEIGHT);
+	if (.@weight_after > MaxWeight) {
+		mes "[ ช่างสลับอาวุธ ]";
+		mes "น้ำหนักหลังสลับจะเกินกำหนด กรุณาลดน้ำหนักก่อน";
+		return;
+	}
+
+	.@identify = @inventorylist_identify[.@source_pos];
+	.@refine = @inventorylist_refine[.@source_pos];
+	.@attribute = @inventorylist_attribute[.@source_pos];
+	.@card1 = @inventorylist_card1[.@source_pos];
+	.@card2 = @inventorylist_card2[.@source_pos];
+	.@card3 = @inventorylist_card3[.@source_pos];
+	.@card4 = @inventorylist_card4[.@source_pos];
+	.@bound = @inventorylist_bound[.@source_pos];
+	.@grade = @inventorylist_enchantgrade[.@source_pos];
+	setarray .@opt_id[0], @inventorylist_option_id1[.@source_pos], @inventorylist_option_id2[.@source_pos], @inventorylist_option_id3[.@source_pos], @inventorylist_option_id4[.@source_pos], @inventorylist_option_id5[.@source_pos];
+	setarray .@opt_value[0], @inventorylist_option_value1[.@source_pos], @inventorylist_option_value2[.@source_pos], @inventorylist_option_value3[.@source_pos], @inventorylist_option_value4[.@source_pos], @inventorylist_option_value5[.@source_pos];
+	setarray .@opt_param[0], @inventorylist_option_parameter1[.@source_pos], @inventorylist_option_parameter2[.@source_pos], @inventorylist_option_parameter3[.@source_pos], @inventorylist_option_parameter4[.@source_pos], @inventorylist_option_parameter5[.@source_pos];
+
+	if (!delitemidx(.@source_slot, 1)) {
+		mes "[ ช่างสลับอาวุธ ]";
+		mes "ไม่สามารถนำอาวุธต้นทางออกได้";
+		return;
+	}
+
+	delitem .SwapCard, .@card_cost;
+	set Zeny, Zeny - .@zeny_cost;
+	getitembound4 .@target_id, 1, .@identify, .@refine, .@attribute, .@card1, .@card2, .@card3, .@card4, .@bound, .@grade, .@opt_id, .@opt_value, .@opt_param;
+
+	specialeffect2 EF_REPAIRWEAPON;
+	mes "[ ช่างสลับอาวุธ ]";
+	mes "สลับอาวุธเรียบร้อยแล้ว";
+	mes "ได้รับ ^00AA00" + getitemname(.@target_id) + "^000000";
+	return;
+
+OnInit:
+	set .SwapCard, 1030072;
+	setarray .TierName$[0], "Rare", "Epic", "Legend";
+	setarray .TierStart[0], 0, 24, 48;
+	setarray .TierCount[0], 24, 24, 24;
+	setarray .CardCost[0], 1, 2, 4;
+	setarray .ZenyCost[0], 3000000, 10000000, 20000000;
+	setarray .Weapon[0],
+		600009, 530006, 640012, 540011, 620004, 500013, 590012, 560008,
+		610008, 510019, 700018, 570009, 580009, 540010, 550015, 650004,
+		800002, 510071, 500014, 510020, 21058, 700013, 1030049, 1030050,
+		600017, 630012, 640020, 540020, 520008, 500026, 550024, 560018,
+		610021, 510032, 700032, 570018, 580017, 540023, 550026, 650009,
+		800003, 500025, 1030018, 1030019, 530013, 700031, 1030051, 1030052,
+		21016, 1450, 1600, 28605, 28107, 13455, 16041, 1800,
+		28008, 28706, 18121, 1900, 1996, 1029019, 2026, 13328,
+		13128, 13468, 1030022, 1030023, 1400, 1030024, 1030053, 1030054;
+	waitingroom "สลับอาวุธ", 0;
+	end;
+}

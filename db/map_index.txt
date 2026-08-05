@@ -28,6 +28,7 @@ gef_dun00
 gef_dun01
 gef_dun02
 gef_dun03
+valor_pk
 gef_fild00
 gef_fild01
 gef_fild02

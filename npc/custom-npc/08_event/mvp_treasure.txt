@@ -69,6 +69,9 @@ OnInit:
 	end;
 
 OnNPCKillEvent:
+	// Valor MVP Battlefield has its own normal-drop rules and Thanatos chest.
+	if (strcharinfo(3) == "valor_pk") end;
+
 	// which tier is the killed mob?
 	.@tier = 0;
 	if (inarray(.tierA, killedrid) >= 0) .@tier = 1;

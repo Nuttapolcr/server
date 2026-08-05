@@ -1,12 +1,306 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Item Database
+###########################################################################
+#
+# Item Settings
+#
+###########################################################################
+# - Id                      Item ID.
+#   AegisName               Server name to reference the item in scripts and lookups, should use no spaces.
+#   Name                    Name in English for displaying as output.
+#   Type                    Item type. (Default: Etc)
+#   SubType                 Weapon, Ammo or Card type. (Default: 0)
+#   Buy                     Buying price. When not specified, becomes double the sell price. (Default: 0)
+#   Sell                    Selling price. When not specified, becomes half the buy price. (Default: 0)
+#   Weight                  Item weight. Each 10 is 1 weight. (Default: 0)
+#   Attack                  Weapon's attack. (Default: 0)
+#   MagicAttack             Weapon's magic attack. (Default: 0)
+#   Defense                 Armor's defense. (Default: 0)
+#   Range                   Weapon's attack range. (Default: 0)
+#   Slots                   Available slots in item. (Default: 0)
+#   Jobs                    Jobs that can equip the item. (Map default is 'All: true')
+#   Classes                 Upper class types that can equip the item. (Map default is 'All: true')
+#   Gender                  Gender that can equip the item. (Default: Both)
+#   Locations               Equipment's placement. (Default: None)
+#   WeaponLevel             Weapon level. (Default: 1 for Weapons)
+#   ArmorLevel              Armor level. (Default: 1 for Armors)
+#   EquipLevelMin           Minimum required level to equip. (Default: 0)
+#   EquipLevelMax           Maximum level that can equip. (Default: 0)
+#   Refineable              If the item can be refined. (Default: false)
+#   Gradable                If the item can be graded. (Default: false)
+#   View                    View sprite of an item. (Default: 0)
+#   AliasName               Another item's AegisName that will be sent to the client instead of this item's AegisName. (Default: null)
+#   Flags:                  Item flags. (Default: null)
+#     BuyingStore           If the item is available for Buyingstores. (Default: false)
+#     DeadBranch            If the item is a Dead Branch. (Default: false)
+#     Container             If the item is part of a container. (Default: false)
+#     UniqueId              If the item is a unique stack. (Default: false)
+#     BindOnEquip           If the item is bound to the character upon equipping. (Default: false)
+#     DropAnnounce          If the item has a special announcement to self on drop. (Default: false)
+#     NoConsume             If the item is consumed on use. (Default: false)
+#     DropEffect            If the item has a special effect on the ground when dropped by a monster. (Default: None)
+#   Delay:                  Item use delay. (Default: null)
+#     Duration              Duration of delay in seconds.
+#     Status                Status Change used to track delay. (Default: None)
+#   Stack:                  Item stack amount. (Default: null)
+#     Amount                Maximum amount that can be stacked.
+#     Inventory             If the stack is applied to player's inventory. (Default: true)
+#     Cart                  If the stack is applied to the player's cart. (Default: false)
+#     Storage               If the stack is applied to the player's storage. (Default: false)
+#     GuildStorage          If the stack is applied to the player's guild storage. (Default: false)
+#   NoUse:                  Conditions when the item is unusable. (Default: null)
+#     Override              Group level to override these conditions. (Default: 100)
+#     Sitting               If the item can not be used while sitting. (Default: false)
+#   Trade:                  Trade restrictions. (Default: null)
+#     Override              Group level to override these conditions. (Default: 100)
+#     NoDrop                If the item can not be dropped. (Default: false)
+#     NoTrade               If the item can not be traded. (Default: false)
+#     TradePartner          If the item can not be traded to the player's partner. (Default: false)
+#     NoSell                If the item can not be sold. (Default: false)
+#     NoCart                If the item can not be put in a cart. (Default: false)
+#     NoStorage             If the item can not be put in a storage. (Default: false)
+#     NoGuildStorage        If the item can not be put in a guild storage. (Default: false)
+#     NoMail                If the item can not be put in a mail. (Default: false)
+#     NoAuction             If the item can not be put in an auction. (Default: false)
+#   Script                  Script to execute when the item is used/equipped. (Default: null)
+#   EquipScript             Script to execute when the item is equipped. (Default: null)
+#   UnEquipScript           Script to execute when the item is unequipped or when a rental item expires. (Default: null)
+###########################################################################
+
 Header:
   Type: ITEM_DB
   Version: 3
+
 Body:
+  - Id: 7776
+    AegisName: Max_Weight_Up_Scroll
+    Name: Gym Pass
+    Type: Usable
+    Weight: 10
+    Script: |
+      if (gympassmemory >= 10) {
+          getitem 7776,1;
+          dispbottom "Gym Pass can only be used up to 10 times.";
+          end;
+      }
+      gympassmemory++;
+      skill "ALL_INCCARRY",gympassmemory,SKILL_PERM_GRANT;
+      specialeffect2 EF_EARTHSPIKE;
+      dispbottom "Gym Pass used: " + gympassmemory + "/10";
+  - Id: 22529
+    AegisName: Shadow_Mix_Recipe
+    Name: Shadow Exchange SynthesisBox
+    Type: Delayconsume
+    Weight: 10
+    Script: |
+      laphine_synthesis();
+  - Id: 97001
+    AegisName: AUTOATTACK_AI
+    Name: AUTOATTACK AI
+    Type: Usable
+    Flags:
+      NoConsume: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      callfunc "F_autoattacktoggle"; 
+  - Id: 97002
+    AegisName: AUTOBUFF_AI
+    Name: AUTOBUFF AI
+    Type: Usable
+    Flags:
+      NoConsume: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      callfunc "F_autobufftoggle";
+  - Id: 97003
+    AegisName: AUTOATTACK_AI_RENT
+    Name: AUTOATTACK AI RENT
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      rentitem 97001,86400;
+  - Id: 97004
+    AegisName: AUTOBUFF_AI_RENT
+    Name: AUTOBUFF AI RENT
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      rentitem 97002,604800;
+  - Id: 1500000
+    AegisName: Combine_Common_Pet_Laphine
+    Name: Common Pet Combination
+    Type: Delayconsume
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      laphine_synthesis();
+  - Id: 1500001
+    AegisName: Combine_Rare_Pet_Laphine
+    Name: Rare Pet Combination
+    Type: Delayconsume
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      laphine_synthesis();
+  - Id: 1500002
+    AegisName: Combine_Rare_Weapon_Stone_Laphine
+    Name: Rare Weapon Stone Combination
+    Type: Delayconsume
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      laphine_synthesis();
+  - Id: 1500003
+    AegisName: Combine_Epic_Weapon_Stone_Laphine
+    Name: Epic Weapon Stone Combination
+    Type: Delayconsume
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      laphine_synthesis();
+  - Id: 1500004
+    AegisName: Combine_Rare_Armor_Stone_Laphine
+    Name: Rare Armor Stone Combination
+    Type: Delayconsume
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      laphine_synthesis();
+  - Id: 1500005
+    AegisName: Combine_Epic_Armor_Stone_Laphine
+    Name: Epic Armor Stone Combination
+    Type: Delayconsume
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      laphine_synthesis();
+  - Id: 1500006
+    AegisName: Combine_Rare_Acc_Stone_Laphine
+    Name: Rare Acc Stone Combination
+    Type: Delayconsume
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      laphine_synthesis();
+  - Id: 1500007
+    AegisName: Combine_Epic_Acc_Stone_Laphine
+    Name: Epic Acc Stone Combination
+    Type: Delayconsume
+    Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      laphine_synthesis();
   - Id: 5470
     AegisName: Eyes_Of_Darkness
     Name: Eye Of Darkness
     Type: Armor
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 1
     Locations:
@@ -26831,7 +27125,8 @@ Body:
     Name: Enchant EXP 1%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,1;
   - Id: 1001018
@@ -26839,7 +27134,8 @@ Body:
     Name: Enchant EXP 2%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,2;
   - Id: 1001019
@@ -26847,7 +27143,8 @@ Body:
     Name: Enchant EXP 3%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,3;
   - Id: 1001020
@@ -26855,7 +27152,8 @@ Body:
     Name: Enchant EXP 4%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,4;
   - Id: 1001021
@@ -26863,7 +27161,8 @@ Body:
     Name: Enchant EXP 5%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,5;
   - Id: 1001022
@@ -26871,7 +27170,8 @@ Body:
     Name: Enchant EXP 6%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,6;
   - Id: 1001023
@@ -26879,7 +27179,8 @@ Body:
     Name: Enchant EXP 7%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,7;
   - Id: 1001024
@@ -26887,7 +27188,8 @@ Body:
     Name: Enchant EXP 8%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,8;
   - Id: 1001025
@@ -26895,7 +27197,8 @@ Body:
     Name: Enchant EXP 9%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,9;
   - Id: 1001026
@@ -26903,7 +27206,8 @@ Body:
     Name: Enchant EXP 10%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bExpAddClass,Class_All,10;
   - Id: 1001027
@@ -26911,7 +27215,8 @@ Body:
     Name: Enchant DROP 1%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,1;
   - Id: 1001028
@@ -26919,7 +27224,8 @@ Body:
     Name: Enchant DROP 2%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,2;
   - Id: 1001029
@@ -26927,7 +27233,8 @@ Body:
     Name: Enchant DROP 3%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,3;
   - Id: 1001030
@@ -26935,7 +27242,8 @@ Body:
     Name: Enchant DROP 4%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,4;
   - Id: 1001031
@@ -26943,7 +27251,8 @@ Body:
     Name: Enchant DROP 5%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,5;
   - Id: 1001032
@@ -26951,7 +27260,8 @@ Body:
     Name: Enchant DROP 6%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,6;
   - Id: 1001033
@@ -26959,7 +27269,8 @@ Body:
     Name: Enchant DROP 7%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,7;
   - Id: 1001034
@@ -26967,7 +27278,8 @@ Body:
     Name: Enchant DROP 8%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,8;
   - Id: 1001035
@@ -26975,7 +27287,8 @@ Body:
     Name: Enchant DROP 9%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,9;
   - Id: 1001036
@@ -26983,7 +27296,8 @@ Body:
     Name: Enchant DROP 10%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bDropAddClass,Class_All,10;
   - Id: 1001037
@@ -26991,7 +27305,8 @@ Body:
     Name: Enchant Weight +50
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bAddMaxWeight,500;
   - Id: 1001038
@@ -26999,7 +27314,8 @@ Body:
     Name: Enchant Weight +100
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bAddMaxWeight,1000;
   - Id: 1001039
@@ -27007,7 +27323,8 @@ Body:
     Name: Enchant Weight +150
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bAddMaxWeight,1500;
   - Id: 1001040
@@ -27015,7 +27332,8 @@ Body:
     Name: Enchant Weight +200
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bAddMaxWeight,2000;
   - Id: 1001041
@@ -27023,7 +27341,8 @@ Body:
     Name: Enchant SP Recovery 1%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,1;
   - Id: 1001042
@@ -27031,7 +27350,8 @@ Body:
     Name: Enchant SP Recovery 2%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,2;
   - Id: 1001043
@@ -27039,7 +27359,8 @@ Body:
     Name: Enchant SP Recovery 3%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,3;
   - Id: 1001044
@@ -27047,7 +27368,8 @@ Body:
     Name: Enchant SP Recovery 4%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,4;
   - Id: 1001045
@@ -27055,7 +27377,8 @@ Body:
     Name: Enchant SP Recovery 5%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,5;
   - Id: 1001046
@@ -27063,7 +27386,8 @@ Body:
     Name: Enchant SP Recovery 6%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,6;
   - Id: 1001047
@@ -27071,7 +27395,8 @@ Body:
     Name: Enchant SP Recovery 7%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,7;
   - Id: 1001048
@@ -27079,7 +27404,8 @@ Body:
     Name: Enchant SP Recovery 8%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,8;
   - Id: 1001049
@@ -27087,7 +27413,8 @@ Body:
     Name: Enchant SP Recovery 9%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,9;
   - Id: 1001050
@@ -27095,7 +27422,8 @@ Body:
     Name: Enchant SP Recovery 10%
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bSPrecovRate,10;
   - Id: 1001051
@@ -27103,7 +27431,8 @@ Body:
     Name: Enchant FLEE +5
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bFlee,5;
   - Id: 1001052
@@ -27111,7 +27440,8 @@ Body:
     Name: Enchant FLEE +6
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bFlee,6;
   - Id: 1001053
@@ -27119,7 +27449,8 @@ Body:
     Name: Enchant FLEE +7
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bFlee,7;
   - Id: 1001054
@@ -27127,7 +27458,8 @@ Body:
     Name: Enchant FLEE +8
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bFlee,8;
   - Id: 1001055
@@ -27135,7 +27467,8 @@ Body:
     Name: Enchant FLEE +9
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bFlee,9;
   - Id: 1001056
@@ -27143,7 +27476,8 @@ Body:
     Name: Enchant FLEE +10
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bFlee,10;
   - Id: 1001057
@@ -27151,7 +27485,8 @@ Body:
     Name: Enchant Drain HP 10
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bHPDrainRate,100,10;
   - Id: 1001058
@@ -27159,7 +27494,8 @@ Body:
     Name: Enchant Drain HP 20
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bHPDrainRate,100,20;
   - Id: 1001059
@@ -27167,7 +27503,8 @@ Body:
     Name: Enchant Drain HP 30
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bHPDrainRate,100,30;
   - Id: 1001060
@@ -27175,7 +27512,8 @@ Body:
     Name: Enchant Drain HP 40
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bHPDrainRate,100,40;
   - Id: 1001061
@@ -27183,7 +27521,8 @@ Body:
     Name: Enchant Drain HP 50
     Type: Card
     SubType: Enchant
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bHPDrainRate,100,50;
   - Id: 1000400
@@ -27889,7 +28228,8 @@ Body:
     AegisName: Zerom_Card_NT
     Name: Zerom Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Both_Accessory: true
@@ -27913,7 +28253,8 @@ Body:
     AegisName: Drops_Card_NT
     Name: Drops Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Right_Hand: true
@@ -27938,7 +28279,8 @@ Body:
     AegisName: Smokie_Card_NT
     Name: Smokie Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Both_Accessory: true
@@ -27964,7 +28306,8 @@ Body:
     AegisName: Hydra_Card_NT
     Name: Hydra Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Right_Hand: true
@@ -27989,7 +28332,8 @@ Body:
     AegisName: Sohee_Card_NT
     Name: Sohee Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Shoes: true
@@ -28014,7 +28358,8 @@ Body:
     AegisName: Matyr_Card_NT
     Name: Matyr Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Shoes: true
@@ -28039,7 +28384,8 @@ Body:
     AegisName: Raydric_Card_NT
     Name: Raydric Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Garment: true
@@ -28063,7 +28409,8 @@ Body:
     AegisName: Frilldora_Card_NT
     Name: Frilldora Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Garment: true
@@ -28089,7 +28436,8 @@ Body:
     AegisName: aegis_1001553
     Name: Skeleton Worker Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Right_Hand: true
@@ -28113,7 +28461,8 @@ Body:
     AegisName: aegis_1001554
     Name: Thara Frog Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Left_Hand: true
@@ -28137,7 +28486,8 @@ Body:
     AegisName: aegis_1001555
     Name: Carat Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Head_Top: true
@@ -28161,7 +28511,8 @@ Body:
     AegisName: aegis_1001556
     Name: Evil Druid Card NT
     Type: Card
-    Buy: 20
+    Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Armor: true
@@ -28504,6 +28855,7 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
+      bonus bMatk,30;
       bonus bDex,6;
       bonus bVit,3;
       bonus bAspdRate,3;
@@ -28511,6 +28863,7 @@ Body:
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
+      bonus bMatk,50;
       bonus bMaxHPrate,10;
       bonus2 bSubEle,Ele_Neutral,2;
       }
@@ -29117,6 +29470,7 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
+      bonus bMatk,30;
       bonus bDex,6;
       bonus bVit,3;
       bonus bAspdRate,3;
@@ -29124,6 +29478,7 @@ Body:
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
       if (.@r>=7) {
+      bonus bMatk,50;
          bonus bMaxHPrate,10;
          bonus2 bSubEle,Ele_Neutral,2;
       }
@@ -32425,6 +32780,7 @@ Body:
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
+      bonus bMatk,30;
       bonus bDex,12;
       bonus bVit,10;
       bonus bAspdRate,7;
@@ -32432,6 +32788,7 @@ Body:
       bonus bDex,.@r/3*2;
       bonus bDelayrate,-(.@r/3*3);
       if (.@r>=7) {
+      bonus bMatk,50;
       bonus bMaxHPrate,15;
       bonus2 bSubEle,Ele_Neutral,3;
       }
@@ -34106,6 +34463,8 @@ Body:
     Name: The Hero
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       autobonus "{ bonus bFlee2,100; bonus2 bAddClass,Class_Boss,100; }",100,10000,BF_WEAPON;
       /*Unknow Rate*/
@@ -34114,6 +34473,8 @@ Body:
     Name: Release of Truth
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       autobonus "{ bonus bFlee2,100; bonus2 bMagicAddClass,Class_Boss,100; }",100,10000,BF_MAGIC,"{ active_transform 1639,10000; }";
       /*Unknow Rate*/
@@ -34122,6 +34483,8 @@ Body:
     Name: Overlord
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       autobonus "{ bonus bStr,100; }",100,5000,BF_WEAPON;
       /*Unknow Rate*/
@@ -34130,6 +34493,8 @@ Body:
     Name: Muederous Grudge
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bMaxHPrate,10;
       bonus bMaxSPrate,10;
@@ -34138,6 +34503,8 @@ Body:
     Name: Ruler of the Farthest
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bHPGainValue,100;
       bonus bSPGainValue,10;
@@ -34148,6 +34515,8 @@ Body:
     Name: Magic Ore
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bNoGemStone,2;
   - Id: 29244
@@ -34155,6 +34524,8 @@ Body:
     Name: Player Resistance 1
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,1;
       bonus2 bSubRace,RC_Player_Doram,1;
@@ -34163,6 +34534,8 @@ Body:
     Name: Player Resistance 2
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
@@ -34171,6 +34544,8 @@ Body:
     Name: Player Resistance 3
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,3;
       bonus2 bSubRace,RC_Player_Doram,3;
@@ -34179,6 +34554,8 @@ Body:
     Name: Player Resistance 4
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,4;
       bonus2 bSubRace,RC_Player_Doram,4;
@@ -34187,6 +34564,8 @@ Body:
     Name: Player Resistance 5
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,5;
       bonus2 bSubRace,RC_Player_Doram,5;
@@ -34195,6 +34574,8 @@ Body:
     Name: Player Resistance 6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,6;
       bonus2 bSubRace,RC_Player_Doram,6;
@@ -34203,6 +34584,8 @@ Body:
     Name: Player Resistance 7
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,7;
       bonus2 bSubRace,RC_Player_Doram,7;
@@ -34211,6 +34594,8 @@ Body:
     Name: Speed of Flash
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       if (isequipped(4877)) { bonus bCritAtkRate,30; }
   - Id: 29588
@@ -34218,6 +34603,8 @@ Body:
     Name: The Strong
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       if (isequipped(4875)) { bonus2 bAddSize,Size_All,25; }
   - Id: 29589
@@ -34225,6 +34612,8 @@ Body:
     Name: Divine Arrow
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       if (isequipped(4879)) { bonus bAtkRate,10; }
   - Id: 29590
@@ -34232,6 +34621,8 @@ Body:
     Name: New History
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       if (isequipped(4876)) { bonus2 bMagicAtkEle,Ele_All,15; }
   - Id: 29591
@@ -34239,6 +34630,8 @@ Body:
     Name: Rigid Body
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       if (isequipped(4878)) { bonus bDelayrate,-10; }
   - Id: 29592
@@ -34246,6 +34639,8 @@ Body:
     Name: White Cloud
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       if (isequipped(4880)) { bonus bAspd,2; bonus bCritical,50; }
   - Id: 313144
@@ -34253,6 +34648,8 @@ Body:
     Name: All Stats+1
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,1;
@@ -34261,6 +34658,8 @@ Body:
     Name: All Stats+2
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,2;
@@ -34269,6 +34668,8 @@ Body:
     Name: All Stats+3
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,3;
@@ -34277,6 +34678,8 @@ Body:
     Name: All Stats+4
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,4;
@@ -34285,6 +34688,8 @@ Body:
     Name: All Stats+5
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,5;
@@ -34293,6 +34698,8 @@ Body:
     Name: All Stats+6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,6;
@@ -34301,6 +34708,8 @@ Body:
     Name: All Stats+7
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,7;
@@ -34309,6 +34718,8 @@ Body:
     Name: All Stats+8
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,8;
@@ -34317,6 +34728,8 @@ Body:
     Name: All Stats+9
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,9;
@@ -34325,6 +34738,8 @@ Body:
     Name: All Stats+10
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAllStats,10;
@@ -34333,6 +34748,8 @@ Body:
     Name: ATK+1%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,1;
@@ -34341,6 +34758,8 @@ Body:
     Name: ATK+2%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,2;
@@ -34349,6 +34768,8 @@ Body:
     Name: ATK+3%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,3;
@@ -34357,6 +34778,8 @@ Body:
     Name: ATK+4%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,4;
@@ -34365,6 +34788,8 @@ Body:
     Name: ATK+5%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,5;
@@ -34373,6 +34798,8 @@ Body:
     Name: ATK+6%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,6;
@@ -34381,6 +34808,8 @@ Body:
     Name: ATK+7%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,7;
@@ -34389,6 +34818,8 @@ Body:
     Name: ATK+8%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,8;
@@ -34397,6 +34828,8 @@ Body:
     Name: ATK+9%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,9;
@@ -34405,6 +34838,8 @@ Body:
     Name: ATK+10%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkRate,10;
@@ -34413,6 +34848,8 @@ Body:
     Name: MATK+1%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,1;
@@ -34421,6 +34858,8 @@ Body:
     Name: MATK+2%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,2;
@@ -34429,6 +34868,8 @@ Body:
     Name: MATK+3%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,3;
@@ -34437,6 +34878,8 @@ Body:
     Name: MATK+4%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,4;
@@ -34445,6 +34888,8 @@ Body:
     Name: MATK+5%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,5;
@@ -34453,6 +34898,8 @@ Body:
     Name: MATK+6%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,6;
@@ -34461,6 +34908,8 @@ Body:
     Name: MATK+7%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,7;
@@ -34469,6 +34918,8 @@ Body:
     Name: MATK+8%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,8;
@@ -34477,6 +34928,8 @@ Body:
     Name: MATK+9%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,9;
@@ -34485,6 +34938,8 @@ Body:
     Name: MATK+10%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMatkRate,10;
@@ -34493,6 +34948,8 @@ Body:
     Name: MaxHP+1%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,1;
@@ -34501,6 +34958,8 @@ Body:
     Name: MaxHP+2%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,2;
@@ -34509,6 +34968,8 @@ Body:
     Name: MaxHP+3%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,3;
@@ -34517,6 +34978,8 @@ Body:
     Name: MaxHP+4%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,4;
@@ -34525,6 +34988,8 @@ Body:
     Name: MaxHP+5%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,5;
@@ -34533,6 +34998,8 @@ Body:
     Name: MaxHP+6%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,6;
@@ -34541,6 +35008,8 @@ Body:
     Name: MaxHP+7%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,7;
@@ -34549,6 +35018,8 @@ Body:
     Name: MaxHP+8%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,8;
@@ -34557,6 +35028,8 @@ Body:
     Name: MaxHP+9%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,9;
@@ -34565,6 +35038,8 @@ Body:
     Name: MaxHP+10%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHPrate,10;
@@ -34573,6 +35048,8 @@ Body:
     Name: HP +50
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,50;
@@ -34581,6 +35058,8 @@ Body:
     Name: HP +100
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,100;
@@ -34589,6 +35068,8 @@ Body:
     Name: HP +150
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,150;
@@ -34597,6 +35078,8 @@ Body:
     Name: HP +200
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,200;
@@ -34605,6 +35088,8 @@ Body:
     Name: HP +250
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,250;
@@ -34613,6 +35098,8 @@ Body:
     Name: HP +300
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,300;
@@ -34621,6 +35108,8 @@ Body:
     Name: HP +350
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,350;
@@ -34629,6 +35118,8 @@ Body:
     Name: HP +400
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,400;
@@ -34637,6 +35128,8 @@ Body:
     Name: HP +450
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,450;
@@ -34645,6 +35138,8 @@ Body:
     Name: HP +500
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxHP,500;
@@ -34653,6 +35148,8 @@ Body:
     Name: Max SP+1%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,1;
@@ -34661,6 +35158,8 @@ Body:
     Name: Max SP+2%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,2;
@@ -34669,6 +35168,8 @@ Body:
     Name: Max SP+3%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,3;
@@ -34677,6 +35178,8 @@ Body:
     Name: Max SP+4%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,4;
@@ -34685,6 +35188,8 @@ Body:
     Name: Max SP+5%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,5;
@@ -34693,6 +35198,8 @@ Body:
     Name: Max SP+6%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,6;
@@ -34701,6 +35208,8 @@ Body:
     Name: Max SP+7%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,7;
@@ -34709,6 +35218,8 @@ Body:
     Name: Max SP+8%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,8;
@@ -34717,6 +35228,8 @@ Body:
     Name: Max SP+9%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,9;
@@ -34725,6 +35238,8 @@ Body:
     Name: Max SP+10%
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSPrate,10;
@@ -34733,6 +35248,8 @@ Body:
     Name: SP+10
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,10;
@@ -34741,6 +35258,8 @@ Body:
     Name: SP+20
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,20;
@@ -34749,6 +35268,8 @@ Body:
     Name: SP+30
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,30;
@@ -34757,6 +35278,8 @@ Body:
     Name: SP+40
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,40;
@@ -34765,6 +35288,8 @@ Body:
     Name: SP+50
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,50;
@@ -34773,6 +35298,8 @@ Body:
     Name: SP+60
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,60;
@@ -34781,6 +35308,8 @@ Body:
     Name: SP+70
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,70;
@@ -34789,6 +35318,8 @@ Body:
     Name: SP+80
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,80;
@@ -34797,6 +35328,8 @@ Body:
     Name: SP+90
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,90;
@@ -34805,6 +35338,8 @@ Body:
     Name: SP+100
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bMaxSP,100;
@@ -34813,6 +35348,8 @@ Body:
     Name: FLEE+3
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,3;
@@ -34821,6 +35358,8 @@ Body:
     Name: FLEE+6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,6;
@@ -34829,6 +35368,8 @@ Body:
     Name: FLEE+9
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,9;
@@ -34837,6 +35378,8 @@ Body:
     Name: FLEE+12
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,12;
@@ -34845,6 +35388,8 @@ Body:
     Name: FLEE+15
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,15;
@@ -34853,6 +35398,8 @@ Body:
     Name: FLEE+18
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,18;
@@ -34861,6 +35408,8 @@ Body:
     Name: FLEE+21
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,21;
@@ -34869,6 +35418,8 @@ Body:
     Name: FLEE+24
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,24;
@@ -34877,6 +35428,8 @@ Body:
     Name: FLEE+27
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,27;
@@ -34885,6 +35438,8 @@ Body:
     Name: FLEE+30
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee,30;
@@ -34893,6 +35448,8 @@ Body:
     Name: HIT+3
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,3;
@@ -34901,6 +35458,8 @@ Body:
     Name: HIT+6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,6;
@@ -34909,6 +35468,8 @@ Body:
     Name: HIT+9
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,9;
@@ -34917,6 +35478,8 @@ Body:
     Name: HIT+12
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,12;
@@ -34925,6 +35488,8 @@ Body:
     Name: HIT+15
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,15;
@@ -34933,6 +35498,8 @@ Body:
     Name: HIT+18
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,18;
@@ -34941,6 +35508,8 @@ Body:
     Name: HIT+21
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,21;
@@ -34949,6 +35518,8 @@ Body:
     Name: HIT+24
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,24;
@@ -34957,6 +35528,8 @@ Body:
     Name: HIT+27
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,27;
@@ -34965,6 +35538,8 @@ Body:
     Name: HIT+30
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHit,30;
@@ -34973,6 +35548,8 @@ Body:
     Name: CRIRATE +2
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,2;
@@ -34981,6 +35558,8 @@ Body:
     Name: CRIRATE +4
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,4;
@@ -34989,6 +35568,8 @@ Body:
     Name: CRIRATE +6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,6;
@@ -34997,6 +35578,8 @@ Body:
     Name: CRIRATE +8
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,8;
@@ -35005,6 +35588,8 @@ Body:
     Name: CRIRATE +10
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,10;
@@ -35013,6 +35598,8 @@ Body:
     Name: CRIRATE +12
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,12;
@@ -35021,6 +35608,8 @@ Body:
     Name: CRIRATE +14
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,14;
@@ -35029,6 +35618,8 @@ Body:
     Name: CRIRATE +16
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,16;
@@ -35037,6 +35628,8 @@ Body:
     Name: CRIRATE +18
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,18;
@@ -35045,6 +35638,8 @@ Body:
     Name: CRIRATE +20
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bCritical,20;
@@ -35053,6 +35648,8 @@ Body:
     Name: Perfect Dodge +1
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,1;
@@ -35061,6 +35658,8 @@ Body:
     Name: Perfect Dodge +2
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,2;
@@ -35069,6 +35668,8 @@ Body:
     Name: Perfect Dodge +3
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,3;
@@ -35077,6 +35678,8 @@ Body:
     Name: Perfect Dodge +4
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,4;
@@ -35085,6 +35688,8 @@ Body:
     Name: Perfect Dodge +5
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,5;
@@ -35093,6 +35698,8 @@ Body:
     Name: Perfect Dodge +6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,6;
@@ -35101,6 +35708,8 @@ Body:
     Name: Perfect Dodge +7
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,7;
@@ -35109,6 +35718,8 @@ Body:
     Name: Perfect Dodge +8
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,8;
@@ -35117,6 +35728,8 @@ Body:
     Name: Perfect Dodge +9
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,9;
@@ -35125,6 +35738,8 @@ Body:
     Name: Perfect Dodge +10
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,10;
@@ -35133,6 +35748,8 @@ Body:
     Name: Perfect Dodge +11
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,11;
@@ -35141,6 +35758,8 @@ Body:
     Name: Perfect Dodge +12
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,12;
@@ -35149,6 +35768,8 @@ Body:
     Name: Perfect Dodge +13
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,13;
@@ -35157,6 +35778,8 @@ Body:
     Name: Perfect Dodge +14
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,14;
@@ -35165,6 +35788,8 @@ Body:
     Name: Perfect Dodge +15
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,15;
@@ -35173,6 +35798,8 @@ Body:
     Name: Perfect Dodge +16
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,16;
@@ -35181,6 +35808,8 @@ Body:
     Name: Perfect Dodge +17
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,17;
@@ -35189,6 +35818,8 @@ Body:
     Name: Perfect Dodge +18
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,18;
@@ -35197,6 +35828,8 @@ Body:
     Name: Perfect Dodge +19
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,19;
@@ -35205,6 +35838,8 @@ Body:
     Name: Perfect Dodge +20
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bFlee2,20;
@@ -35213,6 +35848,8 @@ Body:
     Name: Water Element Weapon
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkEle,Ele_Water;
@@ -35221,6 +35858,8 @@ Body:
     Name: Earth Element Weapon
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkEle,Ele_Earth;
@@ -35229,6 +35868,8 @@ Body:
     Name: Fire Element Weapon
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkEle,Ele_Fire;
@@ -35237,6 +35878,8 @@ Body:
     Name: Wind Element Weapon
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkEle,Ele_Wind;
@@ -35245,6 +35888,8 @@ Body:
     Name: Poison Element Weapon
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkEle,Ele_Poison;
@@ -35253,6 +35898,8 @@ Body:
     Name: Holy Element Weapon
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkEle,Ele_Holy;
@@ -35261,6 +35908,8 @@ Body:
     Name: Dark Element Weapon
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkEle,Ele_Dark;
@@ -35269,6 +35918,8 @@ Body:
     Name: Ghost Element Weapon
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkEle,Ele_Ghost;
@@ -35277,6 +35928,8 @@ Body:
     Name: Undead Element Weapon
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAtkEle,Ele_Undead;
@@ -35285,6 +35938,8 @@ Body:
     Name: Ruler of the End
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bHPGainValue,100;
@@ -35294,6 +35949,8 @@ Body:
     Name: Player Resistance 2
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,2;
@@ -35303,6 +35960,8 @@ Body:
     Name: Player Resistance 3
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,3;
@@ -35312,6 +35971,8 @@ Body:
     Name: Player Resistance 4
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,4;
@@ -35321,6 +35982,8 @@ Body:
     Name: Player Resistance 5
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,5;
@@ -35330,6 +35993,8 @@ Body:
     Name: Player Resistance 6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,6;
@@ -35339,6 +36004,8 @@ Body:
     Name: Player Resistance 7
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,7;
@@ -35348,6 +36015,8 @@ Body:
     Name: Player Resistance 8
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,8;
@@ -35357,6 +36026,8 @@ Body:
     Name: Player Resistance 9
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,9;
@@ -35366,6 +36037,8 @@ Body:
     Name: Player Resistance 10
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,10;
@@ -35375,6 +36048,8 @@ Body:
     Name: Player Resistance 11
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,11;
@@ -35384,6 +36059,8 @@ Body:
     Name: Player Resistance 12
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,12;
@@ -35393,6 +36070,8 @@ Body:
     Name: Player Resistance 13
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,13;
@@ -35402,6 +36081,8 @@ Body:
     Name: Player Resistance 14
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,14;
@@ -35411,6 +36092,8 @@ Body:
     Name: Player Resistance 15
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bSubRace,RC_Player_Human,15;
@@ -35420,6 +36103,8 @@ Body:
     Name: Extreme Magic
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: bonus2 bRegenPercentSP,1,1000;
   - Id: 1001718
@@ -35500,6 +36185,8 @@ Body:
     Name: Cos Valor  V.1
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddRace,RC_All,1;
@@ -35512,6 +36199,8 @@ Body:
     Name: Cos Valor  V.2
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddRace,RC_All,2;
@@ -35525,6 +36214,8 @@ Body:
     Name: Cos Valor  V.3
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddRace,RC_All,3;
@@ -35538,6 +36229,8 @@ Body:
     Name: Cos Valor  V.4
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddRace,RC_All,4;
@@ -35551,6 +36244,8 @@ Body:
     Name: Cos Valor  V.5
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddRace,RC_All,5;
@@ -35566,6 +36261,8 @@ Body:
     Name: Cos Valor  V.6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddRace,RC_All,5;
@@ -35582,6 +36279,8 @@ Body:
     Name: Drop&Card V.1
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddClass_C,Class_All,3;
@@ -35591,6 +36290,8 @@ Body:
     Name: Drop&Card V.2
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddClass_C,Class_All,6;
@@ -35600,6 +36301,8 @@ Body:
     Name: Drop&Card V.3
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddClass_C,Class_All,9;
@@ -35609,6 +36312,8 @@ Body:
     Name: Drop&Card V.4
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |-
       bonus2 bDropAddClass_C,Class_All,12;
@@ -35618,6 +36323,8 @@ Body:
     Name: Drop&Card V.5
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bDropAddClass_C,Class_All,18;
@@ -35629,6 +36336,8 @@ Body:
     Name: Drop&Card V.6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus2 bDropAddClass_C,Class_All,25;
@@ -35640,6 +36349,8 @@ Body:
     Name: Gym V.1
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAddMaxWeight,1000;
@@ -35648,6 +36359,8 @@ Body:
     Name: Gym V.2
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAddMaxWeight,2000;
@@ -35656,6 +36369,8 @@ Body:
     Name: Gym V.3
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAddMaxWeight,3000;
@@ -35664,6 +36379,8 @@ Body:
     Name: Gym V.4
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAddMaxWeight,4000;
@@ -35672,6 +36389,8 @@ Body:
     Name: Gym V.5
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAddMaxWeight,6000;
@@ -35682,6 +36401,8 @@ Body:
     Name: Gym V.6
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bAddMaxWeight,10000;
@@ -35692,6 +36413,8 @@ Body:
     Name: AfterSkillDelay Lv4
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bDelayrate,-8;
@@ -35700,6 +36423,8 @@ Body:
     Name: AfterSkillDelay Lv5
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Weight: 0
     Script: |
       bonus bDelayrate,-15;
@@ -36356,6 +37081,8 @@ Body:
     Name: Magic Power Stone(Upper)
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bMagicAtkEle,Ele_All,3;
   - Id: 310665
@@ -36363,6 +37090,8 @@ Body:
     Name: Magic Power Stone(Middle)
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bMagicAtkEle,Ele_All,3;
   - Id: 310666
@@ -36370,6 +37099,8 @@ Body:
     Name: Magic Power Stone(Lower)
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bMagicAtkEle,Ele_All,3;
   - Id: 29428
@@ -36377,6 +37108,8 @@ Body:
     Name: Sniper Stone (Upper)
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bBaseAtk,2*getskilllv("HT_STEELCROW");
   - Id: 29429
@@ -36384,6 +37117,8 @@ Body:
     Name: Sniper Stone (Middle)
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bSkillFixedCast,"SN_SHARPSHOOTING",-500;
   - Id: 29430
@@ -36391,6 +37126,8 @@ Body:
     Name: Sniper Stone (Lower)
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus2 bSkillAtk,"AC_SHOWER",20;
   - Id: 310000
@@ -36398,6 +37135,8 @@ Body:
     Name: Sniper Stone II (Upper)
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bAspdRate,getskilllv("SN_WINDWALK")/2;
   - Id: 310001
@@ -36405,6 +37144,8 @@ Body:
     Name: Sniper Stone II (Middle)
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bLongAtkRate,(getskilllv("HT_BEASTBANE")/2);
   - Id: 310002
@@ -36412,6 +37153,8 @@ Body:
     Name: Sniper Stone II (Lower)
     Type: Card
     SubType: Enchant
+    Buy: 0
+    Sell: 0
     Script: |
       bonus bBaseAtk,2*getskilllv("SN_SIGHT");
   - Id: 1030001
@@ -36712,10 +37455,14 @@ Body:
       bonus bAspdRate,4;
       bonus bAtkRate,5;
       bonus bAtkRate,.@r/3*2;
+      bonus bCritAtkRate,.@r/3*2;
       if (.@r>=7) {
       bonus bBaseAtk,100;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
+      bonus bCritAtkRate,5;
+      bonus2 bAddRace,RC_DemiHuman,5;
+      bonus2 bAddRace,RC_Player_Human,5;
       }
   - Id: 700013
     AegisName: Up_Narcis_Bow
@@ -36770,13 +37517,13 @@ Body:
     Refineable: true
     Script: |-
       .@r = getrefine();
-      bonus bMatk,100;
+      bonus bMatk,80;
       bonus bInt,6;
       bonus bMatkRate,10;
       bonus2 bMagicAddClass,Class_Boss,30;
       bonus bMatkRate,(.@r/3*1);
       if (.@r>=7) {
-      bonus bMatk,80;
+      bonus bMatk,100;
       bonus bMatkRate,10;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
@@ -36884,15 +37631,20 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bStr,3;
+      bonus bBaseAtk,50;
       bonus bLuk,10;
       bonus2 bAddClass,Class_Boss,30;
       bonus bCritical,10;
       bonus bAspdRate,4;
       bonus bAtkRate,10;
       bonus bAtkRate,.@r/3*2;
+      bonus bCritAtkRate,.@r/3*2;
       if (.@r>=7) {
+      bonus bBaseAtk,100;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,5;
+      bonus2 bAddRace,RC_Player_Human,5;
       }
       if (.@r>=9) {
          bonus bShortAtkRate,5;
@@ -36929,10 +37681,11 @@ Body:
       .@r = getrefine();
       bonus bInt,6;
       bonus bMatkRate,10;
+      bonus bMatk,80;
       bonus2 bMagicAddClass,Class_Boss,30;
       bonus bMatkRate,(.@r/3*1);
       if (.@r>=7) {
-      bonus bMatk,30;
+      bonus bMatk,100;
       bonus bMatkRate,10;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
@@ -37041,15 +37794,22 @@ Body:
       .@r = getrefine();
       .@g = getenchantgrade();
       bonus bStr,5;
+      bonus bBaseAtk,50;
       bonus bLuk,15;
       bonus2 bAddClass,Class_Boss,40;
       bonus bCritical,20;
       bonus bAspdRate,5;
       bonus bAtkRate,20;
       bonus bAtkRate,.@r/3*2;
+      bonus bCritAtkRate,.@r/3*3;
+      bonus2 bAddRace,RC_DemiHuman,5;
+      bonus2 bAddRace,RC_Player_Human,5;
       if (.@r>=7) {
+      bonus bBaseAtk,100;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,10;
+      bonus2 bAddRace,RC_Player_Human,10;
       }
       if (.@r>=9) {
          bonus bShortAtkRate,10;
@@ -37058,8 +37818,8 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,10;
       bonus2 bAddClass,Class_Boss,20;
-      bonus2 bSubRace,RC_Player_Human,5;
-      bonus2 bSubRace,RC_Player_Doram,5;
+      bonus2 bSubRace,RC_Player_Human,3;
+      bonus2 bSubRace,RC_Player_Doram,3;
       }
       if (.@g >= ENCHANTGRADE_D) {
          bonus bAtkRate,5;
@@ -37119,11 +37879,12 @@ Body:
       .@r = getrefine();
       .@g = getenchantgrade();
       bonus bInt,10;
+      bonus bMatk,80;
       bonus bMatkRate,20;
       bonus2 bMagicAddClass,Class_Boss,50;
       bonus bMatkRate,(.@r/3*1);
       if (.@r>=7) {
-      bonus bMatk,30;
+      bonus bMatk,150;
       bonus bMatkRate,10;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
@@ -37265,7 +38026,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      rentitem 12887,3600;
+      rentitem 601,3600;
   - Id: 1030027
     AegisName: Wing_Unlimit_4hr_Box
     Name: "[4hr] Wing (Unlimit) box [NT]"
@@ -37280,19 +38041,19 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      rentitem 12887,14400;
+      rentitem 601,14400;
   - Id: 1030028
     AegisName: Wing_Unlimit_6hr_Box
     Name: "[6hr] Wing (Unlimit) box"
     Type: Cash
     Script: |
-      rentitem 12887,21600;
+      rentitem 601,21600;
   - Id: 1030029
     AegisName: Wing_Unlimit_12hr_Box
     Name: "[12hr] Wing (Unlimit) box"
     Type: Cash
     Script: |
-      rentitem 12887,43200;
+      rentitem 601,43200;
   - Id: 1030030
     AegisName: Katar_Starter_Pack
     Name: Katar Starter Pack
@@ -38122,139 +38883,148 @@ Body:
   - Id: 1030102
     AegisName: C_Quest_Clear_Coin_Box
     Name: "[C] Quest Clear Coin Box"
-    Script: getitem 1030095,2;
     Type: Usable
-    Trade:
-      NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
-      NoTrade: true
-      TradePartner: true
-      NoAuction: true
-      NoStorage: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1030095,2;
   - Id: 1030103
     AegisName: C_Geffen_Clear_Coin_Box
     Name: "[C] Geffen Clear Coin Box"
-    Script: getitem 1030096,2;
     Type: Usable
     Flags:
       BuyingStore: true
     Trade:
       NoDrop: true
-      NoMail: true
-      TradePartner: true
-      NoAuction: true
       NoTrade: true
-      NoGuildStorage: true
+      TradePartner: true
       NoCart: true
       NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1030096,2;
   - Id: 1030104
     AegisName: C_Endless_Clear_Coin_Box
     Name: "[C] Endless Clear Coin Box"
-    Script: getitem 1030097,2;
     Type: Usable
-    Trade:
-      NoDrop: true
-      NoMail: true
-      NoTrade: true
-      TradePartner: true
-      NoAuction: true
-      NoGuildStorage: true
-      NoCart: true
-      NoStorage: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1030097,2;
   - Id: 1030105
     AegisName: Token_Of_Siegfried_NT_5_Box
     Name: Token Of Siegfried (NT) 5 Box
-    Script: getitem 6293,5;
     Type: Usable
-    Trade:
-      NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
-      TradePartner: true
-      NoAuction: true
-      NoTrade: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 6293,5;
   - Id: 1030106
     AegisName: Token_Of_Siegfried_NT_10_Box
     Name: Token Of Siegfried (NT) 10 Box
-    Script: getitem 6293,10;
     Type: Usable
-    Trade:
-      NoDrop: true
-      NoGuildStorage: true
-      NoTrade: true
-      NoMail: true
-      NoAuction: true
-      TradePartner: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 6293,10;
   - Id: 1030107
-    AegisName: Fragment Stone_2_Box
+    AegisName: Fragment_Stone_2_Box
     Name: Fragment Stone 2 Box
     Type: Usable
-    Script: getitem 1001600,2;
-    Trade:
-      NoDrop: true
-      NoMail: true
-      NoGuildStorage: true
-      NoTrade: true
-      TradePartner: true
-      NoAuction: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1001600,2;
   - Id: 1030108
-    AegisName: Fragment Stone_3_Box
+    AegisName: Fragment_Stone_3_Box
     Name: Fragment Stone 3 Box
     Type: Usable
-    Script: getitem 1001600,3;
     Flags:
       BuyingStore: true
     Trade:
       NoDrop: true
-      NoGuildStorage: true
       NoTrade: true
-      NoMail: true
-      NoAuction: true
       TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1001600,3;
   - Id: 1030109
-    AegisName: Fragment Stone_5_Box
+    AegisName: Fragment_Stone_5_Box
     Name: Fragment Stone 5 Box
     Type: Usable
-    Script: getitem 1001600,5;
-    Trade:
-      NoCart: true
-      NoAuction: true
-      TradePartner: true
-      NoTrade: true
-      NoMail: true
-      NoDrop: true
-      NoGuildStorage: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1001600,5;
   - Id: 1030110
     AegisName: C_OGH_Clear_Coin_Box
     Name: "[C] OGH Clear Coin Box"
-    Script: getitem 1030098,2;
-    Trade:
-      NoGuildStorage: true
-      NoDrop: true
-      NoTrade: true
-      NoMail: true
-      NoAuction: true
-      NoCart: true
-      NoStorage: true
-      TradePartner: true
+    Type: Usable
     Flags:
       BuyingStore: true
-    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1030098,2;
+  - Id: 1030111
+    AegisName: New_Item_1030111
+    Name: New Item 1030111
+    Type: Cash
+    Script: |-
+      rentitem2 15015,259200,1,7,0,0,0,0,0;
+      rentitem2 2460,259200,1,7,0,0,0,0,0;
+      rentitem2 2562,259200,1,7,0,0,0,0,0;
+      rentitem2 2149,259200,1,7,0,0,0,0,0;

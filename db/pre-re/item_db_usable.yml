@@ -32,7 +32,7 @@ Body:
     Type: Healing
     Buy: 1200
     Sell: 100
-    Weight: 150
+    Weight: 50
     Script: |
       itemheal rand(325,405),0;
   - Id: 505
@@ -40,7 +40,7 @@ Body:
     Name: Blue Potion
     Type: Healing
     Buy: 1200
-    Weight: 150
+    Weight: 50
     Script: |
       itemheal 0,rand(40,60);
   - Id: 506
@@ -21613,6 +21613,28 @@ Body:
         end;
       }
       percentheal 10,0;
+  - Id: 1030112
+    AegisName: Woe_White_Potion_Copy
+    Name: Siege White Potion [Death Match]
+    Type: Healing
+    Buy: 0
+    Sell: 0
+    Weight: 50
+    Flags:
+      BuyingStore: true
+    Trade:
+      Override: 100
+      NoSell: true
+    Script: |
+      setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3";
+      .@map$ = strcharinfo(3);
+      if (inarray(.@deathmatch_maps$, .@map$) < 0) {
+        getitem 1030112, 1;
+        dispbottom "This item can only be used in Death Match maps.";
+        end;
+      }
+      specialeffect2 208;
+      percentheal 10,0;
   - Id: 11549
     AegisName: Woe_Blue_Potion
     Name: Siege Blue Potion
@@ -21637,6 +21659,28 @@ Body:
         dispbottom "This item can only be used in Deathmatch and GVG maps.";
         end;
       }
+      percentheal 0,10;
+  - Id: 1030113
+    AegisName: Woe_Blue_Potion_Copy
+    Name: Siege Blue Potion [Death Match]
+    Type: Healing
+    Buy: 0
+    Sell: 0
+    Weight: 50
+    Flags:
+      BuyingStore: true
+    Trade:
+      Override: 100
+      NoSell: true
+    Script: |
+      setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3";
+      .@map$ = strcharinfo(3);
+      if (inarray(.@deathmatch_maps$, .@map$) < 0) {
+        getitem 1030113, 1;
+        dispbottom "This item can only be used in Death Match maps.";
+        end;
+      }
+      specialeffect2 209;
       percentheal 0,10;
   - Id: 65888
     AegisName: Refine_Booster_Potion

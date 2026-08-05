@@ -172,6 +172,7 @@ OnTitanKilled:
 	if (.@was_ending || !playerattached()) end;
 
 	.@mvp$ = strcharinfo(0);
+	callfunc "F_DWQ_RecordCityTitanKill";
 	getitem 6635,1;
 	getitem 1001012,1;
 	if (rand(100) < 10) getitem 6635,10;

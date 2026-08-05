@@ -1514,54 +1514,15 @@ int skill_additional_effect( struct block_list* src, struct block_list *bl, uint
 						skill_castend_damage_id(src, bl, WH_HAWKRUSH, skill, tick, 0);
 				}
 
-				//Gank
-				if (dstmd) {
-					int sn_lv = pc_checkskill(sd, RG_SNATCHER);
-					if (sn_lv == 10) {
-						short index = sd->equip_index[EQI_HAND_R];
-
-						if (index >= 0 &&
-							sd->inventory_data[index] &&
-							sd->inventory_data[index]->type == IT_WEAPON &&
-							(sd->inventory_data[index]->weapon_level == 3 ||
-							 sd->inventory_data[index]->weapon_level == 4) &&
-							sd->status.weapon != W_BOW)
-						{
-							int steal_lv = pc_checkskill(sd, TF_STEAL);
-							int refine   = sd->inventory.u.items_inventory[index].refine;
-							int success_rate = 0; //1000 = %
-
-							switch (refine) {
-								case 4:  success_rate = 30;  break; // 3%
-								case 5:  success_rate = 90;  break; // 9%
-								case 6:  success_rate = 150; break; // 15%
-								case 7:  success_rate = 200; break; // 20%
-								case 8:  success_rate = 250; break; // 25%
-								case 9:  success_rate = 270; break; // 27%
-								case 10: success_rate = 300; break; // 30%
-								default: success_rate = 0;   break;
-							}
-							// Snatcher Mastery: +1/+3/+5% (no effect in PvP/GvG maps)
-							// success_rate is in per-mille (1000 = 100%), so +1% = +10, +3% = +30, +5% = +50
-							if (success_rate > 0 && !map_flag_vs(sd->bl.m)) {
-								int bonus = 0;
-								switch (pc_checkskill(sd, RG_SNATCHER_MASTERY)) {
-									case 1: bonus = 10; break; // +1%
-									case 2: bonus = 30; break; // +3%
-									case 3: bonus = 50; break; // +5%
-								}
-								success_rate += bonus;
-								if (success_rate > 1000)
-									success_rate = 1000;
-							}
-							if (success_rate > 0 && rnd() % 1000 < success_rate) {
-								if (pc_steal_item(sd, bl, steal_lv))
-									clif_skill_nodamage(src, bl, TF_STEAL, 10, 1); // Snatcher Lv.10
-								else
-									clif_skill_fail(sd, RG_SNATCHER, USESKILL_FAIL_LEVEL, 0);
-							}
-						}
-					}
+				// Gank / Snatcher: automatic Steal on physical melee attacks.
+				// Its trigger rate depends on both Snatcher and Steal levels.
+				if (dstmd && sd->status.weapon != W_BOW &&
+					(skill = pc_checkskill(sd, RG_SNATCHER)) > 0 &&
+					(skill * 15 + 55) + pc_checkskill(sd, TF_STEAL) * 10 > rnd() % 1000) {
+					if (pc_steal_item(sd, bl, pc_checkskill(sd, TF_STEAL)))
+						clif_skill_nodamage(src, bl, TF_STEAL, skill, 1);
+					else
+						clif_skill_fail(sd, RG_SNATCHER, USESKILL_FAIL_LEVEL, 0);
 				}
 			}
 
@@ -10058,7 +10019,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 				break;
 
 			if (dstsd && dstsd->sc.getSCE(SC_HIDING)) {
-				clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+				if (sd)
+					clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 				break;
 			}
 

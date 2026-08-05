@@ -2600,7 +2600,10 @@ int mob_getdroprate(struct block_list* src, std::shared_ptr<s_mob_db> mob, item_
 			}
 
            	bool is_mvp = (mob && mob->get_bosstype() == BOSSTYPE_MVP);
-           	bool allow_itemboost = battle_config.itemboost_affect_mvp || !is_mvp;
+			// The Valor MVP Battlefield's custom rewards intentionally honor Bubble
+			// Gum. Other MVP maps retain their configured item-boost behavior.
+			static const int16 valor_mvp_battlefield_map = map_mapname2mapid("valor_pk");
+			bool allow_itemboost = battle_config.itemboost_affect_mvp || !is_mvp || (md && md->bl.m == valor_mvp_battlefield_map);
            	if (allow_itemboost) {
                	if (sd->sc.getSCE(SC_ITEMBOOST))
                    	drop_rate_bonus += sd->sc.getSCE(SC_ITEMBOOST)->val1;
@@ -2914,7 +2917,21 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 
 	} //End EXP giving.
 
-	if( !(type&1) && !map_getmapflag(m, MF_NOMOBLOOT) && !md->state.rebirth && !md->master_id && (
+	std::shared_ptr<s_map_drops> mapdrops;
+	if( map[md->bl.m].instance_id > 0 )
+		mapdrops = map_drop_db.find( map[md->bl.m].instance_src_map );
+	else
+		mapdrops = map_drop_db.find( md->bl.m );
+
+	const bool replace_mob_drops = mapdrops != nullptr && mapdrops->replace_mob_drops
+		&& mapdrops->specific.find( md->mob_id ) != mapdrops->specific.end();
+	// Valor MVP Battlefield uses script-defined drops for regular MVPs. Memory
+	// of Thanatos (1708) remains an exception with its normal drops and card.
+	static const int16 valor_mvp_battlefield_map = map_mapname2mapid( "valor_pk" );
+	const bool suppress_valor_mvp_drops = md->bl.m == valor_mvp_battlefield_map
+		&& md->mob_id != 1708 && md->get_bosstype() == BOSSTYPE_MVP;
+
+	if( !(type&1) && !suppress_valor_mvp_drops && !map_getmapflag(m, MF_NOMOBLOOT) && !md->state.rebirth && !md->master_id && (
 		!md->special_state.ai || //Non special mob
 		battle_config.alchemist_summon_reward == 2 || //All summoned give drops
 		(md->special_state.ai==AI_SPHERE && battle_config.alchemist_summon_reward == 1) //Marine Sphere Drops items.
@@ -2935,6 +2952,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		dlist->third_charid = (third_sd ? third_sd->status.char_id : 0);
 		dlist->item = NULL;
 
+		if( !replace_mob_drops ) {
 		for (i = 0; i < MAX_MOB_DROP_TOTAL; i++) {
 			if (md->db->dropitem[i].nameid == 0)
 				continue;
@@ -3192,15 +3210,9 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				mob_item_drop(md, dlist, mob_setlootitem(&md->lootitems[i], md->mob_id), 1, 10000, homkillonly || merckillonly);
 		}
 
-		// Process map specific drops
-		std::shared_ptr<s_map_drops> mapdrops;
+		} // !replace_mob_drops
 
-		// If it is an instance map, we check for map specific drops of the original map
-		if( map[md->bl.m].instance_id > 0 ){
-			mapdrops = map_drop_db.find( map[md->bl.m].instance_src_map );
-		}else{
-			mapdrops = map_drop_db.find( md->bl.m );
-		}
+		// Process map-specific drops.
 
 		if( mapdrops != nullptr ){
 			// Process map wide drops
@@ -3210,6 +3222,8 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				{
 					std::shared_ptr<item_data> it2 = item_db.find(it.second->nameid);
 					if (it2 != nullptr) {
+						if( mapdrops->affected_by_drop_rate )
+							rate100k = (uint32)mob_getdroprate( mvp_sd ? &mvp_sd->bl : src, md->db, it2->type, (int)(rate100k / 10), drop_modifier, md ) * 10;
 						int32 r = mob_apply_map_drop_nerf(md->bl.m, it2, (int32)(rate100k / 10));
 						rate100k = (uint32)cap_value(r * 10, 0, 100000);
 					}
@@ -3231,6 +3245,8 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 					{
 						std::shared_ptr<item_data> it2 = item_db.find(it.second->nameid);
 						if (it2 != nullptr) {
+							if( mapdrops->affected_by_drop_rate )
+								rate100k = (uint32)mob_getdroprate( mvp_sd ? &mvp_sd->bl : src, md->db, it2->type, (int)(rate100k / 10), drop_modifier, md ) * 10;
 							int32 r = mob_apply_map_drop_nerf(md->bl.m, it2, (int32)(rate100k / 10));
 							rate100k = (uint32)cap_value(r * 10, 0, 100000);
 						}
@@ -3292,7 +3308,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 			pc_gainexp( mvp_sd, &md->bl, log_mvp_exp, 0, 0 );
 		}
 
-		if( !(map_getmapflag(m, MF_NOMVPLOOT) || type&1) ) {
+		if( !(suppress_valor_mvp_drops || map_getmapflag(m, MF_NOMVPLOOT) || type&1 || replace_mob_drops) ) {
 			//Order might be random depending on item_drop_mvp_mode config setting
 			struct s_mob_drop mdrop[MAX_MVP_DROP_TOTAL];
 
@@ -3400,9 +3416,9 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		if (sd) {
 			std::shared_ptr<s_mob_db> mission_mdb = mob_db.find(sd->mission_mobid), mob = mob_db.find(md->mob_id);
 
-			if ((sd->mission_mobid == md->mob_id) || (mission_mdb != nullptr &&
+			if (md->bl.m != valor_mvp_battlefield_map && ((sd->mission_mobid == md->mob_id) || (mission_mdb != nullptr &&
 				((battle_config.taekwon_mission_mobname == 1 && util::vector_exists(status_get_race2(&md->bl), RC2_GOBLIN) && util::vector_exists(mission_mdb->race2, RC2_GOBLIN)) ||
-				(battle_config.taekwon_mission_mobname == 2 && mob->jname.compare(mission_mdb->jname) == 0))))
+				(battle_config.taekwon_mission_mobname == 2 && mob->jname.compare(mission_mdb->jname) == 0)))))
 			{ //TK_MISSION [Skotlex]
 				if (++(sd->mission_count) >= 100 && (temp = mob_get_random_id(MOBG_BRANCH_OF_DEAD_TREE, static_cast<e_random_monster_flags>(RMF_CHECK_MOB_LV|RMF_MOB_NOT_BOSS|RMF_MOB_NOT_SPAWN), sd->status.base_level)))
 				{
@@ -3415,10 +3431,12 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				pc_setglobalreg(sd, add_str(TKMISSIONCOUNT_VAR), sd->mission_count);
 			}
 
-			if (sd->status.party_id)
-				map_foreachinallrange(quest_update_objective_sub, &md->bl, AREA_SIZE, BL_PC, sd->status.party_id, md);
-			else if (sd->avail_quests)
-				quest_update_objective(sd, md);
+			if (md->bl.m != valor_mvp_battlefield_map) {
+				if (sd->status.party_id)
+					map_foreachinallrange(quest_update_objective_sub, &md->bl, AREA_SIZE, BL_PC, sd->status.party_id, md);
+				else if (sd->avail_quests)
+					quest_update_objective(sd, md);
+			}
 
 			if (achievement_db.mobexists(md->mob_id)) {
 				if (battle_config.achievement_mob_share > 0 && sd->status.party_id > 0)
@@ -6669,6 +6687,14 @@ uint64 MapDropDatabase::parseBodyNode( const ryml::NodeRef& node ){
 	if( !exists ){
 		mapdrops = std::make_shared<s_map_drops>();
 		mapdrops->mapid = mapid;
+	}
+
+	if( this->nodeExists( node, "ReplaceMobDrops" ) && !this->asBool( node, "ReplaceMobDrops", mapdrops->replace_mob_drops ) ){
+		return 0;
+	}
+
+	if( this->nodeExists( node, "AffectedByDropRate" ) && !this->asBool( node, "AffectedByDropRate", mapdrops->affected_by_drop_rate ) ){
+		return 0;
 	}
 
 	if( this->nodeExists( node, "GlobalDrops" ) ){

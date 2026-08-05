@@ -38,6 +38,7 @@ Body:
       bonus bMaxHP,1200;
       bonus2 bSubEle,Ele_Neutral,1;
       bonus2 bAddClass,Class_All,1;
+      bonus bAllStats,1;
 
   - RefineLevel: 11
     Icon: EFST_REFINE_PASS_LVL_11
@@ -47,6 +48,7 @@ Body:
       bonus bMaxHP,1500;
       bonus2 bSubEle,Ele_Neutral,2;
       bonus2 bAddClass,Class_All,1;
+      bonus bAllStats,1;
 
   - RefineLevel: 12
     Icon: EFST_REFINE_PASS_LVL_12
@@ -56,6 +58,7 @@ Body:
       bonus bMaxHP,1500;
       bonus2 bSubEle,Ele_Neutral,3;
       bonus2 bAddClass,Class_All,1;
+      bonus bAllStats,1;
 
   - RefineLevel: 13
     Icon: EFST_REFINE_PASS_LVL_13
@@ -65,6 +68,7 @@ Body:
       bonus bMaxHP,1500;
       bonus2 bSubEle,Ele_Neutral,3;
       bonus2 bAddClass,Class_All,2;
+      bonus bAllStats,2;
 
   - RefineLevel: 14
     Icon: EFST_REFINE_PASS_LVL_14
@@ -74,6 +78,7 @@ Body:
       bonus bMaxHP,1500;
       bonus2 bSubEle,Ele_Neutral,4;
       bonus2 bAddClass,Class_All,3;
+      bonus bAllStats,3;
 
   - RefineLevel: 15
     Icon: EFST_REFINE_PASS_LVL_15
@@ -83,3 +88,4 @@ Body:
       bonus bMaxHP,1500;
       bonus2 bSubEle,Ele_Neutral,4;
       bonus2 bAddClass,Class_All,4;
+      bonus bAllStats,4;

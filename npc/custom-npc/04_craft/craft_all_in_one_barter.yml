@@ -1,0 +1,317 @@
+# Craft All in One recipes from HICLASS sheet "NPC".
+Header:
+  Type: BARTER_DB
+  Version: 1
+
+Body:
+  - Name: CRAFT_ALL_IN_ONE_COIN
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: C_Quest_Clear_Coin_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_Quest_Clear_Coin
+            Amount: 3
+          - Index: 1
+            Item: CASH
+            Amount: 10
+      - Index: 1
+        Item: C_Quest_Clear_Coin
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_Quest_Clear_Coin
+            Amount: 3
+      - Index: 2
+        Item: C_Geffen_Clear_Coin_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_Geffen_Clear_Coin
+          - Index: 1
+            Item: CASH
+            Amount: 10
+      - Index: 3
+        Item: C_Geffen_Clear_Coin
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_Geffen_Clear_Coin
+      - Index: 4
+        Item: C_Endless_Clear_Coin_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_Endless_Clear_Coin
+          - Index: 1
+            Item: CASH
+            Amount: 30
+      - Index: 5
+        Item: C_Endless_Clear_Coin
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_Endless_Clear_Coin
+      - Index: 6
+        Item: C_OGH_Clear_Coin_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_OGH_Clear_Coin
+          - Index: 1
+            Item: CASH
+            Amount: 10
+      - Index: 7
+        Item: C_OGH_Clear_Coin
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_OGH_Clear_Coin
+
+  - Name: CRAFT_ALL_IN_ONE_COSTUME
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: Cos_Crown
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Crown
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 1
+        Item: Ulle_Cap_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Ulle_Cap
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 2
+        Item: Golden_Gear_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Golden_Gear
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 3
+        Item: Coronet_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coronet
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 4
+        Item: Loard_Circlet_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Loard_Circlet
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 5
+        Item: Corsair_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Corsair
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 6
+        Item: Sharp_Gear_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Sharp_Gear
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 7
+        Item: Smoking_Pipe_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Smoking_Pipe
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 8
+        Item: Gemmed_Crown_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Gemmed_Crown
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 9
+        Item: Diabolus_Helmet_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Diabolus_Helmet
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 10
+        Item: Tiara_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Tiara
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 11
+        Item: Mr_Scream_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Mr_Scream
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 12
+        Item: Magestic_Goat_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Magestic_Goat
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 13
+        Item: Cat_Hairband_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Cat_Hairband
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 14
+        Item: Blush_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Blush_Of_Groom
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+
+  - Name: CRAFT_ALL_IN_ONE_GENERAL
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: Rookie_Weapon_Box
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: C_Quest_Clear_Coin
+            Amount: 20
+          - Index: 1
+            Item: C_OGH_Clear_Coin
+            Amount: 2
+          - Index: 2
+            Item: C_Endless_Clear_Coin
+      - Index: 1
+        Item: HD_Elu_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_Quest_Clear_Coin
+            Amount: 10
+          - Index: 1
+            Item: C_Geffen_Clear_Coin
+            Amount: 5
+          - Index: 2
+            Item: C_OGH_Clear_Coin
+          - Index: 3
+            Item: C_Endless_Clear_Coin
+      - Index: 2
+        Item: HD_Ori_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_Quest_Clear_Coin
+            Amount: 10
+          - Index: 1
+            Item: C_Geffen_Clear_Coin
+            Amount: 5
+          - Index: 2
+            Item: C_OGH_Clear_Coin
+          - Index: 3
+            Item: C_Endless_Clear_Coin
+      - Index: 3
+        Item: Valor_Stone_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_Quest_Clear_Coin
+            Amount: 10
+          - Index: 1
+            Item: C_Geffen_Clear_Coin
+            Amount: 5
+          - Index: 2
+            Item: C_OGH_Clear_Coin
+          - Index: 3
+            Item: C_Endless_Clear_Coin
+      - Index: 4
+        Item: Token_Of_Siegfried_NT_5_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_Geffen_Clear_Coin
+      - Index: 5
+        Item: Token_Of_Siegfried_NT_5_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_OGH_Clear_Coin
+      - Index: 6
+        Item: Token_Of_Siegfried_NT_10_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_Endless_Clear_Coin
+      - Index: 7
+        Item: Fragment_Stone_2_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_Geffen_Clear_Coin
+      - Index: 8
+        Item: Fragment_Stone_3_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_OGH_Clear_Coin
+      - Index: 9
+        Item: Fragment_Stone_5_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_Endless_Clear_Coin
+      - Index: 10
+        Item: Comp_Bubble_Gum
+        Zeny: 10000
+        RequiredItems:
+          - Index: 0
+            Item: C_Quest_Clear_Coin
+      - Index: 11
+        Item: HE_Bubble_Gum
+        Zeny: 10000
+        RequiredItems:
+          - Index: 0
+            Item: C_Quest_Clear_Coin
+            Amount: 3

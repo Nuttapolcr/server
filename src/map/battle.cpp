@@ -1534,6 +1534,15 @@ bool battle_status_block_damage(struct block_list *src, struct block_list *targe
  * @param skill_lv
  * @return damage
  */
+static int64 battle_apply_valor_mvp_battlefield_damage( struct block_list* bl, int64 damage ){
+	static const int16 valor_mvp_battlefield_map = map_mapname2mapid( "valor_pk" );
+
+	if( damage > 0 && bl->m == valor_mvp_battlefield_map && bl->type == BL_MOB && status_get_class_( bl ) == CLASS_BOSS )
+		damage = i64max( damage * 50 / 100, 1 );
+
+	return damage;
+}
+
 int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Damage *d,int64 damage,uint16 skill_id,uint16 skill_lv)
 {
 	map_session_data *sd = NULL, *tsd = BL_CAST(BL_PC, src);
@@ -1588,7 +1597,7 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			if (battle_config.pk_mode == 1 && map_getmapflag(bl->m, MF_PVP) > 0)
 				damage = battle_calc_pk_damage(*src, *bl, damage, skill_id, flag);
 
-			return damage; //These skills bypass everything else.
+			return battle_apply_valor_mvp_battlefield_damage( bl, damage ); //These skills bypass everything else.
 	}
 
 	// Nothing can reduce the damage, but Safety Wall and Millennium Shield can block it completely.
@@ -1598,7 +1607,7 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 		if (battle_config.pk_mode == 1 && map_getmapflag(bl->m, MF_PVP) > 0)
 			damage = battle_calc_pk_damage(*src, *bl, damage, skill_id, flag);
 
-		return damage;
+		return battle_apply_valor_mvp_battlefield_damage( bl, damage );
 	}
 
 	if( tsc && tsc->count ) {
@@ -2083,7 +2092,7 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			return 0;
 	}
 
-	return damage;
+	return battle_apply_valor_mvp_battlefield_damage( bl, damage );
 }
 
 /**

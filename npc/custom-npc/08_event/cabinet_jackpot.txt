@@ -19,6 +19,20 @@ function	script	F_Cabinet_Roll	{
 	return .@count - 1;
 }
 
+function	script	F_Cabinet_ShowItems	{
+	.@type$ = getarg(0);
+	if (.@type$ == "Zeny") {
+		.@shop$ = "CabinetZeny_Show";
+	} else {
+		.@shop$ = "CabinetCash_Show";
+	}
+
+	close2;
+	npcshopattach .@shop$;
+	callshop .@shop$, 1;
+	end;
+}
+
 function	script	F_Cabinet_ShowTop	{
 	.@type$ = getarg(0);
 	if (.@type$ == "Zeny") {
@@ -67,7 +81,7 @@ function	script	F_Cabinet_ResetRank	{
 morocc,120,101,4	script	ตู้ Zeny#cabinet	563,{
 
 L_Main:
-	.@menu$ = "กดตู้ (500,000 Zeny):ดูอันดับ 1-10";
+	.@menu$ = "กดตู้ (500,000 Zeny):ดูตัวอย่างไอเทม:ดูอันดับ 1-10";
 	if (getgmlevel() >= 99)
 		.@menu$ += ":GM รีเซ็ตอันดับ";
 	.@menu$ += ":ยกเลิก";
@@ -77,11 +91,15 @@ L_Main:
 	mes "กดตู้ทุกครั้ง จะสะสม Jackpot 50,000 Zeny";
 	.@choice = select(.@menu$);
 	if (.@choice == 2) {
+		callfunc "F_Cabinet_ShowItems", "Zeny";
+		end;
+	}
+	if (.@choice == 3) {
 		callfunc "F_Cabinet_ShowTop", "Zeny";
 		next;
 		goto L_Main;
 	}
-	if (.@choice == 3 && getgmlevel() >= 99)
+	if (.@choice == 4 && getgmlevel() >= 99)
 		goto L_GMReset;
 	if (.@choice != 1)
 		close;
@@ -105,6 +123,7 @@ L_Main:
 	$CabinetZenyJackpot += 50000;
 	CabinetZenySpins++;
 	callfunc "F_Cabinet_RecordSpin", "Zeny";
+	specialeffect2 EF_COIN;
 	getitem .@item, .@amount;
 	if (.@rate <= 150)
 		announce "[ตู้ Zeny] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
@@ -141,6 +160,12 @@ L_GMReset:
 	}
 	close;
 
+OnBuyItem:
+	deletearray @bought_nameid;
+	deletearray @bought_quantity;
+	message strcharinfo(0), "[ตู้ Zeny] รายการนี้ใช้แสดงตัวอย่างเท่านั้น ไม่สามารถซื้อได้";
+	end;
+
 OnUpdateSign:
 	delwaitingroom;
 	waitingroom "ตู้Zeny (Zenyสะสม " + callfunc("F_InsertComma", $CabinetZenyJackpot) + ")", 0;
@@ -150,7 +175,7 @@ OnUpdateSign:
 morocc,120,97,4	script	ตู้ Cash#cabinet	563,{
 
 L_Main:
-	.@menu$ = "กดตู้ (200 Cash Point):ดูอันดับ 1-10";
+	.@menu$ = "กดตู้ (200 Cash Point):ดูตัวอย่างไอเทม:ดูอันดับ 1-10";
 	if (getgmlevel() >= 99)
 		.@menu$ += ":GM รีเซ็ตอันดับ";
 	.@menu$ += ":ยกเลิก";
@@ -160,11 +185,15 @@ L_Main:
 	mes "กดตู้ทุกครั้ง จะสะสม Jackpot 20 Cash Point";
 	.@choice = select(.@menu$);
 	if (.@choice == 2) {
+		callfunc "F_Cabinet_ShowItems", "Cash";
+		end;
+	}
+	if (.@choice == 3) {
 		callfunc "F_Cabinet_ShowTop", "Cash";
 		next;
 		goto L_Main;
 	}
-	if (.@choice == 3 && getgmlevel() >= 99)
+	if (.@choice == 4 && getgmlevel() >= 99)
 		goto L_GMReset;
 	if (.@choice != 1)
 		close;
@@ -188,6 +217,7 @@ L_Main:
 	$CabinetCashJackpot += 20;
 	CabinetCashSpins++;
 	callfunc "F_Cabinet_RecordSpin", "Cash";
+	specialeffect2 EF_COIN;
 	getitem .@item, .@amount;
 	if (.@rate <= 300)
 		announce "[ตู้ Cash] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
@@ -223,6 +253,12 @@ L_GMReset:
 		}
 	}
 	close;
+
+OnBuyItem:
+	deletearray @bought_nameid;
+	deletearray @bought_quantity;
+	message strcharinfo(0), "[ตู้ Cash] รายการนี้ใช้แสดงตัวอย่างเท่านั้น ไม่สามารถซื้อได้";
+	end;
 
 OnUpdateSign:
 	delwaitingroom;
@@ -297,6 +333,8 @@ OnBuyItem:
 }
 
 -	shop	CabinetGuarantee_Show	-1,501:0
+-	shop	CabinetZeny_Show	-1,501:0
+-	shop	CabinetCash_Show	-1,501:0
 
 -	script	ระบบตู้#config	-1,{
 OnInit:
@@ -320,6 +358,14 @@ OnInit:
 	npcshopdelitem "CabinetGuarantee_Show", 501;
 	for (.@i = 0; .@i < $CabinetExchangeCount; .@i++)
 		npcshopadditem "CabinetGuarantee_Show", $CabinetExchangeItem[.@i], 0;
+
+	npcshopdelitem "CabinetZeny_Show", 501;
+	for (.@i = 0; .@i < $CabinetZenyCount; .@i++)
+		npcshopadditem "CabinetZeny_Show", $CabinetZenyItem[.@i], 0;
+
+	npcshopdelitem "CabinetCash_Show", 501;
+	for (.@i = 0; .@i < $CabinetCashCount; .@i++)
+		npcshopadditem "CabinetCash_Show", $CabinetCashItem[.@i], 0;
 
 	donpcevent "ตู้ Zeny#cabinet::OnUpdateSign";
 	donpcevent "ตู้ Cash#cabinet::OnUpdateSign";

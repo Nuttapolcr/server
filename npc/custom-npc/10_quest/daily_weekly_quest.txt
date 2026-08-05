@@ -1,6 +1,21 @@
 //!rathena
 // Daily / Weekly Quest NPC from sheet
 
+function	script	F_DWQ_RecordCityTitanKill	{
+	.@dow = gettime(DT_DAYOFWEEK);
+	.@offset = (.@dow == SUNDAY) ? 6 : .@dow - MONDAY;
+	if (.@dow == MONDAY && gettime(DT_HOUR) == 0 && gettime(DT_MINUTE) == 0)
+		.@offset = 7;
+	.@week = gettime(DT_YEAR) * 1000 + gettime(DT_DAYOFYEAR) - .@offset;
+
+	if (!getd("#dwq_71031_active")) return;
+	if (getd("#dwq_71031_key") != .@week) return;
+	if (getd("#dwq_71031_k2") >= 1) return;
+	setd "#dwq_71031_k2", 1;
+	dispbottom "[Daily-Weekly Quest] เควสต์รายสัปดาห์ Hardcore : 1 / 1";
+	return;
+}
+
 morocc,160,150,4	script	NPC Daily-Weekly Quest	412,{
 	callsub S_ResetExpired;
 
@@ -203,59 +218,59 @@ S_ShowDetail:
 	case 71020:
 		mes "ส่ง Item ^i[967] x300, ^i[747] x30, ^i[748] x20";
 		mes "กำจัดบอส 1 ตัว";
-		mes "รางวัล: ^i[1000373] x10";
+		mes "รางวัล: ^i[1000373] x20, ^i[1030074] x1";
 		return;
 	case 71021:
 		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 1,000 ตัว";
 		mes "กำจัดบอส 1 ตัว";
-		mes "รางวัล: ^i[1000373] x20, ^i[1001685] x5";
+		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10, ^i[1030074] x1";
 		return;
 	case 71022:
 		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 3,000 ตัว";
 		mes "กำจัดบอส 3 ตัว";
-		mes "รางวัล: ^i[1000373] x20, ^i[1001685] x10";
+		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10, ^i[1030074] x2";
 		return;
 	case 71023:
 		mes "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 1,000 ตัว";
 		mes "กำจัดบอส 3 ตัว";
-		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x5";
+		mes "รางวัล: ^i[1000373] x40, ^i[1001685] x20, ^i[1030074] x1";
 		return;
 	case 71024:
 		mes "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 3,000 ตัว";
 		mes "กำจัดบอส 5 ตัว";
-		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10";
+		mes "รางวัล: ^i[1000373] x40, ^i[1001685] x20, ^i[1030074] x2";
 		return;
 	case 71025:
 		mes "ส่ง Item ID ^i[7563] x300 และ ^i[7567] x300";
 		mes "กำจัดบอส 20 ตัว";
-		mes "รางวัล: ^i[1001685] x50, ^i[6608] x50, ^i[1000603] x5";
+		mes "รางวัล: ^i[1001685] x50, ^i[6608] x50, ^i[1000603] x10, ^i[1030074] x3";
 		return;
 	case 71026:
 		mes "กำจัด Kasa (1833) 1,000 ตัว";
 		mes "กำจัด Salamander (1831) 1,000 ตัว";
-		mes "รางวัล: ^i[1000373] x50, ^i[1001685] x25";
+		mes "รางวัล: ^i[1000373] x70, ^i[1001685] x30, ^i[1030074] x5";
 		return;
 	case 71027:
 		mes "กำจัด Kasa (1833) 2,000 ตัว";
 		mes "กำจัด Salamander (1831) 2,000 ตัว";
-		mes "รางวัล: ^i[1000373] x50, ^i[1001685] x25";
+		mes "รางวัล: ^i[1000373] x70, ^i[1001685] x30, ^i[1030074] x10";
 		return;
 	case 71028:
 		mes "กำจัด Cecil, Eremes, Sorin, Kathryne, Seyren, Harword อย่างละ 500 ตัว";
-		mes "รางวัล: ^i[1000373] x50, ^i[1001685] x25";
+		mes "รางวัล: ^i[1000373] x70, ^i[1001685] x30, ^i[1030074] x5";
 		return;
 	case 71029:
 		mes "กำจัด Cecil, Eremes, Sorin, Kathryne, Seyren, Harword อย่างละ 1,000 ตัว";
-		mes "รางวัล: ^i[1000373] x70, ^i[1001685] x35";
+		mes "รางวัล: ^i[1000373] x100, ^i[1001685] x40, ^i[1030074] x10";
 		return;
 	case 71030:
 		mes "กำจัดบอส 100 ตัว";
-		mes "รางวัล: ^i[1001685] x100, ^i[6608] x300, ^i[1000603] x20";
+		mes "รางวัล: ^i[1001685] x100, ^i[6608] x300, ^i[1000603] x20, ^i[1030074] x10";
 		return;
 	case 71031:
 		mes "กำจัดบอส 200 ตัว";
 		mes "กำจัด City Titan (31100) 1 ตัว";
-		mes "รางวัล: ^i[1001685] x150, ^i[6608] x400, ^i[1000603] x30";
+		mes "รางวัล: ^i[1001685] x150, ^i[6608] x400, ^i[1000603] x30, ^i[1030074] x20";
 		return;
 	}
 	return;
@@ -378,18 +393,18 @@ S_TakeItems:
 S_GiveReward:
 	.@qid = getarg(0);
 	switch (.@qid) {
-	case 71020: getitem 1000373,10; return;
-	case 71021: getitem 1000373,20; getitem 1001685,5; return;
-	case 71022: getitem 1000373,20; getitem 1001685,10; return;
-	case 71023: getitem 1000373,30; getitem 1001685,5; return;
-	case 71024: getitem 1000373,30; getitem 1001685,10; return;
-	case 71025: getitem 1001685,50; getitem 6608,50; getitem 1000603,5; return;
-	case 71026: getitem 1000373,50; getitem 1001685,25; return;
-	case 71027: getitem 1000373,50; getitem 1001685,25; return;
-	case 71028: getitem 1000373,50; getitem 1001685,25; return;
-	case 71029: getitem 1000373,70; getitem 1001685,35; return;
-	case 71030: getitem 1001685,100; getitem 6608,300; getitem 1000603,20; return;
-	case 71031: getitem 1001685,150; getitem 6608,400; getitem 1000603,30; return;
+	case 71020: getitem 1000373,20; getitem 1030074,1; return;
+	case 71021: getitem 1000373,30; getitem 1001685,10; getitem 1030074,1; return;
+	case 71022: getitem 1000373,30; getitem 1001685,10; getitem 1030074,2; return;
+	case 71023: getitem 1000373,40; getitem 1001685,20; getitem 1030074,1; return;
+	case 71024: getitem 1000373,40; getitem 1001685,20; getitem 1030074,2; return;
+	case 71025: getitem 1001685,50; getitem 6608,50; getitem 1000603,10; getitem 1030074,3; return;
+	case 71026: getitem 1000373,70; getitem 1001685,30; getitem 1030074,5; return;
+	case 71027: getitem 1000373,70; getitem 1001685,30; getitem 1030074,10; return;
+	case 71028: getitem 1000373,70; getitem 1001685,30; getitem 1030074,5; return;
+	case 71029: getitem 1000373,100; getitem 1001685,40; getitem 1030074,10; return;
+	case 71030: getitem 1001685,100; getitem 6608,300; getitem 1000603,20; getitem 1030074,10; return;
+	case 71031: getitem 1001685,150; getitem 6608,400; getitem 1000603,30; getitem 1030074,20; return;
 	}
 	return;
 
