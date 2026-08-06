@@ -28813,7 +28813,8 @@ Body:
     Type: Weapon
     SubType: Staff
     Weight: 1200
-    MagicAttack: 150
+    Attack: 80
+    MagicAttack: 0
     Range: 1
     Slots: 1
     Jobs:
@@ -28843,7 +28844,6 @@ Body:
     SubType: Book
     Buy: 20
     Weight: 1000
-    MagicAttack: 160
     Range: 1
     Slots: 1
     Jobs:
@@ -28855,18 +28855,21 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMatk,30;
+      bonus bMatk,60;
       bonus bDex,6;
       bonus bVit,3;
       bonus bAspdRate,3;
       bonus bDelayrate,-5;
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
+      bonus bMatkRate,(.@r/3*12);
       if (.@r>=7) {
-      bonus bMatk,50;
+      bonus bMatk,100;
+      bonus bMatkRate,25;
       bonus bMaxHPrate,10;
       bonus2 bSubEle,Ele_Neutral,2;
       }
+    Attack: 100
   - Id: 620004
     AegisName: Up_Avenger
     Name: "[Rare] Whitesmith Weapon"
@@ -28930,7 +28933,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Weight: 1400
-    MagicAttack: 150
+    Attack: 150
     Range: 1
     Slots: 1
     Jobs:
@@ -28942,6 +28945,7 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
+      bonus bMatk,60;
       bonus bVit,8;
       bonus bInt,3;
       bonus bDex,3;
@@ -28956,7 +28960,7 @@ Body:
          bonus bDex,2;
          bonus bInt,3;
       bonus bMatkRate,10;
-      bonus bMatk,20;
+      bonus bMatk,40;
       bonus2 bMagicAddClass,Class_Boss,25;
       }
   - Id: 560008
@@ -29197,7 +29201,6 @@ Body:
     Type: Weapon
     SubType: Mace
     Weight: 1000
-    MagicAttack: 100
     Range: 1
     Slots: 1
     Jobs:
@@ -29224,6 +29227,7 @@ Body:
          bonus bInt,3;
       bonus2 bAddClass,Class_Boss,10;
       }
+    Attack: 100
   - Id: 650004
     AegisName: Up_Humma_Clear
     Name: "[Rare] Ninja Weapon"
@@ -29416,7 +29420,6 @@ Body:
     Type: Weapon
     SubType: Staff
     Weight: 1200
-    MagicAttack: 190
     Range: 1
     Slots: 1
     Jobs:
@@ -29452,13 +29455,13 @@ Body:
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
       }
+    Attack: 90
   - Id: 540020
     AegisName: Adulter_F_P_Book
     Name: "[Epic] Professor Weapon"
     Type: Weapon
     SubType: Book
     Weight: 1000
-    MagicAttack: 200
     Range: 1
     Slots: 1
     Jobs:
@@ -29470,17 +29473,19 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
-      bonus bMatk,30;
+      bonus bMatk,60;
       bonus bDex,6;
       bonus bVit,3;
       bonus bAspdRate,3;
       bonus bDelayrate,-5;
       bonus bDex,.@r/3*1;
       bonus bDelayrate,-(.@r/3*2);
+      bonus bMatkRate,(.@r/3*12);
       if (.@r>=7) {
-      bonus bMatk,50;
-         bonus bMaxHPrate,10;
-         bonus2 bSubEle,Ele_Neutral,2;
+      bonus bMatk,100;
+      bonus bMatkRate,25;
+      bonus bMaxHPrate,10;
+      bonus2 bSubEle,Ele_Neutral,2;
       }
       if (.@r>=9) {
          bonus bLongAtkDef,5;
@@ -29488,7 +29493,10 @@ Body:
       }
       if (.@r>=11) {
          bonus bAspdRate,8;
+         bonus2 bSubRace,RC_Player_Human,2;
+         bonus2 bSubRace,RC_Player_Doram,2;
       }
+    Attack: 160
   - Id: 520008
     AegisName: Adulter_F_Axe
     Name: "[Epic] Whitesmith Weapon"
@@ -29571,7 +29579,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Weight: 1400
-    MagicAttack: 200
+    Attack: 160
     Range: 1
     Slots: 1
     Jobs:
@@ -29583,6 +29591,7 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
+      bonus bMatk,60;
       bonus bDex,3;
       bonus bVit,8;
       bonus bInt,3;
@@ -29597,7 +29606,7 @@ Body:
          bonus bDex,2;
          bonus bInt,3;
       bonus bMatkRate,10;
-      bonus bMatk,20;
+      bonus bMatk,40;
       bonus2 bMagicAddClass,Class_Boss,25;
       }
       if (.@r>=9) {
@@ -29915,7 +29924,6 @@ Body:
     Type: Weapon
     SubType: Mace
     Weight: 1000
-    MagicAttack: 100
     Range: 1
     Slots: 1
     Jobs:
@@ -29953,6 +29961,7 @@ Body:
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
       }
+    Attack: 120
   - Id: 650009
     AegisName: Adulter_F_C_Humma
     Name: "[Epic] Ninja Weapon"
@@ -30738,7 +30747,7 @@ Body:
       .@r = getrefine();
       bonus bMatk,20;
       bonus bBaseAtk,10*.@r;
-      bonus bMatkRate,5*.@r;
+      bonus bMatkRate,3*.@r;
       bonus2 bAddClass,Class_Boss,10;
       if (.@r>=5) {
          bonus2 bAddClass,Class_Boss,10;
@@ -30746,8 +30755,8 @@ Body:
       if (.@r>=7) {
          bonus bBaseAtk,30;
          bonus bMatk,30;
-         bonus bAtkRate,25;
-         bonus bMatkRate,25;
+         bonus bAtkRate,20;
+         bonus bMatkRate,20;
       }
   - Id: 2015
     AegisName: Upg_Staff
@@ -32697,7 +32706,6 @@ Body:
     SubType: Staff
     Buy: 20
     Weight: 1200
-    MagicAttack: 290
     Range: 1
     Slots: 1
     Jobs:
@@ -32759,6 +32767,7 @@ Body:
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bDelayrate,-(.@r/3*1);
       }
+    Attack: 100
   - Id: 28605
     AegisName: Sinister_Book
     Name: "[Legend] Professor Weapon"
@@ -32766,7 +32775,6 @@ Body:
     SubType: Book
     Buy: 20
     Weight: 1000
-    MagicAttack: 300
     Range: 1
     Slots: 1
     Jobs:
@@ -32780,17 +32788,19 @@ Body:
     Script: |-
       .@r = getrefine();
       .@g = getenchantgrade();
-      bonus bMatk,30;
+      bonus bMatk,60;
       bonus bDex,12;
       bonus bVit,10;
       bonus bAspdRate,7;
       bonus bDelayrate,-10;
       bonus bDex,.@r/3*2;
       bonus bDelayrate,-(.@r/3*3);
+      bonus bMatkRate,(.@r/3*12);
       if (.@r>=7) {
-      bonus bMatk,50;
-      bonus bMaxHPrate,15;
-      bonus2 bSubEle,Ele_Neutral,3;
+      bonus bMatk,100;
+      bonus bMatkRate,25;
+      bonus bMaxHPrate,10;
+      bonus2 bSubEle,Ele_Neutral,2;
       }
 
       if (.@r>=9) {
@@ -32824,6 +32834,7 @@ Body:
          bonus bDex,.@r/5*2;
          bonus2 bSubEle,Ele_Neutral,.@r/5*1;
       }
+    Attack: 180
   - Id: 28107
     AegisName: Sinister_Twohand_Axe
     Name: "[Legend] Whitesmith Weapon"
@@ -32959,7 +32970,7 @@ Body:
     SubType: Mace
     Buy: 20
     Weight: 1400
-    MagicAttack: 300
+    Attack: 200
     Range: 1
     Slots: 1
     Jobs:
@@ -32973,6 +32984,7 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
+      bonus bMatk,80;
       bonus bDex,5;
       bonus bVit,10;
       bonus bInt,3;
@@ -32987,7 +32999,7 @@ Body:
          bonus bDex,5;
          bonus bInt,3;
       bonus bMatkRate,10;
-      bonus bMatk,20;
+      bonus bMatk,50;
       bonus2 bMagicAddClass,Class_Boss,25;
       }
       if (.@r>=9) {
@@ -33471,7 +33483,6 @@ Body:
     SubType: Mace
     Buy: 20
     Weight: 1000
-    MagicAttack: 300
     Range: 1
     Slots: 1
     Jobs:
@@ -33543,6 +33554,7 @@ Body:
          bonus bVariableCastrate,-(.@r/2*1);
          bonus bDelayrate,-(.@r/2*2);
       }
+    Attack: 160
   - Id: 13328
     AegisName: Sinister_Huuma
     Name: "[Legend] Ninja Weapon"
@@ -37502,7 +37514,6 @@ Body:
     Type: Weapon
     SubType: Dagger
     Weight: 1200
-    MagicAttack: 150
     Jobs:
       Swordman: true
       Thief: true
@@ -37527,6 +37538,7 @@ Body:
       bonus bMatkRate,10;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
+    Attack: 100
   - Id: 530013
     AegisName: adulter_f_g_spear
     Name: "[Epic] Lord Knight2 Weapon"
@@ -37662,7 +37674,6 @@ Body:
     Type: Weapon
     SubType: Dagger
     Weight: 1200
-    MagicAttack: 190
     Range: 1
     Slots: 1
     Jobs:
@@ -37702,6 +37713,7 @@ Body:
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
       }
+    Attack: 120
   - Id: 1400
     AegisName: Sinister_Spear
     Name: "[Legend] Lord Knight2 Weapon"
@@ -37859,7 +37871,6 @@ Body:
     Type: Weapon
     SubType: Dagger
     Weight: 1200
-    MagicAttack: 290
     Range: 1
     Slots: 1
     Jobs:
@@ -37925,6 +37936,7 @@ Body:
          bonus2 bMagicAddClass,Class_Boss,10;
       bonus bMatkRate,(.@r/3*3);
       }
+    Attack: 180
   - Id: 1030024
     AegisName: Sniper_Focused_Weapon001
     Name: "[Legend] Sniper Focused Weapon"
