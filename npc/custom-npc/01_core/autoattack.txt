@@ -54,6 +54,8 @@ main_menu:
 	mes "^777777---------- การวาร์ป ----------^000000";
 	mes "Fly Wing     : " + (aa_getautoattackint(12,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
 	mes "สกิล Teleport: " + (aa_getautoattackint(13,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "หนี MVP      : " + (aa_getautoattackint(22,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
+	mes "หนี Mini Boss: " + (aa_getautoattackint(23,0) ? "^008000เปิด^000000" : "^FF0000ปิด^000000");
 	
 	if(aa_getautoattackint(20,0) > 0)
 		mes "วาร์ปฉุกเฉิน : ^FF8800< " + aa_getautoattackint(20,0) + "%^000000";
@@ -599,6 +601,8 @@ teleport_menu:
 	.@teleport_menu = select(
 	aa_getautoattackint(12,0)?"^FF0000(ปิด)^000000 เปิดใช้ Fly Wing สำหรับวาร์ป":"^008000(เปิด)^000000 เปิดใช้ Fly Wing สำหรับวาร์ป"
 	,aa_getautoattackint(13,0)?"^FF0000(ปิด)^000000 เปิดใช้สกิล Teleport":"^008000(เปิด)^000000 เปิดใช้สกิล Teleport"
+	,aa_getautoattackint(22,0)?"^FF0000(ปิด)^000000 วิงหนีเมื่อพบ MVP":"^008000(เปิด)^000000 วิงหนีเมื่อพบ MVP"
+	,aa_getautoattackint(23,0)?"^FF0000(ปิด)^000000 วิงหนีเมื่อพบ Mini Boss":"^008000(เปิด)^000000 วิงหนีเมื่อพบ Mini Boss"
 	,"ตั้งค่า HP ขั้นต่ำสำหรับวาร์ปฉุกเฉิน"
 	,"ตั้งค่าเวลาวาร์ปถ้าไม่เจอมอนสเตอร์"
 	,"ตั้งค่าจำนวนมอนสุดที่สามารถตีคุณก่อนวาร์ป"
@@ -619,6 +623,18 @@ teleport_menu:
 				aa_setautoattack("6;1");
 			break;
 		case 3:
+			if(aa_getautoattackint(22,0))
+				aa_setautoattack("27;0");
+			else
+				aa_setautoattack("27;1");
+			break;
+		case 4:
+			if(aa_getautoattackint(23,0))
+				aa_setautoattack("28;0");
+			else
+				aa_setautoattack("28;1");
+			break;
+		case 5:
 			do {
 				clear;
 				mes .@menu$;
@@ -628,7 +644,7 @@ teleport_menu:
 			} while(.@teleport_minhpvalue != 0 && (.@teleport_minhpvalue < 5 || .@teleport_minhpvalue > 90));
 			aa_setautoattack("16;"+.@teleport_minhpvalue);
 			break;
-		case 4:
+		case 6:
 			do {
 				clear;
 				mes .@menu$;
@@ -639,7 +655,7 @@ teleport_menu:
 			.@teleport_delayvalue = .@teleport_delayvalue * 1000;
 			aa_setautoattack("17;"+.@teleport_delayvalue);
 			break;
-		case 5:
+		case 7:
 			do {
 				clear;
 				mes .@menu$;
@@ -649,7 +665,7 @@ teleport_menu:
 			} while(.@monster_surround != 0 && (.@monster_surround < 0 || .@monster_surround > 30));
 			aa_setautoattack("23;"+.@monster_surround);
 			break;
-		case 6:
+		case 8:
 			goto(config_menu);
 			break;
 	}

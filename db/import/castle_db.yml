@@ -45,3 +45,8 @@ Body:
     Name: King of Emperium
     Npc: KoE#koe_mash
     Type: First_Edition
+  - Id: 98
+    Map: hero_ent1
+    Name: ValorFight
+    Npc: Agit#hero_ent1
+    Type: First_Edition

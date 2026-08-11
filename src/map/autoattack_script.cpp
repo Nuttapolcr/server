@@ -781,6 +781,11 @@ void handle_autoattack_teleport(std::ostringstream& os_buf, int index, script_st
 
 	if (sd->aa.monster_surround > 0)
 		os_buf << "^008000(ON)^000000 Teleport if more than " << sd->aa.monster_surround << " attack you \n";
+
+	os_buf << (sd->aa.teleport.tp_mvp ? "^008000(ON)^000000" : "^FF0000(OFF)^000000")
+		<< " Teleport when an MVP is found\n";
+	os_buf << (sd->aa.teleport.tp_miniboss ? "^008000(ON)^000000" : "^FF0000(OFF)^000000")
+		<< " Teleport when a Mini Boss is found\n";
 }
 
 void handle_autoattack_items(std::ostringstream& os_buf, int index, script_state* st, map_session_data* sd) {
@@ -1120,6 +1125,9 @@ void handleResetAutoAttackConfig(map_session_data* sd) {
 	sd->aa.autosellitems.clear();
 	sd->aa.autobuyitems.clear();
 	sd->aa.action_on_end = 0;
+	sd->aa.teleport.tp_mvp = false;
+	sd->aa.teleport.tp_miniboss = false;
+	sd->aa.attack_skill_cd = 0;
 
 }
 
@@ -1145,6 +1153,20 @@ void handleTeleportSkill(const std::vector<std::string>& result, map_session_dat
 
 	bool tp_skill = std::stoi(result.at(1));
 	sd->aa.teleport.use_teleport = tp_skill;
+}
+
+void handleTeleportMvp(const std::vector<std::string>& result, map_session_data* sd) {
+	if (result.size() != 2)
+		return;
+
+	sd->aa.teleport.tp_mvp = std::stoi(result.at(1)) != 0;
+}
+
+void handleTeleportMiniboss(const std::vector<std::string>& result, map_session_data* sd) {
+	if (result.size() != 2)
+		return;
+
+	sd->aa.teleport.tp_miniboss = std::stoi(result.at(1)) != 0;
 }
 
 void handleMeleeAttack(const std::vector<std::string>& result, map_session_data* sd) {
@@ -1516,6 +1538,12 @@ extern int handleGetautoattackint(map_session_data* sd, const int value) {
 		break;
 	case 21:
 		result = static_cast<int>(sd->aa.autosellitems.size());
+		break;
+	case 22:
+		result = sd->aa.teleport.tp_mvp;
+		break;
+	case 23:
+		result = sd->aa.teleport.tp_miniboss;
 		break;
 	default:
 		return result;

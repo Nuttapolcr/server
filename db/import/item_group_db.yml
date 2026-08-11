@@ -48,6 +48,9 @@ Header:
   Version: 3
 
 Body:
+  # Empty loot pools for Random Stone Boxes (1500018-1500023).
+  # Add each box's rewards to SubGroup 1 when its contents are finalized.
+
   - Group: GIFT_BUFF_SET
     SubGroups:
       - SubGroup: 0

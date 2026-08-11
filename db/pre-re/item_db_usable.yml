@@ -3442,7 +3442,7 @@ Body:
     Name: Bloody Branch
     Type: Usable
     Buy: 10000
-    Weight: 200
+    Weight: 1
     Flags:
       BuyingStore: true
       DeadBranch: true
@@ -21612,7 +21612,10 @@ Body:
         dispbottom "This item can only be used in Deathmatch and GVG maps.";
         end;
       }
-      percentheal 10,0;
+      if (isequipped(18509))
+        percentheal 18,0;
+      else
+        percentheal 10,0;
   - Id: 1030112
     AegisName: Woe_White_Potion_Copy
     Name: Siege White Potion [Death Match]

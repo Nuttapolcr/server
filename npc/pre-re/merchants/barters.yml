@@ -51,4 +51,5 @@ Footer:
     - Path: npc/custom-npc/04_craft/pet_collection_barters.yml
     - Path: npc/custom-npc/04_craft/craft_all_in_one_barter.yml
     - Path: npc/custom-npc/08_event/casino_poringslot_barter.yml
+    - Path: npc/custom-npc/08_event/cabinet_guarantee_barter.yml
 #    - Path: npc/custom-npc/Barter/barters_Test.yml

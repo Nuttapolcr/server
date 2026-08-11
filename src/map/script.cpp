@@ -29838,6 +29838,8 @@ BUILDIN_FUNC(aa_getautoattackint)
 	case 19: // Monk Combo
 	case 20: // Auto Buy
 	case 21: // Sell
+	case 22: // Teleport when an MVP is found
+	case 23: // Teleport when a Mini Boss is found
 		num = handleGetautoattackint(sd, id);
 		break;
 	case 1: // HP / SP Potions available in inventory
@@ -29886,6 +29888,8 @@ BUILDIN_FUNC(aa_getautoattackint)
 	id = 21 - Item Pickup selection
 	id = 22 - Action on end
 	id = 23 - Max monster surround
+	id = 27 - Teleport when an MVP is found
+	id = 28 - Teleport when a Mini Boss is found
 */
 BUILDIN_FUNC(aa_setautoattack)
 {
@@ -29992,6 +29996,12 @@ BUILDIN_FUNC(aa_setautoattack)
 		break;
 	case 26:
 		handleAutoSell(result, sd);
+		break;
+	case 27:
+		handleTeleportMvp(result, sd);
+		break;
+	case 28:
+		handleTeleportMiniboss(result, sd);
 		break;
 	}
 

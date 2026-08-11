@@ -208,6 +208,47 @@ Body:
           - Index: 1
             Item: Costume_Option_Ticket
             Amount: 5
+      - Index: 15
+        Item: Elven_Ears_Copy
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Elven_Ears
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 16
+        Item: Cos_Centimental_Flower
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Centimental_Flower
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 17
+        Item: Cos_Green_Feeler
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Green_Feeler
+          - Index: 1
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 18
+        Item: Cos_Boy's_Cap
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 19
+        Item: Cos_Detective_Hat
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
 
   - Name: CRAFT_ALL_IN_ONE_GENERAL
     CraftBarter: false
@@ -315,3 +356,163 @@ Body:
           - Index: 0
             Item: C_Quest_Clear_Coin
             Amount: 3
+
+  - Name: CRAFT_ALL_IN_ONE_HOTWEEK
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: Coin_Varlor_V.1
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+      - Index: 1
+        Item: Rideword_Hat
+        Zeny: 3000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 2
+      - Index: 2
+        Item: Anubis_Helm
+        Zeny: 3000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 2
+      - Index: 3
+        Item: FlyingGalapago
+        Zeny: 3000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 2
+      - Index: 4
+        Item: Handkerchief_In_Mouth
+        Zeny: 3000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 3
+      - Index: 5
+        Item: N_Charm_Valor_V.1
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 5
+      - Index: 6
+        Item: "R_Charm_Valor V.1"
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 5
+      - Index: 7
+        Item: "E_Charm_Valor V.1"
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 5
+
+  - Name: CRAFT_COSTUME_WEAPON
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: "22266"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 1
+        Item: "22267"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 2
+        Item: "22268"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 3
+        Item: "22269"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 4
+        Item: "22270"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 5
+        Item: "22271"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 6
+        Item: "22272"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 7
+        Item: "22273"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 8
+        Item: "22274"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 9
+        Item: "22275"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 10
+        Item: "22276"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 11
+        Item: "22277"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 12
+        Item: "22278"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1
+      - Index: 13
+        Item: "22265"
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Weapon_Ticket
+            Amount: 1

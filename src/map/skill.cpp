@@ -941,6 +941,13 @@ bool skill_isNotOk(uint16 skill_id, map_session_data *sd)
 
 	struct map_data *mapdata = map_getmapdata(sd->bl.m);
 
+	// Death Match arenas do not allow Sacrifice/Devotion.
+	if (skill_id == CR_DEVOTION &&
+		(sd->bl.m == map_mapname2mapid("guild_vs2") || sd->bl.m == map_mapname2mapid("guild_vs3"))) {
+		clif_msg(sd, SKILL_CANT_USE_AREA);
+		return true;
+	}
+
 	if (mapdata->getMapFlag(MF_NOSKILL) && skill_id != ALL_EQSWITCH && !sd->skillitem) //Item skills bypass noskill
 		return true;
 

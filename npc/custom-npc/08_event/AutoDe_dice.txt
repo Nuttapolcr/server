@@ -234,6 +234,7 @@ S_GiveDiceReward:
 			getitem 1000373,35,.@aid;
 			getitem 1001685,5,.@aid;
 			getitem 616,2,.@aid;
+			getitem 1500010,1,.@aid;
 			getitem 985,5,.@aid;
 			getitem 984,5,.@aid;
 			break;
@@ -246,6 +247,7 @@ S_GiveDiceReward:
 			getitem 616,3,.@aid;
 			getitem 6293,2,.@aid;
 			getitem 1001720,1,.@aid;
+			getitem 1500010,1,.@aid;
 			getitem 985,10,.@aid;
 			getitem 984,10,.@aid;
 			break;

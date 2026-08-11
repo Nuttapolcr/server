@@ -218,32 +218,32 @@ S_ShowDetail:
 	case 71020:
 		mes "ส่ง Item ^i[967] x300, ^i[747] x30, ^i[748] x20";
 		mes "กำจัดบอส 1 ตัว";
-		mes "รางวัล: ^i[1000373] x20, ^i[1030074] x1";
+		mes "รางวัล: ^i[1000373] x20, ^i[1500008] x1, ^i[1030074] x1";
 		return;
 	case 71021:
 		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 1,000 ตัว";
 		mes "กำจัดบอส 1 ตัว";
-		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10, ^i[1030074] x1";
+		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10, ^i[1500008] x1, ^i[1030074] x1";
 		return;
 	case 71022:
 		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 3,000 ตัว";
 		mes "กำจัดบอส 3 ตัว";
-		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10, ^i[1030074] x2";
+		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10, ^i[1500008] x1, ^i[1030074] x2";
 		return;
 	case 71023:
 		mes "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 1,000 ตัว";
 		mes "กำจัดบอส 3 ตัว";
-		mes "รางวัล: ^i[1000373] x40, ^i[1001685] x20, ^i[1030074] x1";
+		mes "รางวัล: ^i[1000373] x40, ^i[1001685] x20, ^i[1500008] x1, ^i[1030074] x1";
 		return;
 	case 71024:
 		mes "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 3,000 ตัว";
 		mes "กำจัดบอส 5 ตัว";
-		mes "รางวัล: ^i[1000373] x40, ^i[1001685] x20, ^i[1030074] x2";
+		mes "รางวัล: ^i[1000373] x40, ^i[1001685] x20, ^i[1500008] x1, ^i[1030074] x2";
 		return;
 	case 71025:
 		mes "ส่ง Item ID ^i[7563] x300 และ ^i[7567] x300";
 		mes "กำจัดบอส 20 ตัว";
-		mes "รางวัล: ^i[1001685] x50, ^i[6608] x50, ^i[1000603] x10, ^i[1030074] x3";
+		mes "รางวัล: ^i[1001685] x50, ^i[6608] x50, ^i[1000603] x10, ^i[1500010] x1, ^i[1030074] x3";
 		return;
 	case 71026:
 		mes "กำจัด Kasa (1833) 1,000 ตัว";
@@ -393,12 +393,12 @@ S_TakeItems:
 S_GiveReward:
 	.@qid = getarg(0);
 	switch (.@qid) {
-	case 71020: getitem 1000373,20; getitem 1030074,1; return;
-	case 71021: getitem 1000373,30; getitem 1001685,10; getitem 1030074,1; return;
-	case 71022: getitem 1000373,30; getitem 1001685,10; getitem 1030074,2; return;
-	case 71023: getitem 1000373,40; getitem 1001685,20; getitem 1030074,1; return;
-	case 71024: getitem 1000373,40; getitem 1001685,20; getitem 1030074,2; return;
-	case 71025: getitem 1001685,50; getitem 6608,50; getitem 1000603,10; getitem 1030074,3; return;
+	case 71020: getitem 1000373,20; getitem 1500008,1; getitem 1030074,1; return;
+	case 71021: getitem 1000373,30; getitem 1001685,10; getitem 1500008,1; getitem 1030074,1; return;
+	case 71022: getitem 1000373,30; getitem 1001685,10; getitem 1500008,1; getitem 1030074,2; return;
+	case 71023: getitem 1000373,40; getitem 1001685,20; getitem 1500008,1; getitem 1030074,1; return;
+	case 71024: getitem 1000373,40; getitem 1001685,20; getitem 1500008,1; getitem 1030074,2; return;
+	case 71025: getitem 1001685,50; getitem 6608,50; getitem 1000603,10; getitem 1500010,1; getitem 1030074,3; return;
 	case 71026: getitem 1000373,70; getitem 1001685,30; getitem 1030074,5; return;
 	case 71027: getitem 1000373,70; getitem 1001685,30; getitem 1030074,10; return;
 	case 71028: getitem 1000373,70; getitem 1001685,30; getitem 1030074,5; return;

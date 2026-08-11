@@ -1,0 +1,80 @@
+// ValorFight WoE castle and safe lobby.
+
+function	script	F_ValorFightActive	{
+	.@idx = getvariableofnpc(.ValorFightIndex, "WOE_CONTROL");
+	.@count = getvariableofnpc(.CastleCount, "WOE_CONTROL");
+	.@active = getvariableofnpc(.Active[0], "WOE_CONTROL");
+	if (.@idx < 0 || .@idx >= .@count)
+		return 0;
+	return agitcheck() && (.@active & (1 << .@idx));
+}
+
+guild_vs2-1,8,49,0	script	ValorFight Warp#West	WARPNPC,1,1,{
+OnTouch:
+	if (!callfunc("F_ValorFightActive")) {
+		message strcharinfo(0), "[WoE Warp] ValorFight ยังไม่เปิดในรอบนี้.";
+		end;
+	}
+	warp "hero_ent1",30,139;
+	end;
+}
+
+guild_vs2-1,49,92,0	script	ValorFight Warp#North	WARPNPC,1,1,{
+OnTouch:
+	if (!callfunc("F_ValorFightActive")) {
+		message strcharinfo(0), "[WoE Warp] ValorFight ยังไม่เปิดในรอบนี้.";
+		end;
+	}
+	warp "hero_ent1",140,249;
+	end;
+}
+
+guild_vs2-1,92,49,0	script	ValorFight Warp#East	WARPNPC,1,1,{
+OnTouch:
+	if (!callfunc("F_ValorFightActive")) {
+		message strcharinfo(0), "[WoE Warp] ValorFight ยังไม่เปิดในรอบนี้.";
+		end;
+	}
+	warp "hero_ent1",249,139;
+	end;
+}
+
+guild_vs2-1,49,8,0	script	ValorFight Warp#South	WARPNPC,1,1,{
+OnTouch:
+	if (!callfunc("F_ValorFightActive")) {
+		message strcharinfo(0), "[WoE Warp] ValorFight ยังไม่เปิดในรอบนี้.";
+		end;
+	}
+	warp "hero_ent1",140,30;
+	end;
+}
+
+guild_vs2-1,49,50,4	script	Kafra#ValorFight	116,{
+	cutin "kafra_02",2;
+	callfunc "F_Kafra",0,5,0,0,0;
+	cutin "",255;
+	close;
+}
+
+guild_vs2-1,46,50,4	duplicate(Buffer Service)	Buff#ValorFight	4_F_SISTER
+guild_vs2-1,52,50,4	duplicate(Tool Dealer#17)	Tool Dealer#ValorFight	93
+
+hero_ent1,140,140,0	duplicate(Gld_Agit_Manager)	Agit#hero_ent1	-1
+
+guild_vs2-1	mapflag	pvp	off
+guild_vs2-1	mapflag	nosave	SavePoint
+guild_vs2-1	mapflag	noteleport
+guild_vs2-1	mapflag	nowarp
+guild_vs2-1	mapflag	nowarpto
+guild_vs2-1	mapflag	nomemo
+guild_vs2-1	mapflag	nobranch
+guild_vs2-1	mapflag	noicewall
+
+hero_ent1	mapflag	gvg_castle
+hero_ent1	mapflag	nosave	SavePoint
+hero_ent1	mapflag	noteleport
+hero_ent1	mapflag	nowarp
+hero_ent1	mapflag	nowarpto
+hero_ent1	mapflag	nomemo
+hero_ent1	mapflag	nobranch
+hero_ent1	mapflag	noicewall

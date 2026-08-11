@@ -1,15 +1,15 @@
 function	script	F_CS2_Open	{
 	.@castle_count = getvariableofnpc(.CastleCount, "WOE_CONTROL");
 	.@active = getvariableofnpc(.Active[0], "WOE_CONTROL");
-	.@allow_all = getvariableofnpc(.CastleWarp, "WOE_CONTROL");
+	.@valor_idx = getvariableofnpc(.ValorFightIndex, "WOE_CONTROL");
 
-	if (.@castle_count <= 0) {
+	if (.@castle_count <= .@valor_idx || .@valor_idx < 0) {
 		dispbottom "[WoE Warp] ระบบปราสาทไม่พร้อมใช้งาน.";
 		return;
 	}
 
-	if (!.@allow_all && !.@active) {
-		dispbottom "[WoE Warp] ขณะนี้ยังไม่มีปราสาทที่เปิดวอ.";
+	if (!agitcheck() || !(.@active & (1 << .@valor_idx))) {
+		dispbottom "[WoE Warp] ValorFight ยังไม่เปิดในรอบนี้.";
 		return;
 	}
 
@@ -17,45 +17,12 @@ function	script	F_CS2_Open	{
 	sc_end SC_AURABLADE; sc_end SC_MAGICPOWER; sc_end SC_CARTBOOST; sc_end SC_TRUESIGHT;
 	sc_end SC_FLEEFOOD;  sc_end SC_HITFOOD;
 
-	mes "[ Warper Castles ]";
-	mes "รายชื่อปราสาทอ้างอิงจากระบบ WoE";
+	set lastwarp$, "guild_vs2-1";
+	set lastwarpx, 49;
+	set lastwarpy, 49;
 
-	.@menu$ = "";
-	.@menu_count = 0;
-	for (.@i = 0; .@i < .@castle_count; ++.@i) {
-		if (!.@allow_all && !(.@active & (1 << .@i)))
-			continue;
-
-		.@castle$ = getvariableofnpc(.Castles$[.@i], "WOE_CONTROL");
-		.@status$ = (.@active & (1 << .@i)) ? "^00AA00[เปิด]^000000" : "^777777[ปิด]^000000";
-		.@menu$ = .@menu$ + (.@menu_count ? ":" : "") + "~" + getcastlename(.@castle$) + " " + .@status$;
-		.@menu_idx[.@menu_count] = .@i;
-		++.@menu_count;
-	}
-
-	if (!.@menu_count) {
-		dispbottom "[WoE Warp] ยังไม่มีปราสาทที่เลือกวาร์ปได้.";
-		close;
-	}
-
-	.@castle_idx = .@menu_idx[select(.@menu$) - 1];
-
-	if (!.@allow_all && !(.@active & (1 << .@castle_idx))) {
-		message strcharinfo(0), "[แจ้งเตือน] ปราสาทนี้ยังไม่เปิดค่ะ";
-		close;
-	}
-
-	.@region_idx = .@castle_idx / 5;
-	.@map$ = getvariableofnpc(.Map$[.@region_idx], "WOE_CONTROL");
-	.@x = getvariableofnpc(.MapX[.@castle_idx], "WOE_CONTROL");
-	.@y = getvariableofnpc(.MapY[.@castle_idx], "WOE_CONTROL");
-
-	set lastwarp$, .@map$;
-	set lastwarpx, .@x;
-	set lastwarpy, .@y;
-
-	warp .@map$, .@x, .@y;
-	close;
+	warp "guild_vs2-1",49,49;
+	return;
 }
 
 -	script	CS2#UI	-1,{

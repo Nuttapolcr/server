@@ -13597,7 +13597,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			break;
 		case SC_AUTOATTACK:
 			tick_time = battle_config.feature_autoattack_timer;
-			val4 = tick / tick_time;
+			// Keep the remaining duration in milliseconds. The combat loop can
+			// run faster than the idle loop, so a simple iteration count expires
+			// early in combat or never expires when the timer is rescheduled.
+			val3 = tick_time;
+			val4 = static_cast<int32>(cap_value(tick, static_cast<t_tick>(1), static_cast<t_tick>(INT_MAX)));
 
 			if (sd && !aa_changestate_autoattack(sd, 1))
 				return 0;
@@ -15176,15 +15180,50 @@ TIMER_FUNC(status_change_timer){
 // 		}
 // 		break;
 	case SC_AUTOATTACK:
-		if (!sd || aa_status(sd) < 0) {
+		if (!sd) {
+			status_change_end(bl, type, tid);
+			return 0;
+		}
+
+		// val3 is the interval that just elapsed and val4 is the remaining
+		// lifetime. This keeps rental-item expiry accurate even while combat
+		// switches the AI loop from 500 ms to 100 ms.
+		if (sce->val4 > 0) {
+			const int32 elapsed = max(sce->val3, 1);
+			if (sce->val4 <= elapsed) {
+				if (battle_config.feature_autoattack_duration_type) {
+					sd->aa.duration_ = 0;
+					pc_setaccountreg(sd, add_str("#aa_duration"), 0);
+				}
+				std::string msg = "Automessage - You don't have timer left on autoattack system!";
+				aa_message(sd, "TimerOut", msg.data(), 5, nullptr);
+				status_change_end(bl, type, tid);
+				return 0;
+			}
+
+			sce->val4 -= elapsed;
+			if (battle_config.feature_autoattack_duration_type) {
+				sd->aa.duration_ = sce->val4;
+				pc_setaccountreg(sd, add_str("#aa_duration"), sd->aa.duration_);
+			}
+		}
+
+		if (aa_status(sd) < 0) {
 			status_change_end(bl, type, tid);
 			return 0;
 		}
 
 		// aa_status() can stop the status itself (for example when overweight).
-		// Only schedule the next AI tick while the status is still active.
-		if (sc->getSCE(type))
-			sc_timer_next(battle_config.feature_autoattack_timer + tick);
+		// Poll combat more often so skills can fire as soon as their real server
+		// delay expires, while keeping the configured slower loop out of combat.
+		if (sc->getSCE(type)) {
+			t_tick next_interval = battle_config.feature_autoattack_timer;
+			if (sd->aa.target_id && next_interval > AA_CONSTANTS::COMBAT_LOOP_DELAY)
+				next_interval = AA_CONSTANTS::COMBAT_LOOP_DELAY;
+
+			sce->val3 = static_cast<int32>(next_interval);
+			sc_timer_next(next_interval + tick);
+		}
 
 		return 0;
 	case SC_AUTOBUFF:

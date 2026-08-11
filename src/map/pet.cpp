@@ -1794,8 +1794,27 @@ static int pet_ai_sub_hard(struct pet_data *pd, map_session_data *sd, t_tick tic
 	}
 	
 	if (!target && pd->loot && pd->loot->count < pd->loot->max && !pc_isdead(pd->master) && DIFF_TICK(tick, pd->ud.canact_tick) > 0) {
-		// Use half the pet's range of sight.
-		map_foreachinallrange(pet_ai_sub_hard_lootsearch, &pd->bl, pd->db->range2 / 2, BL_ITEM, pd, &target);
+		// Default to half the pet's sight range, with the custom pet tiers using
+		// the pickup radii defined in the Pet sheet.
+		int loot_range = pd->db->range2 / 2;
+		switch (pd->pet.class_) {
+			// Normal: GOLDEN_BUG through AMON_RA.
+			case 1086: case 1147: case 1115: case 1272: case 1039:
+			case 1190: case 1688: case 1159: case 1087: case 1511:
+				loot_range = 5;
+				break;
+			// Rare: PHARAOH through LORD_OF_DEATH.
+			case 1157: case 1630: case 1038: case 1389: case 1046:
+			case 1059: case 1150: case 1112: case 1251: case 1373:
+				loot_range = 9;
+				break;
+			// Epic: B_SEYREN through B_CHEN.
+			case 1646: case 1647: case 1648: case 1649: case 1650:
+			case 1651: case 2235: case 2236: case 2237: case 2238:
+				loot_range = 12;
+				break;
+		}
+		map_foreachinallrange(pet_ai_sub_hard_lootsearch, &pd->bl, loot_range, BL_ITEM, pd, &target);
 	}
 
 	if (!target) { // Just walk around.

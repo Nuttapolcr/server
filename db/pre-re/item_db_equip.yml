@@ -115,6 +115,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 0
+    Sell: 0
     Weight: 600
     Attack: 39
     Range: 1
@@ -136,7 +137,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 2
     Refineable: true
-    Sell: 0
   - Id: 1106
     AegisName: Falchion__
     Name: Falchion
@@ -196,6 +196,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 0
+    Sell: 0
     Weight: 700
     Attack: 53
     Range: 1
@@ -217,7 +218,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 2
     Refineable: true
-    Sell: 0
   - Id: 1109
     AegisName: Blade__
     Name: Blade
@@ -430,6 +430,7 @@ Body:
     Type: Weapon
     SubType: 2hSword
     Buy: 0
+    Sell: 0
     Weight: 1000
     Attack: 60
     Range: 1
@@ -443,7 +444,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 4
     Refineable: true
-    Sell: 0
   - Id: 1118
     AegisName: Katana__
     Name: Katana
@@ -672,6 +672,7 @@ Body:
     Type: Weapon
     SubType: 1hSword
     Buy: 0
+    Sell: 0
     Weight: 1000
     Attack: 115
     Range: 1
@@ -691,13 +692,13 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 27
     Refineable: true
-    Sell: 0
   - Id: 1128
     AegisName: Hae_Dong_Gum_
     Name: Haedonggum
     Type: Weapon
     SubType: 1hSword
     Buy: 0
+    Sell: 0
     Weight: 900
     Attack: 120
     Range: 1
@@ -719,7 +720,6 @@ Body:
     Refineable: true
     Script: |
       bonus bInt,3;
-    Sell: 0
   - Id: 1129
     AegisName: Flamberge
     Name: Flamberge
@@ -1386,6 +1386,7 @@ Body:
     Type: Weapon
     SubType: 2hSword
     Buy: 0
+    Sell: 0
     Weight: 2200
     Attack: 160
     Range: 1
@@ -1399,7 +1400,6 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 33
     Refineable: true
-    Sell: 0
   - Id: 1159
     AegisName: Two_Hand_Sword__
     Name: Two-Handed Sword
@@ -1485,6 +1485,7 @@ Body:
     Type: Weapon
     SubType: 2hSword
     Buy: 0
+    Sell: 0
     Weight: 2500
     Attack: 180
     Range: 1
@@ -1496,7 +1497,6 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 33
     Refineable: true
-    Sell: 0
   - Id: 1164
     AegisName: Muramasa
     Name: Muramasa
@@ -2346,6 +2346,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 0
+    Sell: 0
     Weight: 500
     Attack: 30
     Range: 1
@@ -2375,7 +2376,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 1
     Refineable: true
-    Sell: 0
   - Id: 1206
     AegisName: Cutter__
     Name: Cutter
@@ -2451,6 +2451,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 0
+    Sell: 0
     Weight: 600
     Attack: 43
     Range: 1
@@ -2480,7 +2481,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 1
     Refineable: true
-    Sell: 0
   - Id: 1209
     AegisName: Main_Gauche__
     Name: Main Gauche
@@ -2764,6 +2764,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 0
+    Sell: 0
     Weight: 700
     Attack: 87
     Range: 1
@@ -2793,7 +2794,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 12
     Refineable: true
-    Sell: 0
   - Id: 1218
     AegisName: Stiletto__
     Name: Stiletto
@@ -2867,6 +2867,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 0
+    Sell: 0
     Weight: 700
     Attack: 105
     Range: 1
@@ -2894,7 +2895,6 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 24
     Refineable: true
-    Sell: 0
   - Id: 1221
     AegisName: Gladius__
     Name: Gladius
@@ -3071,6 +3071,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Buy: 0
+    Sell: 0
     Weight: 800
     Attack: 118
     Range: 1
@@ -3100,7 +3101,6 @@ Body:
     Refineable: true
     Script: |
       bonus bUnbreakableWeapon;
-    Sell: 0
   - Id: 1227
     AegisName: Weeder_Knife
     Name: Weeder Knife
@@ -3820,6 +3820,7 @@ Body:
     Type: Weapon
     SubType: Katar
     Buy: 0
+    Sell: 0
     Weight: 800
     Attack: 125
     Range: 1
@@ -3831,7 +3832,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 18
     Refineable: true
-    Sell: 0
   - Id: 1252
     AegisName: Katar
     Name: Katar
@@ -3857,6 +3857,7 @@ Body:
     Type: Weapon
     SubType: Katar
     Buy: 0
+    Sell: 0
     Weight: 1200
     Attack: 148
     Range: 1
@@ -3870,7 +3871,6 @@ Body:
     Refineable: true
     Script: |
       bonus bDex,1;
-    Sell: 0
   - Id: 1254
     AegisName: Jamadhar
     Name: Jamadhar
@@ -3893,6 +3893,7 @@ Body:
     Type: Weapon
     SubType: Katar
     Buy: 0
+    Sell: 0
     Weight: 1500
     Attack: 165
     Range: 1
@@ -3904,13 +3905,13 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 33
     Refineable: true
-    Sell: 0
   - Id: 1256
     AegisName: Katar_Of_Cold_Icicle
     Name: Katar of Frozen Icicle
     Type: Weapon
     SubType: Katar
     Buy: 0
+    Sell: 0
     Weight: 1200
     Attack: 105
     Range: 1
@@ -3924,13 +3925,13 @@ Body:
     Script: |
       bonus bAtkEle,Ele_Water;
       bonus2 bAddEff,Eff_Freeze,500;
-    Sell: 0
   - Id: 1257
     AegisName: Katar_Of_Thornbush
     Name: Katar of Quaking
     Type: Weapon
     SubType: Katar
     Buy: 0
+    Sell: 0
     Weight: 1200
     Attack: 105
     Range: 1
@@ -3944,13 +3945,13 @@ Body:
     Script: |
       bonus bAtkEle,Ele_Earth;
       bonus2 bAddEff,Eff_Blind,500;
-    Sell: 0
   - Id: 1258
     AegisName: Katar_Of_Raging_Blaze
     Name: Katar of Raging Blaze
     Type: Weapon
     SubType: Katar
     Buy: 0
+    Sell: 0
     Weight: 1200
     Attack: 105
     Range: 1
@@ -3964,13 +3965,13 @@ Body:
     Script: |
       bonus bAtkEle,Ele_Fire;
       bonus2 bAddEff,Eff_Silence,500;
-    Sell: 0
   - Id: 1259
     AegisName: Katar_Of_Piercing_Wind
     Name: Katar of Piercing Wind
     Type: Weapon
     SubType: Katar
     Buy: 0
+    Sell: 0
     Weight: 1200
     Attack: 105
     Range: 1
@@ -3984,7 +3985,6 @@ Body:
     Script: |
       bonus bAtkEle,Ele_Wind;
       bonus2 bAddEff,Eff_Sleep,500;
-    Sell: 0
   - Id: 1260
     AegisName: Ghoul_Leg
     Name: Sharpened Legbone of Ghoul
@@ -4009,6 +4009,7 @@ Body:
     Type: Weapon
     SubType: Katar
     Buy: 0
+    Sell: 0
     Weight: 1500
     Attack: 140
     Range: 1
@@ -4025,7 +4026,6 @@ Body:
       bonus bDef,3;
       bonus bFlee,5;
       bonus bFlee2,2;
-    Sell: 0
   - Id: 1262
     AegisName: Nail_Of_Loki
     Name: Loki's Nail
@@ -4112,6 +4112,7 @@ Body:
     Type: Weapon
     SubType: Katar
     Buy: 0
+    Sell: 0
     Weight: 1500
     Attack: 140
     Range: 1
@@ -4129,7 +4130,6 @@ Body:
       bonus bDef,3;
       bonus bFlee,5;
       bonus bFlee2,2;
-    Sell: 0
   - Id: 1267
     AegisName: Infiltrator_C
     Name: Infiltrator
@@ -4679,6 +4679,7 @@ Body:
     Type: Weapon
     SubType: 1hAxe
     Buy: 0
+    Sell: 0
     Weight: 800
     Attack: 38
     Range: 1
@@ -4700,7 +4701,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 3
     Refineable: true
-    Sell: 0
   - Id: 1303
     AegisName: Axe__
     Name: Axe
@@ -5086,6 +5086,7 @@ Body:
     Type: Weapon
     SubType: 2hAxe
     Buy: 0
+    Sell: 0
     Weight: 1500
     Attack: 80
     Range: 1
@@ -5102,7 +5103,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 3
     Refineable: true
-    Sell: 0
   - Id: 1353
     AegisName: Battle_Axe__
     Name: Battle Axe
@@ -5152,6 +5152,7 @@ Body:
     Type: Weapon
     SubType: 2hAxe
     Buy: 0
+    Sell: 0
     Weight: 2000
     Attack: 120
     Range: 1
@@ -5168,7 +5169,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 16
     Refineable: true
-    Sell: 0
   - Id: 1356
     AegisName: Hammer__
     Name: Hammer
@@ -5283,6 +5283,7 @@ Body:
     Type: Weapon
     SubType: 2hAxe
     Buy: 0
+    Sell: 0
     Weight: 2500
     Attack: 185
     Range: 1
@@ -5299,7 +5300,6 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 30
     Refineable: true
-    Sell: 0
   - Id: 1362
     AegisName: Two_Handed_Axe__
     Name: Two-Handed Axe
@@ -6147,6 +6147,7 @@ Body:
     Type: Weapon
     SubType: 1hSpear
     Buy: 0
+    Sell: 0
     Weight: 850
     Attack: 44
     Range: 3
@@ -6160,7 +6161,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 4
     Refineable: true
-    Sell: 0
   - Id: 1406
     AegisName: Spear__
     Name: Spear
@@ -6204,6 +6204,7 @@ Body:
     Type: Weapon
     SubType: 1hSpear
     Buy: 0
+    Sell: 0
     Weight: 1000
     Attack: 60
     Range: 3
@@ -6217,7 +6218,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 4
     Refineable: true
-    Sell: 0
   - Id: 1409
     AegisName: Pike__
     Name: Pike
@@ -6892,6 +6892,7 @@ Body:
     Type: Weapon
     SubType: 2hSpear
     Buy: 0
+    Sell: 0
     Weight: 1200
     Attack: 104
     Range: 3
@@ -6905,7 +6906,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 18
     Refineable: true
-    Sell: 0
   - Id: 1456
     AegisName: Glaive__
     Name: Glaive
@@ -7005,6 +7005,7 @@ Body:
     Type: Weapon
     SubType: 2hSpear
     Buy: 0
+    Sell: 0
     Weight: 1200
     Attack: 150
     Range: 3
@@ -7018,7 +7019,6 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 33
     Refineable: true
-    Sell: 0
   - Id: 1462
     AegisName: Trident__
     Name: Trident
@@ -7340,6 +7340,7 @@ Body:
     Type: Weapon
     SubType: 2hSpear
     Buy: 0
+    Sell: 0
     Weight: 2000
     Attack: 170
     Range: 3
@@ -7361,7 +7362,6 @@ Body:
       bonus2 bSubRace,RC_Undead,10;
       bonus2 bAddEff2,Eff_Confusion,1000;
       bonus bHPGainValue,50;
-    Sell: 0
   - Id: 1478
     AegisName: Ahlspiess
     Name: Ahlspiess
@@ -7705,6 +7705,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Buy: 0
+    Sell: 0
     Weight: 700
     Attack: 23
     Range: 1
@@ -7726,7 +7727,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 2
     Refineable: true
-    Sell: 0
   - Id: 1503
     AegisName: Club__
     Name: Club
@@ -7786,6 +7786,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Buy: 0
+    Sell: 0
     Weight: 800
     Attack: 37
     Range: 1
@@ -7807,7 +7808,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 2
     Refineable: true
-    Sell: 0
   - Id: 1506
     AegisName: Mace__
     Name: Mace
@@ -8021,6 +8021,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Buy: 0
+    Sell: 0
     Weight: 1500
     Attack: 110
     Range: 1
@@ -8040,7 +8041,6 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 27
     Refineable: true
-    Sell: 0
   - Id: 1515
     AegisName: Morning_Star__
     Name: Morning Star
@@ -8096,6 +8096,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Buy: 0
+    Sell: 0
     Weight: 1200
     Attack: 130
     Range: 1
@@ -8115,7 +8116,6 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 27
     Refineable: true
-    Sell: 0
   - Id: 1518
     AegisName: Sword_Mace__
     Name: Sword Mace
@@ -8172,6 +8172,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Buy: 0
+    Sell: 0
     Weight: 800
     Attack: 84
     Range: 1
@@ -8191,7 +8192,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 14
     Refineable: true
-    Sell: 0
   - Id: 1521
     AegisName: Chain__
     Name: Chain
@@ -8442,6 +8442,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Buy: 0
+    Sell: 0
     Weight: 2000
     Attack: 140
     Range: 1
@@ -8457,7 +8458,6 @@ Body:
     Refineable: true
     Script: |
       bonus2 bAddEff,Eff_Stun,1000;
-    Sell: 0
   - Id: 1533
     AegisName: Warrior_Balmung
     Name: Warrior's Balmung
@@ -9755,7 +9755,7 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 1
     Refineable: true
-    Script: |
+    Script: |-
       bonus bAllStats,50;
       bonus bBaseAtk,3800;
       bonus bMatkRate,200;
@@ -9767,6 +9767,9 @@ Body:
       Skill "WZ_METEOR",10;
       Skill "WZ_VERMILION",10;
       skill "GM_SANDMAN",1;
+      skill "ASC_METEORASSAULT",1;
+      bonus2 bDropAddClass_C,Class_All,10000;
+      bonus2 bDropAddClass,Class_All,10000;
   - Id: 1601
     AegisName: Rod
     Name: Rod
@@ -9804,6 +9807,7 @@ Body:
     Type: Weapon
     SubType: Staff
     Buy: 0
+    Sell: 0
     Weight: 400
     Attack: 15
     Range: 1
@@ -9825,7 +9829,6 @@ Body:
     Refineable: true
     Script: |
       bonus bMatkRate,15;
-    Sell: 0
   - Id: 1603
     AegisName: Rod__
     Name: Rod
@@ -9886,6 +9889,7 @@ Body:
     Type: Weapon
     SubType: Staff
     Buy: 0
+    Sell: 0
     Weight: 400
     Attack: 25
     Range: 1
@@ -9908,7 +9912,6 @@ Body:
     Script: |
       bonus bInt,1;
       bonus bMatkRate,15;
-    Sell: 0
   - Id: 1606
     AegisName: Wand__
     Name: Wand
@@ -9968,6 +9971,7 @@ Body:
     Type: Weapon
     SubType: Staff
     Buy: 0
+    Sell: 0
     Weight: 400
     Attack: 40
     Range: 1
@@ -9988,7 +9992,6 @@ Body:
     Script: |
       bonus bInt,2;
       bonus bMatkRate,15;
-    Sell: 0
   - Id: 1609
     AegisName: Staff__
     Name: Staff
@@ -10046,6 +10049,7 @@ Body:
     Type: Weapon
     SubType: Staff
     Buy: 0
+    Sell: 0
     Weight: 400
     Attack: 60
     Range: 1
@@ -10066,7 +10070,6 @@ Body:
     Script: |
       bonus bInt,3;
       bonus bMatkRate,15;
-    Sell: 0
   - Id: 1612
     AegisName: Arc_Wand__
     Name: Arc Wand
@@ -10149,6 +10152,7 @@ Body:
     Type: Weapon
     SubType: Staff
     Buy: 0
+    Sell: 0
     Weight: 700
     Attack: 40
     Range: 1
@@ -10169,7 +10173,6 @@ Body:
       bonus bInt,4;
       bonus bAtkEle,Ele_Undead;
       bonus bMatkRate,15;
-    Sell: 0
   - Id: 1616
     AegisName: Staff_Of_Wing
     Name: Wing Staff
@@ -11282,6 +11285,7 @@ Body:
     Type: Weapon
     SubType: Bow
     Buy: 0
+    Sell: 0
     Weight: 600
     Attack: 29
     Range: 5
@@ -11297,7 +11301,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 4
     Refineable: true
-    Sell: 0
   - Id: 1706
     AegisName: Composite_Bow__
     Name: Composite Bow
@@ -11345,6 +11348,7 @@ Body:
     Type: Weapon
     SubType: Bow
     Buy: 0
+    Sell: 0
     Weight: 1000
     Attack: 50
     Range: 5
@@ -11360,7 +11364,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 18
     Refineable: true
-    Sell: 0
   - Id: 1709
     AegisName: Great_Bow__
     Name: Great Bow
@@ -11472,6 +11475,7 @@ Body:
     Type: Weapon
     SubType: Bow
     Buy: 0
+    Sell: 0
     Weight: 1100
     Attack: 100
     Range: 5
@@ -11487,13 +11491,13 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 33
     Refineable: true
-    Sell: 0
   - Id: 1715
     AegisName: Arbalest_
     Name: Arbalest
     Type: Weapon
     SubType: Bow
     Buy: 0
+    Sell: 0
     Weight: 1000
     Attack: 90
     Range: 5
@@ -11511,13 +11515,13 @@ Body:
     Refineable: true
     Script: |
       bonus bDex,2;
-    Sell: 0
   - Id: 1716
     AegisName: Kakkung_
     Name: Gakkung Bow
     Type: Weapon
     SubType: Bow
     Buy: 0
+    Sell: 0
     Weight: 1100
     Attack: 100
     Range: 5
@@ -11533,13 +11537,13 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 33
     Refineable: true
-    Sell: 0
   - Id: 1718
     AegisName: Hunter_Bow
     Name: Hunter Bow
     Type: Weapon
     SubType: Bow
     Buy: 0
+    Sell: 0
     Weight: 1500
     Attack: 125
     Range: 5
@@ -11550,7 +11554,6 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 33
     Refineable: true
-    Sell: 0
   - Id: 1719
     AegisName: Bow_Of_Roguemaster
     Name: Roguemaster's Bow
@@ -12197,6 +12200,7 @@ Body:
     Type: Weapon
     SubType: Knuckle
     Buy: 0
+    Sell: 0
     Weight: 400
     Attack: 30
     Range: 1
@@ -12209,7 +12213,6 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 1
     Refineable: true
-    Sell: 0
   - Id: 1803
     AegisName: Knuckle_Duster
     Name: Knuckle Dusters
@@ -12516,6 +12519,7 @@ Body:
     Type: Weapon
     SubType: Knuckle
     Buy: 0
+    Sell: 0
     Weight: 650
     Attack: 80
     Range: 1
@@ -12530,7 +12534,6 @@ Body:
     Refineable: true
     Script: |
       bonus3 bAutoSpell,"SA_FLAMELAUNCHER",5,10;
-    Sell: 0
   - Id: 1819
     AegisName: Icicle_Fist
     Name: Icicle Fist
@@ -12882,6 +12885,7 @@ Body:
     Type: Weapon
     SubType: Musical
     Buy: 0
+    Sell: 0
     Weight: 700
     Attack: 50
     Range: 1
@@ -12894,13 +12898,13 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 2
     Refineable: true
-    Sell: 0
   - Id: 1903
     AegisName: Mandolin
     Name: Mandolin
     Type: Weapon
     SubType: Musical
     Buy: 0
+    Sell: 0
     Weight: 400
     Attack: 90
     Range: 1
@@ -12913,7 +12917,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 14
     Refineable: true
-    Sell: 0
   - Id: 1904
     AegisName: Mandolin_
     Name: Mandolin
@@ -12938,6 +12941,7 @@ Body:
     Type: Weapon
     SubType: Musical
     Buy: 0
+    Sell: 0
     Weight: 500
     Attack: 105
     Range: 1
@@ -12950,7 +12954,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 14
     Refineable: true
-    Sell: 0
   - Id: 1906
     AegisName: Lute_
     Name: Lute
@@ -13030,6 +13033,7 @@ Body:
     Type: Weapon
     SubType: Musical
     Buy: 0
+    Sell: 0
     Weight: 900
     Attack: 114
     Range: 1
@@ -13044,7 +13048,6 @@ Body:
     Refineable: true
     Script: |
       bonus bInt,2;
-    Sell: 0
   - Id: 1911
     AegisName: Guh_Moon_Goh
     Name: Gumoongoh
@@ -13564,6 +13567,7 @@ Body:
     Type: Weapon
     SubType: Whip
     Buy: 0
+    Sell: 0
     Weight: 400
     Attack: 45
     Range: 2
@@ -13576,13 +13580,13 @@ Body:
     WeaponLevel: 1
     EquipLevelMin: 3
     Refineable: true
-    Sell: 0
   - Id: 1952
     AegisName: Line
     Name: Whip
     Type: Weapon
     SubType: Whip
     Buy: 0
+    Sell: 0
     Weight: 300
     Attack: 80
     Range: 2
@@ -13595,7 +13599,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 16
     Refineable: true
-    Sell: 0
   - Id: 1953
     AegisName: Line_
     Name: Whip
@@ -13620,6 +13623,7 @@ Body:
     Type: Weapon
     SubType: Whip
     Buy: 0
+    Sell: 0
     Weight: 1000
     Attack: 95
     Range: 2
@@ -13632,7 +13636,6 @@ Body:
     WeaponLevel: 2
     EquipLevelMin: 16
     Refineable: true
-    Sell: 0
   - Id: 1955
     AegisName: Wire_
     Name: Wire Whip
@@ -13657,6 +13660,7 @@ Body:
     Type: Weapon
     SubType: Whip
     Buy: 0
+    Sell: 0
     Weight: 900
     Attack: 135
     Range: 2
@@ -13668,7 +13672,6 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 30
     Refineable: true
-    Sell: 0
   - Id: 1957
     AegisName: Rante_
     Name: Rante Whip
@@ -14548,6 +14551,7 @@ Body:
     Name: Guard
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 300
     Defense: 3
     Slots: 1
@@ -14556,7 +14560,6 @@ Body:
     ArmorLevel: 1
     Refineable: true
     View: 1
-    Sell: 0
   - Id: 2103
     AegisName: Buckler
     Name: Buckler
@@ -14588,6 +14591,7 @@ Body:
     Name: Buckler
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 600
     Defense: 4
     Slots: 1
@@ -14610,7 +14614,6 @@ Body:
     ArmorLevel: 1
     Refineable: true
     View: 2
-    Sell: 0
   - Id: 2105
     AegisName: Shield
     Name: Shield
@@ -14632,6 +14635,7 @@ Body:
     Name: Shield
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 1300
     Defense: 6
     Slots: 1
@@ -14644,7 +14648,6 @@ Body:
     ArmorLevel: 1
     Refineable: true
     View: 3
-    Sell: 0
   - Id: 2107
     AegisName: Mirror_Shield
     Name: Mirror Shield
@@ -14669,6 +14672,7 @@ Body:
     Name: Mirror Shield
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 1000
     Defense: 4
     Slots: 1
@@ -14684,7 +14688,6 @@ Body:
     View: 4
     Script: |
       bonus bMdef,5;
-    Sell: 0
   - Id: 2109
     AegisName: Memorize_Book
     Name: Memory Book
@@ -15642,6 +15645,8 @@ Body:
       Priest: true
       Knight: true
       BardDancer: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -15652,8 +15657,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 2214
     AegisName: Bunny_Band
     Name: Bunny Band
@@ -16077,6 +16080,8 @@ Body:
       Priest: true
       Knight: true
       BardDancer: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16087,8 +16092,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 2235
     AegisName: Crown
     Name: Crown
@@ -16142,6 +16145,8 @@ Body:
       Rebellion: true
       Blacksmith: true
       Mage: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16152,8 +16157,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 2236
     AegisName: Santa's_Hat
     Name: Santa Hat
@@ -16322,6 +16325,8 @@ Body:
       Priest: true
       Knight: true
       BardDancer: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16332,8 +16337,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 2247
     AegisName: Oldman's_Romance
     Name: Romantic Gent
@@ -16418,6 +16421,8 @@ Body:
       Knight: true
       Priest: true
       Summoner: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16428,8 +16433,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 2250
     AegisName: Fillet
     Name: Cute Ribbon
@@ -16595,6 +16598,8 @@ Body:
       Priest: true
       Knight: true
       BardDancer: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16605,8 +16610,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 2257
     AegisName: Snowy_Horn
     Name: Unicorn Horn
@@ -16681,6 +16684,8 @@ Body:
       Knight: true
       Priest: true
       Summoner: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -16691,8 +16696,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 2259
     AegisName: Mini_Propeller
     Name: Mini Propeller
@@ -16875,6 +16878,8 @@ Body:
       Priest: true
       Knight: true
       BardDancer: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Low: true
     ArmorLevel: 1
@@ -16885,13 +16890,12 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 2269
     AegisName: Centimental_Flower
     Name: Romantic Flower
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Jobs:
       All: true
@@ -16903,7 +16907,27 @@ Body:
     View: 56
     Script: |
       bonus2 bSubRace,RC_Plant,3;
+  - Id: 1500014
+    AegisName: Cos_Centimental_Flower
+    Name: Cos Romantic Flower
+    Type: Armor
+    Buy: 0
     Sell: 0
+    Weight: 100
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    ArmorLevel: 1
+    View: 56
+    Locations:
+      Costume_Head_Low: true
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 2270
     AegisName: Centimental_Leaf
     Name: Romantic Leaf
@@ -17152,6 +17176,24 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 70
     View: 73
+  - Id: 1500012
+    AegisName: Elven_Ears_Copy
+    Name: Cos Elven Ears
+    Type: Armor
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Locations:
+      Costume_Head_Mid: true
+    View: 73
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+    ArmorLevel: 1
   - Id: 2287
     AegisName: Pirate_Bandana
     Name: Pirate Bandana
@@ -17220,6 +17262,8 @@ Body:
       Priest: true
       Knight: true
       BardDancer: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Mid: true
     ArmorLevel: 1
@@ -17230,8 +17274,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 2289
     AegisName: Poo_Poo_Hat
     Name: Poo Poo Hat
@@ -17376,6 +17418,20 @@ Body:
       Head_Top: true
     ArmorLevel: 1
     View: 85
+  - Id: 1500015
+    AegisName: Cos_Green_Feeler
+    Name: Cos Green Feeler
+    Type: Armor
+    ArmorLevel: 1
+    View: 85
+    Locations:
+      Costume_Head_Top: true
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 2299
     AegisName: Viking_Helm
     Name: Orc Helm
@@ -17534,6 +17590,7 @@ Body:
     Name: Mink Coat
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 2300
     Defense: 6
     Slots: 1
@@ -17546,7 +17603,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 30
     Refineable: true
-    Sell: 0
   - Id: 2312
     AegisName: Padded_Armor
     Name: Padded Armor
@@ -17616,6 +17672,7 @@ Body:
     Name: Chain Mail
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 3300
     Defense: 8
     Slots: 1
@@ -17633,7 +17690,6 @@ Body:
       Armor: true
     ArmorLevel: 1
     Refineable: true
-    Sell: 0
   - Id: 2316
     AegisName: Plate_Armor
     Name: Full Plate
@@ -17655,6 +17711,7 @@ Body:
     Name: Full Plate
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 4500
     Defense: 10
     Slots: 1
@@ -17667,7 +17724,6 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 40
     Refineable: true
-    Sell: 0
   - Id: 2318
     AegisName: Clothes_Of_The_Lord
     Name: Lord's Clothes
@@ -17713,6 +17769,7 @@ Body:
     Name: Formal Suit
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 300
     Defense: 5
     Slots: 1
@@ -17724,7 +17781,6 @@ Body:
       Armor: true
     ArmorLevel: 1
     Refineable: true
-    Sell: 0
   - Id: 2321
     AegisName: Silk_Robe
     Name: Silk Robe
@@ -17757,6 +17813,7 @@ Body:
     Name: Silk Robe
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 400
     Defense: 3
     Slots: 1
@@ -17780,7 +17837,6 @@ Body:
     Refineable: true
     Script: |
       bonus bMdef,10;
-    Sell: 0
   - Id: 2323
     AegisName: Scapulare
     Name: Scapulare
@@ -17837,6 +17893,7 @@ Body:
     Name: Saint's Robe
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 600
     Defense: 6
     Slots: 1
@@ -17853,7 +17910,6 @@ Body:
     Refineable: true
     Script: |
       bonus bMdef,5;
-    Sell: 0
   - Id: 2327
     AegisName: Holy_Robe
     Name: Holy Robe
@@ -17934,6 +17990,7 @@ Body:
     Name: Tights
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 500
     Defense: 6
     Slots: 1
@@ -17948,7 +18005,6 @@ Body:
     Refineable: true
     Script: |
       bonus bDex,1;
-    Sell: 0
   - Id: 2332
     AegisName: Silver_Robe
     Name: Silver Robe
@@ -18025,6 +18081,7 @@ Body:
     Name: Thief Clothes
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 6
     Slots: 1
@@ -18039,7 +18096,6 @@ Body:
     Refineable: true
     Script: |
       bonus bAgi,1;
-    Sell: 0
   - Id: 2337
     AegisName: Ninja_Suit
     Name: Ninja Suit
@@ -19391,6 +19447,7 @@ Body:
     Name: Shoes
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 400
     Defense: 2
     Slots: 1
@@ -19402,7 +19459,6 @@ Body:
       Shoes: true
     ArmorLevel: 1
     Refineable: true
-    Sell: 0
   - Id: 2405
     AegisName: Boots
     Name: Boots
@@ -19435,6 +19491,7 @@ Body:
     Name: Boots
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 600
     Defense: 4
     Slots: 1
@@ -19458,12 +19515,12 @@ Body:
       Shoes: true
     ArmorLevel: 1
     Refineable: true
-    Sell: 0
   - Id: 2407
     AegisName: Chrystal_Pumps
     Name: Crystal Pumps
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Jobs:
       All: true
@@ -19476,7 +19533,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bLuk,5;
-    Sell: 0
   - Id: 2408
     AegisName: Cuffs
     Name: Shackles
@@ -20427,6 +20483,7 @@ Body:
     Name: Muffler
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 400
     Defense: 2
     Slots: 1
@@ -20438,7 +20495,6 @@ Body:
       Garment: true
     ArmorLevel: 1
     Refineable: true
-    Sell: 0
   - Id: 2505
     AegisName: Manteau
     Name: Manteau
@@ -20467,6 +20523,7 @@ Body:
     Name: Manteau
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 600
     Defense: 4
     Slots: 1
@@ -20486,7 +20543,6 @@ Body:
       Garment: true
     ArmorLevel: 1
     Refineable: true
-    Sell: 0
   - Id: 2507
     AegisName: Cape_Of_Ancient_Lord
     Name: Ancient Cape
@@ -20510,6 +20566,7 @@ Body:
     Name: Ragamuffin Manteau
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 500
     Defense: 1
     Jobs:
@@ -20523,7 +20580,6 @@ Body:
     Script: |
       bonus bUnbreakableGarment;
       bonus bMdef,10;
-    Sell: 0
   - Id: 2509
     AegisName: Clack_Of_Servival
     Name: Survivor's Manteau
@@ -21824,6 +21880,7 @@ Body:
     Name: Ring
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Slots: 1
     Jobs:
@@ -21836,12 +21893,12 @@ Body:
     EquipLevelMin: 90
     Script: |
       bonus bStr,1;
-    Sell: 0
   - Id: 2622
     AegisName: Earring_
     Name: Earring
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Slots: 1
     Jobs:
@@ -21854,12 +21911,12 @@ Body:
     EquipLevelMin: 90
     Script: |
       bonus bInt,1;
-    Sell: 0
   - Id: 2623
     AegisName: Necklace_
     Name: Necklace
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Slots: 1
     Jobs:
@@ -21872,12 +21929,12 @@ Body:
     EquipLevelMin: 90
     Script: |
       bonus bVit,1;
-    Sell: 0
   - Id: 2624
     AegisName: Glove_
     Name: Glove
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Slots: 1
     Jobs:
@@ -21890,12 +21947,12 @@ Body:
     EquipLevelMin: 90
     Script: |
       bonus bDex,1;
-    Sell: 0
   - Id: 2625
     AegisName: Brooch_
     Name: Brooch
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Slots: 1
     Jobs:
@@ -21908,12 +21965,12 @@ Body:
     EquipLevelMin: 90
     Script: |
       bonus bAgi,1;
-    Sell: 0
   - Id: 2626
     AegisName: Rosary_
     Name: Rosary
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Slots: 1
     Jobs:
@@ -21927,7 +21984,6 @@ Body:
     Script: |
       bonus bMdef,3;
       bonus bLuk,1;
-    Sell: 0
   - Id: 2627
     AegisName: Belt
     Name: Belt
@@ -25539,6 +25595,8 @@ Body:
       Priest: true
       Knight: true
       Summoner: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -25549,8 +25607,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 5003
     AegisName: Joker_Jester
     Name: Joker Jester
@@ -25675,6 +25731,8 @@ Body:
       Priest: true
       Knight: true
       Summoner: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -25685,8 +25743,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 5008
     AegisName: Puppy_Love
     Name: Puppy Love
@@ -25823,6 +25879,24 @@ Body:
     ArmorLevel: 1
     Refineable: true
     View: 102
+  - Id: 1500013
+    AegisName: Cos_Boy's_Cap
+    Name: Cos Boy's Cap
+    Type: Armor
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    ArmorLevel: 1
+    View: 102
+    Locations:
+      Costume_Head_Top: true
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5017
     AegisName: Bone_Helm
     Name: Bone Helm
@@ -25915,6 +25989,8 @@ Body:
       Knight: true
       Priest: true
       Summoner: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -25925,8 +26001,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 5020
     AegisName: Kafra_Band
     Name: Kafra Band
@@ -26333,6 +26407,8 @@ Body:
       Knight: true
       BardDancer: true
       Summoner: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Mid: true
     ArmorLevel: 1
@@ -26343,8 +26419,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 5041
     AegisName: Heart_Hair_Pin
     Name: Heart Hairpin
@@ -26595,6 +26669,7 @@ Body:
     Name: Drooping Cat
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 500
     Defense: 1
     Jobs:
@@ -26609,7 +26684,6 @@ Body:
     Script: |
       bonus bMdef,15;
       bonus2 bResEff,Eff_Curse,3000;
-    Sell: 0
   - Id: 5059
     AegisName: Brown_Bear_Cap
     Name: Teddybear Hat
@@ -27358,6 +27432,20 @@ Body:
     ArmorLevel: 1
     Refineable: true
     View: 189
+  - Id: 1500016
+    AegisName: Cos_Detective_Hat
+    Name: Cos Renown Detective's Cap
+    Type: Armor
+    ArmorLevel: 1
+    View: 189
+    Locations:
+      Costume_Head_Top: true
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5109
     AegisName: Red_Bonnet
     Name: Red Bonnet
@@ -27618,6 +27706,8 @@ Body:
       Priest: true
       Knight: true
       BardDancer: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -27628,8 +27718,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 5124
     AegisName: Fricca_Circlet
     Name: Fricca's Circlet
@@ -27880,6 +27968,7 @@ Body:
     Name: Alice Doll
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 500
     Slots: 1
     Jobs:
@@ -27896,7 +27985,6 @@ Body:
       bonus2 bAddRace,RC_DemiHuman,10;
       bonus2 bAddRace,RC_Player_Human,10;
       bonus2 bAddEff2,Eff_Sleep,10;
-    Sell: 0
   - Id: 5138
     AegisName: Magic_Eyes
     Name: Magic Eyes
@@ -30686,6 +30774,7 @@ Body:
     Name: Pecopeco Hairband
     Type: Armor
     Buy: 0
+    Sell: 0
     Defense: 3
     Locations:
       Head_Top: true
@@ -30697,7 +30786,6 @@ Body:
       bonus bAspdRate,5;
       bonus bCastrate,-5;
       bonus bDelayRate,-5;
-    Sell: 0
   - Id: 5287
     AegisName: Vacation_Hat
     Name: Vacation Hat
@@ -30813,6 +30901,7 @@ Body:
     Name: Ramen Hat
     Type: Armor
     Buy: 0
+    Sell: 0
     Defense: 1
     Locations:
       Head_Top: true
@@ -30822,7 +30911,6 @@ Body:
     Script: |
       bonus bDex,4;
       bonus4 bAutoSpellWhenHit,"AL_DECAGI",1,30,1;
-    Sell: 0
   - Id: 5294
     AegisName: Whisper_Mask
     Name: Whisper Mask
@@ -31016,6 +31104,7 @@ Body:
     Name: Pirate Dagger
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Locations:
       Head_Low: true
@@ -31023,7 +31112,6 @@ Body:
     View: 327
     Script: |
       bonus bAtk,5;
-    Sell: 0
   - Id: 5306
     AegisName: Freyja_Crown
     Name: Freya's Crown
@@ -31151,6 +31239,7 @@ Body:
     Name: Ayothaya King's Hat
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 5
     Slots: 1
@@ -31173,7 +31262,6 @@ Body:
       bonus bStr,1;
       bonus2 bAddRace,RC_DemiHuman,5;
       bonus2 bAddRace,RC_Player_Human,5;
-    Sell: 0
   - Id: 5313
     AegisName: Diadem
     Name: Diadem
@@ -31201,6 +31289,7 @@ Body:
     Name: Hockey Mask
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 1
     Locations:
@@ -31215,7 +31304,6 @@ Body:
     Script: |
       bonus2 bAddRace,RC_DemiHuman,5;
       bonus2 bAddRace,RC_Player_Human,5;
-    Sell: 0
   - Id: 5315
     AegisName: Observer
     Name: Observer
@@ -31412,6 +31500,7 @@ Body:
     Name: Robo Eye
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Defense: 2
     Locations:
@@ -31423,7 +31512,6 @@ Body:
       bonus2 bAddClass,Class_All,2;
       bonus bMatkRate,2;
       bonus bDex,1;
-    Sell: 0
   - Id: 5326
     AegisName: Masquerade_C
     Name: Masquerade C
@@ -31954,6 +32042,7 @@ Body:
     Name: Wings Of Victory
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Defense: 2
     Locations:
@@ -31963,7 +32052,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bUnbreakableHelm;
-    Sell: 0
   - Id: 5358
     AegisName: Pecopeco_Wing_Ears
     Name: Peco Ears
@@ -31989,6 +32077,7 @@ Body:
     Name: Ship Captain Hat
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 300
     Defense: 3
     Slots: 1
@@ -32002,7 +32091,6 @@ Body:
       bonus bDex,1;
       bonus bLongAtkRate,7;
       bonus bMaxHP,100;
-    Sell: 0
   - Id: 5360
     AegisName: Whikebain_Ears
     Name: Hyuke's Black Cat Ears
@@ -32045,6 +32133,7 @@ Body:
     Name: Ninja Scroll
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Locations:
       Head_Low: true
@@ -32057,7 +32146,6 @@ Body:
       NoGuildStorage: true
     Script: |
       bonus bMatkRate,1;
-    Sell: 0
   - Id: 5363
     AegisName: Helm_Of_Abyss
     Name: Helm Of Abyss
@@ -32239,6 +32327,7 @@ Body:
     Name: Koneko Hat
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 500
     Defense: 1
     Locations:
@@ -32252,7 +32341,6 @@ Body:
       bonus bMatkRate,3;
       bonus bMaxSPrate,3;
       bonus bMdef,3;
-    Sell: 0
   - Id: 5373
     AegisName: Darkness_Helm
     Name: Dark Randgris Helm
@@ -32320,6 +32408,7 @@ Body:
     Name: Flying Evil Wing
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 3
     Slots: 1
@@ -32334,12 +32423,12 @@ Body:
     Script: |
       bonus bMaxSP,120;
       bonus2 bAddEff2,Eff_Curse,300;
-    Sell: 0
   - Id: 5377
     AegisName: Antique_Pipe
     Name: Gentleman's Pipe
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Locations:
       Head_Low: true
@@ -32351,7 +32440,6 @@ Body:
     Script: |
       bonus2 bSubRace,RC_DemiHuman,2;
       bonus2 bSubRace,RC_Player_Human,2;
-    Sell: 0
   - Id: 5378
     AegisName: Rabbit_Ear_Hat
     Name: Bunny Top Hat
@@ -32552,6 +32640,7 @@ Body:
     Name: Snake Head Hat
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Defense: 1
     Slots: 1
@@ -32563,12 +32652,12 @@ Body:
     View: 393
     Script: |
       skill "TF_DOUBLE",5;
-    Sell: 0
   - Id: 5389
     AegisName: Angel_Spirit
     Name: Angel Spirit
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Locations:
       Head_Mid: true
@@ -32578,7 +32667,6 @@ Body:
     Script: |
       bonus bStr,2;
       bonus bHit,15;
-    Sell: 0
   - Id: 5390
     AegisName: Santa_Hat_2
     Name: Frozen Twin Pompom
@@ -32829,6 +32917,7 @@ Body:
     Name: Fish In Mouth
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 200
     Locations:
       Head_Low: true
@@ -32842,7 +32931,6 @@ Body:
     Script: |
       bonus2 bAddMonsterDropItem,579,500;
       bonus2 bAddItemHealRate,579,25;
-    Sell: 0
   - Id: 5404
     AegisName: Blue_Ribbon
     Name: Blue Ribbon
@@ -33150,6 +33238,7 @@ Body:
     Name: Ears Of Ifrit
     Type: Armor
     Buy: 0
+    Sell: 0
     Jobs:
       All: true
       Novice: false
@@ -33170,7 +33259,6 @@ Body:
       bonus2 bSkillAtk,"KN_PIERCE",2;
       bonus2 bSubEle,Ele_Fire,5;
       bonus2 bSubEle,Ele_Water,-5;
-    Sell: 0
   - Id: 5422
     AegisName: Linguistic_Book_Cap
     Name: Linguistic Book Hat
@@ -33324,6 +33412,7 @@ Body:
     Name: Chicken Hat
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 1000
     Slots: 1
     Locations:
@@ -33335,7 +33424,6 @@ Body:
     Script: |
       bonus3 bAutoSpell,"MC_LOUD",1,30;
       bonus bAspdRate,5;
-    Sell: 0
   - Id: 5432
     AegisName: Brazil_Baseball_Cap
     Name: bRO 4th Anniversary Hat
@@ -33864,6 +33952,7 @@ Body:
     Name: Spiked Scarf
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 1
     Locations:
@@ -33883,12 +33972,12 @@ Body:
       bonus2 bAddRace,RC_Player_Human,1;
       bonus2 bSubRace,RC_DemiHuman,1;
       bonus2 bSubRace,RC_Player_Human,1;
-    Sell: 0
   - Id: 5463
     AegisName: Rainbow_Scarf
     Name: Rainbow Scarf
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 1
     Locations:
@@ -33904,7 +33993,6 @@ Body:
       bonus bInt,1;
       bonus bMdef,2;
       bonus bMatkRate,1;
-    Sell: 0
   - Id: 5464
     AegisName: Zaha_Doll_Hat
     Name: Zaha Doll Hat
@@ -34513,6 +34601,8 @@ Body:
     AegisName: Blue_Pajamas_Hat
     Name: Blue Night Cap
     Type: Armor
+    Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 4
     Slots: 1
@@ -34524,12 +34614,12 @@ Body:
     Script: |
       bonus bBaseAtk,5;
       bonus bMatkRate,5;
-    Buy: 0
-    Sell: 0
   - Id: 5507
     AegisName: Pink_Pajamas_Hat
     Name: Pink Night Cap
     Type: Armor
+    Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 4
     Slots: 1
@@ -34541,8 +34631,6 @@ Body:
     Script: |
       bonus bBaseAtk,5;
       bonus bMatkRate,5;
-    Buy: 0
-    Sell: 0
   - Id: 5508
     AegisName: Shark_Hat
     Name: Shark Hat
@@ -34714,6 +34802,7 @@ Body:
     Name: hawk Eyes
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Jobs:
       Hunter: true
@@ -34725,7 +34814,6 @@ Body:
     Script: |
       bonus bDex,1;
       bonus bLongAtkRate,3;
-    Sell: 0
   - Id: 5517
     AegisName: Hawk_Eyes02
     Name: Hawk Eyes
@@ -35563,6 +35651,7 @@ Body:
     Name: Crown of Deceit
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 300
     Defense: 3
     Slots: 1
@@ -35577,7 +35666,6 @@ Body:
       bonus bInt,4;
       bonus bCastRate,-10;
       bonus bUnbreakableArmor;      
-    Sell: 0
   - Id: 5565
     AegisName: Dragon_Arhat_Mask
     Name: Dragon Arhat Mask
@@ -35985,6 +36073,7 @@ Body:
     Name: Sigrun's Wings
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 2
     Locations:
@@ -36004,7 +36093,6 @@ Body:
          bonus bMaxHP,120;
          bonus bMaxSP,60;
       }
-    Sell: 0
   - Id: 5593
     AegisName: K_Rabbit_Bonnet
     Name: Rabbit Bonnet
@@ -36042,6 +36130,7 @@ Body:
     Name: 4Leaf Clover In Mouth
     Type: Armor
     Buy: 0
+    Sell: 0
     Defense: 2
     Locations:
       Head_Low: true
@@ -36052,7 +36141,6 @@ Body:
       bonus bAtk,5;
       bonus bMatk,5;
       bonus bMdef,2;
-    Sell: 0
   - Id: 5597
     AegisName: Bubble_Gum_In_Mouth
     Name: Bubble Gum In Mouth
@@ -36240,6 +36328,7 @@ Body:
     Name: Filir's Pinions
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 1
     Locations:
@@ -36250,7 +36339,6 @@ Body:
     Script: |
       bonus bAspdRate,2;
       bonus bCastRate,-2;
-    Sell: 0
   - Id: 5665
     AegisName: Shaman_Hat
     Name: Shaman Hat
@@ -36779,6 +36867,7 @@ Body:
     Name: Blush of Groom
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 50
     Locations:
       Head_Mid: true
@@ -36787,12 +36876,12 @@ Body:
     Script: |
       bonus2 bSubRace,RC_DemiHuman,3;
       bonus2 bSubRace,RC_Player_Human,3;
-    Sell: 0
   - Id: 5801
     AegisName: Ribbon_Of_Bride
     Name: Red Tailed Ribbon
     Type: Armor
     Buy: 0
+    Sell: 0
     Weight: 100
     Defense: 5
     Locations:
@@ -36810,7 +36899,6 @@ Body:
       else {
          bonus3 bAutoSpellWhenHit,"AL_HEAL",5,20;
       }
-    Sell: 0
   - Id: 5802
     AegisName: Upgrade_Elephant_Hat
     Name: Upgraded Elephant Hat
@@ -36971,6 +37059,8 @@ Body:
       Priest: true
       Knight: true
       BardDancer: true
+    Classes:
+      All: true
     Locations:
       Costume_Head_Top: true
     ArmorLevel: 1
@@ -36981,8 +37071,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Classes:
-      All: true
   - Id: 5809
     AegisName: Boom_Boom_Hat
     Name: Boom Boom Hat
@@ -39413,6 +39501,7 @@ Body:
     Type: Weapon
     SubType: Revolver
     Buy: 0
+    Sell: 0
     Weight: 400
     Attack: 30
     Range: 7
@@ -39426,7 +39515,6 @@ Body:
     Refineable: true
     Script: |
       bonus bHit,-10;
-    Sell: 0
   - Id: 13101
     AegisName: Six_Shooter_
     Name: Six Shooter
@@ -39452,6 +39540,7 @@ Body:
     Type: Weapon
     SubType: Revolver
     Buy: 0
+    Sell: 0
     Weight: 450
     Attack: 45
     Range: 7
@@ -39465,7 +39554,6 @@ Body:
     Refineable: true
     Script: |
       bonus bHit,-10;
-    Sell: 0
   - Id: 13103
     AegisName: Crimson_Bolt_
     Name: Crimson Bolt
@@ -39549,6 +39637,7 @@ Body:
     Type: Weapon
     SubType: Revolver
     Buy: 0
+    Sell: 0
     Weight: 580
     Attack: 68
     Range: 7
@@ -39563,7 +39652,6 @@ Body:
     Script: |
       bonus bHit,readparam(bAgi)/10;
       bonus bAspdRate,readparam(bAgi)/14;
-    Sell: 0
   - Id: 13108
     AegisName: BF_Pistol1
     Name: Soldier Revolver
@@ -40500,6 +40588,7 @@ Body:
     Type: Weapon
     SubType: Huuma
     Buy: 0
+    Sell: 0
     Weight: 1550
     Attack: 112
     Range: 1
@@ -40515,7 +40604,6 @@ Body:
       bonus bUnbreakableWeapon;
       bonus2 bSkillAtk,"NJ_HUUMA",30;
       bonus bNoCastCancel;
-    Sell: 0
   - Id: 13305
     AegisName: BF_Huuma_Shuriken1
     Name: Brave Huuma Front Shuriken
@@ -42886,7 +42974,6 @@ Body:
     View: 1289
     Script: |
       bonus2 bDropAddRace,RC_All,10;
-      bonus2 bExpAddRace,RC_All,5;      
   - Id: 1030000
     AegisName: aegis_1030000
     Name: CBT Shadow ct

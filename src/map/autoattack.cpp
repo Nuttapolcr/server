@@ -7,7 +7,6 @@
 #include "pc.hpp"
 #include "skill.hpp"
 
-#include <random>
 #include <queue>
 #include <cmath>
 #include <tuple>
@@ -884,21 +883,21 @@ void aa_mob_ai_search_mvpcheck(struct block_list* bl, struct mob_data* md){
 		TBL_PC* sd = BL_CAST(BL_PC, bl);
 		if (sd->state.autoattack) {
 			e_mob_bosstype bosstype = md->get_bosstype();
+			t_tick now = gettick();
 
-			//if (sd->aa.teleport.tp_mvp && bosstype == BOSSTYPE_MVP)
-			if (bosstype == BOSSTYPE_MVP)
+			if (DIFF_TICK(now, sd->aa.last_teleport) < AA_CONSTANTS::BOSS_TELEPORT_DELAY)
+				return;
+
+			if (sd->aa.teleport.tp_mvp && bosstype == BOSSTYPE_MVP)
 				aa_teleport(sd);
-			//else if (sd->aa.teleport.tp_miniboss && bosstype == BOSSTYPE_MINIBOSS)
-			else if (bosstype == BOSSTYPE_MINIBOSS)
+			else if (sd->aa.teleport.tp_miniboss && bosstype == BOSSTYPE_MINIBOSS)
 				aa_teleport(sd);
 		}
 	}
 }
 
 void aa_priority_on_hit(map_session_data* sd, struct block_list* src) {
-	struct block_list* target = nullptr;
 	struct status_data* status = status_get_status_data(&sd->bl);
-	int target_distance = 0, src_distance = 0;
 
 	if(sd->state.autoattack){
 
@@ -911,26 +910,19 @@ void aa_priority_on_hit(map_session_data* sd, struct block_list* src) {
 				return;
 		}
 
-		// Change if no target and priority to defend player and attacker is a mob
-		if (!sd->aa.mobs.aggressive_behavior // 0 attack
-			&& src->type == BL_MOB) {
-			if (!sd->aa.target_id) {
+		// Keep fighting a monster that is already attacking the player. If the
+		// current target is not an attacker (or became invalid), prioritize the
+		// new attacker. aa_check_target still honors the user's ignore list.
+		if (src->type == BL_MOB) {
+			TBL_MOB* current_md = map_id2md(sd->aa.target_id);
+			bool current_is_attacker = current_md && current_md->target_id == sd->bl.id &&
+				aa_check_target(sd, current_md->bl.id);
 
-				// if player have an item to pick, remove it
+			if (!current_is_attacker && aa_check_target(sd, src->id)) {
 				if (sd->aa.itempick_id)
 					sd->aa.itempick_id = 0;
 
 				aa_target_change(sd, src->id);
-			}
-			else if (sd->aa.target_id) { // priority to the mob who hit if closest
-				target = map_id2bl(sd->aa.target_id);
-				if (target != nullptr) {
-					target_distance = distance(sd->bl.x - target->x, sd->bl.y - target->y);
-					src_distance = distance(sd->bl.x - src->x, sd->bl.y - src->y);
-
-					if (src_distance < target_distance)
-						aa_target_change(sd, src->id);
-				}
 			}
 		}
 
@@ -1247,7 +1239,9 @@ bool aa_check_target(map_session_data* sd, unsigned int id) {
 	if (!battle_check_range(&sd->bl, bl, AREA_SIZE))
 		return false;
 
-	if (!unit_can_reach_bl(&sd->bl, bl, range, 1, nullptr, nullptr) && !unit_walktobl(&sd->bl, bl, range, 1))
+	if (!check_distance_bl(&sd->bl, bl, range) &&
+		!unit_can_reach_bl(&sd->bl, bl, range, 1, nullptr, nullptr) &&
+		!unit_walktobl(&sd->bl, bl, range, 1))
 		return false;
 
 	// Default to valid target if all checks pass
@@ -1280,6 +1274,55 @@ int buildin_autoattack_sub(struct block_list* bl, va_list ap) {
 
 	*target_id = bl->id;
 	return 1;
+}
+
+struct s_aa_attacker_candidate {
+	int id = 0;
+	int distance = INT_MAX;
+};
+
+static int aa_find_attacker_sub(struct block_list* bl, va_list ap) {
+	s_aa_attacker_candidate* candidate = va_arg(ap, s_aa_attacker_candidate*);
+	int src_id = va_arg(ap, int);
+	map_session_data* sd = map_id2sd(src_id);
+	TBL_MOB* md = BL_CAST(BL_MOB, bl);
+
+	if (!candidate || !sd || !md || md->target_id != sd->bl.id || status_isdead(bl))
+		return 0;
+
+	if (md->sc.option & (OPTION_HIDE | OPTION_CLOAK))
+		return 0;
+
+	if (sd->aa.mobs.aggressive_behavior &&
+		std::find(sd->aa.mobs.id.begin(), sd->aa.mobs.id.end(), md->mob_id) != sd->aa.mobs.id.end())
+		return 0;
+
+	int target_distance = distance_bl(&sd->bl, bl);
+	if (target_distance < candidate->distance) {
+		candidate->id = bl->id;
+		candidate->distance = target_distance;
+	}
+
+	return 1;
+}
+
+static int aa_find_nearest_attacker(map_session_data* sd) {
+	s_aa_attacker_candidate candidate;
+	int radius = battle_config.feature_autoattack_mdetection;
+
+	map_foreachinarea(
+		aa_find_attacker_sub,
+		sd->bl.m,
+		sd->bl.x - radius,
+		sd->bl.y - radius,
+		sd->bl.x + radius,
+		sd->bl.y + radius,
+		BL_MOB,
+		&candidate,
+		sd->bl.id
+	);
+
+	return candidate.id;
 }
 
 int buildin_autoattack_monsters_sub(struct block_list* bl, va_list ap) {
@@ -1316,8 +1359,14 @@ unsigned int aa_check_target_alive(map_session_data* sd) {
 		int target_id_ = 0;
 		aa_target_change(sd, 0);
 
+		// When surrounded, prefer a monster that is actively attacking the
+		// player instead of oscillating between arbitrary nearby targets.
+		target_id_ = aa_find_nearest_attacker(sd);
+		if (target_id_ && aa_check_target(sd, target_id_))
+			aa_target_change(sd, target_id_);
+
 		// Search for a new target within detection radius
-		for (int radius = 0; radius < battle_config.feature_autoattack_mdetection; ++radius) {
+		for (int radius = 0; !sd->aa.target_id && radius < battle_config.feature_autoattack_mdetection; ++radius) {
 			map_foreachinarea(
 				buildin_autoattack_sub,
 				sd->bl.m,
@@ -1950,17 +1999,6 @@ int aa_status(map_session_data* sd) {
 		return 0;
 	}
 
-	if (battle_config.feature_autoattack_duration_type) {
-		if (sd->aa.duration_ <= 0) {
-			std::string msg = "Automessage - You don't have timer left on autoattack system!";
-			aa_message(sd, "TimerOut", msg.data(), 5, nullptr);
-			return -1;
-		}
-
-		sd->aa.duration_ = sd->aa.duration_ - battle_config.feature_autoattack_timer;
-		pc_setaccountreg(sd, add_str("#aa_duration"), sd->aa.duration_);
-	}
-
 	struct party_data* p = (sd->status.party_id) ? party_search(sd->status.party_id) : nullptr;
 
 	if (pc_is90overweight(sd)) {
@@ -1994,9 +2032,9 @@ int aa_status(map_session_data* sd) {
 	if (aa_status_buffitem(sd, last_tick))
 		return 2;
 
-	// Priority 3 - potion
-	if (aa_status_potion(sd, status))
-		return 4;
+	// Priority 3 - potion. Item use is independent from combat, so a
+	// successful potion must not consume the whole AI tick.
+	aa_status_potion(sd, status);
 
 	// Priority 4 - heal
 	if (aa_status_heal(sd, status, last_tick)) return 3;
@@ -2192,8 +2230,8 @@ bool aa_status_heal(map_session_data* sd, const status_data* status, t_tick last
 
 		// Attempt to use the healing skill
 		if (unit_skilluse_id(&sd->bl, sd->bl.id, autoheal.skill_id, autoheal.skill_lv)) {
-			// Consume skill requirements
-			skill_consume_requirement(sd, autoheal.skill_id, autoheal.skill_lv, 2);
+			// unit_skilluse_id() consumes the skill requirements. Applying them
+			// here as well would consume catalyst items twice.
 
 			// Apply global cooldown if applicable
 			if (battle_config.feature_autoattack_bskill_delay > 0) {
@@ -2315,8 +2353,7 @@ bool aa_status_buffs(map_session_data* sd, t_tick last_tick) {
 
 			// Use the skill
 			if (unit_skilluse_id(&sd->bl, sd->bl.id, autobuff.skill_id, autobuff.skill_lv)) {
-				skill_consume_requirement(sd, autobuff.skill_id, autobuff.skill_lv, 2);
-
+				// The normal skill pipeline consumes SP and catalyst items once.
 				// Handle skill cooldown adjustment
 				if (battle_config.feature_autoattack_bskill_delay &&
 					skill_get_delay(autobuff.skill_id, autobuff.skill_lv) < battle_config.feature_autoattack_bskill_delay) {
@@ -2457,20 +2494,22 @@ bool aa_status_attack(map_session_data* sd, struct mob_data* md_target, t_tick l
 	if (!md_target)
 		return false;
 
-	if (!battle_config.feature_autoattack_attackskill || last_tick < sd->aa.skill_cd || sd->aa.autoattackskills.empty())
+	if (!battle_config.feature_autoattack_attackskill || last_tick < sd->aa.attack_skill_cd || sd->aa.autoattackskills.empty())
 		return false;
 
 	t_tick attack_delay = DIFF_TICK(last_tick, sd->aa.last_attack);
 	time_t current_time = time(NULL);
 	bool flywing_used = false;
 
-	// Shuffle skill list for randomness
-	std::vector<s_autoattackskills> shuffled_skills = sd->aa.autoattackskills;
-	std::random_device rd;
-	std::shuffle(shuffled_skills.begin(), shuffled_skills.end(), std::default_random_engine(rd()));
+	// Start at a random entry without allocating and reseeding a random engine
+	// on every 100 ms combat tick. Repeated std::random_device calls could stall
+	// the AI loop for several seconds on hosts with limited entropy.
+	const size_t skill_count = sd->aa.autoattackskills.size();
+	const size_t start_index = rnd() % skill_count;
 
-	// Process each skill
-	for (const auto& skill : shuffled_skills) {
+	// Process each skill once, wrapping around from the random start entry.
+	for (size_t offset = 0; offset < skill_count; ++offset) {
+		const auto& skill = sd->aa.autoattackskills[(start_index + offset) % skill_count];
 		if (!skill.is_active || !aa_canuseskill(sd, skill.skill_id, skill.skill_lv))
 			continue;
 
@@ -2525,13 +2564,13 @@ bool aa_status_attack(map_session_data* sd, struct mob_data* md_target, t_tick l
 		if (!skill_used)
 			continue;
 
-		// Update cooldowns and consume resources
+		// Update cooldowns. unit_skilluse_id()/unit_skilluse_pos() already use
+		// the normal skill pipeline and consume requirements exactly once.
 		sd->idletime = current_time;
-		skill_consume_requirement(sd, skill.skill_id, skill.skill_lv, 2);
 
 		if (battle_config.feature_autoattack_askill_delay &&
 			skill_get_delay(skill.skill_id, skill.skill_lv) < battle_config.feature_autoattack_askill_delay) {
-			sd->aa.skill_cd = last_tick + battle_config.feature_autoattack_askill_delay +
+			sd->aa.attack_skill_cd = last_tick + battle_config.feature_autoattack_askill_delay +
 				skill_get_cast(skill.skill_id, skill.skill_lv);
 			sd->aa.last_attack = last_tick;
 		}
@@ -3023,6 +3062,8 @@ bool aa_changestate_autoattack(map_session_data* sd, int flag) {
 		sd->aa.last_move = gettick();
 		sd->aa.last_attack = gettick();
 		sd->aa.last_pick = gettick();
+		sd->aa.skill_cd = 0;
+		sd->aa.attack_skill_cd = 0;
 		sd->aa.attack_target_id = 0;
 		aa_target_change(sd, 0);
 		sd->aa.itempick_id = 0;

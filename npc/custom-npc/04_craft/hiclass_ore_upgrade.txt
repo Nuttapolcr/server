@@ -29,8 +29,10 @@ morocc,139,150,4	script	NPC อัพเกรดแร่	810,{
 	mes "- Zeny " + .ZenyCost[.@index];
 	mes " ";
 	mes "โอกาสได้รับ:";
-	mes "- ^i[" + .TradeReward[.@index] + "] x 1 (40%)";
-	mes "- ^i[" + .NTReward[.@index] + "] x 1 (60%)";
+	for (.@i = 0; .@i < .RewardCount[.@index]; .@i++) {
+		.@reward_index = .RewardStart[.@index] + .@i;
+		mes "- ^i[" + .RewardItem[.@reward_index] + "] x " + .RewardAmount[.@reward_index] + " (" + .RewardRate[.@reward_index] + "%)";
+	}
 	next;
 
 	if (select("ยืนยัน:ยกเลิก") == 2) {
@@ -46,21 +48,35 @@ morocc,139,150,4	script	NPC อัพเกรดแร่	810,{
 		mes "วัตถุดิบไม่เพียงพอ";
 		close;
 	}
+	for (.@i = 0; .@i < .RewardCount[.@index]; .@i++) {
+		.@reward_index = .RewardStart[.@index] + .@i;
+		if (!checkweight(.RewardItem[.@reward_index], .RewardAmount[.@reward_index])) {
+			mes "[NPC อัพเกรดแร่]";
+			mes "กรุณาลดน้ำหนักหรือเคลียร์ช่องเก็บของก่อน";
+			close;
+		}
+	}
 
 	delitem .InputItem[.@index],.InputAmount[.@index];
 	delitem 1000373,.FragmentAmount[.@index];
 	Zeny -= .ZenyCost[.@index];
 
-	if (rand(100) < 40) {
-		.@reward = .TradeReward[.@index];
-	} else {
-		.@reward = .NTReward[.@index];
+	.@roll = rand(100) + 1;
+	.@rate = 0;
+	for (.@i = 0; .@i < .RewardCount[.@index]; .@i++) {
+		.@reward_index = .RewardStart[.@index] + .@i;
+		.@rate += .RewardRate[.@reward_index];
+		if (.@roll <= .@rate) {
+			.@reward = .RewardItem[.@reward_index];
+			.@amount = .RewardAmount[.@reward_index];
+			break;
+		}
 	}
 
-	getitem .@reward,1;
+	getitem .@reward,.@amount;
 	mes "[NPC อัพเกรดแร่]";
 	mes "อัพเกรดสำเร็จ";
-	mes "ได้รับ ^i[" + .@reward + "] x 1";
+	mes "ได้รับ ^i[" + .@reward + "] x " + .@amount;
 	close;
 
 OnInit:
@@ -69,13 +85,34 @@ OnInit:
 	setarray .InputAmount[0],
 		5,10,5,10,5,10;
 	setarray .FragmentAmount[0],
-		20,30,20,30,20,30;
+		5,10,5,10,5,10;
 	setarray .ZenyCost[0],
 		100000,200000,100000,200000,100000,200000;
-	setarray .TradeReward[0],
-		1000398,1000403,1001139,1001141,1000442,1000447;
-	setarray .NTReward[0],
-		1001686,1001687,1001689,1001690,1001692,1001693;
+	setarray .RewardStart[0],
+		0,6,12,16,20,24;
+	setarray .RewardCount[0],
+		6,6,4,4,4,4;
+	setarray .RewardItem[0],
+		1000398,1001686,1000398,1001686,1000398,1001686,
+		1000403,1001687,1000403,1001687,1000403,1001687,
+		1001139,1001689,1001139,1001689,
+		1001141,1001690,1001141,1001690,
+		1000442,1001692,1000442,1001692,
+		1000447,1001693,1000447,1001693;
+	setarray .RewardAmount[0],
+		1,1,2,2,3,3,
+		1,1,2,2,3,3,
+		1,1,2,2,
+		1,1,2,2,
+		1,1,2,2,
+		1,1,2,2;
+	setarray .RewardRate[0],
+		20,30,15,25,4,6,
+		20,30,15,25,4,6,
+		30,40,13,17,
+		30,40,13,17,
+		30,40,13,17,
+		30,40,13,17;
 
 	waitingroom "NPC อัพเกรดแร่",0;
 	end;

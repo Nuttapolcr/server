@@ -35,10 +35,18 @@ Header:
 Body:
   - Tab: New
     Items:
-      - Item: Happy_Meal_Pet_Box
-        Price: 990
-      - Item: The_Box_Pet
-        Price: 2790
+      - Item: Costume_Weapon_Egg
+        Price: 159
+      - Item: Upper_Stone_Box
+        Price: 129
+      - Item: Middle_Stone_Box
+        Price: 129
+      - Item: Lower_Stone_Box
+        Price: 129
+      - Item: Anger_Seagod
+        Price: 129
+      - Item: Silvervine_Fruit
+        Price: 89
       - Item: Swap_item_Card
         Price: 990
       - Item: AUTOATTACK_AI_RENT

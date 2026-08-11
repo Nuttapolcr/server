@@ -87,7 +87,6 @@
 Header:
   Type: ITEM_DB
   Version: 3
-
 Body:
   - Id: 7776
     AegisName: Max_Weight_Up_Scroll
@@ -122,7 +121,6 @@ Body:
       NoTrade: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -149,17 +147,48 @@ Body:
     AegisName: AUTOATTACK_AI_RENT
     Name: Ai Box 24 hr
     Type: Usable
+    Script: |
+      rentitem 97001,86400;
+  - Id: 1500008
+    AegisName: AUTOATTACK_AI_RENT_1_NT
+    Name: Ai Box 1 hr [NT]
+    Type: Usable
     Trade:
       NoDrop: true
       NoTrade: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
     Script: |
-      rentitem 97001,86400;
+      rentitem 97001,3600;
+  - Id: 1500010
+    AegisName: AUTOATTACK_AI_RENT_3_NT
+    Name: Ai Box 3 hr [NT]
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      rentitem 97001,10800;
+  - Id: 1500009
+    AegisName: AUTOATTACK_AI_RENT_1
+    Name: Ai Box 1 hr
+    Type: Usable
+    Script: |
+      rentitem 97001,3600;
+  - Id: 1500011
+    AegisName: AUTOATTACK_AI_RENT_3
+    Name: Ai Box 3 hr
+    Type: Usable
+    Script: |
+      rentitem 97001,10800;
   - Id: 97004
     AegisName: AUTOBUFF_AI_RENT
     Name: AUTOBUFF AI RENT
@@ -764,8 +793,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 3
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55001
     AegisName: "22267"
     Name: Triagle of Fire
@@ -776,8 +809,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 4
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55002
     AegisName: "22268"
     Name: Suzaku Bow of Britannia
@@ -788,8 +825,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 11
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55003
     AegisName: "22269"
     Name: Rugel of Athena
@@ -800,8 +841,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 10
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55004
     AegisName: "22270"
     Name: One for All Knuckle
@@ -812,8 +857,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 12
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55005
     AegisName: "22271"
     Name: Cross Slayer Duals Claw
@@ -824,8 +873,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 16
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55006
     AegisName: "22272"
     Name: Circle Poison Injection
@@ -836,8 +889,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 8
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55007
     AegisName: "22273"
     Name: Cross Axe Death Striker
@@ -848,8 +905,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 6
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55008
     AegisName: "22274"
     Name: Miracle Rose Staff
@@ -860,8 +921,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 10
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55009
     AegisName: "22275"
     Name: Stars Victoria Spear Rod
@@ -872,8 +937,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 10
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55010
     AegisName: "22276"
     Name: Lion Kaoh Knife
@@ -884,8 +953,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 1
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55011
     AegisName: "22277"
     Name: Lulu Mana Aegello
@@ -896,8 +969,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 13
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55012
     AegisName: "22278"
     Name: Lana Mana Margaretha
@@ -908,8 +985,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 14
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55013
     AegisName: "22265"
     Name: 3 Spear of Rudolph
@@ -920,8 +1001,12 @@ Body:
       Shadow_Weapon: true
     Refineable: true
     View: 4
-    Script: |
-      callfunc "StatusItemWeaponCostume";
+    Script: |-
+      bonus bAllStats,2;
+      bonus bMaxHP,1000;
+      bonus bAddMaxWeight,10000;
+      skill "MC_DISCOUNT",10;
+      skill "MC_OVERCHARGE",10;
   - Id: 55014
     AegisName: "22293"
     Name: "[Black] Wings Silver Sword"
@@ -28844,6 +28929,7 @@ Body:
     SubType: Book
     Buy: 20
     Weight: 1000
+    Attack: 100
     Range: 1
     Slots: 1
     Jobs:
@@ -28869,7 +28955,6 @@ Body:
       bonus bMaxHPrate,10;
       bonus2 bSubEle,Ele_Neutral,2;
       }
-    Attack: 100
   - Id: 620004
     AegisName: Up_Avenger
     Name: "[Rare] Whitesmith Weapon"
@@ -29201,6 +29286,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Weight: 1000
+    Attack: 100
     Range: 1
     Slots: 1
     Jobs:
@@ -29227,7 +29313,6 @@ Body:
          bonus bInt,3;
       bonus2 bAddClass,Class_Boss,10;
       }
-    Attack: 100
   - Id: 650004
     AegisName: Up_Humma_Clear
     Name: "[Rare] Ninja Weapon"
@@ -29420,6 +29505,7 @@ Body:
     Type: Weapon
     SubType: Staff
     Weight: 1200
+    Attack: 90
     Range: 1
     Slots: 1
     Jobs:
@@ -29455,13 +29541,13 @@ Body:
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
       }
-    Attack: 90
   - Id: 540020
     AegisName: Adulter_F_P_Book
     Name: "[Epic] Professor Weapon"
     Type: Weapon
     SubType: Book
     Weight: 1000
+    Attack: 160
     Range: 1
     Slots: 1
     Jobs:
@@ -29496,7 +29582,6 @@ Body:
          bonus2 bSubRace,RC_Player_Human,2;
          bonus2 bSubRace,RC_Player_Doram,2;
       }
-    Attack: 160
   - Id: 520008
     AegisName: Adulter_F_Axe
     Name: "[Epic] Whitesmith Weapon"
@@ -29924,6 +30009,7 @@ Body:
     Type: Weapon
     SubType: Mace
     Weight: 1000
+    Attack: 120
     Range: 1
     Slots: 1
     Jobs:
@@ -29961,7 +30047,6 @@ Body:
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
       }
-    Attack: 120
   - Id: 650009
     AegisName: Adulter_F_C_Humma
     Name: "[Epic] Ninja Weapon"
@@ -32706,6 +32791,7 @@ Body:
     SubType: Staff
     Buy: 20
     Weight: 1200
+    Attack: 100
     Range: 1
     Slots: 1
     Jobs:
@@ -32767,7 +32853,6 @@ Body:
          bonus2 bMagicAddClass,Class_Boss,10;
          bonus bDelayrate,-(.@r/3*1);
       }
-    Attack: 100
   - Id: 28605
     AegisName: Sinister_Book
     Name: "[Legend] Professor Weapon"
@@ -32775,6 +32860,7 @@ Body:
     SubType: Book
     Buy: 20
     Weight: 1000
+    Attack: 180
     Range: 1
     Slots: 1
     Jobs:
@@ -32834,7 +32920,6 @@ Body:
          bonus bDex,.@r/5*2;
          bonus2 bSubEle,Ele_Neutral,.@r/5*1;
       }
-    Attack: 180
   - Id: 28107
     AegisName: Sinister_Twohand_Axe
     Name: "[Legend] Whitesmith Weapon"
@@ -33483,6 +33568,7 @@ Body:
     SubType: Mace
     Buy: 20
     Weight: 1000
+    Attack: 160
     Range: 1
     Slots: 1
     Jobs:
@@ -33554,7 +33640,6 @@ Body:
          bonus bVariableCastrate,-(.@r/2*1);
          bonus bDelayrate,-(.@r/2*2);
       }
-    Attack: 160
   - Id: 13328
     AegisName: Sinister_Huuma
     Name: "[Legend] Ninja Weapon"
@@ -37123,7 +37208,7 @@ Body:
     Buy: 0
     Sell: 0
     Script: |
-      bonus bBaseAtk,2*getskilllv("HT_STEELCROW");
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",3*getskilllv("SN_SIGHT");
   - Id: 29429
     AegisName: Ranger_Middle
     Name: Sniper Stone (Middle)
@@ -37132,7 +37217,7 @@ Body:
     Buy: 0
     Sell: 0
     Script: |
-      bonus2 bSkillFixedCast,"SN_SHARPSHOOTING",-500;
+      bonus2 bVariableCastrate,"SN_SHARPSHOOTING",-50;
   - Id: 29430
     AegisName: Ranger_Bottom
     Name: Sniper Stone (Lower)
@@ -37141,7 +37226,7 @@ Body:
     Buy: 0
     Sell: 0
     Script: |
-      bonus2 bSkillAtk,"AC_SHOWER",20;
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",20;
   - Id: 310000
     AegisName: Ranger_Top2
     Name: Sniper Stone II (Upper)
@@ -37167,8 +37252,7 @@ Body:
     SubType: Enchant
     Buy: 0
     Sell: 0
-    Script: |
-      bonus bBaseAtk,2*getskilllv("SN_SIGHT");
+    Script: bonus bLongAtkRate,2*getskilllv("SN_SIGHT");
   - Id: 1030001
     AegisName: HD_Elu_Box
     Name: HD Elunium Box
@@ -37514,6 +37598,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Weight: 1200
+    Attack: 100
     Jobs:
       Swordman: true
       Thief: true
@@ -37538,7 +37623,6 @@ Body:
       bonus bMatkRate,10;
          bonus2 bMagicAddClass,Class_Boss,25;
       }
-    Attack: 100
   - Id: 530013
     AegisName: adulter_f_g_spear
     Name: "[Epic] Lord Knight2 Weapon"
@@ -37674,6 +37758,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Weight: 1200
+    Attack: 120
     Range: 1
     Slots: 1
     Jobs:
@@ -37713,7 +37798,6 @@ Body:
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
       }
-    Attack: 120
   - Id: 1400
     AegisName: Sinister_Spear
     Name: "[Legend] Lord Knight2 Weapon"
@@ -37871,6 +37955,7 @@ Body:
     Type: Weapon
     SubType: Dagger
     Weight: 1200
+    Attack: 180
     Range: 1
     Slots: 1
     Jobs:
@@ -37936,7 +38021,6 @@ Body:
          bonus2 bMagicAddClass,Class_Boss,10;
       bonus bMatkRate,(.@r/3*3);
       }
-    Attack: 180
   - Id: 1030024
     AegisName: Sniper_Focused_Weapon001
     Name: "[Legend] Sniper Focused Weapon"
@@ -38190,22 +38274,22 @@ Body:
     Type: Charm
     CharmScript: |-
       if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
-      bonus bBaseAtk,50;
-      bonus bMatk,50;
+      bonus bBaseAtk,25;
+      bonus bMatk,25;
   - Id: 1030044
     AegisName: R_Charm_Valor V.1
     Name: "[R] Charm Valor V.1"
     Type: Charm
     CharmScript: |-
       if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
-      bonus bHPGainValue,100;
-      bonus bSPGainValue,10;
-      bonus bLongHPGainValue,100;
-      bonus bLongSPGainValue,10;
-      bonus bMagicHPGainValue,100;
-      bonus bMagicSPGainValue,10;
-      bonus2 bAddClass,Class_Boss,10;
-      bonus2 bMagicAddClass,Class_Boss,10;
+      bonus bHPGainValue,50;
+      bonus bSPGainValue,5;
+      bonus bLongHPGainValue,50;
+      bonus bLongSPGainValue,5;
+      bonus bMagicHPGainValue,50;
+      bonus bMagicSPGainValue,5;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 1030045
     AegisName: E_Charm_Valor V.1
     Name: "[E] Charm Valor V.1"
@@ -38225,6 +38309,29 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus bHPGainValue,100;
+      bonus bSPGainValue,10;
+      bonus bLongHPGainValue,100;
+      bonus bLongSPGainValue,10;
+      bonus bMagicHPGainValue,100;
+      bonus bMagicSPGainValue,10;
+      bonus bHPGainValue,.@r/5*50;
+      bonus bSPGainValue,.@r/5*10;
+      bonus bLongHPGainValue,.@r/5*50;
+      bonus bLongSPGainValue,.@r/5*10;
+      bonus bMagicHPGainValue,.@r/5*50;
+      bonus bMagicSPGainValue,.@r/5*10;
+      if (.@r>=7) {
+      bonus bHPGainValue,100;
+      bonus bSPGainValue,10;
+      bonus bLongHPGainValue,100;
+      bonus bLongSPGainValue,10;
+      bonus bMagicHPGainValue,100;
+      bonus bMagicSPGainValue,10;
+      }
+    View: 1527
   - Id: 1030046
     AegisName: Upg_One-handed_Axe
     Name: "[Rookie] One-handed Mace New"
@@ -38654,45 +38761,20 @@ Body:
     Name: "[Big] Winner GVG box"
     Type: Cash
     Script: |-
-      getitem 22571,10;
-      getitem 101194,10;
-      getitem 12804,10;
-      getitem 14455,10;
-      getitem 6635,40;
-      getitem 30001,600;
-      getitem 1000401,75;
-      getitem 1001140,20;
-      getitem 1000445,20;
-      getitem 1001600,20;
-      getitem 1001718,10;
-      getitem 12679,10;
-      getitem 12680,5;
+      getitem 6635,80;
+      getitem 30001,800;
   - Id: 1030073
     AegisName: New_Item_1030073
     Name: "[Small] Winner GVG box"
     Type: Cash
     Script: |-
-      getitem 22571,6;
-      getitem 101194,6;
-      getitem 12804,6;
-      getitem 14455,6;
-      getitem 6635,20;
-      getitem 30001,400;
-      getitem 1000401,50;
-      getitem 1001140,12;
-      getitem 1000445,12;
-      getitem 1001600,12;
-      getitem 1001718,6;
-      getitem 12679,10;
-      getitem 12680,5;
+      getitem 6635,50;
+      getitem 30001,500;
   - Id: 1030063
     AegisName: New_Item_1030063
     Name: Normal GVG box
     Type: Cash
-    Script: |-
-      getitem 12679,10;
-      getitem 12680,5;
-      getitem 30001,100;
+    Script: getitem 30001,100;
   - Id: 1030064
     AegisName: New_Item_1030064
     Name: Test gacha V.1
@@ -38722,6 +38804,7 @@ Body:
     Script: |-
       bonus2 bSubRace,RC_DemiHuman,3;
       bonus2 bSubRace,RC_Player_Human,3;
+    View: 818
   - Id: 1030068
     AegisName: New_Item_1030068
     Name: "[12hr] Wing (Unlimit) Pack"
@@ -38817,6 +38900,7 @@ Body:
       NoStorage: true
       NoMail: true
       NoAuction: true
+      NoGuildStorage: true
   - Id: 1030097
     AegisName: C_Endless_Clear_Coin
     Name: "[C] Endless Clear Coin"
@@ -38828,7 +38912,6 @@ Body:
       NoTrade: true
       TradePartner: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -39046,3 +39129,226 @@ Body:
       rentitem2 2460,259200,1,7,0,0,0,0,0;
       rentitem2 2562,259200,1,7,0,0,0,0,0;
       rentitem2 2149,259200,1,7,0,0,0,0,0;
+  - Id: 1500017
+    AegisName: Equipment_Hide_Ticket
+    Name: Equipment Hide Charm
+    Type: Charm
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1500018
+    AegisName: Upper_Stone_Box
+    Name: Upper Stone Box
+    Type: Usable
+    Script: getgroupitem(IG_RANDOM_STONE_BOX_1);
+  - Id: 1500019
+    AegisName: Middle_Stone_Box
+    Name: Middle Stone Box
+    Type: Usable
+    Script: getgroupitem(IG_RANDOM_STONE_BOX_2);
+  - Id: 1500020
+    AegisName: Lower_Stone_Box
+    Name: Lower Stone Box
+    Type: Usable
+    Script: getgroupitem(IG_RANDOM_STONE_BOX_3);
+  - Id: 1500021
+    AegisName: Garment_Dual_Stone_Box
+    Name: Garment&Dual Stone Box
+    Type: Usable
+    Script: getgroupitem(IG_RANDOM_STONE_BOX_4);
+  - Id: 1500022
+    AegisName: Costume_Weapon_Egg
+    Name: Costume Weapon Egg
+    Type: Usable
+    Script: |-
+      getgroupitem(IG_RANDOM_STONE_BOX_5);
+      specialeffect2 18;
+  - Id: 1500023
+    AegisName: New_Item_1500018_Copy_Copy_Copy_Copy
+    Name: Random Stone Box5
+    Type: Usable
+    Script: getgroupitem(IG_RANDOM_STONE_BOX_6);
+  - Id: 1500024
+    AegisName: New_Item_1500024
+    Name: Coin Valor V.2
+    Type: Etc
+  - Id: 1500025
+    AegisName: Costume_Weapon_Ticket
+    Name: Costume Weapon Ticket
+    Type: Etc
+  - Id: 18712
+    AegisName: Fan_in_Mouth
+    Name: Fan in Mouth
+    Script: bonus bAspd,1;
+    Type: Armor
+    Locations:
+      Head_Low: true
+    Weight: 10
+    View: 857
+  - Id: 18754
+    AegisName: Blood_Sucker
+    Name: Blood Sucker
+    Script: bonus2 bHPDrainRate,30,5;
+    Type: Armor
+    Locations:
+      Head_Low: true
+    View: 893
+    Weight: 10
+  - Id: 1500026
+    AegisName: Charm_STR_Valor_V.1
+    Name: Charm STR Valor V.1
+    Type: Charm
+    CharmScript: bonus bStr,1;
+    CharmMaxEffect: 2
+  - Id: 1500027
+    AegisName: Charm_AGI_Valor_V.1
+    Name: Charm AGI Valor V.1
+    Type: Charm
+    CharmScript: bonus bAgi,1;
+    CharmMaxEffect: 2
+  - Id: 1500028
+    AegisName: Charm_VIT_Valor_V.1
+    Name: Charm VIT Valor V.1
+    Type: Charm
+    CharmScript: bonus bVit,1;
+    CharmMaxEffect: 2
+  - Id: 1500029
+    AegisName: Charm_INT_Valor_V.1
+    Name: Charm INT Valor V.1
+    Type: Charm
+    CharmScript: bonus bInt,1;
+    CharmMaxEffect: 2
+  - Id: 1500030
+    AegisName: Charm_DEX_Valor_V.1
+    Name: Charm DEX Valor V.1
+    Type: Charm
+    CharmScript: bonus bDex,1;
+    CharmMaxEffect: 2
+  - Id: 1500031
+    AegisName: Charm_LUK_Valor_V.1
+    Name: Charm LUK Valor V.1
+    Type: Charm
+    CharmScript: bonus bLuk,1;
+    CharmMaxEffect: 2
+  - Id: 1500032
+    AegisName: Charm_FLEE_Valor
+    Name: Charm FLEE Valor
+    Type: Charm
+    CharmScript: |-
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus bFlee,10;
+    CharmMaxEffect: 3
+  - Id: 1500033
+    AegisName: Charm_ASPD_Valor
+    Name: Charm ASPD Valor
+    Type: Charm
+    CharmScript: |-
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus bAspdRate,1;
+    CharmMaxEffect: 5
+  - Id: 1500034
+    AegisName: Charm_Critical_Valor
+    Name: Charm Critical Valor
+    Type: Charm
+    CharmScript: |-
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus bCritical,3;
+    CharmMaxEffect: 3
+  - Id: 18509
+    AegisName: RWC_2010_Indonesia
+    Name: RWC 2010 Indonesia
+    View: 678
+    Type: Armor
+    Locations:
+      Head_Top: true
+    Script: |-
+      .@r = getrefine();
+      bonus2 bAddItemHealRate,501,100;
+      bonus2 bAddItemHealRate,504,100;
+      bonus2 bAddClass,Class_All,3;
+      bonus bMatkRate,3;
+      bonus2 bSubRace,RC_Player_Human,2;
+      bonus2 bSubRace,RC_Player_Doram,2;
+      if (.@r>=7) {
+      bonus bCritical,10;
+      bonus bAspd,1;
+      bonus bLuk,5;
+      bonus2 bSubRace,RC_Player_Human,3;
+      bonus2 bSubRace,RC_Player_Doram,3;
+      }
+      if (.@r>=12) {
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
+      }
+    Weight: 100
+    Defense: 6
+    ArmorLevel: 1
+    Refineable: true
+    EquipLevelMin: 15
+    Slots: 1
+  - Id: 18600
+    AegisName: Cat_Ear_Beret
+    Name: Cat Ear Beret
+    Type: Armor
+    Weight: 300
+    View: 761
+    Slots: 1
+    Defense: 5
+    Locations:
+      Head_Top: true
+    Script: |-
+      .@r = getrefine();
+      bonus2 bAddRace,RC_DemiHuman,2;
+      bonus2 bAddRace,RC_Player_Human,2;
+      bonus2 bSubRace,RC_Player_Human,2;
+      bonus2 bSubRace,RC_Player_Doram,2;
+      if (.@r>=7) {
+      bonus2 bAddRace,RC_DemiHuman,3;
+      bonus2 bAddRace,RC_Player_Human,3;
+      bonus2 bSubRace,RC_Player_Human,3;
+      bonus2 bSubRace,RC_Player_Doram,3;
+      }
+      if (.@r>=12) {
+      bonus2 bAddRace,RC_DemiHuman,5;
+      bonus2 bAddRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
+      }
+    ArmorLevel: 1
+    Refineable: true
+  - Id: 18601
+    AegisName: Red_Pom_Band
+    Name: Red Pom Band
+    Type: Armor
+    Weight: 300
+    View: 762
+    Slots: 1
+    Defense: 0
+    Locations:
+      Head_Top: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMdef,5;
+      bonus2 bAddRace,RC_DemiHuman,2;
+      bonus2 bAddRace,RC_Player_Human,2;
+      bonus2 bSubRace,RC_Player_Human,2;
+      bonus2 bSubRace,RC_Player_Doram,2;
+      if (.@r>=7) {
+      bonus2 bAddRace,RC_DemiHuman,3;
+      bonus2 bAddRace,RC_Player_Human,3;
+      bonus2 bSubRace,RC_Player_Human,3;
+      bonus2 bSubRace,RC_Player_Doram,3;
+      }
+      if (.@r>=12) {
+      bonus2 bAddRace,RC_DemiHuman,5;
+      bonus2 bAddRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
+      }
+    ArmorLevel: 1
+    Refineable: true

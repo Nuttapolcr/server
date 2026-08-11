@@ -19,16 +19,13 @@
 //=   One item is pulled per open via getrandgroupitem() (Rate = weight; Amount is honored).
 //=
 //= Implementation notes:
-//=  - Chests are runtime duplicates (duplicate()) with a treasure-chest sprite.
-//=    Color/tier are encoded in the hidden part of the NPC name "<disp>#C_T_ID".
+//=  - Each map uses a fixed pool of 10 treasure-chest NPCs. Slots are moved,
+//=    enabled, and disabled for reuse, so opening a chest never accumulates NPCs.
 //=  - Moving during the open cancels progressbar -> the script ends BEFORE the
 //=    reward block, so the chest is NOT consumed (player can retry).
-//=  - A per-chest temp flag $@mtbo_<id> guards against double-loot if two
-//=    players open the same chest at once (script engine is single-threaded).
+//=  - A per-slot temp flag guards against double-loot if two players open the
+//=    same chest at once (script engine is single-threaded).
 //=  - Unopened chests auto-despawn after .despawn seconds via their own timer.
-//=  - LIMITATION: opened/expired chests are disablenpc'd (hidden), not fully
-//=    unloaded (rAthena has no delnpc script cmd); cleared on @reloadscript /
-//=    server restart. The UID ring (1..100000) bounds the temp-var/name space.
 //===========================================================================
 
 -	script	MvpTreasure	FAKE_NPC,{
@@ -66,6 +63,7 @@ OnInit:
 	.chest_sprite = 1324;	// Treasure Chest sprite
 	.spawn_radius = 3;		// random scatter (cells) around the death spot
 	.despawn      = 600;	// seconds before an unopened chest disappears
+	.pool_size    = 10;	// maximum concurrent chests per map
 	end;
 
 OnNPCKillEvent:
@@ -128,41 +126,69 @@ OnSpawn:
 
 	if (.@col$ == "R")      .@disp$ = "กล่องสมบัติแดง";
 	else if (.@col$ == "P") .@disp$ = "กล่องสมบัติม่วง";
-	else                    .@disp$ = "กล่องสมบัติฟ้า";
+	else                     .@disp$ = "กล่องสมบัติฟ้า";
+
+	callsub OnEnsurePool, .@m$;
 
 	for (.@k = 0; .@k < .@cnt; .@k++) {
-		// rolling unique id (ring 1..100000)
-		$MTB_UID++;
-		if ($MTB_UID > 100000 || $MTB_UID < 1) $MTB_UID = 1;
-		.@id = $MTB_UID;
-		setd "$@mtbo_"+.@id, 0;	// clear claim flag for the reused id
+		.@slot = -1;
+		for (.@i = 0; .@i < .pool_size; .@i++) {
+			if (!getd("$@mtb_active_"+.@m$+"_"+.@i)) {
+				.@slot = .@i;
+				break;
+			}
+		}
+		if (.@slot < 0) return;	// all 10 slots are in use; never create more NPCs
 
 		.@sx = .@x + rand(-.spawn_radius, .spawn_radius);
 		.@sy = .@y + rand(-.spawn_radius, .spawn_radius);
 		if (.@sx < 0) .@sx = 0;	// avoid out-of-bounds near map edge
 		if (.@sy < 0) .@sy = 0;
-		.@name$ = .@disp$ + "#" + .@col$ + "_" + .@tier + "_" + .@id;
-		.@ex$ = duplicate("MvpTreasureChest", .@m$, .@sx, .@sy, .@name$, .chest_sprite);
-		if (.@ex$ != "") donpcevent .@ex$ + "::OnArm";
+		.@npc$ = getd("$@mtb_pool_"+.@m$+"_"+.@slot+"$");
+		if (.@npc$ == "") return;
+		setd "$@mtb_active_"+.@m$+"_"+.@slot, 1;
+		setd "$@mtb_claimed_"+.@m$+"_"+.@slot, 0;
+		setd "$@mtb_color_"+.@m$+"_"+.@slot+"$", .@col$;
+		setd "$@mtb_tier_"+.@m$+"_"+.@slot, .@tier;
+		setnpcdisplay .@npc$, .@disp$+"#"+.@m$+"|"+.@slot;
+		movenpc .@npc$, .@sx, .@sy;
+		enablenpc .@npc$;
+		donpcevent .@npc$+"::OnArm";
 	}
+	return;
+
+// callsub OnEnsurePool, <map$>
+OnEnsurePool:
+	.@m$ = getarg(0);
+	if (getd("$@mtb_pool_ready_"+.@m$)) return;
+	for (.@slot = 0; .@slot < .pool_size; .@slot++) {
+		.@name$ = "MVP Treasure#"+.@m$+"|"+.@slot;
+		.@npc$ = duplicate("MvpTreasureChest", .@m$, 0, 0, .@name$, .chest_sprite);
+		if (.@npc$ == "") continue;
+		setd "$@mtb_pool_"+.@m$+"_"+.@slot+"$", .@npc$;
+		disablenpc .@npc$;
+	}
+	setd "$@mtb_pool_ready_"+.@m$, 1;
 	return;
 }
 
-//=== Treasure chest template (clicked duplicates run this body) =============
+//=== Treasure chest pool template ===========================================
 -	script	MvpTreasureChest	FAKE_NPC,{
 	if (#pk_protect_until > gettimetick(2)) {
 		dispbottom "[MVP Treasure] PK Protection users cannot open MVP Treasure.";
 		end;
 	}
 
-	// hidden name = "<color>_<tier>_<id>"
-	explode(.@p$, strnpcinfo(2), "_");
-	.@col$ = .@p$[0];
-	.@tier = atoi(.@p$[1]);
-	.@id   = .@p$[2];
+	// hidden name = "<map>|<pool slot>"
+	explode(.@p$, strnpcinfo(2), "|");
+	.@map$ = .@p$[0];
+	.@slot = atoi(.@p$[1]);
+	if (!getd("$@mtb_active_"+.@map$+"_"+.@slot)) end;
+	.@col$ = getd("$@mtb_color_"+.@map$+"_"+.@slot+"$");
+	.@tier = getd("$@mtb_tier_"+.@map$+"_"+.@slot);
 
 	// already opened?
-	if (getd("$@mtbo_"+.@id)) { disablenpc strnpcinfo(3); end; }
+	if (getd("$@mtb_claimed_"+.@map$+"_"+.@slot)) { disablenpc strnpcinfo(3); end; }
 
 	// open time + bar color by box color
 	.@sec = 5; .@bar$ = "0x33B5FF";						// Blue
@@ -187,8 +213,9 @@ OnSpawn:
 	progressbar .@bar$, .@sec;	// moving -> script ENDs here, chest is kept
 
 	// --- reached only on a completed open ---
-	if (getd("$@mtbo_"+.@id)) end;	// someone else finished first
-	setd "$@mtbo_"+.@id, 1;	// claim
+	if (getd("$@mtb_claimed_"+.@map$+"_"+.@slot)) end;	// someone else finished first
+	setd "$@mtb_claimed_"+.@map$+"_"+.@slot, 1;	// claim
+	setd "$@mtb_active_"+.@map$+"_"+.@slot, 0;
 	stopnpctimer;
 
 	// Grant one weighted reward from item_group_db; quantity 0 uses its configured Amount.
@@ -205,8 +232,10 @@ OnArm:
 	initnpctimer;
 	end;
 
-OnTimer120000:
+OnTimer600000:
 	stopnpctimer;
+	explode(.@p$, strnpcinfo(2), "|");
+	setd "$@mtb_active_"+.@p$[0]+"_"+atoi(.@p$[1]), 0;
 	disablenpc strnpcinfo(3);
 	end;
 }

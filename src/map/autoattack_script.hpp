@@ -58,6 +58,8 @@ void handleAcceptPartyRequest(const std::vector<std::string>& result, map_sessio
 void handleMeleeAttack(const std::vector<std::string>& result, map_session_data* sd);
 void handleTeleportFlywing(const std::vector<std::string>& result, map_session_data* sd);
 void handleTeleportSkill(const std::vector<std::string>& result, map_session_data* sd);
+void handleTeleportMvp(const std::vector<std::string>& result, map_session_data* sd);
+void handleTeleportMiniboss(const std::vector<std::string>& result, map_session_data* sd);
 void handleSitRestHp(const std::vector<std::string>& result, map_session_data* sd);
 void handleSitRestSp(const std::vector<std::string>& result, map_session_data* sd);
 void handleTeleportMinHp(const std::vector<std::string>& result, map_session_data* sd);

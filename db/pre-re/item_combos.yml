@@ -1187,14 +1187,12 @@ Body:
       - Combo:
           - Cast_Robe_D
           - Casting_Robe
-    Script: |
-      bonus bFixedCast,-500;
+    Script: bonus bVariableCastrate,-20;
   - Combos:
       - Combo:
           - MinorCast_Robe_D
           - FixedCasting03
-    Script: |
-      bonus bFixedCast,-300;
+    Script: bonus bMaxHPrate,10;
   - Combos:
       - Combo:
           - Melee_Top

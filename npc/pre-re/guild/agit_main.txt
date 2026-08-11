@@ -96,6 +96,7 @@ OnStartArena:
 	else if (strnpcinfo(2) == "mocg_cas03") { setarray .@emproom[0],24,48; }
 	else if (strnpcinfo(2) == "mocg_cas04") { setarray .@emproom[0],182,52; }
 	else if (strnpcinfo(2) == "mocg_cas05") { setarray .@emproom[0],76,128; }
+	else if (strnpcinfo(2) == "hero_ent1") { setarray .@emproom[0],140,140; }
 	else {
 		end;
 	}
@@ -137,7 +138,8 @@ OnAgitBreak:
 
 	// Refresh castle data, disable Kafra and reset Invest information.
 	donpcevent strnpcinfo(0)+"::OnRecvCastle";
-	disablenpc "Kafra Staff#"+strnpcinfo(2);
+	if (strnpcinfo(2) != "hero_ent1")
+		disablenpc "Kafra Staff#"+strnpcinfo(2);
 	for( set .@i, 4; .@i <= 9; set .@i, .@i+1 ) {
 		SetCastleData strnpcinfo(2), .@i, 0;
 	}
@@ -170,8 +172,10 @@ OnAgitEnd:
 OnGuildBreak:
 	if (strnpcinfo(0) == "Gld_Agit_Manager") end;
 	// Kill guardians, disable the Kafra, and set owner to 0.
-	killmonster strnpcinfo(2),"Guardian#"+strnpcinfo(2)+"::OnGuardianDied";
-	disablenpc "Kafra Staff#"+strnpcinfo(2);
+	if (strnpcinfo(2) != "hero_ent1") {
+		killmonster strnpcinfo(2),"Guardian#"+strnpcinfo(2)+"::OnGuardianDied";
+		disablenpc "Kafra Staff#"+strnpcinfo(2);
+	}
 	SetCastleData strnpcinfo(2),1,0;
 	// Wait before refreshing guild information.
 	sleep 7000;
@@ -284,12 +288,16 @@ OnRecvCastle:
 			monster strnpcinfo(2),.@emproom[0],.@emproom[1],"Raydric Archer",1276,5;
 		}
 		// Add custom Guild Castles here.
+		else if (strnpcinfo(2) == "hero_ent1") {
+			// ValorFight has no normal castle monsters or guardians.
+		}
 		else {
 			end;
 		}
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 		// Disable Kafra Staff...
-		disablenpc "Kafra Staff#"+strnpcinfo(2);
+		if (strnpcinfo(2) != "hero_ent1")
+			disablenpc "Kafra Staff#"+strnpcinfo(2);
 		end;
 	}
 	else {

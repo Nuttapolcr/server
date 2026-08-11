@@ -1,0 +1,192 @@
+//===== HICLASS =============================================================
+//= Malangdo enchant for Costume Weapons 55000-55044.
+//= Uses the original Seagod's Anger option pool in card slots 1-3.
+//===========================================================================
+
+function	script	F_HICostumeWeaponEnchantRoll	{
+	.@type = getarg(0);
+	.@roll = rand(1,1000);
+
+	// Original Seagod's Anger pools: 1 = short, 2 = long, 3 = caster.
+	if (.@type == 1)
+		setarray .@pool[0],4732,4820,4843,4733,4821,4844,4734,4822,4735,4807,4823;
+	else if (.@type == 2)
+		setarray .@pool[0],4732,4834,4843,4733,4835,4844,4734,4836,4735,4807,4837;
+	else
+		setarray .@pool[0],4712,4722,4813,4713,4812,4760,4714,4826,4715,4761,4827;
+
+	if (.@roll <= 144) return .@pool[0];
+	if (.@roll <= 288) return .@pool[1];
+	if (.@roll <= 432) return .@pool[2];
+	if (.@roll <= 558) return .@pool[3];
+	if (.@roll <= 666) return .@pool[4];
+	if (.@roll <= 774) return .@pool[5];
+	if (.@roll <= 855) return .@pool[6];
+	if (.@roll <= 927) return .@pool[7];
+	if (.@roll <= 963) return .@pool[8];
+	if (.@roll <= 990) return .@pool[9];
+	return .@pool[10];
+}
+
+morocc,180,145,4	script	Mayomayo#costume_weapon	4_M_MAYOR,{
+	disable_items;
+	.@part = EQI_SHADOW_WEAPON;
+	.@weapon = getequipid(.@part);
+
+	if (.@weapon < 55000 || .@weapon > 55044) {
+		mes .mes$;
+		mes "Please equip a Costume Weapon (55000-55044) in the Shadow Weapon slot first.";
+		close;
+	}
+
+	// Read the exact equipped inventory entry so all item data can be restored.
+	getinventorylist;
+	.@inventory_pos = -1;
+	for (.@i = 0; .@i < @inventorylist_count; ++.@i) {
+		if (@inventorylist_id[.@i] == .@weapon && (@inventorylist_equip[.@i] & EQP_SHADOW_WEAPON)) {
+			.@inventory_pos = .@i;
+			break;
+		}
+	}
+	if (.@inventory_pos < 0) {
+		mes .mes$;
+		mes "The equipped Costume Weapon could not be found. Please equip it again.";
+		close;
+	}
+	if (@inventorylist_expire[.@inventory_pos]) {
+		mes .mes$;
+		mes "Rental Costume Weapons cannot be enchanted.";
+		close;
+	}
+	if (@inventorylist_favorite[.@inventory_pos]) {
+		mes .mes$;
+		mes "Please remove the Costume Weapon from Favorites before enchanting it.";
+		close;
+	}
+
+	.@identify = @inventorylist_identify[.@inventory_pos];
+	.@refine = @inventorylist_refine[.@inventory_pos];
+	.@attribute = @inventorylist_attribute[.@inventory_pos];
+	.@bound = @inventorylist_bound[.@inventory_pos];
+	.@grade = @inventorylist_enchantgrade[.@inventory_pos];
+	setarray .@card[0],
+		@inventorylist_card1[.@inventory_pos],
+		@inventorylist_card2[.@inventory_pos],
+		@inventorylist_card3[.@inventory_pos],
+		@inventorylist_card4[.@inventory_pos];
+	setarray .@OptID[0],
+		@inventorylist_option_id1[.@inventory_pos],
+		@inventorylist_option_id2[.@inventory_pos],
+		@inventorylist_option_id3[.@inventory_pos],
+		@inventorylist_option_id4[.@inventory_pos],
+		@inventorylist_option_id5[.@inventory_pos];
+	setarray .@OptVal[0],
+		@inventorylist_option_value1[.@inventory_pos],
+		@inventorylist_option_value2[.@inventory_pos],
+		@inventorylist_option_value3[.@inventory_pos],
+		@inventorylist_option_value4[.@inventory_pos],
+		@inventorylist_option_value5[.@inventory_pos];
+	setarray .@OptParam[0],
+		@inventorylist_option_parameter1[.@inventory_pos],
+		@inventorylist_option_parameter2[.@inventory_pos],
+		@inventorylist_option_parameter3[.@inventory_pos],
+		@inventorylist_option_parameter4[.@inventory_pos],
+		@inventorylist_option_parameter5[.@inventory_pos];
+
+	mes .mes$;
+	mes "I can enchant slots 1-3 of your Costume Weapon.";
+	next;
+	switch (select("Enchant weapon:Initialize enchant:Cancel")) {
+	case 1:
+		.@target_slot = -1;
+		for (.@i = 0; .@i < 3; ++.@i) {
+			if (!.@card[.@i]) {
+				.@target_slot = .@i;
+				break;
+			}
+		}
+		if (.@target_slot < 0) {
+			mes .mes$;
+			mes "This Costume Weapon already has enchants in slots 1-3.";
+			close;
+		}
+
+		mes .mes$;
+		mes "Enchant slot " + (.@target_slot + 1) + " with Seagod's Anger x1?";
+		next;
+		if (select("Confirm:Cancel") == 2)
+			close;
+		if (countitem(6423) < 1) {
+			mes .mes$;
+			mes "You do not have enough Seagod's Anger.";
+			close;
+		}
+
+		mes .mes$;
+		mes "Select the enchant type.";
+		next;
+		.@type = select("Short distance:Long distance:Caster:Cancel");
+		if (.@type == 4)
+			close;
+		.@new_enchant = callfunc("F_HICostumeWeaponEnchantRoll", .@type);
+
+		if (callfunc("F_IsEquipIDHack", .@part, .@weapon) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			close;
+
+		delequip .@part;
+		delitem 6423,1;
+		.@card[.@target_slot] = .@new_enchant;
+		getitembound4 .@weapon,1,.@identify,.@refine,.@attribute,.@card[0],.@card[1],.@card[2],.@card[3],.@bound,.@grade,.@OptID,.@OptVal,.@OptParam;
+		equip .@weapon;
+		specialeffect2 154;
+
+		mes .mes$;
+		mes "Slot " + (.@target_slot + 1) + " received " + getitemname(.@new_enchant) + ".";
+		close;
+
+	case 2:
+		if (!.@card[0] && !.@card[1] && !.@card[2]) {
+			mes .mes$;
+			mes "This Costume Weapon has no enchant in slots 1-3.";
+			close;
+		}
+		mes .mes$;
+		mes "Initialization removes enchants from slots 1-3.";
+		mes "Slot 4 and all random options will be preserved.";
+		mes "Silvervine x1 is required.";
+		next;
+		if (select("Confirm:Cancel") == 2)
+			close;
+		if (countitem(6417) < 1) {
+			mes .mes$;
+			mes "You do not have enough Silvervine.";
+			close;
+		}
+
+		if (callfunc("F_IsEquipIDHack", .@part, .@weapon) ||
+		    callfunc("F_IsEquipRefineHack", .@part, .@refine) ||
+		    callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3]))
+			close;
+
+		delequip .@part;
+		delitem 6417,1;
+		.@card[0] = .@card[1] = .@card[2] = 0;
+		getitembound4 .@weapon,1,.@identify,.@refine,.@attribute,.@card[0],.@card[1],.@card[2],.@card[3],.@bound,.@grade,.@OptID,.@OptVal,.@OptParam;
+		equip .@weapon;
+		specialeffect2 154;
+
+		mes .mes$;
+		mes "Enchants in slots 1-3 were removed.";
+		close;
+
+	default:
+		close;
+	}
+
+OnInit:
+	.mes$ = "[Mayomayo]";
+	waitingroom "สุ่ม Option Costume Weapon", 0;
+	end;
+}

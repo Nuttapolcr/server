@@ -10827,6 +10827,12 @@ void clif_viewequip_ack( map_session_data* sd, map_session_data* tsd ){
 	nullpo_retv( sd );
 	nullpo_retv( tsd );
 
+	// Carrying Equipment Hide Charm prevents other players from inspecting gear.
+	if( sd != tsd && pc_search_inventory( tsd, 1500017 ) >= 0 ){
+		clif_msg( sd, VIEW_EQUIP_FAIL );
+		return;
+	}
+
 	struct PACKET_ZC_EQUIPWIN_MICROSCOPE* p = (struct PACKET_ZC_EQUIPWIN_MICROSCOPE*)packet_buffer;
 	int equip = 0;
 

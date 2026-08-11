@@ -11981,7 +11981,6 @@ ACMD_FUNC(afk) {
 	pc_setsit(sd);
 	skill_sit(sd, 1);
 	clif_sitting(&sd->bl);
-	clif_changelook(&sd->bl, LOOK_HEAD_TOP, ITEMID_AFK_HAT);
 	clif_specialeffect(&sd->bl, 234, AREA);
 
 	if (battle_config.afk_timeout) {

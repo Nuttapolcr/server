@@ -8101,6 +8101,12 @@
 	export_constant(IG_CITY_TITAN_PURPLE);
 	export_constant(IG_JEWEL_BOX_SET);
 	export_constant(IG_RANDOM_DROP_BOX);
+	export_constant(IG_RANDOM_STONE_BOX_1);
+	export_constant(IG_RANDOM_STONE_BOX_2);
+	export_constant(IG_RANDOM_STONE_BOX_3);
+	export_constant(IG_RANDOM_STONE_BOX_4);
+	export_constant(IG_RANDOM_STONE_BOX_5);
+	export_constant(IG_RANDOM_STONE_BOX_6);
 
 	export_constant(IG_TEST01);
 	export_constant(IG_TEST02);

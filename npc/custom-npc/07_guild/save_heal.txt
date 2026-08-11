@@ -61,8 +61,11 @@ function	script	F_war_days_text	{
 // NPC: Buffer Service
 // =====================================================
 function	script	F_PremiumServiceStatsBuff	{
-	if (sc_check(SC_PREMIUMSERVICE))
+	if (sc_check(SC_PREMIUMSERVICE)) {
+		sc_start SC_INCREASEAGI,getarg(0),10;
+		sc_start SC_BLESSING,getarg(0),10;
 		sc_start SC_INCALLSTATUS,getarg(0),3;
+	}
 	return;
 }
 

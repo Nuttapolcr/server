@@ -1,0 +1,75 @@
+# Guarantee exchange for the Zeny/Cash cabinets.
+Header:
+  Type: BARTER_DB
+  Version: 1
+
+Body:
+  - Name: CABINET_GUARANTEE
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: RWC_2010_Indonesia
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 3
+      - Index: 1
+        Item: Cat_Ear_Beret
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 3
+      - Index: 2
+        Item: Red_Pom_Band
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 3
+      - Index: 3
+        Item: Blood_Sucker
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 3
+      - Index: 4
+        Item: Fan_in_Mouth
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 2
+      - Index: 5
+        Item: Happy_Balloon_K
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 2
+      - Index: 6
+        Item: Charm_FLEE_Valor
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 3
+      - Index: 7
+        Item: Charm_ASPD_Valor
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 3
+      - Index: 8
+        Item: Charm_Critical_Valor
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 3
+      - Index: 9
+        Item: Bloody_Dead_Branch
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 1
+      - Index: 10
+        Item: Refine_Booster_Potion_5
+        RequiredItems:
+          - Index: 0
+            Item: New_Item_1500024
+            Amount: 1

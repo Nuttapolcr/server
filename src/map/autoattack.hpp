@@ -16,6 +16,8 @@ constexpr auto AA_WALK_CELL = 13;
 
 namespace AA_CONSTANTS {
 	constexpr int MOVE_DELAY = 100;            // 500ms movement delay
+	constexpr int COMBAT_LOOP_DELAY = 100;     // Fast polling only while a combat target exists
+	constexpr int BOSS_TELEPORT_DELAY = 3000;  // Prevent repeated warps when bosses stay in sight
 	constexpr int IDLE_THRESHOLD = 15;         // 15 seconds idle threshold
 	constexpr int CORRIDOR_DETECTION_RANGE = 3;
 	constexpr int AOE_SIZE = 2;
@@ -134,6 +136,7 @@ struct s_autoattack {
 	time_t last_attack;
 	time_t last_pick;
 	t_tick skill_cd;
+	t_tick attack_skill_cd;
 	t_tick last_hit;
 	int attack_target_id;
 	int target_id;

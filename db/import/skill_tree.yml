@@ -41,3 +41,10 @@ Header:
   Version: 1
 
 Body:
+  - Job: Lord_Knight
+    Tree:
+      - Name: LK_SPIRALPIERCE
+        MaxLevel: 5
+        Requires:
+          - Name: KN_SPEARMASTERY
+            Level: 5
