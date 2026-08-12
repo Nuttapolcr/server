@@ -240,7 +240,6 @@ OnUpdateSign:
 }
 
 morocc,118,93,4	script	ตู้แลกของการันตี#cabinet	564,{
-	close2;
 	callshop "CABINET_GUARANTEE", 1;
 	end;
 
