@@ -15468,6 +15468,20 @@ Body:
     View: 12
     Script: |
       bonus2 bResEff,Eff_Blind,500;
+  - Id: 1500063
+    AegisName: Cos_Sunglasses
+    Name: Cos Sunglasses
+    Type: Armor
+    ArmorLevel: 1
+    View: 12
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+    Locations:
+      Costume_Head_Mid: true
   - Id: 2202
     AegisName: Sunglasses_
     Name: Sunglasses
@@ -16918,10 +16932,10 @@ Body:
       All: true
       Novice: false
       SuperNovice: false
-    ArmorLevel: 1
-    View: 56
     Locations:
       Costume_Head_Low: true
+    ArmorLevel: 1
+    View: 56
     Script: |-
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
@@ -17186,6 +17200,7 @@ Body:
       SuperNovice: false
     Locations:
       Costume_Head_Mid: true
+    ArmorLevel: 1
     View: 73
     Script: |-
       bonus2 bDropAddRace,RC_All,5;
@@ -17193,7 +17208,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    ArmorLevel: 1
   - Id: 2287
     AegisName: Pirate_Bandana
     Name: Pirate Bandana
@@ -17422,10 +17436,10 @@ Body:
     AegisName: Cos_Green_Feeler
     Name: Cos Green Feeler
     Type: Armor
-    ArmorLevel: 1
-    View: 85
     Locations:
       Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 85
     Script: |-
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
@@ -25675,6 +25689,24 @@ Body:
       Head_Mid: true
     ArmorLevel: 1
     View: 92
+  - Id: 1500064
+    AegisName: Cos_Machoman_Glasses
+    Name: Cos Machoman's Glasses
+    Type: Armor
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Locations:
+      Costume_Head_Mid: true
+    ArmorLevel: 1
+    View: 92
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5007
     AegisName: Loard_Circlet
     Name: Grand Circlet
@@ -25887,10 +25919,10 @@ Body:
       All: true
       Novice: false
       SuperNovice: false
-    ArmorLevel: 1
-    View: 102
     Locations:
       Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 102
     Script: |-
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
@@ -27419,6 +27451,22 @@ Body:
       Head_Low: true
     ArmorLevel: 1
     View: 188
+  - Id: 1500062
+    AegisName: Cos_Well_Baked_Toast
+    Name: Cos Crunch Toast
+    Type: Armor
+    Buy: 20
+    Weight: 50
+    ArmorLevel: 1
+    View: 188
+    Locations:
+      Costume_Head_Low: true
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5108
     AegisName: Detective_Hat
     Name: Renown Detective's Cap
@@ -27436,10 +27484,10 @@ Body:
     AegisName: Cos_Detective_Hat
     Name: Cos Renown Detective's Cap
     Type: Armor
-    ArmorLevel: 1
-    View: 189
     Locations:
       Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 189
     Script: |-
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
@@ -42056,7 +42104,7 @@ Body:
     Locations:
       Left_Accessory: true
     ArmorLevel: 1
-    EquipLevelMin: 145
+    EquipLevelMin: 1
     Trade:
       NoDrop: true
       NoTrade: true
@@ -42075,7 +42123,7 @@ Body:
     Locations:
       Right_Accessory: true
     ArmorLevel: 1
-    EquipLevelMin: 145
+    EquipLevelMin: 1
     Trade:
       NoDrop: true
       NoTrade: true

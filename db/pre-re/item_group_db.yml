@@ -14325,6 +14325,7 @@ Body:
             Item: Costume_Weapon_Ticket
             Rate: 78
             Amount: 1
+            Announced: true
   - Group: RANDOM_STONE_BOX_6
     SubGroups:
       - SubGroup: 1

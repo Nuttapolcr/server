@@ -3104,6 +3104,7 @@ Body:
     Name: Hydra Card
     Type: Card
     Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Right_Hand: true
@@ -3111,10 +3112,9 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
       DropAnnounce: true
-    Script: |
+    Script: |-
       bonus2 bAddRace,RC_DemiHuman,20;
       bonus2 bAddRace,RC_Player_Human,20;
-    Sell: 0
   - Id: 4036
     AegisName: Muka_Card
     Name: Muka Card
@@ -25512,8 +25512,6 @@ Body:
         bonus bMaxHPrate,getskilllv("DC_DANCINGLESSON")*2;
       else
          bonus bMaxHPrate,getskilllv("BA_MUSICALLESSON")*2;
-    EquipScript: |+
-
   - Id: 29486
     AegisName: WanderMinstrel_Middle
     Name: Clown Gypsy Stone (Middle)

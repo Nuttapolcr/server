@@ -1,28 +1,87 @@
 function	script	F_CS2_Open	{
-	.@castle_count = getvariableofnpc(.CastleCount, "WOE_CONTROL");
-	.@active = getvariableofnpc(.Active[0], "WOE_CONTROL");
-	.@valor_idx = getvariableofnpc(.ValorFightIndex, "WOE_CONTROL");
-
-	if (.@castle_count <= .@valor_idx || .@valor_idx < 0) {
-		dispbottom "[WoE Warp] ระบบปราสาทไม่พร้อมใช้งาน.";
+	if ($@CS2_cnt <= 0) {
+		dispbottom "[WoE Warp] ยังไม่ได้ตั้งค่าปราสาทหรือคอนฟิกไม่พร้อม.";
 		return;
 	}
 
-	if (!agitcheck() || !(.@active & (1 << .@valor_idx))) {
-		dispbottom "[WoE Warp] ValorFight ยังไม่เปิดในรอบนี้.";
-		return;
+	mes "[ Warper Castles ]";
+	mes "รายการ : ^FF0000" + $@CS2_event_name$ + "^000000";
+	mes "วัน: ^FF0000" + $@CS2_event_date$ + "^000000";
+	mes "เวลา: ^FF0000" + $@CS2_event_time$ + "^000000";
+
+	if (lastwarp$ != "")
+		.@pick = select("~ วาร์ปล่าสุด ^777777[" + lastwarp$ + "]^000000","^FF0000~ "+$@CS2_event_menu_title$+"^000000");
+	else
+		.@pick = select("^FF0000~ "+$@CS2_event_menu_title$+"^000000");
+
+	if (lastwarp$ != "" && .@pick == 1) {
+		warp lastwarp$, lastwarpx, lastwarpy;
+		close;
 	}
 
 	sc_end SC_POEMBRAGI; sc_end SC_SERVICE4U; sc_end SC_ENCHANTARMS; sc_end SC_ASSUMPTIO;
 	sc_end SC_AURABLADE; sc_end SC_MAGICPOWER; sc_end SC_CARTBOOST; sc_end SC_TRUESIGHT;
 	sc_end SC_FLEEFOOD;  sc_end SC_HITFOOD;
 
-	set lastwarp$, "guild_vs2-1";
-	set lastwarpx, 49;
-	set lastwarpy, 49;
+	.@ver = $@CS2_ver;
 
-	warp "guild_vs2-1",49,49;
-	return;
+	.@menu$ = "";
+	.@show = 0;
+	deletearray .@castle_index[0], getarraysize(.@castle_index);
+
+	for (.@i = 0; .@i < $@CS2_cnt; ++.@i) {
+		explode(.@p$, $@CS2_castle_cfg$[.@i], "|"); // [0]=ชื่อ [1]=เปิด(0/1) [2]=ท้าย
+
+		// แสดงเฉพาะบ้านที่เปิดเท่านั้น
+		if (!atoi(.@p$[1]))
+			continue;
+
+		.@castle_index[.@show] = .@i;
+
+		.@tail$ = (.@p$[2] == "0" ? "" : .@p$[2]);
+
+		if (.@tail$ == "ZONE")
+			.@suffix$ = " (^00AAFFZONE^000000)";
+		else if (getstrlen(.@tail$) > 0)
+			.@suffix$ = " (^FF0000"+.@tail$+" "+$@CS2_reward_unit$+"^000000)";
+		else
+			.@suffix$ = "";
+
+		.@menu$ = .@menu$ + (.@show ? ":" : "") + "~" + .@p$[0] + " ^00AA00[เปิด]^000000" + .@suffix$;
+		.@show++;
+	}
+
+	if (.@show <= 0) {
+		message strcharinfo(0), "[แจ้งเตือน] ยังไม่มีบ้านที่เปิดให้วาปค่ะ";
+		close;
+	}
+
+	.@sel_menu = select(.@menu$) - 1;
+
+	if ($@CS2_ver != .@ver) {
+		message strcharinfo(0), "[แจ้งเตือน] มีการอัพเดทตั้งค่า โปรดลองใหม่อีกครั้ง.";
+		close;
+	}
+
+	if (.@sel_menu < 0 || .@sel_menu >= .@show) {
+		dispbottom "[WoE Warp] เลือกไม่ถูกต้อง.";
+		close;
+	}
+
+	.@sel = .@castle_index[.@sel_menu];
+
+	explode(.@p$, $@CS2_castle_cfg$[.@sel], "|");
+
+	.@map$ = $@CS2_maps$[.@sel];
+	.@x    = $@CS2_xy[.@sel*2];
+	.@y    = $@CS2_xy[.@sel*2+1];
+
+	set lastwarp$, .@map$;
+	set lastwarpx, .@x;
+	set lastwarpy, .@y;
+
+	warp .@map$, .@x, .@y;
+	close;
 }
 
 -	script	CS2#UI	-1,{

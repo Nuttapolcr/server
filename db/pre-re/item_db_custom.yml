@@ -38309,6 +38309,7 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     Refineable: true
+    View: 1527
     Script: |
       .@r = getrefine();
       bonus bHPGainValue,100;
@@ -38331,7 +38332,6 @@ Body:
       bonus bMagicHPGainValue,100;
       bonus bMagicSPGainValue,10;
       }
-    View: 1527
   - Id: 1030046
     AegisName: Upg_One-handed_Axe
     Name: "[Rookie] One-handed Mace New"
@@ -38798,13 +38798,13 @@ Body:
     Locations:
       Head_Low: true
     ArmorLevel: 1
+    View: 818
     Trade:
       NoDrop: true
       NoGuildStorage: true
     Script: |-
       bonus2 bSubRace,RC_DemiHuman,3;
       bonus2 bSubRace,RC_Player_Human,3;
-    View: 818
   - Id: 1030068
     AegisName: New_Item_1030068
     Name: "[12hr] Wing (Unlimit) Pack"
@@ -38898,9 +38898,9 @@ Body:
       TradePartner: true
       NoCart: true
       NoStorage: true
+      NoGuildStorage: true
       NoMail: true
       NoAuction: true
-      NoGuildStorage: true
   - Id: 1030097
     AegisName: C_Endless_Clear_Coin
     Name: "[C] Endless Clear Coin"
@@ -38962,11 +38962,10 @@ Body:
     Name: "[E] Charm MVP Battlefield"
     Type: Charm
     CharmScript: |-
-      if (strcharinfo(3) != "valor_pk") end;
       if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
-      bonus bInt,15;
-      bonus2 bAddClass,Class_Boss,50;
-      bonus2 bMagicAddClass,Class_Boss,50;
+      bonus bInt,5;
+      bonus2 bAddClass,Class_Boss,15;
+      bonus2 bMagicAddClass,Class_Boss,15;
   - Id: 1030099
     AegisName: New_Item_1030099
     Name: "[Event] Warp Boss Ticket"
@@ -39184,21 +39183,21 @@ Body:
   - Id: 18712
     AegisName: Fan_in_Mouth
     Name: Fan in Mouth
-    Script: bonus bAspd,1;
     Type: Armor
+    Weight: 10
     Locations:
       Head_Low: true
-    Weight: 10
     View: 857
+    Script: bonus bAspd,1;
   - Id: 18754
     AegisName: Blood_Sucker
     Name: Blood Sucker
-    Script: bonus2 bHPDrainRate,30,5;
     Type: Armor
+    Weight: 10
     Locations:
       Head_Low: true
     View: 893
-    Weight: 10
+    Script: bonus2 bHPDrainRate,30,5;
   - Id: 1500026
     AegisName: Charm_STR_Valor_V.1
     Name: Charm STR Valor V.1
@@ -39262,10 +39261,16 @@ Body:
   - Id: 18509
     AegisName: RWC_2010_Indonesia
     Name: RWC 2010 Indonesia
-    View: 678
     Type: Armor
+    Weight: 100
+    Defense: 6
+    Slots: 1
     Locations:
       Head_Top: true
+    ArmorLevel: 1
+    EquipLevelMin: 15
+    Refineable: true
+    View: 678
     Script: |-
       .@r = getrefine();
       bonus2 bAddItemHealRate,501,100;
@@ -39285,22 +39290,18 @@ Body:
       bonus2 bSubRace,RC_Player_Human,5;
       bonus2 bSubRace,RC_Player_Doram,5;
       }
-    Weight: 100
-    Defense: 6
-    ArmorLevel: 1
-    Refineable: true
-    EquipLevelMin: 15
-    Slots: 1
   - Id: 18600
     AegisName: Cat_Ear_Beret
     Name: Cat Ear Beret
     Type: Armor
     Weight: 300
-    View: 761
-    Slots: 1
     Defense: 5
+    Slots: 1
     Locations:
       Head_Top: true
+    ArmorLevel: 1
+    Refineable: true
+    View: 761
     Script: |-
       .@r = getrefine();
       bonus2 bAddRace,RC_DemiHuman,2;
@@ -39319,36 +39320,196 @@ Body:
       bonus2 bSubRace,RC_Player_Human,5;
       bonus2 bSubRace,RC_Player_Doram,5;
       }
-    ArmorLevel: 1
-    Refineable: true
   - Id: 18601
     AegisName: Red_Pom_Band
     Name: Red Pom Band
     Type: Armor
     Weight: 300
-    View: 762
-    Slots: 1
     Defense: 0
+    Slots: 1
     Locations:
       Head_Top: true
+    ArmorLevel: 1
+    Refineable: true
+    View: 762
     Script: |-
       .@r = getrefine();
       bonus bMdef,5;
-      bonus2 bAddRace,RC_DemiHuman,2;
-      bonus2 bAddRace,RC_Player_Human,2;
+      bonus2 bMagicaddrace,RC_DemiHuman,2;
+      bonus2 bMagicaddrace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Human,2;
       bonus2 bSubRace,RC_Player_Doram,2;
       if (.@r>=7) {
-      bonus2 bAddRace,RC_DemiHuman,3;
-      bonus2 bAddRace,RC_Player_Human,3;
+      bonus2 bMagicaddrace,RC_DemiHuman,3;
+      bonus2 bMagicaddrace,RC_Player_Human,3;
       bonus2 bSubRace,RC_Player_Human,3;
       bonus2 bSubRace,RC_Player_Doram,3;
       }
       if (.@r>=12) {
-      bonus2 bAddRace,RC_DemiHuman,5;
-      bonus2 bAddRace,RC_Player_Human,5;
+      bonus2 bMagicaddrace,RC_DemiHuman,5;
+      bonus2 bMagicaddrace,RC_Player_Human,5;
       bonus2 bSubRace,RC_Player_Human,5;
       bonus2 bSubRace,RC_Player_Doram,5;
       }
-    ArmorLevel: 1
-    Refineable: true
+  - Id: 1500035
+    AegisName: Attack_Shadow_Armor
+    Name: Attack Shadow Armor
+    Type: ShadowGear
+    Locations:
+      Shadow_Armor: true
+  - Id: 1500036
+    AegisName: Attack_Shadow_Shoes
+    Name: Attack Shadow Shoes
+    Type: ShadowGear
+    Locations:
+      Shadow_Shoes: true
+  - Id: 1500037
+    AegisName: Attack_Shadow_Earring
+    Name: Attack Shadow Earring
+    Type: ShadowGear
+    Locations:
+      Shadow_Right_Accessory: true
+  - Id: 1500038
+    AegisName: Attack_Shadow_Pendant
+    Name: Attack Shadow Pendant
+    Type: ShadowGear
+    Locations:
+      Shadow_Left_Accessory: true
+  - Id: 1500039
+    AegisName: Magic_Shadow_Armor
+    Name: Magic Shadow Armor
+    Type: ShadowGear
+    Locations:
+      Shadow_Armor: true
+  - Id: 1500040
+    AegisName: Magic_Shadow_Shoes
+    Name: Magic Shadow Shoes
+    Type: ShadowGear
+    Locations:
+      Shadow_Shoes: true
+  - Id: 1500041
+    AegisName: Magic_Shadow_Earring
+    Name: Magic Shadow Earring
+    Type: ShadowGear
+    Locations:
+      Shadow_Right_Accessory: true
+  - Id: 1500042
+    AegisName: Magic_Shadow_Pendant
+    Name: Magic Shadow Pendant
+    Type: ShadowGear
+    Locations:
+      Shadow_Left_Accessory: true
+  - Id: 1500043
+    AegisName: Defense_Shadow_Armor
+    Name: Defense Shadow Armor
+    Type: ShadowGear
+    Locations:
+      Shadow_Armor: true
+  - Id: 1500044
+    AegisName: New_Item_1500044
+    Name: Defense Shadow Shoes
+    Type: ShadowGear
+    Locations:
+      Shadow_Shoes: true
+  - Id: 1500045
+    AegisName: New_Item_1500045
+    Name: Defense Shadow Earring
+    Type: ShadowGear
+    Locations:
+      Shadow_Right_Accessory: true
+  - Id: 1500046
+    AegisName: New_Item_1500046
+    Name: Defense Shadow Pendant
+    Type: ShadowGear
+    Locations:
+      Shadow_Left_Accessory: true
+  - Id: 1500047
+    AegisName: New_Item_1500047
+    Name: XX Shadow Armor
+    Type: ShadowGear
+    Locations:
+      Shadow_Armor: true
+  - Id: 1500048
+    AegisName: New_Item_1500048
+    Name: XX Shadow Shoes
+    Type: ShadowGear
+    Locations:
+      Shadow_Shoes: true
+  - Id: 1500049
+    AegisName: New_Item_1500049
+    Name: XX Shadow Earring
+    Type: ShadowGear
+    Locations:
+      Shadow_Right_Accessory: true
+  - Id: 1500050
+    AegisName: New_Item_1500050
+    Name: XX Shadow Pendant
+    Type: ShadowGear
+    Locations:
+      Shadow_Left_Accessory: true
+  - Id: 1500051
+    AegisName: New_Item_1500051
+    Name: YY Shadow Armor
+    Type: ShadowGear
+    Locations:
+      Shadow_Armor: true
+  - Id: 1500052
+    AegisName: New_Item_1500052
+    Name: YY Shadow Shoes
+    Type: ShadowGear
+    Locations:
+      Shadow_Shoes: true
+  - Id: 1500053
+    AegisName: New_Item_1500053
+    Name: YY Shadow Earring
+    Type: ShadowGear
+    Locations:
+      Shadow_Right_Accessory: true
+  - Id: 1500054
+    AegisName: New_Item_1500054
+    Name: YY Shadow Pendant
+    Type: ShadowGear
+    Locations:
+      Shadow_Left_Accessory: true
+  - Id: 1500055
+    AegisName: Rudolf_Shadow_Earring
+    Name: Rudolf Shadow Earring
+    Type: ShadowGear
+    Locations:
+      Shadow_Right_Accessory: true
+  - Id: 1500056
+    AegisName: Rudolf_Shadow_Pendant
+    Name: Rudolf Shadow Pendant
+    Type: ShadowGear
+    Locations:
+      Shadow_Left_Accessory: true
+  - Id: 1500057
+    AegisName: Attack_Shadow_Shield
+    Name: Attack Shadow Shield
+    Type: ShadowGear
+    Locations:
+      Shadow_Shield: true
+  - Id: 1500058
+    AegisName: Magic_Shadow_Shield
+    Name: Magic Shadow Shield
+    Type: ShadowGear
+    Locations:
+      Shadow_Shield: true
+  - Id: 1500059
+    AegisName: Defense_Shadow_Shield
+    Name: Defense Shadow Shield
+    Type: ShadowGear
+    Locations:
+      Shadow_Shield: true
+  - Id: 1500060
+    AegisName: New_Item_1500060
+    Name: New Item 1500060
+    Type: ShadowGear
+    Locations:
+      Shadow_Shield: true
+  - Id: 1500061
+    AegisName: New_Item_1500061
+    Name: New Item 1500061
+    Type: ShadowGear
+    Locations:
+      Shadow_Shield: true
