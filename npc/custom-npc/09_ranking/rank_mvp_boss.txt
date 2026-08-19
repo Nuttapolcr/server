@@ -212,7 +212,7 @@ OnCreateReward:
 
 -	script	rank_mvp_boss_counter	FAKE_NPC,{
 OnInit:
-	.score_enabled = 0; // 0 = ปิดการสะสมแต้ม แต่ยังนับจำนวนฆ่า
+	.score_enabled = 1; // 1 = เปิดการสะสมแต้มกิจกรรมฆ่า MVP
 	end;
 
 OnNPCKillEvent:
