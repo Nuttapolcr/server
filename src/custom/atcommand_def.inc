@@ -12,3 +12,5 @@
 ACMD_DEF(doevent),
 ACMD_DEF(hidepet),
 ACMD_DEF2("hidepetall", hidepet),
+ACMD_DEF(peton),
+ACMD_DEF(petoff),

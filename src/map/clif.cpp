@@ -2464,6 +2464,11 @@ void clif_selllist(map_session_data *sd)
 	{
 		if( sd->inventory.u.items_inventory[i].nameid > 0 && sd->inventory_data[i] )
 		{
+			// Script-controlled shops may turn sold items into rewards or
+			// materials, so refine-broken equipment is only shown to regular shops.
+			if( nd->master_nd && sd->inventory.u.items_inventory[i].attribute == ATTRIBUTE_REFINE_BROKEN )
+				continue;
+
 			if( !pc_can_sell_item(sd, &sd->inventory.u.items_inventory[i], nd->subtype))
 				continue;
 
@@ -7597,7 +7602,7 @@ void clif_item_repair_list( map_session_data *sd,map_session_data *dstsd, int lv
 	int c = 0;
 
 	for( int i = 0; i < MAX_INVENTORY; i++ ){
-		if( dstsd->inventory.u.items_inventory[i].nameid > 0 && dstsd->inventory.u.items_inventory[i].attribute != 0 && !itemdb_ishatched_egg( &dstsd->inventory.u.items_inventory[i] ) ){ // && skill_can_repair(sd,nameid)){
+		if( dstsd->inventory.u.items_inventory[i].nameid > 0 && dstsd->inventory.u.items_inventory[i].attribute == ATTRIBUTE_BROKEN && !itemdb_ishatched_egg( &dstsd->inventory.u.items_inventory[i] ) ){ // && skill_can_repair(sd,nameid)){
 			p->items[c].index = i;
 			p->items[c].itemId = client_nameid( dstsd->inventory.u.items_inventory[i].nameid );
 			p->items[c].refine = dstsd->inventory.u.items_inventory[i].refine;
@@ -17531,7 +17536,8 @@ void clif_parse_Auction_setitem(int fd, map_session_data *sd){
 		return;
 	}
 
-	if( !pc_can_give_items(sd) || sd->inventory.u.items_inventory[idx].expire_time ||
+	if( !pc_can_give_items(sd) || sd->inventory.u.items_inventory[idx].attribute == ATTRIBUTE_REFINE_BROKEN ||
+			sd->inventory.u.items_inventory[idx].expire_time ||
 			!sd->inventory.u.items_inventory[idx].identify ||
 			(sd->inventory.u.items_inventory[idx].bound && !pc_can_give_bounded_items(sd)) ||
 			!itemdb_available(sd->inventory.u.items_inventory[idx].nameid) ||
@@ -23415,6 +23421,16 @@ void clif_refineui_info( map_session_data* sd, uint16 index ){
 		return;
 	}
 
+	// Rental equipment must not be refined.
+	if( item->expire_time ){
+		return;
+	}
+
+	// Equipped and equipment-switch items must not be refined.
+	if( item->equip || item->equipSwitch ){
+		return;
+	}
+
 	struct PACKET_ZC_REFINING_MATERIAL_LIST* p = (struct PACKET_ZC_REFINING_MATERIAL_LIST*)packet_buffer;
 
 	p->packetType = HEADER_ZC_REFINING_MATERIAL_LIST;
@@ -23540,6 +23556,17 @@ void clif_parse_refineui_refine( int fd, map_session_data* sd ){
 
 	// Check if the item is broken
 	if( item->attribute ){
+		return;
+	}
+
+	// Rental equipment must not be refined, including forged packets that
+	// bypass the item-selection response.
+	if( item->expire_time ){
+		return;
+	}
+
+	// Equipped and equipment-switch items must not be refined.
+	if( item->equip || item->equipSwitch ){
 		return;
 	}
 
@@ -23746,10 +23773,16 @@ void clif_parse_refineui_refine( int fd, map_session_data* sd ){
 				clif_additem(sd, index, 1, 0);
 			}
 			clif_refineui_info( sd, index );
-		// Delete the item if it is breakable
+		// Breakable refine materials reset the equipment to +0 and leave it
+		// refine-damaged until a Repairman consumes the configured BSB cost.
 		}else if( cost->breaking_rate > 0 && ( rnd() % 10000 ) < cost->breaking_rate ){
-			clif_refine( fd, 1, index, item->refine );
-			pc_delitem( sd, index, 1, 0, 2, LOG_TYPE_CONSUME );
+			log_pick_pc( sd, LOG_TYPE_OTHER, -1, item );
+			item->refine = 0;
+			item->attribute = ATTRIBUTE_REFINE_BROKEN;
+			log_pick_pc( sd, LOG_TYPE_OTHER, 1, item );
+			clif_refine( fd, 2, index, item->refine );
+			clif_delitem( sd, index, 1, 3 );
+			clif_additem( sd, index, 1, 0 );
 		// Downgrade the item if necessary
 		}else if( cost->downgrade_amount > 0 ){
 			item->refine = cap_value( item->refine - cost->downgrade_amount, 0, MAX_REFINE );

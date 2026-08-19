@@ -161,6 +161,11 @@ bonus2 bSkillAtk,"SKILL",N;      # Skill damage +N%
 
 ## Script Patterns
 
+### Barter exact-refine recipes
+
+- Barter `RequiredItems[].Refine` normally accepts the requested refine level or a higher one.
+- Set shop-level `ExactRefine: true` to require the exact `Refine` value for every refined material in that shop.
+
 ### Charm Item (CharmScript)
 
 - Type `Charm` ใช้ field `CharmScript` แทน `Script` — engine ของ fork นี้ประเมิน CharmScript ใหม่ทุกครั้งที่คำนวณ stat แค่พกไว้ในกระเป๋าก็มีผลทันที ไม่ต้องสวมใส่หรือใช้งาน

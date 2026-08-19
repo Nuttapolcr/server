@@ -268,7 +268,8 @@ enum mail_attach_result mail_setitem(map_session_data *sd, short idx, uint32 amo
 
 		if( amount > sd->inventory.u.items_inventory[idx].amount )
 			return MAIL_ATTACH_ERROR;
-		if( !pc_can_give_items(sd) || sd->inventory.u.items_inventory[idx].expire_time
+		if( !pc_can_give_items(sd) || sd->inventory.u.items_inventory[idx].attribute == ATTRIBUTE_REFINE_BROKEN
+			|| sd->inventory.u.items_inventory[idx].expire_time
 			|| !itemdb_available(sd->inventory.u.items_inventory[idx].nameid)
 			|| !itemdb_canmail(&sd->inventory.u.items_inventory[idx],pc_get_group_level(sd))
 			|| (sd->inventory.u.items_inventory[idx].bound && !pc_can_give_bounded_items(sd)) )

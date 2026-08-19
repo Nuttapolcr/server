@@ -589,6 +589,17 @@ uint64 BarterDatabase::parseBodyNode( const ryml::NodeRef& node ){
 		barter->is_craft = is_craft;
 	}
 
+	barter->exact_refine = false;
+	if (this->nodeExists( node, "ExactRefine" )){
+		bool exact_refine;
+
+		if (!this->asBool( node, "ExactRefine", exact_refine)){
+			return 0;
+		}
+
+		barter->exact_refine = exact_refine;
+	}
+
 	barter->waitingroom = {};
 	if (this->nodeExists( node, "WaitingRoom" )){
 		std::string chat;
@@ -3356,6 +3367,10 @@ static int npc_selllist_sub(map_session_data* sd, int list_length, PACKET_CZ_PC_
 	{
 		int idx = item_list[i].index - 2;
 
+		// Script-controlled shops must not consume refine-damaged equipment.
+		if( idx < 0 || idx >= MAX_INVENTORY || sd->inventory.u.items_inventory[idx].attribute == ATTRIBUTE_REFINE_BROKEN )
+			return 1;
+
 		script_setarray_pc( sd, "@sold_idx", i, idx, &key_idx );
 		script_setarray_pc( sd, "@sold_nameid", i, sd->inventory.u.items_inventory[idx].nameid, &key_nameid );
 		script_setarray_pc( sd, "@sold_quantity", i, item_list[i].amount, &key_amount );
@@ -3739,6 +3754,10 @@ e_purchase_result npc_craft_barter_purchase( map_session_data& sd, std::shared_p
 
 				for( j = 0; j < MAX_INVENTORY; j++ ){
 					if( sd.inventory.u.items_inventory[j].nameid == requirement->nameid ){
+						if( sd.inventory.u.items_inventory[j].expire_time != 0 ){
+							continue;
+						}
+
 						if( sd.inventory.u.items_inventory[j].equip != 0 ){
 							continue;
 						}
@@ -3781,6 +3800,10 @@ e_purchase_result npc_craft_barter_purchase( map_session_data& sd, std::shared_p
 
 					for( j = 0; j < MAX_INVENTORY; j++ ){
 						if( sd.inventory.u.items_inventory[j].nameid == requirement->nameid ){
+							if( sd.inventory.u.items_inventory[j].expire_time != 0 ){
+								continue;
+							}
+
 							if( sd.inventory.u.items_inventory[j].equip != 0 ){
 								continue;
 							}
@@ -3818,13 +3841,17 @@ e_purchase_result npc_craft_barter_purchase( map_session_data& sd, std::shared_p
 
 					if( j == MAX_INVENTORY ){
 						// Maybe the refine level did not match
-						if( requirement->refine >= 0 ){
+						if( requirement->refine >= 0 && !barter->exact_refine ){
 							int32 refine;
 
 							for( refine = requirement->refine + 1; refine <= MAX_REFINE; refine++ ){
-								for( j = 0; j < MAX_INVENTORY; j++ ){
-									if( sd.inventory.u.items_inventory[j].nameid == requirement->nameid ){
-										if( sd.inventory.u.items_inventory[j].equip != 0 ){
+							for( j = 0; j < MAX_INVENTORY; j++ ){
+								if( sd.inventory.u.items_inventory[j].nameid == requirement->nameid ){
+									if( sd.inventory.u.items_inventory[j].expire_time != 0 ){
+										continue;
+									}
+
+									if( sd.inventory.u.items_inventory[j].equip != 0 ){
 											continue;
 										}
 
@@ -4154,6 +4181,10 @@ e_purchase_result npc_barter_purchase( struct map_session_data& sd, std::shared_
 
 				for( j = 0; j < MAX_INVENTORY; j++ ){
 					if( sd.inventory.u.items_inventory[j].nameid == requirement->nameid ){
+						if( sd.inventory.u.items_inventory[j].expire_time != 0 ){
+							continue;
+						}
+
 						// Equipped items are not taken into account
 						if( sd.inventory.u.items_inventory[j].equip != 0 ){
 							continue;
@@ -4204,6 +4235,10 @@ e_purchase_result npc_barter_purchase( struct map_session_data& sd, std::shared_
 
 					for( j = 0; j < MAX_INVENTORY; j++ ){
 						if( sd.inventory.u.items_inventory[j].nameid == requirement->nameid ){
+							if( sd.inventory.u.items_inventory[j].expire_time != 0 ){
+								continue;
+							}
+
 							// Equipped items are not taken into account
 							if( sd.inventory.u.items_inventory[j].equip != 0 ){
 								continue;
@@ -4216,6 +4251,11 @@ e_purchase_result npc_barter_purchase( struct map_session_data& sd, std::shared_
 
 							// Server is configured to hide favorite items on selling
 							if( battle_config.hide_fav_sell && sd.inventory.u.items_inventory[j].favorite ){
+								continue;
+							}
+
+							// Refine-damaged equipment can only be handled by the Repairman.
+							if( sd.inventory.u.items_inventory[j].attribute == ATTRIBUTE_REFINE_BROKEN ){
 								continue;
 							}
 
@@ -4257,13 +4297,17 @@ e_purchase_result npc_barter_purchase( struct map_session_data& sd, std::shared_
 					// Required item not found
 					if( j == MAX_INVENTORY ){
 						// Maybe the refine level did not match
-						if( requirement->refine >= 0 ){
+						if( requirement->refine >= 0 && !barter->exact_refine ){
 							int refine;
 
 							// Try to find a higher refine level, going from the next lowest to the highest possible
 							for( refine = requirement->refine + 1; refine <= MAX_REFINE; refine++ ){
 								for( j = 0; j < MAX_INVENTORY; j++ ){
 									if( sd.inventory.u.items_inventory[j].nameid == requirement->nameid ){
+										if( sd.inventory.u.items_inventory[j].expire_time != 0 ){
+											continue;
+										}
+
 										// Equipped items are not taken into account
 										if( sd.inventory.u.items_inventory[j].equip != 0 ){
 											continue;
@@ -4276,6 +4320,11 @@ e_purchase_result npc_barter_purchase( struct map_session_data& sd, std::shared_
 
 										// Server is configured to hide favorite items on selling
 										if( battle_config.hide_fav_sell && sd.inventory.u.items_inventory[j].favorite ){
+											continue;
+										}
+
+										// Refine-damaged equipment can only be handled by the Repairman.
+										if( sd.inventory.u.items_inventory[j].attribute == ATTRIBUTE_REFINE_BROKEN ){
 											continue;
 										}
 

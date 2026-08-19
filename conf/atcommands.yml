@@ -935,6 +935,10 @@ Body:
   - Command: reloaditemdb
     Help: |
       Reload item database.
+  - Command: reloaditemdbfast
+    Help: |
+      Reload item database with a bounded item cache and cached player data.
+      Reports timing for each reload phase and has a 30-second cooldown.
   - Command: reloadmobdb
     Help: |
       Reload monster database.
@@ -1048,6 +1052,12 @@ Body:
       - hideallpets
     Help: |
       Hides or shows all pets, including yours.
+  - Command: peton
+    Help: |
+      Enables item pickup for your pet.
+  - Command: petoff
+    Help: |
+      Disables item pickup for your pet.
 
 Footer:
   Imports:

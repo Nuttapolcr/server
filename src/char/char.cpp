@@ -1707,6 +1707,16 @@ int char_make_new_char( struct char_session_data* sd, char* name_, int str, int 
 			Sql_ShowDebug(sql_handle);
 	}
 
+	// Give configurable rental items to every new character.
+	for (k = 0; k < MAX_STARTITEM && charserv_config.start_rental_items[k].nameid != 0; k++) {
+		const struct start_rental_item& item = charserv_config.start_rental_items[k];
+		const uint64 expire_time64 = static_cast<uint64>(time(nullptr)) + static_cast<uint64>(item.rental_days) * 24 * 60 * 60;
+		const uint32 expire_time = expire_time64 > UINT32_MAX ? UINT32_MAX : static_cast<uint32>(expire_time64);
+
+		if (SQL_ERROR == Sql_Query(sql_handle, "INSERT INTO `%s` (`char_id`, `nameid`, `amount`, `identify`, `refine`, `expire_time`) VALUES ('%d', '%u', '%hu', '1', '%hhu', '%u')", schema_config.inventory_db, char_id, item.nameid, item.amount, item.refine, expire_time))
+			Sql_ShowDebug(sql_handle);
+	}
+
 	ShowInfo("Created char: account: %d, char: %d, slot: %d, name: %s\n", sd->account_id, char_id, slot, name);
 	return char_id;
 }
@@ -2988,6 +2998,7 @@ void char_set_defaults(){
 	charserv_config.start_items[1].nameid = 2301;
 	charserv_config.start_items[1].amount = 1;
 	charserv_config.start_items[1].pos = EQP_ARMOR;
+	memset(charserv_config.start_rental_items, 0, sizeof(charserv_config.start_rental_items));
 
 #if PACKETVER >= 20150101
 	charserv_config.start_items_doram[0].nameid = 1681;
@@ -3094,6 +3105,56 @@ void char_config_split_startitem(char *w1_value, char *w2_value, struct startite
 
 		lineitem = strtok(NULL, ":"); //next lineitem
 		i++;
+	}
+	aFree(fields);
+}
+
+/**
+ * Split configurable rental items given to every new character.
+ * Format: <id>,<amount>,<refine>,<rental_days>{:<id>,<amount>,<refine>,<rental_days>...}
+ */
+void char_config_split_start_rental_item(char *w1_value, char *w2_value, struct start_rental_item start_rental_items[MAX_STARTITEM])
+{
+	char *lineitem, **fields;
+	int i = 0, fields_length = 4 + 1;
+
+	memset(start_rental_items, 0, MAX_STARTITEM * sizeof(struct start_rental_item));
+	if (strcmp(w2_value, "0") == 0)
+		return;
+
+	fields = (char **)aMalloc(fields_length * sizeof(char *));
+	if (fields == NULL)
+		return;
+	lineitem = strtok(w2_value, ":");
+
+	while (lineitem != NULL && i < MAX_STARTITEM) {
+		bool error;
+		size_t n = sv_split(lineitem, strlen(lineitem), 0, ',', fields, fields_length, SV_NOESCAPE_NOTERMINATE, error);
+
+		if (error || (n + 1) < fields_length) {
+			ShowWarning("%s: expected <id>,<amount>,<refine>,<rental_days> for %s. Skipping...\n", w1_value, lineitem);
+			lineitem = strtok(NULL, ":");
+			continue;
+		}
+
+		const t_itemid nameid = strtoul(fields[1], nullptr, 10);
+		const uint32 amount = strtoul(fields[2], nullptr, 10);
+		const uint32 refine = strtoul(fields[3], nullptr, 10);
+		const uint32 rental_days = strtoul(fields[4], nullptr, 10);
+
+		if (nameid == 0 || amount == 0 || rental_days == 0) {
+			ShowWarning("%s: id, amount, and rental_days must be greater than zero for %s. Skipping...\n", w1_value, lineitem);
+			lineitem = strtok(NULL, ":");
+			continue;
+		}
+
+		start_rental_items[i].nameid = nameid;
+		start_rental_items[i].amount = static_cast<uint16>(min(amount, static_cast<uint32>(MAX_AMOUNT)));
+		start_rental_items[i].refine = static_cast<uint8>(min(refine, static_cast<uint32>(UINT8_MAX)));
+		start_rental_items[i].rental_days = rental_days;
+		i++;
+
+		lineitem = strtok(NULL, ":");
 	}
 	aFree(fields);
 }
@@ -3213,6 +3274,8 @@ bool char_config_read(const char* cfgName, bool normal){
 		} else if (strcmpi(w1, "start_items_doram") == 0) {
 			char_config_split_startitem(w1, w2, charserv_config.start_items_doram);
 #endif
+		} else if (strcmpi(w1, "start_rental_items") == 0) {
+			char_config_split_start_rental_item(w1, w2, charserv_config.start_rental_items);
 		} else if(strcmpi(w1,"log_char")==0) {		//log char or not [devil]
 			charserv_config.log_char = config_switch(w2);
 		} else if (strcmpi(w1, "unknown_char_name") == 0) {

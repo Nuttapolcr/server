@@ -2085,6 +2085,8 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 
 		if (md && md->damagetaken != 100)
 			damage = i64max(damage * md->damagetaken / 100, 1);
+		if (status_get_class_(bl) == CLASS_BOSS && battle_config.boss_damage_taken_rate != 100)
+			damage = i64max(damage * battle_config.boss_damage_taken_rate / 100, 1);
 	}
 	
 	if (tsc && tsc->count) {
@@ -10986,7 +10988,7 @@ void force_pvp_cursor(struct block_list* bl, enum map_property property, enum se
 	clif_send(buf, packet_len(cmd), bl, t);
 }
 
-int battle_check_target( struct block_list *src, struct block_list *target,int flag)
+int battle_check_target(struct block_list *src, struct block_list *target, int flag, bool ignore_pvp_noparty)
 {
 	int16 m; //map
 	int state = 0; //Initial state none
@@ -11309,7 +11311,7 @@ int battle_check_target( struct block_list *src, struct block_list *target,int f
 		if( flag&(BCT_PARTY|BCT_ENEMY) )
 		{
 			int s_party = status_get_party_id(s_bl);
-			if( s_party && s_party == status_get_party_id(t_bl) && !(mapdata->getMapFlag(MF_PVP) && mapdata->getMapFlag(MF_PVP_NOPARTY)) && !(mapdata_flag_gvg(mapdata) && mapdata->getMapFlag(MF_GVG_NOPARTY)) && (!mapdata->getMapFlag(MF_BATTLEGROUND) || sbg_id == tbg_id) )
+			if( s_party && s_party == status_get_party_id(t_bl) && (ignore_pvp_noparty || !(mapdata->getMapFlag(MF_PVP) && mapdata->getMapFlag(MF_PVP_NOPARTY))) && !(mapdata_flag_gvg(mapdata) && mapdata->getMapFlag(MF_GVG_NOPARTY)) && (!mapdata->getMapFlag(MF_BATTLEGROUND) || sbg_id == tbg_id) )
 				state |= BCT_PARTY;
 			else
 				state |= BCT_ENEMY;
@@ -11391,7 +11393,7 @@ int battle_check_target( struct block_list *src, struct block_list *target,int f
 		if (flag & (BCT_PARTY | BCT_ENEMY)) {
 			int s_party = status_get_party_id(s_bl);
 			if (s_party && s_party == status_get_party_id(t_bl) &&
-				!(mapdata->getMapFlag(MF_PVP) && mapdata->getMapFlag(MF_PVP_NOPARTY)) &&
+				(ignore_pvp_noparty || !(mapdata->getMapFlag(MF_PVP) && mapdata->getMapFlag(MF_PVP_NOPARTY))) &&
 				!(mapdata_flag_gvg(mapdata) && mapdata->getMapFlag(MF_GVG_NOPARTY)) &&
 				(!mapdata->getMapFlag(MF_BATTLEGROUND) || sbg_id == tbg_id))
 				state |= BCT_PARTY;
@@ -11603,6 +11605,7 @@ static const struct _battle_data {
 	{ "restart_sp_rate",                    &battle_config.restart_sp_rate,                 0,      0,      100,            },
 	{ "guild_aura",                         &battle_config.guild_aura,                      31,     0,      31,             },
 	{ "mvp_hp_rate",                        &battle_config.mvp_hp_rate,                     100,    1,      INT_MAX,        },
+	{ "boss_damage_taken_rate",             &battle_config.boss_damage_taken_rate,          100,    0,      INT_MAX,        },
 	{ "mvp_exp_rate",                       &battle_config.mvp_exp_rate,                    100,    0,      INT_MAX,        },
 	{ "monster_hp_rate",                    &battle_config.monster_hp_rate,                 100,    1,      INT_MAX,        },
 	{ "monster_max_aspd",                   &battle_config.monster_max_aspd,                199,    100,    199,            },

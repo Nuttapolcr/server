@@ -3581,9 +3581,10 @@ enum e_scb_flag : uint8 {
 };
 
 enum e_status_calc_opt : uint8 {
-	SCO_NONE  = 0x0,
-	SCO_FIRST = 0x1, ///< Trigger the calculations that should take place only onspawn/once, process base status initialization code
-	SCO_FORCE = 0x2, ///< Only relevant to BL_PC types, ensures call bypasses the queue caused by delayed damage
+	SCO_NONE               = 0x0,
+	SCO_FIRST              = 0x1, ///< Trigger the calculations that should take place only onspawn/once, process base status initialization code
+	SCO_FORCE              = 0x2, ///< Only relevant to BL_PC types, ensures call bypasses the queue caused by delayed damage
+	SCO_FAST_ITEMDB_RELOAD = 0x4, ///< Use cached session data while recalculating players during a fast item DB reload
 };
 
 /// Flags for status_change_start and status_get_sc_def
@@ -4086,7 +4087,7 @@ int status_change_end(struct block_list* bl, enum sc_type type, int tid = INVALI
 TIMER_FUNC(status_change_timer);
 int status_change_timer_sub(struct block_list* bl, va_list ap);
 int status_change_clear(struct block_list* bl, int type);
-void status_change_clear_buffs(struct block_list* bl, uint8 type);
+void status_change_clear_buffs(struct block_list* bl, uint8 type, const std::vector<sc_type>* excluded = nullptr);
 void status_change_clear_onChangeMap(struct block_list *bl, status_change *sc);
 TIMER_FUNC(status_clear_lastEffect_timer);
 

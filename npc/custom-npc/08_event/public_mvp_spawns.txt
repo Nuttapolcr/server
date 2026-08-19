@@ -1,0 +1,6 @@
+// Public-map MVP spawns used by the Boss Warp system.
+// Boitata is tier A (30 minutes); Ktullanux is tier S (60 minutes).
+// Keep bra_dun.txt unimported while this Boitata spawn is active.
+
+bra_dun02,0,0,0,0	boss_monster	Boitata	2068,1,1800000,0
+ice_dun03,150,135,0,0	boss_monster	Ktullanux	1779,1,3600000,0

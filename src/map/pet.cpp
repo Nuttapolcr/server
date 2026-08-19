@@ -1790,10 +1790,14 @@ static int pet_ai_sub_hard(struct pet_data *pd, map_session_data *sd, t_tick tic
 			!check_distance_bl(&pd->bl, target, pd->db->range3)) {
 			target = NULL;
 			pet_unlocktarget(pd);
+		} else if (!sd->state.pet_loot && target->type == BL_ITEM) {
+			// @petoff also cancels an item that the pet was already chasing.
+			target = NULL;
+			pet_unlocktarget(pd);
 		}
 	}
 	
-	if (!target && pd->loot && pd->loot->count < pd->loot->max && !pc_isdead(pd->master) && DIFF_TICK(tick, pd->ud.canact_tick) > 0) {
+	if (sd->state.pet_loot && !target && pd->loot && pd->loot->count < pd->loot->max && !pc_isdead(pd->master) && DIFF_TICK(tick, pd->ud.canact_tick) > 0) {
 		// Default to half the pet's sight range, with the custom pet tiers using
 		// the pickup radii defined in the Pet sheet.
 		int loot_range = pd->db->range2 / 2;

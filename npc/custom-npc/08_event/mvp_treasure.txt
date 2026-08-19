@@ -57,7 +57,7 @@ OnInit:
 		"pay_fild11:1115","ra_fild02:1785","ra_fild03:1785","ra_fild04:1785",
 		"ve_fild01:1785","ve_fild02:1785",
 		"abbey02:1871","abbey03:1873","ayo_dun02:1688","gon_dun03:1418",
-		"moc_pryd06:1511","odin_tem03:1751","ra_san05:1768","thor_v03:1832",
+		"ice_dun03:1779","moc_pryd06:1511","odin_tem03:1751","ra_san05:1768","thor_v03:1832",
 		"moc_fild22:1917";
 
 	.chest_sprite = 1324;	// Treasure Chest sprite

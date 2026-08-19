@@ -32,7 +32,7 @@ Header:
   Type: ITEM_CASH_DB
   Version: 1
 Body:
-  - Tab: Limited
+  - Tab: Rental
     Items:
       - Item: Refine_Pack
         Price: 3500
@@ -43,6 +43,8 @@ Body:
       - Item: Armor_Starter_Pack_Copy
         Price: 3900
       - Item: Armor_Starter_Pack_Copy_Copy
+        Price: 3900
+      - Item: Guard_Starter_Pack
         Price: 3900
       - Item: Katar_Starter_Pack
         Price: 3900
@@ -72,6 +74,16 @@ Body:
         Price: 3900
       - Item: One-hand_Sword_Starter_Pack
         Price: 3900
+  - Tab: Limited
+    Items:
+      - Item: Teenoi_Box_Set
+        Price: 1090
+      - Item: Bar_B_GON_Box_Set
+        Price: 1690
+      - Item: MoMo_Box_Set
+        Price: 3190
+      - Item: Copper_Beyond_Box_Set
+        Price: 8990
 Footer:
   Imports:
     - Path: db/import/item_cash.yml

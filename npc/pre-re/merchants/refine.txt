@@ -1207,8 +1207,12 @@ payon,143,165,4	script	Repairman#pay	88,{
 	end;
 }
 
-prt_in,63,54,2	script	Repairman#prt	86,{
+morocc,176,139,2	script	Repairman#prt	86,{
 	callfunc "repairmain","Grendal";
+	end;
+
+OnInit:
+	waitingroom "ซ่อมไอเทม",0;
 	end;
 }
 
@@ -1267,6 +1271,52 @@ sch_gld,340,80,7	script	Repairman#sch_gld	86,{
 function	script	repairmain	{
 	.@repairprice = 5000;
 	.@npc_name$ = getarg(0);
+	.@refine_repair_item = 6635;
+	.@refine_repair_amount = 20;
+	.@char_id = getcharid(0);
+	.@refine_broken_count = 1;
+	while (getbrokenid(.@refine_broken_count, .@char_id, ATTRIBUTE_REFINE_BROKEN))
+		.@refine_broken_count++;
+	.@refine_broken_count--;
+
+	if (.@refine_broken_count > 0) {
+		mes "["+ .@npc_name$ +"]";
+		mes "ข้าพบอุปกรณ์ที่เสียหายจากการตีบวก ^FF0000" + .@refine_broken_count + "^000000 ชิ้น";
+		mes "ต้องใช้ ^0000FF" + getitemname(.@refine_repair_item) + "^000000 จำนวน ^FF0000" + .@refine_repair_amount + "^000000 ชิ้น ต่ออุปกรณ์ 1 ชิ้น";
+		next;
+		switch(select("ซ่อมอุปกรณ์ตีบวกที่เสียหาย:ตรวจสอบอุปกรณ์ชำรุดทั่วไป:ยกเลิก")) {
+		case 1:
+			.@refine_broken_count = 1;
+			while (getbrokenid(.@refine_broken_count, .@char_id, ATTRIBUTE_REFINE_BROKEN))
+				.@refine_broken_count++;
+			.@refine_broken_count--;
+			.@refine_repair_total = .@refine_broken_count * .@refine_repair_amount;
+			if (.@refine_broken_count <= 0) {
+				mes "["+ .@npc_name$ +"]";
+				mes "ไม่พบอุปกรณ์ที่เสียหายจากการตีบวกแล้ว";
+				close;
+			}
+			if (countitem(.@refine_repair_item) < .@refine_repair_total) {
+				mes "["+ .@npc_name$ +"]";
+				mes "ต้องใช้ " + getitemname(.@refine_repair_item) + " ทั้งหมด ^FF0000" + .@refine_repair_total + "^000000 ชิ้น";
+				mes "ขณะนี้ท่านมีเพียง ^FF0000" + countitem(.@refine_repair_item) + "^000000 ชิ้น";
+				close;
+			}
+			delitem .@refine_repair_item, .@refine_repair_total;
+			while (.@refine_broken_count > 0) {
+				repair(.@refine_broken_count, .@char_id, ATTRIBUTE_REFINE_BROKEN);
+				.@refine_broken_count--;
+			}
+			mes "["+ .@npc_name$ +"]";
+			mes "ซ่อมอุปกรณ์ที่เสียหายจากการตีบวกเรียบร้อยแล้ว";
+			close;
+		case 2:
+			break;
+		case 3:
+			close;
+		}
+	}
+
 	mes "["+ .@npc_name$ +"]";
 	mes "เป็นอย่างไงบ้าง!";
 	mes "ท่านต้องการให้ข้า";

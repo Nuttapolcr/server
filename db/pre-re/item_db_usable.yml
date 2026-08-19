@@ -4795,8 +4795,8 @@ Body:
       Sitting: true
     Script: |
       skilleffect "AL_BLESSING",0;
-      sc_start SC_BLESSING,900000,10;
-      #BLESSINGLV10 = gettimetick(2)+1*15*60;
+      sc_start SC_BLESSING,240000,10;
+      #BLESSINGLV10 = gettimetick(2)+1*4*60;
   - Id: 12216
     AegisName: Inc_Agi_10_Scroll
     Name: LV10 Agil Scroll
@@ -21600,9 +21600,10 @@ Body:
     Trade:
       Override: 100
       NoSell: true
-    Script: |
+    Script: |-
       setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3", "m_pvp01", "pvp_y_8-2", "pvp_n_1-3", "pvp_n_6-5", "pvp_n_1-5";
       .@map$ = strcharinfo(3);
+      .@heal = 10;
       if (inarray(.@deathmatch_maps$, .@map$) < 0
           && !getmapflag(.@map$, MF_GVG)
           && !getmapflag(.@map$, MF_GVG_CASTLE)
@@ -21612,10 +21613,38 @@ Body:
         dispbottom "This item can only be used in Deathmatch and GVG maps.";
         end;
       }
+
       if (isequipped(18509))
-        percentheal 18,0;
-      else
-        percentheal 10,0;
+          .@heal += 8;
+      if (isequipped(1500035) && isequipped(1500036)
+          && getequiprefinerycnt(EQI_SHADOW_ARMOR) >= 10
+          && getequiprefinerycnt(EQI_SHADOW_SHOES) >= 10)
+          .@heal += 1;
+      if (isequipped(1500037) && isequipped(1500038)
+          && getequiprefinerycnt(EQI_SHADOW_ACC_R) >= 10
+          && getequiprefinerycnt(EQI_SHADOW_ACC_L) >= 10)
+          .@heal += 1;
+      if (isequipped(1500039) && isequipped(1500040)
+          && getequiprefinerycnt(EQI_SHADOW_ARMOR) >= 10
+          && getequiprefinerycnt(EQI_SHADOW_SHOES) >= 10)
+          .@heal += 1;
+      if (isequipped(1500041) && isequipped(1500042)
+          && getequiprefinerycnt(EQI_SHADOW_ACC_R) >= 10
+          && getequiprefinerycnt(EQI_SHADOW_ACC_L) >= 10)
+          .@heal += 1;
+      if (isequipped(1500043) && isequipped(1500044)
+          && getequiprefinerycnt(EQI_SHADOW_ARMOR) >= 10
+          && getequiprefinerycnt(EQI_SHADOW_SHOES) >= 10)
+          .@heal += 1;
+      if (isequipped(1500045) && isequipped(1500046)
+          && getequiprefinerycnt(EQI_SHADOW_ACC_R) >= 10
+          && getequiprefinerycnt(EQI_SHADOW_ACC_L) >= 10)
+          .@heal += 1;
+      if (isequipped(1500055) && isequipped(1500056)
+          && getequiprefinerycnt(EQI_SHADOW_ACC_R) >= 10
+          && getequiprefinerycnt(EQI_SHADOW_ACC_L) >= 10)
+          .@heal += 1;
+      percentheal .@heal,0;
   - Id: 1030112
     AegisName: Woe_White_Potion_Copy
     Name: Siege White Potion [Death Match]
@@ -21636,7 +21665,7 @@ Body:
         dispbottom "This item can only be used in Death Match maps.";
         end;
       }
-      specialeffect2 208;
+      specialeffect2 207;
       percentheal 10,0;
   - Id: 11549
     AegisName: Woe_Blue_Potion
@@ -21683,7 +21712,7 @@ Body:
         dispbottom "This item can only be used in Death Match maps.";
         end;
       }
-      specialeffect2 209;
+      specialeffect2 208;
       percentheal 0,10;
   - Id: 65888
     AegisName: Refine_Booster_Potion

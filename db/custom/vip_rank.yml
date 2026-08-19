@@ -114,3 +114,85 @@ Body:
       bonus bAtkRate,15;
       bonus bMatkRate,15;
       bonus2 bSubSize,Size_All,10;
+
+  - Rank: 8
+    Name: Rank 8
+    Threshold: 70000
+    BoxSpeed: 30
+    AutoAttackDropReduction: 0
+    Icon: EFST_MEMBER8
+    Script: |
+      bonus bAddMaxWeight,15000;
+      bonus2 bDropAddRace,RC_All,35;
+    PveScript: |
+      bonus bMaxHP,2500;
+      bonus bMaxSP,300;
+      bonus bSpeedAddRate,15;
+      bonus bDelayrate,-15;
+      bonus bAtkRate,15;
+      bonus bMatkRate,15;
+      bonus2 bSubSize,Size_All,10;
+      bonus2 bSubEle,Ele_Neutral,10;
+      bonus2 bSubRace,RC_DemiHuman,1;
+      bonus2 bSubRace,RC_Player_Human,1;
+
+  - Rank: 9
+    Name: Rank 9
+    Threshold: 85000
+    BoxSpeed: 30
+    AutoAttackDropReduction: 0
+    Icon: EFST_MEMBER9
+    Script: |
+      bonus bAddMaxWeight,15000;
+      bonus2 bDropAddRace,RC_All,35;
+    PveScript: |
+      bonus bMaxHP,2500;
+      bonus bMaxSP,300;
+      bonus bSpeedAddRate,15;
+      bonus bDelayrate,-15;
+      bonus bAtkRate,15;
+      bonus bMatkRate,15;
+      bonus2 bSubSize,Size_All,10;
+      bonus2 bSubEle,Ele_Neutral,10;
+      bonus2 bSubRace,RC_DemiHuman,3;
+      bonus2 bSubRace,RC_Player_Human,3;
+      bonus2 bSubEle,Ele_Water,5;
+      bonus2 bSubEle,Ele_Earth,5;
+      bonus2 bSubEle,Ele_Fire,5;
+      bonus2 bSubEle,Ele_Wind,5;
+      bonus2 bSubEle,Ele_Poison,5;
+      bonus2 bSubEle,Ele_Holy,5;
+      bonus2 bSubEle,Ele_Dark,5;
+      bonus2 bSubEle,Ele_Ghost,5;
+      bonus2 bSubEle,Ele_Undead,5;
+
+  - Rank: 10
+    Name: Rank 10
+    Threshold: 100000
+    BoxSpeed: 30
+    AutoAttackDropReduction: 0
+    Icon: EFST_MEMBER10
+    Script: |
+      bonus bAddMaxWeight,15000;
+      bonus2 bDropAddRace,RC_All,35;
+    PveScript: |
+      bonus bMaxHP,2500;
+      bonus bMaxSP,300;
+      bonus bSpeedAddRate,15;
+      bonus bDelayrate,-15;
+      bonus bAtkRate,15;
+      bonus bMatkRate,15;
+      bonus2 bSubSize,Size_All,10;
+      bonus2 bSubEle,Ele_Neutral,10;
+      bonus2 bSubRace,RC_DemiHuman,5;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubEle,Ele_Water,10;
+      bonus2 bSubEle,Ele_Earth,10;
+      bonus2 bSubEle,Ele_Fire,10;
+      bonus2 bSubEle,Ele_Wind,10;
+      bonus2 bSubEle,Ele_Poison,10;
+      bonus2 bSubEle,Ele_Holy,10;
+      bonus2 bSubEle,Ele_Dark,10;
+      bonus2 bSubEle,Ele_Ghost,10;
+      bonus2 bSubEle,Ele_Undead,10;
+      bonus bMaxHPrate,10;

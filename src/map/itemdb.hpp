@@ -3220,6 +3220,7 @@ class ItemDatabase : public TypesafeCachedYamlDatabase<t_itemid, item_data> {
 private:
 	std::unordered_map<std::string, std::shared_ptr<item_data>> nameToItemDataMap;
 	std::unordered_map<std::string, std::shared_ptr<item_data>> aegisNameToItemDataMap;
+	bool fastCacheMode = false;
 
 	e_sex defaultGender( const ryml::NodeRef& node, std::shared_ptr<item_data> id );
 
@@ -3231,6 +3232,13 @@ private:
 	};
 
 	std::unordered_map<t_itemid, s_pricevalue> hasPriceValue;
+
+protected:
+	bool shouldCacheKey( t_itemid key ) override{
+		// Fast reload keeps the dense lookup cache for the classic 16-bit ID
+		// range. Sparse custom IDs continue to use the backing hash map.
+		return !this->fastCacheMode || key <= UINT16_MAX;
+	}
 
 public:
 	ItemDatabase() : TypesafeCachedYamlDatabase("ITEM_DB", 3, 1) {
@@ -3250,6 +3258,9 @@ public:
 	// Additional
 	std::shared_ptr<item_data> searchname( const char* name );
 	std::shared_ptr<item_data> search_aegisname( const char *name );
+	void setFastCacheMode( bool enabled ){
+		this->fastCacheMode = enabled;
+	}
 	std::string create_item_link(struct item& item);
 	std::string create_item_link( std::shared_ptr<item_data>& data );
 	std::string create_item_link_for_mes( std::shared_ptr<item_data>& data, bool use_brackets, const char* name );
@@ -3650,7 +3661,18 @@ public:
 
 extern ItemTradePenaltyDatabase item_trade_panalty_db;
 
+struct s_itemdb_reload_metrics {
+	uint64 clear_ms;
+	uint64 read_ms;
+	uint64 cashshop_ms;
+	uint64 mob_ms;
+	uint64 players_ms;
+	uint64 total_ms;
+	uint32 player_count;
+};
+
 void itemdb_reload(void);
+bool itemdb_reload_fast( s_itemdb_reload_metrics& metrics );
 
 void do_final_itemdb(void);
 void do_init_itemdb(void);

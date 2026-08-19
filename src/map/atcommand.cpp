@@ -4420,6 +4420,45 @@ ACMD_FUNC(partyrecall)
  *
  *------------------------------------------*/
 void atcommand_doload();
+ACMD_FUNC(reloaditemdbfast) {
+	static t_tick next_allowed_tick = 0;
+	constexpr t_tick reload_cooldown = 30 * 1000;
+	const t_tick now = gettick();
+
+	nullpo_retr(-1, sd);
+
+	if( next_allowed_tick != 0 && DIFF_TICK( next_allowed_tick, now ) > 0 ){
+		const t_tick seconds_left = ( DIFF_TICK( next_allowed_tick, now ) + 999 ) / 1000;
+		safesnprintf( atcmd_output, sizeof( atcmd_output ), "Fast item DB reload is cooling down. Please wait %lld second(s).", static_cast<long long>( seconds_left ) );
+		clif_displaymessage( fd, atcmd_output );
+		return -1;
+	}
+
+	s_itemdb_reload_metrics metrics = {};
+
+	if( !itemdb_reload_fast( metrics ) ){
+		clif_displaymessage( fd, "A fast item database reload is already running." );
+		return -1;
+	}
+	next_allowed_tick = gettick() + reload_cooldown;
+
+	safesnprintf(
+		atcmd_output,
+		sizeof( atcmd_output ),
+		"Fast item DB reload: %llu ms (clear %llu, read %llu, cash %llu, mobs %llu, players %u/%llu).",
+		static_cast<unsigned long long>( metrics.total_ms ),
+		static_cast<unsigned long long>( metrics.clear_ms ),
+		static_cast<unsigned long long>( metrics.read_ms ),
+		static_cast<unsigned long long>( metrics.cashshop_ms ),
+		static_cast<unsigned long long>( metrics.mob_ms ),
+		metrics.player_count,
+		static_cast<unsigned long long>( metrics.players_ms )
+	);
+	clif_displaymessage( fd, atcmd_output );
+
+	return 0;
+}
+
 ACMD_FUNC(reload) {
 	nullpo_retr(-1, sd);
 
@@ -5134,8 +5173,8 @@ ACMD_FUNC(repairall)
 
 	count = 0;
 	for (i = 0; i < MAX_INVENTORY; i++) {
-		if (sd->inventory.u.items_inventory[i].nameid && sd->inventory.u.items_inventory[i].attribute == 1 && !itemdb_ishatched_egg(&sd->inventory.u.items_inventory[i])) {
-			sd->inventory.u.items_inventory[i].attribute = 0;
+		if (sd->inventory.u.items_inventory[i].nameid && sd->inventory.u.items_inventory[i].attribute == ATTRIBUTE_BROKEN && !itemdb_ishatched_egg(&sd->inventory.u.items_inventory[i])) {
+			sd->inventory.u.items_inventory[i].attribute = ATTRIBUTE_NORMAL;
 			clif_produceeffect(sd, 0, sd->inventory.u.items_inventory[i].nameid);
 			count++;
 		}
@@ -12713,6 +12752,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEF(recallall),
 		ACMD_DEFR(reload,ATCMD_NOSCRIPT),
 		ACMD_DEF2("reloaditemdb", reload),
+		ACMD_DEF2R("reloaditemdbfast", reloaditemdbfast, ATCMD_NOSCRIPT),
 		ACMD_DEF2("reloadmobdb", reload),
 		ACMD_DEF2("reloadskilldb", reload),
 		ACMD_DEF2R("reloadscript", reload, ATCMD_NOSCRIPT),

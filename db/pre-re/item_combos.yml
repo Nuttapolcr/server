@@ -1240,3 +1240,115 @@ Body:
           - Magic_Bottom
     Script: |
       bonus2 bMagicAtkEle,Ele_All,6;
+  - Combos:
+      - Combo:
+          - Attack_Shadow_Shoes
+          - Attack_Shadow_Armor
+    Script: |-
+      .@sum = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHOES);
+      bonus bAtkRate,2;
+            if (.@sum >= 18) {
+               bonus bNoKnockback;
+               if (.@sum >= 20) {
+                  bonus2 bAddEle,Ele_All,12;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+               }
+            }
+  - Combos:
+      - Combo:
+          - Attack_Shadow_Earring
+          - Attack_Shadow_Pendant
+    Script: |-
+      .@sum = getequiprefinerycnt(EQI_SHADOW_ACC_R)+getequiprefinerycnt(EQI_SHADOW_ACC_L);
+      bonus bAtkRate,2;
+            if (.@sum >= 18) {
+               bonus bNoKnockback;
+               if (.@sum >= 20) {
+                  bonus2 bAddEle,Ele_All,12;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+               }
+            }
+  - Combos:
+      - Combo:
+          - Magic_Shadow_Armor
+          - Magic_Shadow_Shoes
+    Script: |-
+      .@sum = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHOES);
+            bonus bMatkRate,2;
+            if (.@sum >= 18) {
+               bonus bNoGemStone;
+               if (.@sum >= 20) {
+                  bonus2 bMagicAddSize,Size_All,12;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+               }
+            }
+  - Combos:
+      - Combo:
+          - Magic_Shadow_Earring
+          - Magic_Shadow_Pendant
+    Script: |2-
+            .@sum = getequiprefinerycnt(EQI_SHADOW_ACC_R)+getequiprefinerycnt(EQI_SHADOW_ACC_L);
+            bonus bMatkRate,2;
+            if (.@sum >= 18) {
+               bonus bNoGemStone;
+               if (.@sum >= 20) {
+                  bonus2 bMagicAddSize,Size_All,12;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+               }
+            }
+  - Combos:
+      - Combo:
+          - Defense_Shadow_Armor
+          - Defense_Shadow_Shoes
+    Script: |
+      .@sum = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHOES);
+      bonus bAllStats,2;
+               if (.@sum >= 20) {
+      bonus bMaxHPrate,5;
+      bonus bLongAtkDef,5;
+      bonus2 bSubEle,Ele_Neutral,1;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+               }
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+            if (.@sum >= 18) {
+      bonus bNoWalkDelay;
+       }
+  - Combos:
+      - Combo:
+          - Rudolf_Shadow_Earring
+          - Rudolf_Shadow_Pendant
+    Script: |-
+      .@sum = getequiprefinerycnt(EQI_SHADOW_ACC_R)+getequiprefinerycnt(EQI_SHADOW_ACC_L);
+      bonus bAllStats,1;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+            if (.@sum >= 18) {
+      bonus bMaxHPrate,5;
+               if (.@sum >= 20) {
+      bonus bAllStats,1;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+               }
+            }
+  - Combos:
+      - Combo:
+          - Defense_Shadow_Earring
+          - Defense_Shadow_Pendant
+    Script: |
+      .@sum = getequiprefinerycnt(EQI_SHADOW_ACC_R)+getequiprefinerycnt(EQI_SHADOW_ACC_L);
+      bonus bAllStats,2;
+               if (.@sum >= 20) {
+      bonus bMaxHPrate,5;
+      bonus bLongAtkDef,5;
+      bonus2 bSubEle,Ele_Neutral,1;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+               }
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+            if (.@sum >= 18) {
+      bonus bNoWalkDelay;
+       }

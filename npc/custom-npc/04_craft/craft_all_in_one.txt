@@ -56,7 +56,7 @@ morocc,142,139,4	script	Craft All in One	120,{
 	mes "เลือกหมวด Barter Shop ที่ต้องการ";
 	next;
 
-	switch(select("คราฟเหรียญ:คราฟ Costume Boss:คราฟของทั่วไป:คราฟของ Hotweek:ยกเลิก")) {
+	switch(select("คราฟเหรียญ:คราฟ Costume Boss:คราฟของทั่วไป:คราฟของ Hotweek:คราฟ Costume Shadow:ยกเลิก")) {
 	case 1:
 		close2;
 		callshop "CRAFT_ALL_IN_ONE_COIN",1;
@@ -73,6 +73,22 @@ morocc,142,139,4	script	Craft All in One	120,{
 		close2;
 		callshop "CRAFT_ALL_IN_ONE_HOTWEEK",1;
 		end;
+	case 5:
+		mes "[Craft All in One]";
+		mes "เลือกระดับตีบวกของ Booster Shadow ที่จะนำมาคราฟ";
+		next;
+		switch(select("Booster Shadow +9:Booster Shadow +10:ยกเลิก")) {
+		case 1:
+			close2;
+			callshop "CRAFT_SHADOW_9",1;
+			end;
+		case 2:
+			close2;
+			callshop "CRAFT_SHADOW_10",1;
+			end;
+		default:
+			close;
+		}
 	default:
 		close;
 	}

@@ -101,3 +101,45 @@ ACMD_FUNC(hidepet)
 
 	return 0;
 }
+
+/**
+ * @peton - Enables item pickup for the player's pet.
+ */
+ACMD_FUNC(peton)
+{
+	nullpo_retr(-1, sd);
+
+	if (sd->state.pet_loot) {
+		clif_displaymessage(fd, "Pet item pickup is already enabled.");
+		return 0;
+	}
+
+	sd->state.pet_loot = 1;
+	clif_displaymessage(fd, "Pet item pickup is now enabled.");
+	return 0;
+}
+
+/**
+ * @petoff - Disables item pickup for the player's pet.
+ */
+ACMD_FUNC(petoff)
+{
+	nullpo_retr(-1, sd);
+
+	if (!sd->state.pet_loot) {
+		clif_displaymessage(fd, "Pet item pickup is already disabled.");
+		return 0;
+	}
+
+	sd->state.pet_loot = 0;
+
+	if (sd->pd != nullptr && sd->pd->target_id != 0) {
+		block_list* target = map_id2bl(sd->pd->target_id);
+
+		if (target != nullptr && target->type == BL_ITEM)
+			pet_unlocktarget(sd->pd);
+	}
+
+	clif_displaymessage(fd, "Pet item pickup is now disabled.");
+	return 0;
+}

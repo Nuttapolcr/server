@@ -49,8 +49,6 @@ Body:
         Price: 89
       - Item: Swap_item_Card
         Price: 990
-      - Item: AUTOATTACK_AI_RENT
-        Price: 129
       - Item: aegis_1001722
         Price: 590
       - Item: aegis_1001723
@@ -69,6 +67,12 @@ Body:
         Price: 499
       - Item: Def_PK
         Price: 100
+      - Item: AUTOATTACK_AI_RENT
+        Price: 129
+      - Item: AUTOATTACK_AI_RENT_7D
+        Price: 799
+      - Item: AUTOATTACK_AI_RENT_30D
+        Price: 2990
   - Tab: Hot
     Items:
       - Item: aegis_1000602

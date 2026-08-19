@@ -132,7 +132,7 @@ int battle_gettarget(struct block_list *bl);
 uint16 battle_getcurrentskill(struct block_list *bl);
 
 int battle_check_undead(int race,int element);
-int battle_check_target(struct block_list *src, struct block_list *target,int flag);
+int battle_check_target(struct block_list *src, struct block_list *target, int flag, bool ignore_pvp_noparty = false);
 bool battle_check_range(struct block_list *src,struct block_list *bl,int range);
 
 void battle_consume_ammo(map_session_data* sd, int skill, int lv);
@@ -196,6 +196,7 @@ struct Battle_Config
 	int restart_sp_rate;
 	int mvp_exp_rate;
 	int mvp_hp_rate;
+	int boss_damage_taken_rate;
 	int monster_hp_rate;
 	int monster_max_aspd;
 	int view_range_rate;

@@ -8869,6 +8869,80 @@ BUILDIN_FUNC(delitemidx) {
 	return SCRIPT_CMD_SUCCESS;
 }
 
+/**
+ * Transfers all four costume card-option slots from one inventory item to another.
+ * Both items are edited in place so their remaining item data and unique IDs are preserved.
+ * transfercostumeoptions <source index>,<target index>{,<char id>};
+ */
+BUILDIN_FUNC(transfercostumeoptions) {
+	map_session_data* sd;
+
+	if (!script_charid2sd(4, sd)) {
+		script_pushint(st, false);
+		return SCRIPT_CMD_FAILURE;
+	}
+
+	const int source_index = script_getnum(st, 2);
+	const int target_index = script_getnum(st, 3);
+
+	if (source_index < 0 || source_index >= MAX_INVENTORY || target_index < 0 || target_index >= MAX_INVENTORY || source_index == target_index) {
+		script_pushint(st, false);
+		return SCRIPT_CMD_SUCCESS;
+	}
+
+	struct item_data* source_data = sd->inventory_data[source_index];
+	struct item_data* target_data = sd->inventory_data[target_index];
+
+	if (source_data == nullptr || target_data == nullptr) {
+		script_pushint(st, false);
+		return SCRIPT_CMD_SUCCESS;
+	}
+
+	struct item& source = sd->inventory.u.items_inventory[source_index];
+	struct item& target = sd->inventory.u.items_inventory[target_index];
+	constexpr uint32 costume_locations = EQP_COSTUME_HEAD_TOP | EQP_COSTUME_HEAD_MID | EQP_COSTUME_HEAD_LOW | EQP_COSTUME_GARMENT;
+	const uint32 source_location = source_data->equip;
+	const uint32 target_location = target_data->equip;
+
+	if (source.amount != 1 || target.amount != 1 || source.equip != 0 || target.equip != 0 || source.attribute != ATTRIBUTE_NORMAL || target.attribute != ATTRIBUTE_NORMAL || source.expire_time != 0 || target.expire_time != 0 ||
+		(source_location & costume_locations) == 0 || (source_location & ~costume_locations) != 0 || source_location != target_location ||
+		itemdb_isspecial(source.card[0]) || itemdb_isspecial(target.card[0])) {
+		script_pushint(st, false);
+		return SCRIPT_CMD_SUCCESS;
+	}
+
+	bool has_option = false;
+	for (int i = 0; i < MAX_SLOTS; i++) {
+		if (source.card[i] != 0) {
+			has_option = true;
+			break;
+		}
+	}
+
+	if (!has_option) {
+		script_pushint(st, false);
+		return SCRIPT_CMD_SUCCESS;
+	}
+
+	log_pick_pc(sd, LOG_TYPE_SCRIPT, -1, &source);
+	log_pick_pc(sd, LOG_TYPE_SCRIPT, -1, &target);
+
+	for (int i = 0; i < MAX_SLOTS; i++) {
+		target.card[i] = source.card[i];
+		source.card[i] = 0;
+	}
+
+	log_pick_pc(sd, LOG_TYPE_SCRIPT, 1, &source);
+	log_pick_pc(sd, LOG_TYPE_SCRIPT, 1, &target);
+	clif_delitem(sd, source_index, 1, 3);
+	clif_additem(sd, source_index, 1, 0);
+	clif_delitem(sd, target_index, 1, 3);
+	clif_additem(sd, target_index, 1, 0);
+
+	script_pushint(st, true);
+	return SCRIPT_CMD_SUCCESS;
+}
+
 /*==========================================
  * Enables/Disables use of items while in an NPC [Skotlex]
  *------------------------------------------*/
@@ -9439,6 +9513,7 @@ BUILDIN_FUNC(getequipname)
 BUILDIN_FUNC(getbrokenid)
 {
 	int i,num,id = 0,brokencounter = 0;
+	int attribute = ATTRIBUTE_BROKEN;
 	TBL_PC *sd;
 
 	if (!script_charid2sd(3, sd)) {
@@ -9447,8 +9522,14 @@ BUILDIN_FUNC(getbrokenid)
 	}
 
 	num = script_getnum(st,2);
+	if (script_hasdata(st, 4))
+		attribute = script_getnum(st, 4);
+	if (attribute != ATTRIBUTE_BROKEN && attribute != ATTRIBUTE_REFINE_BROKEN) {
+		script_pushint(st, 0);
+		return SCRIPT_CMD_FAILURE;
+	}
 	for(i = 0; i < MAX_INVENTORY; i++) {
-		if( sd->inventory.u.items_inventory[i].attribute == 1 && !itemdb_ishatched_egg( &sd->inventory.u.items_inventory[i] ) ){
+		if( sd->inventory.u.items_inventory[i].attribute == attribute && !itemdb_ishatched_egg( &sd->inventory.u.items_inventory[i] ) ){
 				brokencounter++;
 				if(num == brokencounter){
 					id = sd->inventory.u.items_inventory[i].nameid;
@@ -9470,17 +9551,22 @@ BUILDIN_FUNC(repair)
 {
 	int i,num;
 	int repaircounter = 0;
+	int attribute = ATTRIBUTE_BROKEN;
 	TBL_PC *sd;
 
 	if (!script_charid2sd(3,sd))
 		return SCRIPT_CMD_FAILURE;
 
 	num = script_getnum(st,2);
+	if (script_hasdata(st, 4))
+		attribute = script_getnum(st, 4);
+	if (attribute != ATTRIBUTE_BROKEN && attribute != ATTRIBUTE_REFINE_BROKEN)
+		return SCRIPT_CMD_FAILURE;
 	for(i = 0; i < MAX_INVENTORY; i++) {
-		if( sd->inventory.u.items_inventory[i].attribute == 1 && !itemdb_ishatched_egg( &sd->inventory.u.items_inventory[i] ) ){
+		if( sd->inventory.u.items_inventory[i].attribute == attribute && !itemdb_ishatched_egg( &sd->inventory.u.items_inventory[i] ) ){
 				repaircounter++;
 				if(num == repaircounter) {
-					sd->inventory.u.items_inventory[i].attribute = 0;
+					sd->inventory.u.items_inventory[i].attribute = ATTRIBUTE_NORMAL;
 					clif_equiplist(sd);
 					clif_produceeffect(sd, 0, sd->inventory.u.items_inventory[i].nameid);
 					clif_misceffect(&sd->bl, 3);
@@ -9505,8 +9591,8 @@ BUILDIN_FUNC(repairall)
 
 	for(i = 0; i < MAX_INVENTORY; i++)
 	{
-		if( sd->inventory.u.items_inventory[i].nameid && sd->inventory.u.items_inventory[i].attribute == 1 && !itemdb_ishatched_egg( &sd->inventory.u.items_inventory[i] ) ){
-			sd->inventory.u.items_inventory[i].attribute = 0;
+		if( sd->inventory.u.items_inventory[i].nameid && sd->inventory.u.items_inventory[i].attribute == ATTRIBUTE_BROKEN && !itemdb_ishatched_egg( &sd->inventory.u.items_inventory[i] ) ){
+			sd->inventory.u.items_inventory[i].attribute = ATTRIBUTE_NORMAL;
 			clif_produceeffect(sd,0,sd->inventory.u.items_inventory[i].nameid);
 			repaircounter++;
 		}
@@ -12592,6 +12678,32 @@ BUILDIN_FUNC(sc_end)
 	} else
 		status_change_clear(bl, 3); // remove all effects
 
+	return SCRIPT_CMD_SUCCESS;
+}
+
+/// Ends all removable positive status effects on the attached player, except
+/// for any status types passed as arguments. Negative effects are unchanged.
+///
+/// sc_end_buffs {<except_status_id>...};
+BUILDIN_FUNC(sc_end_buffs)
+{
+	map_session_data* sd;
+	std::vector<sc_type> excluded;
+
+	if (!script_rid2sd(sd))
+		return SCRIPT_CMD_FAILURE;
+
+	for (int i = 2; script_hasdata(st, i); i++) {
+		const int status = script_getnum(st, i);
+
+		if (status <= SC_NONE || status >= SC_MAX) {
+			ShowError("buildin_sc_end_buffs: Unknown status change %d.\n", status);
+			return SCRIPT_CMD_FAILURE;
+		}
+		excluded.push_back(static_cast<sc_type>(status));
+	}
+
+	status_change_clear_buffs(&sd->bl, SCCB_BUFFS, &excluded);
 	return SCRIPT_CMD_SUCCESS;
 }
 
@@ -30704,6 +30816,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF2(delitem2,"guildstoragedelitem2","viiiiiiii?"),
 	BUILDIN_DEF2(delitem2,"cartdelitem2","viiiiiiii?"),
 	BUILDIN_DEF(delitemidx,"i??"),
+	BUILDIN_DEF(transfercostumeoptions,"ii?"),
 	BUILDIN_DEF2(enableitemuse,"enable_items",""),
 	BUILDIN_DEF2(disableitemuse,"disable_items",""),
 	BUILDIN_DEF(cutin,"si"),
@@ -30739,8 +30852,8 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(getequipid,"??"),
 	BUILDIN_DEF(getequipuniqueid,"i?"),
 	BUILDIN_DEF(getequipname,"i?"),
-	BUILDIN_DEF(getbrokenid,"i?"), // [Valaris]
-	BUILDIN_DEF(repair,"i?"), // [Valaris]
+	BUILDIN_DEF(getbrokenid,"i??"), // [Valaris]
+	BUILDIN_DEF(repair,"i??"), // [Valaris]
 	BUILDIN_DEF(repairall,"?"),
 	BUILDIN_DEF(getequipisequiped,"i?"),
 	BUILDIN_DEF(getequipisenableref,"i?"),
@@ -30843,6 +30956,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF2(sc_start,"sc_start2","iiii???"),
 	BUILDIN_DEF2(sc_start,"sc_start4","iiiiii???"),
 	BUILDIN_DEF(sc_end,"i?"),
+	BUILDIN_DEF(sc_end_buffs,"*"),
 	BUILDIN_DEF(sc_end_class,"??"),
 	BUILDIN_DEF(getstatus, "i??"),
 	BUILDIN_DEF(getscrate,"ii?"),

@@ -2400,6 +2400,28 @@ int status_revive(struct block_list *bl, unsigned char per_hp, unsigned char per
 	return 1;
 }
 
+static bool status_is_boss_or_mvp(struct block_list *src, struct status_data *status)
+{
+	if (src == nullptr)
+		return false;
+
+	return status_get_class_(src) == CLASS_BOSS ||
+		(src->type == BL_MOB && status_has_mode(status, MD_MVP));
+}
+
+/**
+ * Checks whether a unit can detect hidden targets.
+ * Bosses and units retaining MVP mode detect hiding even if their runtime
+ * class changes. Undead monsters follow the existing undead_detect_type setting.
+ */
+static bool status_detects_hiding(struct block_list *src, struct status_data *status)
+{
+	if (status_is_boss_or_mvp(src, status) || status_has_mode(status, MD_DETECTOR))
+		return true;
+
+	return src != nullptr && src->type == BL_MOB && battle_check_undead(status->race, status->def_ele);
+}
+
 /**
  * Checks whether the src can use the skill on the target,
  * taking into account status/option of both source/target
@@ -2631,8 +2653,8 @@ bool status_check_skilluse(struct block_list *src, struct block_list *target, ui
 	switch( target->type ) {
 		case BL_PC: {
 				map_session_data *tsd = (TBL_PC*)target;
-				bool is_boss = (src && status_get_class_(src) == CLASS_BOSS);
-				bool is_detect = status_has_mode(status,MD_DETECTOR);
+				bool is_boss = status_is_boss_or_mvp(src, status);
+				bool is_detect = status_detects_hiding(src, status);
 
 				if (pc_isinvisible(tsd))
 					return false;
@@ -2662,13 +2684,13 @@ bool status_check_skilluse(struct block_list *src, struct block_list *target, ui
 				return false; // Can't use Weapon endow skills on Mercenary (only Master)
 			if( skill_id == AM_POTIONPITCHER && ( target->type == BL_MER || target->type == BL_ELEM) )
 				return false; // Can't use Potion Pitcher on Mercenaries
-			if (tsc && tsc->getSCE(SC_ELEMENTAL_VEIL) && !(src && status_get_class_(src) == CLASS_BOSS) && !status_has_mode(status, MD_DETECTOR))
+			if (tsc && tsc->getSCE(SC_ELEMENTAL_VEIL) && !(src && status_get_class_(src) == CLASS_BOSS) && !status_detects_hiding(src, status))
 				return false;
 			[[fallthrough]];
 		default:
 			// Check for chase-walk/hiding/cloaking opponents.
 			if( tsc ) {
-				if( tsc->option&hide_flag && !status_has_mode(status,MD_DETECTOR))
+				if( tsc->option&hide_flag && !status_detects_hiding(src, status))
 					return false;
 			}
 	}
@@ -2705,8 +2727,8 @@ int status_check_visibility(struct block_list *src, struct block_list *target)
 		return 1;
 
 	if (tsc) {
-		bool is_boss = (status_get_class_(src) == CLASS_BOSS);
-		bool is_detector = status_has_mode(status,MD_DETECTOR);
+		bool is_boss = status_is_boss_or_mvp(src, status);
+		bool is_detector = status_detects_hiding(src, status);
 
 		switch (target->type) {	// Check for chase-walk/hiding/cloaking opponents.
 			case BL_PC: {
@@ -4437,7 +4459,7 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 		}
 	}
 
-	vip_bonus(sd);
+	vip_bonus(sd, (opt&SCO_FAST_ITEMDB_RELOAD) != 0);
 	vip_rank_apply(sd);
 	refine_pass_bonus(sd);
 	custom_buff_effect(sd);
@@ -16363,7 +16385,7 @@ int status_change_timer_sub(struct block_list* bl, va_list ap)
  *  SCCB_CHEM_PROTECT: Clear AM_CP_ARMOR/HELM/SHIELD/WEAPON
  *  SCCB_LUXANIMA: Bonus Script removed through RK_LUXANIMA
  */
-void status_change_clear_buffs(struct block_list* bl, uint8 type)
+void status_change_clear_buffs(struct block_list* bl, uint8 type, const std::vector<sc_type>* excluded)
 {
 	status_change *sc= status_get_sc(bl);
 
@@ -16376,6 +16398,8 @@ void status_change_clear_buffs(struct block_list* bl, uint8 type)
 		const std::bitset<SCF_MAX>& flag = it.second->flag;
 		bool end = false;
 		if (!sc->getSCE(status))
+			continue;
+		if (excluded != nullptr && std::find(excluded->begin(), excluded->end(), status) != excluded->end())
 			continue;
 		// Skip status with SCF_NOCLEARBUFF, no matter what
 		if (flag[SCF_NOCLEARBUFF])

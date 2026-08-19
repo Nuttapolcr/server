@@ -5016,6 +5016,11 @@
 	export_constant(BOUND_PARTY);
 	export_constant(BOUND_CHAR);
 
+	/* item damage attributes */
+	export_constant(ATTRIBUTE_NORMAL);
+	export_constant(ATTRIBUTE_BROKEN);
+	export_constant(ATTRIBUTE_REFINE_BROKEN);
+
 	/* quest check types */
 	export_constant(HAVEQUEST);
 	export_constant(PLAYTIME);

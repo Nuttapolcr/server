@@ -380,6 +380,11 @@ void trade_tradeadditem(map_session_data *sd, short index, short amount)
 		return;
 
 	item = &sd->inventory.u.items_inventory[index];
+	if( item->attribute == ATTRIBUTE_REFINE_BROKEN ){
+		clif_displaymessage(sd->fd, msg_txt(sd,260));
+		clif_tradeitemok(*sd, index, EXITEM_ADD_FAILED_CLOSED);
+		return;
+	}
 	src_lv = pc_get_group_level(sd);
 	dst_lv = pc_get_group_level(target_sd);
 

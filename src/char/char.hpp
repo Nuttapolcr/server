@@ -41,6 +41,13 @@ extern int char_fd; //char file descriptor
 #define MAX_STARTPOINT 5
 #define MAX_STARTITEM 32
 
+struct start_rental_item {
+	t_itemid nameid;
+	uint16 amount;
+	uint8 refine;
+	uint32 rental_days;
+};
+
 enum e_char_delete {
 	CHAR_DEL_EMAIL = 1,
 	CHAR_DEL_BIRTHDATE
@@ -189,6 +196,7 @@ struct CharServ_Config {
 	struct s_point_str start_point[MAX_STARTPOINT], start_point_doram[MAX_STARTPOINT]; // Initial position the player will spawn on the server
 	short start_point_count, start_point_count_doram; // Number of positions read
 	struct startitem start_items[MAX_STARTITEM], start_items_doram[MAX_STARTITEM]; // Initial items the player with spawn with on the server
+	struct start_rental_item start_rental_items[MAX_STARTITEM]; // Rental items given to every new character
 	uint32 start_status_points;
 	int console;
 	int max_connect_user;

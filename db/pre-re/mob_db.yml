@@ -3732,6 +3732,8 @@ Body:
       - Item: Golden_Bug_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Card
+        Rate: 100
   - Id: 1087
     AegisName: ORK_HERO
     Name: Orc Hero
@@ -11310,6 +11312,8 @@ Body:
         StealProtected: true
       - Item: Elunium
         Rate: 433
+      - Item: Strong_Shield
+        Rate: 100
   - Id: 1269
     AegisName: CLOCK
     Name: Clock
@@ -19657,6 +19661,8 @@ Body:
       - Item: Incant_Samurai_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Card
+        Rate: 100
   - Id: 1493
     AegisName: DRYAD
     Name: Dryad
@@ -22674,6 +22680,8 @@ Body:
       - Item: Tao_Gunka_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Card
+        Rate: 100
   - Id: 1584
     AegisName: TAMRUAN
     Name: Tamruan
@@ -28917,6 +28925,8 @@ Body:
       - Item: Kiel_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Card
+        Rate: 100
   - Id: 1735
     AegisName: ALICEL
     Name: Alicel
@@ -29514,6 +29524,8 @@ Body:
       - Item: Randgris_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Card
+        Rate: 100
   - Id: 1752
     AegisName: SKOGUL
     Name: Skogul
@@ -32574,6 +32586,8 @@ Body:
       - Item: Ifrit_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Card
+        Rate: 100
   - Id: 1833
     AegisName: KASA
     Name: Kasa
@@ -34145,6 +34159,8 @@ Body:
       - Item: Fallen_Bishop_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Card
+        Rate: 100
   - Id: 1872
     AegisName: BEELZEBUB_FLY
     Name: Hell Fly
@@ -34262,6 +34278,8 @@ Body:
       - Item: Berzebub_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Card
+        Rate: 100
   - Id: 1875
     AegisName: TRISTAN_3RD
     Name: Dead King

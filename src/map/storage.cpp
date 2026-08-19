@@ -200,6 +200,9 @@ static enum e_storage_add storage_canAddItem(struct s_storage *stor, int idx, st
 	if (itemdb_ishatched_egg(&items[idx]))
 		return STORAGE_ADD_INVALID;
 
+	if (items[idx].expire_time)
+		return STORAGE_ADD_INVALID;
+
 	if (!stor->state.put)
 		return STORAGE_ADD_NOACCESS;
 
@@ -394,6 +397,8 @@ void storage_storageadd(map_session_data* sd, struct s_storage *stor, int index,
 	enum e_storage_add result;
 
 	nullpo_retv(sd);
+	if (index < 0 || index >= MAX_INVENTORY || sd->inventory.u.items_inventory[index].attribute == ATTRIBUTE_REFINE_BROKEN)
+		return;
 
 	result = storage_canAddItem(stor, index, sd->inventory.u.items_inventory, amount, MAX_INVENTORY);
 	if (result == STORAGE_ADD_INVALID)
@@ -482,6 +487,8 @@ void storage_storageaddfromcart(map_session_data *sd, struct s_storage *stor, in
 	if (sd->state.prevend) {
 		return;
 	}
+	if (index < 0 || index >= MAX_CART || sd->cart.u.items_cart[index].attribute == ATTRIBUTE_REFINE_BROKEN)
+		return;
 
 	result = storage_canAddItem(stor, index, sd->cart.u.items_cart, amount, MAX_CART);
 	if (result == STORAGE_ADD_INVALID)
@@ -967,6 +974,8 @@ void storage_guild_storageadd(map_session_data* sd, int index, int amount)
 
 	if( sd->inventory.u.items_inventory[index].nameid == 0 )
 		return;
+	if( sd->inventory.u.items_inventory[index].attribute == ATTRIBUTE_REFINE_BROKEN )
+		return;
 
 	if( amount < 1 || amount > sd->inventory.u.items_inventory[index].amount )
 		return;
@@ -1047,6 +1056,8 @@ void storage_guild_storageaddfromcart(map_session_data* sd, int index, int amoun
 		return;
 
 	if( sd->cart.u.items_cart[index].nameid == 0 )
+		return;
+	if( sd->cart.u.items_cart[index].attribute == ATTRIBUTE_REFINE_BROKEN )
 		return;
 
 	if( amount < 1 || amount > sd->cart.u.items_cart[index].amount )

@@ -5,8 +5,6 @@ morocc,167,111,3	script	Stylist#super_stylist	87,{
 
 -	script	super_stylist_main	-1,{
 	OnTalk:
-		.@eac = eaclass();
-		.@gm_level = getgmlevel();
 	cutin "prm_1",2;
 	mes "^FF0000[ Stylist ]^000000";
 	mes "สวัสดีคุณ,"+strcharinfo(0)+"";
@@ -27,116 +25,74 @@ morocc,167,111,3	script	Stylist#super_stylist	87,{
 				switch (select(
 					"~ เปลี่ยน ทรงผม",
 					"~ เปลี่ยน สีผม",
-					"~ เปลี่ยน สีผ้าคลุม",
+					"~ เปลี่ยน สีชุด",
 					"~ ตัวอย่างทรงผม สีผม สีชุด"
 				)) {
 					case 1:
-						if(countitem(1030061)<1) {
+						if (countitem(1030061) < 1) {
 							mes "^FF0000[ Stylist ]^000000";
 							mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
-							mes "หาซื้อได้ที่ ร้าน Kafra Shop";
 							cutin "",255;
 							close;
 						}
-						set .@hairstylemin,getBattleFlag("min_hair_style");
-						if (.@eac != EAJL_SUMMONER) {
-						set .@hairstylemaxf,getBattleFlag("max_hair_style");
-						set .@hairstylemaxm,getBattleFlag("max_hair_style");
-						} else {
-							set .@hairstylemaxf,getBattleFlag("max_hair_style");
-							set .@hairstylemaxm,getBattleFlag("max_hair_style");
-						}
+						.@hairstylemin = getBattleFlag("min_hair_style");
+						.@hairstylemax = getBattleFlag("max_hair_style");
 						next;
 						mes "^FF0000[ Stylist ]^000000";
 						mes "กรุณากรอกหมายเลข ทรงผม ลงในช่องว่าง";
-						if (Sex) {
-							mes "หมายเลขทรงผม : " +.@hairstylemin+ " ถึง " +.@hairstylemaxm;
-						} else {
-							mes "หมายเลขทรงผม : " +.@hairstylemin+ " ถึง " +.@hairstylemaxf;
-						}
-						input .@hairstyle;
+						mes "หมายเลขทรงผม : "+.@hairstylemin+" ถึง "+.@hairstylemax;
+						input .@hairstyle,.@hairstylemin,.@hairstylemax;
 						delitem 1030061,1;
-						
-						if ( .@hairstyle < 0 )
-						{
-							next;
-							mes "^FF0000[ Stylist ]^000000";
-							mes "หมายเลขไม่ถูกต้อง";
-							getitem 1030061,1;
-							cutin "",255;
-							close;
-						}
-						else if ( .@hairstyle >= 30 )
-						{
-							next;
-							mes "^FF0000[ Stylist ]^000000";
-							mes "หมายเลขไม่ถูกต้อง";
-							getitem 1030061,1;
-							cutin "",255;
-							close;
-						}
-						
-						if (Sex) {
-							if (.@hairstyle < .@hairstylemin || .@hairstyle > .@hairstylemaxm) { 
-							set .@hairstyle,1; 
-							}
-						} else {
-							if (.@hairstyle < .@hairstylemin || .@hairstyle > .@hairstylemaxf) { 
-							set .@hairstyle,1; 
-							}
-						}
 						setlook LOOK_HAIR,.@hairstyle;
 						next;
 						break;
 					case 2:
-						if(countitem(19552)<1) {
+						if (countitem(1030061) < 1) {
 							mes "^FF0000[ Stylist ]^000000";
-							mes "ฉันต้องการ ^FF0000"+getitemname(7622)+" 1ea^000000";
-							mes "หาซื้อได้ที่ ร้าน Kafra Shop";
+							mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
 							cutin "",255;
 							close;
 						}
-						set .@hairdyemin,getBattleFlag("min_hair_color");
-						set .@hairdyemax,getBattleFlag("max_hair_color");
+						.@hairdyemin = getBattleFlag("min_hair_color");
+						.@hairdyemax = getBattleFlag("max_hair_color");
 						mes "^FF0000[ Stylist ]^000000";
 						mes "กรุณากรอกหมายเลข สีผม ลงในช่องว่าง";
-						mes "หมายเลขสีผม : " +.@hairdyemin+ " ถึง " +.@hairdyemax;
-						input .@hairdye;
-						delitem 19552,1;
-						if (.@hairdye < .@hairdyemin || .@hairdye > .@hairdyemax) { 
-						set .@hairdye,0; 
-						}
+						mes "หมายเลขสีผม : "+.@hairdyemin+" ถึง "+.@hairdyemax;
+						input .@hairdye,.@hairdyemin,.@hairdyemax;
+						delitem 1030061,1;
 						setlook LOOK_HAIR_COLOR,.@hairdye;
 						next;
 						break;
 					case 3:
-						if(countitem(19553)<1) {
+						if (countitem(1030061) < 1) {
 							mes "^FF0000[ Stylist ]^000000";
-							mes "ฉันต้องการ";
-							mes "^FF0000"+getitemname(19553)+" 1ea^000000";
-							mes "หาซื้อได้ที่ ร้าน Kafra Shop";
+							mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
 							cutin "",255;
 							close;
 						}
-						set .@clothcolormin,getBattleFlag("min_cloth_color");
-						set .@clothcolormax,getBattleFlag("max_cloth_color");
 						mes "^FF0000[ Stylist ]^000000";
-						mes "กรุณากรอกหมายเลข สีผ้าคลุม ลงในช่องว่าง";
-						mes "หมายเลขสีผ้าคลุม : " +.@clothcolormin+ " ถึง " +.@clothcolormax;
-						input .@clothcolor;
-						delitem 19553,1;
-						if (.@clothcolor < .@clothcolormin || .@clothcolor > .@clothcolormax) { 
-						set .@clothcolor,0; 
-						}
+						mes "กรุณาเลือกหมายเลขสีชุดที่ต้องการ";
+						next;
+						.@clothcolor = select(
+							"~ สีชุดหมายเลข 0",
+							"~ สีชุดหมายเลข 2",
+							"~ สีชุดหมายเลข 3",
+							"~ สีชุดหมายเลข 4",
+							"~ สีชุดหมายเลข 5",
+							"~ สีชุดหมายเลข 6",
+							"~ สีชุดหมายเลข 7"
+						);
+						if (.@clothcolor == 1)
+							.@clothcolor = 0;
+						delitem 1030061,1;
 						setlook LOOK_CLOTHES_COLOR,.@clothcolor;
 						next;
 						break;
-						
 					case 4:
-					cutin "",255;
-					close2;
-					opendressroom(0);
-					end;
+						cutin "",255;
+						close2;
+						opendressroom(1);
+						end;
 				}
 				goto Lmain;
 		case 2:

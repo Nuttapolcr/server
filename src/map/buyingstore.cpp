@@ -391,7 +391,7 @@ void buyingstore_trade( map_session_data* sd, uint32 account_id, unsigned int bu
 		}
 
 		// non-tradable item
-		if( sd->inventory.u.items_inventory[index].expire_time || ( sd->inventory.u.items_inventory[index].bound && !pc_can_give_bounded_items( sd ) ) || !itemdb_cantrade( &sd->inventory.u.items_inventory[index], pc_get_group_level( sd ), pc_get_group_level( pl_sd ) ) || memcmp( sd->inventory.u.items_inventory[index].card, buyingstore_blankslots, sizeof( buyingstore_blankslots ) ) ){
+		if( sd->inventory.u.items_inventory[index].attribute == ATTRIBUTE_REFINE_BROKEN || sd->inventory.u.items_inventory[index].expire_time || ( sd->inventory.u.items_inventory[index].bound && !pc_can_give_bounded_items( sd ) ) || !itemdb_cantrade( &sd->inventory.u.items_inventory[index], pc_get_group_level( sd ), pc_get_group_level( pl_sd ) ) || memcmp( sd->inventory.u.items_inventory[index].card, buyingstore_blankslots, sizeof( buyingstore_blankslots ) ) ){
 			clif_buyingstore_trade_failed_seller( sd, BUYINGSTORE_TRADE_SELLER_FAILED, item->itemId );
 			return;
 		}

@@ -941,13 +941,6 @@ bool skill_isNotOk(uint16 skill_id, map_session_data *sd)
 
 	struct map_data *mapdata = map_getmapdata(sd->bl.m);
 
-	// Death Match arenas do not allow Sacrifice/Devotion.
-	if (skill_id == CR_DEVOTION &&
-		(sd->bl.m == map_mapname2mapid("guild_vs2") || sd->bl.m == map_mapname2mapid("guild_vs3"))) {
-		clif_msg(sd, SKILL_CANT_USE_AREA);
-		return true;
-	}
-
 	if (mapdata->getMapFlag(MF_NOSKILL) && skill_id != ALL_EQSWITCH && !sd->skillitem) //Item skills bypass noskill
 		return true;
 
@@ -13562,7 +13555,24 @@ static int8 skill_castend_id_check(struct block_list *src, struct block_list *ta
 			break;
 	}
 
-	if (inf && battle_check_target(src, target, inf) <= 0) {
+	bool ignore_pvp_noparty = false;
+
+	// Keep Death Match combat in no-party mode, but let Devotion use the
+	// caster's real party relationship for this target check only.
+	if (skill_id == CR_DEVOTION && inf == BCT_PARTY &&
+		src->type == BL_PC && target->type == BL_PC && src->m == target->m &&
+		(src->m == map_mapname2mapid("guild_vs2") || src->m == map_mapname2mapid("guild_vs3"))) {
+		int party_id = status_get_party_id(src);
+
+		// Reject before battle_check_target so PK-pass overrides cannot turn a
+		// non-party player into a valid Devotion target.
+		if (party_id == 0 || party_id != status_get_party_id(target))
+			return USESKILL_FAIL_LEVEL;
+
+		ignore_pvp_noparty = true;
+	}
+
+	if (inf && battle_check_target(src, target, inf, ignore_pvp_noparty) <= 0) {
 		switch(skill_id) {
 			case RK_PHANTOMTHRUST:
 			case NPC_PHANTOMTHRUST:
@@ -20143,7 +20153,7 @@ void skill_repairweapon(map_session_data *sd, int idx) {
 		return; //Invalid index??
 
 	item = &target_sd->inventory.u.items_inventory[idx];
-	if( !item->nameid || !item->attribute )
+	if( !item->nameid || item->attribute != ATTRIBUTE_BROKEN )
 		return; //Again invalid item....
 
 	if (itemdb_ishatched_egg(item))
@@ -20167,7 +20177,7 @@ void skill_repairweapon(map_session_data *sd, int idx) {
 
 	clif_skill_nodamage(&sd->bl,&target_sd->bl,sd->menuskill_id,1,1);
 
-	item->attribute = 0;/* clear broken state */
+	item->attribute = ATTRIBUTE_NORMAL;/* clear broken state */
 
 	clif_equiplist(target_sd);
 

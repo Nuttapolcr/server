@@ -141,6 +141,8 @@ enum e_enchantgrade : uint16{
 #define MIN_ATTRIBUTE 0
 #define MAX_ATTRIBUTE 4
 #define ATTRIBUTE_NORMAL 0
+#define ATTRIBUTE_BROKEN 1
+#define ATTRIBUTE_REFINE_BROKEN 2
 #define MIN_STAR 0
 #define MAX_STAR 3
 

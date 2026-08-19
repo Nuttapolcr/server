@@ -415,6 +415,305 @@ Body:
             Item: Coin_Varlor_V.1
             Amount: 5
 
+  - Name: CRAFT_SHADOW_9
+    CraftBarter: false
+    ExactRefine: true
+    Items:
+      - Index: 0
+        Item: Attack_Shadow_Armor
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Armor
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 1
+        Item: Magic_Shadow_Armor
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Armor
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 2
+        Item: Defense_Shadow_Armor
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Armor
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 3
+        Item: Attack_Shadow_Shoes
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shoes
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 4
+        Item: Magic_Shadow_Shoes
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shoes
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 5
+        Item: Defense_Shadow_Shoes
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shoes
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 6
+        Item: Attack_Shadow_Earring
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Earing
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 7
+        Item: Magic_Shadow_Earring
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Earing
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 8
+        Item: Defense_Shadow_Earring
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Earing
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 9
+        Item: Rudolf_Shadow_Earring
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Earing
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 10
+        Item: Attack_Shadow_Pendant
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Pandent
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 11
+        Item: Magic_Shadow_Pendant
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Pandent
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 12
+        Item: Defense_Shadow_Pendant
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Pandent
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 13
+        Item: Rudolf_Shadow_Pendant
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Pandent
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 14
+        Item: Attack_Shadow_Shield
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shield
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 15
+        Item: Magic_Shadow_Shield
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shield
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+      - Index: 16
+        Item: Defense_Shadow_Shield
+        Zeny: 10000000
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shield
+            Refine: 9
+          - Index: 1
+            Item: Poring_Slot_Coin
+            Amount: 60
+
+  - Name: CRAFT_SHADOW_10
+    CraftBarter: false
+    ExactRefine: true
+    Items:
+      - Index: 0
+        Item: Attack_Shadow_Armor
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Armor
+            Refine: 10
+      - Index: 1
+        Item: Magic_Shadow_Armor
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Armor
+            Refine: 10
+      - Index: 2
+        Item: Defense_Shadow_Armor
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Armor
+            Refine: 10
+      - Index: 3
+        Item: Attack_Shadow_Shoes
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shoes
+            Refine: 10
+      - Index: 4
+        Item: Magic_Shadow_Shoes
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shoes
+            Refine: 10
+      - Index: 5
+        Item: Defense_Shadow_Shoes
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shoes
+            Refine: 10
+      - Index: 6
+        Item: Attack_Shadow_Earring
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Earing
+            Refine: 10
+      - Index: 7
+        Item: Magic_Shadow_Earring
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Earing
+            Refine: 10
+      - Index: 8
+        Item: Defense_Shadow_Earring
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Earing
+            Refine: 10
+      - Index: 9
+        Item: Rudolf_Shadow_Earring
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Earing
+            Refine: 10
+      - Index: 10
+        Item: Attack_Shadow_Pendant
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Pandent
+            Refine: 10
+      - Index: 11
+        Item: Magic_Shadow_Pendant
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Pandent
+            Refine: 10
+      - Index: 12
+        Item: Defense_Shadow_Pendant
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Pandent
+            Refine: 10
+      - Index: 13
+        Item: Rudolf_Shadow_Pendant
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Pandent
+            Refine: 10
+      - Index: 14
+        Item: Attack_Shadow_Shield
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shield
+            Refine: 10
+      - Index: 15
+        Item: Magic_Shadow_Shield
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shield
+            Refine: 10
+      - Index: 16
+        Item: Defense_Shadow_Shield
+        Zeny: 1
+        RequiredItems:
+          - Index: 0
+            Item: S_Booster_Shield
+            Refine: 10
+
   - Name: CRAFT_COSTUME_WEAPON
     CraftBarter: false
     Items:

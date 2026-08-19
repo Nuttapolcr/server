@@ -148,6 +148,11 @@ private:
 	std::vector<std::shared_ptr<datatype>> cache;
 	bool loaded;
 
+protected:
+	virtual bool shouldCacheKey( keytype key ){
+		return true;
+	}
+
 public:
 	TypesafeCachedYamlDatabase( const std::string& type_, uint16 version_, uint16 minimumVersion_ ) : TypesafeYamlDatabase<keytype, datatype>( type_, version_, minimumVersion_ ){
 		this->loaded = false;
@@ -165,11 +170,17 @@ public:
 	}
 
 	std::shared_ptr<datatype> find( keytype key ) override{
-		if( this->cache.empty() || key >= this->cache.size() ){
+		if( !this->shouldCacheKey( key ) ){
 			return TypesafeYamlDatabase<keytype, datatype>::find( key );
-		}else{
-			return cache[this->calculateCacheKey( key )];
 		}
+
+		size_t cache_key = this->calculateCacheKey( key );
+
+		if( cache_key >= this->cache.size() ){
+			return TypesafeYamlDatabase<keytype, datatype>::find( key );
+		}
+
+		return cache[cache_key];
 	}
 
 	std::vector<std::shared_ptr<datatype>> getCache() {
@@ -182,12 +193,17 @@ public:
 
 	void loadingFinished() override{
 		size_t max_key = 0;
+		bool has_cached_values = false;
 		// Cache all known values
 		for (auto &pair : *this) {
+			if( !this->shouldCacheKey( pair.first ) ){
+				continue;
+			}
+
 			// Calculate the key that should be used
 			size_t key = this->calculateCacheKey(pair.first);
 			// Check if the key fits into the current cache size
-			if (this->cache.capacity() <= key) {
+			if (this->cache.size() <= key) {
 				// Some keys compute to 0, so we allocate a minimum of 500 (250*2) entries
 				const static size_t minimum = 250;
 				// Double the current size, so we do not have to resize that often
@@ -202,10 +218,11 @@ public:
 
 			// keep track of highest known key for easy resize
 			max_key = std::max(max_key, key);
+			has_cached_values = true;
 		}
 
 		// Resize to only fit all existing non null entries
-		this->cache.resize(max_key);
+		this->cache.resize( has_cached_values ? max_key + 1 : 0 );
 		// Free the memory that was allocated too much
 		this->cache.shrink_to_fit();
 		this->loaded = true;
@@ -215,7 +232,7 @@ public:
 		TypesafeYamlDatabase<keytype, datatype>::erase( key );
 
 		// Prevent excessive usage during loading
-		if( this->loaded ){
+		if( this->loaded && this->shouldCacheKey( key ) ){
 			size_t cache_key = this->calculateCacheKey(key);
 			if (this->cache.size() <= cache_key) {
 				return;
@@ -228,7 +245,7 @@ public:
 		TypesafeYamlDatabase<keytype, datatype>::put( key, ptr );
 
 		// Prevent excessive usage during loading
-		if( this->loaded ){
+		if( this->loaded && this->shouldCacheKey( key ) ){
 			size_t cache_key = this->calculateCacheKey(key);
 			if (this->cache.size() <= cache_key) {
 				this->cache.resize(cache_key + 1, nullptr);

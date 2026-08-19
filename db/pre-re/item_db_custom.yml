@@ -149,6 +149,18 @@ Body:
     Type: Usable
     Script: |
       rentitem 97001,86400;
+  - Id: 1500066
+    AegisName: AUTOATTACK_AI_RENT_7D
+    Name: Ai Box 7 Day
+    Type: Usable
+    Script: |
+      rentitem 97001,604800;
+  - Id: 1500067
+    AegisName: AUTOATTACK_AI_RENT_30D
+    Name: Ai Box 30 Day
+    Type: Usable
+    Script: |
+      rentitem 97001,2592000;
   - Id: 1500008
     AegisName: AUTOATTACK_AI_RENT_1_NT
     Name: Ai Box 1 hr [NT]
@@ -28825,8 +28837,8 @@ Body:
       bonus bDex,3;
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,5;
-      bonus2 bSkillAtk,"KN_PIERCE",20;
-      bonus2 bSkillAtk,"KN_PIERCE",.@r/3*15;
+      bonus2 bSkillAtk,"LK_SPIRALPIERCE",50;
+      bonus2 bSkillAtk,"LK_SPIRALPIERCE",.@r*30;
       if (.@r>=7) {
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
@@ -29064,7 +29076,7 @@ Body:
     WeaponLevel: 3
     EquipLevelMin: 1
     Refineable: true
-    Script: |
+    Script: |-
       .@r = getrefine();
       bonus bStr,3;
       bonus bDex,6;
@@ -29074,8 +29086,11 @@ Body:
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",10;
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*3;
       if (.@r>=7) {
+      bonus bMaxSPrate,5;
          bonus bAtkRate,5;
       bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,20;
+      bonus2 bAddRace,RC_Player_Human,20;
       }
   - Id: 610008
     AegisName: Up_Shiver_Katar_K
@@ -29133,18 +29148,22 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
+      bonus bBaseAtk,50;
       bonus bStr,3;
       bonus bLuk,8;
       bonus2 bAddClass,Class_Boss,30;
       bonus bCritical,10;
       bonus bAspdRate,4;
-      bonus2 bSkillAtk,"RG_BACKSTAP",10;
       bonus bCritical,.@r/3*3;
       bonus bCritAtkRate,.@r/3*3;
-      bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*6;
+      bonus2 bSkillAtk,"RG_RAID",50;
+      bonus2 bSkillAtk,"RG_RAID",.@r*40;
       if (.@r>=7) {
+      bonus bBaseAtk,50;
          bonus bAtkRate,5;
       bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,60;
+      bonus2 bAddRace,RC_Player_Human,60;
       }
   - Id: 700018
     AegisName: Up_Royal_Bow_K
@@ -29731,14 +29750,18 @@ Body:
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",10;
       bonus2 bSkillAtk,"MO_EXTREMITYFIST",.@r/3*5;
       if (.@r>=7) {
+      bonus bMaxSPrate,5;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       }
       if (.@r>=9) {
          bonus bShortAtkRate,5;
          bonus2 bSubClass,Class_Boss,20;
       }
       if (.@r>=11) {
+      bonus bMaxSPrate,13;
          bonus bAspdRate,7;
       bonus2 bAddClass,Class_Boss,20;
       bonus2 bSubRace,RC_Player_Human,2;
@@ -29811,18 +29834,22 @@ Body:
     Refineable: true
     Script: |
       .@r = getrefine();
+      bonus bBaseAtk,50;
       bonus bStr,3;
       bonus bLuk,8;
       bonus2 bAddClass,Class_Boss,30;
       bonus bCritical,10;
       bonus bAspdRate,4;
-      bonus2 bSkillAtk,"RG_BACKSTAP",10;
       bonus bCritical,.@r/3*3;
       bonus bCritAtkRate,.@r/3*3;
-      bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*6;
+      bonus2 bSkillAtk,"RG_RAID",50;
+      bonus2 bSkillAtk,"RG_RAID",.@r*40;
       if (.@r>=7) {
+      bonus bBaseAtk,50;
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,60;
+      bonus2 bAddRace,RC_Player_Human,60;
       }
       if (.@r>=9) {
          bonus bShortAtkRate,5;
@@ -33162,14 +33189,18 @@ Body:
       bonus2 bAddRace,RC_Player_Human,40;
 
       if (.@r>=7) {
+      bonus bMaxSPrate,10;
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       }
       if (.@r>=9) {
          bonus bShortAtkRate,10;
          bonus2 bSubClass,Class_Boss,30;
       }
       if (.@r>=11) {
+      bonus bMaxSPrate,20;
          bonus bAspdRate,15;
       bonus2 bAddClass,Class_Boss,20;
       bonus2 bSubRace,RC_Player_Human,5;
@@ -33306,18 +33337,22 @@ Body:
     Script: |
       .@r = getrefine();
       .@g = getenchantgrade();
+      bonus bBaseAtk,50;
       bonus bStr,5;
       bonus bLuk,15;
       bonus2 bAddClass,Class_Boss,40;
       bonus bCritical,20;
       bonus bAspdRate,5;
-      bonus2 bSkillAtk,"RG_BACKSTAP",20;
       bonus bCritical,.@r/3*5;
       bonus bCritAtkRate,.@r/3*5;
-      bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*10;
+      bonus2 bSkillAtk,"RG_RAID",60;
+      bonus2 bSkillAtk,"RG_RAID",.@r*50;
       if (.@r>=7) {
+      bonus bBaseAtk,50;
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
+      bonus2 bAddRace,RC_DemiHuman,60;
+      bonus2 bAddRace,RC_Player_Human,60;
       }
       if (.@r>=9) {
          bonus bShortAtkRate,10;
@@ -33335,7 +33370,7 @@ Body:
          bonus bCritical,5;
          bonus2 bAddClass,Class_Boss,10;
          bonus bCritAtkRate,.@r/3*5;
-         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*10;
+         bonus2 bSkillAtk,"RG_RAID",.@r/2*15;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bAtkRate,5;
@@ -33343,7 +33378,7 @@ Body:
          bonus bCritical,10;
          bonus2 bAddClass,Class_Boss,10;
          bonus bCritAtkRate,.@r/3*5;
-         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/3*10;
+         bonus2 bSkillAtk,"RG_RAID",.@r/2*20;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -33351,7 +33386,7 @@ Body:
          bonus bCritical,15;
          bonus2 bAddClass,Class_Boss,10;
          bonus bCritAtkRate,.@r/2*5;
-         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
+         bonus2 bSkillAtk,"RG_RAID",.@r/2*25;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bAtkRate,5;
@@ -33359,7 +33394,7 @@ Body:
          bonus bCritical,20;
          bonus2 bAddClass,Class_Boss,10;
          bonus bCritAtkRate,.@r/2*5;
-         bonus2 bSkillAtk,"RG_BACKSTAP",.@r/2*10;
+         bonus2 bSkillAtk,"RG_RAID",.@r/2*30;
       }
   - Id: 18121
     AegisName: Sinister_Bow
@@ -36226,6 +36261,7 @@ Body:
     Script: |
       #PREMIUMSERVICE_TIME = gettimetick(2)+86400;
       sc_start SC_PREMIUMSERVICE,86400000,1;
+      sc_start SC_PREMIUMSERVICE_STORAGE,86400000,300;
       sc_start SC_PREMIUMSERVICE_EXPBOOST_A,86400000,20;
       sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,86400000,20;
       sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,86400000,30;
@@ -36241,6 +36277,7 @@ Body:
     Script: |
       #PREMIUMSERVICE_TIME = gettimetick(2)+259200;
       sc_start SC_PREMIUMSERVICE,259200000,3;
+      sc_start SC_PREMIUMSERVICE_STORAGE,259200000,300;
       sc_start SC_PREMIUMSERVICE_EXPBOOST_A,259200000,20;
       sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,259200000,20;
       sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,259200000,30;
@@ -36252,6 +36289,7 @@ Body:
     Script: |
       #PREMIUMSERVICE_TIME = gettimetick(2)+604800;
       sc_start SC_PREMIUMSERVICE,604800000,7;
+      sc_start SC_PREMIUMSERVICE_STORAGE,604800000,300;
       sc_start SC_PREMIUMSERVICE_EXPBOOST_A,604800000,20;
       sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,604800000,20;
       sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,604800000,30;
@@ -36263,6 +36301,7 @@ Body:
     Script: |
       #PREMIUMSERVICE_TIME = gettimetick(2)+1296000;
       sc_start SC_PREMIUMSERVICE,1296000000,15;
+      sc_start SC_PREMIUMSERVICE_STORAGE,1296000000,300;
       sc_start SC_PREMIUMSERVICE_EXPBOOST_A,1296000000,20;
       sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,1296000000,20;
       sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,1296000000,30;
@@ -36274,6 +36313,7 @@ Body:
     Script: |
       #PREMIUMSERVICE_TIME = gettimetick(2)+2592000;
       sc_start SC_PREMIUMSERVICE,2592000000,30;
+      sc_start SC_PREMIUMSERVICE_STORAGE,2592000000,300;
       sc_start SC_PREMIUMSERVICE_EXPBOOST_A,2592000000,20;
       sc_start SC_PREMIUMSERVICE_JEXPBOOST_A,2592000000,20;
       sc_start SC_PREMIUMSERVICE_ITEMBOOST_A,2592000000,30;
@@ -36353,6 +36393,7 @@ Body:
       bonus bVariableCastrate,-1;
       bonus bBossBoxSpeed,5;
       bonus bMaxHP,200;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
   - Id: 1001705
     AegisName: aegis_1001705
     Name: Cos Valor  V.6
@@ -36371,6 +36412,7 @@ Body:
       bonus bVariableCastrate,-1;
       bonus bBossBoxSpeed,10;
       bonus bMaxHP,250;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",5;
   - Id: 1001706
     AegisName: aegis_1001706
     Name: Drop&Card V.1
@@ -36975,12 +37017,15 @@ Body:
     Weight: 10
     Flags:
       Collection: true
+    Script: |-
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      sc_start SC_ENDURE,INFINITE_TICK,1;
     CollectionScript: |
       bonus bAddMaxWeight,3000;
       bonus bMaxHP,500;
       bonus2 bDropAddClass,Class_All,10;
       if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
-      sc_start SC_ENDURE,INFINITE_TICK,1;
+      bonus bNoWalkDelay;
     CollectionAmount: 5
   - Id: 1001753
     AegisName: Col_Celia
@@ -37276,6 +37321,11 @@ Body:
     Name: Valor Stone Box
     Type: Cash
     Script: getitem 1000620,10;
+  - Id: 1500070
+    AegisName: Teenoi_Box_Set
+    Type: Cash
+    Script: getitem 1000620,30;
+    Name: Teenoi Box Set
   - Id: 1030005
     AegisName: Pet_Friendly_Ticket
     Name: Pet Friendly Ticket
@@ -37615,6 +37665,7 @@ Body:
       .@r = getrefine();
       bonus bMatk,80;
       bonus bInt,6;
+      bonus bDex,.@r/3*2;
       bonus bMatkRate,10;
       bonus2 bMagicAddClass,Class_Boss,30;
       bonus bMatkRate,(.@r/3*1);
@@ -37645,8 +37696,8 @@ Body:
       bonus bDex,3;
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,5;
-      bonus2 bSkillAtk,"KN_PIERCE",20;
-      bonus2 bSkillAtk,"KN_PIERCE",.@r/3*15;
+      bonus2 bSkillAtk,"LK_SPIRALPIERCE",50;
+      bonus2 bSkillAtk,"LK_SPIRALPIERCE",.@r*30;
       if (.@r>=7) {
          bonus bAtkRate,5;
          bonus2 bAddClass,Class_Boss,10;
@@ -37779,6 +37830,7 @@ Body:
       bonus bMatkRate,10;
       bonus bMatk,80;
       bonus2 bMagicAddClass,Class_Boss,30;
+      bonus bDex,.@r/3*2;
       bonus bMatkRate,(.@r/3*1);
       if (.@r>=7) {
       bonus bMatk,100;
@@ -37822,10 +37874,8 @@ Body:
       bonus bDex,5;
       bonus2 bAddClass,Class_Boss,40;
       bonus bAspdRate,5;
-      bonus2 bSkillAtk,"KN_PIERCE",50;
-      bonus2 bSkillAtk,"KN_PIERCE",.@r/3*15;
-      bonus2 bAddRace,RC_DemiHuman,40;
-      bonus2 bAddRace,RC_Player_Human,40;
+      bonus2 bSkillAtk,"LK_SPIRALPIERCE",50;
+      bonus2 bSkillAtk,"LK_SPIRALPIERCE",.@r*30;
       if (.@r>=7) {
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
@@ -37844,25 +37894,25 @@ Body:
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"KN_PIERCE",.@r/3*15;
+         bonus2 bSkillAtk,"LK_SPIRALPIERCE",.@r/2*20;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"KN_PIERCE",.@r/3*15;
+         bonus2 bSkillAtk,"LK_SPIRALPIERCE",.@r/2*20;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"KN_PIERCE",.@r/2*15;
+         bonus2 bSkillAtk,"LK_SPIRALPIERCE",.@r/2*20;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bAtkRate,5;
          bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus2 bSkillAtk,"KN_PIERCE",.@r/2*15;
+         bonus2 bSkillAtk,"LK_SPIRALPIERCE",.@r/2*20;
       }
   - Id: 1030022
     AegisName: Attack_Dagger001
@@ -37975,9 +38025,11 @@ Body:
       .@r = getrefine();
       .@g = getenchantgrade();
       bonus bInt,10;
+      bonus bDex,10;
       bonus bMatk,80;
       bonus bMatkRate,20;
       bonus2 bMagicAddClass,Class_Boss,50;
+      bonus bDex,.@r/3*4;
       bonus bMatkRate,(.@r/3*1);
       if (.@r>=7) {
       bonus bMatk,150;
@@ -38752,6 +38804,15 @@ Body:
       getitem 1030001,1;
       getitem 12920,1;
       getitem 6635,30;
+  - Id: 1500065
+    AegisName: Guard_Starter_Pack
+    Name: Guard Starter Pack
+    Type: Cash
+    Script: |-
+      getitem 2149,1;
+      getitem 1030001,1;
+      getitem 12920,1;
+      getitem 6635,30;
   - Id: 1030061
     AegisName: Barber_Ticket
     Name: Barber Ticket
@@ -38787,7 +38848,7 @@ Body:
     Script: getgroupitem(IG_TEST02);
   - Id: 1030066
     AegisName: Coin_Varlor_V.1
-    Name: Coin Valor V.1
+    Name: Gold Coin Valor
     Type: Etc
   - Id: 1030067
     AegisName: Handkerchief_In_Mouth
@@ -38837,7 +38898,6 @@ Body:
       NoTrade: true
       TradePartner: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -38852,7 +38912,6 @@ Body:
       NoTrade: true
       TradePartner: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -38897,7 +38956,6 @@ Body:
       NoTrade: true
       TradePartner: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
@@ -39357,72 +39415,272 @@ Body:
     Type: ShadowGear
     Locations:
       Shadow_Armor: true
+    Script: |-
+      .@r = getrefine();
+      bonus bAspd,1;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus bLongAtkRate,(.@r/2);
+      bonus bShortAtkRate,(.@r/2);
+      if (.@r>=10) {
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    Refineable: true
+    EquipLevelMin: 1
   - Id: 1500036
     AegisName: Attack_Shadow_Shoes
     Name: Attack Shadow Shoes
     Type: ShadowGear
     Locations:
       Shadow_Shoes: true
+    Script: |-
+      .@r = getrefine();
+      bonus bAspdRate,5;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus bLongAtkRate,(.@r/2);
+      bonus bShortAtkRate,(.@r/2);
+      if (.@r>=10) {
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    Refineable: true
+    EquipLevelMin: 1
   - Id: 1500037
     AegisName: Attack_Shadow_Earring
     Name: Attack Shadow Earring
     Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
+    Script: |-
+      .@r = getrefine();
+      bonus bBaseAtk,15;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus bLongAtkRate,(.@r/2);
+      bonus bShortAtkRate,(.@r/2);
+      if (.@r>=10) {
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    Refineable: true
+    EquipLevelMin: 1
   - Id: 1500038
     AegisName: Attack_Shadow_Pendant
     Name: Attack Shadow Pendant
     Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
+    Script: |
+      .@r = getrefine();
+      bonus bBaseAtk,15;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus bLongAtkRate,(.@r/2);
+      bonus bShortAtkRate,(.@r/2);
+      if (.@r>=10) {
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    Refineable: true
+    EquipLevelMin: 1
   - Id: 1500039
     AegisName: Magic_Shadow_Armor
     Name: Magic Shadow Armor
     Type: ShadowGear
     Locations:
       Shadow_Armor: true
+    Script: |-
+      .@r = getrefine();
+      bonus bAspd,1;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bMatkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bMagicAtkEle,Ele_All,(.@r/2);
+            if (.@r>=10) {
+               bonus bVariableCastrate,-3;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+            }
+    Refineable: true
+    EquipLevelMin: 1
   - Id: 1500040
     AegisName: Magic_Shadow_Shoes
     Name: Magic Shadow Shoes
     Type: ShadowGear
     Locations:
       Shadow_Shoes: true
+    Script: |-
+      .@r = getrefine();
+      bonus bAspdRate,5;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bMatkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bMagicAtkEle,Ele_All,(.@r/2);
+            if (.@r>=10) {
+               bonus bVariableCastrate,-3;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+            }
+    Refineable: true
+    EquipLevelMin: 1
   - Id: 1500041
     AegisName: Magic_Shadow_Earring
     Name: Magic Shadow Earring
     Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMatk,15;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bMatkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bMagicAtkEle,Ele_All,(.@r/2);
+            if (.@r>=10) {
+               bonus bVariableCastrate,-3;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+            }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500042
     AegisName: Magic_Shadow_Pendant
     Name: Magic Shadow Pendant
     Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMatk,15;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bMatkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bMagicAtkEle,Ele_All,(.@r/2);
+            if (.@r>=10) {
+               bonus bVariableCastrate,-3;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+            }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500043
     AegisName: Defense_Shadow_Armor
     Name: Defense Shadow Armor
     Type: ShadowGear
     Locations:
       Shadow_Armor: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHP,300;
+      bonus bAspd,1;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bDef,2;
+      bonus bMdef,1;
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bSubEle,Ele_All,(.@r/3);
+      if (.@r>=10) {
+               bonus bMaxHPrate,5;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500044
-    AegisName: New_Item_1500044
+    AegisName: Defense_Shadow_Shoes
     Name: Defense Shadow Shoes
     Type: ShadowGear
     Locations:
       Shadow_Shoes: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHP,300;
+      bonus bAspdRate,5;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bDef,2;
+      bonus bMdef,1;
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bSubEle,Ele_All,(.@r/3);
+      if (.@r>=10) {
+               bonus bMaxHPrate,5;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500045
-    AegisName: New_Item_1500045
+    AegisName: Defense_Shadow_Earring
     Name: Defense Shadow Earring
     Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHP,300;
+      bonus bMatk,15;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bDef,2;
+      bonus bMdef,1;
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bSubEle,Ele_All,(.@r/3);
+      if (.@r>=10) {
+               bonus bMaxHPrate,5;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500046
-    AegisName: New_Item_1500046
+    AegisName: Defense_Shadow_Pendant
     Name: Defense Shadow Pendant
     Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHP,300;
+      bonus bBaseAtk,15;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bDef,2;
+      bonus bMdef,1;
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bSubEle,Ele_All,(.@r/3);
+      if (.@r>=10) {
+               bonus bMaxHPrate,5;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500047
     AegisName: New_Item_1500047
     Name: XX Shadow Armor
@@ -39477,30 +39735,108 @@ Body:
     Type: ShadowGear
     Locations:
       Shadow_Right_Accessory: true
+    Script: |-
+      .@r = getrefine();
+      bonus2 bDropAddRace,RC_All,10;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus bAllStats,.@r/3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3;
+      bonus bAspdRate,.@r/3;
+      if (.@r>=10) {
+      bonus bAllStats,1;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500056
     AegisName: Rudolf_Shadow_Pendant
     Name: Rudolf Shadow Pendant
     Type: ShadowGear
     Locations:
       Shadow_Left_Accessory: true
+    Script: |-
+      .@r = getrefine();
+      bonus2 bDropAddRace,RC_All,10;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus bAllStats,.@r/3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",.@r/3;
+      bonus bAspdRate,.@r/3;
+      if (.@r>=10) {
+      bonus bAllStats,1;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500057
     AegisName: Attack_Shadow_Shield
     Name: Attack Shadow Shield
     Type: ShadowGear
     Locations:
       Shadow_Shield: true
+    Script: |-
+      .@r = getrefine();
+      bonus bVariableCastrate,-5;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bAtkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus bLongAtkRate,(.@r/2);
+      bonus bShortAtkRate,(.@r/2);
+      if (.@r>=10) {
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500058
     AegisName: Magic_Shadow_Shield
     Name: Magic Shadow Shield
     Type: ShadowGear
     Locations:
       Shadow_Shield: true
+    Script: |-
+      .@r = getrefine();
+      bonus bVariableCastrate,-5;
+      bonus bMaxHP,100;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bMatkRate,3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",(.@r/2);
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bMagicAtkEle,Ele_All,(.@r/2);
+            if (.@r>=10) {
+               bonus bVariableCastrate,-3;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+            }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500059
     AegisName: Defense_Shadow_Shield
     Name: Defense Shadow Shield
     Type: ShadowGear
     Locations:
       Shadow_Shield: true
+    Script: |-
+      .@r = getrefine();
+      bonus bMaxHP,300;
+      bonus bVariableCastrate,-5;
+      bonus2 bDropAddRace,RC_All,10;
+      bonus bDef,2;
+      bonus bMdef,1;
+      bonus bMaxHPrate,(.@r/3);
+      bonus2 bSubEle,Ele_All,(.@r/3);
+      if (.@r>=10) {
+               bonus bMaxHPrate,5;
+      bonus2 bSubRace,RC_Player_Human,1;
+      bonus2 bSubRace,RC_Player_Doram,1;
+      }
+    EquipLevelMin: 1
+    Refineable: true
   - Id: 1500060
     AegisName: New_Item_1500060
     Name: New Item 1500060
@@ -39513,3 +39849,30 @@ Body:
     Type: ShadowGear
     Locations:
       Shadow_Shield: true
+  - Id: 1500068
+    AegisName: New_Item_1500068
+    Name: Charm ทดสอบ ปายา
+    Type: Charm
+    CharmScript: bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",1;
+    CharmMaxEffect: 1000
+  - Id: 1500069
+    AegisName: Rudolf_Card
+    Name: Rudolf Card
+    Type: Etc
+    Flags:
+      BuyingStore: true
+  - Id: 1500071
+    AegisName: Bar_B_GON_Box_Set
+    Name: Bar-B GON Box Set
+    Type: Cash
+    Script: getitem 1000620,50;
+  - Id: 1500072
+    AegisName: MoMo_Box_Set
+    Name: MoMo Box Set
+    Type: Cash
+    Script: getitem 1000620,100;
+  - Id: 1500073
+    AegisName: Copper_Beyond_Box_Set
+    Name: Copper Beyond Box Set
+    Type: Cash
+    Script: getitem 1000620,300;

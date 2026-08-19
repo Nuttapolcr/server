@@ -1261,6 +1261,10 @@ void pc_inventory_rental_add(map_session_data *sd, unsigned int seconds)
 bool pc_can_sell_item(map_session_data *sd, struct item *item, enum npc_subtype shoptype) {
 	if (sd == NULL || item == NULL)
 		return false;
+	// Refine-broken items may only be discarded through a regular NPC shop.
+	// Keep them blocked as currency for item shops and other shop types.
+	if (item->attribute == ATTRIBUTE_REFINE_BROKEN && shoptype != NPCTYPE_SHOP)
+		return false;
 
 	if (!pc_can_give_items(sd))
 		return false;
@@ -2173,6 +2177,8 @@ bool pc_authok(map_session_data *sd, uint32 login_id2, time_t expiration_time, i
 
 	if (battle_config.hide_pet)
 		sd->state.hidepet = battle_config.hide_pet;
+	// Preserve the existing pet-loot behavior until the player disables it.
+	sd->state.pet_loot = 1;
 	memset(&sd->inventory, 0, sizeof(struct s_storage));
 	memset(&sd->cart, 0, sizeof(struct s_storage));
 	memset(&sd->storage, 0, sizeof(struct s_storage));
@@ -6864,6 +6870,9 @@ bool pc_dropitem(map_session_data *sd,int n,int amount)
 		)
 		return false;
 
+	if (sd->inventory.u.items_inventory[n].attribute == ATTRIBUTE_REFINE_BROKEN)
+		return false;
+
 	if( sd->inventory.u.items_inventory[n].equipSwitch )
 		return false;
 
@@ -7369,6 +7378,9 @@ void pc_putitemtocart(map_session_data *sd,int idx,int amount)
 	struct item *item_data = &sd->inventory.u.items_inventory[idx];
 
 	if( item_data->nameid == 0 || amount < 1 || item_data->amount < amount || sd->state.vending || sd->state.prevend )
+		return;
+
+	if( item_data->attribute == ATTRIBUTE_REFINE_BROKEN )
 		return;
 
 	if( item_data->equipSwitch ){
@@ -13144,7 +13156,7 @@ bool pc_equipitem(map_session_data *sd,short n,int req_pos,bool equipswitch)
 		return false;
 	}
 
-	if (!(pos&req_pos) || sd->inventory.u.items_inventory[n].equip != 0 || sd->inventory.u.items_inventory[n].attribute==1 ) { // [Valaris]
+	if (!(pos&req_pos) || sd->inventory.u.items_inventory[n].equip != 0 || sd->inventory.u.items_inventory[n].attribute != ATTRIBUTE_NORMAL ) { // [Valaris]
 		if( equipswitch ){
 			clif_equipswitch_add( sd, n, req_pos, ITEM_EQUIP_ACK_FAIL );
 		}else{
@@ -17167,12 +17179,12 @@ static time_t vip_remain_time(map_session_data *sd)
 	return remain_time;
 }
 
-void vip_bonus(map_session_data *sd)
+void vip_bonus(map_session_data *sd, bool use_cached_time)
 {
 	if(sd == nullptr)
 		return;
 
-	time_t remain_time = vip_remain_time(sd);
+	time_t remain_time = use_cached_time ? sd->vip.time : vip_remain_time(sd);
 	time_t current_time = time(NULL);
 
 	if (pc_isvip(sd)) {

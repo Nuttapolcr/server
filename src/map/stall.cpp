@@ -168,7 +168,7 @@ int8 stall_vending_setup(struct map_session_data* sd, const char* message, const
 		||  sd->inventory.u.items_inventory[index].amount < 0 // invalid item or insufficient quantity
 		//NOTE: official server does not do any of the following checks!
 		||  !sd->inventory.u.items_inventory[index].identify // unidentified item
-		||  sd->inventory.u.items_inventory[index].attribute == 1 // broken item
+		||  sd->inventory.u.items_inventory[index].attribute != ATTRIBUTE_NORMAL // broken item
 		||  sd->inventory.u.items_inventory[index].expire_time // It should not be in the cart but just in case
 		||  (sd->inventory.u.items_inventory[index].bound && !pc_can_give_bounded_items(sd)) // can't trade account bound items and has no permission
 		||  !itemdb_cantrade(&sd->inventory.u.items_inventory[index], pc_get_group_level(sd), pc_get_group_level(sd)) ) // untradeable item
@@ -801,7 +801,7 @@ void stall_buying_purchasereq(struct map_session_data* sd, int aid, int uid, con
 		}
 
 		// non-tradable item
-		if( sd->inventory.u.items_inventory[index].expire_time || ( sd->inventory.u.items_inventory[index].bound && !pc_can_give_bounded_items( sd ) ) || memcmp( sd->inventory.u.items_inventory[index].card, buyingstore_blankslots, sizeof( buyingstore_blankslots ) ) ){
+		if( sd->inventory.u.items_inventory[index].attribute == ATTRIBUTE_REFINE_BROKEN || sd->inventory.u.items_inventory[index].expire_time || ( sd->inventory.u.items_inventory[index].bound && !pc_can_give_bounded_items( sd ) ) || memcmp( sd->inventory.u.items_inventory[index].card, buyingstore_blankslots, sizeof( buyingstore_blankslots ) ) ){
 			clif_buyingstore_trade_failed_seller( sd, BUYINGSTORE_TRADE_SELLER_FAILED, item->itemId );
 			return;
 		}

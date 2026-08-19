@@ -6116,6 +6116,8 @@ void itemdb_reload(void) {
 	struct s_mapiterator* iter;
 	map_session_data* sd;
 
+	// The legacy path keeps the original full dense cache behavior.
+	item_db.setFastCacheMode( false );
 	do_final_itemdb();
 
 	// read new data
@@ -6136,6 +6138,85 @@ void itemdb_reload(void) {
 		status_calc_pc(sd, SCO_FORCE); // 
 	}
 	mapit_free(iter);
+}
+
+/**
+ * Reloads the item databases using a bounded dense item cache and cached
+ * per-session VIP data during the mandatory player status recalculation.
+ *
+ * The reload remains on the map-server thread so database and script state
+ * cannot race with gameplay. This function is intentionally separate from
+ * itemdb_reload() so the existing command keeps its original code path.
+ */
+bool itemdb_reload_fast( s_itemdb_reload_metrics& metrics ) {
+	using reload_clock = std::chrono::steady_clock;
+	static bool reload_in_progress = false;
+
+	metrics = {};
+
+	if( reload_in_progress ){
+		return false;
+	}
+
+	reload_in_progress = true;
+	const auto reload_start = reload_clock::now();
+	auto phase_start = reload_start;
+
+	// Avoid allocating a dense cache all the way to sparse custom item IDs.
+	item_db.setFastCacheMode( true );
+	do_final_itemdb();
+	metrics.clear_ms = std::chrono::duration_cast<std::chrono::milliseconds>( reload_clock::now() - phase_start ).count();
+
+	phase_start = reload_clock::now();
+	itemdb_read();
+	metrics.read_ms = std::chrono::duration_cast<std::chrono::milliseconds>( reload_clock::now() - phase_start ).count();
+
+	phase_start = reload_clock::now();
+	cashshop_reloaddb();
+	metrics.cashshop_ms = std::chrono::duration_cast<std::chrono::milliseconds>( reload_clock::now() - phase_start ).count();
+
+	phase_start = reload_clock::now();
+	mob_reload_itemmob_data();
+	metrics.mob_ms = std::chrono::duration_cast<std::chrono::milliseconds>( reload_clock::now() - phase_start ).count();
+
+	phase_start = reload_clock::now();
+	struct s_mapiterator* iter = mapit_geteachpc();
+	for( map_session_data* sd = reinterpret_cast<map_session_data*>( mapit_first( iter ) ); mapit_exists( iter ); sd = reinterpret_cast<map_session_data*>( mapit_next( iter ) ) ){
+		memset( sd->item_delay, 0, sizeof( sd->item_delay ) );
+		sd->combos.clear();
+		sd->collection_combos.clear();
+		pc_setinventorydata( sd );
+		metrics.player_count++;
+	}
+	mapit_free( iter );
+
+	// Rebind every session before item scripts can run during status
+	// recalculation. This prevents one player's script from observing another
+	// player through stale pointers left behind by the old item database.
+	iter = mapit_geteachpc();
+	for( map_session_data* sd = reinterpret_cast<map_session_data*>( mapit_first( iter ) ); mapit_exists( iter ); sd = reinterpret_cast<map_session_data*>( mapit_next( iter ) ) ){
+		pc_check_available_item( sd, ITMCHK_ALL );
+		pc_load_combo( sd );
+		status_calc_pc( sd, static_cast<e_status_calc_opt>( SCO_FORCE | SCO_FAST_ITEMDB_RELOAD ) );
+	}
+	mapit_free( iter );
+	metrics.players_ms = std::chrono::duration_cast<std::chrono::milliseconds>( reload_clock::now() - phase_start ).count();
+	metrics.total_ms = std::chrono::duration_cast<std::chrono::milliseconds>( reload_clock::now() - reload_start ).count();
+
+	reload_in_progress = false;
+
+	ShowInfo(
+		"Fast item DB reload finished in %llu ms (clear %llu, read %llu, cash shop %llu, mob drops %llu, players %u/%llu).\n",
+		static_cast<unsigned long long>( metrics.total_ms ),
+		static_cast<unsigned long long>( metrics.clear_ms ),
+		static_cast<unsigned long long>( metrics.read_ms ),
+		static_cast<unsigned long long>( metrics.cashshop_ms ),
+		static_cast<unsigned long long>( metrics.mob_ms ),
+		metrics.player_count,
+		static_cast<unsigned long long>( metrics.players_ms )
+	);
+
+	return true;
 }
 
 /**

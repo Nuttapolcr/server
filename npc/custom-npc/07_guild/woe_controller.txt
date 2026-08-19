@@ -87,11 +87,12 @@ OnInit:
 // -----------------------------------------------------------
 
 	set .Size, getarraysize($WOE_CONTROL);
-	if (.AutoKick || .NoOwner)
-		for(set .@i,0; .@i<.CastleCount; set .@i,.@i+1) {
-			setmapflag .Castles$[.@i], mf_loadevent;
+	for(set .@i,0; .@i<.CastleCount; set .@i,.@i+1) {
+		setmapflag .Castles$[.@i], mf_loadevent;
+		if (.AutoKick || .NoOwner)
 			setd "."+.Castles$[.@i], .@i;
-		}
+	}
+	setmapflag "guild_vs2-1", mf_loadevent;
 	if (!agitcheck() && !agitcheck2()) sleep 4000;
 	set .Init,1;
 
@@ -198,16 +199,17 @@ OnReward:
 	return;
 
 OnPCLoadMapEvent:
+	.@map$ = strcharinfo(3);
+	.@is_woe_map = (.@map$ == "guild_vs2-1");
 	for (.@i = 0; .@i < getarraysize(.Castles$); .@i++) {
-		if (strcharinfo(3) == .Castles$[.@i]) {
-			sc_end SC_ATKPOTION;
-			sc_end SC_MATKPOTION;
-			sc_end SC_FLEEFOOD;
-			sc_end SC_HITFOOD;
-			sc_end SC_EXTRACT_SALAMINE_JUICE;
+		if (.@map$ == .Castles$[.@i]) {
+			.@is_woe_map = 1;
+			break;
 		}
 	}
-	if (!compare(strcharinfo(3),"g_cas")) end;
+	if (.@is_woe_map)
+		sc_end_buffs SC_BLESSING, SC_INCREASEAGI;
+	if (!compare(.@map$,"g_cas")) end;
 	if (((.AutoKick && .Active[0]) || (.NoOwner && !getcastledata(strcharinfo(3),1))) && !(.Active[0]&(1<<getd("."+strcharinfo(3))))) {
 		if (getcharid(2) && getcastledata(strcharinfo(3),1) == getcharid(2)) end;
 		sleep2 1000;

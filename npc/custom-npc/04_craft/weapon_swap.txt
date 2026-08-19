@@ -59,7 +59,7 @@ S_Swap:
 	.@source_count = 0;
 	.@menu$ = "";
 	for (.@i = 0; .@i < @inventorylist_count; ++.@i) {
-		if (@inventorylist_equip[.@i] || @inventorylist_expire[.@i] || @inventorylist_favorite[.@i])
+		if (@inventorylist_equip[.@i] || @inventorylist_attribute[.@i] != ATTRIBUTE_NORMAL || @inventorylist_expire[.@i] || @inventorylist_favorite[.@i])
 			continue;
 
 		for (.@j = .@start; .@j < .@end; ++.@j) {
@@ -118,7 +118,7 @@ S_Swap:
 	for (.@i = 0; .@i < @inventorylist_count; ++.@i) {
 		if (@inventorylist_idx[.@i] != .@source_slot || @inventorylist_id[.@i] != .@source_id)
 			continue;
-		if (@inventorylist_equip[.@i] || @inventorylist_expire[.@i] || @inventorylist_favorite[.@i])
+		if (@inventorylist_equip[.@i] || @inventorylist_attribute[.@i] != ATTRIBUTE_NORMAL || @inventorylist_expire[.@i] || @inventorylist_favorite[.@i])
 			continue;
 		.@source_pos = .@i;
 		break;

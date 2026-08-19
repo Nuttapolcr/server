@@ -661,6 +661,7 @@ public:
 		unsigned int afk;
 		bool craft_barter;
 		bool runeui_open;
+		unsigned int pet_loot : 1;
 	} state;
 	struct {
 		unsigned char no_weapon_damage, no_magic_damage, no_misc_damage;
@@ -2108,7 +2109,7 @@ void pc_check_collection_combo(map_session_data *sd, item_data *data);
 void pc_collection_combo_script(map_session_data *sd);
 TIMER_FUNC(pc_cal_status_timer);
 
-void vip_bonus(map_session_data *sd);
+void vip_bonus(map_session_data *sd, bool use_cached_time = false);
 void clean_vip_bonus(map_session_data *sd);
 TIMER_FUNC(vip_bonus_timer);
 TIMER_FUNC(vip_delete_timer);

@@ -9770,6 +9770,9 @@ Body:
       skill "ASC_METEORASSAULT",1;
       bonus2 bDropAddClass_C,Class_All,10000;
       bonus2 bDropAddClass,Class_All,10000;
+      skill "SR_TIGERCANNON",10;
+      skill "SR_RAISINGDRAGON",10;
+      skill "SR_WINDMILL",1;
   - Id: 1601
     AegisName: Rod
     Name: Rod
@@ -9797,10 +9800,10 @@ Body:
     Refineable: true
     Script: |
       bonus bMatkRate,15;
-    EquipScript: |
-      magnus_allele_status(0);
-    UnEquipScript: |
-      magnus_allele_status(0);
+    EquipScript: |+
+
+    UnEquipScript: |+
+
   - Id: 1602
     AegisName: Rod_
     Name: Rod

@@ -41,10 +41,12 @@ OnInit:
 	setarray .get_cash_amount[5000],  50000,  7100, 0, 0, 0;
 	setarray .get_cash_amount[10000], 100000, 15000, 0, 0, 0;
 
-	// โปรโมชั่นเติมเงิน 3 ส.ค. 2569 09:00 - 9 ส.ค. 2569 23:59 (เวลาเซิร์ฟเวอร์)
+	// โปรโมชั่นเติมเงิน 19 ส.ค. 2569 00:00 - 26 ส.ค. 2569 10:00 (รวมเวลาต้นและปลาย ตามเวลาเซิร์ฟเวอร์)
 	// รางวัลแจกต่อ 1 รายการเติมเงิน และทำงานก่อนเปลี่ยน donate.status เป็น 2
+	.promo_start = 202608190000;
+	.promo_end = 202608261000;
 	setarray .promo_amount[0], 300, 500, 1000, 3000, 5000, 10000;
-	setarray .promo_bsb[0], 5, 9, 18, 54, 90, 180;
+	setarray .promo_valor_stone[0], 6, 11, 22, 66, 110, 220;
 	setarray .promo_pet_egg[0], 3, 5, 12, 40, 75, 180;
 	setarray .promo_bloody_branch[0], 0, 2, 4, 12, 20, 40;
 	setarray .promo_refine_5[0], 0, 0, 1, 3, 5, 10;
@@ -90,10 +92,10 @@ OnInit:
 
 				// ใช้เวลาของ map-server เพื่อไม่ให้รับรางวัลนอกช่วงโปรโมชั่น
 				.@promo_now = gettime(DT_YEAR) * 100000000 + gettime(DT_MONTH) * 1000000 + gettime(DT_DAYOFMONTH) * 10000 + gettime(DT_HOUR) * 100 + gettime(DT_MINUTE);
-				if (.@promo_now <= 202608092359) {
+				if (.@promo_now >= .promo_start && .@promo_now <= .promo_end) {
 					.@promo_index = inarray(.promo_amount[0], .@amt);
 					if (.@promo_index >= 0) {
-						getitem 6635, .promo_bsb[.@promo_index];
+						getitem 1000620, .promo_valor_stone[.@promo_index];
 						getitem 22571, .promo_pet_egg[.@promo_index];
 						getitem 12103, .promo_bloody_branch[.@promo_index];
 						if (.promo_refine_5[.@promo_index] > 0)
@@ -140,7 +142,7 @@ OnTestPromo22:
 		end;
 	}
 
-	getitem 6635, .promo_bsb[.@promo_index];
+	getitem 1000620, .promo_valor_stone[.@promo_index];
 	getitem 22571, .promo_pet_egg[.@promo_index];
 	getitem 12103, .promo_bloody_branch[.@promo_index];
 	if (.promo_refine_5[.@promo_index] > 0)

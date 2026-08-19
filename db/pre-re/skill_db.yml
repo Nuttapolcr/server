@@ -6354,7 +6354,7 @@ Body:
         RemovedByFireRain: true
   - Id: 221
     Name: RG_FLAGGRAFFITI
-    Description: Piece
+    Description: Flag Graffiti
     MaxLevel: 5
     TargetType: Ground
     DamageFlags:
@@ -6379,7 +6379,7 @@ Body:
       SpCost: 5
   - Id: 223
     Name: RG_GANGSTER
-    Description: Slyness
+    Description: Gangster Paradise
     MaxLevel: 1
     SplashArea: 1
   - Id: 224
@@ -7219,7 +7219,7 @@ Body:
       SpiritSphereCost: 1
   - Id: 267
     Name: MO_FINGEROFFENSIVE
-    Description: Throw Spirit Sphere
+    Description: Finger Offensive
     MaxLevel: 5
     Type: Weapon
     TargetType: Attack
@@ -7354,18 +7354,18 @@ Body:
     Status: BladeStop_Wait
   - Id: 270
     Name: MO_EXPLOSIONSPIRITS
-    Description: Fury
+    Description: Explosion Spirits
     MaxLevel: 5
     Type: Weapon
     TargetType: Self
     DamageFlags:
       NoDamage: true
     Hit: Single
+    Status: ExplosionSpirits
     Duration1: 180000
     Requires:
       SpCost: 15
       SpiritSphereCost: 5
-    Status: ExplosionSpirits
   - Id: 271
     Name: MO_EXTREMITYFIST
     Description: Asura Strike
@@ -7439,7 +7439,7 @@ Body:
     Status: ExtremityFist
   - Id: 272
     Name: MO_CHAINCOMBO
-    Description: Raging Quadruple Blow
+    Description: Chain Combo
     MaxLevel: 5
     Type: Weapon
     TargetType: Self
@@ -7492,7 +7492,7 @@ Body:
         Huuma: true
   - Id: 273
     Name: MO_COMBOFINISH
-    Description: Raging Thrust
+    Description: Combo Finish
     MaxLevel: 5
     Type: Weapon
     TargetType: Self
@@ -7546,7 +7546,7 @@ Body:
       SpiritSphereCost: 1
   - Id: 274
     Name: SA_ADVANCEDBOOK
-    Description: Study
+    Description: Advanced Book
     MaxLevel: 10
     Type: Weapon
   - Id: 275
@@ -7608,7 +7608,7 @@ Body:
     Type: Magic
   - Id: 279
     Name: SA_AUTOSPELL
-    Description: Hindsight
+    Description: Auto Spell
     MaxLevel: 10
     Type: Magic
     TargetType: Self
@@ -7616,6 +7616,7 @@ Body:
       NoDamage: true
     Hit: Single
     HitCount: 1
+    Status: AutoSpell
     CastCancel: true
     CastTime: 3000
     Duration1:
@@ -7641,7 +7642,6 @@ Body:
         Time: 390000
     Requires:
       SpCost: 35
-    Status: AutoSpell
   - Id: 280
     Name: SA_FLAMELAUNCHER
     Description: Endow Blaze
@@ -7678,7 +7678,7 @@ Body:
     Status: FireWeapon
   - Id: 281
     Name: SA_FROSTWEAPON
-    Description: Endow Tsunami
+    Description: Frost Weapon
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -7691,6 +7691,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Water
+    Status: WaterWeapon
     CastCancel: true
     CastTime: 3000
     Duration1:
@@ -7709,10 +7710,9 @@ Body:
       ItemCost:
         - Item: Crystal_Blue
           Amount: 2
-    Status: WaterWeapon
   - Id: 282
     Name: SA_LIGHTNINGLOADER
-    Description: Endow Tornado
+    Description: Lightning Loader
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -7725,6 +7725,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Wind
+    Status: WindWeapon
     CastCancel: true
     CastTime: 3000
     Duration1:
@@ -7743,10 +7744,9 @@ Body:
       ItemCost:
         - Item: Wind_Of_Verdure
           Amount: 2
-    Status: WindWeapon
   - Id: 283
     Name: SA_SEISMICWEAPON
-    Description: Endow Quake
+    Description: Seismic Weapon
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -7759,6 +7759,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Earth
+    Status: EarthWeapon
     CastCancel: true
     CastTime: 3000
     Duration1:
@@ -7777,7 +7778,6 @@ Body:
       ItemCost:
         - Item: Yellow_Live
           Amount: 2
-    Status: EarthWeapon
   - Id: 284
     Name: SA_DRAGONOLOGY
     Description: Dragonology
@@ -7885,7 +7885,7 @@ Body:
     Status: Deluge
   - Id: 287
     Name: SA_VIOLENTGALE
-    Description: Whirlwind
+    Description: Violent Gale
     MaxLevel: 5
     Type: Magic
     TargetType: Ground
@@ -7897,6 +7897,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Wind
+    Status: ViolentGale
     CastCancel: true
     CastTime: 5000
     Duration1:
@@ -7932,10 +7933,9 @@ Body:
       Flag:
         PathCheck: true
         RemovedByFireRain: true
-    Status: ViolentGale
   - Id: 288
     Name: SA_LANDPROTECTOR
-    Description: Magnetic Earth
+    Description: Land Protector
     MaxLevel: 5
     Type: Magic
     TargetType: Ground
@@ -8016,7 +8016,7 @@ Body:
           Amount: 1
   - Id: 290
     Name: SA_ABRACADABRA
-    Description: Hocus-pocus
+    Description: Abracadabra
     MaxLevel: 10
     Type: Magic
     TargetType: Self
@@ -8238,7 +8238,7 @@ Body:
     Status: Coma
   - Id: 304
     Name: BD_ADAPTATION
-    Description: Amp
+    Description: Adaptation to Circumstances
     MaxLevel: 1
     TargetType: Self
     DamageFlags:
@@ -8321,7 +8321,7 @@ Body:
     Status: RichManKim
   - Id: 308
     Name: BD_ETERNALCHAOS
-    Description: Down Tempo
+    Description: Eternal Chaos
     MaxLevel: 1
     Type: Misc
     TargetType: Self
@@ -8331,6 +8331,7 @@ Body:
       IsEnsemble: true
     Hit: Single
     HitCount: 1
+    Status: EternalChaos
     Duration1: 60000
     Duration2: 60000
     Requires:
@@ -8345,10 +8346,9 @@ Body:
       Target: Enemy
       Flag:
         Ensemble: true
-    Status: EternalChaos
   - Id: 309
     Name: BD_DRUMBATTLEFIELD
-    Description: Battle Theme
+    Description: Drum of Battlefield
     MaxLevel: 5
     Type: Misc
     TargetType: Self
@@ -8358,6 +8358,7 @@ Body:
       IsEnsemble: true
     Hit: Single
     HitCount: 1
+    Status: DrumBattle
     Duration1: 60000
     Duration2: 60000
     Requires:
@@ -8382,10 +8383,9 @@ Body:
       Target: Party
       Flag:
         Ensemble: true
-    Status: DrumBattle
   - Id: 310
     Name: BD_RINGNIBELUNGEN
-    Description: Harmonic Lick
+    Description: The Ring of Nibelungen
     MaxLevel: 5
     Type: Misc
     TargetType: Self
@@ -8395,6 +8395,7 @@ Body:
       IsEnsemble: true
     Hit: Single
     HitCount: 1
+    Status: Nibelungen
     Duration1: 60000
     Duration2: 60000
     Requires:
@@ -8419,7 +8420,6 @@ Body:
       Target: Party
       Flag:
         Ensemble: true
-    Status: Nibelungen
   - Id: 311
     Name: BD_ROKISWEIL
     Description: Classical Pluck
@@ -8650,7 +8650,7 @@ Body:
     Status: Whistle
   - Id: 320
     Name: BA_ASSASSINCROSS
-    Description: Impressive Riff
+    Description: Assassin Cross of Sunset
     MaxLevel: 10
     Type: Misc
     TargetType: Self
@@ -8661,6 +8661,7 @@ Body:
       IgnoreLandProtector: true
     Hit: Single
     HitCount: 1
+    Status: AssnCros
     Duration1: 120000
     Duration2: 20000
     Requires:
@@ -8695,10 +8696,9 @@ Body:
       Flag:
         NoMob: true
         Song: true
-    Status: AssnCros
   - Id: 321
     Name: BA_POEMBRAGI
-    Description: Magic Strings
+    Description: Poem of Bragi
     MaxLevel: 10
     Type: Misc
     TargetType: Self
@@ -8709,6 +8709,7 @@ Body:
       IgnoreLandProtector: true
     Hit: Single
     HitCount: 1
+    Status: PoemBragi
     Duration1: 180000
     Duration2: 20000
     Requires:
@@ -8743,10 +8744,9 @@ Body:
       Flag:
         NoMob: true
         Song: true
-    Status: PoemBragi
   - Id: 322
     Name: BA_APPLEIDUN
-    Description: Song of Lutie
+    Description: Apple of Idun
     MaxLevel: 10
     Type: Misc
     TargetType: Self
@@ -8757,6 +8757,7 @@ Body:
       IgnoreLandProtector: true
     Hit: Single
     HitCount: 1
+    Status: AppleIdun
     Duration1: 180000
     Duration2: 20000
     Requires:
@@ -8792,7 +8793,6 @@ Body:
         NoMob: true
         Song: true
         DualMode: true
-    Status: AppleIdun
   - Id: 323
     Name: DC_DANCINGLESSON
     Description: Dance Lessons
@@ -8800,7 +8800,7 @@ Body:
     Type: Weapon
   - Id: 324
     Name: DC_THROWARROW
-    Description: Slinging Arrow
+    Description: Throw Arrow
     MaxLevel: 5
     Type: Weapon
     TargetType: Attack
@@ -8866,7 +8866,7 @@ Body:
         Dance: true
   - Id: 326
     Name: DC_SCREAM
-    Description: Dazzler
+    Description: Scream
     MaxLevel: 5
     Type: Misc
     TargetType: Self
@@ -8876,6 +8876,7 @@ Body:
     Hit: Single
     HitCount: 1
     SplashArea: -1
+    Status: Stun
     AfterCastActDelay: 4000
     Duration2: 5000
     Requires:
@@ -8890,7 +8891,6 @@ Body:
           Amount: 18
         - Level: 5
           Amount: 20
-    Status: Stun
   - Id: 327
     Name: DC_HUMMING
     Description: Focus Ballet
@@ -8941,7 +8941,7 @@ Body:
     Status: Humming
   - Id: 328
     Name: DC_DONTFORGETME
-    Description: Slow Grace
+    Description: Please Don't Forget Me
     MaxLevel: 10
     Type: Misc
     TargetType: Self
@@ -8952,6 +8952,7 @@ Body:
       IgnoreLandProtector: true
     Hit: Single
     HitCount: 1
+    Status: DontForgetMe
     Duration1: 180000
     Duration2: 20000
     Requires:
@@ -8986,10 +8987,9 @@ Body:
       Target: Enemy
       Flag:
         Dance: true
-    Status: DontForgetMe
   - Id: 329
     Name: DC_FORTUNEKISS
-    Description: Lady Luck
+    Description: Fortune's Kiss
     MaxLevel: 10
     Type: Misc
     TargetType: Self
@@ -9000,6 +9000,7 @@ Body:
       IgnoreLandProtector: true
     Hit: Single
     HitCount: 1
+    Status: Fortune
     Duration1: 120000
     Duration2: 20000
     Requires:
@@ -9034,10 +9035,9 @@ Body:
       Flag:
         NoMob: true
         Dance: true
-    Status: Fortune
   - Id: 330
     Name: DC_SERVICEFORYOU
-    Description: Gypsy's Kiss
+    Description: Service For You
     MaxLevel: 10
     Type: Misc
     TargetType: Self
@@ -9048,6 +9048,7 @@ Body:
       IgnoreLandProtector: true
     Hit: Single
     HitCount: 1
+    Status: Service4U
     Duration1: 180000
     Duration2: 20000
     Requires:
@@ -9082,7 +9083,6 @@ Body:
       Flag:
         NoMob: true
         Dance: true
-    Status: Service4U
   - Id: 331
     Name: NPC_RANDOMMOVE
     Description: Random Move
@@ -9624,7 +9624,7 @@ Body:
     Status: Concentration
   - Id: 358
     Name: LK_TENSIONRELAX
-    Description: Relax
+    Description: Tension Relax
     MaxLevel: 1
     Type: Weapon
     TargetType: Self
@@ -9632,13 +9632,13 @@ Body:
       NoDamage: true
     Hit: Single
     HitCount: 1
+    Status: TensionRelax
     Duration1: 180000
     Requires:
       SpCost: 15
-    Status: TensionRelax
   - Id: 359
     Name: LK_BERSERK
-    Description: Frenzy
+    Description: Berserk
     MaxLevel: 1
     Type: Weapon
     TargetType: Self
@@ -9646,11 +9646,11 @@ Body:
       NoDamage: true
     Hit: Single
     HitCount: 1
+    Status: Berserk
     Duration1: 300000
     Duration2: 10000
     Requires:
       SpCost: 200
-    Status: Berserk
   - Id: 360
     Name: LK_FURY
     Description: Fury
@@ -9820,7 +9820,7 @@ Body:
     HitCount: 1
   - Id: 365
     Name: HW_MAGICCRASHER
-    Description: Stave Crasher
+    Description: Magic Crasher
     MaxLevel: 1
     Type: Weapon
     TargetType: Attack
@@ -9873,7 +9873,7 @@ Body:
     Status: MagicPower
   - Id: 367
     Name: PA_PRESSURE
-    Description: Gloria Domini
+    Description: Pressure
     MaxLevel: 5
     Type: Misc
     TargetType: Attack
@@ -9934,7 +9934,7 @@ Body:
           Amount: 50
   - Id: 368
     Name: PA_SACRIFICE
-    Description: Martyr's Reckoning
+    Description: Sacrifice
     MaxLevel: 5
     Type: Weapon
     TargetType: Self
@@ -9944,14 +9944,14 @@ Body:
       IgnoreFlee: true
     Hit: Single
     HitCount: 1
+    Status: Sacrifice
     CastCancel: true
     AfterCastActDelay: 2000
     Requires:
       SpCost: 100
-    Status: Sacrifice
   - Id: 369
     Name: PA_GOSPEL
-    Description: Battle Chant
+    Description: Gospel
     MaxLevel: 10
     Type: Misc
     TargetType: Self
@@ -9962,6 +9962,7 @@ Body:
       Toggleable: true
     Hit: Single
     HitCount: 1
+    Status: Gospel
     CastCancel: true
     Duration1: 60000
     Duration2: 60000
@@ -9993,10 +9994,9 @@ Body:
       Interval: 10000
       Flag:
         NoOverlap: true
-    Status: Gospel
   - Id: 370
     Name: CH_PALMSTRIKE
-    Description: Raging Palm Strike
+    Description: Palm Strike
     MaxLevel: 5
     Type: Weapon
     TargetType: Attack
@@ -10025,7 +10025,7 @@ Body:
         Explosionspirits: true
   - Id: 371
     Name: CH_TIGERFIST
-    Description: Glacier Fist
+    Description: Tiger Fist
     MaxLevel: 5
     Type: Weapon
     TargetType: Self
@@ -10035,6 +10035,7 @@ Body:
     Hit: Multi_Hit
     HitCount: 1
     Element: Weapon
+    Status: Stop
     Duration1:
       - Level: 1
         Time: 4000
@@ -10061,7 +10062,6 @@ Body:
         - Level: 5
           Amount: 12
       SpiritSphereCost: 1
-    Status: Stop
   - Id: 372
     Name: CH_CHAINCRUSH
     Description: Chain Crush Combo
@@ -10173,7 +10173,7 @@ Body:
       SpCost: 5
   - Id: 375
     Name: PF_SOULBURN
-    Description: Soul Siphon
+    Description: Soul Burn
     MaxLevel: 5
     Type: Magic
     TargetType: Attack
@@ -10315,7 +10315,7 @@ Body:
           Amount: 30
   - Id: 380
     Name: SN_SIGHT
-    Description: Falcon Eyes
+    Description: True Sight
     MaxLevel: 10
     Type: Weapon
     TargetType: Self
@@ -10323,6 +10323,7 @@ Body:
       NoDamage: true
     Hit: Single
     HitCount: 1
+    Status: TrueSight
     Duration1: 30000
     Requires:
       SpCost:
@@ -10346,7 +10347,6 @@ Body:
           Amount: 40
         - Level: 10
           Amount: 40
-    Status: TrueSight
   - Id: 381
     Name: SN_FALCONASSAULT
     Description: Falcon Assault
@@ -10376,7 +10376,7 @@ Body:
       State: Falcon
   - Id: 382
     Name: SN_SHARPSHOOTING
-    Description: Focused Arrow Strike
+    Description: Sharp Shooting
     MaxLevel: 5
     Type: Weapon
     TargetType: Attack
@@ -10491,7 +10491,7 @@ Body:
     Status: WindWalk
   - Id: 384
     Name: WS_MELTDOWN
-    Description: Shattering Strike
+    Description: Meltdown
     MaxLevel: 10
     Type: Weapon
     TargetType: Self
@@ -10500,6 +10500,7 @@ Body:
     Flags:
       AllowOnMado: true
     HitCount: 1
+    Status: Meltdown
     CastCancel: true
     CastTime:
       - Level: 1
@@ -10566,7 +10567,6 @@ Body:
           Amount: 90
         - Level: 10
           Amount: 90
-    Status: Meltdown
   - Id: 385
     Name: WS_CREATECOIN
     Description: Create Coins
@@ -10641,13 +10641,14 @@ Body:
     Status: ChaseWalk
   - Id: 390
     Name: ST_REJECTSWORD
-    Description: Counter Instinct
+    Description: Reject Sword
     MaxLevel: 5
     Type: Weapon
     TargetType: Self
     DamageFlags:
       NoDamage: true
     HitCount: 1
+    Status: RejectSword
     CastCancel: true
     Duration1: 300000
     Requires:
@@ -10662,7 +10663,6 @@ Body:
           Amount: 25
         - Level: 5
           Amount: 30
-    Status: RejectSword
   - Id: 392
     Name: CR_ALCHEMY
     Description: Alchemy
@@ -10885,7 +10885,7 @@ Body:
     Status: Stop
   - Id: 398
     Name: LK_HEADCRUSH
-    Description: Traumatic Blow
+    Description: Head Crush
     MaxLevel: 5
     Type: Weapon
     TargetType: Attack
@@ -10893,14 +10893,14 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
+    Status: Bleeding
     AfterCastActDelay: 500
     Duration2: 120000
     Requires:
       SpCost: 23
-    Status: Bleeding
   - Id: 399
     Name: LK_JOINTBEAT
-    Description: Vital Strike
+    Description: Joint Beat
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
@@ -10908,6 +10908,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
+    Status: JointBeat
     AfterCastActDelay:
       - Level: 1
         Time: 800
@@ -10955,7 +10956,6 @@ Body:
       Weapon:
         1hSpear: true
         2hSpear: true
-    Status: JointBeat
   - Id: 400
     Name: HW_NAPALMVULCAN
     Description: Napalm Vulcan
@@ -11050,13 +11050,14 @@ Body:
     Status: MindBreaker
   - Id: 403
     Name: PF_MEMORIZE
-    Description: Foresight
+    Description: Memorize
     MaxLevel: 1
     Type: Magic
     TargetType: Self
     DamageFlags:
       NoDamage: true
     HitCount: 1
+    Status: Memorize
     CastCancel: true
     CastTime: 5000
     CastTimeFlags:
@@ -11064,10 +11065,9 @@ Body:
       IgnoreStatus: true
     Requires:
       SpCost: 1
-    Status: Memorize
   - Id: 404
     Name: PF_FOGWALL
-    Description: Blinding Mist
+    Description: Wall of Fog
     MaxLevel: 5
     Type: Magic
     TargetType: Ground
@@ -11081,6 +11081,7 @@ Body:
     HitCount: 1
     Element: Earth
     ActiveInstance: 2
+    Status: FogWall
     CastCancel: true
     Duration1: 20000
     Duration2: 10000
@@ -11092,10 +11093,9 @@ Body:
       Interval: -1
       Flag:
         RemovedByFireRain: true
-    Status: FogWall
   - Id: 405
     Name: PF_SPIDERWEB
-    Description: Fiber Lock
+    Description: Spider Web
     MaxLevel: 1
     Type: Magic
     TargetType: Attack
@@ -11105,6 +11105,7 @@ Body:
     Hit: Single
     HitCount: 1
     ActiveInstance: 3
+    Status: SpiderWeb
     Duration1: 16000
     Duration2: 8000
     Requires:
@@ -11118,7 +11119,6 @@ Body:
       Target: Enemy
       Flag:
         RemovedByFireRain: true
-    Status: SpiderWeb
   - Id: 406
     Name: ASC_METEORASSAULT
     Description: Meteor Assault
@@ -11249,7 +11249,7 @@ Body:
       Interval: -1
   - Id: 411
     Name: TK_RUN
-    Description: Running
+    Description: Sprint
     MaxLevel: 10
     Type: Misc
     TargetType: Self
@@ -11260,6 +11260,7 @@ Body:
     Hit: Single
     HitCount: 1
     Knockback: 4
+    Status: Run
     CastCancel: true
     CastTime:
       - Level: 1
@@ -11299,7 +11300,6 @@ Body:
         - Level: 10
           Amount: 10
       State: Move_Enable
-    Status: Run
   - Id: 412
     Name: TK_READYSTORM
     Description: Tornado Stance
@@ -11593,7 +11593,7 @@ Body:
     Status: SevenWind
   - Id: 426
     Name: TK_HIGHJUMP
-    Description: Taekwon Jump
+    Description: Leap
     MaxLevel: 5
     Type: Weapon
     TargetType: Self
@@ -11897,7 +11897,7 @@ Body:
     Status: Fusion
   - Id: 445
     Name: SL_ALCHEMIST
-    Description: Spirit of the Alchemist
+    Description: Alchemist Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -11908,6 +11908,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -11934,7 +11935,6 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 446
     Name: AM_BERSERKPITCHER
     Description: Aid Berserk Potion
@@ -11959,7 +11959,7 @@ Body:
           Amount: 2
   - Id: 447
     Name: SL_MONK
-    Description: Spirit of the Monk
+    Description: Monk Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -11970,6 +11970,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -11996,10 +11997,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 448
     Name: SL_STAR
-    Description: Spirit of the Star Gladiator
+    Description: Star Gladiator Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12010,6 +12010,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12036,10 +12037,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 449
     Name: SL_SAGE
-    Description: Spirit of the Sage
+    Description: Sage Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12050,6 +12050,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12076,10 +12077,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 450
     Name: SL_CRUSADER
-    Description: Spirit of the Crusader
+    Description: Crusader Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12090,6 +12090,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12116,10 +12117,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 451
     Name: SL_SUPERNOVICE
-    Description: Spirit of the Supernovice
+    Description: Super Novice Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12130,6 +12130,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12156,10 +12157,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 452
     Name: SL_KNIGHT
-    Description: Spirit of the Knight
+    Description: Knight Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12170,6 +12170,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12196,10 +12197,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 453
     Name: SL_WIZARD
-    Description: Spirit of the Wizard
+    Description: Wizard Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12210,6 +12210,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12236,10 +12237,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 454
     Name: SL_PRIEST
-    Description: Spirit of the Priest
+    Description: Priest Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12250,6 +12250,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12276,10 +12277,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 455
     Name: SL_BARDDANCER
-    Description: Spirit of the Artist
+    Description: Bard and Dancer Spirits
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12290,6 +12290,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12316,10 +12317,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 456
     Name: SL_ROGUE
-    Description: Spirit of the Rogue
+    Description: Rogue Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12330,6 +12330,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12356,10 +12357,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 457
     Name: SL_ASSASIN
-    Description: Spirit of the Assasin
+    Description: Assassin Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12370,6 +12370,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12396,10 +12397,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 458
     Name: SL_BLACKSMITH
-    Description: Spirit of the Blacksmith
+    Description: Blacksmith Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12410,6 +12410,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12436,10 +12437,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 459
     Name: BS_ADRENALINE2
-    Description: Advanced Adrenaline Rush
+    Description: Full Adrenaline Rush
     MaxLevel: 1
     Type: Weapon
     TargetType: Self
@@ -12452,6 +12452,7 @@ Body:
     Hit: Single
     HitCount: 1
     SplashArea: -1
+    Status: Adrenaline2
     Duration1: 150000
     Requires:
       SpCost: 64
@@ -12472,10 +12473,9 @@ Body:
         Whip: true
         Book: true
         Katar: true
-    Status: Adrenaline2
   - Id: 460
     Name: SL_HUNTER
-    Description: Spirit of the Hunter
+    Description: Hunter Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12486,6 +12486,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12512,10 +12513,9 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 461
     Name: SL_SOULLINKER
-    Description: Spirit of the Soul Linker
+    Description: Soul Linker Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -12526,6 +12526,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -12552,7 +12553,6 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 462
     Name: SL_KAIZEL
     Description: Kaizel
@@ -13107,7 +13107,7 @@ Body:
     MaxLevel: 5
   - Id: 482
     Name: PF_DOUBLECASTING
-    Description: Double Casting
+    Description: Double Cast
     MaxLevel: 5
     Type: Magic
     TargetType: Self
@@ -13115,6 +13115,7 @@ Body:
       NoDamage: true
     Hit: Single
     HitCount: 1
+    Status: DoubleCast
     CastTime: 2000
     Duration1: 90000
     CastTimeFlags:
@@ -13131,7 +13132,6 @@ Body:
           Amount: 55
         - Level: 5
           Amount: 60
-    Status: DoubleCast
   - Id: 483
     Name: HW_GANBANTEIN
     Description: Ganbantein
@@ -13356,7 +13356,7 @@ Body:
     Status: Longing
   - Id: 488
     Name: CG_HERMODE
-    Description: Wand of Hermode
+    Description: Hermode's Rod
     MaxLevel: 5
     Type: Misc
     TargetType: Self
@@ -13368,6 +13368,7 @@ Body:
     Hit: Single
     HitCount: 1
     SplashArea: 1
+    Status: Hermode
     Duration1:
       - Level: 1
         Time: 10000
@@ -13411,7 +13412,6 @@ Body:
       Interval: -1
       Flag:
         Ensemble: true
-    Status: Hermode
   - Id: 489
     Name: CG_TAROTCARD
     Description: Tarot Card of Fate
@@ -13539,7 +13539,7 @@ Body:
       SpCost: 10
   - Id: 494
     Name: SL_HIGH
-    Description: Spirit of Rebirth
+    Description: Rebirth Spirit
     MaxLevel: 5
     Type: Magic
     TargetType: Support
@@ -13548,6 +13548,7 @@ Body:
     Range: 9
     Hit: Single
     HitCount: 1
+    Status: Spirit
     CastCancel: true
     CastTime: 1000
     AfterCastActDelay: 500
@@ -13574,7 +13575,6 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 60
-    Status: Spirit
   - Id: 495
     Name: KN_ONEHAND
     Description: Onehand Quicken
@@ -17167,7 +17167,7 @@ Body:
       SpCost: 20
   - Id: 1011
     Name: DC_WINKCHARM
-    Description: Wink of Charm
+    Description: Charming Wink
     MaxLevel: 1
     Type: Misc
     TargetType: Attack
@@ -17177,16 +17177,16 @@ Body:
       IsQuest: true
     Range: 9
     Hit: Single
+    Status: WinkCharm
     CastTime: 1000
     AfterCastActDelay: 2000
     Duration1: 10000
     Duration2: 17000
     Requires:
       SpCost: 40
-    Status: WinkCharm
   - Id: 1012
     Name: BS_UNFAIRLYTRICK
-    Description: Unfair Trick
+    Description: Dubious Salesmanship
     MaxLevel: 1
     Type: Weapon
     Flags:
@@ -17231,7 +17231,7 @@ Body:
       SpCost: 400
   - Id: 1015
     Name: MO_KITRANSLATION
-    Description: Ki Translation
+    Description: Spiritual Bestowment
     MaxLevel: 1
     Type: Weapon
     TargetType: Support
@@ -17255,7 +17255,7 @@ Body:
       SpiritSphereCost: 1
   - Id: 1016
     Name: MO_BALKYOUNG
-    Description: Ki Explosion
+    Description: Excruciating Palm
     MaxLevel: 1
     Type: Weapon
     TargetType: Attack
@@ -17269,12 +17269,12 @@ Body:
     Element: Weapon
     SplashArea: 1
     Knockback: 5
+    Status: Stun
     AfterCastActDelay: 2000
     Duration2: 5000
     Requires:
       HpCost: 10
       SpCost: 20
-    Status: Stun
   - Id: 1017
     Name: SA_ELEMENTGROUND
     Description: Elemental Change Earth

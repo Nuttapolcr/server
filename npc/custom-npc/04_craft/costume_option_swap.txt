@@ -1,0 +1,153 @@
+//===== HICLASS =============================================================
+//= Costume Option Transfer
+//= Moves all four Costume card-option slots to another Costume in the same slot.
+//===========================================================================
+
+morocc,131,110,4	script	Swap Option Costume	623,{
+	disable_items;
+
+	mes .mes$;
+	mes "ย้ายออฟชั่น Costume ทั้ง 4 ช่องไปยัง Costume ชิ้นใหม่";
+	mes "ต้นทางและปลายทางต้องเป็นตำแหน่งเดียวกัน";
+	mes "ไอเทมทั้งสองชิ้นต้องถอดออกจากตัวและไม่ใช่ของเช่า";
+	mes "ค่าใช้จ่าย: ^i[" + .Ticket + "] " + getitemname(.Ticket) + " x1";
+	mes "ค่าบริการ: ^FF9900" + callfunc("F_InsertComma", .ZenyCost) + " Zeny^000000";
+	next;
+
+	.@category = select("Costume Upper:Costume Middle:Costume Lower:Costume Garment:ยกเลิก") - 1;
+	if (.@category == 4)
+		close;
+
+	setarray .@category_mask[0],
+		EQP_COSTUME_HEAD_TOP,
+		EQP_COSTUME_HEAD_MID,
+		EQP_COSTUME_HEAD_LOW,
+		EQP_COSTUME_GARMENT;
+	.@selected_mask = .@category_mask[.@category];
+
+	getinventorylist;
+	.@source_count = 0;
+	.@source_menu$ = "";
+	for (.@i = 0; .@i < @inventorylist_count; ++.@i) {
+		if (@inventorylist_equip[.@i] || @inventorylist_expire[.@i])
+			continue;
+
+		.@location = getiteminfo(@inventorylist_id[.@i], ITEMINFO_LOCATIONS);
+		if (!( .@location & .@selected_mask ) || ((.@location & .CostumeLocations) != .@location))
+			continue;
+
+		.@option_count = (@inventorylist_card1[.@i] != 0) + (@inventorylist_card2[.@i] != 0) + (@inventorylist_card3[.@i] != 0) + (@inventorylist_card4[.@i] != 0);
+		if (!.@option_count)
+			continue;
+
+		.@source_menu$ += getitemname(@inventorylist_id[.@i]) + " [ออฟ " + .@option_count + " ช่อง]:";
+		.@source_list[.@source_count] = .@i;
+		++.@source_count;
+	}
+
+	if (!.@source_count) {
+		mes .mes$;
+		mes "ไม่พบ Costume ต้นทางที่มีออฟชั่นในตำแหน่งนี้";
+		mes "กรุณาถอด Costume ออกจากตัวก่อนใช้งาน";
+		close;
+	}
+
+	mes .mes$;
+	mes "เลือก Costume ต้นทาง";
+	next;
+	.@source_pos = .@source_list[select(.@source_menu$) - 1];
+	.@source_index = @inventorylist_idx[.@source_pos];
+	.@source_id = @inventorylist_id[.@source_pos];
+	.@source_location = getiteminfo(.@source_id, ITEMINFO_LOCATIONS);
+	setarray .@source_card[0],
+		@inventorylist_card1[.@source_pos],
+		@inventorylist_card2[.@source_pos],
+		@inventorylist_card3[.@source_pos],
+		@inventorylist_card4[.@source_pos];
+
+	.@target_count = 0;
+	.@target_menu$ = "";
+	for (.@i = 0; .@i < @inventorylist_count; ++.@i) {
+		if (@inventorylist_idx[.@i] == .@source_index || @inventorylist_equip[.@i] || @inventorylist_expire[.@i])
+			continue;
+		if (getiteminfo(@inventorylist_id[.@i], ITEMINFO_LOCATIONS) != .@source_location)
+			continue;
+
+		.@option_count = (@inventorylist_card1[.@i] != 0) + (@inventorylist_card2[.@i] != 0) + (@inventorylist_card3[.@i] != 0) + (@inventorylist_card4[.@i] != 0);
+		.@target_menu$ += getitemname(@inventorylist_id[.@i]);
+		if (.@option_count)
+			.@target_menu$ += " [มีออฟ " + .@option_count + " ช่อง]";
+		.@target_menu$ += ":";
+		.@target_list[.@target_count] = .@i;
+		++.@target_count;
+	}
+
+	if (!.@target_count) {
+		mes .mes$;
+		mes "ไม่พบ Costume ปลายทางในตำแหน่งเดียวกัน";
+		mes "กรุณาถอด Costume ปลายทางออกจากตัวก่อนใช้งาน";
+		close;
+	}
+
+	mes .mes$;
+	mes "เลือก Costume ปลายทาง";
+	next;
+	.@target_pos = .@target_list[select(.@target_menu$) - 1];
+	.@target_index = @inventorylist_idx[.@target_pos];
+	.@target_id = @inventorylist_id[.@target_pos];
+	.@target_option_count = (@inventorylist_card1[.@target_pos] != 0) + (@inventorylist_card2[.@target_pos] != 0) + (@inventorylist_card3[.@target_pos] != 0) + (@inventorylist_card4[.@target_pos] != 0);
+
+	mes .mes$;
+	mes "ย้ายออฟชั่นจาก";
+	mes "^0000FF" + getitemname(.@source_id) + "^000000";
+	mes "ไปยัง";
+	mes "^00AA00" + getitemname(.@target_id) + "^000000";
+	mes " ";
+	for (.@i = 0; .@i < 4; ++.@i) {
+		if (.@source_card[.@i])
+			mes "ช่อง " + (.@i + 1) + ": ^009900" + getitemname(.@source_card[.@i]) + "^000000";
+		else
+			mes "ช่อง " + (.@i + 1) + ": ^777777ว่าง^000000";
+	}
+	if (.@target_option_count)
+		mes "^FF0000คำเตือน: ออฟชั่นเดิมของปลายทางจะถูกเขียนทับ^000000";
+	mes "ค่าใช้จ่าย: ^i[" + .Ticket + "] x1 และ " + callfunc("F_InsertComma", .ZenyCost) + " Zeny";
+	next;
+	if (select("ยืนยันการย้าย:ยกเลิก") == 2)
+		close;
+
+	if (countitem(.Ticket) < 1) {
+		mes .mes$;
+		mes "คุณมี " + getitemname(.Ticket) + " ไม่เพียงพอ";
+		close;
+	}
+	if (Zeny < .ZenyCost) {
+		mes .mes$;
+		mes "คุณต้องการ Zeny เพิ่มอีก " + callfunc("F_InsertComma", .ZenyCost - Zeny);
+		close;
+	}
+
+	if (!transfercostumeoptions(.@source_index, .@target_index)) {
+		mes .mes$;
+		mes "ไม่สามารถย้ายออฟชั่นได้ ไอเทมอาจถูกเปลี่ยนระหว่างทำรายการ";
+		mes "กรุณาปิดหน้าต่างและลองใหม่อีกครั้ง";
+		close;
+	}
+
+	delitem .Ticket, 1;
+	Zeny -= .ZenyCost;
+	specialeffect2 EF_REPAIRWEAPON;
+
+	mes .mes$;
+	mes "ย้ายออฟชั่น Costume เรียบร้อยแล้ว";
+	mes "ออฟชั่นทั้ง 4 ช่องถูกย้ายไปยัง ^00AA00" + getitemname(.@target_id) + "^000000";
+	close;
+
+OnInit:
+	.mes$ = "^FF3300[ Swap Option Costume ]^000000";
+	.Ticket = 1030072;
+	.ZenyCost = 5000000;
+	.CostumeLocations = EQP_COSTUME_HEAD_TOP | EQP_COSTUME_HEAD_MID | EQP_COSTUME_HEAD_LOW | EQP_COSTUME_GARMENT;
+	waitingroom "Swap Option Costume", 0;
+	end;
+}
