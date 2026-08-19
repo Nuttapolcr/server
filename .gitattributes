@@ -13,5 +13,6 @@ Makefile text eol=lf
 Makefile.in text eol=lf
 *.sh text eol=lf
 *.sql text eol=lf
+client-patch/**/*.lub binary
 *.rar filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
