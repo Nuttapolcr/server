@@ -11313,7 +11313,7 @@ Body:
       - Item: Elunium
         Rate: 433
       - Item: Strong_Shield
-        Rate: 100
+        Rate: 20
   - Id: 1269
     AegisName: CLOCK
     Name: Clock
