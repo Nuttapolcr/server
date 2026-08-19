@@ -14,13 +14,12 @@
 end;
 OnInit:
 	bindatcmd "testpromo22", strnpcinfo(3)+"::OnTestPromo22", 99, 99;
-	// ซิงก์ยอดเติมย้อนหลังทั้งหมดที่แจกสำเร็จแล้ว แยกตาม account_id
-	// rank = 0 เพื่อให้ระบบ VIP Rank คำนวณใหม่จาก YAML ตอนบัญชีล็อกอิน
+	// เติมยอดย้อนหลังเฉพาะบัญชีที่ยังไม่มีข้อมูล VIP Rank
+	// ห้ามเขียนทับข้อมูลเดิม เพราะยอดอาจถูก GM ปรับหรือคืนเงินผ่านระบบ VIP Rank
 	query_sql(
-		"INSERT INTO `vip_rank_account` (`account_id`,`donation_total`,`rank`) "+
+		"INSERT IGNORE INTO `vip_rank_account` (`account_id`,`donation_total`,`rank`) "+
 		"SELECT `account_id`,SUM(`amount`),0 FROM `donate` "+
-		"WHERE `status` = 2 AND `amount` > 0 AND `account_id` > 0 GROUP BY `account_id` "+
-		"ON DUPLICATE KEY UPDATE `donation_total` = VALUES(`donation_total`), `rank` = 0"
+		"WHERE `status` = 2 AND `amount` > 0 AND `account_id` > 0 GROUP BY `account_id`"
 	);
 
 	set .@bonus_item, 0;
