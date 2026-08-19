@@ -249,6 +249,27 @@ Body:
           - Index: 0
             Item: Costume_Option_Ticket
             Amount: 5
+      - Index: 20
+        Item: Cos_Well_Baked_Toast
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 21
+        Item: Cos_Sunglasses
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 22
+        Item: Cos_Machoman_Glasses
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
 
   - Name: CRAFT_ALL_IN_ONE_GENERAL
     CraftBarter: false
