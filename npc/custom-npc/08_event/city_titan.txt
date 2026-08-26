@@ -166,12 +166,15 @@ S_CastGroundSkill:
 	if (.@count > 0) {
 		.@target_gid = .@players[rand(.@count)];
 		if (unitexists(.@target_gid)) {
-			getunitdata .@target_gid,.@target;
-			.@x = .@target[UMOB_X];
-			.@y = .@target[UMOB_Y];
+			.@target_name$ = rid2name(.@target_gid);
+			if (getmapxy(.@target_map$,.@target_x,.@target_y,BL_PC,.@target_name$) == 0 && .@target_map$ == .map$) {
+				.@x = .@target_x;
+				.@y = .@target_y;
+			}
 		}
 	}
-	unitskillusepos .boss_gid,.@skill$,.@level,.@x,.@y,0,0;
+	// The target is intentionally map-wide; ignore normal skill range here.
+	unitskillusepos .boss_gid,.@skill$,.@level,.@x,.@y,0,0,0,1;
 	return;
 
 S_Coma:
