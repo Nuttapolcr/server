@@ -42,6 +42,7 @@
 		if(select("Return to the guild castle.:Quit.") == 1) {
 			close2;
 			if (getcharid(2) == GetCastleData("gefg_cas02",1)) {
+				sc_end_buffs SC_BLESSING, SC_INCREASEAGI;
 				warp "gefg_cas02",24,67;
 				end;
 			}

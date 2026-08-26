@@ -43,6 +43,7 @@
 			close2;
 			if (getcharid(2) == GetCastleData("aldeg_cas05",1)) {
 				//warp "aldeg_cas05",167,225;
+				sc_end_buffs SC_BLESSING, SC_INCREASEAGI;
 				warp "aldeg_cas05",24,181;
 				end;
 			}

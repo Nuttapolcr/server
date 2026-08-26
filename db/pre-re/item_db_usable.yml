@@ -346,7 +346,7 @@ Body:
       BuyingStore: true
     Script: |
       itemheal rand(105,145),0;
-      sc_start SC_Freeze,10000,0,2500,0;
+      sc_start SC_FREEZE,5000,100;
   - Id: 537
     AegisName: Pet_Food
     Name: Pet Food

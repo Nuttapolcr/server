@@ -200,15 +200,6 @@ OnReward:
 
 OnPCLoadMapEvent:
 	.@map$ = strcharinfo(3);
-	.@is_woe_map = (.@map$ == "guild_vs2-1");
-	for (.@i = 0; .@i < getarraysize(.Castles$); .@i++) {
-		if (.@map$ == .Castles$[.@i]) {
-			.@is_woe_map = 1;
-			break;
-		}
-	}
-	if (.@is_woe_map)
-		sc_end_buffs SC_BLESSING, SC_INCREASEAGI;
 	if (!compare(.@map$,"g_cas")) end;
 	if (((.AutoKick && .Active[0]) || (.NoOwner && !getcastledata(strcharinfo(3),1))) && !(.Active[0]&(1<<getd("."+strcharinfo(3))))) {
 		if (getcharid(2) && getcastledata(strcharinfo(3),1) == getcharid(2)) end;
