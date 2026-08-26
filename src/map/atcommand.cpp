@@ -8143,6 +8143,7 @@ ACMD_FUNC(mobinfo)
 #endif
 		// drops
 		clif_displaymessage(fd, msg_txt(sd, 1245)); //  Drops:
+		clif_displaymessage(fd, " Item Name | Base | Bonus | Pity | Total |");
 		strcpy(atcmd_output, " ");
 		unsigned int j = 0;
 
@@ -8157,23 +8158,18 @@ ACMD_FUNC(mobinfo)
 				continue;
 
 			const int base_drop_rate = mob->dropitem[i].rate;
-			const int player_drop_rate = mob_getdroprate(&sd->bl, mob, id->type, base_drop_rate, 100);
-			const double drop_bonus = base_drop_rate > 0
-				? ((double)player_drop_rate / base_drop_rate - 1.0) * 100.0
-				: 0.0;
+			const int total_drop_rate = mob_getdroprate(&sd->bl, mob, id->type, base_drop_rate, 100);
+			const int bonus_drop_rate = total_drop_rate - base_drop_rate;
+			const int pity_drop_rate = 0;
 
-			if (drop_bonus > 0.005) {
-				sprintf(atcmd_output2, " - %s  %02.02f%% (+%02.02f%%)",
-					item_db.create_item_link(id).c_str(),
-					(float)base_drop_rate / 100,
-					drop_bonus
-				);
-			} else {
-				sprintf(atcmd_output2, " - %s  %02.02f%%",
-					item_db.create_item_link(id).c_str(),
-					(float)base_drop_rate / 100
-				);
-			}
+			snprintf(atcmd_output2, sizeof(atcmd_output2),
+				" - %s | %.2f%% | %.2f%% | %.2f%% | %.2f%% |",
+				item_db.create_item_link(id).c_str(),
+				(double)base_drop_rate / 100.0,
+				(double)bonus_drop_rate / 100.0,
+				(double)pity_drop_rate / 100.0,
+				(double)total_drop_rate / 100.0
+			);
 
 			strcat(atcmd_output, atcmd_output2);
 			clif_displaymessage(fd, atcmd_output);

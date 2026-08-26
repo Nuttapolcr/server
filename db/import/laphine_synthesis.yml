@@ -99,5 +99,5 @@ Body:
     RewardGroup: ACC_STONE_COMBINATION_EPIC_REWARD
     RequiredRequirementsCount: 1
     Requirements:
-      - Item: Acc_Ore_4
+      - Item: Acc_Ore_3
         Amount: 4

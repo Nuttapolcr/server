@@ -1325,7 +1325,7 @@ Body:
     Script: |-
       .@sum = getequiprefinerycnt(EQI_SHADOW_ACC_R)+getequiprefinerycnt(EQI_SHADOW_ACC_L);
       bonus bAllStats,1;
-      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",5;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",3;
             if (.@sum >= 18) {
       bonus bMaxHPrate,5;
                if (.@sum >= 20) {

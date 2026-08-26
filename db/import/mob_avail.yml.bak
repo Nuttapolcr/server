@@ -83,5 +83,15 @@ Body:
     Sprite: Exclusive_Anolian
   - Mob: CITY_TITAN
     Sprite: MD_EP20_BOSS_LASGAND
+  - Mob: VF2_BIG_FLAG
+    Sprite: OBJ_NEUTRAL
+  - Mob: VF2_DAEHYON
+    Sprite: DAEHYON
+  - Mob: VF2_PYURIEL
+    Sprite: PYURIEL
+  - Mob: VF2_GIOIA
+    Sprite: GIOIA
+  - Mob: VF2_TREASURE_BOX
+    Sprite: TREASURE_BOX1
   - Mob: SCORPION
-    Sprite: HORNET
+    Sprite: PORING

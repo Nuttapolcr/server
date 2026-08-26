@@ -33,3 +33,9 @@ Header:
   Version: 1
 
 Body:
+  # Keep the ValorFight minute-35 MVP reward at the sheet's fixed 100% rate.
+  # The server-wide MVP rate is 50%, so this one mob needs a targeted override.
+  - Item: Valor_Fight2_MVP_Box
+    Ratio: 100
+    List:
+      VF2_TREASURE_BOX: true

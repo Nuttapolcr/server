@@ -76,6 +76,66 @@ Body:
           - Index: 0
             Item: Wis_Meteorite_Fragment # [Legend] Fragment (1000447)
             Amount: 1
+      - Index: 9
+        Item: E_Jewel_Box_NT # [Epic] Jewel Box (NT) (1500079)
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Dust_NT # [Rare] Jewel (NT) (1001685)
+            Amount: 5
+          - Index: 1
+            Item: Meteorite_Fragment # Fragment Stone (NT) (1000373)
+            Amount: 5
+      - Index: 10
+        Item: L_Jewel_Box_NT # [Legend] Jewel Box (NT) (1500080)
+        Zeny: 200000
+        RequiredItems:
+          - Index: 0
+            Item: Pow_Meteorite_Dust_NT # [Epic] Jewel (NT) (1001686)
+            Amount: 10
+          - Index: 1
+            Item: Meteorite_Fragment # Fragment Stone (NT) (1000373)
+            Amount: 10
+      - Index: 11
+        Item: E_Essence_Box_NT # [Epic] Essence Box (NT) (1500081)
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: Barmund_Ice_Essence_NT # [Rare] Essence (NT) (1001688)
+            Amount: 5
+          - Index: 1
+            Item: Meteorite_Fragment # Fragment Stone (NT) (1000373)
+            Amount: 5
+      - Index: 12
+        Item: L_Essence_Box_NT # [Legend] Essence Box (NT) (1500082)
+        Zeny: 200000
+        RequiredItems:
+          - Index: 0
+            Item: Barmund_Flame_Essence_NT # [Epic] Essence (NT) (1001689)
+            Amount: 10
+          - Index: 1
+            Item: Meteorite_Fragment # Fragment Stone (NT) (1000373)
+            Amount: 10
+      - Index: 13
+        Item: E_Fragment_Box_NT # [Epic] Fragment Box (NT) (1500083)
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: Crt_Meteorite_Fragment_NT # [Rare] Fragment (NT) (1001691)
+            Amount: 5
+          - Index: 1
+            Item: Meteorite_Fragment # Fragment Stone (NT) (1000373)
+            Amount: 5
+      - Index: 14
+        Item: L_Fragment_Box_NT # [Legend] Fragment Box (NT) (1500084)
+        Zeny: 200000
+        RequiredItems:
+          - Index: 0
+            Item: Pow_Meteorite_Fragment_NT # [Epic] Fragment (NT) (1001692)
+            Amount: 10
+          - Index: 1
+            Item: Meteorite_Fragment # Fragment Stone (NT) (1000373)
+            Amount: 10
 
   - Name: HICLASS_CRAFT_WEAPON
     CraftBarter: false
@@ -3340,3 +3400,611 @@ Body:
           - Index: 5
             Item: Geffen_Magic_Coin # 6671
             Amount: 1000
+
+
+  # MA item 14: Rudolf Craft from sheet "NPCคราฟของใหม่" (gid 1776783688).
+  - Name: HICLASS_RUDOLF_CRAFT
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: Up_Shiver_Katar_K # 610008
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Katar # 1292
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 1
+        Item: Up_Avenger # 620004
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Two_Handed_Axe # 1394
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 2
+        Item: Up_Undine_Spear_K # 530006
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Lance # 1491
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 3
+        Item: Up_Demon_Hunting_Bible # 540011
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Book # 1585
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 4
+        Item: Up_OneSkyOneSun # 540010
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Book # 1585
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 5
+        Item: Up_Humma_Clear # 650004
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Huuma_Shuriken # 13316
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 6
+        Item: uponimaru # 600009
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Twohand_Sword # 21000
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 7
+        Item: Up_Sword_Of_Bluefire # 500013
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Mace # 16019
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 8
+        Item: Up_Saint_Hall # 590012
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Mace # 16019
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 9
+        Item: Up_Iron_Nail_K # 560008
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Knuckle # 1030047
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 10
+        Item: Up_Royal_Bow_K # 700018
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Bow # 18112
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 11
+        Item: Up_Magic_Sword # 510019
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Dagger # 13071
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 12
+        Item: Up_Crimson_Rose # 800002
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Revolver # 13115
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 13
+        Item: Up_Blessed_Knife # 510071
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Mace # 16019
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 14
+        Item: Up_Blue_Crystal_Staff # 640012
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Staff # 2015
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 15
+        Item: Up_SoulWeight # 550015
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Staff # 2015
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 16
+        Item: Up_Trumpet_Shell_K # 570009
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Bow # 18112
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 17
+        Item: Up_Barb_Wire_K # 580009
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Bow # 18112
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 18
+        Item: Up_Narcis_Bow # 700013
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Bow # 18112
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 19
+        Item: up_slate_sword # 500014
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Dagger # 13071
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 20
+        Item: Up_Fatalist # 510020
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Dagger # 13071
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 21
+        Item: Up_Dragonic_Slayer # 21058
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Lance # 1491
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 22
+        Item: R_Whitesmith2_Weapon # 1030049
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_One-handed_Axe # 1030046
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 23
+        Item: R_Lord_Knight3_Weapon # 1030050
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_One_Hand_Sword # 1030048
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 24
+        Item: Rare_Melee_Armor # 452025
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Adv_Suit # 15015
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 25
+        Item: Rare_Ranged_Armor # 452026
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Adv_Suit # 15015
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 26
+        Item: Rare_Magic_Armor # 452027
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Adv_Suit # 15015
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 27
+        Item: Rare_Defense_Armor # 452028
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Adv_Suit # 15015
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 28
+        Item: Rare_Melee_Muffler # 480421
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Muffler # 2562
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 29
+        Item: Rare_Ranged_Muffler # 480422
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Muffler # 2562
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 30
+        Item: Rare_Magic_Muffler # 480423
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Muffler # 2562
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 31
+        Item: Rare_Defense_Muffler # 480424
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Muffler # 2562
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 32
+        Item: Rare_Melee_Boots # 470278
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Boots # 2460
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 33
+        Item: Rare_Ranged_Boots # 470279
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Boots # 2460
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 34
+        Item: Rare_Magic_Boots # 470280
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Boots # 2460
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 35
+        Item: Rare_Defense_Boots # 470281
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Boots # 2460
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 36
+        Item: Rare_Melee_Necklace # 490487
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 37
+        Item: Rare_Ranged_Necklace # 490488
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 38
+        Item: Rare_Magic_Necklace # 490489
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 39
+        Item: Rare_Defense_Necklace # 490490
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 40
+        Item: Rare_Melee_Ring # 490499
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 41
+        Item: Rare_Ranged_Ring # 490500
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 42
+        Item: Rare_Magic_Ring # 490501
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 43
+        Item: Rare_Defense_Ring # 490502
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+
+  # MA 26/8/69 - Rudolf Craft, heading 2: general items.
+  - Name: HICLASS_RUDOLF_GENERAL
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: Bypass_Ticket # 1500088
+        Zeny: 10000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rudolf_Coin # 1500089
+            Amount: 1500
+      - Index: 1
+        Item: Rookie_Refine_7 # 1500102
+        Zeny: 5000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rudolf_Coin # 1500089
+            Amount: 500
+      - Index: 2
+        Item: Rookie_Upgrade_8 # 1500103
+        Zeny: 5000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rudolf_Coin # 1500089
+            Amount: 500
+      - Index: 3
+        Item: Rookie_Upgrade_9 # 1500104
+        Zeny: 5000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rookie_Upgrade_8 # 1500103
+            Amount: 2
+      - Index: 4
+        Item: Rookie_Upgrade_10 # 1500105
+        Zeny: 5000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rookie_Upgrade_9 # 1500104
+            Amount: 2
+      - Index: 5
+        Item: Rookie_Upgrade_11 # 1500106
+        Zeny: 10000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rookie_Upgrade_10 # 1500105
+            Amount: 2
+          - Index: 1
+            Item: Rudolf_Coin # 1500089
+            Amount: 300

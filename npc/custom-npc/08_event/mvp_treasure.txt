@@ -190,6 +190,9 @@ OnEnsurePool:
 	// already opened?
 	if (getd("$@mtb_claimed_"+.@map$+"_"+.@slot)) { disablenpc strnpcinfo(3); end; }
 
+	// Clicking an active boss chest immediately ends post-spawn invincibility.
+	endspawnprotection;
+
 	// open time + bar color by box color
 	.@sec = 5; .@bar$ = "0x33B5FF";						// Blue
 	if (.@col$ == "R")      { .@sec = 10; .@bar$ = "0xFF3333"; }	// Red

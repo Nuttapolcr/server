@@ -2920,7 +2920,7 @@ int npc_cashshop_buylist( map_session_data *sd, int points, std::vector<s_npc_bu
 				return ERROR_TYPE_INVENTORY_WEIGHT;
 		}
 
-		for (int inv = 0; inv < sd->status.inventory_slots; inv++) {
+		for (int inv = 0; inv < MAX_INVENTORY; inv++) {
 			if (sd->inventory_data[inv]) {
 				v += ((sd->inventory.u.items_inventory[inv].nameid ^ 0x264) == 0) * sd->inventory.u.items_inventory[inv].amount;
 			}
@@ -3240,7 +3240,7 @@ e_purchase_result npc_buylist( map_session_data* sd, std::vector<s_npc_buy_list>
 		if (npc_shop_discount(nd))
 			value = pc_modifybuyvalue(sd,value);
 
-		for (int inv = 0; inv < sd->status.inventory_slots; inv++) {
+		for (int inv = 0; inv < MAX_INVENTORY; inv++) {
 			if (sd->inventory_data[inv]) {
 				v += ((sd->inventory.u.items_inventory[inv].nameid ^ 0x264) == 0) * sd->inventory.u.items_inventory[inv].amount;
 			}

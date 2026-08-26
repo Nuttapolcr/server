@@ -50,3 +50,8 @@ Body:
     Name: ValorFight
     Npc: Agit#hero_ent1
     Type: First_Edition
+  - Id: 99
+    Map: hero_ent2
+    Name: ValorFight 2
+    Npc: Agit#hero_ent2
+    Type: First_Edition

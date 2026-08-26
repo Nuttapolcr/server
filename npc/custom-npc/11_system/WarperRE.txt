@@ -1151,6 +1151,8 @@ OnInit:
 //mjolnir_02,85,364,4	duplicate(Warper)	Warper#mjo	10371
 //moc_ruins,64,164,4	duplicate(Warper)	Warper#moc	10371
 morocc,163,97,4	duplicate(Warper)	Warper#mor	10371
+morocc,138,57,4	duplicate(Warper)	Warper#save1	10371
+morocc,191,93,4	duplicate(Warper)	Warper#save2	10371
 //moscovia,229,191,4	duplicate(Warper)	Warper#mos	10371
 //nameless_n,259,213,4	duplicate(Warper)	Warper#nam	10371
 //niflheim,205,179,4	duplicate(Warper)	Warper#nif	10371

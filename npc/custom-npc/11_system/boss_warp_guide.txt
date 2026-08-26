@@ -8,3 +8,6 @@ OnInit:
 	waitingroom "‰ª®ÿ¥«“ª∫Õ ",0;
 	end;
 }
+
+morocc,143,57,4	duplicate(Boss Warp Guide#morocc)	Boss Warp Guide#save1	837
+morocc,194,91,4	duplicate(Boss Warp Guide#morocc)	Boss Warp Guide#save2	837

@@ -838,6 +838,7 @@
 	export_constant2("bBossBoxSpeed", SP_BOSS_BOX_SPEED);
 	export_constant2("bPetLootSpeed", SP_PET_LOOT_SPEED);
 	export_constant2("bPetLootItem", SP_PET_LOOT_ITEM);
+	export_constant2("bInventorySlots", SP_INVENTORY_SLOTS);
 	export_constant2("bSetDefRace",SP_SET_DEF_RACE);
 	export_constant2("bSetMDefRace",SP_SET_MDEF_RACE);
 	export_constant2("bHPVanishRate",SP_HP_VANISH_RATE);
@@ -8115,6 +8116,27 @@
 
 	export_constant(IG_TEST01);
 	export_constant(IG_TEST02);
+
+	export_constant(IG_RANDOM_RUDOLF_BOX_1);
+	export_constant(IG_RANDOM_RUDOLF_BOX_2);
+	export_constant(IG_RANDOM_RUDOLF_BOX_3);
+	export_constant(IG_RANDOM_RUDOLF_BOX_4);
+	export_constant(IG_RANDOM_RUDOLF_BOX_5);
+	export_constant(IG_RANDOM_RUDOLF_BOX_6);
+	export_constant(IG_RANDOM_RUDOLF_BOX_7);
+	export_constant(IG_RANDOM_RUDOLF_BOX_8);
+	export_constant(IG_RANDOM_RUDOLF_BOX_9);
+	export_constant(IG_RANDOM_RUDOLF_BOX_10);
+	export_constant(IG_RANDOM_RUDOLF_BOX_11);
+	export_constant(IG_RANDOM_RUDOLF_BOX_12);
+	export_constant(IG_RANDOM_RUDOLF_BOX_13);
+	export_constant(IG_RANDOM_RUDOLF_BOX_14);
+	export_constant(IG_RANDOM_RUDOLF_BOX_15);
+	export_constant(IG_RANDOM_RUDOLF_BOX_16);
+	export_constant(IG_RANDOM_RUDOLF_BOX_17);
+	export_constant(IG_RANDOM_RUDOLF_BOX_18);
+	export_constant(IG_RANDOM_RUDOLF_BOX_19);
+	export_constant(IG_RANDOM_RUDOLF_BOX_20);
 
 	/* unit stop walking */
 	export_constant(USW_NONE);

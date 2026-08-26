@@ -1,7 +1,8 @@
-//===== Custom NPC: City Titan Event ========================================
-//= Source: Google Sheet "Titan" (gid=234041347)
+//===== Custom NPC: City Thanatos Event =====================================
+//= Source: Google Sheet MA item 22 (gid=1015278093)
 //= Spawns in Death Match 2 (guild_vs3 49,49) at 18:00 / 20:00 / 22:00 / 00:00.
-//= At 75%, 50%, and 25% HP, standing players within 25 cells die.
+//= Storm Gust every 10s, Meteor every 12s, Coma at 50/25/5% HP,
+//= and Earthquake at 35/10% HP. Treasure chest behavior is unchanged.
 //===========================================================================
 
 -	script	CityTitan	FAKE_NPC,{
@@ -29,13 +30,13 @@ OnClock0000:
 	if (.active) end;
 	.active = 1;
 	.ending = 0;
-	announce "[ City Titan ] Titan กำลังมุ่งหน้าสู่แมพ Death Match2 อีก 30 วินาที!",bc_all|bc_blue;
+	announce "[ City Thanatos ] Thanatos กำลังมุ่งหน้าสู่แมพ Death Match2 อีก 30 วินาที!",bc_all|bc_blue;
 	sleep 10000;
 	if (!.active) end;
-	announce "[ City Titan ] Titan จะปรากฏในอีก 20 วินาที!",bc_all;
+	announce "[ City Thanatos ] Thanatos จะปรากฏในอีก 20 วินาที!",bc_all;
 	sleep 10000;
 	if (!.active) end;
-	announce "[ City Titan ] Titan จะปรากฏในอีก 10 วินาที! เตรียมตัวให้พร้อม!",bc_all;
+	announce "[ City Thanatos ] Thanatos จะปรากฏในอีก 10 วินาที! เตรียมตัวให้พร้อม!",bc_all;
 	sleep 10000;
 	if (!.active) end;
 	callsub S_SpawnBoss;
@@ -44,7 +45,7 @@ OnClock0000:
 // GM test: @doevent CityTitan::OnGMStart
 OnGMStart:
 	if (.active) {
-		announce "[ City Titan ] Event กำลังทำงานอยู่",bc_self;
+		announce "[ City Thanatos ] Event กำลังทำงานอยู่",bc_self;
 		end;
 	}
 	.active = 1;
@@ -57,30 +58,34 @@ OnGMStop:
 	.ending = 1;
 	.active = 0;
 	stopnpctimer;
-	killmonster .map$,strnpcinfo(0)+"::OnTitanKilled";
+	killmonster .map$,strnpcinfo(0)+"::OnThanatosKilled";
 	.boss_gid = 0;
 	callsub S_ClearChests;
 	.ending = 0;
-	announce "[ City Titan ] GM ยุติ Event และล้างวัตถุทั้งหมดแล้ว",bc_all;
+	announce "[ City Thanatos ] GM ยุติ Event และล้างวัตถุทั้งหมดแล้ว",bc_all;
 	end;
 
 S_SpawnBoss:
 	callsub S_ClearChests;
 	.ending = 0;
-	.phase75 = 0;
-	.phase50 = 0;
-	.phase25 = 0;
+	.coma50 = 0;
+	.coma25 = 0;
+	.coma5 = 0;
+	.quake35 = 0;
+	.quake10 = 0;
 	.boss_x = .spawn_x;
 	.boss_y = .spawn_y;
 	.spawn_time = gettimetick(2);
+	.next_storm = .spawn_time + 10;
+	.next_meteor = .spawn_time + 12;
 
-	announce "[ City Titan ] CITY TITAN ปรากฏตัวแล้ว ณ แมพ Death Match2!",bc_all|bc_blue;
-	announce "[ City Titan ] เมื่อ Titan ร่ายสกิล ทุกคนในบริเวณต้องนั่ง มิฉะนั้นจะเสียชีวิต!",bc_all;
-	monster .map$,.spawn_x,.spawn_y,"[City Titan]",.boss_id,1,strnpcinfo(0)+"::OnTitanKilled";
+	announce "[ City Thanatos ] MEMORY OF THANATOS ปรากฏตัวแล้ว ณ แมพ Death Match2!",bc_all|bc_blue;
+	announce "[ City Thanatos ] ระวัง Storm Gust, Meteor, Coma และ Earthquake!",bc_all;
+	monster .map$,.spawn_x,.spawn_y,"[City Thanatos]",.boss_id,1,strnpcinfo(0)+"::OnThanatosKilled";
 	.boss_gid = $@mobid[0];
 	if (!.boss_gid) {
 		.active = 0;
-		announce "[ City Titan ] ไม่สามารถสร้างบอสได้ กรุณาแจ้งทีมงาน",bc_all;
+		announce "[ City Thanatos ] ไม่สามารถสร้างบอสได้ กรุณาแจ้งทีมงาน",bc_all;
 		return;
 	}
 	initnpctimer;
@@ -101,29 +106,47 @@ OnTimer1000:
 		.ending = 1;
 		.active = 0;
 		stopnpctimer;
-		killmonster .map$,strnpcinfo(0)+"::OnTitanKilled";
+		killmonster .map$,strnpcinfo(0)+"::OnThanatosKilled";
 		.boss_gid = 0;
 		.ending = 0;
-		announce "[ City Titan ] Titan หลบหนีออกจากแมพ Death Match2 ไปแล้ว!",bc_all;
+		announce "[ City Thanatos ] Thanatos หลบหนีออกจากแมพ Death Match2 ไปแล้ว!",bc_all;
 		end;
 	}
 
 	getunitdata .boss_gid,.@boss;
 	.boss_x = .@boss[UMOB_X];
 	.boss_y = .@boss[UMOB_Y];
-	.@hp_rate = (.@boss[UMOB_HP]*100)/.@boss[UMOB_MAXHP];
+	.@hp_rate = .@boss[UMOB_HP] / max(1,.@boss[UMOB_MAXHP]/100);
+	.@now = gettimetick(2);
 
-	if (!.phase75 && .@hp_rate <= 75) {
-		.phase75 = 1;
-		callsub S_SitCast,75;
+	if (.@now >= .next_storm) {
+		.next_storm = .@now + 10;
+		callsub S_CastGroundSkill,"WZ_STORMGUST",10;
 	}
-	else if (!.phase50 && .@hp_rate <= 50) {
-		.phase50 = 1;
-		callsub S_SitCast,50;
+	if (.@now >= .next_meteor) {
+		.next_meteor = .@now + 12;
+		callsub S_CastGroundSkill,"WZ_METEOR",10;
 	}
-	else if (!.phase25 && .@hp_rate <= 25) {
-		.phase25 = 1;
-		callsub S_SitCast,25;
+
+	if (!.coma50 && .@hp_rate <= 50) {
+		.coma50 = 1;
+		callsub S_Coma,50;
+	}
+	if (!.quake35 && .@hp_rate <= 35) {
+		.quake35 = 1;
+		callsub S_Earthquake,35;
+	}
+	if (!.coma25 && .@hp_rate <= 25) {
+		.coma25 = 1;
+		callsub S_Coma,25;
+	}
+	if (!.quake10 && .@hp_rate <= 10) {
+		.quake10 = 1;
+		callsub S_Earthquake,10;
+	}
+	if (!.coma5 && .@hp_rate <= 5) {
+		.coma5 = 1;
+		callsub S_Coma,5;
 	}
 
 	if (.active && .boss_gid && unitexists(.boss_gid))
@@ -132,39 +155,53 @@ OnTimer1000:
 		stopnpctimer;
 	end;
 
-// NV_FIRSTAID is harmless and supplies the visible five-second cast bar.
-S_SitCast:
+S_CastGroundSkill:
+	.@skill$ = getarg(0);
+	.@level = getarg(1);
+	if (!.active || !unitexists(.boss_gid)) return;
+
+	.@x = .boss_x;
+	.@y = .boss_y;
+	.@count = getmapunits(BL_PC,.map$,.@players[0]);
+	if (.@count > 0) {
+		.@target_gid = .@players[rand(.@count)];
+		if (unitexists(.@target_gid)) {
+			getunitdata .@target_gid,.@target;
+			.@x = .@target[UMOB_X];
+			.@y = .@target[UMOB_Y];
+		}
+	}
+	unitskillusepos .boss_gid,.@skill$,.@level,.@x,.@y,0,0;
+	return;
+
+S_Coma:
 	.@phase = getarg(0);
 	if (!.active || !unitexists(.boss_gid)) return;
 
 	getunitdata .boss_gid,.@boss;
 	.boss_x = .@boss[UMOB_X];
 	.boss_y = .@boss[UMOB_Y];
-	announce "[ City Titan ] คำเตือน! Titan ร่ายสกิลที่ HP "+.@phase+"% — นั่งภายใน 5 วินาที!",bc_all|bc_blue;
-	unitskilluseid .boss_gid,"NV_FIRSTAID",1,.boss_gid,5,0;
-	sleep 5000;
-
-	if (!.active || !unitexists(.boss_gid)) return;
-	getunitdata .boss_gid,.@boss;
-	.boss_x = .@boss[UMOB_X];
-	.boss_y = .@boss[UMOB_Y];
+	announce "[ City Thanatos ] Thanatos ใช้ Coma ที่ HP "+.@phase+"%!",bc_all|bc_blue;
 	.@count = getareaunits(BL_PC,.map$,
 		.boss_x-.cast_radius,.boss_y-.cast_radius,
 		.boss_x+.cast_radius,.boss_y+.cast_radius,.@players[0]);
 
 	for (.@i = 0; .@i < .@count; .@i++) {
 		if (!attachrid(.@players[.@i])) continue;
-		if (getmapxy(.@map$,.@player_x,.@player_y,BL_PC) != 0) {
-			detachrid;
-			continue;
-		}
-		if (distance(.boss_x,.boss_y,.@player_x,.@player_y) <= .cast_radius && !readparam(Sitting))
-			unitkill .@players[.@i];
+		if (readparam(Hp) > 0)
+			sc_start SC_COMA,1000,1;
 		detachrid;
 	}
 	return;
 
-OnTitanKilled:
+S_Earthquake:
+	.@phase = getarg(0);
+	if (!.active || !unitexists(.boss_gid)) return;
+	announce "[ City Thanatos ] Thanatos ใช้ Earthquake ที่ HP "+.@phase+"%!",bc_all|bc_blue;
+	unitskilluseid .boss_gid,"NPC_EARTHQUAKE",10,.boss_gid,2000,0;
+	return;
+
+OnThanatosKilled:
 	stopnpctimer;
 	.@was_ending = .ending;
 	.active = 0;
@@ -172,12 +209,12 @@ OnTitanKilled:
 	if (.@was_ending || !playerattached()) end;
 
 	.@mvp$ = strcharinfo(0);
-	callfunc "F_DWQ_RecordCityTitanKill";
+	callfunc "F_DWQ_RecordTitanOrThanatosKill";
 	getitem 6635,1;
 	getitem 1001012,1;
 	if (rand(100) < 10) getitem 6635,10;
 	if (rand(100) < 10) getitem 1001012,10;
-	announce "[ City Titan ] "+.@mvp$+" ได้รับรางวัล MVP! กล่องสมบัติปรากฏขึ้นแล้ว!",bc_all|bc_blue;
+	announce "[ City Thanatos ] "+.@mvp$+" ได้รับรางวัล MVP! กล่องสมบัติปรากฏขึ้นแล้ว!",bc_all|bc_blue;
 
 	// Purple and Red roll first; Blue is reduced last to enforce the cap.
 	.@purple = (rand(100) < 1) ? rand(1,3) : 0;
@@ -241,7 +278,7 @@ S_ClearChests:
 	}
 	if (!playerattached()) end;
 	if (#pk_protect_until > gettimetick(2)) {
-		dispbottom "[City Titan] ผู้เล่นที่ใช้ PK Protection ไม่สามารถเปิดกล่องสมบัติ Titan ได้";
+		dispbottom "[City Thanatos] ผู้เล่นที่ใช้ PK Protection ไม่สามารถเปิดกล่องสมบัติ Thanatos ได้";
 		end;
 	}
 

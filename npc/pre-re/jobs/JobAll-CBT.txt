@@ -491,7 +491,7 @@ atcommand "@joblvup 99";
 OnInit:
 	// Initialisation, do not edit these
 	.NPCName$ = "[เปลี่ยนอาชีพ]";
-	waitingroom "เปลี่ยนอาชีพ",0;
+	waitingroom "เปลี่ยนอาชีพ & รับเวลตัน",0;
 	
 	// Settings
 	.FourthClass = false;				// Enable fourth classes?

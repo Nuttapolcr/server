@@ -329,7 +329,7 @@ Body:
             Rate: 95
             Amount: 1
           - Index: 2
-            Item: Acc_Ore_4
+            Item: Acc_Ore_3
             Rate: 5
             Amount: 1
   - Group: ACC_STONE_COMBINATION_EPIC_REWARD
@@ -339,7 +339,7 @@ Body:
         AutoIndex: true
         List:
           - Index: 1
-            Item: Acc_Ore_4
+            Item: Acc_Ore_3
             Rate: 95
             Amount: 1
           - Index: 2

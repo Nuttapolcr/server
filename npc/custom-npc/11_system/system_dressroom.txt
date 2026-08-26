@@ -37,13 +37,41 @@ morocc,167,111,3	script	Stylist#super_stylist	87,{
 						}
 						.@hairstylemin = getBattleFlag("min_hair_style");
 						.@hairstylemax = getBattleFlag("max_hair_style");
+						if (.@hairstylemax > 31)
+							.@hairstylemax = 31;
 						next;
 						mes "^FF0000[ Stylist ]^000000";
 						mes "กรุณากรอกหมายเลข ทรงผม ลงในช่องว่าง";
 						mes "หมายเลขทรงผม : "+.@hairstylemin+" ถึง "+.@hairstylemax;
 						input .@hairstyle,.@hairstylemin,.@hairstylemax;
+						.@oldhairstyle = getlook(LOOK_HAIR);
+						changelook LOOK_HAIR,.@hairstyle;
+						next;
+						mes "^FF0000[ Stylist ]^000000";
+						mes "กำลังแสดงตัวอย่างทรงผมหมายเลข ^0055FF"+.@hairstyle+"^000000";
+						mes "ยืนยันทรงผมนี้หรือไม่?";
+						if (select("~ ยืนยัน:~ ไม่ยืนยัน") == 2) {
+							changelook LOOK_HAIR,.@oldhairstyle;
+							next;
+							mes "^FF0000[ Stylist ]^000000";
+							mes "ยกเลิกแล้ว ระบบคืนทรงผมเดิมให้คุณ";
+							next;
+							break;
+						}
+						if (countitem(1030061) < 1) {
+							changelook LOOK_HAIR,.@oldhairstyle;
+							next;
+							mes "^FF0000[ Stylist ]^000000";
+							mes "ไม่พบ ^FF0000"+getitemname(1030061)+" 1ea^000000";
+							mes "ระบบคืนทรงผมเดิมให้คุณแล้ว";
+							next;
+							break;
+						}
 						delitem 1030061,1;
 						setlook LOOK_HAIR,.@hairstyle;
+						next;
+						mes "^FF0000[ Stylist ]^000000";
+						mes "ยืนยันทรงผมใหม่เรียบร้อยแล้ว";
 						next;
 						break;
 					case 2:
@@ -59,8 +87,34 @@ morocc,167,111,3	script	Stylist#super_stylist	87,{
 						mes "กรุณากรอกหมายเลข สีผม ลงในช่องว่าง";
 						mes "หมายเลขสีผม : "+.@hairdyemin+" ถึง "+.@hairdyemax;
 						input .@hairdye,.@hairdyemin,.@hairdyemax;
+						.@oldhairdye = getlook(LOOK_HAIR_COLOR);
+						changelook LOOK_HAIR_COLOR,.@hairdye;
+						next;
+						mes "^FF0000[ Stylist ]^000000";
+						mes "กำลังแสดงตัวอย่างสีผมหมายเลข ^0055FF"+.@hairdye+"^000000";
+						mes "ยืนยันสีผมนี้หรือไม่?";
+						if (select("~ ยืนยัน:~ ไม่ยืนยัน") == 2) {
+							changelook LOOK_HAIR_COLOR,.@oldhairdye;
+							next;
+							mes "^FF0000[ Stylist ]^000000";
+							mes "ยกเลิกแล้ว ระบบคืนสีผมเดิมให้คุณ";
+							next;
+							break;
+						}
+						if (countitem(1030061) < 1) {
+							changelook LOOK_HAIR_COLOR,.@oldhairdye;
+							next;
+							mes "^FF0000[ Stylist ]^000000";
+							mes "ไม่พบ ^FF0000"+getitemname(1030061)+" 1ea^000000";
+							mes "ระบบคืนสีผมเดิมให้คุณแล้ว";
+							next;
+							break;
+						}
 						delitem 1030061,1;
 						setlook LOOK_HAIR_COLOR,.@hairdye;
+						next;
+						mes "^FF0000[ Stylist ]^000000";
+						mes "ยืนยันสีผมใหม่เรียบร้อยแล้ว";
 						next;
 						break;
 					case 3:
@@ -70,22 +124,40 @@ morocc,167,111,3	script	Stylist#super_stylist	87,{
 							cutin "",255;
 							close;
 						}
+						.@clothcolormin = getBattleFlag("min_cloth_color");
+						.@clothcolormax = getBattleFlag("max_cloth_color");
 						mes "^FF0000[ Stylist ]^000000";
-						mes "กรุณาเลือกหมายเลขสีชุดที่ต้องการ";
+						mes "กรุณากรอกหมายเลข สีชุด ลงในช่องว่าง";
+						mes "หมายเลขสีชุด : "+.@clothcolormin+" ถึง "+.@clothcolormax;
+						input .@clothcolor,.@clothcolormin,.@clothcolormax;
+						.@oldclothcolor = getlook(LOOK_CLOTHES_COLOR);
+						changelook LOOK_CLOTHES_COLOR,.@clothcolor;
 						next;
-						.@clothcolor = select(
-							"~ สีชุดหมายเลข 0",
-							"~ สีชุดหมายเลข 2",
-							"~ สีชุดหมายเลข 3",
-							"~ สีชุดหมายเลข 4",
-							"~ สีชุดหมายเลข 5",
-							"~ สีชุดหมายเลข 6",
-							"~ สีชุดหมายเลข 7"
-						);
-						if (.@clothcolor == 1)
-							.@clothcolor = 0;
+						mes "^FF0000[ Stylist ]^000000";
+						mes "กำลังแสดงตัวอย่างสีชุดหมายเลข ^0055FF"+.@clothcolor+"^000000";
+						mes "ยืนยันสีชุดนี้หรือไม่?";
+						if (select("~ ยืนยัน:~ ไม่ยืนยัน") == 2) {
+							changelook LOOK_CLOTHES_COLOR,.@oldclothcolor;
+							next;
+							mes "^FF0000[ Stylist ]^000000";
+							mes "ยกเลิกแล้ว ระบบคืนสีชุดเดิมให้คุณ";
+							next;
+							break;
+						}
+						if (countitem(1030061) < 1) {
+							changelook LOOK_CLOTHES_COLOR,.@oldclothcolor;
+							next;
+							mes "^FF0000[ Stylist ]^000000";
+							mes "ไม่พบ ^FF0000"+getitemname(1030061)+" 1ea^000000";
+							mes "ระบบคืนสีชุดเดิมให้คุณแล้ว";
+							next;
+							break;
+						}
 						delitem 1030061,1;
 						setlook LOOK_CLOTHES_COLOR,.@clothcolor;
+						next;
+						mes "^FF0000[ Stylist ]^000000";
+						mes "ยืนยันสีชุดใหม่เรียบร้อยแล้ว";
 						next;
 						break;
 					case 4:

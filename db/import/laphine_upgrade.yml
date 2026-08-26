@@ -40,3 +40,124 @@ Header:
   Version: 1
 
 Body:
+  # MA 26/8/69 - Rookie refinement tickets (task 24).
+  - Item: Rookie_Refine_7
+    ResultRefine: 7
+    MinimumRefine: 0
+    MaximumRefine: 6
+    CardsAllowed: true
+    TargetItems:
+      - Item: Upg_Katar
+      - Item: Upg_Two_Handed_Axe
+      - Item: Upg_Lance
+      - Item: Upg_Book
+      - Item: Upg_Staff
+      - Item: Upg_Dagger
+      - Item: Upg_Revolver
+      - Item: Upg_Twohand_Sword
+      - Item: Upg_Mace
+      - Item: Upg_Bow
+      - Item: Upg_Huuma_Shuriken
+      - Item: Upg_One-handed_Axe
+      - Item: Upg_Knuckle
+      - Item: Upg_One_Hand_Sword
+      - Item: Upg_Adv_Suit
+      - Item: Upg_Guard
+      - Item: Upg_Boots
+      - Item: Upg_Muffler
+  - Item: Rookie_Upgrade_8
+    ResultRefine: 8
+    MinimumRefine: 7
+    MaximumRefine: 7
+    CardsAllowed: true
+    TargetItems:
+      - Item: Upg_Katar
+      - Item: Upg_Two_Handed_Axe
+      - Item: Upg_Lance
+      - Item: Upg_Book
+      - Item: Upg_Staff
+      - Item: Upg_Dagger
+      - Item: Upg_Revolver
+      - Item: Upg_Twohand_Sword
+      - Item: Upg_Mace
+      - Item: Upg_Bow
+      - Item: Upg_Huuma_Shuriken
+      - Item: Upg_One-handed_Axe
+      - Item: Upg_Knuckle
+      - Item: Upg_One_Hand_Sword
+      - Item: Upg_Adv_Suit
+      - Item: Upg_Guard
+      - Item: Upg_Boots
+      - Item: Upg_Muffler
+  - Item: Rookie_Upgrade_9
+    ResultRefine: 9
+    MinimumRefine: 8
+    MaximumRefine: 8
+    CardsAllowed: true
+    TargetItems:
+      - Item: Upg_Katar
+      - Item: Upg_Two_Handed_Axe
+      - Item: Upg_Lance
+      - Item: Upg_Book
+      - Item: Upg_Staff
+      - Item: Upg_Dagger
+      - Item: Upg_Revolver
+      - Item: Upg_Twohand_Sword
+      - Item: Upg_Mace
+      - Item: Upg_Bow
+      - Item: Upg_Huuma_Shuriken
+      - Item: Upg_One-handed_Axe
+      - Item: Upg_Knuckle
+      - Item: Upg_One_Hand_Sword
+      - Item: Upg_Adv_Suit
+      - Item: Upg_Guard
+      - Item: Upg_Boots
+      - Item: Upg_Muffler
+  - Item: Rookie_Upgrade_10
+    ResultRefine: 10
+    MinimumRefine: 9
+    MaximumRefine: 9
+    CardsAllowed: true
+    TargetItems:
+      - Item: Upg_Katar
+      - Item: Upg_Two_Handed_Axe
+      - Item: Upg_Lance
+      - Item: Upg_Book
+      - Item: Upg_Staff
+      - Item: Upg_Dagger
+      - Item: Upg_Revolver
+      - Item: Upg_Twohand_Sword
+      - Item: Upg_Mace
+      - Item: Upg_Bow
+      - Item: Upg_Huuma_Shuriken
+      - Item: Upg_One-handed_Axe
+      - Item: Upg_Knuckle
+      - Item: Upg_One_Hand_Sword
+      - Item: Upg_Adv_Suit
+      - Item: Upg_Guard
+      - Item: Upg_Boots
+      - Item: Upg_Muffler
+  - Item: Rookie_Upgrade_11
+    ResultRefine: 11
+    MinimumRefine: 10
+    MaximumRefine: 10
+    CardsAllowed: true
+    TargetItems:
+      - Item: Upg_Katar
+      - Item: Upg_Two_Handed_Axe
+      - Item: Upg_Lance
+      - Item: Upg_Book
+      - Item: Upg_Staff
+      - Item: Upg_Dagger
+      - Item: Upg_Revolver
+      - Item: Upg_Twohand_Sword
+      - Item: Upg_Mace
+      - Item: Upg_Bow
+      - Item: Upg_Huuma_Shuriken
+      - Item: Upg_One-handed_Axe
+      - Item: Upg_Knuckle
+      - Item: Upg_One_Hand_Sword
+      - Item: Upg_Adv_Suit
+      - Item: Upg_Guard
+      - Item: Upg_Boots
+      - Item: Upg_Muffler

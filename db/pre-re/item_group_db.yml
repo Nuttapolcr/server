@@ -13280,47 +13280,23 @@ Body:
         List:
           - Index: 0
             Item: Woe_White_Potion
-            Rate: 1500
+            Rate: 5000
             Amount: 2
           - Index: 1
             Item: Woe_Blue_Potion
-            Rate: 1500
+            Rate: 5000
             Amount: 2
           - Index: 2
             Item: White_Slim_Potion
-            Rate: 1000
+            Rate: 5000
             Amount: 2
-          - Index: 3
-            Item: Fire_Bottle
-            Rate: 1000
-            Amount: 2
-          - Index: 4
-            Item: Acid_Bottle
-            Rate: 1000
-            Amount: 2
-          - Index: 5
-            Item: Aloebera
-            Rate: 500
-            Amount: 1
-          - Index: 6
-            Item: Poison_Bottle
-            Rate: 1000
-            Amount: 2
-          - Index: 7
-            Item: Awakening_Potion
-            Rate: 500
-            Amount: 1
-          - Index: 8
-            Item: Berserk_Potion
-            Rate: 500
-            Amount: 1
           - Index: 9
             Item: Siege_White_Potion
-            Rate: 1000
+            Rate: 5000
             Amount: 2
           - Index: 10
             Item: Siege_Blue_Potion
-            Rate: 1000
+            Rate: 5000
             Amount: 2
           - Index: 11
             Item: Meteorite_Fragment
@@ -13391,16 +13367,44 @@ Body:
             Rate: 20
             Amount: 1
           - Index: 37
-            Item: Charm_FLEE_Valor
-            Rate: 20
+            Item: Wing_Unlimit_1hr_Box
+            Rate: 300
             Amount: 1
           - Index: 38
-            Item: Charm_ASPD_Valor
-            Rate: 20
+            Item: Wing_Unlimit_4hr_Box
+            Rate: 300
             Amount: 1
           - Index: 39
-            Item: Charm_Critical_Valor
-            Rate: 20
+            Item: Wing_Unlimit_6hr_Box
+            Rate: 150
+            Amount: 1
+          - Index: 40
+            Item: Valor_Stone
+            Rate: 40
+            Amount: 1
+          - Index: 41
+            Item: New_Item_1500094
+            Rate: 30
+            Amount: 1
+          - Index: 42
+            Item: Charm_White_Blue_Plus
+            Rate: 30
+            Amount: 1
+          - Index: 43
+            Item: New_Item_1500096
+            Rate: 30
+            Amount: 1
+          - Index: 44
+            Item: Charm_Reduce_SP
+            Rate: 30
+            Amount: 1
+          - Index: 45
+            Item: Charm_Open_Box
+            Rate: 30
+            Amount: 1
+          - Index: 46
+            Item: Dark_Crystal_C
+            Rate: 5
             Amount: 1
   - Group: TEST02
     SubGroups:
@@ -13515,39 +13519,31 @@ Body:
             Rate: 300
             Amount: 1
           - Index: 40
-            Item: Charm_STR_Valor_V.1
-            Rate: 50
+            Item: New_Item_1500094
+            Rate: 100
             Amount: 1
           - Index: 41
-            Item: Charm_AGI_Valor_V.1
-            Rate: 50
+            Item: Charm_White_Blue_Plus
+            Rate: 100
             Amount: 1
           - Index: 42
-            Item: Charm_VIT_Valor_V.1
-            Rate: 50
+            Item: New_Item_1500096
+            Rate: 100
             Amount: 1
           - Index: 43
-            Item: Charm_INT_Valor_V.1
-            Rate: 50
+            Item: Charm_Reduce_SP
+            Rate: 100
             Amount: 1
           - Index: 44
-            Item: Charm_DEX_Valor_V.1
-            Rate: 50
+            Item: Charm_Open_Box
+            Rate: 100
             Amount: 1
           - Index: 45
-            Item: Charm_LUK_Valor_V.1
+            Item: Dark_Crystal_C
             Rate: 50
             Amount: 1
           - Index: 46
-            Item: Charm_FLEE_Valor
-            Rate: 50
-            Amount: 1
-          - Index: 47
-            Item: Charm_ASPD_Valor
-            Rate: 50
-            Amount: 1
-          - Index: 48
-            Item: Charm_Critical_Valor
+            Item: Holy_Crystal
             Rate: 50
             Amount: 1
   - Group: RANDOM_STONE_BOX_1
@@ -14330,3 +14326,273 @@ Body:
     SubGroups:
       - SubGroup: 1
         List: []
+
+  # Placeholder pools for the Rudolf random boxes.
+  # Replace Jellopy with the finalized rewards before release.
+  - Group: RANDOM_RUDOLF_BOX_1
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Pow_Meteorite_Dust
+            Rate: 20
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT
+            Rate: 30
+            Amount: 1
+          - Index: 2
+            Item: Pow_Meteorite_Dust
+            Rate: 15
+            Amount: 2
+          - Index: 3
+            Item: Pow_Meteorite_Dust_NT
+            Rate: 25
+            Amount: 2
+          - Index: 4
+            Item: Pow_Meteorite_Dust
+            Rate: 4
+            Amount: 3
+          - Index: 5
+            Item: Pow_Meteorite_Dust_NT
+            Rate: 6
+            Amount: 3
+  - Group: RANDOM_RUDOLF_BOX_2
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Wis_Meteorite_Dust
+            Rate: 20
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT
+            Rate: 30
+            Amount: 1
+          - Index: 2
+            Item: Wis_Meteorite_Dust
+            Rate: 15
+            Amount: 2
+          - Index: 3
+            Item: Wis_Meteorite_Dust_NT
+            Rate: 25
+            Amount: 2
+          - Index: 4
+            Item: Wis_Meteorite_Dust
+            Rate: 4
+            Amount: 3
+          - Index: 5
+            Item: Wis_Meteorite_Dust_NT
+            Rate: 6
+            Amount: 3
+  - Group: RANDOM_RUDOLF_BOX_3
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 1
+            Item: Barmund_Flame_Essence
+            Rate: 30
+            Amount: 1
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT
+            Rate: 40
+            Amount: 1
+          - Index: 3
+            Item: Barmund_Flame_Essence
+            Rate: 13
+            Amount: 2
+          - Index: 4
+            Item: Barmund_Flame_Essence_NT
+            Rate: 17
+            Amount: 2
+  - Group: RANDOM_RUDOLF_BOX_4
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Barmund_Death_Essence
+            Rate: 30
+            Amount: 1
+          - Index: 1
+            Item: Barmund_Death_Essence_NT
+            Rate: 40
+            Amount: 1
+          - Index: 2
+            Item: Barmund_Death_Essence
+            Rate: 13
+            Amount: 2
+          - Index: 3
+            Item: Barmund_Death_Essence_NT
+            Rate: 17
+            Amount: 2
+  - Group: RANDOM_RUDOLF_BOX_5
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Pow_Meteorite_Fragment
+            Rate: 30
+            Amount: 1
+          - Index: 1
+            Item: Pow_Meteorite_Fragment_NT
+            Rate: 40
+            Amount: 1
+          - Index: 2
+            Item: Pow_Meteorite_Fragment
+            Rate: 13
+            Amount: 2
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT
+            Rate: 17
+            Amount: 2
+  - Group: RANDOM_RUDOLF_BOX_6
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Wis_Meteorite_Fragment
+            Rate: 30
+            Amount: 1
+          - Index: 1
+            Item: Wis_Meteorite_Fragment_NT
+            Rate: 40
+            Amount: 1
+          - Index: 2
+            Item: Wis_Meteorite_Fragment
+            Rate: 13
+            Amount: 2
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT
+            Rate: 17
+            Amount: 2
+  - Group: RANDOM_RUDOLF_BOX_7
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 1
+            Item: Rudolf_Coin
+            Rate: 40000
+            Amount: 1
+          - Index: 3
+            Item: Rookie_Upgrade_8
+            Rate: 10
+            Amount: 1
+          - Index: 4
+            Item: Rookie_Upgrade_9
+            Rate: 5
+            Amount: 1
+          - Index: 5
+            Item: Rookie_Upgrade_10
+            Rate: 3
+            Amount: 1
+          - Index: 7
+            Item: Rudolf_Coin
+            Rate: 2000
+            Amount: 2
+          - Index: 8
+            Item: Crystal_Mirror
+            Rate: 40000
+  - Group: RANDOM_RUDOLF_BOX_8
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_9
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_10
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_11
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_12
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_13
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_14
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_15
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_16
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_17
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_18
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_19
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1
+  - Group: RANDOM_RUDOLF_BOX_20
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Jellopy
+            Rate: 1
+            Amount: 1

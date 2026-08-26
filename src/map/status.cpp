@@ -7015,9 +7015,11 @@ void status_calc_bl_(struct block_list* bl, std::bitset<SCB_MAX> flag, uint8 opt
 {
 	struct status_data b_status; // Previous battle status
 	struct status_data* status; // Pointer to current battle status
+	uint16 previous_inventory_size = 0;
 
 	if (bl->type == BL_PC) {
 		map_session_data *sd = BL_CAST(BL_PC, bl);
+		previous_inventory_size = pc_inventory_display_size(sd);
 
 		if (sd->delayed_damage != 0) {
 			if (opt&SCO_FORCE)
@@ -7059,6 +7061,9 @@ void status_calc_bl_(struct block_list* bl, std::bitset<SCB_MAX> flag, uint8 opt
 	// Compare against new values and send client updates
 	if( bl->type == BL_PC ) {
 		TBL_PC* sd = BL_CAST(BL_PC, bl);
+
+		if (bl->prev != nullptr && previous_inventory_size != pc_inventory_display_size(sd))
+			clif_inventory_expansion_info(sd);
 
 		if(b_status.str != status->str)
 			clif_updatestatus(sd,SP_STR);

@@ -5090,6 +5090,10 @@ void pc_bonus(map_session_data *sd,int type,int val)
 			if (sd->state.lr_flag != 2)
 				sd->bonus.pet_loot_speed = cap_value(sd->bonus.pet_loot_speed + val, 0, 1000);
 			break;
+		case SP_INVENTORY_SLOTS:
+			if (sd->state.lr_flag != 2)
+				sd->bonus.inventory_slots = cap_value(sd->bonus.inventory_slots + val, 0, INVENTORY_BONUS_SIZE);
+			break;
 		case SP_REFINE_RATE:
 			if (sd->state.lr_flag != 2)
 				sd->bonus.refine_rate += val;
@@ -6454,7 +6458,7 @@ char pc_checkadditem(map_session_data *sd, t_itemid nameid, int amount)
 			if( amount > MAX_AMOUNT - sd->inventory.u.items_inventory[i].amount || ( data->stack.inventory && amount > data->stack.amount - sd->inventory.u.items_inventory[i].amount ) )
 				return CHKADDITEM_OVERAMOUNT;
 			// If the item is in the inventory already, but the player is not allowed to use that many slots anymore
-			if( i >= sd->status.inventory_slots ){
+			if( i >= pc_inventory_size(sd) ){
 				return CHKADDITEM_OVERAMOUNT;
 			}
 			return CHKADDITEM_EXIST;
@@ -6470,6 +6474,31 @@ char pc_checkadditem(map_session_data *sd, t_itemid nameid, int amount)
  * @param sd
  * @return Number of empty slots
  *------------------------------------------*/
+uint16 pc_inventory_size(const map_session_data *sd)
+{
+	nullpo_ret(sd);
+
+	uint16 persistent_slots = cap_value(sd->status.inventory_slots, (uint16)INVENTORY_BASE_SIZE, (uint16)MAX_PERSISTENT_INVENTORY);
+	uint16 bonus_slots = cap_value(sd->bonus.inventory_slots, 0, INVENTORY_BONUS_SIZE);
+
+	return cap_value((uint16)(persistent_slots + bonus_slots), (uint16)INVENTORY_BASE_SIZE, (uint16)MAX_INVENTORY);
+}
+
+uint16 pc_inventory_display_size(const map_session_data *sd)
+{
+	nullpo_ret(sd);
+
+	uint16 inventory_size = pc_inventory_size(sd);
+
+	// Keep occupied overflow slots visible after a temporary bonus is removed.
+	for (uint16 i = MAX_INVENTORY; i > inventory_size; i--) {
+		if (sd->inventory.u.items_inventory[i - 1].nameid != 0)
+			return i;
+	}
+
+	return inventory_size;
+}
+
 uint8 pc_inventoryblank(map_session_data *sd)
 {
 	uint16 i;
@@ -6477,7 +6506,7 @@ uint8 pc_inventoryblank(map_session_data *sd)
 
 	nullpo_ret(sd);
 
-	for(i = 0, b = 0; i < sd->status.inventory_slots; i++){
+	for(i = 0, b = 0; i < pc_inventory_size(sd); i++){
 		if(sd->inventory.u.items_inventory[i].nameid == 0)
 			b++;
 	}
@@ -6735,7 +6764,7 @@ enum e_additem_result pc_additem(map_session_data *sd,struct item *item,int amou
 				if( amount > MAX_AMOUNT - sd->inventory.u.items_inventory[i].amount || ( id->stack.inventory && amount > id->stack.amount - sd->inventory.u.items_inventory[i].amount ) )
 					return ADDITEM_OVERAMOUNT;
 				// If the item is in the inventory already, but the player is not allowed to use that many slots anymore
-				if( i >= sd->status.inventory_slots ){
+				if( i >= pc_inventory_size(sd) ){
 					return ADDITEM_OVERAMOUNT;
 				}
 				sd->inventory.u.items_inventory[i].amount += amount;
@@ -6751,7 +6780,7 @@ enum e_additem_result pc_additem(map_session_data *sd,struct item *item,int amou
 		i = pc_search_inventory(sd,0);
 		if( i < 0 )
 			return ADDITEM_OVERITEM;
-		if( i >= sd->status.inventory_slots ){
+		if( i >= pc_inventory_size(sd) ){
 			return ADDITEM_OVERITEM;
 		}
 
@@ -6816,6 +6845,7 @@ enum e_additem_result pc_additem(map_session_data *sd,struct item *item,int amou
 char pc_delitem(map_session_data *sd,int n,int amount,int type, short reason, e_log_pick_type log_type)
 {
 	nullpo_retr(1, sd);
+	uint16 previous_inventory_size = pc_inventory_display_size(sd);
 
 	if(n < 0 || sd->inventory.u.items_inventory[n].nameid == 0 || amount <= 0 || sd->inventory.u.items_inventory[n].amount<amount || sd->inventory_data[n] == NULL)
 		return 1;
@@ -6841,6 +6871,8 @@ char pc_delitem(map_session_data *sd,int n,int amount,int type, short reason, e_
 
 	if(id->type == IT_CHARM || id->type == IT_CHARM_UPGRADE)
 		status_calc_pc(sd, SCO_NONE);
+	else if (previous_inventory_size != pc_inventory_display_size(sd))
+		clif_inventory_expansion_info(sd);
 
 	return 0;
 }

@@ -908,6 +908,7 @@ public:
 		int pet_loot_speed;
 		t_itemid pet_loot_item[20];
 		uint8 pet_loot_item_count;
+		int32 inventory_slots;
 	} bonus;
 	// zeroed vars end here.
 
@@ -1744,6 +1745,8 @@ bool pc_memo(map_session_data* sd, int pos);
 
 char pc_checkadditem(map_session_data *sd, t_itemid nameid, int amount);
 uint8 pc_inventoryblank(map_session_data *sd);
+uint16 pc_inventory_size(const map_session_data *sd);
+uint16 pc_inventory_display_size(const map_session_data *sd);
 short pc_search_inventory(map_session_data *sd, t_itemid nameid);
 char pc_payzeny(map_session_data *sd, int zeny, enum e_log_pick_type type, uint32 log_charid = 0);
 enum e_additem_result pc_additem(map_session_data *sd, struct item *item, int amount, e_log_pick_type log_type);

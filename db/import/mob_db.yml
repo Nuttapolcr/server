@@ -80,6 +80,60 @@ Header:
   Version: 3
 
 Body:
+  # Balanced monster-vs-monster racers for npc/custom/peco_10k.txt.
+  # Both sides intentionally share combat stats and do not grant EXP or drops.
+  - Id: 23027
+    AegisName: PECOPECO_10K
+    Name: Peco Peco 10K
+    Level: 19
+    Hp: 531
+    Attack: 50
+    Attack2: 64
+    Agi: 13
+    Vit: 13
+    Int: 25
+    Dex: 27
+    Luk: 9
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Brute
+    Element: Fire
+    ElementLevel: 1
+    WalkSpeed: 200
+    AttackDelay: 1564
+    AttackMotion: 864
+    ClientAttackMotion: 480
+    DamageMotion: 576
+    Ai: 03
+
+  - Id: 23028
+    AegisName: GRAND_PECO_10K
+    Name: Grand Peco 10K
+    Level: 19
+    Hp: 531
+    Attack: 50
+    Attack2: 64
+    Agi: 13
+    Vit: 13
+    Int: 25
+    Dex: 27
+    Luk: 9
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Brute
+    Element: Fire
+    ElementLevel: 1
+    WalkSpeed: 200
+    AttackDelay: 1564
+    AttackMotion: 864
+    ClientAttackMotion: 480
+    DamageMotion: 576
+    Ai: 03
+
   - Id: 31016
     AegisName: EMPELIUM_
     Name: Emperium_
@@ -141,40 +195,220 @@ Body:
     Class: Boss
 
   - Id: 31100
-    AegisName: CITY_TITAN
-    Name: City Titan
+    AegisName: CITY_THANATOS
+    Name: City Thanatos
     Level: 150
-    Hp: 20000000
+    Hp: 100000000
     Sp: 10000
     BaseExp: 500000
     JobExp: 250000
     MvpExp: 100000
+    Attack: 3812
+    Attack2: 7483
+    Defense: 35
+    MagicDefense: 35
+    Str: 100
+    Agi: 108
+    Vit: 30
+    Int: 86
+    Dex: 147
+    Luk: 32
+    AttackRange: 3
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Demon
+    Element: Ghost
+    ElementLevel: 4
+    WalkSpeed: 120
+    AttackDelay: 115
+    AttackMotion: 816
+    ClientAttackMotion: 672
+    DamageMotion: 504
+    Ai: 21
+    Class: Boss
+    Modes:
+      Mvp: true
+      Aggressive: true
+    Drops:
+      - Item: Thanatos_Card
+        Rate: 1
+        StealProtected: true
+
+  # ValorFight Map 2 timed scoring objectives (Google Sheet MA item 1).
+  - Id: 31101
+    AegisName: VF2_BIG_FLAG
+    Name: ValorFight Big Flag
+    Level: 90
+    Hp: 200
+    Attack: 1
+    Attack2: 1
+    Defense: 100
+    MagicDefense: 99
+    Dex: 999
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Neutral
+    ElementLevel: 1
+    WalkSpeed: 300
+    AttackDelay: 1288
+    AttackMotion: 288
+    DamageMotion: 384
+    Ai: 25
+    Class: Boss
+    Modes:
+      IgnoreMagic: true
+      IgnoreMelee: true
+      IgnoreMisc: true
+      IgnoreRanged: true
+      Detector: true
+      KnockBackImmune: true
+      TeleportBlock: true
+
+  - Id: 31102
+    AegisName: VF2_DAEHYON
+    Name: General Daehyun
+    Level: 150
+    Hp: 200000000
     Attack: 2500
     Attack2: 3500
-    Defense: 80
+    Defense: 70
     MagicDefense: 40
-    Str: 180
+    Str: 160
     Agi: 20
-    Vit: 150
+    Vit: 160
     Int: 80
     Dex: 120
     Luk: 30
     AttackRange: 2
     SkillRange: 10
-    ChaseRange: 20
-    Size: Large
+    ChaseRange: 12
+    Size: Medium
     Race: DemiHuman
-    Element: Dark
+    Element: Earth
+    ElementLevel: 3
+    WalkSpeed: 100
+    AttackDelay: 900
+    AttackMotion: 792
+    DamageMotion: 432
+    Ai: 21
+    Class: Boss
+    Modes:
+      Aggressive: true
+      CastSensorChase: true
+      ChangeTargetMelee: true
+      KnockBackImmune: true
+      TeleportBlock: true
+
+  - Id: 31103
+    AegisName: VF2_PYURIEL
+    Name: Pyuriel
+    Level: 150
+    Hp: 200000000
+    Attack: 2500
+    Attack2: 3500
+    Defense: 70
+    MagicDefense: 40
+    Str: 160
+    Agi: 20
+    Vit: 160
+    Int: 80
+    Dex: 120
+    Luk: 30
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    Element: Fire
+    ElementLevel: 3
+    WalkSpeed: 100
+    AttackDelay: 576
+    AttackMotion: 1380
+    DamageMotion: 360
+    Ai: 21
+    Class: Boss
+    Modes:
+      Aggressive: true
+      CastSensorChase: true
+      ChangeTargetMelee: true
+      KnockBackImmune: true
+      TeleportBlock: true
+
+  - Id: 31104
+    AegisName: VF2_GIOIA
+    Name: Gioia
+    Level: 150
+    Hp: 200000000
+    Attack: 2500
+    Attack2: 3500
+    Defense: 70
+    MagicDefense: 40
+    Str: 160
+    Agi: 20
+    Vit: 140
+    Int: 80
+    Dex: 140
+    Luk: 30
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    Element: Wind
+    ElementLevel: 3
+    WalkSpeed: 100
+    AttackDelay: 1344
+    AttackMotion: 2592
+    DamageMotion: 432
+    Ai: 21
+    Class: Boss
+    Modes:
+      Aggressive: true
+      CastSensorChase: true
+      ChangeTargetMelee: true
+      KnockBackImmune: true
+      TeleportBlock: true
+
+  - Id: 31105
+    AegisName: VF2_TREASURE_BOX
+    Name: ValorFight Box
+    Level: 150
+    Hp: 200000000
+    Attack: 2500
+    Attack2: 3500
+    Defense: 70
+    MagicDefense: 40
+    Str: 160
+    Agi: 20
+    Vit: 140
+    Int: 80
+    Dex: 140
+    Luk: 30
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Angel
+    Element: Holy
     ElementLevel: 3
     WalkSpeed: 300
-    AttackDelay: 1500
-    AttackMotion: 500
-    DamageMotion: 300
-    Ai: 02
+    AttackDelay: 1288
+    AttackMotion: 288
+    DamageMotion: 384
+    Ai: 21
     Class: Boss
     Modes:
       Mvp: true
       Aggressive: true
+      KnockBackImmune: true
+      TeleportBlock: true
+    MvpDrops:
+      - Item: Valor_Fight2_MVP_Box
+        Rate: 10000
 
   # Official-style damage-test dummies (also available on PRE builds).
   - Id: 21064

@@ -1,0 +1,597 @@
+//===== Custom NPC: ValorFight Map 2 ======================================
+//= Source: Google Sheet MA item 1 / tab "ดีเทลแมพวอ"
+//= One-hour guild score battle on hero_ent2.
+//=========================================================================
+
+hero_ent2,90,100,4	script	คะแนน ValorFight 2::Agit#hero_ent2	4_F_KAFRA1,{
+	callsub S_ShowScore;
+	close;
+
+OnInit:
+	.map$ = "hero_ent2";
+	.duration = 3600;
+	.active = 0;
+	.ending = 1;
+	.start_tick = 0;
+	setarray .boss_id[0],31102,31103,31104;
+	setarray .boss_history[0],1,3,5;
+	setarray .phase$[0],
+		"นาที 5 - ธงใหญ่ +5",
+		"นาที 10 - General Daehyun +8",
+		"นาที 15 - ธงใหญ่ +5",
+		"นาที 20 - Pyuriel +8",
+		"นาที 25 - ธงใหญ่ +5",
+		"นาที 30 - Gioia +8",
+		"นาที 35 - ValorFight Box +12",
+		"นาที 40 - หินใหญ่ +25";
+	callsub S_ResetScore;
+	callsub S_ClearObjectives;
+	GvgOff .map$;
+	.ending = 0;
+	end;
+
+OnAgitStart:
+	.@idx = getvariableofnpc(.ValorFight2Index,"WOE_CONTROL");
+	.@count = getvariableofnpc(.CastleCount,"WOE_CONTROL");
+	.@active = getvariableofnpc(.Active[0],"WOE_CONTROL");
+	if (.@idx < 0 || .@idx >= .@count || !(.@active & (1 << .@idx)))
+		end;
+	callsub S_Start;
+	end;
+
+OnAgitEnd:
+	if (.active)
+		callsub S_Finish;
+	else {
+		.ending = 1;
+		callsub S_ClearObjectives;
+		GvgOff .map$;
+		.ending = 0;
+	}
+	end;
+
+OnGuildBreak:
+	setcastledata .map$,1,0;
+	.stone_owner_gid = 0;
+	.stone_breaker$ = "";
+	end;
+
+// GM test: @doevent Agit#hero_ent2::OnGMStart
+OnGMStart:
+	if (.active) {
+		announce "[ValorFight 2] Event กำลังทำงานอยู่",bc_self;
+		end;
+	}
+	callsub S_Start;
+	end;
+
+// GM test: @doevent Agit#hero_ent2::OnGMStop
+OnGMStop:
+	if (.active)
+		callsub S_Finish;
+	end;
+
+S_Start:
+	if (.active) return;
+	.ending = 1;
+	stopnpctimer;
+	callsub S_ClearObjectives;
+	callsub S_ResetScore;
+	setcastledata .map$,1,0;
+	GvgOn .map$;
+	.active = 1;
+	.ending = 0;
+	.start_tick = gettimetick(2);
+	initnpctimer;
+	announce "[ValorFight 2] เริ่มสงครามเก็บคะแนนบน hero_ent2 เป็นเวลา 1 ชั่วโมง!",bc_all|bc_woe;
+	announce "[ValorFight 2] ตรวจคะแนนและรายชื่อผู้ทำแต้มได้ที่ NPC กลางแมพ",bc_all|bc_woe;
+	return;
+
+OnTimer1000:
+	if (!.active) {
+		stopnpctimer;
+		end;
+	}
+	.@elapsed = gettimetick(2)-.start_tick;
+
+	if (!.spawned[0] && .@elapsed >= 300) {
+		.spawned[0] = 1;
+		callsub S_SpawnFlag,0,0;
+	}
+	if (!.spawned[1] && .@elapsed >= 600) {
+		.spawned[1] = 1;
+		callsub S_SpawnBoss,0;
+	}
+	if (!.spawned[2] && .@elapsed >= 900) {
+		.spawned[2] = 1;
+		callsub S_SpawnFlag,1,2;
+	}
+	if (!.spawned[3] && .@elapsed >= 1200) {
+		.spawned[3] = 1;
+		callsub S_SpawnBoss,1;
+	}
+	if (!.spawned[4] && .@elapsed >= 1500) {
+		.spawned[4] = 1;
+		callsub S_SpawnFlag,2,4;
+	}
+	if (!.spawned[5] && .@elapsed >= 1800) {
+		.spawned[5] = 1;
+		callsub S_SpawnBoss,2;
+	}
+	if (!.spawned[6] && .@elapsed >= 2100) {
+		.spawned[6] = 1;
+		callsub S_SpawnChest;
+	}
+	if (!.spawned[7] && .@elapsed >= 2400) {
+		.spawned[7] = 1;
+		callsub S_SpawnStone;
+	}
+
+	for (.@i = 0; .@i < 3; .@i++) {
+		if (!.boss_gid[.@i] || !unitexists(.boss_gid[.@i]) || .casting[.@i])
+			continue;
+		getunitdata .boss_gid[.@i],.@boss;
+		.@hp_rate = (.@boss[UMOB_HP]*100)/.@boss[UMOB_MAXHP];
+		if (.next_phase[.@i] >= 20 && .@hp_rate <= .next_phase[.@i]) {
+			.@threshold = .next_phase[.@i];
+			.next_phase[.@i] -= 20;
+			callsub S_BossPhase,.@i,.@threshold;
+		}
+		else
+			callsub S_BossSkills,.@i;
+	}
+
+	if (.active && .@elapsed >= .duration) {
+		callsub S_Finish;
+		end;
+	}
+	if (.active)
+		setnpctimer 0;
+	else
+		stopnpctimer;
+	end;
+
+S_SpawnFlag:
+	.@round = getarg(0);
+	.@history = getarg(1);
+	setarray .@x[0],150,110,43,42,89;
+	setarray .@y[0],89,29,46,117,61;
+	.@spot = rand(5);
+	.state$[.@history] = "กำลังแข่งขัน";
+	monster .map$,.@x[.@spot],.@y[.@spot],"[ธงใหญ่]",31101,1,
+		"Agit#hero_ent2::"+((.@round == 0)?"OnFlag5Killed":((.@round == 1)?"OnFlag15Killed":"OnFlag25Killed"));
+	.flag_gid[.@round] = $@mobid[0];
+	if (.flag_gid[.@round])
+		announce "[ValorFight 2] ธงใหญ่ปรากฏแล้ว ทำลายเพื่อรับ 5 คะแนน!",bc_all|bc_woe;
+	else
+		.state$[.@history] = "เกิดไม่สำเร็จ";
+	return;
+
+S_SpawnBoss:
+	.@index = getarg(0);
+	.@history = .boss_history[.@index];
+	.state$[.@history] = "กำลังแข่งขัน";
+	monster .map$,90,82,"[VF2] "+getmonsterinfo(.boss_id[.@index],MOB_NAME),.boss_id[.@index],1,
+		"Agit#hero_ent2::"+((.@index == 0)?"OnBoss1Killed":((.@index == 1)?"OnBoss2Killed":"OnBoss3Killed"));
+	.boss_gid[.@index] = $@mobid[0];
+	if (!.boss_gid[.@index]) {
+		.state$[.@history] = "เกิดไม่สำเร็จ";
+		return;
+	}
+	setunitdata .boss_gid[.@index],UMOB_HIT,270;
+	setunitdata .boss_gid[.@index],UMOB_FLEE,170;
+	.next_phase[.@index] = 80;
+	.casting[.@index] = 0;
+	.@now = gettimetick(2);
+	.next_assumptio[.@index] = .@now+10;
+	.next_dispell[.@index] = .@now+20;
+	.next_special1[.@index] = .@now+((.@index == 2)?30:10);
+	.next_special2[.@index] = .@now+20;
+	announce "[ValorFight 2] "+getmonsterinfo(.boss_id[.@index],MOB_NAME)+" ปรากฏแล้วที่ 90,82 ทำลายเพื่อรับ 8 คะแนน!",bc_all|bc_woe;
+	return;
+
+S_SpawnChest:
+	.state$[6] = "กำลังแข่งขัน";
+	monster .map$,90,121,"[ValorFight Box]",31105,1,"Agit#hero_ent2::OnChestKilled";
+	.chest_gid = $@mobid[0];
+	if (.chest_gid) {
+		setunitdata .chest_gid,UMOB_HIT,270;
+		setunitdata .chest_gid,UMOB_FLEE,170;
+		announce "[ValorFight 2] ValorFight Box ปรากฏแล้วที่ 90,121 ทำลายเพื่อรับ 12 คะแนน!",bc_all|bc_woe;
+	}
+	else
+		.state$[6] = "เกิดไม่สำเร็จ";
+	return;
+
+S_SpawnStone:
+	.@respawn = getarg(0,0);
+	if (!.@respawn)
+		.state$[7] = "รอผู้ยึดครอง";
+	.@name$ = "[หินใหญ่]";
+	if (.stone_owner_gid > 0)
+		.@name$ += " "+getguildname(.stone_owner_gid);
+	// Use the real Emperium so WoE restrictions and one-damage hits match normal castles.
+	monster .map$,90,150,.@name$,1288,1,"Agit#hero_ent2::OnStoneKilled";
+	.stone_gid = $@mobid[0];
+	if (.stone_gid) {
+		if (!.@respawn)
+			announce "[ValorFight 2] หินใหญ่ปรากฏแล้ว ยึดครองไว้จนจบนาทีที่ 60 เพื่อรับ 25 คะแนน!",bc_all|bc_woe;
+	}
+	else
+		.state$[7] = "เกิดไม่สำเร็จ";
+	return;
+
+S_BossPhase:
+	.@index = getarg(0);
+	.@threshold = getarg(1);
+	.@gid = .boss_gid[.@index];
+	if (!.active || !.@gid || !unitexists(.@gid)) return;
+	.casting[.@index] = 1;
+	setunitdata .@gid,UMOB_DMGIMMUNE,1;
+	unitstopattack .@gid;
+	getunitdata .@gid,.@boss;
+
+	if (.@index == 0) {
+		announce "[ValorFight 2] Daehyun HP "+.@threshold+"%: ทุกคนต้องนั่งภายใน 5 วินาที!",bc_all|bc_woe;
+		areamobuseskill .map$,.@boss[UMOB_X],.@boss[UMOB_Y],0,.boss_id[.@index],"NV_FIRSTAID",1,5000,0,0,0;
+		sleep 5000;
+		if (.active && unitexists(.@gid))
+			callsub S_CheckSitting;
+	}
+	else if (.@index == 1) {
+		announce "[ValorFight 2] Pyuriel HP "+.@threshold+"%: ต้องติดแช่แข็งหลังหลอดร่าย มิฉะนั้นจะตาย!",bc_all|bc_woe;
+		areamobuseskill .map$,.@boss[UMOB_X],.@boss[UMOB_Y],0,.boss_id[.@index],"WZ_STORMGUST",10,5000,0,0,0;
+		sleep 6500;
+		if (.active && unitexists(.@gid))
+			callsub S_CheckFrozen;
+	}
+	else {
+		announce "[ValorFight 2] Gioia HP "+.@threshold+"%: กำลังร่าย Earthquake Lv.5 เป็นเวลา 2.5 วินาที!",bc_all|bc_woe;
+		areamobuseskill .map$,.@boss[UMOB_X],.@boss[UMOB_Y],0,.boss_id[.@index],"NPC_EARTHQUAKE",5,2500,0,0,0;
+		sleep 2500;
+	}
+
+	if (.active && unitexists(.@gid))
+		setunitdata .@gid,UMOB_DMGIMMUNE,0;
+	.casting[.@index] = 0;
+	return;
+
+S_CheckSitting:
+	.@count = getareaunits(BL_PC,.map$,0,0,179,179,.@players[0]);
+	for (.@i = 0; .@i < .@count; .@i++) {
+		if (!attachrid(.@players[.@i])) continue;
+		if (strcharinfo(3) == .map$ && readparam(Hp) > 0 && !readparam(Sitting))
+			unitkill .@players[.@i];
+		detachrid;
+	}
+	return;
+
+S_CheckFrozen:
+	.@count = getareaunits(BL_PC,.map$,0,0,179,179,.@players[0]);
+	for (.@i = 0; .@i < .@count; .@i++) {
+		if (!attachrid(.@players[.@i])) continue;
+		if (strcharinfo(3) != .map$ || readparam(Hp) <= 0) {
+			detachrid;
+			continue;
+		}
+		if (getstatus(SC_FREEZE))
+			sc_end SC_FREEZE;
+		else
+			unitkill .@players[.@i];
+		detachrid;
+	}
+	return;
+
+S_BossSkills:
+	.@index = getarg(0);
+	.@gid = .boss_gid[.@index];
+	if (!.@gid || !unitexists(.@gid)) return;
+	.@now = gettimetick(2);
+
+	if (.@index == 2 && .@now >= .next_special1[.@index]) {
+		.next_special1[.@index] = .@now+30;
+		.@target = callsub(S_RandomTarget,.@gid);
+		if (.@target) {
+			unitskilluseid .@gid,"ST_FULLSTRIP",5,.@target;
+			return;
+		}
+	}
+	if (.@now >= .next_dispell[.@index]) {
+		.next_dispell[.@index] = .@now+20;
+		.@target = callsub(S_RandomTarget,.@gid);
+		if (.@target) {
+			unitskilluseid .@gid,"SA_DISPELL",5,.@target;
+			return;
+		}
+	}
+	if (.@index == 2 && .@now >= .next_special2[.@index]) {
+		.next_special2[.@index] = .@now+20;
+		getunitdata .@gid,.@boss;
+		unitskillusepos .@gid,"AL_PNEUMA",1,.@boss[UMOB_X],.@boss[UMOB_Y];
+		return;
+	}
+	if (.@now >= .next_assumptio[.@index]) {
+		.next_assumptio[.@index] = .@now+10;
+		if (rand(100) < 20) {
+			unitskilluseid .@gid,"HP_ASSUMPTIO",5,.@gid;
+			return;
+		}
+	}
+	if (.@index == 1 && .@now >= .next_special1[.@index]) {
+		.next_special1[.@index] = .@now+10;
+		if (rand(100) < 10) {
+			getunitdata .@gid,.@boss;
+			unitskillusepos .@gid,"WZ_STORMGUST",10,.@boss[UMOB_X],.@boss[UMOB_Y];
+		}
+	}
+	return;
+
+S_RandomTarget:
+	.@gid = getarg(0);
+	if (!.@gid || !unitexists(.@gid)) return 0;
+	getunitdata .@gid,.@boss;
+	.@target = .@boss[UMOB_TARGETID];
+	if (.@target && attachrid(.@target)) {
+		.@valid = (strcharinfo(3) == .map$ && readparam(Hp) > 0);
+		detachrid;
+		if (.@valid) return .@target;
+	}
+	.@count = getareaunits(BL_PC,.map$,.@boss[UMOB_X]-10,.@boss[UMOB_Y]-10,
+		.@boss[UMOB_X]+10,.@boss[UMOB_Y]+10,.@players[0]);
+	if (.@count <= 0) return 0;
+	.@start = 0;
+	// rand(1) terminates the whole NPC event on this server build.
+	if (.@count > 1)
+		.@start = rand(.@count);
+	for (.@i = 0; .@i < .@count; .@i++) {
+		.@target = .@players[(.@start+.@i)%.@count];
+		if (!attachrid(.@target)) continue;
+		.@valid = (strcharinfo(3) == .map$ && readparam(Hp) > 0);
+		detachrid;
+		if (.@valid) return .@target;
+	}
+	return 0;
+
+OnFlag5Killed:
+	.flag_gid[0] = 0;
+	if (!.active || .ending) end;
+	callsub S_Award,0,5;
+	end;
+
+OnBoss1Killed:
+	.boss_gid[0] = 0;
+	if (!.active || .ending) end;
+	callsub S_Award,1,8;
+	end;
+
+OnFlag15Killed:
+	.flag_gid[1] = 0;
+	if (!.active || .ending) end;
+	callsub S_Award,2,5;
+	end;
+
+OnBoss2Killed:
+	.boss_gid[1] = 0;
+	if (!.active || .ending) end;
+	callsub S_Award,3,8;
+	end;
+
+OnFlag25Killed:
+	.flag_gid[2] = 0;
+	if (!.active || .ending) end;
+	callsub S_Award,4,5;
+	end;
+
+OnBoss3Killed:
+	.boss_gid[2] = 0;
+	if (!.active || .ending) end;
+	callsub S_Award,5,8;
+	end;
+
+OnChestKilled:
+	.chest_gid = 0;
+	if (!.active || .ending) end;
+	callsub S_Award,6,12;
+	end;
+
+OnStoneKilled:
+	.stone_gid = 0;
+	if (!.active || .ending) end;
+	if (!playerattached()) {
+		.state$[7] = "หินแตกโดยไม่มีผู้เล่น";
+		callsub S_SpawnStone,1;
+		end;
+	}
+	.@guild_id = getcharid(2);
+	if (.@guild_id <= 0) {
+		announce "[ValorFight 2] "+strcharinfo(0)+" ทำลายหินใหญ่ แต่ยึดครองไม่ได้เพราะไม่มีกิลด์",bc_all|bc_woe;
+		callsub S_SpawnStone,1;
+		end;
+	}
+	.stone_owner_gid = .@guild_id;
+	.stone_breaker$ = strcharinfo(0);
+	setcastledata .map$,1,.@guild_id;
+	.scorer$[7] = .stone_breaker$;
+	.guild$[7] = getguildname(.@guild_id);
+	.earned[7] = 0;
+	.state$[7] = "ครอบครองโดย "+.guild$[7]+" - รอสรุปนาที 60";
+	announce "[ValorFight 2] กิลด์ "+.guild$[7]+" ยึดครองหินใหญ่โดย "+.stone_breaker$+"! ต้องรักษาไว้จนจบนาทีที่ 60",bc_all|bc_woe;
+	sleep 500;
+	if (.active && !.ending)
+		callsub S_SpawnStone,1;
+	end;
+
+S_Award:
+	.@history = getarg(0);
+	.@points = getarg(1);
+	if (!playerattached()) {
+		.state$[.@history] = "ถูกทำลายโดยไม่มีผู้เล่น";
+		return;
+	}
+	.@char$ = strcharinfo(0);
+	.@guild_id = getcharid(2);
+	if (.@guild_id <= 0) {
+		.scorer$[.@history] = .@char$;
+		.guild$[.@history] = "ไม่มีกิลด์";
+		.earned[.@history] = 0;
+		.state$[.@history] = "ทำลายแล้ว แต่ไม่ได้คะแนน";
+		announce "[ValorFight 2] "+.@char$+" ทำลาย "+.phase$[.@history]+" แต่ไม่ได้คะแนนเพราะไม่มีกิลด์",bc_all|bc_woe;
+		return;
+	}
+	callsub S_AwardGuild,.@history,.@points,.@guild_id,.@char$;
+	return;
+
+S_AwardGuild:
+	.@history = getarg(0);
+	.@points = getarg(1);
+	.@guild_id = getarg(2);
+	.@char$ = getarg(3,"-");
+	if (.@guild_id <= 0) return;
+	.@guild$ = getguildname(.@guild_id);
+	.@slot = -1;
+	for (.@i = 0; .@i < getarraysize(.guild_id); .@i++) {
+		if (.guild_id[.@i] == .@guild_id) {
+			.@slot = .@i;
+			break;
+		}
+	}
+	if (.@slot < 0) {
+		.@slot = getarraysize(.guild_id);
+		if (.guild_id[0] == 0) .@slot = 0;
+		.guild_id[.@slot] = .@guild_id;
+		.guild_name$[.@slot] = .@guild$;
+		.guild_score[.@slot] = 0;
+	}
+	.guild_score[.@slot] += .@points;
+	.guild$[.@history] = .@guild$;
+	.earned[.@history] = .@points;
+	.state$[.@history] = "ทำคะแนนสำเร็จ";
+	announce "[ValorFight 2] "+.@char$+" แห่งกิลด์ "+.@guild$+" ได้ "+.@points+" คะแนน จาก "+.phase$[.@history],bc_all|bc_woe;
+	return;
+
+S_Finish:
+	if (!.active) return;
+	if (.spawned[7]) {
+		if (.stone_owner_gid > 0)
+			callsub S_AwardGuild,7,25,.stone_owner_gid,.stone_breaker$;
+		else
+			.state$[7] = "หมดเวลา - ไม่มีผู้ครองหิน";
+	}
+	.active = 0;
+	.ending = 1;
+	stopnpctimer;
+	for (.@i = 0; .@i < 8; .@i++) {
+		if (.state$[.@i] == "กำลังแข่งขัน")
+			.state$[.@i] = "หมดเวลา - ไม่มีผู้ทำคะแนน";
+	}
+	callsub S_ClearObjectives;
+	GvgOff .map$;
+
+	.@best = 0;
+	.@winner = 0;
+	.@ties = 0;
+	.@winner_name$ = "";
+	for (.@i = 0; .@i < getarraysize(.guild_id); .@i++) {
+		if (.guild_id[.@i] <= 0) continue;
+		if (.guild_score[.@i] > .@best) {
+			.@best = .guild_score[.@i];
+			.@winner = .guild_id[.@i];
+			.@winner_name$ = .guild_name$[.@i];
+			.@ties = 1;
+		}
+		else if (.guild_score[.@i] == .@best && .@best > 0)
+			.@ties++;
+	}
+	if (.@winner > 0 && .@ties == 1) {
+		setcastledata .map$,1,.@winner;
+		announce "[ValorFight 2] จบสงคราม! กิลด์ "+.@winner_name$+" ชนะด้วย "+.@best+" คะแนน",bc_all|bc_woe;
+	}
+	else {
+		setcastledata .map$,1,0;
+		if (.@ties > 1)
+			announce "[ValorFight 2] จบสงครามแบบเสมอ ไม่มีผู้ชนะ",bc_all|bc_woe;
+		else
+			announce "[ValorFight 2] จบสงครามโดยไม่มีผู้ทำคะแนน",bc_all|bc_woe;
+	}
+	.ending = 0;
+	return;
+
+S_ClearObjectives:
+	killmonster .map$,"Agit#hero_ent2::OnFlag5Killed";
+	killmonster .map$,"Agit#hero_ent2::OnBoss1Killed";
+	killmonster .map$,"Agit#hero_ent2::OnFlag15Killed";
+	killmonster .map$,"Agit#hero_ent2::OnBoss2Killed";
+	killmonster .map$,"Agit#hero_ent2::OnFlag25Killed";
+	killmonster .map$,"Agit#hero_ent2::OnBoss3Killed";
+	killmonster .map$,"Agit#hero_ent2::OnChestKilled";
+	killmonster .map$,"Agit#hero_ent2::OnStoneKilled";
+	deletearray .flag_gid[0],getarraysize(.flag_gid);
+	deletearray .boss_gid[0],getarraysize(.boss_gid);
+	.chest_gid = 0;
+	.stone_gid = 0;
+	.stone_owner_gid = 0;
+	.stone_breaker$ = "";
+	return;
+
+S_ResetScore:
+	deletearray .guild_id[0],getarraysize(.guild_id);
+	deletearray .guild_score[0],getarraysize(.guild_score);
+	deletearray .guild_name$[0],getarraysize(.guild_name$);
+	deletearray .spawned[0],getarraysize(.spawned);
+	deletearray .flag_gid[0],getarraysize(.flag_gid);
+	deletearray .boss_gid[0],getarraysize(.boss_gid);
+	deletearray .next_phase[0],getarraysize(.next_phase);
+	deletearray .casting[0],getarraysize(.casting);
+	deletearray .next_assumptio[0],getarraysize(.next_assumptio);
+	deletearray .next_dispell[0],getarraysize(.next_dispell);
+	deletearray .next_special1[0],getarraysize(.next_special1);
+	deletearray .next_special2[0],getarraysize(.next_special2);
+	for (.@i = 0; .@i < 8; .@i++) {
+		.state$[.@i] = "ยังไม่เกิด";
+		.scorer$[.@i] = "-";
+		.guild$[.@i] = "-";
+		.earned[.@i] = 0;
+	}
+	.chest_gid = 0;
+	.stone_gid = 0;
+	return;
+
+S_ShowScore:
+	mes "[คะแนน ValorFight 2]";
+	if (.active) {
+		.@remaining = .duration-(gettimetick(2)-.start_tick);
+		if (.@remaining < 0) .@remaining = 0;
+		mes "สถานะ: ^00AA00กำลังแข่งขัน^000000";
+		mes "เหลือเวลา: ^0055FF"+(.@remaining/60)+" นาที "+(.@remaining%60)+" วินาที^000000";
+	}
+	else
+		mes "สถานะ: ^777777ยังไม่เปิด / จบแล้ว^000000";
+	mes " ";
+	mes "^0055FFคะแนนรวมกิลด์^000000";
+	.@found = 0;
+	for (.@i = 0; .@i < getarraysize(.guild_id); .@i++) {
+		if (.guild_id[.@i] <= 0) continue;
+		mes "- "+.guild_name$[.@i]+": ^FF0000"+.guild_score[.@i]+" คะแนน^000000";
+		.@found = 1;
+	}
+	if (!.@found) mes "- ยังไม่มีคะแนน";
+	next;
+	mes "[ผู้ทำคะแนนแต่ละช่วง]";
+	for (.@i = 0; .@i < 8; .@i++) {
+		mes "^0055FF"+.phase$[.@i]+"^000000";
+		mes "  "+.state$[.@i];
+		if (.scorer$[.@i] != "-")
+			mes "  "+.scorer$[.@i]+" / "+.guild$[.@i]+" / +"+.earned[.@i];
+	}
+	return;
+}
+
+hero_ent2	mapflag	gvg_castle
+hero_ent2	mapflag	nosave	SavePoint
+hero_ent2	mapflag	noteleport
+hero_ent2	mapflag	nowarp
+hero_ent2	mapflag	nowarpto
+hero_ent2	mapflag	nomemo
+hero_ent2	mapflag	nobranch
+hero_ent2	mapflag	noicewall
+hero_ent2	mapflag	loadevent

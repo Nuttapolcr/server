@@ -84,6 +84,32 @@ Body:
         Price: 3190
       - Item: Copper_Beyond_Box_Set
         Price: 8990
+  - Tab: Scrolls
+    Items:
+      - Item: aegis_1001722
+        Price: 590
+      - Item: aegis_1001723
+        Price: 890
+      - Item: aegis_1001724
+        Price: 1490
+      - Item: Easter_Egg
+        Price: 129
+      - Item: Hero_Token_Box
+        Price: 89
+      - Item: Cru_Scroll
+        Price: 89
+      - Item: Munin_Egg01
+        Price: 89
+      - Item: Pet_Friendly_Ticket
+        Price: 499
+      - Item: Def_PK
+        Price: 100
+      - Item: AUTOATTACK_AI_RENT
+        Price: 129
+      - Item: AUTOATTACK_AI_RENT_7D
+        Price: 799
+      - Item: AUTOATTACK_AI_RENT_30D
+        Price: 2990
 Footer:
   Imports:
     - Path: db/import/item_cash.yml

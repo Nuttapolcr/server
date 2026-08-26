@@ -3464,6 +3464,7 @@ Body:
     Name: Thara Frog Card
     Type: Card
     Buy: 0
+    Sell: 0
     Weight: 10
     Locations:
       Left_Hand: true
@@ -3471,11 +3472,9 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
       DropAnnounce: true
-    Script: |
+    Script: |-
       bonus2 bSubRace,RC_DemiHuman,30;
       bonus2 bSubRace,RC_Player_Human,30;
-      bonus2 bSubRace,RC_Player_Human,2;
-    Sell: 0
   - Id: 4059
     AegisName: Soldier_Andre_Card
     Name: Soldier Andre Card

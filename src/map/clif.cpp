@@ -24157,9 +24157,10 @@ void clif_inventory_expansion_info( map_session_data* sd ){
 	nullpo_retv( sd );
 
 	struct PACKET_ZC_EXTEND_BODYITEM_SIZE p = {};
+	uint16 inventory_size = pc_inventory_display_size(sd);
 
 	p.packetType = HEADER_ZC_EXTEND_BODYITEM_SIZE;
-	p.expansionSize = sd->status.inventory_slots - INVENTORY_BASE_SIZE;
+	p.expansionSize = inventory_size - INVENTORY_BASE_SIZE;
 
 	clif_send( &p, sizeof( p ), &sd->bl, SELF );
 #endif
@@ -24196,7 +24197,7 @@ void clif_parse_inventory_expansion_request( int fd, map_session_data* sd ){
 	}
 
 	// Check if the player already reached the maximum
-	if( sd->status.inventory_slots >= MAX_INVENTORY ){
+	if( sd->status.inventory_slots >= MAX_PERSISTENT_INVENTORY ){
 		clif_inventory_expansion_response( sd, e_inventory_expansion_response::MAXIMUM_REACHED );
 		return;
 	}
@@ -24220,7 +24221,7 @@ void clif_parse_inventory_expansion_request( int fd, map_session_data* sd ){
 		// Found an item
 		if( index >= 0 ){
 			// Check if the player would exceed the maximum
-			if( sd->status.inventory_slots + entry.second > MAX_INVENTORY ){
+			if( sd->status.inventory_slots + entry.second > MAX_PERSISTENT_INVENTORY ){
 				found_over_limit = true;
 			}else{
 				found_over_limit = false;
@@ -24286,7 +24287,7 @@ void clif_parse_inventory_expansion_confirm( int fd, map_session_data* sd ){
 	}
 
 	// Check if the player already reached the maximum
-	if( sd->status.inventory_slots >= MAX_INVENTORY ){
+	if( sd->status.inventory_slots >= MAX_PERSISTENT_INVENTORY ){
 		clif_inventory_expansion_result( sd, e_inventory_expansion_result::MAXIMUM_REACHED );
 		return;
 	}
@@ -24301,7 +24302,7 @@ void clif_parse_inventory_expansion_confirm( int fd, map_session_data* sd ){
 	}
 
 	// Check if the player would exceed the maximum
-	if( sd->status.inventory_slots + sd->state.inventory_expansion_amount > MAX_INVENTORY ){
+	if( sd->status.inventory_slots + sd->state.inventory_expansion_amount > MAX_PERSISTENT_INVENTORY ){
 		clif_inventory_expansion_result( sd, e_inventory_expansion_result::MAXIMUM_REACHED );
 		return;
 	}

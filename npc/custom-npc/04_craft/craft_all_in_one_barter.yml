@@ -270,6 +270,55 @@ Body:
           - Index: 0
             Item: Costume_Option_Ticket
             Amount: 5
+      - Index: 23
+        Item: Cos_Blank_Eyes
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 24
+        Item: Cos_Angel_Wing_Ears
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 25
+        Item: Cos_Evil_Wing_Ears
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 26
+        Item: Costume_Archangel_Wing
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 27
+        Item: Costume_Fallen_Angel_Wings
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 28
+        Item: Costume_Golden_Angel_Wings
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
+      - Index: 29
+        Item: Cos_Gentleman_Pipe
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Costume_Option_Ticket
+            Amount: 5
 
   - Name: CRAFT_ALL_IN_ONE_GENERAL
     CraftBarter: false
@@ -387,54 +436,122 @@ Body:
           - Index: 0
             Item: New_Item_1500024
       - Index: 1
+        Item: Coin_Varlor_V.1
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Valor_V3
+      - Index: 2
         Item: Rideword_Hat
         Zeny: 3000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 2
+      - Index: 3
         Item: Anubis_Helm
         Zeny: 3000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 3
+      - Index: 4
         Item: FlyingGalapago
         Zeny: 3000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 4
+      - Index: 5
         Item: Handkerchief_In_Mouth
         Zeny: 3000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 5
+      - Index: 6
         Item: N_Charm_Valor_V.1
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 5
-      - Index: 6
+      - Index: 7
         Item: "R_Charm_Valor V.1"
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 5
-      - Index: 7
+      - Index: 8
         Item: "E_Charm_Valor V.1"
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 5
+      - Index: 9
+        Item: RWC_2010_Indonesia
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 3
+      - Index: 10
+        Item: Cat_Ear_Beret
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 3
+      - Index: 11
+        Item: Red_Pom_Band
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 3
+      - Index: 12
+        Item: Blood_Sucker
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 3
+      - Index: 13
+        Item: Fan_in_Mouth
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 2
+      - Index: 14
+        Item: Happy_Balloon_K
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 2
+      - Index: 15
+        Item: Charm_FLEE_Valor
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 3
+      - Index: 16
+        Item: Charm_ASPD_Valor
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 3
+      - Index: 17
+        Item: Charm_Critical_Valor
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1
+            Amount: 3
 
   - Name: CRAFT_SHADOW_9
     CraftBarter: false

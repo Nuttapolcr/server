@@ -2,15 +2,15 @@
 //= Visible NPCs open the hidden HICLASS barter shops.
 //============================================================
 
-morocc,139,156,4	script	NPCคราฟแร่	4_M_EINMINER,{
-	mes "[NPCคราฟแร่]";
+morocc,139,156,4	script	NPCคราฟและอัพเกรดแร่	4_M_EINMINER,{
+	mes "[NPCคราฟและอัพเกรดแร่]";
 	mes "เลือกประเภทการคราฟที่ต้องการ";
 	close2;
 	callshop "HICLASS_CRAFT_ORE",1;
 	end;
 
 OnInit:
-	waitingroom "NPCคราฟแร่",0;
+	waitingroom "NPCคราฟและอัพเกรดแร่",0;
 	end;
 }
 
@@ -38,5 +38,28 @@ morocc,139,153,4	script	NPCคราฟของสวมใส่	4_M_REPAIR,{
 
 OnInit:
 	waitingroom "NPCคราฟของสวมใส่",0;
+	end;
+}
+
+morocc,139,150,4	script	Rudolf Craft	668,{
+	mes "[Rudolf Craft]";
+	mes "เลือกหัวข้อที่ต้องการคราฟ";
+	next;
+
+	switch (select("คราฟไอเทม Rare:คราฟของทั่วไป:ยกเลิก")) {
+	case 1:
+		close2;
+		callshop "HICLASS_RUDOLF_CRAFT",1;
+		end;
+	case 2:
+		close2;
+		callshop "HICLASS_RUDOLF_GENERAL",1;
+		end;
+	default:
+		close;
+	}
+
+OnInit:
+	waitingroom "Rudolf Craft",0;
 	end;
 }

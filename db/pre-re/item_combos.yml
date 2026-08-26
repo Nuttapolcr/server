@@ -1138,14 +1138,15 @@ Body:
       - Combo:
           - Gh_md_luk
           - Lucky_Day
-    Script: |
+    Script: |-
       bonus bAspd,2;
+      bonus bCritical,50;
   - Combos:
       - Combo:
           - Gh_md_vit
           - Muscle_Fool
     Script: |
-      bonus bLongAtkRate,7;
+      bonus bDelayrate,-10;
   - Combos:
       - Combo:
           - Casting_Top

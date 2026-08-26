@@ -56,10 +56,18 @@
 	#endif
 #endif
 
+#ifndef INVENTORY_BONUS_SIZE
+	#define INVENTORY_BONUS_SIZE 10 // Maximum temporary inventory slots granted by script bonuses
+#endif
+
+#ifndef MAX_PERSISTENT_INVENTORY
+	#define MAX_PERSISTENT_INVENTORY ( INVENTORY_BASE_SIZE + INVENTORY_EXPANSION_SIZE ) // Maximum permanently unlocked slots
+#endif
+
 #ifndef MAX_INVENTORY
-	#define MAX_INVENTORY ( INVENTORY_BASE_SIZE + INVENTORY_EXPANSION_SIZE ) // Maximum items in player inventory (in total)
+	#define MAX_INVENTORY ( MAX_PERSISTENT_INVENTORY + INVENTORY_BONUS_SIZE ) // Maximum items including temporary script bonuses
 #else
-	#if MAX_INVENTORY < ( INVENTORY_BASE_SIZE + INVENTORY_EXPANSION_SIZE )
+	#if MAX_INVENTORY < ( MAX_PERSISTENT_INVENTORY + INVENTORY_BONUS_SIZE )
 		#error Your custom MAX_INVENTORY define is too low
 	#endif
 #endif

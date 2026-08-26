@@ -1,7 +1,7 @@
 //!rathena
 // Daily / Weekly Quest NPC from sheet
 
-function	script	F_DWQ_RecordCityTitanKill	{
+function	script	F_DWQ_RecordTitanOrThanatosKill	{
 	.@dow = gettime(DT_DAYOFWEEK);
 	.@offset = (.@dow == SUNDAY) ? 6 : .@dow - MONDAY;
 	if (.@dow == MONDAY && gettime(DT_HOUR) == 0 && gettime(DT_MINUTE) == 0)
@@ -217,22 +217,18 @@ S_ShowDetail:
 	switch (.@qid) {
 	case 71020:
 		mes "ส่ง Item ^i[967] x300, ^i[747] x30, ^i[748] x20";
-		mes "กำจัดบอส 1 ตัว";
 		mes "รางวัล: ^i[1000373] x20, ^i[1500008] x1, ^i[1030074] x1";
 		return;
 	case 71021:
 		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 1,000 ตัว";
-		mes "กำจัดบอส 1 ตัว";
 		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10, ^i[1500008] x1, ^i[1030074] x1";
 		return;
 	case 71022:
 		mes "กำจัดมอนสเตอร์เลเวลต่ำกว่า 50 จำนวน 3,000 ตัว";
-		mes "กำจัดบอส 3 ตัว";
 		mes "รางวัล: ^i[1000373] x30, ^i[1001685] x10, ^i[1500008] x1, ^i[1030074] x2";
 		return;
 	case 71023:
 		mes "กำจัดมอนสเตอร์เลเวลสูงกว่า 70 จำนวน 1,000 ตัว";
-		mes "กำจัดบอส 3 ตัว";
 		mes "รางวัล: ^i[1000373] x40, ^i[1001685] x20, ^i[1500008] x1, ^i[1030074] x1";
 		return;
 	case 71024:
@@ -269,7 +265,7 @@ S_ShowDetail:
 		return;
 	case 71031:
 		mes "กำจัดบอส 200 ตัว";
-		mes "กำจัด City Titan (31100) 1 ตัว";
+		mes "กำจัด City Titan (31100) หรือ Memory of Thanatos (1708) 1 ตัว";
 		mes "รางวัล: ^i[1001685] x150, ^i[6608] x400, ^i[1000603] x30, ^i[1030074] x20";
 		return;
 	}
@@ -280,19 +276,16 @@ S_ShowProgress:
 	mes "[ความคืบหน้า]";
 	switch (.@qid) {
 	case 71020:
-		callsub S_MesCounter, .@qid, 1, "บอส", 1;
+		mes "- ตรวจสอบไอเทมตอนส่งภารกิจ";
 		return;
 	case 71021:
 		callsub S_MesCounter, .@qid, 1, "มอนสเตอร์เลเวลต่ำกว่า 50", 1000;
-		callsub S_MesCounter, .@qid, 2, "บอส", 1;
 		return;
 	case 71022:
 		callsub S_MesCounter, .@qid, 1, "มอนสเตอร์เลเวลต่ำกว่า 50", 3000;
-		callsub S_MesCounter, .@qid, 2, "บอส", 3;
 		return;
 	case 71023:
 		callsub S_MesCounter, .@qid, 1, "มอนสเตอร์เลเวลสูงกว่า 70", 1000;
-		callsub S_MesCounter, .@qid, 2, "บอส", 3;
 		return;
 	case 71024:
 		callsub S_MesCounter, .@qid, 1, "มอนสเตอร์เลเวลสูงกว่า 70", 3000;
@@ -330,7 +323,7 @@ S_ShowProgress:
 		return;
 	case 71031:
 		callsub S_MesCounter, .@qid, 1, "บอส", 200;
-		callsub S_MesCounter, .@qid, 2, "City Titan", 1;
+		callsub S_MesCounter, .@qid, 2, "City Titan / Memory of Thanatos", 1;
 		return;
 	}
 	return;
@@ -348,10 +341,10 @@ S_MesCounter:
 S_IsComplete:
 	.@qid = getarg(0);
 	switch (.@qid) {
-	case 71020: return getd("#dwq_71020_k1") >= 1;
-	case 71021: return getd("#dwq_71021_k1") >= 1000 && getd("#dwq_71021_k2") >= 1;
-	case 71022: return getd("#dwq_71022_k1") >= 3000 && getd("#dwq_71022_k2") >= 3;
-	case 71023: return getd("#dwq_71023_k1") >= 1000 && getd("#dwq_71023_k2") >= 3;
+	case 71020: return 1;
+	case 71021: return getd("#dwq_71021_k1") >= 1000;
+	case 71022: return getd("#dwq_71022_k1") >= 3000;
+	case 71023: return getd("#dwq_71023_k1") >= 1000;
 	case 71024: return getd("#dwq_71024_k1") >= 3000 && getd("#dwq_71024_k2") >= 5;
 	case 71025: return getd("#dwq_71025_k1") >= 20;
 	case 71026: return getd("#dwq_71026_k1") >= 1000 && getd("#dwq_71026_k2") >= 1000;
@@ -444,10 +437,6 @@ OnNPCKillEvent:
 	.@lv = getmonsterinfo(killedrid, MOB_LV);
 
 	if (.@mvp) {
-		callsub S_AddKill, 71020, 1, 1, .@today;
-		callsub S_AddKill, 71021, 2, 1, .@today;
-		callsub S_AddKill, 71022, 2, 3, .@today;
-		callsub S_AddKill, 71023, 2, 3, .@today;
 		callsub S_AddKill, 71024, 2, 5, .@today;
 		callsub S_AddKill, 71025, 1, 20, .@today;
 		callsub S_AddKill, 71030, 1, 100, .@week;
@@ -478,7 +467,7 @@ OnNPCKillEvent:
 	if (killedrid == 1639) { callsub S_AddKill, 71028, 4, 500, .@week; callsub S_AddKill, 71029, 4, 1000, .@week; }
 	if (killedrid == 1634) { callsub S_AddKill, 71028, 5, 500, .@week; callsub S_AddKill, 71029, 5, 1000, .@week; }
 	if (killedrid == 1636) { callsub S_AddKill, 71028, 6, 500, .@week; callsub S_AddKill, 71029, 6, 1000, .@week; }
-	if (killedrid == 31100) callsub S_AddKill, 71031, 2, 1, .@week;
+	if (killedrid == 31100 || killedrid == 1708) callsub S_AddKill, 71031, 2, 1, .@week;
 	end;
 
 S_AddKill:

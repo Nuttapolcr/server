@@ -21657,7 +21657,7 @@ Body:
     Trade:
       Override: 100
       NoSell: true
-    Script: |
+    Script: |-
       setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3";
       .@map$ = strcharinfo(3);
       if (inarray(.@deathmatch_maps$, .@map$) < 0) {

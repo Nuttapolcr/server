@@ -43,6 +43,10 @@ Header:
   Type: MOB_AVAIL_DB
   Version: 1
 Body:
+  - Mob: PECOPECO_10K
+    Sprite: PECOPECO
+  - Mob: GRAND_PECO_10K
+    Sprite: GRAND_PECO
   - Mob: EMPELIUM_
     Sprite: EMPELIUM
   - Mob: EXCLUSIVE_ALARM
@@ -81,7 +85,17 @@ Body:
     Sprite: Exclusive_Wander_Man
   - Mob: EXCLUSIVE_ANOLIAN
     Sprite: Exclusive_Anolian
-  - Mob: CITY_TITAN
-    Sprite: MD_EP20_BOSS_LASGAND
+  - Mob: CITY_THANATOS
+    Sprite: THANATOS
+  - Mob: VF2_BIG_FLAG
+    Sprite: OBJ_NEUTRAL
+  - Mob: VF2_DAEHYON
+    Sprite: DAEHYON
+  - Mob: VF2_PYURIEL
+    Sprite: PYURIEL
+  - Mob: VF2_GIOIA
+    Sprite: GIOIA
+  - Mob: VF2_TREASURE_BOX
+    Sprite: TREASURE_BOX1
   - Mob: SCORPION
     Sprite: SCORPION

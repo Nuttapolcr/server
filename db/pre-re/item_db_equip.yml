@@ -9800,10 +9800,6 @@ Body:
     Refineable: true
     Script: |
       bonus bMatkRate,15;
-    EquipScript: |+
-
-    UnEquipScript: |+
-
   - Id: 1602
     AegisName: Rod_
     Name: Rod
@@ -15475,6 +15471,8 @@ Body:
     AegisName: Cos_Sunglasses
     Name: Cos Sunglasses
     Type: Armor
+    Locations:
+      Costume_Head_Mid: true
     ArmorLevel: 1
     View: 12
     Script: |-
@@ -15483,8 +15481,6 @@ Body:
       bonus bMatkRate,3;
       bonus2 bAddClass,Class_Boss,5;
       bonus2 bMagicAddClass,Class_Boss,5;
-    Locations:
-      Costume_Head_Mid: true
   - Id: 2202
     AegisName: Sunglasses_
     Name: Sunglasses
@@ -26868,6 +26864,22 @@ Body:
     View: 152
     Script: |
       bonus bStr,1;
+  - Id: 1500087
+    AegisName: Cos_Evil_Wing_Ears
+    Name: Cos Evil Wing Ears
+    Type: Armor
+    Weight: 0
+    Locations:
+      Costume_Head_Mid: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    View: 152
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5069
     AegisName: Mask_Of_Fox
     Name: Kitsune Mask
@@ -26975,6 +26987,21 @@ Body:
     View: 158
     Script: |
       bonus bStr,1;
+  - Id: 1500086
+    AegisName: Cos_Angel_Wing_Ears
+    Name: Cos Angel Wing Ears
+    Type: Armor
+    Locations:
+      Costume_Head_Mid: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    View: 158
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5075
     AegisName: Cowboy_Hat
     Name: Cowboy Hat
@@ -27373,6 +27400,21 @@ Body:
       Head_Mid: true
     ArmorLevel: 1
     View: 185
+  - Id: 1500085
+    AegisName: Cos_Blank_Eyes
+    Name: Cos Blank Eyes
+    Type: Armor
+    Locations:
+      Costume_Head_Mid: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    View: 185
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5103
     AegisName: Sunflower_Hairpin
     Name: Sunflower Hairpin
@@ -27460,10 +27502,10 @@ Body:
     Type: Armor
     Buy: 20
     Weight: 50
-    ArmorLevel: 1
-    View: 188
     Locations:
       Costume_Head_Low: true
+    ArmorLevel: 1
+    View: 188
     Script: |-
       bonus2 bDropAddRace,RC_All,5;
       bonus bAtkRate,3;
@@ -32179,6 +32221,36 @@ Body:
       NoGuildStorage: true
     Script: |
       bonus bBaseAtk,10;
+  - Id: 1500110
+    AegisName: Gang_Scarf_Copy
+    Name: Gangster Scarf
+    Type: Armor
+    Buy: 20
+    Weight: 100
+    Locations:
+      Head_Low: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    View: 369
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+    Script: bonus2 bIgnoreDefClassRate,Class_All,5;
+  - Id: 1500111
+    AegisName: Gang_Scarf_Copy_Copy
+    Name: Mob Scarf
+    Type: Armor
+    Buy: 20
+    Weight: 100
+    Locations:
+      Head_Low: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    View: 1568
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+    Script: bonus2 bIgnoreMdefClassRate,Class_All,3;
   - Id: 5362
     AegisName: Ninja_Scroll
     Name: Ninja Scroll
@@ -32491,6 +32563,22 @@ Body:
     Script: |
       bonus2 bSubRace,RC_DemiHuman,2;
       bonus2 bSubRace,RC_Player_Human,2;
+  - Id: 1500101
+    AegisName: Cos_Gentleman_Pipe
+    Name: Cos Gentleman's Pipe
+    Type: Armor
+    Buy: 0
+    Sell: 0
+    Locations:
+      Costume_Head_Low: true
+    ArmorLevel: 1
+    View: 383
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,3;
+      bonus bMatkRate,3;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
   - Id: 5378
     AegisName: Rabbit_Ear_Hat
     Name: Bunny Top Hat
@@ -42614,6 +42702,15 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 61
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,5;
+      bonus bMatkRate,5;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+      bonus bSpeedAddRate,5;
+      bonus bVariableCastrate,-1;
+      bonus bMaxHP,1000;
   - Id: 50048
     AegisName: Costume_Fallen_Angel_Wings
     Name: Costume Fallen Angel Wings
@@ -42625,6 +42722,15 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 73
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,5;
+      bonus bMatkRate,5;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+      bonus bSpeedAddRate,5;
+      bonus bVariableCastrate,-1;
+      bonus bMaxHP,1000;
   - Id: 50049
     AegisName: Costume_Golden_Angel_Wings
     Name: Costume Golden Angel Wings
@@ -42636,6 +42742,15 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 75
+    Script: |-
+      bonus2 bDropAddRace,RC_All,5;
+      bonus bAtkRate,5;
+      bonus bMatkRate,5;
+      bonus2 bAddClass,Class_Boss,5;
+      bonus2 bMagicAddClass,Class_Boss,5;
+      bonus bSpeedAddRate,5;
+      bonus bVariableCastrate,-1;
+      bonus bMaxHP,1000;
   - Id: 24000
     AegisName: aegis_24000
     Name: CBT Shadow Armor

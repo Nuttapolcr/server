@@ -5847,7 +5847,7 @@ tblLapineDdukddakBox = {
 			NeedRefineMin = 0,
 			NeedRefineMax = 0,
 			SourceItems = {
-				{ "Acc_Ore_4", 4, 1000429 }
+				{ "Acc_Ore_3", 4, 1000428 }
 			},
 			NeedSource_String = "[Epic] Accessory Stone (NT)"
 		},

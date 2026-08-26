@@ -13415,6 +13415,8 @@ Body:
       - Item: Permeter_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1315
     AegisName: ASSULTER
     Name: Assaulter
@@ -13465,6 +13467,8 @@ Body:
       - Item: Assulter_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1316
     AegisName: SOLIDER
     Name: Solider
@@ -13608,6 +13612,8 @@ Body:
       - Item: Heater_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1319
     AegisName: FREEZER
     Name: Freezer
@@ -13656,6 +13662,8 @@ Body:
       - Item: Freezer_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1320
     AegisName: OWL_DUKE
     Name: Owl Duke
@@ -15331,6 +15339,8 @@ Body:
         StealProtected: true
       - Item: Elunium
         Rate: 5
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1366
     AegisName: LAVA_GOLEM
     Name: Lava Golem
@@ -15414,6 +15424,8 @@ Body:
         Rate: 1600
       - Item: White_Herb
         Rate: 1600
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1368
     AegisName: GEOGRAPHER
     Name: Geographer
@@ -15968,6 +15980,8 @@ Body:
       - Item: Nightmare_Terror_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1380
     AegisName: DRILLER
     Name: Driller
@@ -16088,6 +16102,8 @@ Body:
         StealProtected: true
       - Item: Oridecon
         Rate: 20
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1383
     AegisName: EXPLOSION
     Name: Explosion
@@ -16172,6 +16188,8 @@ Body:
       - Item: Flying_Deleter_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1385
     AegisName: DELETER_
     Name: Deleter
@@ -16213,6 +16231,8 @@ Body:
       - Item: Deleter_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1386
     AegisName: SLEEPER
     Name: Sleeper
@@ -16303,6 +16323,8 @@ Body:
       - Item: Gig_Card
         Rate: 1
         StealProtected: true
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1388
     AegisName: ARCHANGELING
     Name: Arc Angeling
@@ -26242,6 +26264,8 @@ Body:
         StealProtected: true
       - Item: Oridecon
         Rate: 10
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1671
     AegisName: DIMIK_2
     Name: Dimik
@@ -26290,6 +26314,8 @@ Body:
         StealProtected: true
       - Item: Oridecon
         Rate: 10
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1672
     AegisName: DIMIK_3
     Name: Dimik
@@ -26338,6 +26364,8 @@ Body:
         StealProtected: true
       - Item: Oridecon
         Rate: 10
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1673
     AegisName: DIMIK_4
     Name: Dimik
@@ -26386,6 +26414,8 @@ Body:
         StealProtected: true
       - Item: Oridecon
         Rate: 10
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1674
     AegisName: MONEMUS
     Name: Monemus
@@ -26499,6 +26529,8 @@ Body:
         StealProtected: true
       - Item: Elunium
         Rate: 10
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1677
     AegisName: VENATU_2
     Name: Venatu
@@ -26547,6 +26579,8 @@ Body:
         StealProtected: true
       - Item: Elunium
         Rate: 10
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1678
     AegisName: VENATU_3
     Name: Venatu
@@ -26595,6 +26629,8 @@ Body:
         StealProtected: true
       - Item: Elunium
         Rate: 10
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1679
     AegisName: VENATU_4
     Name: Venatu
@@ -26643,6 +26679,8 @@ Body:
         StealProtected: true
       - Item: Elunium
         Rate: 10
+      - Item: Rudolf_Bag
+        Rate: 25
   - Id: 1680
     AegisName: HILL_WIND_1
     Name: Hill Wind

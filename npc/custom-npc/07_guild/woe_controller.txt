@@ -64,7 +64,7 @@ OnInit:
 
 // -----------------------------------------------------------
 //  Constants (leave this section alone).
-//  (ปราสาทเดิม 4 ภูมิภาค x 5 แห่ง และ ValorFight = 21 ปราสาท)
+//  (ปราสาทเดิม 4 ภูมิภาค x 5 แห่ง และ ValorFight 2 แห่ง = 22 ปราสาท)
 // -----------------------------------------------------------
 
 	setarray .Castles$[0],
@@ -72,16 +72,17 @@ OnInit:
 		"payg_cas01","payg_cas02","payg_cas03","payg_cas04","payg_cas05",
 		"gefg_cas01","gefg_cas02","gefg_cas03","gefg_cas04","gefg_cas05",
 		"aldeg_cas01","aldeg_cas02","aldeg_cas03","aldeg_cas04","aldeg_cas05",
-		"hero_ent1";
+		"hero_ent1","hero_ent2";
 	setarray .EndLabel$[0],"ar01","ar02","ar03","ar04","ar05","sc01","sc02","sc03","sc04","sc05";
 	setarray .Days$[0],"อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์";
 	setarray .Regions$[0],"Prontera","Payon","Geffen","Aldebaran","ValorFight";
 	setarray .Map$[0],"prt_gld","pay_gld","gef_fild13","alde_gld","guild_vs2-1";
-	setarray .MapX[0], 134,240,153,111,208,   121,295,317,140,204,   214,308,143,193,305,   48,95,142,239,264,   49;
-	setarray .MapY[0],  65,128,137,240,240,   233,116,293,160,266,    75,240,240,278, 87,   83,249, 85,242, 90,   49;
+	setarray .MapX[0], 134,240,153,111,208,   121,295,317,140,204,   214,308,143,193,305,   48,95,142,239,264,   49,49;
+	setarray .MapY[0],  65,128,137,240,240,   233,116,293,160,266,    75,240,240,278, 87,   83,249, 85,242, 90,   49,49;
 
 	set .ValorFightIndex, 20;
-	set .CastleCount, getarraysize(.Castles$);     // = 21
+	set .ValorFight2Index, 21;
+	set .CastleCount, getarraysize(.Castles$);     // = 22
 	set .RegionCount, getarraysize(.Regions$);     // = 5
 
 // -----------------------------------------------------------

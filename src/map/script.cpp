@@ -23797,6 +23797,20 @@ BUILDIN_FUNC(vip_rank_box_time) {
 }
 
 /**
+ * Ends the attached player's post-spawn invincibility timer.
+ * endspawnprotection;
+ */
+BUILDIN_FUNC(endspawnprotection) {
+	TBL_PC* sd;
+
+	if (!script_rid2sd(sd))
+		return SCRIPT_CMD_FAILURE;
+
+	pc_delinvincibletimer(sd);
+	return SCRIPT_CMD_SUCCESS;
+}
+
+/**
  * Changes the attached account's lifetime donation total and writes an audit log.
  * vip_rank_update <amount>,<operation>{,<reference>,<reason>};
  * operation: 0=set, 1=add, 2=refund
@@ -31336,6 +31350,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(vip_time,"i?"),
 	BUILDIN_DEF(vip_rank_info,"i"),
 	BUILDIN_DEF(vip_rank_box_time,"i?"),
+	BUILDIN_DEF(endspawnprotection,""),
 	BUILDIN_DEF(vip_rank_update,"ii??"),
 	BUILDIN_DEF(bonus_script,"si????"),
 	BUILDIN_DEF(bonus_script_clear,"??"),
