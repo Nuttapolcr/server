@@ -74,16 +74,6 @@ Body:
         Price: 3900
       - Item: One-hand_Sword_Starter_Pack
         Price: 3900
-  - Tab: Limited
-    Items:
-      - Item: Teenoi_Box_Set
-        Price: 1090
-      - Item: Bar_B_GON_Box_Set
-        Price: 1690
-      - Item: MoMo_Box_Set
-        Price: 3190
-      - Item: Copper_Beyond_Box_Set
-        Price: 8990
   - Tab: Scrolls
     Items:
       - Item: aegis_1001722

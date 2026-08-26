@@ -41,6 +41,8 @@ Body:
         Price: 990
       - Item: Costume_Weapon_Egg
         Price: 159
+      - Item: Equipment_Hide_Ticket
+        Price: 1290
       - Item: Upper_Stone_Box
         Price: 129
       - Item: Middle_Stone_Box
