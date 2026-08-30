@@ -14475,23 +14475,23 @@ Body:
             Amount: 1
           - Index: 3
             Item: Rookie_Upgrade_8
-            Rate: 10
+            Rate: 30
             Amount: 1
           - Index: 4
             Item: Rookie_Upgrade_9
-            Rate: 5
+            Rate: 15
             Amount: 1
           - Index: 5
             Item: Rookie_Upgrade_10
-            Rate: 3
+            Rate: 10
             Amount: 1
           - Index: 7
             Item: Rudolf_Coin
-            Rate: 2000
+            Rate: 3000
             Amount: 2
           - Index: 8
             Item: Crystal_Mirror
-            Rate: 40000
+            Rate: 20000
   - Group: RANDOM_RUDOLF_BOX_8
     SubGroups:
       - SubGroup: 1

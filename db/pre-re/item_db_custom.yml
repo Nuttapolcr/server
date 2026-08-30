@@ -29810,20 +29810,20 @@ Body:
       bonus2 bAddClass,Class_Boss,30;
       bonus bCritical,5;
       bonus bAspdRate,5;
-      bonus2 bSkillAtk,"AS_SONICBLOW",10;
-      bonus2 bSkillAtk,"ASC_BREAKER",50;
-      bonus2 bSkillAtk,"AS_GRIMTOOTH",60;
+      bonus2 bSkillAtk,"AS_SONICBLOW",30;
+      bonus2 bSkillAtk,"ASC_BREAKER",150;
+      bonus2 bSkillAtk,"AS_GRIMTOOTH",70;
       bonus bCritAtkRate,.@r/3*10;
-      bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
-      bonus2 bSkillAtk,"ASC_BREAKER",.@r/2*45;
-      bonus2 bSkillAtk,"AS_GRIMTOOTH",.@r/2*20;
+      bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*40;
+      bonus2 bSkillAtk,"AS_GRIMTOOTH",.@r/3*30;
       if (.@r>=7) {
          bonus bAspd,2;
          bonus2 bAddClass,Class_Boss,10;
          bonus bBaseAtk,120;
          bonus bCritAtkRate,20;
-      bonus2 bAddRace,RC_DemiHuman,60;
-      bonus2 bAddRace,RC_Player_Human,60;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
       }
       if (.@r>=9) {
          bonus bShortAtkRate,5;
@@ -33313,13 +33313,15 @@ Body:
       bonus2 bAddClass,Class_Boss,40;
       bonus bCritical,10;
       bonus bAspdRate,5;
-      bonus2 bSkillAtk,"AS_SONICBLOW",20;
-      bonus2 bSkillAtk,"ASC_BREAKER",20;
+      bonus2 bSkillAtk,"AS_SONICBLOW",30;
+      bonus2 bSkillAtk,"ASC_BREAKER",150;
+      bonus2 bSkillAtk,"AS_GRIMTOOTH",70;
       bonus bCritAtkRate,.@r/3*15;
       bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
-      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*10;
-      bonus2 bAddRace,RC_DemiHuman,30;
-      bonus2 bAddRace,RC_Player_Human,30;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*40;
+      bonus2 bSkillAtk,"AS_GRIMTOOTH",.@r/3*30;
+      bonus2 bAddRace,RC_DemiHuman,40;
+      bonus2 bAddRace,RC_Player_Human,40;
 
       if (.@r>=7) {
          bonus bAspd,3;
@@ -33341,36 +33343,36 @@ Body:
       bonus2 bSubRace,RC_Player_Doram,20;
       }
       if (.@g >= ENCHANTGRADE_D) {
-         bonus bAtkRate,5;
-         bonus bBaseAtk,20;
+         bonus bAtkRate,2;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bCritAtkRate,.@r/3*5;
-         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
-      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*10;
+         bonus bCritAtkRate,.@r/3*2;
+      bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*30;
+      bonus2 bSkillAtk,"AS_GRIMTOOTH",.@r/3*30;
       }
       if (.@g >= ENCHANTGRADE_C) {
-         bonus bAtkRate,5;
-         bonus bBaseAtk,20;
+         bonus bAtkRate,3;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bCritAtkRate,.@r/3*5;
-         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*10;
-      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*10;
+         bonus bCritAtkRate,.@r/3*3;
+      bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*20;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*40;
+      bonus2 bSkillAtk,"AS_GRIMTOOTH",.@r/3*40;
       }
       if (.@g >= ENCHANTGRADE_B) {
-         bonus bAtkRate,5;
-         bonus bBaseAtk,20;
+         bonus bAtkRate,4;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bCritAtkRate,.@r/2*5;
-         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
-      bonus2 bSkillAtk,"ASC_BREAKER",.@r/2*10;
+         bonus bCritAtkRate,.@r/3*4;
+      bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*30;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*40;
+      bonus2 bSkillAtk,"AS_GRIMTOOTH",.@r/3*40;
       }
       if (.@g >= ENCHANTGRADE_A) {
          bonus bAtkRate,5;
-         bonus bBaseAtk,20;
          bonus2 bAddClass,Class_Boss,10;
-         bonus bCritAtkRate,.@r/2*5;
-         bonus2 bSkillAtk,"AS_SONICBLOW",.@r/2*10;
-      bonus2 bSkillAtk,"ASC_BREAKER",.@r/2*10;
+         bonus bCritAtkRate,.@r/3*5;
+      bonus2 bSkillAtk,"AS_SONICBLOW",.@r/3*40;
+      bonus2 bSkillAtk,"ASC_BREAKER",.@r/3*40;
+      bonus2 bSkillAtk,"AS_GRIMTOOTH",.@r/3*40;
       }
   - Id: 28706
     AegisName: Sinister_Dagger
@@ -37408,7 +37410,7 @@ Body:
     Name: PVP Champion SET
     Type: Cash
     Script: |-
-      getitem 5265,1;                     // Apple of Archer
+      getitem 2285,1;                     // Apple of Archer
       getitem 2291,1;                     // Masquerade
       getitem 5361,1;                     // Gangster Scarf
       getitem2 2302,1,1,0,0,4021,0,0,0;      // Cotton Shirt Rocker x1
@@ -37423,11 +37425,11 @@ Body:
 
           specialeffect2 EF_BLESSING;
   - Id: 1030009
-    AegisName: New_Item_1030009
+    AegisName: R_Shield
     Name: "[Rare] Shield"
     Type: Armor
     Weight: 10
-    Defense: 25
+    Defense: 3
     Slots: 1
     Locations:
       Left_Hand: true
@@ -37439,19 +37441,18 @@ Body:
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,500;
-      bonus bMaxHPrate,.@r/3*1;
+      bonus bDef,2;
+      bonus bMdef,1;
+      bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
          bonus bMaxHP,500;
-         bonus2 bSubEle,Ele_Neutral,1;
-         bonus2 bSubRace,RC_Player_Human,3;
-         bonus2 bSubRace,RC_Player_Doram,3;
       }
   - Id: 1030010
-    AegisName: New_Item_1030010
+    AegisName: E_Shield
     Name: "[Epic] Shield"
     Type: Armor
     Weight: 10
-    Defense: 25
+    Defense: 3
     Slots: 1
     Locations:
       Left_Hand: true
@@ -37463,35 +37464,28 @@ Body:
       .@r = getrefine();
       bonus bMaxHPrate,5;
       bonus bMaxHP,500;
-      bonus bMaxHPrate,.@r/3*1;
+      bonus bDef,3;
+      bonus bMdef,2;
+      bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
          bonus bMaxHP,500;
-         bonus2 bSubEle,Ele_Neutral,1;
-         bonus2 bSubRace,RC_Player_Human,3;
-         bonus2 bSubRace,RC_Player_Doram,3;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
       }
       if (.@r>=9) {
-         bonus bMaxHPrate,5;
-         bonus bLongAtkDef,5;
+         bonus bMaxHPrate,4;
       }
       if (.@r>=11) {
-         bonus bMaxHP,1000;    
-          bonus2 bSubEle,Ele_Water,10;
-          bonus2 bSubEle,Ele_Earth,10;
-          bonus2 bSubEle,Ele_Fire,10;
-          bonus2 bSubEle,Ele_Wind,10;
-          bonus2 bSubEle,Ele_Poison,10;
-          bonus2 bSubEle,Ele_Holy,10;
-          bonus2 bSubEle,Ele_Dark,10;
-          bonus2 bSubEle,Ele_Ghost,10;
-          bonus2 bSubEle,Ele_Undead,10;
+         bonus bMaxHP,1000;
+         bonus bDef,5;
+         bonus2 bSubEle,Ele_Neutral,2;
       }
   - Id: 1030011
-    AegisName: New_Item_1030011
+    AegisName: L_Shield
     Name: "[Legend] Shield"
     Type: Armor
     Weight: 10
-    Defense: 25
+    Defense: 3
     Slots: 1
     Locations:
       Left_Hand: true
@@ -37505,96 +37499,43 @@ Body:
       .@g = getenchantgrade();
       bonus bMaxHPrate,5;
       bonus bMaxHP,500;
-      bonus bMaxHPrate,.@r/3*1;
+      bonus bDef,5;
+      bonus bMdef,3;
+      bonus bMaxHPrate,.@r/3*2;
       if (.@r>=7) {
          bonus bMaxHP,500;
-         bonus2 bSubEle,Ele_Neutral,1;
-         bonus2 bSubRace,RC_Player_Human,3;
-         bonus2 bSubRace,RC_Player_Doram,3;
+      bonus2 bAddClass,Class_Boss,10;
+      bonus2 bMagicAddClass,Class_Boss,10;
       }
       if (.@r>=9) {
-         bonus bMaxHPrate,5;
-         bonus bLongAtkDef,5;
+         bonus bMaxHPrate,4;
       }
       if (.@r>=11) {
-         bonus bMaxHP,1000;    
-          bonus2 bSubEle,Ele_Water,10;
-          bonus2 bSubEle,Ele_Earth,10;
-          bonus2 bSubEle,Ele_Fire,10;
-          bonus2 bSubEle,Ele_Wind,10;
-          bonus2 bSubEle,Ele_Poison,10;
-          bonus2 bSubEle,Ele_Holy,10;
-          bonus2 bSubEle,Ele_Dark,10;
-          bonus2 bSubEle,Ele_Ghost,10;
-          bonus2 bSubEle,Ele_Undead,10;
+         bonus bMaxHP,1000;
+         bonus bDef,5;
+         bonus2 bSubEle,Ele_Neutral,2;
       }
       if (.@g >= ENCHANTGRADE_D) {
-         bonus bMaxHPrate,2;
-         bonus bMaxHP,500;    
-         bonus2 bSubRace,RC_Player_Human,1;
-         bonus2 bSubRace,RC_Player_Doram,1;
-          bonus2 bSubEle,Ele_Water,2;
-          bonus2 bSubEle,Ele_Earth,2;
-          bonus2 bSubEle,Ele_Fire,2;
-          bonus2 bSubEle,Ele_Wind,2;
-          bonus2 bSubEle,Ele_Poison,2;
-          bonus2 bSubEle,Ele_Holy,2;
-          bonus2 bSubEle,Ele_Dark,2;
-          bonus2 bSubEle,Ele_Ghost,2;
-          bonus2 bSubEle,Ele_Undead,2;
-         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,1000;
          bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_C) {
-         bonus bMaxHPrate,2;
-         bonus bMaxHP,500;
-         bonus2 bSubRace,RC_Player_Human,1;
-         bonus2 bSubRace,RC_Player_Doram,1;
-          bonus2 bSubEle,Ele_Water,2;
-          bonus2 bSubEle,Ele_Earth,2;
-          bonus2 bSubEle,Ele_Fire,2;
-          bonus2 bSubEle,Ele_Wind,2;
-          bonus2 bSubEle,Ele_Poison,2;
-          bonus2 bSubEle,Ele_Holy,2;
-          bonus2 bSubEle,Ele_Dark,2;
-          bonus2 bSubEle,Ele_Ghost,2;
-          bonus2 bSubEle,Ele_Undead,2;
-         bonus2 bSubEle,Ele_Neutral,1;
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,1000;
          bonus bMaxHPrate,.@r/3*1;
       }
       if (.@g >= ENCHANTGRADE_B) {
-         bonus bMaxHPrate,2;
-         bonus bMaxHP,500;
-         bonus2 bSubRace,RC_Player_Human,1;
-         bonus2 bSubRace,RC_Player_Doram,1;
-          bonus2 bSubEle,Ele_Water,2;
-          bonus2 bSubEle,Ele_Earth,2;
-          bonus2 bSubEle,Ele_Fire,2;
-          bonus2 bSubEle,Ele_Wind,2;
-          bonus2 bSubEle,Ele_Poison,2;
-          bonus2 bSubEle,Ele_Holy,2;
-          bonus2 bSubEle,Ele_Dark,2;
-          bonus2 bSubEle,Ele_Ghost,2;
-          bonus2 bSubEle,Ele_Undead,2;
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,1000;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/3*1;
+         bonus bMaxHPrate,.@r/3*2;
       }
       if (.@g >= ENCHANTGRADE_A) {
-         bonus bMaxHPrate,2;
-         bonus bMaxHP,500;
-         bonus2 bSubRace,RC_Player_Human,2;
-         bonus2 bSubRace,RC_Player_Doram,2;
-          bonus2 bSubEle,Ele_Water,2;
-          bonus2 bSubEle,Ele_Earth,2;
-          bonus2 bSubEle,Ele_Fire,2;
-          bonus2 bSubEle,Ele_Wind,2;
-          bonus2 bSubEle,Ele_Poison,2;
-          bonus2 bSubEle,Ele_Holy,2;
-          bonus2 bSubEle,Ele_Dark,2;
-          bonus2 bSubEle,Ele_Ghost,2;
-          bonus2 bSubEle,Ele_Undead,2;
+         bonus bMaxHPrate,5;
+         bonus bMaxHP,1000;
          bonus2 bSubEle,Ele_Neutral,1;
-         bonus bMaxHPrate,.@r/3*1;
+         bonus bMaxHPrate,.@r/3*2;
       }
   - Id: 1030012
     AegisName: Zeny_Random
@@ -37686,8 +37627,8 @@ Body:
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,3;
       bonus bCritical,20;
-      bonus2 bSkillAtk,"SN_SHARPSHOOTING",100;
-      bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*40;
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",150;
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*20;
       bonus bDex,.@r/3*1;
       if (.@r>=7) {
          bonus bAtkRate,5;
@@ -37798,8 +37739,8 @@ Body:
       bonus2 bAddClass,Class_Boss,30;
       bonus bAspdRate,3;
       bonus bCritical,30;
-      bonus2 bSkillAtk,"SN_SHARPSHOOTING",100;
-      bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*50;
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",170;
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*25;
       bonus bDex,.@r/3*1;
       if (.@r>=7) {
          bonus bAtkRate,5;
@@ -38179,18 +38120,16 @@ Body:
       bonus bDex,10;
       bonus2 bAddClass,Class_Boss,40;
       bonus bAspdRate,5;
-      bonus2 bSkillAtk,"SN_SHARPSHOOTING",20;
       bonus bDex,.@r/3*1;
-      bonus bCritical,10;
-      bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*20;
-      bonus2 bAddRace,RC_DemiHuman,20;
-      bonus2 bAddRace,RC_Player_Human,20;
+      bonus bCritical,40;
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",200;
+      bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*25;
       if (.@r>=7) {
          bonus bAtkRate,7;
          bonus2 bAddClass,Class_Boss,10;
          bonus bDelayrate,-10;
-      bonus2 bAddRace,RC_DemiHuman,40;
-      bonus2 bAddRace,RC_Player_Human,40;
+      bonus2 bAddRace,RC_DemiHuman,60;
+      bonus2 bAddRace,RC_Player_Human,60;
       }
       if (.@r>=9) {
          bonus bLongAtkRate,10;
@@ -38208,7 +38147,7 @@ Body:
          bonus bCritical,5;
          bonus2 bAddClass,Class_Boss,10;
          bonus bDelayrate,-3;
-         bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*10;
+         bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_C) {
          bonus bAtkRate,3;
@@ -38216,7 +38155,7 @@ Body:
          bonus bCritical,5;
          bonus2 bAddClass,Class_Boss,10;
          bonus bDelayrate,-3;
-         bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*10;
+         bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*5;
       }
       if (.@g >= ENCHANTGRADE_B) {
          bonus bAtkRate,5;
@@ -38224,7 +38163,7 @@ Body:
          bonus bCritical,10;
          bonus2 bAddClass,Class_Boss,10;
          bonus bDelayrate,-3;
-      bonus bDex,.@r/3*1;
+         bonus bDex,.@r/3*1;
          bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*10;
       }
       if (.@g >= ENCHANTGRADE_A) {
@@ -38233,7 +38172,7 @@ Body:
          bonus bCritical,10;
          bonus2 bAddClass,Class_Boss,10;
          bonus bDelayrate,-3;
-      bonus bDex,.@r/3*2;
+         bonus bDex,.@r/3*2;
          bonus2 bSkillAtk,"SN_SHARPSHOOTING",.@r/3*10;
       }
   - Id: 1030025
@@ -39167,6 +39106,70 @@ Body:
       NoMail: true
       NoAuction: true
     Script: getitem 1030096,2;
+  - Id: 1500155
+    AegisName: C_Ghost_Palace_Clear_Coin_Box
+    Name: "[C] Ghost Palace Clear Coin Box"
+    Type: Usable
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1500148,2;
+  - Id: 1500156
+    AegisName: C_Faceworm_Clear_Coin_Box
+    Name: "[C] Faceworm Clear Coin Box"
+    Type: Usable
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1500150,2;
+  - Id: 1500157
+    AegisName: C_Toy_Factory_Clear_Coin_Box
+    Name: "[C] Toy Factory Clear Coin Box"
+    Type: Usable
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1500152,2;
+  - Id: 1500158
+    AegisName: C_Sarah_Clear_Coin_Box
+    Name: "[C] Sarah Clear Coin Box"
+    Type: Usable
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: getitem 1500154,2;
   - Id: 1030104
     AegisName: C_Endless_Clear_Coin_Box
     Name: "[C] Endless Clear Coin Box"
@@ -39962,6 +39965,12 @@ Body:
     Type: Etc
     Flags:
       BuyingStore: true
+  - Id: 1500137
+    AegisName: Memory_of_Rudolf_Card
+    Name: Memory of Rudolf Card
+    Type: Etc
+    Flags:
+      BuyingStore: true
   - Id: 1500071
     AegisName: Bar_B_GON_Box_Set
     Name: Bar-B GON Box Set
@@ -40127,11 +40136,11 @@ Body:
     Type: Etc
     Trade:
       NoDrop: true
-      NoMail: true
       NoTrade: true
-      NoGuildStorage: true
       TradePartner: true
       NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 1500089
     AegisName: Rudolf_Coin
     Name: Rudolf Coin
@@ -40164,10 +40173,10 @@ Body:
     AegisName: Charm_White_Blue_Plus
     Name: Charm White Plus
     Type: Charm
-    CharmMaxEffect: 10
     CharmScript: |-
       bonus2 bAddItemHealRate,547,10;
       bonus2 bAddItemHealRate,504,10;
+    CharmMaxEffect: 10
   - Id: 1500096
     AegisName: New_Item_1500096
     Name: Charm Drop
@@ -40184,8 +40193,8 @@ Body:
     AegisName: Charm_Open_Box
     Name: Charm Open Box
     Type: Charm
-    CharmMaxEffect: 10
     CharmScript: bonus bBossBoxSpeed,1;
+    CharmMaxEffect: 10
   - Id: 1500099
     AegisName: Dark_Crystal_C
     Name: Dark Crystal
@@ -40254,7 +40263,6 @@ Body:
     Type: Etc
     Flags:
       Collection: true
-    CharmMaxEffect: 1
     CollectionScript: |-
       if (readparam(bStr) >= 70) {
         bonus bAtkRate,5;
@@ -40284,6 +40292,7 @@ Body:
       bonus2 bIgnoreMdefClassRate,Class_Normal,3;
       bonus2 bIgnoreMdefClassRate,Class_Boss,3;
       }
+    CharmMaxEffect: 1
   - Id: 1500102
     AegisName: Rookie_Refine_7
     Name: Rookie Refine+7
@@ -40327,3 +40336,559 @@ Body:
   - Id: 1500109
     AegisName: New_Item_1500109
     Name: Holy Soul
+  - Id: 1500112
+    AegisName: Round_1
+    Name: Round 1
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000603,1;
+      getitem 12264,1;
+      getitem 1000373,5;
+  - Id: 1500113
+    AegisName: Round_2
+    Name: Round 2
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000603,2;
+      getitem 12264,1;
+      getitem 1000373,10;
+  - Id: 1500114
+    AegisName: Round_3
+    Name: Round 3
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000603,4;
+      getitem 12264,2;
+      getitem 1030026,1;
+      getitem 1000373,15;
+  - Id: 1500115
+    AegisName: Round_4
+    Name: Round 4
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000603,6;
+      getitem 12264,2;
+      getitem 1030026,1;
+      getitem 1000373,25;
+      getitem 1001685,3;
+      getitem 616,1;
+  - Id: 1500116
+    AegisName: Round_5
+    Name: Round 5
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000603,8;
+      getitem 12264,2;
+      getitem 1030026,2;
+      getitem 1000373,35;
+      getitem 1001685,5;
+      getitem 616,2;
+      getitem 1500010,1;
+  - Id: 1500117
+    AegisName: Round_6
+    Name: Round 6 (Winner)
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000603,10;
+      getitem 12264,2;
+      getitem 1030027,1;
+      getitem 1000373,45;
+      getitem 1001685,10;
+      getitem 616,3;
+      getitem 6293,2;
+      getitem 1001720,1;
+      getitem 1500010,1;
+  - Id: 1500118
+    AegisName: Reward_Endless_Tower
+    Name: Reward Endless Tower
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 6635,2;
+      getitem 1000401,20;
+      getitem 1001140,5;
+      getitem 1000445,5;
+      getitem 1001600,2;
+      getitem 1001718,2;
+      getitem 1030076,1;
+  - Id: 1500119
+    AegisName: Reward_Geffen_Magic_Tournament
+    Name: Reward Geffen Magic Tournament
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 6293,5;
+      getitem 1030075,1;
+  - Id: 1500120
+    AegisName: Reward_Old_Glast_Heim
+    Name: Reward Old Glast Heim
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 6608,20;
+      getitem 1030077,1;
+  - Id: 1500121
+    AegisName: Reward_Ghost_Palace
+    Name: Reward Ghost Palace
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+  - Id: 1500122
+    AegisName: Reward_Horror_Toy_Factory
+    Name: Reward Horror Toy Factory
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+  - Id: 1500123
+    AegisName: Reward_Faceworm_Nest
+    Name: Reward Faceworm Nest
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+  - Id: 1500124
+    AegisName: Reward_Sarah_and_Fenrir
+    Name: Reward Sarah and Fenrir
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+  - Id: 1500125
+    AegisName: Reward_Daily_I
+    Name: Reward Daily I
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,20;
+      getitem 1500008,1;
+      getitem 1030074,1;
+  - Id: 1500126
+    AegisName: Reward_Daily_II
+    Name: Reward Daily II
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,30;
+      getitem 1001685,10;
+      getitem 1500008,1;
+      getitem 1030074,1;
+  - Id: 1500127
+    AegisName: Reward_Daily_III
+    Name: Reward Daily III
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,30;
+      getitem 1001685,10;
+      getitem 1500008,1;
+      getitem 1030074,2;
+  - Id: 1500128
+    AegisName: Reward_Daily_IV
+    Name: Reward Daily IV
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,40;
+      getitem 1001685,20;
+      getitem 1500008,1;
+      getitem 1030074,1;
+  - Id: 1500129
+    AegisName: Reward_Daily_V
+    Name: Reward Daily V
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,40;
+      getitem 1001685,20;
+      getitem 1500008,1;
+      getitem 1030074,2;
+  - Id: 1500130
+    AegisName: Reward_Daily_Hardcore
+    Name: Reward Daily Hardcore
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,50;
+      getitem 6608,50;
+      getitem 1000603,10;
+      getitem 1500010,1;
+      getitem 1030074,3;
+  - Id: 1500131
+    AegisName: Reward_Weekly_I
+    Name: Reward Weekly I
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,70;
+      getitem 1001685,30;
+      getitem 1030074,5;
+  - Id: 1500132
+    AegisName: Reward_Weekly_II
+    Name: Reward Weekly II
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,70;
+      getitem 1001685,30;
+      getitem 1030074,10;
+  - Id: 1500133
+    AegisName: Reward_Weekly_III
+    Name: Reward Weekly III
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,70;
+      getitem 1001685,30;
+      getitem 1030074,5;
+  - Id: 1500134
+    AegisName: Reward_Weekly_IV
+    Name: Reward Weekly IV
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,100;
+      getitem 1001685,40;
+      getitem 1030074,10;
+  - Id: 1500135
+    AegisName: Reward_Weekly_V
+    Name: Reward Weekly V
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,100;
+      getitem 6608,300;
+      getitem 1001685,20;
+      getitem 1030074,10;
+  - Id: 1500136
+    AegisName: Reward_Weekly_Hardcore
+    Name: Reward Weekly Hardcore
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 1000373,150;
+      getitem 6608,400;
+      getitem 1001685,30;
+      getitem 1030074,20;
+  - Id: 1500139
+    AegisName: New_Item_1500139
+    Name: New Item 1500139
+  - Id: 1500140
+    AegisName: New_Item_1500140
+    Name: New Item 1500140
+  - Id: 1500141
+    AegisName: New_Item_1500141
+    Name: New Item 1500141
+  - Id: 1500147
+    AegisName: N_Ghost_Palace_Clear_Coin
+    Name: "[N] Ghost Palace Clear Coin"
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      NoTrade: true
+      TradePartner: true
+      NoAuction: true
+      NoCart: true
+      NoStorage: true
+  - Id: 1500148
+    AegisName: C_Ghost_Palace_Clear_Coin
+    Name: "[C] Ghost Palace Clear Coin"
+    Type: Etc
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      NoTrade: true
+      TradePartner: true
+      NoAuction: true
+      NoCart: true
+      NoStorage: true
+    Flags:
+      BuyingStore: true
+  - Id: 1500149
+    AegisName: N_Faceworm_Clear_Coin
+    Name: "[N] Faceworm Clear Coin"
+    Type: Etc
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      NoTrade: true
+      TradePartner: true
+      NoAuction: true
+      NoCart: true
+    Flags:
+      BuyingStore: true
+  - Id: 1500150
+    AegisName: C_Faceworm_Clear_Coin
+    Name: "[C] Faceworm Clear Coin"
+    Type: Etc
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      NoTrade: true
+      TradePartner: true
+      NoAuction: true
+      NoCart: true
+    Flags:
+      BuyingStore: true
+  - Id: 1500151
+    AegisName: N_Toy_Factory_Clear_Coin
+    Name: "[N] Toy Factory Clear Coin"
+    Type: Etc
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      NoTrade: true
+      NoAuction: true
+      TradePartner: true
+      NoCart: true
+    Flags:
+      BuyingStore: true
+  - Id: 1500152
+    AegisName: C_Toy_Factory_Clear_Coin
+    Name: "[C] Toy Factory Clear Coin"
+    Type: Etc
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      TradePartner: true
+      NoAuction: true
+      NoTrade: true
+      NoCart: true
+    Flags:
+      BuyingStore: true
+  - Id: 1500153
+    AegisName: N_Sarah_Clear_Coin
+    Name: "[N] Sarah Clear Coin"
+    Type: Etc
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      NoTrade: true
+      TradePartner: true
+      NoAuction: true
+      NoCart: true
+    Flags:
+      BuyingStore: true
+  - Id: 1500154
+    AegisName: C_Sarah_Clear_Coin
+    Name: "[C] Sarah Clear Coin"
+    Type: Etc
+    Trade:
+      NoDrop: true
+      NoMail: true
+      NoTrade: true
+      NoGuildStorage: true
+      TradePartner: true
+      NoAuction: true
+      NoCart: true
+    Flags:
+      BuyingStore: true

@@ -1,176 +1,136 @@
+function	script	F_HiclassStylistPreview	{
+	.@look_type = getarg(0);
+	.@min_value = getarg(1);
+	.@max_value = getarg(2);
+	.@type_name$ = getarg(3);
+	.@coupon_id = 1030061;
+	.@old_value = getlook(.@look_type);
+	.@preview_value = .@old_value;
+
+	if (.@preview_value < .@min_value || .@preview_value > .@max_value)
+		.@preview_value = .@min_value;
+
+	while (1) {
+		clear;
+		changelook .@look_type,.@preview_value;
+		mes "^FF0000[ Stylist ]^000000";
+		mes "กำลังแสดง"+.@type_name$+"หมายเลข ^0055FF"+.@preview_value+"^000000";
+		mes "ช่วงหมายเลขที่เลือกได้: "+.@min_value+" ถึง "+.@max_value;
+		switch (select(
+			"~ สีถัดไป",
+			"~ สีก่อนหน้า",
+			"~ ระบุเลขที่ต้องการ",
+			"~ ยืนยันสีนี้",
+			"~ ยกเลิก"
+		)) {
+			case 1:
+				.@preview_value = (.@preview_value < .@max_value) ? .@preview_value + 1 : .@min_value;
+				break;
+			case 2:
+				.@preview_value = (.@preview_value > .@min_value) ? .@preview_value - 1 : .@max_value;
+				break;
+			case 3:
+				next;
+				mes "^FF0000[ Stylist ]^000000";
+				mes "กรุณากรอกหมายเลข"+.@type_name$;
+				mes "หมายเลข: "+.@min_value+" ถึง "+.@max_value;
+				input .@preview_value,.@min_value,.@max_value;
+				break;
+			case 4:
+				if (countitem(.@coupon_id) < 1) {
+					changelook .@look_type,.@old_value;
+					next;
+					mes "^FF0000[ Stylist ]^000000";
+					mes "ไม่พบ ^FF0000"+getitemname(.@coupon_id)+" 1ea^000000";
+					mes "ระบบคืน"+.@type_name$+"เดิมให้คุณแล้ว";
+					next;
+					return 0;
+				}
+				delitem .@coupon_id,1;
+				setlook .@look_type,.@preview_value;
+				next;
+				mes "^FF0000[ Stylist ]^000000";
+				mes "ยืนยัน"+.@type_name$+"ใหม่เรียบร้อยแล้ว";
+				next;
+				return 1;
+			case 5:
+				changelook .@look_type,.@old_value;
+				next;
+				mes "^FF0000[ Stylist ]^000000";
+				mes "ยกเลิกแล้ว ระบบคืน"+.@type_name$+"เดิมให้คุณ";
+				next;
+				return 0;
+		}
+	}
+}
+
 morocc,167,111,3	script	Stylist#super_stylist	87,{
 	doevent "super_stylist_main::OnTalk";
-
+	end;
 }
 
 -	script	super_stylist_main	-1,{
-	OnTalk:
+OnTalk:
 	cutin "prm_1",2;
 	mes "^FF0000[ Stylist ]^000000";
-	mes "สวัสดีคุณ,"+strcharinfo(0)+"";
+	mes "สวัสดีคุณ,"+strcharinfo(0);
 	mes "ฉันคือช่างเสริมสวยของเซิร์ฟเวอร์นี้";
 	mes "ฉันสามารถเปลี่ยนรูปลักษณ์ของคุณ";
 	mes "ภายนอกให้ออกมาดูดีได้น่ะ";
 	mes "คุณอยากลองดูมั้ยล่ะ..?";
 	next;
-	switch(select("~ ใช่, ฉันต้องการ:~ เปล่า,แค่แวะผ่านมา.."))
-	{
+	if (select("~ ใช่, ฉันต้องการ:~ เปล่า,แค่แวะผ่านมา..") == 2) {
+		cutin "",255;
+		close;
+	}
+
+Lmain:
+	mes "^FF0000[ Stylist ]^000000";
+	mes "โอเค.....";
+	mes "กรุณาเลือกรูปแบบที่คุณต้องการ";
+	mes "ระบบจะแสดงตัวอย่างบนตัวละครของคุณ";
+	next;
+	switch (select(
+		"~ เปลี่ยน ทรงผม",
+		"~ เปลี่ยน สีผม",
+		"~ เปลี่ยน สีชุด"
+	)) {
 		case 1:
-			Lmain:
+			if (countitem(1030061) < 1) {
 				mes "^FF0000[ Stylist ]^000000";
-				mes "โอเค.....";
-				mes "กรุณาเลือกรูปแบบที่คุณต้องการ";
-				mes "ในช่องหน้าต่างด้านข้าง";
-				next;
-				switch (select(
-					"~ เปลี่ยน ทรงผม",
-					"~ เปลี่ยน สีผม",
-					"~ เปลี่ยน สีชุด",
-					"~ ตัวอย่างทรงผม สีผม สีชุด"
-				)) {
-					case 1:
-						if (countitem(1030061) < 1) {
-							mes "^FF0000[ Stylist ]^000000";
-							mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
-							cutin "",255;
-							close;
-						}
-						.@hairstylemin = getBattleFlag("min_hair_style");
-						.@hairstylemax = getBattleFlag("max_hair_style");
-						if (.@hairstylemax > 31)
-							.@hairstylemax = 31;
-						next;
-						mes "^FF0000[ Stylist ]^000000";
-						mes "กรุณากรอกหมายเลข ทรงผม ลงในช่องว่าง";
-						mes "หมายเลขทรงผม : "+.@hairstylemin+" ถึง "+.@hairstylemax;
-						input .@hairstyle,.@hairstylemin,.@hairstylemax;
-						.@oldhairstyle = getlook(LOOK_HAIR);
-						changelook LOOK_HAIR,.@hairstyle;
-						next;
-						mes "^FF0000[ Stylist ]^000000";
-						mes "กำลังแสดงตัวอย่างทรงผมหมายเลข ^0055FF"+.@hairstyle+"^000000";
-						mes "ยืนยันทรงผมนี้หรือไม่?";
-						if (select("~ ยืนยัน:~ ไม่ยืนยัน") == 2) {
-							changelook LOOK_HAIR,.@oldhairstyle;
-							next;
-							mes "^FF0000[ Stylist ]^000000";
-							mes "ยกเลิกแล้ว ระบบคืนทรงผมเดิมให้คุณ";
-							next;
-							break;
-						}
-						if (countitem(1030061) < 1) {
-							changelook LOOK_HAIR,.@oldhairstyle;
-							next;
-							mes "^FF0000[ Stylist ]^000000";
-							mes "ไม่พบ ^FF0000"+getitemname(1030061)+" 1ea^000000";
-							mes "ระบบคืนทรงผมเดิมให้คุณแล้ว";
-							next;
-							break;
-						}
-						delitem 1030061,1;
-						setlook LOOK_HAIR,.@hairstyle;
-						next;
-						mes "^FF0000[ Stylist ]^000000";
-						mes "ยืนยันทรงผมใหม่เรียบร้อยแล้ว";
-						next;
-						break;
-					case 2:
-						if (countitem(1030061) < 1) {
-							mes "^FF0000[ Stylist ]^000000";
-							mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
-							cutin "",255;
-							close;
-						}
-						.@hairdyemin = getBattleFlag("min_hair_color");
-						.@hairdyemax = getBattleFlag("max_hair_color");
-						mes "^FF0000[ Stylist ]^000000";
-						mes "กรุณากรอกหมายเลข สีผม ลงในช่องว่าง";
-						mes "หมายเลขสีผม : "+.@hairdyemin+" ถึง "+.@hairdyemax;
-						input .@hairdye,.@hairdyemin,.@hairdyemax;
-						.@oldhairdye = getlook(LOOK_HAIR_COLOR);
-						changelook LOOK_HAIR_COLOR,.@hairdye;
-						next;
-						mes "^FF0000[ Stylist ]^000000";
-						mes "กำลังแสดงตัวอย่างสีผมหมายเลข ^0055FF"+.@hairdye+"^000000";
-						mes "ยืนยันสีผมนี้หรือไม่?";
-						if (select("~ ยืนยัน:~ ไม่ยืนยัน") == 2) {
-							changelook LOOK_HAIR_COLOR,.@oldhairdye;
-							next;
-							mes "^FF0000[ Stylist ]^000000";
-							mes "ยกเลิกแล้ว ระบบคืนสีผมเดิมให้คุณ";
-							next;
-							break;
-						}
-						if (countitem(1030061) < 1) {
-							changelook LOOK_HAIR_COLOR,.@oldhairdye;
-							next;
-							mes "^FF0000[ Stylist ]^000000";
-							mes "ไม่พบ ^FF0000"+getitemname(1030061)+" 1ea^000000";
-							mes "ระบบคืนสีผมเดิมให้คุณแล้ว";
-							next;
-							break;
-						}
-						delitem 1030061,1;
-						setlook LOOK_HAIR_COLOR,.@hairdye;
-						next;
-						mes "^FF0000[ Stylist ]^000000";
-						mes "ยืนยันสีผมใหม่เรียบร้อยแล้ว";
-						next;
-						break;
-					case 3:
-						if (countitem(1030061) < 1) {
-							mes "^FF0000[ Stylist ]^000000";
-							mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
-							cutin "",255;
-							close;
-						}
-						.@clothcolormin = getBattleFlag("min_cloth_color");
-						.@clothcolormax = getBattleFlag("max_cloth_color");
-						mes "^FF0000[ Stylist ]^000000";
-						mes "กรุณากรอกหมายเลข สีชุด ลงในช่องว่าง";
-						mes "หมายเลขสีชุด : "+.@clothcolormin+" ถึง "+.@clothcolormax;
-						input .@clothcolor,.@clothcolormin,.@clothcolormax;
-						.@oldclothcolor = getlook(LOOK_CLOTHES_COLOR);
-						changelook LOOK_CLOTHES_COLOR,.@clothcolor;
-						next;
-						mes "^FF0000[ Stylist ]^000000";
-						mes "กำลังแสดงตัวอย่างสีชุดหมายเลข ^0055FF"+.@clothcolor+"^000000";
-						mes "ยืนยันสีชุดนี้หรือไม่?";
-						if (select("~ ยืนยัน:~ ไม่ยืนยัน") == 2) {
-							changelook LOOK_CLOTHES_COLOR,.@oldclothcolor;
-							next;
-							mes "^FF0000[ Stylist ]^000000";
-							mes "ยกเลิกแล้ว ระบบคืนสีชุดเดิมให้คุณ";
-							next;
-							break;
-						}
-						if (countitem(1030061) < 1) {
-							changelook LOOK_CLOTHES_COLOR,.@oldclothcolor;
-							next;
-							mes "^FF0000[ Stylist ]^000000";
-							mes "ไม่พบ ^FF0000"+getitemname(1030061)+" 1ea^000000";
-							mes "ระบบคืนสีชุดเดิมให้คุณแล้ว";
-							next;
-							break;
-						}
-						delitem 1030061,1;
-						setlook LOOK_CLOTHES_COLOR,.@clothcolor;
-						next;
-						mes "^FF0000[ Stylist ]^000000";
-						mes "ยืนยันสีชุดใหม่เรียบร้อยแล้ว";
-						next;
-						break;
-					case 4:
-						cutin "",255;
-						close2;
-						opendressroom(1);
-						end;
-				}
-				goto Lmain;
+				mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
+				cutin "",255;
+				close;
+			}
+			.@min_value = getbattleflag("min_hair_style");
+			.@max_value = getbattleflag("max_hair_style");
+			next;
+			callfunc "F_HiclassStylistPreview",LOOK_HAIR,.@min_value,.@max_value,"ทรงผม";
+			break;
 		case 2:
-			cutin "",255;
-			close;
+			if (countitem(1030061) < 1) {
+				mes "^FF0000[ Stylist ]^000000";
+				mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
+				cutin "",255;
+				close;
+			}
+			.@min_value = getbattleflag("min_hair_color");
+			.@max_value = getbattleflag("max_hair_color");
+			next;
+			callfunc "F_HiclassStylistPreview",LOOK_HAIR_COLOR,.@min_value,.@max_value,"สีผม";
+			break;
+		case 3:
+			if (countitem(1030061) < 1) {
+				mes "^FF0000[ Stylist ]^000000";
+				mes "ฉันต้องการ ^FF0000"+getitemname(1030061)+" 1ea^000000";
+				cutin "",255;
+				close;
+			}
+			.@min_value = getbattleflag("min_cloth_color");
+			.@max_value = getbattleflag("max_cloth_color");
+			next;
+			callfunc "F_HiclassStylistPreview",LOOK_CLOTHES_COLOR,.@min_value,.@max_value,"สีชุด";
 			break;
 	}
-	
+	goto Lmain;
 }

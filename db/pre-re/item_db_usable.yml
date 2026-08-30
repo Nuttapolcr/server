@@ -20705,6 +20705,18 @@ Body:
       Sitting: true
     Script: |
       callfunc "F_CS2_Open";
+  - Id: 1500138
+    AegisName: VF_Siege_Teleport_Scroll
+    Name: "[ValorFight] WoE Teleport Scroll ValorFight"
+    Type: Usable
+    Buy: 10
+    Sell: 0
+    Weight: 1
+    NoUse:
+      Override: 100
+      Sitting: true
+    Script: |
+      callfunc "F_CS2_Open";
   - Id: 14592
     AegisName: Job_Manual50
     Name: JOB Battle Manual
