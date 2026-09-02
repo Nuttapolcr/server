@@ -38905,14 +38905,14 @@ Body:
     Name: "[Big] Winner GVG box"
     Type: Cash
     Script: |-
-      getitem 6635,80;
+      getitem 1500159,80;
       getitem 30001,800;
   - Id: 1030073
     AegisName: New_Item_1030073
     Name: "[Small] Winner GVG box"
     Type: Cash
     Script: |-
-      getitem 6635,50;
+      getitem 1500159,50;
       getitem 30001,500;
   - Id: 1030063
     AegisName: New_Item_1030063
@@ -40004,10 +40004,10 @@ Body:
     AegisName: New_Item_1500068
     Name: Charm ทดสอบ ปายา
     Type: Charm
-    CharmScript: bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",1;
-    CharmMaxEffect: 1000
     Flags:
       Collection: true
+    CharmScript: bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",1;
+    CharmMaxEffect: 1000
   - Id: 1500069
     AegisName: Rudolf_Card
     Name: Rudolf Card
@@ -40856,109 +40856,114 @@ Body:
       BuyingStore: true
     Trade:
       NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
       NoTrade: true
       TradePartner: true
-      NoAuction: true
       NoCart: true
       NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
   - Id: 1500148
     AegisName: C_Ghost_Palace_Clear_Coin
     Name: "[C] Ghost Palace Clear Coin"
     Type: Etc
-    Trade:
-      NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
-      NoTrade: true
-      TradePartner: true
-      NoAuction: true
-      NoCart: true
-      NoStorage: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
   - Id: 1500149
     AegisName: N_Faceworm_Clear_Coin
     Name: "[N] Faceworm Clear Coin"
     Type: Etc
-    Trade:
-      NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
-      NoTrade: true
-      TradePartner: true
-      NoAuction: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
   - Id: 1500150
     AegisName: C_Faceworm_Clear_Coin
     Name: "[C] Faceworm Clear Coin"
     Type: Etc
-    Trade:
-      NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
-      NoTrade: true
-      TradePartner: true
-      NoAuction: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
   - Id: 1500151
     AegisName: N_Toy_Factory_Clear_Coin
     Name: "[N] Toy Factory Clear Coin"
     Type: Etc
-    Trade:
-      NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
-      NoTrade: true
-      NoAuction: true
-      TradePartner: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
   - Id: 1500152
     AegisName: C_Toy_Factory_Clear_Coin
     Name: "[C] Toy Factory Clear Coin"
     Type: Etc
-    Trade:
-      NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
-      TradePartner: true
-      NoAuction: true
-      NoTrade: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
   - Id: 1500153
     AegisName: N_Sarah_Clear_Coin
     Name: "[N] Sarah Clear Coin"
     Type: Etc
-    Trade:
-      NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
-      NoTrade: true
-      TradePartner: true
-      NoAuction: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
   - Id: 1500154
     AegisName: C_Sarah_Clear_Coin
     Name: "[C] Sarah Clear Coin"
     Type: Etc
-    Trade:
-      NoDrop: true
-      NoMail: true
-      NoTrade: true
-      NoGuildStorage: true
-      TradePartner: true
-      NoAuction: true
-      NoCart: true
     Flags:
       BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 1500159
+    AegisName: "Blacksmith_Blessing_Box "
+    Name: "Blacksmith Blessing Box "
+    Script: getitem 6635,1;
+    Type: Usable
