@@ -200,8 +200,9 @@ static enum e_storage_add storage_canAddItem(struct s_storage *stor, int idx, st
 	if (itemdb_ishatched_egg(&items[idx]))
 		return STORAGE_ADD_INVALID;
 
-	if (items[idx].expire_time)
-		return STORAGE_ADD_INVALID;
+	// Rental storage is controlled by the item's NoStorage setting. This lets
+	// ordinary rentals use storage while explicitly restricted giveaway items
+	// remain blocked by itemdb_canstore() in storage_additem().
 
 	if (!stor->state.put)
 		return STORAGE_ADD_NOACCESS;
@@ -264,7 +265,15 @@ static int storage_additem(map_session_data* sd, struct s_storage *stor, struct 
 		}else{
 			int stored_amount = pc_premium_storage_total(sd,it->nameid);
 
-			if (item_is_collection_stack(it->nameid)) {
+			if (item_is_charm(it->nameid)) {
+				int charm_max_stored = item_charm_max_stack(it->nameid, MAX_AMOUNT);
+
+				if ((amount + stored_amount) > charm_max_stored) {
+					sprintf(output_msg,msg_txt(sd,1645),item_db.create_item_link(cdata).c_str(), charm_max_stored);
+					clif_messagecolor(&sd->bl, color_table[COLOR_CYAN], output_msg, false, SELF);
+					return 1;
+				}
+			}else if (item_is_collection_stack(it->nameid)) {
 				if ((amount + stored_amount) > battle_config.collection_max_stored) {
 					sprintf(output_msg,msg_txt(sd,1645),item_db.create_item_link(cdata).c_str(), battle_config.collection_max_stored);
 					clif_messagecolor(&sd->bl, color_table[COLOR_CYAN], output_msg, false, SELF);
@@ -292,7 +301,9 @@ static int storage_additem(map_session_data* sd, struct s_storage *stor, struct 
 	if( data->stack.storage && amount > data->stack.amount ) // item stack limitation
 		return 2;
 
-	if( !itemdb_canstore(it, pc_get_group_level(sd)) ) { // Check if item is storable. [Skotlex]
+	// NoStorage continues to protect normal storage. Charms are explicitly
+	// allowed in collection storage because collection is their active slot.
+	if( !itemdb_canstore(it, pc_get_group_level(sd)) && !(sd->state.collection_open && item_is_charm(it->nameid)) ) { // Check if item is storable. [Skotlex]
 		clif_displaymessage (sd->fd, msg_txt(sd,264));
 		return 1;
 	}

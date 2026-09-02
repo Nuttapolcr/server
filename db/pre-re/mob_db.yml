@@ -13416,7 +13416,7 @@ Body:
         Rate: 1
         StealProtected: true
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1315
     AegisName: ASSULTER
     Name: Assaulter
@@ -13468,7 +13468,7 @@ Body:
         Rate: 1
         StealProtected: true
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1316
     AegisName: SOLIDER
     Name: Solider
@@ -13613,7 +13613,7 @@ Body:
         Rate: 1
         StealProtected: true
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1319
     AegisName: FREEZER
     Name: Freezer
@@ -13663,7 +13663,7 @@ Body:
         Rate: 1
         StealProtected: true
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1320
     AegisName: OWL_DUKE
     Name: Owl Duke
@@ -15340,7 +15340,7 @@ Body:
       - Item: Elunium
         Rate: 5
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1366
     AegisName: LAVA_GOLEM
     Name: Lava Golem
@@ -15425,7 +15425,7 @@ Body:
       - Item: White_Herb
         Rate: 1600
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1368
     AegisName: GEOGRAPHER
     Name: Geographer
@@ -15981,7 +15981,7 @@ Body:
         Rate: 1
         StealProtected: true
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1380
     AegisName: DRILLER
     Name: Driller
@@ -16103,7 +16103,7 @@ Body:
       - Item: Oridecon
         Rate: 20
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1383
     AegisName: EXPLOSION
     Name: Explosion
@@ -16189,7 +16189,7 @@ Body:
         Rate: 1
         StealProtected: true
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1385
     AegisName: DELETER_
     Name: Deleter
@@ -16232,7 +16232,7 @@ Body:
         Rate: 1
         StealProtected: true
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1386
     AegisName: SLEEPER
     Name: Sleeper
@@ -16324,7 +16324,7 @@ Body:
         Rate: 1
         StealProtected: true
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1388
     AegisName: ARCHANGELING
     Name: Arc Angeling
@@ -26265,7 +26265,7 @@ Body:
       - Item: Oridecon
         Rate: 10
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1671
     AegisName: DIMIK_2
     Name: Dimik
@@ -26315,7 +26315,7 @@ Body:
       - Item: Oridecon
         Rate: 10
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1672
     AegisName: DIMIK_3
     Name: Dimik
@@ -26365,7 +26365,7 @@ Body:
       - Item: Oridecon
         Rate: 10
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1673
     AegisName: DIMIK_4
     Name: Dimik
@@ -26415,7 +26415,7 @@ Body:
       - Item: Oridecon
         Rate: 10
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1674
     AegisName: MONEMUS
     Name: Monemus
@@ -26530,7 +26530,7 @@ Body:
       - Item: Elunium
         Rate: 10
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1677
     AegisName: VENATU_2
     Name: Venatu
@@ -26580,7 +26580,7 @@ Body:
       - Item: Elunium
         Rate: 10
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1678
     AegisName: VENATU_3
     Name: Venatu
@@ -26630,7 +26630,7 @@ Body:
       - Item: Elunium
         Rate: 10
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1679
     AegisName: VENATU_4
     Name: Venatu
@@ -26680,7 +26680,7 @@ Body:
       - Item: Elunium
         Rate: 10
       - Item: Rudolf_Bag
-        Rate: 10
+        Rate: 15
   - Id: 1680
     AegisName: HILL_WIND_1
     Name: Hill Wind
@@ -34614,6 +34614,8 @@ Body:
         Rate: 1500
       - Item: Bread
         Rate: 1500
+      - Item: Rudolf_Bag
+        Rate: 15
   - Id: 1883
     AegisName: UZHAS
     Name: Uzhas
@@ -34658,6 +34660,8 @@ Body:
         Rate: 1500
       - Item: Old_Blue_Box
         Rate: 3
+      - Item: Rudolf_Bag
+        Rate: 15
   - Id: 1884
     AegisName: MAVKA
     Name: Mavka
@@ -34702,6 +34706,8 @@ Body:
         Rate: 300
       - Item: Blue_Herb
         Rate: 1600
+      - Item: Rudolf_Bag
+        Rate: 15
   - Id: 1885
     AegisName: GOPINICH
     Name: Gopinich
@@ -41662,7 +41668,7 @@ Body:
     AegisName: CURSED_SOLDIER
     Name: Cursed Soldier
     Level: 110
-    Hp: 18574
+    Hp: 185740
     BaseExp: 1907
     JobExp: 2036
     Attack: 1334
@@ -41689,14 +41695,12 @@ Body:
     Ai: 04
     Drops:
       - Item: Gray_Shard
-        Rate: 1000
-      - Item: Decayed_Nail
-        Rate: 3000
+        Rate: 500
   - Id: 2949
     AegisName: CURSED_SENTINEL
     Name: Cursed Sentinel
     Level: 110
-    Hp: 14099
+    Hp: 140980
     BaseExp: 1634
     JobExp: 1480
     Attack: 1397
@@ -41723,16 +41727,12 @@ Body:
     Ai: 04
     Drops:
       - Item: Gray_Shard
-        Rate: 1000
-      - Item: Mementos
-        Rate: 2500
-      - Item: Worn_Out_Page
-        Rate: 1500
+        Rate: 500
   - Id: 2950
     AegisName: BROKEN_MIND
     Name: Broken Mind
     Level: 110
-    Hp: 13520
+    Hp: 135200
     BaseExp: 1545
     JobExp: 1712
     Attack: 1350
@@ -41761,16 +41761,12 @@ Body:
       Detector: true
     Drops:
       - Item: Gray_Shard
-        Rate: 1000
-      - Item: Withered_Flower
-        Rate: 2500
-      - Item: Exorcize_Herb
-        Rate: 1000
+        Rate: 500
   - Id: 2951
     AegisName: FLOATING_WORD
     Name: Floating Word
     Level: 110
-    Hp: 11276
+    Hp: 112750
     BaseExp: 1166
     JobExp: 1137
     Attack: 1074
@@ -41799,16 +41795,12 @@ Body:
       Detector: true
     Drops:
       - Item: Gray_Shard
-        Rate: 1000
-      - Item: Sticky_Mucus
-        Rate: 3000
-      - Item: Horn
-        Rate: 2500
+        Rate: 500
   - Id: 2952
     AegisName: LIKE_LOVE
     Name: Like Love
     Level: 110
-    Hp: 14008
+    Hp: 140080
     BaseExp: 1505
     JobExp: 1833
     Attack: 1182
@@ -41837,14 +41829,12 @@ Body:
       Detector: true
     Drops:
       - Item: Gray_Shard
-        Rate: 1000
-      - Item: Immortal_Heart
-        Rate: 2500
+        Rate: 500
   - Id: 2953
     AegisName: CURSED_MEMORY
     Name: Cursed Memory
     Level: 110
-    Hp: 18045
+    Hp: 180450
     BaseExp: 1802
     JobExp: 1785
     Attack: 1392
@@ -41871,14 +41861,12 @@ Body:
     Ai: 04
     Drops:
       - Item: Gray_Shard
-        Rate: 1000
-      - Item: Decayed_Nail
-        Rate: 3000
+        Rate: 500
   - Id: 2954
     AegisName: COLORLESS_VOW
     Name: Colorless Vow
     Level: 110
-    Hp: 19194
+    Hp: 191940
     BaseExp: 1939
     JobExp: 2069
     Attack: 1606
@@ -41905,16 +41893,12 @@ Body:
     Ai: 04
     Drops:
       - Item: Gray_Shard
-        Rate: 1000
-      - Item: Horrendous_Mouth
-        Rate: 3500
-      - Item: Sharpened_Cuspid
-        Rate: 2000
+        Rate: 500
   - Id: 2955
     AegisName: OLD_FRIENDSHIP
     Name: Old Friendship
     Level: 110
-    Hp: 12614
+    Hp: 126140
     BaseExp: 1306
     JobExp: 1460
     Attack: 1227
@@ -41941,16 +41925,12 @@ Body:
     Ai: 04
     Drops:
       - Item: Gray_Shard
-        Rate: 1000
-      - Item: Skel_Bone
-        Rate: 3500
-      - Item: Manacles
-        Rate: 2500
+        Rate: 500
   - Id: 2956
     AegisName: SWEET_SLAUGHTER
     Name: Sweet Slaughter
     Level: 110
-    Hp: 13986
+    Hp: 139860
     BaseExp: 1960
     JobExp: 1745
     Attack: 1232
@@ -41977,16 +41957,12 @@ Body:
     Ai: 04
     Drops:
       - Item: Gray_Shard
-        Rate: 1000
-      - Item: Immortal_Heart
-        Rate: 2000
-      - Item: Realgar_Wine
-        Rate: 1000
+        Rate: 500
   - Id: 2957
     AegisName: FORGOTTEN_NAME
     Name: Forgotten Name
     Level: 120
-    Hp: 19546
+    Hp: 195460
     BaseExp: 1505
     JobExp: 1633
     Attack: 1066
@@ -42013,16 +41989,12 @@ Body:
     Ai: 04
     Drops:
       - Item: Gray_Shard
-        Rate: 1500
-      - Item: Realgar_Wine
-        Rate: 5000
-      - Item: Exorcize_Herb
-        Rate: 5000
+        Rate: 500
   - Id: 2958
     AegisName: FATAL_DAYS
     Name: Fatal Days
     Level: 120
-    Hp: 24240
+    Hp: 242400
     BaseExp: 2052
     JobExp: 2228
     Attack: 1007
@@ -42051,20 +42023,17 @@ Body:
       Detector: true
     Drops:
       - Item: Gray_Shard
-        Rate: 1500
-      - Item: Tendon
-        Rate: 2500
-      - Item: Petite_DiablOfs_Horn
-        Rate: 2500
+        Rate: 1000
   - Id: 2959
     AegisName: TORTUROUS_REDEEMER
     Name: Torturous Redeemer
     Level: 120
-    Hp: 103342
+    Hp: 1033420
     BaseExp: 10590
     JobExp: 9215
     Attack: 1250
     Attack2: 1
+    Defense: 65
     MagicDefense: 28
     Str: 133
     Agi: 69
@@ -42089,14 +42058,15 @@ Body:
         Rate: 10000
       - Item: Gray_Shard
         Rate: 10000
-      - Item: Evil_Horn
-        Rate: 2000
-    Defense: 65
+      - Item: Gray_Shard
+        Rate: 5000
+      - Item: Gray_Shard
+        Rate: 1000
   - Id: 2961
     AegisName: E_TORTUROUS_REDEEMER
     Name: Torturous Redeemer
     Level: 120
-    Hp: 103342
+    Hp: 1033420
     BaseExp: 1
     JobExp: 1
     Attack: 1
@@ -42116,12 +42086,14 @@ Body:
     DamageMotion: 360
     Ai: 04
     Drops:
-      - Item: Evil_Horn
-        Rate: 2000
       - Item: Gray_Shard
         Rate: 10000
       - Item: Gray_Shard
         Rate: 10000
+      - Item: Gray_Shard
+        Rate: 5000
+      - Item: Gray_Shard
+        Rate: 1000
   - Id: 2987
     AegisName: XM_TREE
     Name: Decorated Evil Tree

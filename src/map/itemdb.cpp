@@ -5216,7 +5216,9 @@ bool item_is_collection(t_itemid nameid) {
 		return false;
 	}
 
-	return id->flag.collection;
+	// Charms use the collection as their source of active effects. Keep this
+	// type-based so new charm items do not need an additional per-item flag.
+	return id->flag.collection || id->type == IT_CHARM || id->type == IT_CHARM_UPGRADE;
 }
 
 /*==========================================
@@ -5231,7 +5233,10 @@ bool item_is_collection_stack(t_itemid nameid) {
 		return false;
 	}
 
-	return id->flag.collection_stack;
+	// Regular charms are stackable and their effect count is capped by
+	// CharmMaxEffect. Charm upgrades remain separate items so their refine and
+	// enchant grade data is preserved in collection storage.
+	return id->flag.collection_stack || id->type == IT_CHARM;
 }
 
 const std::string CollectionComboDatabase::getDefaultLocation() {
@@ -5408,19 +5413,19 @@ int item_charm_max_stack(t_itemid nameid, int amount)
 {
 	std::shared_ptr<item_data> id = item_db.find(nameid);
 
-	if(id == nullptr)
+	if(id == nullptr || amount <= 0)
 		return 0;
 
-	int ret = amount;
+	if (id->type == IT_CHARM)
+		return min(amount, max(id->max_charm_stack, 1));
 
-	if(id->type == IT_CHARM){
-		if(ret>id->max_charm_stack)
-			ret = id->max_charm_stack;
-	}else if (id->type == IT_CHARM_UPGRADE){
-		ret = 1;
+	if (id->type == IT_CHARM_UPGRADE) {
+		int max_effect = id->charm_upgrade_stack_script ? id->max_charm_upgrade_stack : 1;
+
+		return min(amount, max(max_effect, 1));
 	}
 
-	return ret;
+	return 0;
 }
 
 bool charm_upgrade_check_limit(std::vector<t_itemid> vec, t_itemid nameid)
@@ -5476,8 +5481,8 @@ static bool itemdb_read_ai_item_buff(char* fields[], size_t columns, size_t curr
 
 	std::shared_ptr<item_data> id = item_db.find(itemid);
 
-	if( id->type != IT_HEALING && id->type != IT_USABLE ){
-		ShowWarning("itemdb_read_ai_item_buff: Item ID %d is not a healing item or usable item.\n", itemid);
+	if( id->type != IT_HEALING && id->type != IT_USABLE && id->type != IT_DELAYCONSUME ){
+		ShowWarning("itemdb_read_ai_item_buff: Item ID %d is not a healing, usable, or delay-consume item.\n", itemid);
 		return false;
 	}
 

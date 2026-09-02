@@ -5,3 +5,4 @@ morocc,186,109,0,0	monster	Dummy (Small)	21064,1
 morocc,190,109,0,0	monster	Dummy (Medium)	21065,1
 morocc,194,109,0,0	monster	Dummy (Large)	21066,1
 morocc,198,109,0,0	monster	Dummy (Demi-Human)	21070,1
+morocc,123,57,0,0	monster	Dummy (Demi-Human)	21070,1

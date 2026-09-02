@@ -2012,7 +2012,7 @@ OnTimer10000:
 	if ('step != 9)
 		end;
 	if (checkquest(12319,HUNTING) == 2) {// note: complete hunting 'Corrupted Soul Hunt' prerequis
-		if (checkweight(6607,5,6608,25,1030077,1) == 0) {
+		if (checkweight(6607,5,6608,5,1500120,1) == 0) {
 			mes "^ff0000It seems like you have too many types or weights of items. Please organize your inventory.^000000";
 			close;
 		}
@@ -2031,8 +2031,7 @@ OnTimer10000:
 			getitem 6607,1;// Temporal_Crystal
 			getitem 6608,1;// Coagulated_Spell
 		}
-		getitem 6608,20;// Coagulated_Spell
-		getitem 1030077,1;// [N] OGH Clear Coin
+		getitem 1500120,1;// Reward Old Glast Heim
 		next;
 		mes "[Hugin]";
 		mes "Varmundt's time is stopped by me.";

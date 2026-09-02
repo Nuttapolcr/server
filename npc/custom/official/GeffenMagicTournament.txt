@@ -1436,13 +1436,12 @@ OnInstanceInit:
 				"Geffen Festivities.";
 				close2;
 				cutin "",255;
-				if (!checkweight(6671,'reward[getarraysize('reward[0]) - 1],6293,5,1030075,1)) {
+				if (!checkweight(6671,'reward[getarraysize('reward[0]) - 1],1500119,1)) {
 					dispbottom "Your inventory needs more space for the reward.";
 					end;
 				}
 				getitem 6671,'reward[getarraysize('reward[0]) - 1];
-				getitem 6293,5;
-				getitem 1030075,1;
+				getitem 1500119,1;
 				warp instance_mapname("1@gef"), 120,35;
 				end;
 			case 2:

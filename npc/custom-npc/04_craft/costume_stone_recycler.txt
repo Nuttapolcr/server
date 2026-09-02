@@ -1,0 +1,200 @@
+//===== rAthena Script =======================================
+//= ย่อย หินCostume
+//===== Description: =========================================
+//= Converts configured Costume stones into account-wide points.
+//= Every eligible stone grants 1 #COSTUME_STONE_POINTS.
+//============================================================
+
+morocc,146,139,4	script	ย่อย หินCostume	660,{
+Main:
+	.@npc$ = "[ย่อย หินCostume]";
+
+	mes .@npc$;
+	mes "นำหิน Costume ตามรายการมาย่อยเป็น ^0055FFแต้มย่อยหิน Costume^000000";
+	mes "หิน 1 ชิ้น ได้รับ ^FF99001 แต้ม^000000";
+	mes "แต้มในบัญชีตอนนี้: ^FF9900"+callfunc("F_InsertComma",#COSTUME_STONE_POINTS)+"^000000";
+	next;
+
+	switch(select("เลือกย่อยทีละชนิด:ย่อยหินทั้งหมดในตัว:เปิดร้านแลกของ:ตรวจแต้ม:ยกเลิก")) {
+		case 1:
+			goto SelectStone;
+
+		case 2:
+			.@total = 0;
+			for (.@i = 0; .@i < getarraysize(.StoneID); .@i++)
+				.@total += countitem(.StoneID[.@i]);
+
+			mes .@npc$;
+			if (.@total <= 0) {
+				mes "ยังไม่มีหิน Costume ที่สามารถย่อยได้ในตัวท่าน";
+				close;
+			}
+			mes "พบหินที่สามารถย่อยได้ทั้งหมด ^00AA00"+.@total+"^000000 ชิ้น";
+			mes "ต้องการย่อยทั้งหมดเพื่อรับ ^FF9900"+callfunc("F_InsertComma",.@total)+" แต้ม^000000 หรือไม่?";
+			next;
+			if (select("ยืนยันย่อยทั้งหมด:ยกเลิก") == 2)
+				close;
+
+			.@deleted = 0;
+			for (.@i = 0; .@i < getarraysize(.StoneID); .@i++) {
+				.@amount = countitem(.StoneID[.@i]);
+				if (.@amount <= 0)
+					continue;
+				delitem .StoneID[.@i], .@amount;
+				.@deleted += .@amount;
+			}
+
+			if (.@deleted <= 0) {
+				mes .@npc$;
+				mes "ไม่พบหิน Costume ที่สามารถย่อยได้";
+				close;
+			}
+
+			#COSTUME_STONE_POINTS += .@deleted;
+			dispbottom "ย่อยหิน Costume "+.@deleted+" ชิ้น ได้รับ "+.@deleted+" แต้ม | คงเหลือ "+#COSTUME_STONE_POINTS;
+			mes .@npc$;
+			mes "ย่อยหินเรียบร้อย ^00AA00"+.@deleted+"^000000 ชิ้น";
+			mes "แต้มในบัญชีคงเหลือ: ^FF9900"+callfunc("F_InsertComma",#COSTUME_STONE_POINTS)+"^000000";
+			close;
+
+		case 3:
+			mes .@npc$;
+			mes "แต้มในบัญชีตอนนี้: ^FF9900"+callfunc("F_InsertComma",#COSTUME_STONE_POINTS)+"^000000";
+			next;
+			callshop "Costume_Stone_Point_Shop";
+			end;
+
+		case 4:
+			mes .@npc$;
+			mes "แต้มย่อยหิน Costume ในบัญชีของท่าน:";
+			mes "^FF9900"+callfunc("F_InsertComma",#COSTUME_STONE_POINTS)+"^000000";
+			close;
+
+		default:
+			close;
+	}
+
+SelectStone:
+	deletearray .@OwnedStone;
+	.@owned_count = 0;
+	for (.@i = 0; .@i < getarraysize(.StoneID); .@i++) {
+		if (countitem(.StoneID[.@i]) <= 0)
+			continue;
+		.@OwnedStone[.@owned_count] = .StoneID[.@i];
+		.@owned_count++;
+	}
+
+	mes .@npc$;
+	if (.@owned_count <= 0) {
+		mes "ยังไม่มีหิน Costume ที่สามารถย่อยได้ในตัวท่าน";
+		close;
+	}
+
+	.@page = 0;
+	.@per_page = 10;
+
+StonePage:
+	.@start = .@page * .@per_page;
+	.@end = .@start + .@per_page;
+	if (.@end > .@owned_count)
+		.@end = .@owned_count;
+
+	.@menu$ = "";
+	for (.@i = .@start; .@i < .@end; .@i++)
+		.@menu$ += getitemname(.@OwnedStone[.@i])+" ["+countitem(.@OwnedStone[.@i])+"]:";
+
+	.@page_items = .@end - .@start;
+	.@has_previous = (.@page > 0);
+	.@has_next = (.@end < .@owned_count);
+	if (.@has_previous)
+		.@menu$ += "หน้าก่อน:";
+	if (.@has_next)
+		.@menu$ += "หน้าถัดไป:";
+	.@menu$ += "ย้อนกลับ";
+
+	mes .@npc$;
+	mes "เลือกหินที่ต้องการย่อย";
+	mes "หน้า "+(.@page + 1)+" / "+((.@owned_count + .@per_page - 1) / .@per_page);
+	next;
+	.@choice = select(.@menu$);
+
+	if (.@choice <= .@page_items) {
+		.@stone_id = .@OwnedStone[.@start + .@choice - 1];
+		goto DismantleSelected;
+	}
+
+	.@nav = .@choice - .@page_items;
+	if (.@has_previous) {
+		if (.@nav == 1) {
+			.@page--;
+			goto StonePage;
+		}
+		.@nav--;
+	}
+	if (.@has_next && .@nav == 1) {
+		.@page++;
+		goto StonePage;
+	}
+	goto Main;
+
+DismantleSelected:
+	.@have = countitem(.@stone_id);
+	mes .@npc$;
+	mes "รายการ: ^0055FF"+getitemname(.@stone_id)+"^000000";
+	mes "จำนวนที่มี: ^00AA00"+.@have+"^000000";
+	mes "ได้รับ 1 แต้มต่อหิน 1 ชิ้น";
+	if (.@have <= 0)
+		close;
+	next;
+
+	input .@amount, 1, .@have;
+	mes .@npc$;
+	mes "ต้องการย่อย ^0055FF"+getitemname(.@stone_id)+"^000000 x "+.@amount;
+	mes "เพื่อรับ ^FF9900"+.@amount+" แต้ม^000000 ใช่หรือไม่?";
+	next;
+	if (select("ยืนยัน:ยกเลิก") == 2)
+		close;
+
+	if (countitem(.@stone_id) < .@amount) {
+		mes .@npc$;
+		mes "จำนวนหินไม่พอ กรุณาตรวจสอบอีกครั้ง";
+		close;
+	}
+
+	delitem .@stone_id, .@amount;
+	#COSTUME_STONE_POINTS += .@amount;
+	dispbottom "ได้รับแต้มย่อยหิน Costume +"+.@amount+" | คงเหลือ "+#COSTUME_STONE_POINTS;
+	mes .@npc$;
+	mes "ย่อยหินเรียบร้อย";
+	mes "แต้มในบัญชีคงเหลือ: ^FF9900"+callfunc("F_InsertComma",#COSTUME_STONE_POINTS)+"^000000";
+	close;
+
+OnInit:
+	waitingroom "ย่อย หินCostume",0;
+
+	// Garment and Dual stones (column A in the source sheet).
+	setarray .StoneID[0],
+		6908,6963,6964,25067,25170,25302,25303,25306,
+		1000520,1000521,1000522,1000523,1000524,1000525,1000526,1000527,1000855,
+
+		// Lower stones (column B).
+		25062,25066,25071,25072,25174,25227,25228,25305,25411,25419,
+		25447,25452,25455,25492,25496,25500,25708,25712,25716,25798,
+		25802,25806,25845,25848,25852,25857,25861,1000014,1000018,1000216,
+		1000220,1000224,1000299,1000303,1000307,1000376,1000379,1000530,25415,1000010,
+
+		// Middle stones (column C).
+		25060,25061,25070,25173,25175,25410,25418,25446,25451,25454,
+		25491,25495,25499,25707,25711,25715,25799,25803,25807,25844,
+		25847,25851,25856,25860,1000013,1000017,1000215,1000219,1000223,1000298,
+		1000302,1000306,1000378,1000529,25414,1000009,
+
+		// Upper stones (column D).
+		25000,25068,25069,25172,25304,25409,25417,25445,25450,25453,
+		25490,25494,25498,25706,25710,25714,25800,25804,25808,25843,
+		25846,25850,25855,25859,1000012,1000016,1000214,1000218,1000222,1000297,
+		1000301,1000305,1000375,1000377,1000528,25413,1000008;
+	end;
+}
+
+-	pointshop	Costume_Stone_Point_Shop	-1,#COSTUME_STONE_POINTS,1500018:3,1500019:3,1500020:3,1500021:10;

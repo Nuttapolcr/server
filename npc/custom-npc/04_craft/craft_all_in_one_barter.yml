@@ -69,6 +69,21 @@ Body:
         RequiredItems:
           - Index: 0
             Item: N_OGH_Clear_Coin
+      - Index: 8
+        Item: C_Ghost_Palace_Clear_Coin_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_Ghost_Palace_Clear_Coin
+          - Index: 1
+            Item: CASH
+            Amount: 10
+      - Index: 9
+        Item: C_Ghost_Palace_Clear_Coin
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: N_Ghost_Palace_Clear_Coin
 
   - Name: CRAFT_ALL_IN_ONE_COSTUME
     CraftBarter: false
@@ -426,6 +441,12 @@ Body:
           - Index: 0
             Item: C_Quest_Clear_Coin
             Amount: 3
+      - Index: 12
+        Item: Fragment_Stone_2_Box
+        Zeny: 100000
+        RequiredItems:
+          - Index: 0
+            Item: C_Ghost_Palace_Clear_Coin
 
   - Name: CRAFT_ALL_IN_ONE_HOTWEEK
     CraftBarter: false

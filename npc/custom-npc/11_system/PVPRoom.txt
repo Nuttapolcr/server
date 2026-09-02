@@ -82,6 +82,8 @@ end;
 }
 
 morocc,173,101,4	duplicate(PvP)	P V P#0	11137
+morocc,143,60,4	duplicate(PvP)	P V P#save1	11137
+morocc,197,96,4	duplicate(PvP)	P V P#save2	11137
 maintown,134,248,4	duplicate(PvP)	P V P#10	11137
 maintown,179,248,4	duplicate(PvP)	P V P#11	11137
 maintown,248,248,4	duplicate(PvP)	P V P#12	11137

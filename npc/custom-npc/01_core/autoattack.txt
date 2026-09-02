@@ -1111,12 +1111,13 @@ buffitems_menu:
 
 	mes .@menu$;
 	mes "--- การตั้งค่าปัจจุบัน ---";
-	setarray .@lbuff_item[0],645,656,657,12208,12210;
-	setarray .@lbuff_sc[0],SC_ASPDPOTION0,SC_ASPDPOTION1,SC_ASPDPOTION2,SC_EXPBOOST,SC_ITEMBOOST;
+	setarray .@lbuff_item[0],645,656,657,12208,12210,12114,12115,12116,12117;
+	setarray .@lbuff_sc[0],SC_ASPDPOTION0,SC_ASPDPOTION1,SC_ASPDPOTION2,SC_EXPBOOST,SC_ITEMBOOST,SC_ENCHANTARMS,SC_ENCHANTARMS,SC_ENCHANTARMS,SC_ENCHANTARMS;
+	setarray .@lbuff_label$[5]," [Fire]"," [Water]"," [Earth]"," [Wind]";
 	.@buffitems_menu1$ = "";
 	
 	for (.@i = 0; .@i < getarraysize(.@lbuff_item); .@i++)
-		.@buffitems_menu1$ = .@buffitems_menu1$ + (.@i > 0 ? ":" : "") + aa_getautoattackstring(5,.@lbuff_item[.@i]);
+		.@buffitems_menu1$ = .@buffitems_menu1$ + (.@i > 0 ? ":" : "") + aa_getautoattackstring(5,.@lbuff_item[.@i]) + .@lbuff_label$[.@i];
 
 
 	.@buffitems_menu1$ = "[ยกเลิก]:" + .@buffitems_menu1$;

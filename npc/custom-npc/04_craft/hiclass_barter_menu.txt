@@ -19,7 +19,7 @@ morocc,139,153,4	script	NPCคราฟของสวมใส่	4_M_REPAIR,{
 	mes "เลือกประเภทการคราฟที่ต้องการ";
 	next;
 
-	switch (select("คราฟอาวุธ:คราฟของสวมใส่:คราฟประดับ:ยกเลิก")) {
+	switch (select("คราฟอาวุธ:คราฟของสวมใส่:คราฟโล่:คราฟประดับ:ยกเลิก")) {
 	case 1:
 		close2;
 		callshop "HICLASS_CRAFT_WEAPON",1;
@@ -29,6 +29,10 @@ morocc,139,153,4	script	NPCคราฟของสวมใส่	4_M_REPAIR,{
 		callshop "HICLASS_CRAFT_EQUIPMENT",1;
 		end;
 	case 3:
+		close2;
+		callshop "HICLASS_CRAFT_SHIELD",1;
+		end;
+	case 4:
 		close2;
 		callshop "HICLASS_CRAFT_ACCESSORY",1;
 		end;

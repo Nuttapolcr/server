@@ -3386,6 +3386,7 @@ extern int current_equip_card_id;
 extern short current_equip_opt_index;
 extern short current_collection_index;
 extern short current_charm_index;
+extern bool current_charm_from_collection;
 
 //Status change option definitions (options are what makes status changes visible to chars
 //who were not on your field of sight when it happened)

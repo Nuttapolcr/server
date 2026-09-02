@@ -3569,7 +3569,6 @@ static bool battle_skill_stacks_edp_element(uint16 skill_id)
 		case TF_SPRINKLESAND:
 		case AS_SPLASHER:
 		case ASC_METEORASSAULT:
-		case ASC_BREAKER:
 		case AS_VENOMKNIFE:
 		case AM_ACIDTERROR:
 			return false;

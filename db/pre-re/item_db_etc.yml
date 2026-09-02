@@ -11484,7 +11484,7 @@ Body:
     Sell: 0
     Weight: 0
     Script: |
-      autobonus2 "{ bonus bStr,200; bonus2 bHPLossRate,500,1000; }",20,5000,BF_WEAPON,"{ active_transform 1060,5000; specialeffect2 EF_POTION_BERSERK; showscript \"Bigfoot Power !\"; }";
+      autobonus2 "{ bonus bStr,100; bonus2 bHPLossRate,500,1000; }",20,5000,BF_WEAPON,"{ active_transform 1060,5000; specialeffect2 EF_POTION_BERSERK; showscript \"Bigfoot Power !\"; }";
     UnEquipScript: |
       heal 0,-300;
   - Id: 4876
@@ -11496,7 +11496,7 @@ Body:
     Sell: 0
     Weight: 0
     Script: |
-      autobonus "{ bonus bInt,200; bonus2 bSPLossRate,200,1000; }",15,10000,BF_MAGIC,"{ specialeffect2 EF_LAMADAN; }";
+      autobonus "{ bonus bInt,100; bonus2 bSPLossRate,200,1000; }",15,10000,BF_MAGIC,"{ specialeffect2 EF_LAMADAN; }";
     UnEquipScript: |
       heal 0,-2000;
   - Id: 4877
@@ -11508,7 +11508,7 @@ Body:
     Sell: 0
     Weight: 0
     Script: |
-      autobonus "{ bonus bAspdRate,100; bonus bFlee,100; bonus2 bSPLossRate,50,1000; }",10,5000,BF_WEAPON,"{ specialeffect2 EF_FLASHER; }";
+      autobonus "{ bonus bAspdRate,50; bonus bFlee,50; bonus2 bSPLossRate,50,1000; }",10,5000,BF_WEAPON,"{ specialeffect2 EF_FLASHER; }";
     UnEquipScript: |
       heal 0,-300;
   - Id: 4878
@@ -11520,7 +11520,7 @@ Body:
     Sell: 0
     Weight: 0
     Script: |
-      autobonus2 "{ bonus bDef,500; bonus2 bSPLossRate,50,1000; }",20,5000,BF_WEAPON,"{ specialeffect2 EF_MAGNUMBREAK; }";
+      autobonus2 "{ bonus bDef,100; bonus2 bSPLossRate,50,1000; }",20,5000,BF_WEAPON,"{ specialeffect2 EF_MAGNUMBREAK; }";
     UnEquipScript: |
       heal 0,-300;
   - Id: 4879
@@ -11544,8 +11544,8 @@ Body:
     Sell: 0
     Weight: 0
     Script: |
-      autobonus "{ bonus bLuk,200; bonus2 bAddMonsterDropItem,7444,10; }",15,5000,BF_WEAPON|BF_MAGIC,"{ specialeffect2 EF_MVP; showscript \"LUCKY MAX !!\"; }";
-      autobonus2 "{ bonus bLuk,200; bonus2 bAddMonsterDropItem,7444,1; }",1,5000,BF_WEAPON|BF_MAGIC,"{ specialeffect2 EF_MVP; showscript \"LUCKY MAX !!\"; }";
+      autobonus "{ bonus bLuk,200; }",15,5000,BF_WEAPON|BF_MAGIC,"{ specialeffect2 EF_MVP; showscript \"LUCKY MAX !!\"; }";
+      autobonus2 "{ bonus bLuk,200; }",1,5000,BF_WEAPON|BF_MAGIC,"{ specialeffect2 EF_MVP; showscript \"LUCKY MAX !!\"; }";
     UnEquipScript: |
       heal 0,-300;
   - Id: 4881
@@ -24450,10 +24450,18 @@ Body:
       NoAuction: true
   - Id: 6635
     AegisName: Blacksmith_Blessing
-    Name: Blacksmith Blessing
+    Name: Blacksmith Blessing (NT)
     Type: Etc
     Buy: 20
     Weight: 0
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
   - Id: 70003
     AegisName: Changebase_Knight_Class3
     Name: Changebase Knight Class3

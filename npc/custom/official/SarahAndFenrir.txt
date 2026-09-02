@@ -1906,8 +1906,7 @@ OnTouch:
 		mes "And watch for Sarah,";
 		mes "harm can come your way as well.";
 		setquest 9337;// Wrapping up the Adventure
-		getitem 607,1;// Yggdrasilberry
-		getitem 608,1;// Seed_Of_Yggdrasil
+		getitem 1500124,1;// Reward Sarah and Fenrir
 		close2;
 		cutin "",255;
 		end;

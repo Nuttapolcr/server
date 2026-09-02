@@ -9,5 +9,5 @@ OnInit:
 	end;
 }
 
-morocc,143,57,4	duplicate(Boss Warp Guide#morocc)	Boss Warp Guide#save1	837
-morocc,194,91,4	duplicate(Boss Warp Guide#morocc)	Boss Warp Guide#save2	837
+morocc,143,54,4	duplicate(Boss Warp Guide#morocc)	Boss Warp Guide#save1	837
+morocc,197,91,4	duplicate(Boss Warp Guide#morocc)	Boss Warp Guide#save2	837

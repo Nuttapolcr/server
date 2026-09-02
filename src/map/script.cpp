@@ -29316,16 +29316,36 @@ BUILDIN_FUNC(petgrade)
 	return SCRIPT_CMD_SUCCESS;
 }
 
+static struct item *script_get_current_charm(map_session_data *sd)
+{
+	if (!sd || current_charm_index < 0)
+		return nullptr;
+
+	if (current_charm_from_collection) {
+		if (current_charm_index >= ARRAYLENGTH(sd->collectionStorage.u.items_storage))
+			return nullptr;
+
+		return &sd->collectionStorage.u.items_storage[current_charm_index];
+	}
+
+	if (current_charm_index >= MAX_INVENTORY)
+		return nullptr;
+
+	return &sd->inventory.u.items_inventory[current_charm_index];
+}
+
 BUILDIN_FUNC(charmamount)
 {
 	map_session_data *sd;
 	if (script_rid2sd(sd)){
-		if( current_charm_index == -1 ){
+		struct item *charm_item = script_get_current_charm(sd);
+
+		if (charm_item == nullptr) {
 			script_pushint(st, 0);
 			return SCRIPT_CMD_FAILURE;
 		}
 
-		script_pushint(st,sd->inventory.u.items_inventory[current_charm_index].amount);
+		script_pushint(st,charm_item->amount);
 
 	}else
 		script_pushint(st,0);
@@ -29336,12 +29356,14 @@ BUILDIN_FUNC(getcharmrefine)
 {
 	TBL_PC *sd;
 	if (script_rid2sd(sd)){
-		if( current_charm_index == -1 ){
+		struct item *charm_item = script_get_current_charm(sd);
+
+		if (charm_item == nullptr) {
 			script_pushint(st, 0);
 			return SCRIPT_CMD_FAILURE;
 		}
 
-		script_pushint(st,sd->inventory.u.items_inventory[current_charm_index].refine);
+		script_pushint(st,charm_item->refine);
 	}else
 		script_pushint(st,0);
 	return SCRIPT_CMD_SUCCESS;
@@ -29351,12 +29373,14 @@ BUILDIN_FUNC(getcharmgrade)
 {
 	TBL_PC *sd;
 	if (script_rid2sd(sd)){
-		if( current_charm_index == -1 ){
+		struct item *charm_item = script_get_current_charm(sd);
+
+		if (charm_item == nullptr) {
 			script_pushint(st, 0);
 			return SCRIPT_CMD_FAILURE;
 		}
 
-		script_pushint(st,sd->inventory.u.items_inventory[current_charm_index].enchantgrade);
+		script_pushint(st,charm_item->enchantgrade);
 	}else
 		script_pushint(st,0);
 	return SCRIPT_CMD_SUCCESS;
@@ -29368,14 +29392,24 @@ int get_charm_highest_refine(map_session_data *sd, t_itemid nameid)
 		return 0;
 
 	int16 rerefine_level = 0;
+	struct item *items;
+	int max_items;
 
-	for (int i = 0; i < MAX_INVENTORY; i++){
+	if (current_charm_from_collection) {
+		items = sd->collectionStorage.u.items_storage;
+		max_items = ARRAYLENGTH(sd->collectionStorage.u.items_storage);
+	} else {
+		items = sd->inventory.u.items_inventory;
+		max_items = MAX_INVENTORY;
+	}
 
-		if (sd->inventory.u.items_inventory[i].nameid == 0 || sd->inventory.u.items_inventory[i].nameid != nameid)
+	for (int i = 0; i < max_items; i++){
+
+		if (items[i].nameid == 0 || items[i].nameid != nameid)
 			continue;
 
-		if(sd->inventory.u.items_inventory[i].refine >= rerefine_level)
-			rerefine_level = sd->inventory.u.items_inventory[i].refine;
+		if(items[i].refine >= rerefine_level)
+			rerefine_level = items[i].refine;
 	}
 
 	return rerefine_level;
@@ -29385,14 +29419,16 @@ BUILDIN_FUNC(getcharmhrefine)
 {
 	TBL_PC *sd;
 	if (script_rid2sd(sd)){
-		if( current_charm_index == -1 ){
+		struct item *charm_item = script_get_current_charm(sd);
+
+		if (charm_item == nullptr) {
 			script_pushint(st, 0);
 			return SCRIPT_CMD_FAILURE;
 		}
 
 		int16 refine = 0;
 
-		refine = get_charm_highest_refine(sd, sd->inventory.u.items_inventory[current_charm_index].nameid);
+		refine = get_charm_highest_refine(sd, charm_item->nameid);
 
 		script_pushint(st,refine);
 	}else
@@ -29406,14 +29442,24 @@ int get_charm_highest_grade(map_session_data *sd, t_itemid nameid)
 		return 0;
 
 	int16 grade = 0;
+	struct item *items;
+	int max_items;
 
-	for (int i = 0; i < MAX_INVENTORY; i++){
+	if (current_charm_from_collection) {
+		items = sd->collectionStorage.u.items_storage;
+		max_items = ARRAYLENGTH(sd->collectionStorage.u.items_storage);
+	} else {
+		items = sd->inventory.u.items_inventory;
+		max_items = MAX_INVENTORY;
+	}
 
-		if (sd->inventory.u.items_inventory[i].nameid == 0 || sd->inventory.u.items_inventory[i].nameid != nameid)
+	for (int i = 0; i < max_items; i++){
+
+		if (items[i].nameid == 0 || items[i].nameid != nameid)
 			continue;
 
-		if(sd->inventory.u.items_inventory[i].enchantgrade >= grade)
-			grade = sd->inventory.u.items_inventory[i].enchantgrade;
+		if(items[i].enchantgrade >= grade)
+			grade = items[i].enchantgrade;
 	}
 
 	return grade;
@@ -29423,14 +29469,16 @@ BUILDIN_FUNC(getcharmhgrade)
 {
 	TBL_PC *sd;
 	if (script_rid2sd(sd)){
-		if( current_charm_index == -1 ){
+		struct item *charm_item = script_get_current_charm(sd);
+
+		if (charm_item == nullptr) {
 			script_pushint(st, 0);
 			return SCRIPT_CMD_FAILURE;
 		}
 
 		int16 grade = 0;
 
-		grade = get_charm_highest_grade(sd, sd->inventory.u.items_inventory[current_charm_index].nameid);
+		grade = get_charm_highest_grade(sd, charm_item->nameid);
 
 		script_pushint(st,grade);
 	}else

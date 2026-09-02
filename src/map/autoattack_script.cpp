@@ -792,7 +792,7 @@ void handle_autoattack_items(std::ostringstream& os_buf, int index, script_state
 	const char* buffitem_menu_state = ".@buffitem_menu_state";
 	auto item_data = item_db.find(index);
 
-	if (item_data && item_data->type == IT_USABLE) {
+	if (item_data && (item_data->type == IT_USABLE || item_data->type == IT_DELAYCONSUME)) {
 		auto itAutoattackitem = std::find_if(sd->aa.autobuffitems.begin(), sd->aa.autobuffitems.end(),
 			[index](const s_autobuffitems& v) { return v.item_id == index; });
 
@@ -1060,7 +1060,7 @@ void handleAutoAttackItems(const std::vector<std::string>& result, map_session_d
 		return; // Invalid status
 
 	auto item_data = item_db.find(item_id);
-	if (!item_data || item_data->type != IT_USABLE)
+	if (!item_data || (item_data->type != IT_USABLE && item_data->type != IT_DELAYCONSUME))
 		return; // Item doesn't exist or isn't usable
 
 	if (!is_active) {

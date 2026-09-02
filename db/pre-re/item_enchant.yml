@@ -1,5 +1,5 @@
 # This file is generated from HICLASS Google Sheet tab "Enchant UI" (gid 1328426605).
-# Keep these IDs in sync with npc/pre-re/merchants/enchantui.txt.
+# Keep these IDs in sync with npc/custom-npc/03_enchant/enchantui.txt.
 
 Header:
   Type: ITEM_ENCHANT_DB
@@ -9770,4 +9770,765 @@ Body:
               - Material: aegis_1001719
                 Amount: 1
               - Material: Geffen_Magic_Coin
+                Amount: 500
+  - Id: 1015
+    TargetItems:
+      R_Shield: true
+    MinimumRefine: 0
+    Reset:
+      Chance: 100000
+      Price: 300000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 500000
+        Materials:
+          - Material: Gray_Shard
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: aegis_313185
+                Chance: 14286
+              - Item: aegis_313187
+                Chance: 14286
+              - Item: aegis_313189
+                Chance: 14286
+              - Item: aegis_313191
+                Chance: 14286
+              - Item: aegis_313174
+                Chance: 14286
+              - Item: aegis_313176
+                Chance: 14285
+              - Item: aegis_313178
+                Chance: 14285
+          - Enchantgrade: 1
+            Items:
+              - Item: aegis_313185
+                Chance: 14286
+              - Item: aegis_313187
+                Chance: 14286
+              - Item: aegis_313189
+                Chance: 14286
+              - Item: aegis_313191
+                Chance: 14286
+              - Item: aegis_313174
+                Chance: 14286
+              - Item: aegis_313176
+                Chance: 14285
+              - Item: aegis_313178
+                Chance: 14285
+          - Enchantgrade: 2
+            Items:
+              - Item: aegis_313185
+                Chance: 14286
+              - Item: aegis_313187
+                Chance: 14286
+              - Item: aegis_313189
+                Chance: 14286
+              - Item: aegis_313191
+                Chance: 14286
+              - Item: aegis_313174
+                Chance: 14286
+              - Item: aegis_313176
+                Chance: 14285
+              - Item: aegis_313178
+                Chance: 14285
+          - Enchantgrade: 3
+            Items:
+              - Item: aegis_313185
+                Chance: 14286
+              - Item: aegis_313187
+                Chance: 14286
+              - Item: aegis_313189
+                Chance: 14286
+              - Item: aegis_313191
+                Chance: 14286
+              - Item: aegis_313174
+                Chance: 14286
+              - Item: aegis_313176
+                Chance: 14285
+              - Item: aegis_313178
+                Chance: 14285
+          - Enchantgrade: 4
+            Items:
+              - Item: aegis_313185
+                Chance: 14286
+              - Item: aegis_313187
+                Chance: 14286
+              - Item: aegis_313189
+                Chance: 14286
+              - Item: aegis_313191
+                Chance: 14286
+              - Item: aegis_313174
+                Chance: 14286
+              - Item: aegis_313176
+                Chance: 14285
+              - Item: aegis_313178
+                Chance: 14285
+      - Slot: 2
+        Price: 500000
+        Materials:
+          - Material: Gray_Shard
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+          - Enchantgrade: 1
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+          - Enchantgrade: 2
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+          - Enchantgrade: 3
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+          - Enchantgrade: 4
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+      - Slot: 1
+        Price: 500000
+        Materials:
+          - Material: Gray_Shard
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: aegis_313244
+                Chance: 8334
+              - Item: aegis_313245
+                Chance: 8334
+              - Item: aegis_313246
+                Chance: 8334
+              - Item: aegis_313247
+                Chance: 8334
+              - Item: aegis_313248
+                Chance: 8333
+              - Item: Tolerance_Not1
+                Chance: 8333
+              - Item: Tolerance_Not2
+                Chance: 8333
+              - Item: Tolerance_Not3
+                Chance: 8333
+              - Item: Fire_Resistance
+                Chance: 8333
+              - Item: Water_Resistance
+                Chance: 8333
+              - Item: Wind_Resistance
+                Chance: 8333
+              - Item: Earth_Resistance
+                Chance: 8333
+          - Enchantgrade: 1
+            Items:
+              - Item: aegis_313244
+                Chance: 8334
+              - Item: aegis_313245
+                Chance: 8334
+              - Item: aegis_313246
+                Chance: 8334
+              - Item: aegis_313247
+                Chance: 8334
+              - Item: aegis_313248
+                Chance: 8333
+              - Item: Tolerance_Not1
+                Chance: 8333
+              - Item: Tolerance_Not2
+                Chance: 8333
+              - Item: Tolerance_Not3
+                Chance: 8333
+              - Item: Fire_Resistance
+                Chance: 8333
+              - Item: Water_Resistance
+                Chance: 8333
+              - Item: Wind_Resistance
+                Chance: 8333
+              - Item: Earth_Resistance
+                Chance: 8333
+          - Enchantgrade: 2
+            Items:
+              - Item: aegis_313244
+                Chance: 8334
+              - Item: aegis_313245
+                Chance: 8334
+              - Item: aegis_313246
+                Chance: 8334
+              - Item: aegis_313247
+                Chance: 8334
+              - Item: aegis_313248
+                Chance: 8333
+              - Item: Tolerance_Not1
+                Chance: 8333
+              - Item: Tolerance_Not2
+                Chance: 8333
+              - Item: Tolerance_Not3
+                Chance: 8333
+              - Item: Fire_Resistance
+                Chance: 8333
+              - Item: Water_Resistance
+                Chance: 8333
+              - Item: Wind_Resistance
+                Chance: 8333
+              - Item: Earth_Resistance
+                Chance: 8333
+          - Enchantgrade: 3
+            Items:
+              - Item: aegis_313244
+                Chance: 8334
+              - Item: aegis_313245
+                Chance: 8334
+              - Item: aegis_313246
+                Chance: 8334
+              - Item: aegis_313247
+                Chance: 8334
+              - Item: aegis_313248
+                Chance: 8333
+              - Item: Tolerance_Not1
+                Chance: 8333
+              - Item: Tolerance_Not2
+                Chance: 8333
+              - Item: Tolerance_Not3
+                Chance: 8333
+              - Item: Fire_Resistance
+                Chance: 8333
+              - Item: Water_Resistance
+                Chance: 8333
+              - Item: Wind_Resistance
+                Chance: 8333
+              - Item: Earth_Resistance
+                Chance: 8333
+          - Enchantgrade: 4
+            Items:
+              - Item: aegis_313244
+                Chance: 8334
+              - Item: aegis_313245
+                Chance: 8334
+              - Item: aegis_313246
+                Chance: 8334
+              - Item: aegis_313247
+                Chance: 8334
+              - Item: aegis_313248
+                Chance: 8333
+              - Item: Tolerance_Not1
+                Chance: 8333
+              - Item: Tolerance_Not2
+                Chance: 8333
+              - Item: Tolerance_Not3
+                Chance: 8333
+              - Item: Fire_Resistance
+                Chance: 8333
+              - Item: Water_Resistance
+                Chance: 8333
+              - Item: Wind_Resistance
+                Chance: 8333
+              - Item: Earth_Resistance
+                Chance: 8333
+  - Id: 1016
+    TargetItems:
+      E_Shield: true
+    MinimumRefine: 0
+    Reset:
+      Chance: 100000
+      Price: 300000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 500000
+        Materials:
+          - Material: Gray_Shard
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: aegis_313189
+                Chance: 16667
+              - Item: aegis_313191
+                Chance: 16667
+              - Item: aegis_313193
+                Chance: 16667
+              - Item: aegis_313178
+                Chance: 16667
+              - Item: aegis_313180
+                Chance: 16666
+              - Item: Murderous_Grudge
+                Chance: 16666
+          - Enchantgrade: 1
+            Items:
+              - Item: aegis_313189
+                Chance: 16667
+              - Item: aegis_313191
+                Chance: 16667
+              - Item: aegis_313193
+                Chance: 16667
+              - Item: aegis_313178
+                Chance: 16667
+              - Item: aegis_313180
+                Chance: 16666
+              - Item: Murderous_Grudge
+                Chance: 16666
+          - Enchantgrade: 2
+            Items:
+              - Item: aegis_313189
+                Chance: 16667
+              - Item: aegis_313191
+                Chance: 16667
+              - Item: aegis_313193
+                Chance: 16667
+              - Item: aegis_313178
+                Chance: 16667
+              - Item: aegis_313180
+                Chance: 16666
+              - Item: Murderous_Grudge
+                Chance: 16666
+          - Enchantgrade: 3
+            Items:
+              - Item: aegis_313189
+                Chance: 16667
+              - Item: aegis_313191
+                Chance: 16667
+              - Item: aegis_313193
+                Chance: 16667
+              - Item: aegis_313178
+                Chance: 16667
+              - Item: aegis_313180
+                Chance: 16666
+              - Item: Murderous_Grudge
+                Chance: 16666
+          - Enchantgrade: 4
+            Items:
+              - Item: aegis_313189
+                Chance: 16667
+              - Item: aegis_313191
+                Chance: 16667
+              - Item: aegis_313193
+                Chance: 16667
+              - Item: aegis_313178
+                Chance: 16667
+              - Item: aegis_313180
+                Chance: 16666
+              - Item: Murderous_Grudge
+                Chance: 16666
+      - Slot: 2
+        Price: 500000
+        Materials:
+          - Material: Gray_Shard
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+          - Enchantgrade: 1
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+          - Enchantgrade: 2
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+          - Enchantgrade: 3
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+          - Enchantgrade: 4
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 100000
+      - Slot: 1
+        Price: 500000
+        Materials:
+          - Material: Gray_Shard
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: aegis_313248
+                Chance: 10000
+              - Item: aegis_313249
+                Chance: 10000
+              - Item: aegis_313250
+                Chance: 10000
+              - Item: Tolerance_Not2
+                Chance: 10000
+              - Item: Tolerance_Not3
+                Chance: 10000
+              - Item: Fire_Resistance
+                Chance: 10000
+              - Item: Water_Resistance
+                Chance: 10000
+              - Item: Wind_Resistance
+                Chance: 10000
+              - Item: Earth_Resistance
+                Chance: 10000
+              - Item: All_Element_Resistance
+                Chance: 10000
+          - Enchantgrade: 1
+            Items:
+              - Item: aegis_313248
+                Chance: 10000
+              - Item: aegis_313249
+                Chance: 10000
+              - Item: aegis_313250
+                Chance: 10000
+              - Item: Tolerance_Not2
+                Chance: 10000
+              - Item: Tolerance_Not3
+                Chance: 10000
+              - Item: Fire_Resistance
+                Chance: 10000
+              - Item: Water_Resistance
+                Chance: 10000
+              - Item: Wind_Resistance
+                Chance: 10000
+              - Item: Earth_Resistance
+                Chance: 10000
+              - Item: All_Element_Resistance
+                Chance: 10000
+          - Enchantgrade: 2
+            Items:
+              - Item: aegis_313248
+                Chance: 10000
+              - Item: aegis_313249
+                Chance: 10000
+              - Item: aegis_313250
+                Chance: 10000
+              - Item: Tolerance_Not2
+                Chance: 10000
+              - Item: Tolerance_Not3
+                Chance: 10000
+              - Item: Fire_Resistance
+                Chance: 10000
+              - Item: Water_Resistance
+                Chance: 10000
+              - Item: Wind_Resistance
+                Chance: 10000
+              - Item: Earth_Resistance
+                Chance: 10000
+              - Item: All_Element_Resistance
+                Chance: 10000
+          - Enchantgrade: 3
+            Items:
+              - Item: aegis_313248
+                Chance: 10000
+              - Item: aegis_313249
+                Chance: 10000
+              - Item: aegis_313250
+                Chance: 10000
+              - Item: Tolerance_Not2
+                Chance: 10000
+              - Item: Tolerance_Not3
+                Chance: 10000
+              - Item: Fire_Resistance
+                Chance: 10000
+              - Item: Water_Resistance
+                Chance: 10000
+              - Item: Wind_Resistance
+                Chance: 10000
+              - Item: Earth_Resistance
+                Chance: 10000
+              - Item: All_Element_Resistance
+                Chance: 10000
+          - Enchantgrade: 4
+            Items:
+              - Item: aegis_313248
+                Chance: 10000
+              - Item: aegis_313249
+                Chance: 10000
+              - Item: aegis_313250
+                Chance: 10000
+              - Item: Tolerance_Not2
+                Chance: 10000
+              - Item: Tolerance_Not3
+                Chance: 10000
+              - Item: Fire_Resistance
+                Chance: 10000
+              - Item: Water_Resistance
+                Chance: 10000
+              - Item: Wind_Resistance
+                Chance: 10000
+              - Item: Earth_Resistance
+                Chance: 10000
+              - Item: All_Element_Resistance
+                Chance: 10000
+  - Id: 1017
+    TargetItems:
+      L_Shield: true
+    MinimumRefine: 0
+    Reset:
+      Chance: 100000
+      Price: 300000
+      Materials:
+        - Material: Meteorite_Fragment
+          Amount: 60
+    Order:
+      - Slot: 3
+      - Slot: 2
+      - Slot: 1
+    Slots:
+      - Slot: 3
+        Price: 500000
+        Materials:
+          - Material: Option_Ticket
+            Amount: 1
+          - Material: Gray_Shard
+            Amount: 10
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: aegis_313193
+                Chance: 33334
+              - Item: aegis_313180
+                Chance: 33333
+              - Item: Murderous_Grudge
+                Chance: 33333
+          - Enchantgrade: 1
+            Items:
+              - Item: aegis_313193
+                Chance: 33334
+              - Item: aegis_313180
+                Chance: 33333
+              - Item: Murderous_Grudge
+                Chance: 33333
+          - Enchantgrade: 2
+            Items:
+              - Item: aegis_313193
+                Chance: 33334
+              - Item: aegis_313180
+                Chance: 33333
+              - Item: Murderous_Grudge
+                Chance: 33333
+          - Enchantgrade: 3
+            Items:
+              - Item: aegis_313193
+                Chance: 33334
+              - Item: aegis_313180
+                Chance: 33333
+              - Item: Murderous_Grudge
+                Chance: 33333
+          - Enchantgrade: 4
+            Items:
+              - Item: aegis_313193
+                Chance: 33334
+              - Item: aegis_313180
+                Chance: 33333
+              - Item: Murderous_Grudge
+                Chance: 33333
+      - Slot: 2
+        Price: 500000
+        Materials:
+          - Material: Option_Ticket
+            Amount: 1
+          - Material: Gray_Shard
+            Amount: 30
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 50000
+              - Item: aegis_313264
+                Chance: 50000
+          - Enchantgrade: 1
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 50000
+              - Item: aegis_313264
+                Chance: 50000
+          - Enchantgrade: 2
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 50000
+              - Item: aegis_313264
+                Chance: 50000
+          - Enchantgrade: 3
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 50000
+              - Item: aegis_313264
+                Chance: 50000
+          - Enchantgrade: 4
+            Items:
+              - Item: PlayerTolerance1
+                Chance: 50000
+              - Item: aegis_313264
+                Chance: 50000
+      - Slot: 1
+        Price: 500000
+        Materials:
+          - Material: Option_Ticket
+            Amount: 1
+          - Material: Gray_Shard
+            Amount: 50
+        Chance: 100000
+        Enchants:
+          - Enchantgrade: 0
+            Items:
+              - Item: aegis_313252
+                Chance: 12500
+              - Item: aegis_313253
+                Chance: 12500
+              - Item: Tolerance_Not3
+                Chance: 12500
+              - Item: Fire_Resistance
+                Chance: 12500
+              - Item: Water_Resistance
+                Chance: 12500
+              - Item: Wind_Resistance
+                Chance: 12500
+              - Item: Earth_Resistance
+                Chance: 12500
+              - Item: All_Element_Resistance
+                Chance: 12500
+          - Enchantgrade: 1
+            Items:
+              - Item: aegis_313252
+                Chance: 12500
+              - Item: aegis_313253
+                Chance: 12500
+              - Item: Tolerance_Not3
+                Chance: 12500
+              - Item: Fire_Resistance
+                Chance: 12500
+              - Item: Water_Resistance
+                Chance: 12500
+              - Item: Wind_Resistance
+                Chance: 12500
+              - Item: Earth_Resistance
+                Chance: 12500
+              - Item: All_Element_Resistance
+                Chance: 12500
+          - Enchantgrade: 2
+            Items:
+              - Item: aegis_313252
+                Chance: 12500
+              - Item: aegis_313253
+                Chance: 12500
+              - Item: Tolerance_Not3
+                Chance: 12500
+              - Item: Fire_Resistance
+                Chance: 12500
+              - Item: Water_Resistance
+                Chance: 12500
+              - Item: Wind_Resistance
+                Chance: 12500
+              - Item: Earth_Resistance
+                Chance: 12500
+              - Item: All_Element_Resistance
+                Chance: 12500
+          - Enchantgrade: 3
+            Items:
+              - Item: aegis_313252
+                Chance: 12500
+              - Item: aegis_313253
+                Chance: 12500
+              - Item: Tolerance_Not3
+                Chance: 12500
+              - Item: Fire_Resistance
+                Chance: 12500
+              - Item: Water_Resistance
+                Chance: 12500
+              - Item: Wind_Resistance
+                Chance: 12500
+              - Item: Earth_Resistance
+                Chance: 12500
+              - Item: All_Element_Resistance
+                Chance: 12500
+          - Enchantgrade: 4
+            Items:
+              - Item: aegis_313252
+                Chance: 12500
+              - Item: aegis_313253
+                Chance: 12500
+              - Item: Tolerance_Not3
+                Chance: 12500
+              - Item: Fire_Resistance
+                Chance: 12500
+              - Item: Water_Resistance
+                Chance: 12500
+              - Item: Wind_Resistance
+                Chance: 12500
+              - Item: Earth_Resistance
+                Chance: 12500
+              - Item: All_Element_Resistance
+                Chance: 12500
+        PerfectEnchants:
+          - Item: aegis_313252
+            Price: 10000000
+            Materials:
+              - Material: aegis_1001719
+                Amount: 1
+              - Material: Gray_Shard
+                Amount: 500
+          - Item: aegis_313253
+            Price: 10000000
+            Materials:
+              - Material: aegis_1001719
+                Amount: 1
+              - Material: Gray_Shard
+                Amount: 500
+          - Item: Tolerance_Not3
+            Price: 10000000
+            Materials:
+              - Material: aegis_1001719
+                Amount: 1
+              - Material: Gray_Shard
+                Amount: 500
+          - Item: Fire_Resistance
+            Price: 10000000
+            Materials:
+              - Material: aegis_1001719
+                Amount: 1
+              - Material: Gray_Shard
+                Amount: 500
+          - Item: Water_Resistance
+            Price: 10000000
+            Materials:
+              - Material: aegis_1001719
+                Amount: 1
+              - Material: Gray_Shard
+                Amount: 500
+          - Item: Wind_Resistance
+            Price: 10000000
+            Materials:
+              - Material: aegis_1001719
+                Amount: 1
+              - Material: Gray_Shard
+                Amount: 500
+          - Item: Earth_Resistance
+            Price: 10000000
+            Materials:
+              - Material: aegis_1001719
+                Amount: 1
+              - Material: Gray_Shard
+                Amount: 500
+          - Item: All_Element_Resistance
+            Price: 10000000
+            Materials:
+              - Material: aegis_1001719
+                Amount: 1
+              - Material: Gray_Shard
                 Amount: 500

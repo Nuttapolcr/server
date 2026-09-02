@@ -2845,6 +2845,86 @@ Body:
             Item: Meteorite_Fragment # 1000373
             Amount: 2000
 
+  # MA 2/9/69 item 7: shield crafting at the equipment crafter.
+  - Name: HICLASS_CRAFT_SHIELD
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: R_Shield # 1030009
+        Zeny: 10000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Guard # 2149
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Crt_Meteorite_Dust_NT # 1001685
+            Amount: 75
+          - Index: 2
+            Item: Barmund_Ice_Essence_NT # 1001688
+            Amount: 20
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT # 1001691
+            Amount: 20
+          - Index: 4
+            Item: Armor_Ore_1 # 1000423
+            Amount: 1
+          - Index: 5
+            Item: Gray_Shard # 6672
+            Amount: 200
+      - Index: 1
+        Item: E_Shield # 1030010
+        Zeny: 50000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: R_Shield # 1030009
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Pow_Meteorite_Dust_NT # 1001686
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Flame_Essence_NT # 1001689
+            Amount: 100
+          - Index: 3
+            Item: Pow_Meteorite_Fragment_NT # 1001692
+            Amount: 50
+          - Index: 4
+            Item: Armor_Ore_4 # 1000425
+            Amount: 1
+          - Index: 5
+            Item: Gray_Shard # 6672
+            Amount: 500
+      - Index: 2
+        Item: L_Shield # 1030011
+        Zeny: 100000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: E_Shield # 1030010
+            Amount: 1
+            Refine: 11
+          - Index: 1
+            Item: Wis_Meteorite_Dust_NT # 1001687
+            Amount: 300
+          - Index: 2
+            Item: Barmund_Death_Essence_NT # 1001690
+            Amount: 100
+          - Index: 3
+            Item: Wis_Meteorite_Fragment_NT # 1001693
+            Amount: 100
+          - Index: 4
+            Item: Armor_Ore_2 # 1000424
+            Amount: 1
+          - Index: 5
+            Item: Gray_Shard # 6672
+            Amount: 1000
+
   - Name: HICLASS_CRAFT_ACCESSORY
     CraftBarter: false
     Items:
@@ -3944,6 +4024,19 @@ Body:
         IsNPC: true
         RequiredItems:
           - Index: 0
+            Item: Bypass_Ticket # 1500088
+            Amount: 1
+      - Index: 44
+        Item: R_Shield # 1030009
+        Zeny: 1
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Upg_Guard # 2149
+            Amount: 1
+            Refine: 11
+          - Index: 1
             Item: Bypass_Ticket # 1500088
             Amount: 1
 

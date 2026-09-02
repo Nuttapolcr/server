@@ -1,7 +1,7 @@
 -	script	CS2#Config	-1,{
 
 OnInit:
-	set $@CS2_event_menu_title$, "ï¿½ï¿½ï¿½Í¡ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½";
+	set $@CS2_event_menu_title$, "àÅ×Í¡ÇÒ»·ÕèµéÍ§¡ÒÃ";
 	set $@CS2_event_name$, "Test War CBT";
 	set $@CS2_event_date$, "14/12/25";
 	set $@CS2_event_time$, "21:00-22:00";
@@ -14,18 +14,18 @@ OnInit:
 		"Neuschwanstein|0|0",
 		"Hohenschwangau|0|0",
 		"Nuenberg|0|0",
-		"Wuerzburg|1|0",
+		"Wuerzburg|0|0",
 		"Rothenburg|0|0",
-		"Repherion|0|0",
+		"Repherion|1|0",
 		"Eeyobriger|0|0",
 		"Bergel|0|0",
 		"Mersetzdeitz|0|0",
 		"Bright Arbor|0|0",
-		"Sacred Palace|1|0",
+		"Sacred Palace|0|0",
 		"Holy Shadow|0|0",
 		"Sacred Altar|0|0",
 		"Bamboo Forest Hill|0|0",
-		"Kriemhild|0|0",
+		"Kriemhild|1|0",
 		"Swanhild|0|0",
 		"Skoegul|0|0",
 		"Gondul|0|0",

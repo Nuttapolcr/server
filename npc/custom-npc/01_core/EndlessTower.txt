@@ -1849,14 +1849,8 @@ OnMyMobDead:
 		donpcevent instance_npcname("#102FShadowDust")+"::OnDisable";
 		donpcevent instance_npcname("Lucid Crystal#102")+"::OnEnable";
 		addrid(5,0,.@map$);
-		if (checkweight(6635,2,1000401,20,1001140,5,1000445,5,1001600,2,1001718,2,1030076,1)) {
-			getitem 6635,2;
-			getitem 1000401,20;
-			getitem 1001140,5;
-			getitem 1000445,5;
-			getitem 1001600,2;
-			getitem 1001718,2;
-			getitem 1030076,1;
+		if (checkweight(1500118,1)) {
+			getitem 1500118,1;
 			dispbottom "You received the 100th Floor clear reward.";
 		}
 		else

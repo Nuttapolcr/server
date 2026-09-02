@@ -24,19 +24,21 @@ function	script	F_ValorFightWarp	{
 		message strcharinfo(0), "[WoE Warp] ValorFight ยังไม่เปิดในรอบนี้.";
 		return;
 	}
+	sc_end_buffs SC_BLESSING, SC_INCREASEAGI;
 	warp "hero_ent1",getarg(0),getarg(1);
 	return;
 }
 
 function	script	F_ValorFight2Warp	{
-	if (!callfunc("F_ValorFight2Active")) {
-		message strcharinfo(0), "[WoE Warp] ValorFight Map 2 ยังไม่เปิดในรอบนี้.";
-		return;
-	}
+	//if (!callfunc("F_ValorFight2Active")) {
+	//	message strcharinfo(0), "[WoE Warp] ValorFight Map 2 ยังไม่เปิดในรอบนี้.";
+	//	return;
+	//}
 	if (getcharid(2) <= 0) {
 		message strcharinfo(0), "[WoE Warp] ต้องสังกัดกิลด์จึงจะเข้า ValorFight Map 2 ได้.";
 		return;
 	}
+	sc_end_buffs SC_BLESSING, SC_INCREASEAGI;
 	warp "hero_ent2",getarg(0),getarg(1);
 	return;
 }

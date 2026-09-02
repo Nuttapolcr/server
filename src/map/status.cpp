@@ -67,6 +67,7 @@ int current_equip_card_id; /// To prevent card-stacking (from jA) [Skotlex]
 short current_equip_opt_index; /// Contains random option index of an equipped item. [Secret]
 short current_collection_index;
 short current_charm_index;
+bool current_charm_from_collection;
 
 #define POSITION_HISTORY_DURATION 15000
 #define AA_AOE_SIZE 3
@@ -1888,6 +1889,35 @@ int64 status_charge(struct block_list* bl, int64 hp, int64 sp)
 }
 
 /**
+ * Applies player-like hit delay to a server-controlled Auto Attack character.
+ * A normal client is held by its damage animation, but Auto Attack actions are
+ * driven by the server and therefore also need their action timers delayed.
+ */
+static void status_apply_autoattack_hit_delay(struct block_list *src, struct block_list *target, t_tick delay)
+{
+	if (!src || !target || delay <= 0)
+		return;
+
+	map_session_data *ssd = BL_CAST(BL_PC, src);
+	map_session_data *tsd = BL_CAST(BL_PC, target);
+
+	if (!ssd || !tsd || ssd->state.autoattack || !tsd->state.autoattack)
+		return;
+
+	unit_data *ud = unit_bl2ud(target);
+
+	if (!ud)
+		return;
+
+	t_tick delay_until = gettick() + delay;
+
+	if (DIFF_TICK(delay_until, ud->canact_tick) > 0)
+		ud->canact_tick = delay_until;
+	if (DIFF_TICK(delay_until, ud->attackabletime) > 0)
+		ud->attackabletime = delay_until;
+}
+
+/**
  * Inflicts damage on the target with the according walkdelay.
  * @param src: Source object giving damage [PC|MOB|PET|HOM|MER|ELEM]
  * @param target: Target of the damage
@@ -2049,8 +2079,11 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 	}
 
 	if( status->hp || (flag&8) ) { // Still lives or has been dead before this damage.
-		if (walkdelay)
+		if (walkdelay) {
+			if (hp > 0)
+				status_apply_autoattack_hit_delay(src, target, walkdelay);
 			unit_set_walkdelay(target, gettick(), walkdelay, 0);
+		}
 		return (int)(hp+sp+ap);
 	}
 
@@ -4355,15 +4388,13 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 	current_collection_index = -1;
 	std::vector<t_itemid> collect_vec = {};
 	sd->collection_combos.clear();
-	bool collection_effect;
-	if(battle_config.collection_enable_bonus /* && pc_isvip(sd) */) {
+	bool collection_effect = collection_mode(sd);
+	if(battle_config.collection_enable_bonus && collection_effect /* && pc_isvip(sd) */) {
 		for (i = 0; i < battle_config.max_collection_count; i++){
 
 			current_collection_index = i;
 
-			collection_effect = collection_mode(sd);
-
-			if(sd->collectionStorage.u.items_storage[i].nameid == 0 || !collection_effect)
+			if(sd->collectionStorage.u.items_storage[i].nameid == 0)
 				continue;
 
 			if(!item_is_collection_stack(sd->collectionStorage.u.items_storage[i].nameid)){
@@ -4398,41 +4429,42 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 			for (const auto &collection_combo : sd->collection_combos)
 				run_script(collection_combo->bonus, 0, sd->bl.id, 0);
 		}
+
 	}
+	current_collection_index = -1;
 
-	// --------- Charm ---------
+	// --------- Collection Charm ---------
+	// Charm effects used to be active from inventory on every map. Collection
+	// is now their source, but the regular collection bonus map/config switch
+	// must not disable them.
 	current_charm_index = -1;
-	std::vector<t_itemid> charm = {};
-	for (i = 0; i < MAX_INVENTORY; i++){
+	current_charm_from_collection = true;
+	sd->state.lr_flag = 0;
+	std::unordered_map<t_itemid, int> charm_effect_count = {};
+	for (i = 0; i < battle_config.max_collection_count; i++){
+		struct item &collection_item = sd->collectionStorage.u.items_storage[i];
 
-		current_charm_index = i;
-
-		if (sd->inventory.u.items_inventory[i].nameid == 0 || !item_is_charm(sd->inventory.u.items_inventory[i].nameid))
+		if (collection_item.nameid == 0 || !item_is_charm(collection_item.nameid))
 			continue;
 
-		struct item_data *charm_info = itemdb_search(sd->inventory.u.items_inventory[i].nameid);
+		current_charm_index = i;
+		struct item_data *charm_info = itemdb_search(collection_item.nameid);
+		int max_effect = item_charm_max_stack(collection_item.nameid, collection_item.amount);
+		int max_total_effect = item_charm_max_stack(collection_item.nameid, MAX_AMOUNT);
+		int &applied_effect = charm_effect_count[collection_item.nameid];
 
-		if (charm_info->type == IT_CHARM_UPGRADE && charm_info->max_charm_upgrade_stack) {
-			int charm_count = std::count(charm.begin(), charm.end(), charm_info->nameid);
+		max_effect = min(max_effect, max_total_effect - applied_effect);
+		if (max_effect <= 0)
+			continue;
+		applied_effect += max_effect;
 
-			if (!charm_info->charm_upgrade_stack_script) {
-				if (charm_count > 0)
-					continue;
-			} else {
-				if (charm_count >= charm_info->max_charm_upgrade_stack)
-					continue;
-			}
-
-			charm.push_back(charm_info->nameid);
-		}
-
-		int max_effect = item_charm_max_stack(sd->inventory.u.items_inventory[i].nameid, sd->inventory.u.items_inventory[i].amount);
-		
-		if (charm_info && charm_info->charm_script){
+		if (charm_info->charm_script) {
 			for (int j = 0; j < max_effect; j++)
 				run_script(charm_info->charm_script, 0, sd->bl.id, 0);
-			}
+		}
 	}
+	current_charm_index = -1;
+	current_charm_from_collection = false;
 
 	std::vector<int> char_jobid = {};
 	if(sd->char_bonus.size()){

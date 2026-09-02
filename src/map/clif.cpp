@@ -5413,13 +5413,20 @@ static enum e_damage_type clif_calc_delay(enum e_damage_type type, int div, int6
 /*==========================================
  * Estimates walk delay based on the damage criteria. [Skotlex]
  *------------------------------------------*/
-static int clif_calc_walkdelay(struct block_list *bl,int delay, char type, int64 damage, int div_)
+static int clif_calc_walkdelay(struct block_list *src, struct block_list *bl, int delay, char type, int64 damage, int div_)
 {
 	if (type == DMG_ENDURE || type == DMG_MULTI_HIT_ENDURE || damage <= 0)
 		return 0;
 
 	if (bl->type == BL_PC) {
-		if (battle_config.pc_walk_delay_rate != 100)
+		map_session_data *ssd = BL_CAST(BL_PC, src);
+		map_session_data *tsd = BL_CAST(BL_PC, bl);
+		bool normal_player_hitting_autoattack = ssd && tsd && !ssd->state.autoattack && tsd->state.autoattack;
+
+		// Auto Attack is server-controlled, so it does not inherit the full
+		// client-side flinch. Keep its server walk delay equal to a normal
+		// player's damage animation when attacked by a non-Auto Attack player.
+		if (!normal_player_hitting_autoattack && battle_config.pc_walk_delay_rate != 100)
 			delay = delay*battle_config.pc_walk_delay_rate/100;
 	} else
 		if (battle_config.walk_delay_rate != 100)
@@ -5557,7 +5564,7 @@ int clif_damage(struct block_list* src, struct block_list* dst, t_tick tick, int
 	// In case this assignment is bypassed by DMG_MULTI_HIT_CRITICAL
 	type = clif_calc_delay(type, div, damage + damage2, ddelay);
 	//Return adjusted can't walk delay for further processing.
-	return clif_calc_walkdelay(dst, ddelay, type, damage+damage2, div);
+	return clif_calc_walkdelay(src, dst, ddelay, type, damage+damage2, div);
 }
 
 /*==========================================
@@ -6449,7 +6456,7 @@ int clif_skill_damage(struct block_list *src,struct block_list *dst,t_tick tick,
 	clif_skill_damage_hook(src,dst,tick,sdelay,ddelay,sdamage,div,skill_id,skill_lv,type);
 
 	//Because the damage delay must be synced with the client, here is where the can-walk tick must be updated. [Skotlex]
-	return clif_calc_walkdelay(dst,ddelay,type,damage,div);
+	return clif_calc_walkdelay(src,dst,ddelay,type,damage,div);
 }
 
 
@@ -6507,7 +6514,7 @@ int clif_skill_damage2(struct block_list *src,struct block_list *dst,t_tick tick
 	}
 
 	//Because the damage delay must be synced with the client, here is where the can-walk tick must be updated. [Skotlex]
-	return clif_calc_walkdelay(dst,ddelay,type,damage,div);
+	return clif_calc_walkdelay(src,dst,ddelay,type,damage,div);
 }
 */
 
@@ -10832,8 +10839,9 @@ void clif_viewequip_ack( map_session_data* sd, map_session_data* tsd ){
 	nullpo_retv( sd );
 	nullpo_retv( tsd );
 
-	// Carrying Equipment Hide Charm prevents other players from inspecting gear.
-	if( sd != tsd && pc_search_inventory( tsd, 1500017 ) >= 0 ){
+	// Carrying Equipment Hide Charm prevents regular players, but not GMs,
+	// from inspecting gear.
+	if( sd != tsd && pc_get_group_level( sd ) == 0 && pc_search_inventory( tsd, 1500017 ) >= 0 ){
 		clif_msg( sd, VIEW_EQUIP_FAIL );
 		return;
 	}

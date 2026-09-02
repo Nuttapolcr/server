@@ -234,6 +234,9 @@ Body:
       - Item: Thanatos_Card
         Rate: 1
         StealProtected: true
+      - Item: Memory_of_Rudolf_Card
+        Rate: 200
+        StealProtected: true
 
   # ValorFight Map 2 timed scoring objectives (Google Sheet MA item 1).
   - Id: 31101
@@ -272,11 +275,11 @@ Body:
     AegisName: VF2_DAEHYON
     Name: General Daehyun
     Level: 150
-    Hp: 200000000
+    Hp: 150000000
     Attack: 2500
     Attack2: 3500
-    Defense: 70
-    MagicDefense: 40
+    Defense: 45
+    MagicDefense: 25
     Str: 160
     Agi: 20
     Vit: 160
@@ -307,11 +310,11 @@ Body:
     AegisName: VF2_PYURIEL
     Name: Pyuriel
     Level: 150
-    Hp: 200000000
+    Hp: 150000000
     Attack: 2500
     Attack2: 3500
-    Defense: 70
-    MagicDefense: 40
+    Defense: 45
+    MagicDefense: 25
     Str: 160
     Agi: 20
     Vit: 160
@@ -342,11 +345,11 @@ Body:
     AegisName: VF2_GIOIA
     Name: Gioia
     Level: 150
-    Hp: 200000000
+    Hp: 150000000
     Attack: 2500
     Attack2: 3500
-    Defense: 70
-    MagicDefense: 40
+    Defense: 45
+    MagicDefense: 25
     Str: 160
     Agi: 20
     Vit: 140
@@ -377,11 +380,11 @@ Body:
     AegisName: VF2_TREASURE_BOX
     Name: ValorFight Box
     Level: 150
-    Hp: 200000000
+    Hp: 150000000
     Attack: 2500
     Attack2: 3500
-    Defense: 70
-    MagicDefense: 40
+    Defense: 45
+    MagicDefense: 25
     Str: 160
     Agi: 20
     Vit: 140

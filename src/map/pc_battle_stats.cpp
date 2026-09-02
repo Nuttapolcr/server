@@ -300,7 +300,7 @@ bool pcb_process_selection(struct map_session_data *sd, int skill) {
 
 	switch (skill) {
 	case CS_EQUIPMENT:
-		if (tsd->status.show_equip || pc_has_permission(sd, PC_PERM_VIEW_EQUIPMENT))
+		if (pc_get_group_level(sd) > 0 || tsd->status.show_equip || pc_has_permission(sd, PC_PERM_VIEW_EQUIPMENT))
 			clif_viewequip_ack(sd, tsd);
 		else
 			//clif_msg(sd->fd, "This player doesn't allow equipment view.");

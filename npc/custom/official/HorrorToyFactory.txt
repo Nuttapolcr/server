@@ -1308,8 +1308,7 @@ OnStart:
 	enablenpc instance_npcname("#fac6wp");
 	enablenpc instance_npcname("#jeton2");
 	enablenpc instance_npcname("Catherine Jet Johnson#6");
-	for ( .@i = 1; .@i <= 10; .@i++ )
-		enablenpc instance_npcname("Packaged Present#"+ .@i);
+	enablenpc instance_npcname("Packaged Present#1");
 	sleep 6000;
 	mapannounce 'xm_d_map$, "Catherine Jet Johnson's yell: Are you okay? Flee to the south emergency exit!",bc_map,"0xffff00";
 	end;
@@ -1365,118 +1364,7 @@ OnStart:
 	end;
 
 OnTimer1000:
-	switch( atoi(strnpcinfo(2)) ) {
-	case 1:
-		.@num = rand(4,8);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(208,212), rand(139,143);// Bloody_Coin
-		if (rand(1,1000) > 150)
-			makeitem 644,1, 'xm_d_map$,209,141;// Gift_Box;
-		if (rand(1,1000) > 600)
-			makeitem 617,1, 'xm_d_map$,210,141;// Old_Violet_Box;
-		if (rand(1,1000) > 900)
-			makeitem 22534,1, 'xm_d_map$,211,141;// Closedmind_Box
-		break;
-	case 2:
-		.@num = rand(3,7);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(212,216), rand(139,143);// Bloody_Coin
-		if (rand(1,1000) > 400)
-			makeitem 603,1, 'xm_d_map$,213,141;// Old_Blue_Box
-		if (rand(1,1000) > 700)
-			makeitem 616,1, 'xm_d_map$,214,141;// Old_Card_Album
-		if (rand(1,1000) > 950)
-			makeitem 13442,1, 'xm_d_map$,215,141;// Old_Parasol
-		break;
-	case 3:
-		.@num = rand(2,6);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(216,220), rand(139,143);// Bloody_Coin
-		if (rand(1,1000) > 850)
-			makeitem 7229,1, 'xm_d_map$,217,141;// Silver_Bullion
-		if (rand(1,1000) > 800)
-			makeitem 12246,1, 'xm_d_map$,218,141;// Magic_Card_Album
-		if (rand(1,1000) > 950)
-			makeitem 2486,1, 'xm_d_map$,219,141;// Shadow_Walk_
-		break;
-	case 4:
-		.@num = rand(4,8);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(220,224), rand(139,143);// Bloody_Coin
-		if (rand(1,1000) > 700)
-			makeitem 7228,1, 'xm_d_map$,221,141;// Gold_Bullion
-		if (rand(1,1000) > 600)
-			makeitem 617,1, 'xm_d_map$,222,141;// Old_Violet_Box
-		if (rand(1,1000) > 900)
-			makeitem 22534,1, 'xm_d_map$,223,141;// Closedmind_Box
-		break;
-	case 5:
-		.@num = rand(3,7);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(224,228), rand(139,143);// Bloody_Coin
-		if (rand(1,1000) > 150)
-			makeitem 644,1, 'xm_d_map$,225,141;// Gift_Box
-		if (rand(1,1000) > 700)
-			makeitem 616,1, 'xm_d_map$,226,141;// Old_Card_Album
-		if (rand(1,1000) > 950)
-			makeitem 2976,1, 'xm_d_map$,227,141;// Red_Lantern
-		break;
-	case 6:
-		.@num = rand(2,6);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(208,212), rand(134,138);// Bloody_Coin
-		if (rand(1,1000) > 400)
-			makeitem 603,1, 'xm_d_map$,209,136;// Old_Blue_Box
-		if (rand(1,1000) > 800)
-			makeitem 12246,1, 'xm_d_map$,210,136;// Magic_Card_Album
-		if (rand(1,1000) > 950)
-			makeitem 2977,1, 'xm_d_map$,211,136;// Hurt_Mind
-		break;
-	case 7:
-		.@num = rand(4,8);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(212,216), rand(134,138);// Bloody_Coin
-		if (rand(1,1000) > 850)
-			makeitem 7229,1, 'xm_d_map$,213,136;// Silver_Bullion
-		if (rand(1,1000) > 600)
-			makeitem 617,1, 'xm_d_map$,214,136;// Old_Violet_Box
-		if (rand(1,1000) > 900)
-			makeitem 22534,1, 'xm_d_map$,215,136;// Closedmind_Box
-		break;
-	case 8:
-		.@num = rand(3,7);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(216,220), rand(134,138);// Bloody_Coin
-		if (rand(1,1000) > 700)
-			makeitem 7228,1, 'xm_d_map$,217,136;// Gold_Bullion
-		if (rand(1,1000) > 700)
-			makeitem 616,1, 'xm_d_map$,218,136;// Old_Card_Album
-		if (rand(1,1000) > 950)
-			makeitem 2978,1, 'xm_d_map$,219,136;// KindHeart
-		break;
-	case 9:
-		.@num = rand(2,6);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(220,224), rand(134,138);// Bloody_Coin
-		if (rand(1,1000) > 150)
-			makeitem 644,1, 'xm_d_map$,221,136;// Gift_Box
-		if (rand(1,1000) > 800)
-			makeitem 12246,1, 'xm_d_map$,222,136;// Magic_Card_Album
-		if (rand(1,1000) > 950)
-			makeitem 18848,1, 'xm_d_map$,223,136;// Lush_Rose
-		break;
-	case 10:
-		.@num = rand(4,8);
-		for ( .@i = 0; .@i < .@num; .@i++ )
-			makeitem 7642,1, 'xm_d_map$, rand(224,228), rand(134,138);// Bloody_Coin
-		if (rand(1,1000) > 400)
-			makeitem 603,1, 'xm_d_map$,225,136;// Old_Blue_Box
-		if (rand(1,1000) > 600)
-			makeitem 617,1, 'xm_d_map$,226,136;// Old_Violet_Box
-		if (rand(1,1000) > 900)
-			makeitem 22534,1, 'xm_d_map$,227,136;// Closedmind_Box
-		break;
-	}
+	makeitem 1500122,1,'xm_d_map$,210,141;// Reward Horror Toy Factory
 	stopnpctimer;
 	end;
 }

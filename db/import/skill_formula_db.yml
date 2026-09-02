@@ -1,0 +1,17 @@
+###########################################################################
+# Skill Damage Formula Database — this server's overrides
+###########################################################################
+#
+# Written by gmtool's Skill Formula editor. A vendor release never overwrites
+# this file. Documentation (Thai): doc/skill_formula_db.md
+# Apply changes in-game with @reloadskillformuladb.
+#
+# Rows are tried top to bottom and the FIRST match wins, so the row without a
+# `When` belongs last.
+#
+###########################################################################
+
+"Header":
+  "Type": "SKILL_FORMULA_DB"
+  "Version": 1
+"Body": []
