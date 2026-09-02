@@ -10663,35 +10663,35 @@ Body:
           - Index: 4
             Item: Crt_Meteorite_Dust_NT
             Rate: 816
-            Amount: 2
+            Amount: 1
           - Index: 5
             Item: Crt_Meteorite_Dust_NT
             Rate: 1020
-            Amount: 3
+            Amount: 2
           - Index: 6
             Item: Crt_Meteorite_Dust_NT
             Rate: 816
-            Amount: 4
+            Amount: 3
           - Index: 7
             Item: Crt_Meteorite_Dust_NT
             Rate: 653
-            Amount: 5
+            Amount: 4
           - Index: 8
             Item: Barmund_Ice_Essence_NT
             Rate: 700
-            Amount: 2
+            Amount: 1
           - Index: 9
             Item: Barmund_Ice_Essence_NT
             Rate: 560
-            Amount: 3
+            Amount: 2
           - Index: 10
             Item: Crt_Meteorite_Fragment_NT
             Rate: 700
-            Amount: 2
+            Amount: 1
           - Index: 11
             Item: Crt_Meteorite_Fragment_NT
             Rate: 560
-            Amount: 3
+            Amount: 2
           - Index: 12
             Item: Yggdrasilberry
             Rate: 170
@@ -10761,35 +10761,35 @@ Body:
           - Index: 10
             Item: Barmund_Ice_Essence_NT
             Rate: 320
-            Amount: 2
+            Amount: 1
           - Index: 11
             Item: Barmund_Ice_Essence_NT
             Rate: 400
-            Amount: 3
+            Amount: 2
           - Index: 12
             Item: Barmund_Ice_Essence_NT
             Rate: 320
-            Amount: 4
+            Amount: 3
           - Index: 13
             Item: Barmund_Ice_Essence_NT
             Rate: 256
-            Amount: 5
+            Amount: 4
           - Index: 14
             Item: Crt_Meteorite_Fragment_NT
             Rate: 320
-            Amount: 2
+            Amount: 1
           - Index: 15
             Item: Crt_Meteorite_Fragment_NT
             Rate: 400
-            Amount: 3
+            Amount: 2
           - Index: 16
             Item: Crt_Meteorite_Fragment_NT
             Rate: 320
-            Amount: 4
+            Amount: 3
           - Index: 17
             Item: Crt_Meteorite_Fragment_NT
             Rate: 256
-            Amount: 5
+            Amount: 4
           - Index: 18
             Item: Yggdrasilberry
             Rate: 169
@@ -10873,63 +10873,63 @@ Body:
           - Index: 13
             Item: Crt_Meteorite_Dust_NT
             Rate: 192
-            Amount: 7
+            Amount: 5
           - Index: 14
             Item: Crt_Meteorite_Dust_NT
             Rate: 154
-            Amount: 8
+            Amount: 6
           - Index: 15
             Item: Crt_Meteorite_Dust_NT
             Rate: 123
-            Amount: 9
+            Amount: 7
           - Index: 16
             Item: Barmund_Ice_Essence_NT
             Rate: 544
-            Amount: 2
+            Amount: 1
           - Index: 17
             Item: Barmund_Ice_Essence_NT
             Rate: 680
-            Amount: 3
+            Amount: 2
           - Index: 18
             Item: Barmund_Ice_Essence_NT
             Rate: 544
-            Amount: 4
+            Amount: 3
           - Index: 19
             Item: Barmund_Ice_Essence_NT
             Rate: 435
-            Amount: 5
+            Amount: 4
           - Index: 20
             Item: Crt_Meteorite_Fragment_NT
             Rate: 544
-            Amount: 2
+            Amount: 1
           - Index: 21
             Item: Crt_Meteorite_Fragment_NT
             Rate: 680
-            Amount: 3
+            Amount: 2
           - Index: 22
             Item: Crt_Meteorite_Fragment_NT
             Rate: 544
-            Amount: 4
+            Amount: 3
           - Index: 23
             Item: Crt_Meteorite_Fragment_NT
             Rate: 435
-            Amount: 5
+            Amount: 4
           - Index: 24
             Item: Pow_Meteorite_Dust_NT
             Rate: 55
-            Amount: 2
+            Amount: 1
           - Index: 25
             Item: Pow_Meteorite_Dust_NT
             Rate: 44
-            Amount: 3
+            Amount: 2
           - Index: 26
             Item: Barmund_Flame_Essence_NT
             Rate: 100
-            Amount: 2
+            Amount: 1
           - Index: 27
             Item: Pow_Meteorite_Fragment_NT
             Rate: 100
-            Amount: 2
+            Amount: 1
           - Index: 28
             Item: Yggdrasilberry
             Rate: 165
@@ -11271,143 +11271,143 @@ Body:
           - Index: 17
             Item: Crt_Meteorite_Dust_NT
             Rate: 50
-            Amount: 3
+            Amount: 1
           - Index: 18
             Item: Crt_Meteorite_Dust_NT
             Rate: 62
-            Amount: 4
+            Amount: 2
           - Index: 19
             Item: Crt_Meteorite_Dust_NT
             Rate: 78
-            Amount: 5
+            Amount: 3
           - Index: 20
             Item: Crt_Meteorite_Dust_NT
             Rate: 97
-            Amount: 6
+            Amount: 4
           - Index: 21
             Item: Crt_Meteorite_Dust_NT
             Rate: 122
-            Amount: 7
+            Amount: 5
           - Index: 22
             Item: Crt_Meteorite_Dust_NT
             Rate: 152
-            Amount: 8
+            Amount: 6
           - Index: 23
             Item: Crt_Meteorite_Dust_NT
             Rate: 190
-            Amount: 9
+            Amount: 7
           - Index: 24
             Item: Crt_Meteorite_Dust_NT
             Rate: 152
-            Amount: 10
+            Amount: 8
           - Index: 25
             Item: Crt_Meteorite_Dust_NT
             Rate: 122
-            Amount: 11
+            Amount: 9
           - Index: 26
             Item: Crt_Meteorite_Dust_NT
             Rate: 97
-            Amount: 12
+            Amount: 10
           - Index: 27
             Item: Crt_Meteorite_Dust_NT
             Rate: 78
-            Amount: 13
+            Amount: 11
           - Index: 28
             Item: Crt_Meteorite_Dust_NT
             Rate: 62
-            Amount: 14
+            Amount: 12
           - Index: 29
             Item: Crt_Meteorite_Dust_NT
             Rate: 50
-            Amount: 15
+            Amount: 13
           - Index: 30
             Item: Crt_Meteorite_Dust_NT
             Rate: 40
-            Amount: 16
+            Amount: 14
           - Index: 31
             Item: Crt_Meteorite_Dust_NT
             Rate: 32
-            Amount: 17
+            Amount: 15
           - Index: 32
             Item: Barmund_Ice_Essence_NT
             Rate: 241
-            Amount: 2
+            Amount: 3
           - Index: 33
             Item: Barmund_Ice_Essence_NT
             Rate: 301
-            Amount: 3
+            Amount: 1
           - Index: 34
             Item: Barmund_Ice_Essence_NT
             Rate: 376
-            Amount: 4
+            Amount: 2
           - Index: 35
             Item: Barmund_Ice_Essence_NT
             Rate: 470
-            Amount: 5
+            Amount: 3
           - Index: 36
             Item: Barmund_Ice_Essence_NT
             Rate: 376
-            Amount: 6
+            Amount: 4
           - Index: 37
             Item: Barmund_Ice_Essence_NT
             Rate: 301
-            Amount: 7
+            Amount: 5
           - Index: 38
             Item: Barmund_Ice_Essence_NT
             Rate: 241
-            Amount: 8
+            Amount: 6
           - Index: 39
             Item: Barmund_Ice_Essence_NT
             Rate: 193
-            Amount: 9
+            Amount: 7
           - Index: 40
             Item: Crt_Meteorite_Fragment_NT
             Rate: 241
-            Amount: 2
+            Amount: 1
           - Index: 41
             Item: Crt_Meteorite_Fragment_NT
             Rate: 301
-            Amount: 3
+            Amount: 2
           - Index: 42
             Item: Crt_Meteorite_Fragment_NT
             Rate: 376
-            Amount: 4
+            Amount: 3
           - Index: 43
             Item: Crt_Meteorite_Fragment_NT
             Rate: 470
-            Amount: 5
+            Amount: 4
           - Index: 44
             Item: Crt_Meteorite_Fragment_NT
             Rate: 376
-            Amount: 6
+            Amount: 5
           - Index: 45
             Item: Crt_Meteorite_Fragment_NT
             Rate: 301
-            Amount: 7
+            Amount: 6
           - Index: 46
             Item: Crt_Meteorite_Fragment_NT
             Rate: 241
-            Amount: 8
+            Amount: 7
           - Index: 47
             Item: Crt_Meteorite_Fragment_NT
             Rate: 193
-            Amount: 9
+            Amount: 8
           - Index: 48
             Item: Pow_Meteorite_Dust_NT
             Rate: 170
-            Amount: 2
+            Amount: 1
           - Index: 49
             Item: Pow_Meteorite_Dust_NT
             Rate: 136
-            Amount: 3
+            Amount: 2
           - Index: 50
             Item: Barmund_Flame_Essence_NT
             Rate: 300
-            Amount: 2
+            Amount: 1
           - Index: 51
             Item: Pow_Meteorite_Fragment_NT
             Rate: 300
-            Amount: 2
+            Amount: 1
           - Index: 52
             Item: Yggdrasilberry
             Rate: 170
@@ -11908,99 +11908,99 @@ Body:
           - Index: 10
             Item: Crt_Meteorite_Dust_NT
             Rate: 180
-            Amount: 3
+            Amount: 2
           - Index: 11
             Item: Crt_Meteorite_Dust_NT
             Rate: 225
-            Amount: 4
+            Amount: 3
           - Index: 12
             Item: Crt_Meteorite_Dust_NT
             Rate: 282
-            Amount: 5
+            Amount: 4
           - Index: 13
             Item: Crt_Meteorite_Dust_NT
             Rate: 352
-            Amount: 6
+            Amount: 5
           - Index: 14
             Item: Crt_Meteorite_Dust_NT
             Rate: 440
-            Amount: 7
+            Amount: 6
           - Index: 15
             Item: Crt_Meteorite_Dust_NT
             Rate: 550
-            Amount: 8
+            Amount: 7
           - Index: 16
             Item: Crt_Meteorite_Dust_NT
             Rate: 440
-            Amount: 9
+            Amount: 8
           - Index: 17
             Item: Crt_Meteorite_Dust_NT
             Rate: 352
-            Amount: 10
+            Amount: 9
           - Index: 18
             Item: Crt_Meteorite_Dust_NT
             Rate: 282
-            Amount: 11
+            Amount: 10
           - Index: 19
             Item: Crt_Meteorite_Dust_NT
             Rate: 225
-            Amount: 12
+            Amount: 11
           - Index: 20
             Item: Barmund_Ice_Essence_NT
             Rate: 49
-            Amount: 3
+            Amount: 2
           - Index: 21
             Item: Barmund_Ice_Essence_NT
             Rate: 61
-            Amount: 4
+            Amount: 3
           - Index: 22
             Item: Barmund_Ice_Essence_NT
             Rate: 77
-            Amount: 5
+            Amount: 4
           - Index: 23
             Item: Barmund_Ice_Essence_NT
             Rate: 96
-            Amount: 6
+            Amount: 5
           - Index: 24
             Item: Barmund_Ice_Essence_NT
             Rate: 120
-            Amount: 7
+            Amount: 6
           - Index: 25
             Item: Barmund_Ice_Essence_NT
             Rate: 96
-            Amount: 8
+            Amount: 7
           - Index: 26
             Item: Barmund_Ice_Essence_NT
             Rate: 77
-            Amount: 9
+            Amount: 8
           - Index: 27
             Item: Crt_Meteorite_Fragment_NT
             Rate: 49
-            Amount: 3
+            Amount: 2
           - Index: 28
             Item: Crt_Meteorite_Fragment_NT
             Rate: 61
-            Amount: 4
+            Amount: 3
           - Index: 29
             Item: Crt_Meteorite_Fragment_NT
             Rate: 77
-            Amount: 5
+            Amount: 4
           - Index: 30
             Item: Crt_Meteorite_Fragment_NT
             Rate: 96
-            Amount: 6
+            Amount: 5
           - Index: 31
             Item: Crt_Meteorite_Fragment_NT
             Rate: 120
-            Amount: 7
+            Amount: 6
           - Index: 32
             Item: Crt_Meteorite_Fragment_NT
             Rate: 96
-            Amount: 8
+            Amount: 7
           - Index: 33
             Item: Crt_Meteorite_Fragment_NT
             Rate: 77
-            Amount: 9
+            Amount: 8
           - Index: 34
             Item: Blacksmith_Blessing
             Rate: 300
@@ -12128,171 +12128,171 @@ Body:
           - Index: 25
             Item: Crt_Meteorite_Dust_NT
             Rate: 39
-            Amount: 3
+            Amount: 2
           - Index: 26
             Item: Crt_Meteorite_Dust_NT
             Rate: 43
-            Amount: 4
+            Amount: 3
           - Index: 27
             Item: Crt_Meteorite_Dust_NT
             Rate: 48
-            Amount: 5
+            Amount: 4
           - Index: 28
             Item: Crt_Meteorite_Dust_NT
             Rate: 53
-            Amount: 6
+            Amount: 5
           - Index: 29
             Item: Crt_Meteorite_Dust_NT
             Rate: 59
-            Amount: 7
+            Amount: 6
           - Index: 30
             Item: Crt_Meteorite_Dust_NT
             Rate: 66
-            Amount: 8
+            Amount: 7
           - Index: 31
             Item: Crt_Meteorite_Dust_NT
             Rate: 73
-            Amount: 9
+            Amount: 8
           - Index: 32
             Item: Crt_Meteorite_Dust_NT
             Rate: 81
-            Amount: 10
+            Amount: 9
           - Index: 33
             Item: Crt_Meteorite_Dust_NT
             Rate: 90
-            Amount: 11
+            Amount: 10
           - Index: 34
             Item: Crt_Meteorite_Dust_NT
             Rate: 100
-            Amount: 12
+            Amount: 10
           - Index: 35
             Item: Crt_Meteorite_Dust_NT
             Rate: 90
-            Amount: 13
+            Amount: 12
           - Index: 36
             Item: Crt_Meteorite_Dust_NT
             Rate: 81
-            Amount: 14
+            Amount: 13
           - Index: 37
             Item: Crt_Meteorite_Dust_NT
             Rate: 73
-            Amount: 15
+            Amount: 14
           - Index: 38
             Item: Crt_Meteorite_Dust_NT
             Rate: 66
-            Amount: 16
+            Amount: 15
           - Index: 39
             Item: Crt_Meteorite_Dust_NT
             Rate: 59
-            Amount: 17
+            Amount: 16
           - Index: 40
             Item: Crt_Meteorite_Dust_NT
             Rate: 53
-            Amount: 18
+            Amount: 17
           - Index: 41
             Item: Crt_Meteorite_Dust_NT
             Rate: 48
-            Amount: 19
+            Amount: 18
           - Index: 42
             Item: Crt_Meteorite_Dust_NT
             Rate: 43
-            Amount: 20
+            Amount: 19
           - Index: 43
             Item: Crt_Meteorite_Dust_NT
             Rate: 39
-            Amount: 21
+            Amount: 20
           - Index: 44
             Item: Crt_Meteorite_Dust_NT
             Rate: 35
-            Amount: 22
+            Amount: 21
           - Index: 45
             Item: Crt_Meteorite_Dust_NT
             Rate: 31
-            Amount: 23
+            Amount: 22
           - Index: 46
             Item: Crt_Meteorite_Dust_NT
             Rate: 28
-            Amount: 24
+            Amount: 23
           - Index: 47
             Item: Crt_Meteorite_Dust_NT
             Rate: 25
-            Amount: 25
+            Amount: 24
           - Index: 48
             Item: Crt_Meteorite_Dust_NT
             Rate: 23
-            Amount: 26
+            Amount: 25
           - Index: 49
             Item: Crt_Meteorite_Dust_NT
             Rate: 21
-            Amount: 27
+            Amount: 26
           - Index: 50
             Item: Barmund_Ice_Essence_NT
             Rate: 50
-            Amount: 3
+            Amount: 2
           - Index: 51
             Item: Barmund_Ice_Essence_NT
             Rate: 62
-            Amount: 4
+            Amount: 3
           - Index: 52
             Item: Barmund_Ice_Essence_NT
             Rate: 78
-            Amount: 5
+            Amount: 4
           - Index: 53
             Item: Barmund_Ice_Essence_NT
             Rate: 97
-            Amount: 6
+            Amount: 5
           - Index: 54
             Item: Barmund_Ice_Essence_NT
             Rate: 122
-            Amount: 7
+            Amount: 6
           - Index: 55
             Item: Barmund_Ice_Essence_NT
             Rate: 152
-            Amount: 8
+            Amount: 7
           - Index: 56
             Item: Barmund_Ice_Essence_NT
             Rate: 190
-            Amount: 9
+            Amount: 8
           - Index: 57
             Item: Barmund_Ice_Essence_NT
             Rate: 171
-            Amount: 10
+            Amount: 9
           - Index: 58
             Item: Barmund_Ice_Essence_NT
             Rate: 154
-            Amount: 11
+            Amount: 10
           - Index: 59
             Item: Barmund_Ice_Essence_NT
             Rate: 139
-            Amount: 12
+            Amount: 11
           - Index: 60
             Item: Barmund_Ice_Essence_NT
             Rate: 125
-            Amount: 13
+            Amount: 12
           - Index: 61
             Item: Barmund_Ice_Essence_NT
             Rate: 112
-            Amount: 14
+            Amount: 13
           - Index: 62
             Item: Barmund_Ice_Essence_NT
             Rate: 101
-            Amount: 15
+            Amount: 14
           - Index: 63
             Item: Barmund_Ice_Essence_NT
             Rate: 91
-            Amount: 16
+            Amount: 15
           - Index: 64
             Item: Barmund_Ice_Essence_NT
             Rate: 82
-            Amount: 17
+            Amount: 16
           - Index: 65
             Item: Barmund_Ice_Essence_NT
             Rate: 74
-            Amount: 18
+            Amount: 17
           - Index: 66
             Item: Barmund_Ice_Essence_NT
             Rate: 66
-            Amount: 19
+            Amount: 18
           - Index: 67
             Item: Barmund_Ice_Essence_NT
             Rate: 60
@@ -12300,111 +12300,111 @@ Body:
           - Index: 68
             Item: Crt_Meteorite_Fragment_NT
             Rate: 50
-            Amount: 3
+            Amount: 2
           - Index: 69
             Item: Crt_Meteorite_Fragment_NT
             Rate: 62
-            Amount: 4
+            Amount: 3
           - Index: 70
             Item: Crt_Meteorite_Fragment_NT
             Rate: 78
-            Amount: 5
+            Amount: 4
           - Index: 71
             Item: Crt_Meteorite_Fragment_NT
             Rate: 97
-            Amount: 6
+            Amount: 5
           - Index: 72
             Item: Crt_Meteorite_Fragment_NT
             Rate: 122
-            Amount: 7
+            Amount: 6
           - Index: 73
             Item: Crt_Meteorite_Fragment_NT
             Rate: 152
-            Amount: 8
+            Amount: 7
           - Index: 74
             Item: Crt_Meteorite_Fragment_NT
             Rate: 190
-            Amount: 9
+            Amount: 8
           - Index: 75
             Item: Crt_Meteorite_Fragment_NT
             Rate: 171
-            Amount: 10
+            Amount: 9
           - Index: 76
             Item: Crt_Meteorite_Fragment_NT
             Rate: 154
-            Amount: 11
+            Amount: 10
           - Index: 77
             Item: Crt_Meteorite_Fragment_NT
             Rate: 139
-            Amount: 12
+            Amount: 11
           - Index: 78
             Item: Crt_Meteorite_Fragment_NT
             Rate: 125
-            Amount: 13
+            Amount: 12
           - Index: 79
             Item: Crt_Meteorite_Fragment_NT
             Rate: 112
-            Amount: 14
+            Amount: 13
           - Index: 80
             Item: Crt_Meteorite_Fragment_NT
             Rate: 101
-            Amount: 15
+            Amount: 14
           - Index: 81
             Item: Crt_Meteorite_Fragment_NT
             Rate: 91
-            Amount: 16
+            Amount: 15
           - Index: 82
             Item: Crt_Meteorite_Fragment_NT
             Rate: 82
-            Amount: 17
+            Amount: 16
           - Index: 83
             Item: Crt_Meteorite_Fragment_NT
             Rate: 74
-            Amount: 18
+            Amount: 17
           - Index: 84
             Item: Crt_Meteorite_Fragment_NT
             Rate: 66
-            Amount: 19
+            Amount: 18
           - Index: 85
             Item: Crt_Meteorite_Fragment_NT
             Rate: 60
-            Amount: 20
+            Amount: 19
           - Index: 86
             Item: Pow_Meteorite_Dust_NT
             Rate: 64
-            Amount: 2
+            Amount: 1
           - Index: 87
             Item: Pow_Meteorite_Dust_NT
             Rate: 80
-            Amount: 3
+            Amount: 2
           - Index: 88
             Item: Pow_Meteorite_Dust_NT
             Rate: 100
-            Amount: 4
+            Amount: 3
           - Index: 89
             Item: Pow_Meteorite_Dust_NT
             Rate: 80
-            Amount: 5
+            Amount: 4
           - Index: 90
             Item: Pow_Meteorite_Dust_NT
             Rate: 64
-            Amount: 6
+            Amount: 5
           - Index: 91
             Item: Barmund_Flame_Essence_NT
             Rate: 190
-            Amount: 2
+            Amount: 1
           - Index: 92
             Item: Barmund_Flame_Essence_NT
             Rate: 152
-            Amount: 3
+            Amount: 2
           - Index: 93
             Item: Pow_Meteorite_Fragment_NT
             Rate: 190
-            Amount: 2
+            Amount: 1
           - Index: 94
             Item: Pow_Meteorite_Fragment_NT
             Rate: 152
-            Amount: 3
+            Amount: 2
           - Index: 95
             Item: Blacksmith_Blessing
             Rate: 300
@@ -12572,279 +12572,279 @@ Body:
           - Index: 35
             Item: Crt_Meteorite_Dust_NT
             Rate: 110
-            Amount: 3
+            Amount: 2
           - Index: 36
             Item: Crt_Meteorite_Dust_NT
             Rate: 116
-            Amount: 4
+            Amount: 3
           - Index: 37
             Item: Crt_Meteorite_Dust_NT
             Rate: 122
-            Amount: 5
+            Amount: 4
           - Index: 38
             Item: Crt_Meteorite_Dust_NT
             Rate: 128
-            Amount: 6
+            Amount: 5
           - Index: 39
             Item: Crt_Meteorite_Dust_NT
             Rate: 135
-            Amount: 7
+            Amount: 6
           - Index: 40
             Item: Crt_Meteorite_Dust_NT
             Rate: 142
-            Amount: 8
+            Amount: 7
           - Index: 41
             Item: Crt_Meteorite_Dust_NT
             Rate: 150
-            Amount: 9
+            Amount: 8
           - Index: 42
             Item: Crt_Meteorite_Dust_NT
             Rate: 158
-            Amount: 10
+            Amount: 9
           - Index: 43
             Item: Crt_Meteorite_Dust_NT
             Rate: 166
-            Amount: 11
+            Amount: 10
           - Index: 44
             Item: Crt_Meteorite_Dust_NT
             Rate: 175
-            Amount: 12
+            Amount: 11
           - Index: 45
             Item: Crt_Meteorite_Dust_NT
             Rate: 184
-            Amount: 11
+            Amount: 10
           - Index: 46
             Item: Crt_Meteorite_Dust_NT
             Rate: 193
-            Amount: 12
+            Amount: 11
           - Index: 47
             Item: Crt_Meteorite_Dust_NT
             Rate: 204
-            Amount: 13
+            Amount: 12
           - Index: 48
             Item: Crt_Meteorite_Dust_NT
             Rate: 214
-            Amount: 14
+            Amount: 13
           - Index: 49
             Item: Crt_Meteorite_Dust_NT
             Rate: 226
-            Amount: 15
+            Amount: 14
           - Index: 50
             Item: Crt_Meteorite_Dust_NT
             Rate: 238
-            Amount: 16
+            Amount: 15
           - Index: 51
             Item: Crt_Meteorite_Dust_NT
             Rate: 250
-            Amount: 17
+            Amount: 16
           - Index: 52
             Item: Crt_Meteorite_Dust_NT
             Rate: 238
-            Amount: 18
+            Amount: 17
           - Index: 53
             Item: Crt_Meteorite_Dust_NT
             Rate: 226
-            Amount: 19
+            Amount: 18
           - Index: 54
             Item: Crt_Meteorite_Dust_NT
             Rate: 214
-            Amount: 20
+            Amount: 19
           - Index: 55
             Item: Crt_Meteorite_Dust_NT
             Rate: 193
-            Amount: 21
+            Amount: 20
           - Index: 56
             Item: Crt_Meteorite_Dust_NT
             Rate: 174
-            Amount: 22
+            Amount: 21
           - Index: 57
             Item: Crt_Meteorite_Dust_NT
             Rate: 156
-            Amount: 23
+            Amount: 22
           - Index: 58
             Item: Crt_Meteorite_Dust_NT
             Rate: 141
-            Amount: 24
+            Amount: 23
           - Index: 59
             Item: Crt_Meteorite_Dust_NT
             Rate: 127
-            Amount: 25
+            Amount: 24
           - Index: 60
             Item: Crt_Meteorite_Dust_NT
             Rate: 114
-            Amount: 26
+            Amount: 25
           - Index: 61
             Item: Crt_Meteorite_Dust_NT
             Rate: 103
-            Amount: 27
+            Amount: 26
           - Index: 62
             Item: Crt_Meteorite_Dust_NT
             Rate: 92
-            Amount: 28
+            Amount: 27
           - Index: 63
             Item: Crt_Meteorite_Dust_NT
             Rate: 83
-            Amount: 29
+            Amount: 28
           - Index: 64
             Item: Crt_Meteorite_Dust_NT
             Rate: 75
-            Amount: 30
+            Amount: 29
           - Index: 65
             Item: Crt_Meteorite_Dust_NT
             Rate: 67
-            Amount: 31
+            Amount: 29
           - Index: 66
             Item: Crt_Meteorite_Dust_NT
             Rate: 61
-            Amount: 32
+            Amount: 30
           - Index: 67
             Item: Crt_Meteorite_Dust_NT
             Rate: 54
-            Amount: 33
+            Amount: 30
           - Index: 68
             Item: Crt_Meteorite_Dust_NT
             Rate: 49
-            Amount: 34
+            Amount: 31
           - Index: 69
             Item: Crt_Meteorite_Dust_NT
             Rate: 44
-            Amount: 35
+            Amount: 32
           - Index: 70
             Item: Barmund_Ice_Essence_NT
             Rate: 38
-            Amount: 3
+            Amount: 2
           - Index: 71
             Item: Barmund_Ice_Essence_NT
             Rate: 43
-            Amount: 4
+            Amount: 3
           - Index: 72
             Item: Barmund_Ice_Essence_NT
             Rate: 47
-            Amount: 5
+            Amount: 4
           - Index: 73
             Item: Barmund_Ice_Essence_NT
             Rate: 53
-            Amount: 6
+            Amount: 5
           - Index: 74
             Item: Barmund_Ice_Essence_NT
             Rate: 58
-            Amount: 7
+            Amount: 6
           - Index: 75
             Item: Barmund_Ice_Essence_NT
             Rate: 65
-            Amount: 8
+            Amount: 7
           - Index: 76
             Item: Barmund_Ice_Essence_NT
             Rate: 72
-            Amount: 9
+            Amount: 8
           - Index: 77
             Item: Barmund_Ice_Essence_NT
             Rate: 80
-            Amount: 10
+            Amount: 9
           - Index: 78
             Item: Barmund_Ice_Essence_NT
             Rate: 89
-            Amount: 11
+            Amount: 10
           - Index: 79
             Item: Barmund_Ice_Essence_NT
             Rate: 99
-            Amount: 12
+            Amount: 11
           - Index: 80
             Item: Barmund_Ice_Essence_NT
             Rate: 110
-            Amount: 11
+            Amount: 10
           - Index: 81
             Item: Barmund_Ice_Essence_NT
             Rate: 99
-            Amount: 12
+            Amount: 11
           - Index: 82
             Item: Barmund_Ice_Essence_NT
             Rate: 89
-            Amount: 13
+            Amount: 12
           - Index: 83
             Item: Barmund_Ice_Essence_NT
             Rate: 80
-            Amount: 14
+            Amount: 13
           - Index: 84
             Item: Barmund_Ice_Essence_NT
             Rate: 72
-            Amount: 15
+            Amount: 14
           - Index: 85
             Item: Barmund_Ice_Essence_NT
             Rate: 65
-            Amount: 16
+            Amount: 15
           - Index: 86
             Item: Barmund_Ice_Essence_NT
             Rate: 58
-            Amount: 17
+            Amount: 16
           - Index: 87
             Item: Barmund_Ice_Essence_NT
             Rate: 53
-            Amount: 18
+            Amount: 17
           - Index: 88
             Item: Barmund_Ice_Essence_NT
             Rate: 47
-            Amount: 19
+            Amount: 18
           - Index: 89
             Item: Barmund_Ice_Essence_NT
             Rate: 43
-            Amount: 20
+            Amount: 19
           - Index: 90
             Item: Crt_Meteorite_Fragment_NT
             Rate: 70
-            Amount: 3
+            Amount: 2
           - Index: 91
             Item: Crt_Meteorite_Fragment_NT
             Rate: 77
-            Amount: 4
+            Amount: 3
           - Index: 92
             Item: Crt_Meteorite_Fragment_NT
             Rate: 86
-            Amount: 5
+            Amount: 4
           - Index: 93
             Item: Crt_Meteorite_Fragment_NT
             Rate: 96
-            Amount: 6
+            Amount: 5
           - Index: 94
             Item: Crt_Meteorite_Fragment_NT
             Rate: 106
-            Amount: 7
+            Amount: 6
           - Index: 95
             Item: Crt_Meteorite_Fragment_NT
             Rate: 118
-            Amount: 8
+            Amount: 7
           - Index: 96
             Item: Crt_Meteorite_Fragment_NT
             Rate: 131
-            Amount: 9
+            Amount: 8
           - Index: 97
             Item: Crt_Meteorite_Fragment_NT
             Rate: 146
-            Amount: 10
+            Amount: 9
           - Index: 98
             Item: Crt_Meteorite_Fragment_NT
             Rate: 162
-            Amount: 11
+            Amount: 10
           - Index: 99
             Item: Crt_Meteorite_Fragment_NT
             Rate: 180
-            Amount: 12
+            Amount: 11
           - Index: 100
             Item: Crt_Meteorite_Fragment_NT
             Rate: 200
-            Amount: 13
+            Amount: 12
           - Index: 101
             Item: Crt_Meteorite_Fragment_NT
             Rate: 180
-            Amount: 12
+            Amount: 11
           - Index: 102
             Item: Crt_Meteorite_Fragment_NT
             Rate: 162
-            Amount: 13
+            Amount: 12
           - Index: 103
             Item: Crt_Meteorite_Fragment_NT
             Rate: 146
-            Amount: 14
+            Amount: 13
           - Index: 104
             Item: Crt_Meteorite_Fragment_NT
             Rate: 131
@@ -12868,71 +12868,71 @@ Body:
           - Index: 109
             Item: Crt_Meteorite_Fragment_NT
             Rate: 77
-            Amount: 20
+            Amount: 19
           - Index: 110
             Item: Pow_Meteorite_Dust_NT
             Rate: 33
-            Amount: 2
+            Amount: 1
           - Index: 111
             Item: Pow_Meteorite_Dust_NT
             Rate: 36
-            Amount: 3
+            Amount: 2
           - Index: 112
             Item: Pow_Meteorite_Dust_NT
             Rate: 41
-            Amount: 4
+            Amount: 3
           - Index: 113
             Item: Pow_Meteorite_Dust_NT
             Rate: 45
-            Amount: 5
+            Amount: 4
           - Index: 114
             Item: Pow_Meteorite_Dust_NT
             Rate: 50
-            Amount: 6
+            Amount: 5
           - Index: 115
             Item: Pow_Meteorite_Dust_NT
             Rate: 40
-            Amount: 7
+            Amount: 6
           - Index: 116
             Item: Pow_Meteorite_Dust_NT
             Rate: 32
-            Amount: 8
+            Amount: 7
           - Index: 117
             Item: Pow_Meteorite_Dust_NT
             Rate: 26
-            Amount: 9
+            Amount: 8
           - Index: 118
             Item: Pow_Meteorite_Dust_NT
             Rate: 20
-            Amount: 9
+            Amount: 8
           - Index: 119
             Item: Pow_Meteorite_Dust_NT
             Rate: 16
-            Amount: 10
+            Amount: 9
           - Index: 120
             Item: Barmund_Flame_Essence_NT
             Rate: 125
-            Amount: 2
+            Amount: 1
           - Index: 121
             Item: Barmund_Flame_Essence_NT
             Rate: 100
-            Amount: 3
+            Amount: 2
           - Index: 122
             Item: Barmund_Flame_Essence_NT
             Rate: 80
-            Amount: 4
+            Amount: 3
           - Index: 123
             Item: Pow_Meteorite_Fragment_NT
             Rate: 125
-            Amount: 2
+            Amount: 1
           - Index: 124
             Item: Pow_Meteorite_Fragment_NT
             Rate: 100
-            Amount: 3
+            Amount: 2
           - Index: 125
             Item: Pow_Meteorite_Fragment_NT
             Rate: 80
-            Amount: 4
+            Amount: 3
           - Index: 126
             Item: Blacksmith_Blessing
             Rate: 500
