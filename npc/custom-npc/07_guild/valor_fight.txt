@@ -30,10 +30,10 @@ function	script	F_ValorFightWarp	{
 }
 
 function	script	F_ValorFight2Warp	{
-	//if (!callfunc("F_ValorFight2Active")) {
-	//	message strcharinfo(0), "[WoE Warp] ValorFight Map 2 ยังไม่เปิดในรอบนี้.";
-	//	return;
-	//}
+	if (!callfunc("F_ValorFight2Active")) {
+		message strcharinfo(0), "[WoE Warp] ValorFight Map 2 ยังไม่เปิดในรอบนี้.";
+		return;
+	}
 	if (getcharid(2) <= 0) {
 		message strcharinfo(0), "[WoE Warp] ต้องสังกัดกิลด์จึงจะเข้า ValorFight Map 2 ได้.";
 		return;
