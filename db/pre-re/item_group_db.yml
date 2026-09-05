@@ -14497,7 +14497,43 @@ Body:
       - SubGroup: 1
         List:
           - Index: 0
-            Item: Jellopy
+            Item: Pharaoh_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 1
+            Item: Bacsojin_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 2
+            Item: Osiris_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 3
+            Item: Dracula_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 4
+            Item: Doppelganger_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 5
+            Item: Mistress_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 6
+            Item: Moonlight_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 7
+            Item: Drake_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 8
+            Item: Knight_Of_Windstorm_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 9
+            Item: Lord_Of_Death_Egg
             Rate: 1
             Amount: 1
   - Group: RANDOM_RUDOLF_BOX_9
@@ -14505,7 +14541,43 @@ Body:
       - SubGroup: 1
         List:
           - Index: 0
-            Item: Jellopy
+            Item: B_Seyren_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 1
+            Item: B_Eremes_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 2
+            Item: B_Harword_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 3
+            Item: B_Magaleta_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 4
+            Item: B_Shecil_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 5
+            Item: B_Katrinn_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 6
+            Item: B_Randel_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 7
+            Item: B_Flamel_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 8
+            Item: B_Celia_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 9
+            Item: B_Chen_Egg
             Rate: 1
             Amount: 1
   - Group: RANDOM_RUDOLF_BOX_10

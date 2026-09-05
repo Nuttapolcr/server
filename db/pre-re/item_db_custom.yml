@@ -40965,5 +40965,19 @@ Body:
   - Id: 1500159
     AegisName: "Blacksmith_Blessing_Box "
     Name: "Blacksmith Blessing Box "
-    Script: getitem 6635,1;
     Type: Usable
+    Script: getitem 6635,1;
+  - Id: 1500160
+    AegisName: Rare_Pet_Random
+    Name: Rare Pet Random
+    Type: Usable
+    Script: |-
+      getgroupitem(IG_RANDOM_RUDOLF_BOX_8);
+      specialeffect2 18;
+  - Id: 1500161
+    AegisName: Epic_Pet_Random
+    Name: Epic Pet Random
+    Type: Usable
+    Script: |-
+      getgroupitem(IG_RANDOM_RUDOLF_BOX_9);
+      specialeffect2 18;
