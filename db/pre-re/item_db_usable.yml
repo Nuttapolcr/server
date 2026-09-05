@@ -20716,7 +20716,8 @@ Body:
       Override: 100
       Sitting: true
     Script: |
-      callfunc "F_CS2_Open";
+      //callfunc "F_CS2_Open";
+      warp "guild_vs2-1", 49,47;
   - Id: 14592
     AegisName: Job_Manual50
     Name: JOB Battle Manual

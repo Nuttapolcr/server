@@ -7684,6 +7684,19 @@ enum e_setpos pc_setpos(map_session_data* sd, unsigned short mapindex, int x, in
 		return SETPOS_MAPINDEX;
 	}
 
+	// A scripted warp can have side effects before it calls pc_setpos(). Merely
+	// rejecting the map change while Auto Attack is active leaves the character
+	// on the source cell, so an OnTouch_ reward can be triggered repeatedly.
+	// Stop Auto Attack without running its configured end action, then honor the
+	// requested warp. The saved action remains available for the next AA session.
+	if (sd->sc.getSCE(SC_AUTOATTACK) && (sd->mapindex != mapindex || sd->state.autotrade)) {
+		const int action_on_end = sd->aa.action_on_end;
+
+		sd->aa.action_on_end = 0;
+		status_change_end(&sd->bl, SC_AUTOATTACK);
+		sd->aa.action_on_end = action_on_end;
+	}
+
 	if ( (sd->sc.getSCE(SC_AUTOATTACK) && sd->mapindex != mapindex) || (sd->state.autotrade && sd->sc.getSCE(SC_AUTOATTACK)) || (sd->state.autotrade && (sd->vender_id || sd->buyer_id))  && !sd->state.autobuff) // Player with autotrade just causes clif glitch! @ FIXME
 		return SETPOS_AUTOTRADE;
 
