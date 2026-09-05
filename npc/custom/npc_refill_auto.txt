@@ -40,17 +40,14 @@ OnInit:
 	setarray .get_cash_amount[5000],  50000,  7100, 0, 0, 0;
 	setarray .get_cash_amount[10000], 100000, 15000, 0, 0, 0;
 
-	// โปรโมชั่นเติมเงิน 19 ส.ค. 2569 00:00 - 26 ส.ค. 2569 10:00 (รวมเวลาต้นและปลาย ตามเวลาเซิร์ฟเวอร์)
+	// โปรโมชั่นไข่สัตว์เลี้ยง เริ่ม 05/09/2026 09:40 เวลาไทย ไม่จำกัดวันสิ้นสุด
 	// รางวัลแจกต่อ 1 รายการเติมเงิน และทำงานก่อนเปลี่ยน donate.status เป็น 2
-	.promo_start = 202608190000;
-	.promo_end = 202608261000;
-	setarray .promo_amount[0], 300, 500, 1000, 3000, 5000, 10000;
-	setarray .promo_valor_stone[0], 6, 11, 22, 66, 110, 220;
-	setarray .promo_pet_egg[0], 3, 5, 12, 40, 75, 180;
-	setarray .promo_bloody_branch[0], 0, 2, 4, 12, 20, 40;
-	setarray .promo_refine_5[0], 0, 0, 1, 3, 5, 10;
-	setarray .promo_refine_10[0], 0, 0, 0, 1, 3, 5;
-	setarray .promo_refine_15[0], 0, 0, 0, 0, 1, 3;
+	.promo_start = 202609050940;
+	.promo_end = 0; // 0 = ไม่จำกัดวันสิ้นสุด
+	setarray .promo_amount[0], 300, 500, 1000, 1500, 3000, 5000, 10000;
+	setarray .promo_pet_egg[0], 3, 5, 12, 20, 40, 75, 180;
+	setarray .promo_rare_pet[0], 0, 0, 2, 3, 8, 15, 30;
+	setarray .promo_epic_pet[0], 0, 0, 1, 1, 3, 5, 12;
 
 	while (1) {
 		query_sql "SELECT `id`,`amount`,`account_id` FROM `donate` WHERE `status` = 1 ORDER BY `id` ASC LIMIT 20",
@@ -91,18 +88,14 @@ OnInit:
 
 				// ใช้เวลาของ map-server เพื่อไม่ให้รับรางวัลนอกช่วงโปรโมชั่น
 				.@promo_now = gettime(DT_YEAR) * 100000000 + gettime(DT_MONTH) * 1000000 + gettime(DT_DAYOFMONTH) * 10000 + gettime(DT_HOUR) * 100 + gettime(DT_MINUTE);
-				if (.@promo_now >= .promo_start && .@promo_now <= .promo_end) {
+				if (.@promo_now >= .promo_start && (.promo_end == 0 || .@promo_now <= .promo_end)) {
 					.@promo_index = inarray(.promo_amount[0], .@amt);
 					if (.@promo_index >= 0) {
-						getitem 1000620, .promo_valor_stone[.@promo_index];
 						getitem 22571, .promo_pet_egg[.@promo_index];
-						getitem 12103, .promo_bloody_branch[.@promo_index];
-						if (.promo_refine_5[.@promo_index] > 0)
-							getitem 1030015, .promo_refine_5[.@promo_index];
-						if (.promo_refine_10[.@promo_index] > 0)
-							getitem 1030016, .promo_refine_10[.@promo_index];
-						if (.promo_refine_15[.@promo_index] > 0)
-							getitem 1030017, .promo_refine_15[.@promo_index];
+						if (.promo_rare_pet[.@promo_index] > 0)
+							getitem 1500160, .promo_rare_pet[.@promo_index];
+						if (.promo_epic_pet[.@promo_index] > 0)
+							getitem 1500161, .promo_epic_pet[.@promo_index];
 						dispbottom "[โปรโมชั่นเติมเงิน] ได้รับรางวัลพิเศษตามยอดเติม " + callfunc("F_InsertComma", .@amt) + " บาท", 0x66CCFF;
 					}
 				}
@@ -130,26 +123,22 @@ OnInit:
 
 OnTestPromo22:
 	if (.@atcmd_numparameters < 1) {
-		dispbottom "วิธีใช้: @testpromo22 <300|500|1000|3000|5000|10000>";
+		dispbottom "วิธีใช้: @testpromo22 <300|500|1000|1500|3000|5000|10000>";
 		end;
 	}
 
 	.@amt = atoi(.@atcmd_parameters$[0]);
 	.@promo_index = inarray(.promo_amount[0], .@amt);
 	if (.@promo_index < 0) {
-		dispbottom "ยอดทดสอบไม่ถูกต้อง: ใช้ได้เฉพาะ 300, 500, 1000, 3000, 5000 หรือ 10000";
+		dispbottom "ยอดทดสอบไม่ถูกต้อง: ใช้ได้เฉพาะ 300, 500, 1000, 1500, 3000, 5000 หรือ 10000";
 		end;
 	}
 
-	getitem 1000620, .promo_valor_stone[.@promo_index];
 	getitem 22571, .promo_pet_egg[.@promo_index];
-	getitem 12103, .promo_bloody_branch[.@promo_index];
-	if (.promo_refine_5[.@promo_index] > 0)
-		getitem 1030015, .promo_refine_5[.@promo_index];
-	if (.promo_refine_10[.@promo_index] > 0)
-		getitem 1030016, .promo_refine_10[.@promo_index];
-	if (.promo_refine_15[.@promo_index] > 0)
-		getitem 1030017, .promo_refine_15[.@promo_index];
+	if (.promo_rare_pet[.@promo_index] > 0)
+		getitem 1500160, .promo_rare_pet[.@promo_index];
+	if (.promo_epic_pet[.@promo_index] > 0)
+		getitem 1500161, .promo_epic_pet[.@promo_index];
 	dispbottom "[ทดสอบโปรโมชั่นเติมเงิน] ได้รับรางวัลของยอด " + callfunc("F_InsertComma", .@amt) + " บาทแล้ว", 0x66CCFF;
 	end;
 }
