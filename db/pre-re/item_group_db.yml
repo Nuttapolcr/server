@@ -13280,39 +13280,31 @@ Body:
         List:
           - Index: 0
             Item: Woe_White_Potion
-            Rate: 5000
+            Rate: 1000
             Amount: 2
           - Index: 1
             Item: Woe_Blue_Potion
-            Rate: 5000
+            Rate: 1000
             Amount: 2
           - Index: 2
             Item: White_Slim_Potion
-            Rate: 5000
+            Rate: 1000
             Amount: 2
-          - Index: 9
+          - Index: 4
             Item: Siege_White_Potion
-            Rate: 5000
-            Amount: 2
+            Rate: 1000
+            Amount: 5
           - Index: 10
             Item: Siege_Blue_Potion
-            Rate: 5000
-            Amount: 2
+            Rate: 1000
+            Amount: 5
           - Index: 11
             Item: Meteorite_Fragment
             Rate: 700
-            Amount: 3
-          - Index: 15
-            Item: Wing_Unlimit_1hr_Box
-            Rate: 300
-            Amount: 1
-          - Index: 16
-            Item: Wing_Unlimit_4hr_Box
-            Rate: 300
-            Amount: 1
+            Amount: 10
           - Index: 18
             Item: Crt_Meteorite_Dust_NT
-            Rate: 600
+            Rate: 700
             Amount: 2
           - Index: 20
             Item: Barmund_Ice_Essence_NT
@@ -13324,19 +13316,19 @@ Body:
             Amount: 1
           - Index: 24
             Item: Pow_Meteorite_Dust_NT
-            Rate: 30
+            Rate: 200
             Amount: 1
           - Index: 26
             Item: Barmund_Flame_Essence_NT
-            Rate: 10
+            Rate: 100
             Amount: 1
           - Index: 28
             Item: Pow_Meteorite_Fragment_NT
-            Rate: 10
+            Rate: 100
             Amount: 1
           - Index: 29
             Item: Comp_Bubble_Gum
-            Rate: 130
+            Rate: 200
             Amount: 1
           - Index: 30
             Item: CASH
@@ -13354,74 +13346,38 @@ Body:
             Item: CASH
             Rate: 30
             Amount: 4
-          - Index: 34
-            Item: Max_Weight_Up_Scroll
-            Rate: 150
-            Amount: 1
-          - Index: 35
-            Item: Kafra_Card
-            Rate: 150
-            Amount: 1
-          - Index: 36
-            Item: Pet_Friendly_Ticket
-            Rate: 20
-            Amount: 1
           - Index: 37
             Item: Wing_Unlimit_1hr_Box
-            Rate: 300
+            Rate: 500
             Amount: 1
           - Index: 38
             Item: Wing_Unlimit_4hr_Box
-            Rate: 300
+            Rate: 400
             Amount: 1
           - Index: 39
             Item: Wing_Unlimit_6hr_Box
-            Rate: 150
+            Rate: 300
             Amount: 1
           - Index: 40
             Item: Valor_Stone
-            Rate: 40
+            Rate: 60
             Amount: 1
           - Index: 41
-            Item: New_Item_1500094
-            Rate: 30
+            Item: Bloody_Dead_Branch
+            Rate: 300
             Amount: 1
           - Index: 42
-            Item: Charm_White_Blue_Plus
-            Rate: 30
+            Item: Collection_HP
+            Rate: 50
             Amount: 1
           - Index: 43
-            Item: New_Item_1500096
-            Rate: 30
-            Amount: 1
-          - Index: 44
-            Item: Charm_Reduce_SP
-            Rate: 30
-            Amount: 1
-          - Index: 45
-            Item: Charm_Open_Box
-            Rate: 30
-            Amount: 1
-          - Index: 46
-            Item: Dark_Crystal_C
-            Rate: 5
+            Item: Collection_SP
+            Rate: 50
             Amount: 1
   - Group: TEST02
     SubGroups:
       - SubGroup: 1
         List:
-          - Index: 1
-            Item: Crt_Meteorite_Dust_NT
-            Rate: 800
-            Amount: 2
-          - Index: 3
-            Item: Barmund_Ice_Essence_NT
-            Rate: 600
-            Amount: 1
-          - Index: 5
-            Item: Crt_Meteorite_Fragment_NT
-            Rate: 400
-            Amount: 1
           - Index: 6
             Item: Weapon_Ore_1
             Rate: 400
@@ -13456,31 +13412,31 @@ Body:
             Amount: 1
           - Index: 20
             Item: Blacksmith_Blessing
-            Rate: 400
+            Rate: 500
             Amount: 1
           - Index: 21
             Item: Wing_Unlimit_6hr_Box
-            Rate: 600
+            Rate: 300
             Amount: 1
           - Index: 22
             Item: Wing_Unlimit_12hr_Box
-            Rate: 600
+            Rate: 300
             Amount: 1
           - Index: 24
             Item: Bloody_Dead_Branch
-            Rate: 300
+            Rate: 1000
             Amount: 1
           - Index: 26
             Item: Pow_Meteorite_Dust_NT
-            Rate: 100
+            Rate: 500
             Amount: 1
           - Index: 28
             Item: Barmund_Flame_Essence_NT
-            Rate: 80
+            Rate: 300
             Amount: 1
           - Index: 30
             Item: Pow_Meteorite_Fragment_NT
-            Rate: 80
+            Rate: 300
             Amount: 1
           - Index: 31
             Item: HD_Elunium
@@ -13492,7 +13448,7 @@ Body:
             Amount: 1
           - Index: 33
             Item: CASH
-            Rate: 800
+            Rate: 600
             Amount: 1
           - Index: 34
             Item: CASH
@@ -13500,51 +13456,35 @@ Body:
             Amount: 2
           - Index: 35
             Item: CASH
-            Rate: 300
+            Rate: 400
             Amount: 3
           - Index: 36
             Item: CASH
-            Rate: 200
+            Rate: 300
             Amount: 4
           - Index: 37
             Item: CASH
             Rate: 200
             Amount: 5
           - Index: 38
-            Item: Sesame_Pastry
-            Rate: 300
+            Item: Collection_Ignore_DEF
+            Rate: 30
             Amount: 1
           - Index: 39
-            Item: Honey_Pastry
-            Rate: 300
+            Item: Collection_Ignore_MDEF
+            Rate: 30
             Amount: 1
           - Index: 40
-            Item: New_Item_1500094
+            Item: Collection_HP
             Rate: 100
             Amount: 1
           - Index: 41
-            Item: Charm_White_Blue_Plus
+            Item: Collection_SP
             Rate: 100
             Amount: 1
           - Index: 42
-            Item: New_Item_1500096
-            Rate: 100
-            Amount: 1
-          - Index: 43
-            Item: Charm_Reduce_SP
-            Rate: 100
-            Amount: 1
-          - Index: 44
-            Item: Charm_Open_Box
-            Rate: 100
-            Amount: 1
-          - Index: 45
-            Item: Dark_Crystal_C
-            Rate: 50
-            Amount: 1
-          - Index: 46
-            Item: Holy_Crystal
-            Rate: 50
+            Item: E_Charm_Valor V.1_Copy
+            Rate: 30
             Amount: 1
   - Group: RANDOM_STONE_BOX_1
     SubGroups:

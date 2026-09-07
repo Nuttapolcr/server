@@ -28767,6 +28767,29 @@ Body:
       bonus2 bResEff,Eff_Curse,500;
       bonus bMdef,1;
       bonus bHit,-5;
+  - Id: 1500163
+    AegisName: Censor_Bar_Copy
+    Name: Censor Bar
+    Type: Armor
+    Weight: 100
+    Locations:
+      Head_Mid: true
+    ArmorLevel: 1
+    View: 229
+    Script: bonus2 bIgnoreDefClassRate,Class_All,5;
+    EquipLevelMin: 1
+  - Id: 1500165
+    AegisName: Censor_Bar_Copy_Copy
+    Name: Censor Bar
+    Type: Armor
+    Weight: 100
+    Locations:
+      Head_Mid: true
+    ArmorLevel: 1
+    View: 229
+    Script: bonus2 bIgnoreDefClassRate,Class_All,5;
+    EquipLevelMin: 1
+    Slots: 1
   - Id: 5176
     AegisName: Hahoe_Mask
     Name: Hahoe Mask
@@ -36892,6 +36915,29 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 661
+  - Id: 1500162
+    AegisName: 3D_Glasses_Copy
+    Name: 3D Glasses
+    Type: Armor
+    Weight: 100
+    Locations:
+      Head_Mid: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    View: 661
+    Script: bonus2 bIgnoreMdefClassRate,Class_All,3;
+  - Id: 1500164
+    AegisName: 3D_Glasses_Copy_Copy
+    Name: 3D Glasses
+    Type: Armor
+    Weight: 100
+    Locations:
+      Head_Mid: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
+    View: 661
+    Script: bonus2 bIgnoreMdefClassRate,Class_All,3;
+    Slots: 1
   - Id: 5792
     AegisName: Fish_Pin
     Name: Fish Pin
