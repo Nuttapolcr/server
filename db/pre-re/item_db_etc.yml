@@ -3315,6 +3315,9 @@ Body:
       BuyingStore: true
       DropEffect: CLIENT
       DropAnnounce: true
+    Script: |-
+      bonus bDefEle,Ele_Ghost;
+      bonus bHPrecovRate,-25;
   - Id: 4048
     AegisName: Poison_Spore_Card
     Name: Poison Spore Card

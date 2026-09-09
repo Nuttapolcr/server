@@ -318,7 +318,6 @@ OnInit:
 	end;
 }
 
-/*
 dali,80,60,4	script	Magic Scholar	4_M_SAGE_C,{
 	if (BaseLevel < 1) {
 		mes "[Magic Scholar]";
@@ -389,7 +388,6 @@ dali,80,60,4	script	Magic Scholar	4_M_SAGE_C,{
 		close;
 	}
 }
-*/
 
 dali,72,55,4	script	Interdimensional Device	CLEAR_NPC,{
 	if (BaseLevel < 1) {

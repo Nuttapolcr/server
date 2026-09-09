@@ -57,6 +57,12 @@ arug_cas05	mapflag	restricted	4
 4@tower	mapflag	restricted	6
 5@tower	mapflag	restricted	6
 6@tower	mapflag	restricted	6
+//1@tower	mapflag	noautoattack
+//2@tower	mapflag	noautoattack
+//3@tower	mapflag	noautoattack
+//4@tower	mapflag	noautoattack
+//5@tower	mapflag	noautoattack
+//6@tower	mapflag	noautoattack
 
 //Orc's Memory ===================
 1@orcs	mapflag	restricted	6
