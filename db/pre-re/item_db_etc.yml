@@ -2,6 +2,19 @@ Header:
   Type: ITEM_DB
   Version: 3
 Body:
+  - Id: 4610
+    AegisName: Sarah_Card
+    Name: Sarah Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Armor: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bAbsorbDmgMaxHP2,40;
   - Id: 6607
     AegisName: Temporal_Crystal
     Name: Temporal Crystal
@@ -11484,7 +11497,7 @@ Body:
     Sell: 0
     Weight: 0
     Script: |
-      autobonus2 "{ bonus bStr,100; bonus2 bHPLossRate,500,1000; }",20,5000,BF_WEAPON,"{ active_transform 1060,5000; specialeffect2 EF_POTION_BERSERK; showscript \"Bigfoot Power !\"; }";
+      autobonus2 "{ bonus bStr,200; bonus2 bHPLossRate,500,1000; }",20,5000,BF_WEAPON,"{ active_transform 1060,5000; specialeffect2 EF_POTION_BERSERK; showscript \"Bigfoot Power !\"; }";
     UnEquipScript: |
       heal 0,-300;
   - Id: 4876
@@ -26266,3 +26279,238 @@ Body:
     Script: |
       bonus bCritical,10;
       bonus bCritAtkRate,10;
+  - Id: 25729
+    AegisName: Shadowdecon
+    Name: Shadowdecon
+    Type: Etc
+    Weight: 20
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 25731
+    AegisName: Zelunium
+    Name: Zelunium
+    Type: Etc
+    Weight: 20
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 25759
+    AegisName: Dragenergy_Green
+    Name: Green Dragon Orb
+    Type: Etc
+    Sell: 1750
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 1500174
+    AegisName: Collection_DEX_Abyss_Lakes
+    Name: Collection DEX Abyss Lakes
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bDex,1;
+  - Id: 25760
+    AegisName: Dragenergy_Blue
+    Name: Blue Dragon Orb
+    Type: Etc
+    Sell: 1750
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 1500175
+    AegisName: Collection_INT_Abyss_Lakes
+    Name: Collection INT Abyss Lakes
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bInt,1;
+  - Id: 25761
+    AegisName: Dragenergy_Red
+    Name: Red Dragon Orb
+    Type: Etc
+    Sell: 1750
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 1500176
+    AegisName: Collection_STR_Abyss_Lakes
+    Name: Collection STR Abyss Lakes
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bStr,1;
+  - Id: 25762
+    AegisName: Dragenergy_Gold
+    Name: Gold Dragon Orb
+    Type: Etc
+    Sell: 1750
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 1500177
+    AegisName: Collection_AGI_Abyss_Lakes
+    Name: Collection AGI Abyss Lakes
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bAgi,1;
+  - Id: 25763
+    AegisName: Dragenergy_Purple
+    Name: Purple Dragon Orb
+    Type: Etc
+    Sell: 1750
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 1500178
+    AegisName: Collection_LUK_Abyss_Lakes
+    Name: Collection LUK Abyss Lakes
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bLuk,1;
+  - Id: 25764
+    AegisName: Dragenergy_Silver
+    Name: Silver Dragon Orb
+    Type: Etc
+    Sell: 1750
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 1500179
+    AegisName: Collection_VIT_Abyss_Lakes
+    Name: Collection VIT Abyss Lakes
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bVit,1;
+  - Id: 25765
+    AegisName: Drabone_L
+    Name: Large Dragon Bone
+    Type: Etc
+    Sell: 2000
+    Weight: 200
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 25766
+    AegisName: Drabone_S
+    Name: Small Dragon Bone
+    Type: Etc
+    Sell: 2000
+    Weight: 100
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 300015
+    AegisName: Ferus_P_Card
+    Name: Purple Ferus Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Head_Top: true
+      Head_Mid: true
+      Head_Low: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bAtkRate,3;
+      bonus bMaxHPrate,-5;
+      bonus bMaxSPrate,-5;
+      bonus bAtkRate,(getrefine()/4);
+  - Id: 300016
+    AegisName: Treasure_Mimic_Card
+    Name: Treasure Mimic Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Garment: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bCritical,5;
+      bonus bFlee,30;
+  - Id: 300017
+    AegisName: Acidus_B_Card
+    Name: Black Acidus Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Right_Hand: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus2 bAddEle,Ele_Dark,25;
+  - Id: 300018
+    AegisName: Acidus_S_Card
+    Name: Silver Acidus Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Right_Hand: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus2 bAddEle,Ele_Holy,25;
+  - Id: 300019
+    AegisName: Bone_Ferus_Card
+    Name: Bone Ferus Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Left_Accessory: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus2 bAddRace,RC_Dragon,5;
+  - Id: 300020
+    AegisName: Bone_Acidus_Card
+    Name: Bone Acidus Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Right_Accessory: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus2 bAddRace,RC_Brute,5;
+  - Id: 300021
+    AegisName: Bone_Detale_Card
+    Name: Bone Detardeurus Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Armor: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus2 bAddRace,RC_Undead,40;
+      bonus2 bAddRace,RC_Dragon,40;
+      bonus2 bAddEle,Ele_Ghost,40;
+      bonus2 bAddEle,Ele_Undead,40;

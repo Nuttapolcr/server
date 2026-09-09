@@ -200,9 +200,8 @@ static enum e_storage_add storage_canAddItem(struct s_storage *stor, int idx, st
 	if (itemdb_ishatched_egg(&items[idx]))
 		return STORAGE_ADD_INVALID;
 
-	// Rental storage is controlled by the item's NoStorage setting. This lets
-	// ordinary rentals use storage while explicitly restricted giveaway items
-	// remain blocked by itemdb_canstore() in storage_additem().
+	// Ordinary rentals can use account storage. Source-specific restrictions,
+	// such as character-bound starter rentals, are checked in storage_additem().
 
 	if (!stor->state.put)
 		return STORAGE_ADD_NOACCESS;

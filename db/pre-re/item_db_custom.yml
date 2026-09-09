@@ -30685,7 +30685,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       bonus bMaxHPrate,5;
       if (.@r>=5) {
@@ -30824,7 +30823,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bUnbreakableWeapon;
@@ -30858,7 +30856,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bBaseAtk,15*.@r;
@@ -30895,7 +30892,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bMatk,20;
@@ -30937,7 +30933,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bMatk,50;
@@ -30990,7 +30985,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bBaseAtk,10*.@r;
@@ -31024,7 +31018,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bBaseAtk,5*.@r;
@@ -31058,7 +31051,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |
       .@r = getrefine();
       bonus bBaseAtk,24*.@r;
@@ -31101,7 +31093,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bMatk,80;
@@ -31143,7 +31134,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bBaseAtk,20;
@@ -31181,7 +31171,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bBaseAtk,20;
@@ -31210,7 +31199,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |
       bonus bMaxHPrate,5;
       if (.@r>=5) {
@@ -31244,7 +31232,6 @@ Body:
     View: 1
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       bonus bMaxHPrate,5;
       if (.@r>=5) {
@@ -31291,7 +31278,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       bonus bMaxHPrate,5;
       if (.@r>=5) {
@@ -38482,7 +38468,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bUnbreakableWeapon;
@@ -38513,7 +38498,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bBaseAtk,10*.@r;
@@ -38547,7 +38531,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |
       .@r = getrefine();
       bonus bBaseAtk,15*.@r;
@@ -40640,7 +40623,10 @@ Body:
       NoStorage: true
       NoGuildStorage: true
       NoMail: true
-    Script: getitem 1500153,1;
+    Script: |-
+      getitem 1500153,1;
+      getitem 1001718,1;
+      getitem 1001600,2;
   - Id: 1500125
     AegisName: Reward_Daily_I
     Name: Reward Daily I
@@ -40997,30 +40983,39 @@ Body:
       specialeffect2 18;
   - Id: 1500167
     AegisName: Bloody_Branch_40_Box
-    Name: Bloody Branch (40) Box
+    Name: Bloody Branch (30) Box
     Type: Usable
-    Script: getitem 12103,40;
+    Script: getitem 12103,30;
   - Id: 1500168
     AegisName: Collection_Ignore_DEF
     Name: Collection Ignore DEF
     Type: Charm
-    CharmMaxEffect: 3
     CharmScript: bonus2 bIgnoreDefClassRate,Class_All,1;
+    CharmMaxEffect: 3
   - Id: 1500169
     AegisName: Collection_Ignore_MDEF
     Name: Collection Ignore MDEF
     Type: Charm
-    CharmMaxEffect: 3
     CharmScript: bonus2 bIgnoreMdefClassRate,Class_All,1;
+    CharmMaxEffect: 3
   - Id: 1500170
     AegisName: Collection_HP
     Name: Collection Max HP
     Type: Charm
-    CharmMaxEffect: 5
     CharmScript: bonus bMaxHP,200;
+    CharmMaxEffect: 5
   - Id: 1500171
     AegisName: Collection_SP
     Name: Collection Max SP
     Type: Charm
-    CharmMaxEffect: 5
     CharmScript: bonus bMaxHP,50;
+    CharmMaxEffect: 5
+  - Id: 1500173
+    AegisName: Collection_HP_Absorb
+    Name: Collection HP Absorb
+    Type: Charm
+    CharmMaxEffect: 3
+    CharmScript: |
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus2 bHPDrainRate,100,10;
+      bonus2 bMagicHPDrainRate,100,10;

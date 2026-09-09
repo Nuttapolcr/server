@@ -100,6 +100,12 @@ Body:
         Price: 799
       - Item: AUTOATTACK_AI_RENT_30D
         Price: 2990
+  - Tab: Limited
+    Items:
+      - Item: Refine_Booster_Potion_15
+        Price: 1990
+      - Item: Epic_Pet_Random
+        Price: 5990
 Footer:
   Imports:
     - Path: db/import/item_cash.yml

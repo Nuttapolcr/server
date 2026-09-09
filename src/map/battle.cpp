@@ -10067,6 +10067,16 @@ bool battle_vellum_damage(map_session_data *sd, struct block_list *target, struc
 	return true;
 }
 
+// Magic drain uses its own bonus so physical drain equipment does not affect spells.
+void battle_drain_magic(map_session_data *sd, int64 damage) {
+	if (sd == nullptr || damage <= 0 || sd->bonus.magic_hp_drain_rate <= 0 || sd->bonus.magic_hp_drain_percent <= 0)
+		return;
+
+	int hp = battle_calc_drain(damage, sd->bonus.magic_hp_drain_rate, sd->bonus.magic_hp_drain_percent);
+	if (hp > 0)
+		status_heal(&sd->bl, hp, 0, battle_config.show_hp_sp_drain ? 3 : 1);
+}
+
 /*===========================================
  * Perform battle drain effects (HP/SP loss)
  *-------------------------------------------*/

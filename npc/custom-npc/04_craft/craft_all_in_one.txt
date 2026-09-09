@@ -56,7 +56,7 @@ morocc,142,139,4	script	Craft All in One	120,{
 	mes "เลือกหมวด Barter Shop ที่ต้องการ";
 	next;
 
-	switch(select("คราฟเหรียญ:คราฟ Costume Boss:คราฟของทั่วไป:คราฟของ Hotweek:คราฟ Costume Shadow:ยกเลิก")) {
+	switch(select("คราฟเหรียญ:คราฟ Costume Boss:คราฟของทั่วไป:คราฟของ Hotweek:คราฟ Costume Shadow:คราฟ Collection Abyss Lakes:ยกเลิก")) {
 	case 1:
 		close2;
 		callshop "CRAFT_ALL_IN_ONE_COIN",1;
@@ -89,6 +89,10 @@ morocc,142,139,4	script	Craft All in One	120,{
 		default:
 			close;
 		}
+	case 6:
+		close2;
+		callshop "CRAFT_ABYSS_COLLECTION",1;
+		end;
 	default:
 		close;
 	}

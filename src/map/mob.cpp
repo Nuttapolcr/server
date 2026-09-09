@@ -4876,6 +4876,21 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 #endif
 	}
 
+	if (this->nodeExists(node, "MagicAttack") || this->nodeExists(node, "MagicAttack2")) {
+		uint16 matk_min, matk_max;
+
+		if (!this->asUInt16(node, "MagicAttack", matk_min) || !this->asUInt16(node, "MagicAttack2", matk_max))
+			return 0;
+
+		if (matk_min > matk_max) {
+			this->invalidWarning(node, "MagicAttack must not exceed MagicAttack2.\n");
+			return 0;
+		}
+
+		mob->matk_min = matk_min;
+		mob->matk_max = matk_max;
+	}
+
 	if (this->nodeExists(node, "Defense")) {
 		uint16 def;
 
@@ -5298,6 +5313,10 @@ void MobDatabase::loadingFinished() {
 		data.level = mob->lv;
 		memcpy(&data.status, &mob->status, sizeof(status_data));
 		status_calc_misc(&data.bl, &mob->status, mob->lv);
+		if (mob->matk_min || mob->matk_max) {
+			mob->status.matk_min = mob->matk_min;
+			mob->status.matk_max = mob->matk_max;
+		}
 
 		// Now that we know if it is a MVP or not, apply battle_config modifiers [Skotlex]
 		double maxhp = (double)mob->status.max_hp;

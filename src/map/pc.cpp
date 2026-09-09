@@ -5280,6 +5280,12 @@ void pc_bonus2(map_session_data *sd,int type,int type2,int val)
 
 		pc_bonus_itembonus(sd->add_mdef, type2, val, false);
 		break;
+	case SP_MAGIC_HP_DRAIN_RATE: // bonus2 bMagicHPDrainRate,x,n;
+		if (sd->state.lr_flag != 2) {
+			sd->bonus.magic_hp_drain_rate += type2;
+			sd->bonus.magic_hp_drain_percent += val;
+		}
+		break;
 	case SP_HP_DRAIN_RATE: // bonus2 bHPDrainRate,x,n;
 		if(!sd->state.lr_flag) {
 			sd->right_weapon.hp_drain_rate.rate += type2;

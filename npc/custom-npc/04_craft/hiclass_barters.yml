@@ -4040,40 +4040,40 @@ Body:
             Item: Bypass_Ticket # 1500088
             Amount: 1
 
-  # MA 26/8/69 - Rudolf Craft, heading 2: general items.
+  # MA 9/9/69 - Rudolf Craft, heading 2: general items.
   - Name: HICLASS_RUDOLF_GENERAL
     CraftBarter: false
     Items:
       - Index: 0
         Item: Bypass_Ticket # 1500088
-        Zeny: 10000000
+        Zeny: 1000000
         Rate: 10000
         IsNPC: true
         RequiredItems:
           - Index: 0
             Item: Rudolf_Coin # 1500089
-            Amount: 1500
+            Amount: 200
       - Index: 1
         Item: Rookie_Refine_7 # 1500102
-        Zeny: 5000000
+        Zeny: 500000
         Rate: 10000
         IsNPC: true
         RequiredItems:
           - Index: 0
             Item: Rudolf_Coin # 1500089
-            Amount: 500
+            Amount: 50
       - Index: 2
         Item: Rookie_Upgrade_8 # 1500103
-        Zeny: 5000000
+        Zeny: 500000
         Rate: 10000
         IsNPC: true
         RequiredItems:
           - Index: 0
             Item: Rudolf_Coin # 1500089
-            Amount: 500
+            Amount: 50
       - Index: 3
         Item: Rookie_Upgrade_9 # 1500104
-        Zeny: 5000000
+        Zeny: 500000
         Rate: 10000
         IsNPC: true
         RequiredItems:
@@ -4082,7 +4082,7 @@ Body:
             Amount: 2
       - Index: 4
         Item: Rookie_Upgrade_10 # 1500105
-        Zeny: 5000000
+        Zeny: 500000
         Rate: 10000
         IsNPC: true
         RequiredItems:
@@ -4091,7 +4091,7 @@ Body:
             Amount: 2
       - Index: 5
         Item: Rookie_Upgrade_11 # 1500106
-        Zeny: 10000000
+        Zeny: 1000000
         Rate: 10000
         IsNPC: true
         RequiredItems:
@@ -4100,4 +4100,13 @@ Body:
             Amount: 2
           - Index: 1
             Item: Rudolf_Coin # 1500089
-            Amount: 300
+            Amount: 100
+      - Index: 6
+        Item: Rookie_Weapon_Box # 1030078
+        Zeny: 1000000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rudolf_Coin # 1500089
+            Amount: 200

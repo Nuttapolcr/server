@@ -22236,3 +22236,58 @@ Body:
       BuyingStore: true
     Script: |
       itemheal 1000,0;
+
+# Abyss Lake F4
+  - Id: 23981
+    AegisName: Abyss_Ddbox
+    Name: Turbulence Dragon's Power
+    Type: DelayConsume
+    Weight: 10
+    Script: |
+      laphine_upgrade();
+  - Id: 23985
+    AegisName: Abyss_itembox
+    Name: Dragon Treasure
+    Type: Usable
+    Weight: 100
+    Flags:
+      Container: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      getgroupitem(IG_ABYSS_ITEMBOX);
+  - Id: 100142
+    AegisName: Abyss_Ddbox2
+    Name: Stable Dragon's Power
+    Type: DelayConsume
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      laphine_upgrade();
+  - Id: 100144
+    AegisName: Abyss_Ddbox3
+    Name: Burning Dragon's Power
+    Type: DelayConsume
+    Weight: 10
+    Script: |
+      laphine_upgrade();
+  - Id: 100145
+    AegisName: Abyss_Ddbox4
+    Name: Hot Dragon's Power
+    Type: DelayConsume
+    Weight: 10
+    Script: |
+      laphine_upgrade();

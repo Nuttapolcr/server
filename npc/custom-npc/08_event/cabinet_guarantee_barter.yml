@@ -1,4 +1,4 @@
-# Guarantee exchange from HICLASS sheet "ตู้ 26/8/69".
+# Guarantee exchange from HICLASS sheet "ตู้ 9/8/69" (MA 9/9/69).
 Header:
   Type: BARTER_DB
   Version: 1
@@ -8,68 +8,68 @@ Body:
     CraftBarter: false
     Items:
       - Index: 0
-        Item: Gang_Scarf_Copy # 1500110
+        Item: 3D_Glasses_Copy # 1500162
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
+            Item: Coin_Valor_V4 # 1500166
             Amount: 5
       - Index: 1
-        Item: Gang_Scarf_Copy_Copy # 1500111
+        Item: Censor_Bar_Copy # 1500163
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
+            Item: Coin_Valor_V4 # 1500166
             Amount: 5
       - Index: 2
-        Item: Glasses_ # 2204
+        Item: Collection_HP_Absorb # 1500173
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
-            Amount: 5
+            Item: Coin_Valor_V4 # 1500166
+            Amount: 3
       - Index: 3
-        Item: New_Item_1500094 # Charm Weight
+        Item: Collection_Ignore_DEF # 1500168
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
-            Amount: 2
+            Item: Coin_Valor_V4 # 1500166
+            Amount: 3
       - Index: 4
-        Item: New_Item_1500096 # Charm Drop
+        Item: Collection_Ignore_MDEF # 1500169
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
-            Amount: 2
+            Item: Coin_Valor_V4 # 1500166
+            Amount: 3
       - Index: 5
-        Item: Charm_White_Blue_Plus # 1500095
+        Item: Collection_HP # 1500170
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
-            Amount: 3
+            Item: Coin_Valor_V4 # 1500166
+            Amount: 2
       - Index: 6
-        Item: Charm_Reduce_SP # 1500097
+        Item: Collection_SP # 1500171
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
-            Amount: 3
+            Item: Coin_Valor_V4 # 1500166
+            Amount: 2
       - Index: 7
-        Item: Charm_Open_Box # 1500098
+        Item: E_Charm_Valor V.1_Copy # 1500172
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
+            Item: Coin_Valor_V4 # 1500166
             Amount: 3
       - Index: 8
-        Item: Dark_Crystal_C # 1500099
+        Item: Bloody_Branch_40_Box # 1500167
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
-            Amount: 10
-      - Index: 9
-        Item: Bloody_Dead_Branch # 12103
-        RequiredItems:
-          - Index: 0
-            Item: Coin_Valor_V3 # 1500092
+            Item: Coin_Valor_V4 # 1500166
             Amount: 1
-      - Index: 10
+      - Index: 9
         Item: Refine_Booster_Potion_5 # 1030015
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V3 # 1500092
+            Item: Coin_Valor_V4 # 1500166
             Amount: 1
+      - Index: 10
+        Item: Refine_Booster_Potion_10 # 1030016
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Valor_V4 # 1500166
+            Amount: 2

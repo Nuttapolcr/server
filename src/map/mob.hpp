@@ -267,6 +267,8 @@ struct s_mob_db {
 	uint32 option{};
 	std::vector<std::shared_ptr<s_mob_skill>> skill{};
 	uint16 damagetaken{ 100 };
+	// Optional explicit MATK bounds, for importing monsters across rulesets.
+	uint16 matk_min{}, matk_max{};
 
 	e_mob_bosstype get_bosstype();
 	s_mob_db();

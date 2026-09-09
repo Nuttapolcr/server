@@ -16,3 +16,4 @@ Makefile.in text eol=lf
 client-patch/**/*.lub binary
 *.rar filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
+client/**/*.lub binary

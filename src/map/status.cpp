@@ -3335,6 +3335,10 @@ int status_calc_mob_(struct mob_data* md, uint8 opt)
 	}
 
 	status_calc_misc(&md->bl, status, md->level);
+	if (md->db->matk_min || md->db->matk_max) {
+		status->matk_min = md->db->matk_min;
+		status->matk_max = md->db->matk_max;
+	}
 
 	if(flag&4) { // Strengthen Guardians - custom value +10% / lv
 		struct map_data *mapdata = map_getmapdata(md->bl.m);

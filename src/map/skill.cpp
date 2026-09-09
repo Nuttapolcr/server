@@ -4340,6 +4340,10 @@ int64 skill_attack (int attack_type, struct block_list* src, struct block_list *
 			battle_drain(sd, bl, dmg.damage, dmg.damage2, tstatus->race, tstatus->class_);
 	}
 
+	// Hybrid weapon/magic attacks already drain through the physical path above.
+	if (sd && src != bl && !rmdamage && damage > 0 && (dmg.flag & BF_MAGIC) && !(dmg.flag & BF_WEAPON))
+		battle_drain_magic(sd, damage);
+
 	if (sd && tsc && dmg.flag&BF_LONG && tsc->getSCE(SC_WINDSIGN) && rand()%100 < tsc->getSCE(SC_WINDSIGN)->val2)
 		status_heal(src, 0, 0, 1, 0);
 

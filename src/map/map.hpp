@@ -586,6 +586,7 @@ enum _sp {
 	SP_PET_LOOT_SPEED,
 	SP_PET_LOOT_ITEM,
 	SP_INVENTORY_SLOTS,
+	SP_MAGIC_HP_DRAIN_RATE,
 };
 
 enum _look {

@@ -4633,7 +4633,6 @@ Body:
     Refineable: true
     Trade:
       NoDrop: true
-      NoStorage: true
     Script: |-
       .@r = getrefine();
       bonus bBaseAtk,15*.@r;

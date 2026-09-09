@@ -1,6 +1,8 @@
 #include "autoattack_script.hpp"
 #include "autoattack.hpp"
 #include "battle.hpp"
+#include "clif.hpp"
+#include "map.hpp"
 #include "script.hpp"
 #include "itemdb.hpp"
 
@@ -831,6 +833,11 @@ void handle_return_to_savepoint(std::ostringstream& os_buf, map_session_data* sd
 bool handleAutoattack_fromitem(map_session_data* sd, t_itemid item_id, t_tick max_duration) {
 	t_tick duration_ = 0;
 	std::shared_ptr<item_data> id;
+
+	if (map_getmapflag(sd->bl.m, MF_NOAUTOATTACK)) {
+		clif_showscript(&sd->bl, msg_txt(nullptr, 1635), SELF);
+		return SCRIPT_CMD_SUCCESS;
+	}
 
 	switch (battle_config.feature_autoattack_duration_type) {
 	case 0:

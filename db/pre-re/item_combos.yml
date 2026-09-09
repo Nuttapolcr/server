@@ -1353,3 +1353,39 @@ Body:
             if (.@sum >= 18) {
       bonus bNoWalkDelay;
        }
+
+# Abyss Lake F4
+  - Combos:
+      - Combo:
+          - Ferus_P_Card
+          - Acidus_Card
+    Script: |
+      .@r = getequiprefinerycnt(EQI_SHOES);
+      bonus bMaxHPrate,4*(.@r/4);
+      bonus bMaxSPrate,4*(.@r/4);
+  - Combos:
+      - Combo:
+          - Treasure_Mimic_Card
+          - Ancient_Mimic_Card
+    Script: |
+      bonus bCritAtkRate,2;
+  - Combos:
+      - Combo:
+          - Acidus_B_Card
+          - Poring__Card
+    Script: |
+      bonus2 bAddEle,Ele_Dark,15;
+  - Combos:
+      - Combo:
+          - Acidus_S_Card
+          - Orc_Skeleton_Card
+    Script: |
+      bonus2 bAddEle,Ele_Holy,15;
+  - Combos:
+      - Combo:
+          - Bone_Ferus_Card
+          - Bone_Acidus_Card
+    Script: |
+      bonus2 bAddRace,RC_Dragon,5;
+      bonus2 bAddRace,RC_Brute,5;
+      bonus2 bAddRace,RC_Player_Doram,5;

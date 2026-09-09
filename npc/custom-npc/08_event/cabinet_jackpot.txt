@@ -1,5 +1,5 @@
 //!rathena
-// ระบบตู้ Zeny/Cash และตู้แลกของการันตี ตามชีต "ตู้ 26/8/69"
+// ระบบตู้ Zeny/Cash และตู้แลกของการันตี ตามชีต "ตู้ 9/8/69" (MA 9/9/69)
 
 function	script	F_Cabinet_Roll	{
 	.@type$ = getarg(0);
@@ -34,10 +34,10 @@ function	script	F_Cabinet_ShowItems	{
 function	script	F_Cabinet_ShowTop	{
 	.@type$ = getarg(0);
 	if (.@type$ == "Zeny") {
-		.@table$ = "cabinet_hw_zeny_ranking_260869";
+		.@table$ = "cabinet_hw_zeny_ranking_090969";
 		.@title$ = "ตู้ Zeny";
 	} else {
-		.@table$ = "cabinet_hw_cash_ranking_260869";
+		.@table$ = "cabinet_hw_cash_ranking_090969";
 		.@title$ = "ตู้ Cash";
 	}
 
@@ -55,9 +55,9 @@ function	script	F_Cabinet_ShowTop	{
 function	script	F_Cabinet_RecordSpin	{
 	.@type$ = getarg(0);
 	if (.@type$ == "Zeny")
-		.@table$ = "cabinet_hw_zeny_ranking_260869";
+		.@table$ = "cabinet_hw_zeny_ranking_090969";
 	else
-		.@table$ = "cabinet_hw_cash_ranking_260869";
+		.@table$ = "cabinet_hw_cash_ranking_090969";
 
 	query_sql("INSERT INTO `" + .@table$ + "` (`char_id`,`player_name`,`spins`) VALUES (" + getcharid(0) + ",'" + escape_sql(strcharinfo(0)) + "',1) ON DUPLICATE KEY UPDATE `player_name`=VALUES(`player_name`), `spins`=`spins`+1");
 	return;
@@ -68,9 +68,9 @@ morocc,120,101,4	script	ตู้ Zeny#cabinet	563,{
 L_Main:
 	mes "[ตู้ Zeny]";
 	mes "Jackpot สะสม: " + callfunc("F_InsertComma", $CabinetHWZenyJackpot) + " Zeny";
-	mes "กดครั้งละ 300,000 Zeny";
+	mes "กดครั้งละ 500,000 Zeny";
 	mes "ทุกครั้งจะสะสม Jackpot 30,000 Zeny";
-	mes "การันตี: " + (CabinetHWZenySpins % 150) + "/150 ครั้ง";
+	mes "การันตี: " + (CabinetHWZenySpins090969 % 150) + "/150 ครั้ง";
 	.@choice = select("กดตู้:ดูตัวอย่างไอเทม:ดูอันดับ 1-10:ยกเลิก");
 	if (.@choice == 2) {
 		callfunc "F_Cabinet_ShowItems", "Zeny";
@@ -88,11 +88,11 @@ L_Main:
 	.@item = $CabinetHWZenyItem[.@index];
 	.@amount = $CabinetHWZenyAmount[.@index];
 	.@rate = $CabinetHWZenyRate[.@index];
-	.@next_spins = CabinetHWZenySpins + 1;
+	.@next_spins = CabinetHWZenySpins090969 + 1;
 	.@guarantee = (.@next_spins % 150 == 0);
-	if (Zeny < 300000) {
+	if (Zeny < 500000) {
 		mes "[ตู้ Zeny]";
-		mes "ต้องมี Zeny 300,000";
+		mes "ต้องมี Zeny 500,000";
 		close;
 	}
 	deletearray .@check_item;
@@ -100,7 +100,7 @@ L_Main:
 	.@check_item[0] = .@item;
 	.@check_amount[0] = .@amount;
 	if (.@guarantee) {
-		.@check_item[1] = 1500092;
+		.@check_item[1] = 1500166;
 		.@check_amount[1] = 1;
 	}
 	if (!checkweight2(.@check_item, .@check_amount)) {
@@ -109,17 +109,17 @@ L_Main:
 		close;
 	}
 
-	Zeny -= 300000;
+	Zeny -= 500000;
 	$CabinetHWZenyJackpot += 30000;
-	CabinetHWZenySpins = .@next_spins;
+	CabinetHWZenySpins090969 = .@next_spins;
 	callfunc "F_Cabinet_RecordSpin", "Zeny";
 	specialeffect2 EF_COIN;
 	getitem .@item, .@amount;
 	if (.@rate <= 300)
 		announce "[ตู้ Zeny] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
 	if (.@guarantee) {
-		getitem 1500092, 1;
-		announce "[ตู้ Zeny] " + strcharinfo(0) + " ได้รับ " + getitemname(1500092) + " x1 จากการันตีครบ 150 ครั้ง.", bc_all, 0xFFFF00;
+		getitem 1500166, 1;
+		announce "[ตู้ Zeny] " + strcharinfo(0) + " ได้รับ " + getitemname(1500166) + " x1 จากการันตีครบ 150 ครั้ง.", bc_all, 0xFFFF00;
 	}
 	.@won_jackpot = 0;
 	if (rand(1000) == 0) {
@@ -133,7 +133,7 @@ L_Main:
 	mes "[ตู้ Zeny]";
 	mes "คุณได้รับ " + getitemname(.@item) + " x" + .@amount + ".";
 	if (.@guarantee)
-		mes "ได้รับ " + getitemname(1500092) + " x1 จากการันตี";
+		mes "ได้รับ " + getitemname(1500166) + " x1 จากการันตี";
 	if (.@won_jackpot > 0)
 		mes "ได้รับ Jackpot " + callfunc("F_InsertComma", .@won_jackpot) + " Zeny";
 	next;
@@ -158,7 +158,7 @@ L_Main:
 	mes "Jackpot สะสม: " + callfunc("F_InsertComma", $CabinetHWCashJackpot) + " Cash Point";
 	mes "กดครั้งละ 50 Cash Point";
 	mes "ทุกครั้งจะสะสม Jackpot 5 Cash Point";
-	mes "การันตี: " + (CabinetHWCashSpins % 40) + "/40 ครั้ง";
+	mes "การันตี: " + (CabinetHWCashSpins090969 % 40) + "/40 ครั้ง";
 	.@choice = select("กดตู้:ดูตัวอย่างไอเทม:ดูอันดับ 1-10:ยกเลิก");
 	if (.@choice == 2) {
 		callfunc "F_Cabinet_ShowItems", "Cash";
@@ -176,7 +176,7 @@ L_Main:
 	.@item = $CabinetHWCashItem[.@index];
 	.@amount = $CabinetHWCashAmount[.@index];
 	.@rate = $CabinetHWCashRate[.@index];
-	.@next_spins = CabinetHWCashSpins + 1;
+	.@next_spins = CabinetHWCashSpins090969 + 1;
 	.@guarantee = (.@next_spins % 40 == 0);
 	if (#CASHPOINTS < 50) {
 		mes "[ตู้ Cash]";
@@ -188,7 +188,7 @@ L_Main:
 	.@check_item[0] = .@item;
 	.@check_amount[0] = .@amount;
 	if (.@guarantee) {
-		.@check_item[1] = 1500092;
+		.@check_item[1] = 1500166;
 		.@check_amount[1] = 1;
 	}
 	if (!checkweight2(.@check_item, .@check_amount)) {
@@ -199,15 +199,15 @@ L_Main:
 
 	#CASHPOINTS -= 50;
 	$CabinetHWCashJackpot += 5;
-	CabinetHWCashSpins = .@next_spins;
+	CabinetHWCashSpins090969 = .@next_spins;
 	callfunc "F_Cabinet_RecordSpin", "Cash";
 	specialeffect2 EF_COIN;
 	getitem .@item, .@amount;
 	if (.@rate <= 500)
 		announce "[ตู้ Cash] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
 	if (.@guarantee) {
-		getitem 1500092, 1;
-		announce "[ตู้ Cash] " + strcharinfo(0) + " ได้รับ " + getitemname(1500092) + " x1 จากการันตีครบ 40 ครั้ง.", bc_all, 0xFFFF00;
+		getitem 1500166, 1;
+		announce "[ตู้ Cash] " + strcharinfo(0) + " ได้รับ " + getitemname(1500166) + " x1 จากการันตีครบ 40 ครั้ง.", bc_all, 0xFFFF00;
 	}
 	.@won_jackpot = 0;
 	if (rand(1000) == 0) {
@@ -221,7 +221,7 @@ L_Main:
 	mes "[ตู้ Cash]";
 	mes "คุณได้รับ " + getitemname(.@item) + " x" + .@amount + ".";
 	if (.@guarantee)
-		mes "ได้รับ " + getitemname(1500092) + " x1 จากการันตี";
+		mes "ได้รับ " + getitemname(1500166) + " x1 จากการันตี";
 	if (.@won_jackpot > 0)
 		mes "ได้รับ Jackpot " + callfunc("F_InsertComma", .@won_jackpot) + " Cash Point";
 	next;
@@ -253,18 +253,25 @@ OnInit:
 
 -	script	ระบบตู้#config	-1,{
 OnInit:
-	query_sql("CREATE TABLE IF NOT EXISTS `cabinet_hw_zeny_ranking_260869` (`char_id` INT NOT NULL, `player_name` VARCHAR(30) NOT NULL, `spins` INT NOT NULL DEFAULT 0, PRIMARY KEY (`char_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
-	query_sql("CREATE TABLE IF NOT EXISTS `cabinet_hw_cash_ranking_260869` (`char_id` INT NOT NULL, `player_name` VARCHAR(30) NOT NULL, `spins` INT NOT NULL DEFAULT 0, PRIMARY KEY (`char_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+	// New season tables and character counters start at zero; reloads preserve progress.
+	query_sql("CREATE TABLE IF NOT EXISTS `cabinet_hw_zeny_ranking_090969` (`char_id` INT NOT NULL, `player_name` VARCHAR(30) NOT NULL, `spins` INT NOT NULL DEFAULT 0, PRIMARY KEY (`char_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+	query_sql("CREATE TABLE IF NOT EXISTS `cabinet_hw_cash_ranking_090969` (`char_id` INT NOT NULL, `player_name` VARCHAR(30) NOT NULL, `spins` INT NOT NULL DEFAULT 0, PRIMARY KEY (`char_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
 
-	$CabinetHWZenyCount = 30;
-	setarray $CabinetHWZenyItem[0], 11548,11549,547,11503,11504,1000373,1001685,1001688,1001691,1001686,1001689,1001692,1030026,1030027,1030028,12264,30001,30001,30001,30001,7776,12211,1000620,1030005,1500094,1500095,1500096,1500097,1500098,1500099;
-	setarray $CabinetHWZenyAmount[0], 2,2,2,5,5,3,1,1,1,1,1,1,1,1,1,1,1,2,3,4,1,1,1,1,1,1,1,1,1,1;
-	setarray $CabinetHWZenyRate[0], 5000,5000,5000,5000,5000,700,600,300,300,30,10,10,300,300,150,130,400,200,100,30,150,150,60,60,60,60,60,60,60,5;
+	$CabinetHWZenyCount = 24;
+	deletearray $CabinetHWZenyItem;
+	setarray $CabinetHWZenyItem[0], 11548,11549,547,11503,11504,1000373,1001685,1001688,1001691,1001686,1001689,1001692,1030026,1030027,1030028,12264,30001,30001,30001,30001,1000620,12103,1500170,1500171;
+	deletearray $CabinetHWZenyAmount;
+	setarray $CabinetHWZenyAmount[0], 2,2,2,5,5,10,2,1,1,1,1,1,1,1,1,1,1,2,3,4,1,1,1,1;
+	deletearray $CabinetHWZenyRate;
+	setarray $CabinetHWZenyRate[0], 1000,1000,1000,1000,1000,700,300,200,100,200,100,100,500,400,300,200,400,200,100,30,60,300,50,50;
 
-	$CabinetHWCashCount = 34;
-	setarray $CabinetHWCashItem[0], 1001685,1001688,1001691,1000419,1000423,1000426,14001,1000373,1000620,7620,7619,12122,12123,6635,1030028,1030029,12103,1001686,1001689,1001692,6241,6240,30001,30001,30001,30001,30001,1500094,1500095,1500096,1500097,1500098,1500100,1500099;
-	setarray $CabinetHWCashAmount[0], 3,2,2,1,1,1,3,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,3,4,5,1,1,1,1,1,1,1;
-	setarray $CabinetHWCashRate[0], 800,600,400,400,400,400,800,700,500,400,400,600,600,500,300,300,400,150,100,100,350,350,800,500,300,200,200,100,100,100,100,100,50,50;
+	$CabinetHWCashCount = 27;
+	deletearray $CabinetHWCashItem;
+	setarray $CabinetHWCashItem[0], 1000419,1000423,1000426,14001,1000373,1000620,7620,7619,6635,1030028,1030029,12103,1001686,1001689,1001692,6241,6240,30001,30001,30001,30001,30001,1500168,1500169,1500170,1500171,1500172;
+	deletearray $CabinetHWCashAmount;
+	setarray $CabinetHWCashAmount[0], 1,1,1,3,10,1,1,1,1,1,1,1,2,1,1,1,1,1,2,3,4,5,1,1,1,1,1;
+	deletearray $CabinetHWCashRate;
+	setarray $CabinetHWCashRate[0], 400,400,400,800,700,500,400,400,500,300,300,1000,500,300,300,350,350,800,500,300,200,200,30,30,100,100,30;
 
 	npcshopdelitem "CabinetZeny_Show", 501;
 	for (.@i = 0; .@i < $CabinetHWZenyCount; .@i++) {

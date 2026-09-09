@@ -1,0 +1,11 @@
+// Abyss Lake F4 - Divine Pride default spawns (2026-09-07).
+// https://www.divine-pride.net/database/map/abyss_04
+abyss_04,0,0	monster	Purple Ferus	20612,25,5000
+abyss_04,0,0	monster	Treasure Mimic	20613,15,5000
+abyss_04,0,0	monster	Black Acidus	20614,35,5000
+abyss_04,0,0	monster	Silver Acidus	20615,35,5000
+abyss_04,0,0	monster	Bone Ferus	20616,50,5000
+abyss_04,0,0	monster	Bone Acidus	20617,50,5000
+abyss_04,0,0	boss_monster	Bone Detardeurus	20618,1,10800000
+
+abyss_04	mapflag	nomemo

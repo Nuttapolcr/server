@@ -304,9 +304,9 @@ menu	"Abyss Lakes",D2, "Amatsu Dungeon",D3,
 		"Sphinx",D45, "Sunken Ship",D46, "Thanatos Tower",D47,
 		"Thor Volcano",D48, "Toy Factory",D49, "Turtle Dungeon",D50, "Umbala Dungeon",D51;
 
-D2: Restrict("RE",4);
+D2:
 	setarray @c[2],261,272,275,270,116,27,169,159;
-	Disp("Abyss Lakes",1,3); Pick("abyss_");
+	Disp("Abyss Lakes",1,4); Pick("abyss_");
 D3: setarray @c[2],228,11,34,41,119,14;
 	Disp("Amatsu Dungeon",1,3); Pick("ama_dun");
 D4: setarray @c[2],35,262,168,170;
@@ -464,7 +464,7 @@ G6: Go("schg_dun01",200,124);
 	Instances:
 // --------------------------------------------------
 menu	"Endless Tower",I6, "Geffen Magic Tournament",I8,
-		"Ghost Palace",I9, "Old Glast Heim",I15;
+		"Ghost Palace",I9, "Old Glast Heim",I15, "Sarah and Fenrir",I17;
 
 I1: Restrict("RE");
 	Go("ma_scene01",172,175);
@@ -824,6 +824,7 @@ OnNaviGenerate:
 	if (!.OnlyFirstDun) {
 		naviregisterwarp("Warper > Abyss Lakes 2", "abyss_02", 275, 270);
 		naviregisterwarp("Warper > Abyss Lakes 3", "abyss_03", 116, 27);
+		naviregisterwarp("Warper > Abyss Lakes 4", "abyss_04", 169, 159);
 	}
 	naviregisterwarp("Warper > Amatsu Dungeon 1", "ama_dun01", 228, 11);
 	if (!.OnlyFirstDun) {

@@ -1713,7 +1713,7 @@ int char_make_new_char( struct char_session_data* sd, char* name_, int str, int 
 		const uint64 expire_time64 = static_cast<uint64>(time(nullptr)) + static_cast<uint64>(item.rental_days) * 24 * 60 * 60;
 		const uint32 expire_time = expire_time64 > UINT32_MAX ? UINT32_MAX : static_cast<uint32>(expire_time64);
 
-		if (SQL_ERROR == Sql_Query(sql_handle, "INSERT INTO `%s` (`char_id`, `nameid`, `amount`, `identify`, `refine`, `expire_time`) VALUES ('%d', '%u', '%hu', '1', '%hhu', '%u')", schema_config.inventory_db, char_id, item.nameid, item.amount, item.refine, expire_time))
+		if (SQL_ERROR == Sql_Query(sql_handle, "INSERT INTO `%s` (`char_id`, `nameid`, `amount`, `identify`, `refine`, `expire_time`, `bound`) VALUES ('%d', '%u', '%hu', '1', '%hhu', '%u', '%d')", schema_config.inventory_db, char_id, item.nameid, item.amount, item.refine, expire_time, BOUND_CHAR))
 			Sql_ShowDebug(sql_handle);
 	}
 
