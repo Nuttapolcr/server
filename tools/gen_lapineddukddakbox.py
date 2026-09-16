@@ -28,6 +28,7 @@ DEFAULT_OUTPUT = ROOT / "data/Lua Files/datainfo/lapineddukddakbox.lub"
 NEED_SOURCE_OVERRIDES = {
     "Combine_Common_Pet_Laphine": "Uncommon Pet Eggs",
     "Combine_Rare_Pet_Laphine": "Rare Pet Eggs",
+    "Combine_Epic_Pet_Laphine": "Epic Pet Eggs (4) -> Legend Pet Egg (100%)",
 }
 
 

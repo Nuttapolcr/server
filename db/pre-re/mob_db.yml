@@ -28930,8 +28930,6 @@ Body:
       - Item: Kiel_Card
         Rate: 1
         StealProtected: true
-      - Item: Rudolf_Card
-        Rate: 100
   - Id: 1735
     AegisName: ALICEL
     Name: Alicel
@@ -32599,8 +32597,6 @@ Body:
       - Item: Ifrit_Card
         Rate: 1
         StealProtected: true
-      - Item: Rudolf_Card
-        Rate: 100
   - Id: 1833
     AegisName: KASA
     Name: Kasa

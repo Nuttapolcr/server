@@ -7,7 +7,7 @@
 //= ใช้ laphine_synthesis <item id> เพื่อรัน item script ของ trigger item
 //= (script ภายในคือ laphine_synthesis(); ซึ่งเปิดหน้าต่างรวมไอเทม)
 //= laphine_synthesis จะรัน script โดยไม่ต้องมี/ไม่ลบไอเทมนั้น
-//= รหัส ID ของ trigger item อยู่ใน db/import/item_db.yml (1500000-1500007)
+//= รหัส ID ของ trigger item อยู่ใน db/pre-re/item_db_custom.yml (1500000-1500007, 1500180)
 //=
 //= วิธีเรียกใช้จาก NPC อื่น:
 //=   callfunc "F_LaphineSynthesis";
@@ -34,9 +34,11 @@ L_Main:
 		switch( select(
 			"Common - รวมไข่ทั่วไป",
 			"Rare - รวมไข่หายาก",
+			"Epic - ไข่ Epic 4 ใบ เป็น Legend 1 ใบ (100%)",
 			"^777777ย้อนกลับ^000000" ) ) {
 			case 1: laphine_synthesis 1500000; end;	// Combine_Common_Pet_Laphine
 			case 2: laphine_synthesis 1500001; end;	// Combine_Rare_Pet_Laphine
+			case 3: laphine_synthesis 1500180; end;	// Combine_Epic_Pet_Laphine
 			default: goto L_Main;
 		}
 

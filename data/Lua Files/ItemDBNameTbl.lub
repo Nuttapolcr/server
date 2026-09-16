@@ -4772,6 +4772,17 @@ ItemDBNameTbl = {
 	aegis_313180 = 313180,
 	All_Element_Resistance = 1500146,
 	L_Shield = 1030011,
+	Combine_Epic_Pet_Laphine = 1500180,
+	B_Seyren_Egg = 9283,
+	B_Eremes_Egg = 9284,
+	B_Harword_Egg = 9285,
+	B_Magaleta_Egg = 9286,
+	B_Shecil_Egg = 9287,
+	B_Katrinn_Egg = 9288,
+	B_Randel_Egg = 9289,
+	B_Flamel_Egg = 9290,
+	B_Celia_Egg = 9291,
+	B_Chen_Egg = 9292,
 }
 ItemDB_To_ItemID = function(in_ItemDB)
 	if ItemDBNameTbl[in_ItemDB] == nil then

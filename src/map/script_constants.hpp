@@ -8093,6 +8093,7 @@
 	export_constant(IG_WoeCardAlbum);
 	export_constant(IG_PET_COMBINATION_COMMON_REWARD);
 	export_constant(IG_PET_COMBINATION_RARE_REWARD);
+	export_constant(IG_PET_COMBINATION_EPIC_REWARD);
 	export_constant(IG_WEAPON_STONE_COMBINATION_RARE_REWARD);
 	export_constant(IG_WEAPON_STONE_COMBINATION_EPIC_REWARD);
 	export_constant(IG_ARMOR_STONE_COMBINATION_RARE_REWARD);

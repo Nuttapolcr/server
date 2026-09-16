@@ -416,6 +416,8 @@ OnStoneKilled:
 	.earned[7] = 0;
 	.state$[7] = "ครอบครองโดย "+.guild$[7]+" - รอสรุปนาที 60";
 	announce "[ValorFight 2] กิลด์ "+.guild$[7]+" ยึดครองหินใหญ่โดย "+.stone_breaker$+"! ต้องรักษาไว้จนจบนาทีที่ 60",bc_all|bc_woe;
+	// ส่งทุกกิลด์ที่ไม่ได้ทำลายหินกลับจุดเซฟ โดยไม่ลบเป้าหมายเก็บคะแนนอื่น
+	MapRespawnGuildID .map$,.@guild_id,2;
 	sleep 500;
 	if (.active && !.ending)
 		callsub S_SpawnStone,1;

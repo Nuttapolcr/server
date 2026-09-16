@@ -227,7 +227,7 @@ struct pet_data {
 	}
 };
 
-bool pet_create_egg(map_session_data *sd, t_itemid item_id);
+bool pet_create_egg(map_session_data *sd, t_itemid item_id, bool announce_synthesis = false);
 int pet_hungry_val(struct pet_data *pd);
 void pet_set_intimate(struct pet_data *pd, int value);
 int pet_target_check(struct pet_data *pd,struct block_list *bl,int type);

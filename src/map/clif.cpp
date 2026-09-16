@@ -1409,7 +1409,7 @@ static void clif_set_unit_idle( struct block_list* bl, bool walking, send_target
 	p.font = (sd) ? sd->status.font : 0;
 #endif
 #if PACKETVER >= 20120221
-	if( battle_config.monster_hp_bars_info && !map_getmapflag( bl->m, MF_HIDEMOBHPBAR ) && bl->type == BL_MOB && ( status_get_hp( bl ) < status_get_max_hp( bl ) ) ){
+	if( battle_config.monster_hp_bars_info && !map_flag_hide_mob_hp_bar( bl->m ) && bl->type == BL_MOB && ( status_get_hp( bl ) < status_get_max_hp( bl ) ) ){
 		p.maxHP = status_get_max_hp(bl);
 		p.HP = status_get_hp(bl);
 	}else{
@@ -1550,7 +1550,7 @@ static void clif_spawn_unit( struct block_list *bl, enum send_target target ){
 	p.font = (sd) ? sd->status.font : 0;
 #endif
 #if PACKETVER >= 20120221
-	if( battle_config.monster_hp_bars_info && bl->type == BL_MOB && !map_getmapflag( bl->m, MF_HIDEMOBHPBAR ) && ( status_get_hp( bl ) < status_get_max_hp( bl ) ) ){
+	if( battle_config.monster_hp_bars_info && bl->type == BL_MOB && !map_flag_hide_mob_hp_bar( bl->m ) && ( status_get_hp( bl ) < status_get_max_hp( bl ) ) ){
 		p.maxHP = status_get_max_hp( bl );
 		p.HP = status_get_hp( bl );
 	}else{
@@ -1658,7 +1658,7 @@ static void clif_set_unit_walking( struct block_list *bl, map_session_data *tsd,
 	p.font = (sd) ? sd->status.font : 0;
 #endif
 #if PACKETVER >= 20120221
-	if( battle_config.monster_hp_bars_info && !map_getmapflag(bl->m, MF_HIDEMOBHPBAR) && bl->type == BL_MOB && (status_get_hp(bl) < status_get_max_hp( bl ) ) ){
+	if( battle_config.monster_hp_bars_info && !map_flag_hide_mob_hp_bar(bl->m) && bl->type == BL_MOB && (status_get_hp(bl) < status_get_max_hp( bl ) ) ){
 		p.maxHP = status_get_max_hp(bl);
 		p.HP = status_get_hp(bl);
 	} else {
@@ -5387,7 +5387,7 @@ void clif_getareachar_unit( map_session_data* sd,struct block_list *bl ){
 			else if(md->special_state.size==SZ_MEDIUM)
 				clif_specialeffect_single(bl,EF_BABYBODY2,sd->fd);
 #if PACKETVER >= 20120404
-			if (battle_config.monster_hp_bars_info && !map_getmapflag(bl->m, MF_HIDEMOBHPBAR)) {
+			if (battle_config.monster_hp_bars_info && !map_flag_hide_mob_hp_bar(bl->m)) {
 				int i;
 				for(i = 0; i < DAMAGELOG_SIZE; i++)// must show hp bar to all char who already hit the mob.
 					if( md->dmglog[i].id == sd->status.char_id )
@@ -20506,6 +20506,9 @@ void clif_snap( struct block_list *bl, short x, short y ) {
 /// 0977 <id>.L <HP>.L <maxHP>.L (ZC_HP_INFO).
 void clif_monster_hp_bar( struct mob_data* md, int fd ) {
 #if PACKETVER >= 20120404
+	if (!battle_config.monster_hp_bars_info || map_flag_hide_mob_hp_bar(md->bl.m))
+		return;
+
 	WFIFOHEAD(fd,packet_len(0x977));
 
 	WFIFOW(fd,0)  = 0x977;
@@ -24953,6 +24956,12 @@ void clif_parse_laphine_synthesis( int fd, map_session_data* sd ){
 			clif_laphine_synthesis_result( sd, LAPHINE_SYNTHESIS_ITEM );
 			return;
 		}
+	}
+
+	// Legend rewards need the char-server to create the persistent pet egg.
+	if (synthesis->rewardGroupId == IG_PET_COMBINATION_EPIC_REWARD && !chrif_isconnected()) {
+		clif_laphine_synthesis_result(sd, LAPHINE_SYNTHESIS_ITEM);
+		return;
 	}
 
 	// If triggered from item

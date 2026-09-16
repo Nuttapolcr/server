@@ -660,7 +660,7 @@ void pet_set_intimate(struct pet_data *pd, int value)
  * @param item_id : item ID of tamer
  * @return true:success, false:failure
  */
-bool pet_create_egg(map_session_data *sd, t_itemid item_id)
+bool pet_create_egg(map_session_data *sd, t_itemid item_id, bool announce_synthesis)
 {
 	std::shared_ptr<s_pet_db> pet = pet_db_search(item_id, PET_EGG);
 
@@ -677,7 +677,7 @@ bool pet_create_egg(map_session_data *sd, t_itemid item_id)
 		return false; // Inventory full
 
 	sd->catch_target_class = pet->class_;
-	intif_create_pet(sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str());
+	intif_create_pet(sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str(), announce_synthesis);
 
 	return true;
 }
@@ -1356,12 +1356,18 @@ bool pet_get_egg(uint32 account_id, short pet_class, int pet_id ) {
 	struct item tmp_item;
 	int ret = 0;
 
-	if( pet_id == 0 || pet_class == 0 )
-		return false;
-
 	sd = map_id2sd(account_id);
 
 	if( sd == NULL )
+		return false;
+
+	bool announce_synthesis = false;
+	if (!sd->pet_synthesis_announcements.empty()) {
+		announce_synthesis = sd->pet_synthesis_announcements.front();
+		sd->pet_synthesis_announcements.erase(sd->pet_synthesis_announcements.begin());
+	}
+
+	if( pet_id == 0 || pet_class == 0 )
 		return false;
 
 	// i = pet_search_petDB_index(sd->catch_target_class,PET_CLASS);
@@ -1390,6 +1396,11 @@ bool pet_get_egg(uint32 account_id, short pet_class, int pet_id ) {
 	if((ret = pc_additem(sd,&tmp_item,1,LOG_TYPE_PICKDROP_PLAYER))) {
 		clif_additem(sd,0,0,ret);
 		map_addflooritem(&tmp_item,1,sd->bl.m,sd->bl.x,sd->bl.y,0,0,0,0,0);
+	} else if (announce_synthesis) {
+		char message[CHAT_SIZE_MAX];
+		snprintf(message, sizeof(message), "[Pet Combination] %s combined 4 Epic Pet Eggs and received %s!",
+			sd->status.name, itemdb_ename(tmp_item.nameid));
+		intif_broadcast2(message, strlen(message) + 1, 0xFFCC00, 0, 12, 0, 0);
 	}
 
 	return true;

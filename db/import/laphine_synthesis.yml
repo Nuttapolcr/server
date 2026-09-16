@@ -65,6 +65,20 @@ Body:
       - Item: Drake_Egg
       - Item: Knight_Of_Windstorm_Egg
       - Item: Lord_Of_Death_Egg
+  - Item: Combine_Epic_Pet_Laphine
+    RewardGroup: PET_COMBINATION_EPIC_REWARD
+    RequiredRequirementsCount: 4
+    Requirements:
+      - Item: B_Seyren_Egg
+      - Item: B_Eremes_Egg
+      - Item: B_Harword_Egg
+      - Item: B_Magaleta_Egg
+      - Item: B_Shecil_Egg
+      - Item: B_Katrinn_Egg
+      - Item: B_Randel_Egg
+      - Item: B_Flamel_Egg
+      - Item: B_Celia_Egg
+      - Item: B_Chen_Egg
   - Item: Combine_Rare_Weapon_Stone_Laphine
     RewardGroup: WEAPON_STONE_COMBINATION_RARE_REWARD
     RequiredRequirementsCount: 1

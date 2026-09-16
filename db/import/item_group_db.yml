@@ -346,3 +346,33 @@ Body:
             Item: Acc_Ore_2
             Rate: 5
             Amount: 1
+  # Epic eggs x4 -> one Legend egg, guaranteed; all six outcomes have equal weight.
+  # The pet creation callback announces only after the egg enters inventory.
+  - Group: PET_COMBINATION_EPIC_REWARD
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 1
+            Item: Medjay_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 2
+            Item: Cp_Heka_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 3
+            Item: Medjed_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 4
+            Item: Spirit_R_Flame_Sl_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 5
+            Item: Spirit_I_Water_M_Egg
+            Rate: 1
+            Amount: 1
+          - Index: 6
+            Item: Spirit_S_Wind_M_Egg
+            Rate: 1
+            Amount: 1

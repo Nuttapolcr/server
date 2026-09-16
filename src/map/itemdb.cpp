@@ -3153,7 +3153,7 @@ t_itemid ItemGroupDatabase::get_random_item_id(uint16 group_id, uint8 sub_group)
 * @param group_id: The group ID of item that obtained by player
 * @param *group: struct s_item_group from itemgroup_db[group_id].random[idx] or itemgroup_db[group_id].must[sub_group][idx]
 */
-static void itemdb_pc_get_itemgroup_sub(map_session_data *sd, bool identify, std::shared_ptr<s_item_group_entry> data) {
+static void itemdb_pc_get_itemgroup_sub(map_session_data *sd, bool identify, std::shared_ptr<s_item_group_entry> data, bool announce_pet_synthesis) {
 	if (data == nullptr)
 		return;
 
@@ -3202,7 +3202,7 @@ static void itemdb_pc_get_itemgroup_sub(map_session_data *sd, bool identify, std
 			}
 		}
 
-		if(!pet_create_egg(sd, tmp.nameid))
+		if(!pet_create_egg(sd, tmp.nameid, announce_pet_synthesis))
 		{
 			if ((flag = pc_additem(sd, &tmp, get_amt, LOG_TYPE_SCRIPT))) {
 				clif_additem(sd, 0, 0, flag);
@@ -3239,14 +3239,14 @@ uint8 ItemGroupDatabase::pc_get_itemgroup(uint16 group_id, bool identify, map_se
 
 	if (random != nullptr && !random->data.empty()) {
 		for (const auto &it : random->data)
-			itemdb_pc_get_itemgroup_sub(sd, identify, it.second);
+			itemdb_pc_get_itemgroup_sub(sd, identify, it.second, group_id == IG_PET_COMBINATION_EPIC_REWARD);
 	}
 
 	// Get 1 'random' item from each subgroup
 	for (const auto &random : group->random) {
 		if (random.first == 0 || random.second->data.empty())
 			continue;
-		itemdb_pc_get_itemgroup_sub(sd, identify, get_random_itemsubgroup(random.second));
+		itemdb_pc_get_itemgroup_sub(sd, identify, get_random_itemsubgroup(random.second), group_id == IG_PET_COMBINATION_EPIC_REWARD);
 	}
 
 	return 0;

@@ -85,6 +85,40 @@ Body:
         Rate: 500000
       - Mob: TAO_GUNKA
         Rate: 500000
+      - Mob: LADY_TANEE
+        Rate: 500000
+      - Mob: BOITATA
+        Rate: 500000
+      - Mob: LORD_OF_DEATH
+        Rate: 500000
+      - Mob: GOPINICH
+        Rate: 500000
+      - Mob: BACSOJIN_
+        Rate: 500000
+      - Mob: KTULLANUX
+        Rate: 500000
+      - Mob: RSX_0806
+        Rate: 500000
+      - Mob: ATROCE
+        Rate: 500000
+      - Mob: KIEL_
+        Rate: 500000
+      - Mob: APOCALIPS_H
+        Rate: 500000
+      - Mob: DETALE
+        Rate: 500000
+      - Mob: FALLINGBISHOP
+        Rate: 500000
+      - Mob: GLOOMUNDERNIGHT
+        Rate: 500000
+      - Mob: RANDGRIS
+        Rate: 500000
+      - Mob: IFRIT
+        Rate: 500000
+      - Mob: BEELZEBUB
+        Rate: 500000
+      - Mob: MOROCC_
+        Rate: 500000
   - Group: Branch_Of_Dead_Tree
     Default: SCORPION
     Summon:

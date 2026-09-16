@@ -5791,6 +5791,25 @@ tblLapineDdukddakBox = {
 			},
 			NeedSource_String = "Rare Pet Eggs"
 		},
+		Combine_Epic_Pet_Laphine = {
+			ItemID = 1500180,
+			NeedCount = 4,
+			NeedRefineMin = 0,
+			NeedRefineMax = 0,
+			SourceItems = {
+				{ "B_Seyren_Egg", 1, 9283 },
+				{ "B_Eremes_Egg", 1, 9284 },
+				{ "B_Harword_Egg", 1, 9285 },
+				{ "B_Magaleta_Egg", 1, 9286 },
+				{ "B_Shecil_Egg", 1, 9287 },
+				{ "B_Katrinn_Egg", 1, 9288 },
+				{ "B_Randel_Egg", 1, 9289 },
+				{ "B_Flamel_Egg", 1, 9290 },
+				{ "B_Celia_Egg", 1, 9291 },
+				{ "B_Chen_Egg", 1, 9292 }
+			},
+			NeedSource_String = "Epic Pet Eggs (4) -> Legend Pet Egg (100%)"
+		},
 		Combine_Rare_Weapon_Stone_Laphine = {
 			ItemID = 1500002,
 			NeedCount = 1,

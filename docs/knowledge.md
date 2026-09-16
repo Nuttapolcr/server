@@ -161,6 +161,13 @@ bonus2 bSkillAtk,"SKILL",N;      # Skill damage +N%
 
 ## Script Patterns
 
+### Tool Dealer inventory sources
+
+- Standard town Tool Dealer inventories are defined in `npc/pre-re/merchants/shops.txt`.
+- Morocc save hubs use `Tool Dealer#save1` in `npc/custom-npc/07_guild/save_savepoint.txt`; `Tool Dealer#save2` duplicates that inventory.
+- Valor Fight uses a duplicate of `Tool Dealer#17` from the standard town shop file.
+- Shop entries use `item_id:price` in display order, immediately after the sprite ID.
+
 ### Barter exact-refine recipes
 
 - Barter `RequiredItems[].Refine` normally accepts the requested refine level or a higher one.

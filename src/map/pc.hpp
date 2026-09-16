@@ -950,6 +950,7 @@ public:
 	short itemindex;	//Used item's index in sd->inventory [Skotlex]
 
 	uint16 catch_target_class; // pet catching, stores a pet class to catch [zzo]
+	std::vector<bool> pet_synthesis_announcements; // One flag per pending create-pet reply.
 
 	int8 spiritball, spiritball_old;
 	int spirit_timer[MAX_SPIRITBALL];

@@ -2397,8 +2397,8 @@ Body:
     Fullness: 1
     HungryDelay: 120
     IntimacyFed: 5
-    IntimacyHungry: -5
     IntimacyOverfed: -100
+    IntimacyHungry: -5
     IntimacyOwnerDie: 0
     CaptureRate: 0
     AllowAutoFeed: true
@@ -2408,9 +2408,11 @@ Body:
       if (.@i >= PET_INTIMATE_LOYAL) {
         petautobonus "{ bonus2 bAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_WEAPON,"{ specialeffect2 EF_POTION_BERSERK; }";
         bonus bMaxHP,1000;
+        bonus bMaxSP,100;
         bonus bSpeedAddRate,30;
-        bonus2 bSubRace,RC_DemiHuman,20;
-        bonus2 bSubRace,RC_Player_Human,20;
+        bonus2 bSubRace,RC_DemiHuman,15;
+        bonus2 bSubRace,RC_Player_Human,15;
+      bonus bBossBoxSpeed,30;
       }
   - Mob: CP_HEKA
     TameItem: Pet_Taming
@@ -2419,8 +2421,8 @@ Body:
     Fullness: 1
     HungryDelay: 120
     IntimacyFed: 5
-    IntimacyHungry: -5
     IntimacyOverfed: -100
+    IntimacyHungry: -5
     IntimacyOwnerDie: 0
     CaptureRate: 0
     AllowAutoFeed: true
@@ -2430,9 +2432,11 @@ Body:
       if (.@i >= PET_INTIMATE_LOYAL) {
         petautobonus "{ bonus2 bMagicAddClass,Class_Boss,100; bonus bFlee2,50; }",100,10000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
         bonus bMaxHP,1000;
+        bonus bMaxSP,100;
         bonus bSpeedAddRate,30;
-        bonus2 bSubRace,RC_DemiHuman,20;
-        bonus2 bSubRace,RC_Player_Human,20;
+        bonus2 bSubRace,RC_DemiHuman,15;
+        bonus2 bSubRace,RC_Player_Human,15;
+      bonus bBossBoxSpeed,30;
       }
   - Mob: MEDJED
     TameItem: Pet_Taming
@@ -2453,9 +2457,10 @@ Body:
         bonus bCritical,100;
         bonus bCritAtkRate,30;
         bonus bMaxHP,1000;
+        bonus bMaxSP,100;
         bonus bSpeedAddRate,30;
-        bonus2 bSubRace,RC_DemiHuman,20;
-        bonus2 bSubRace,RC_Player_Human,20;
+        bonus2 bSubRace,RC_DemiHuman,15;
+        bonus2 bSubRace,RC_Player_Human,15;
       }
   - Mob: SPIRIT_R_FLAME_SL
     TameItem: Pet_Taming
@@ -2464,8 +2469,8 @@ Body:
     Fullness: 1
     HungryDelay: 120
     IntimacyFed: 5
-    IntimacyHungry: -5
     IntimacyOverfed: -100
+    IntimacyHungry: -5
     IntimacyOwnerDie: 0
     CaptureRate: 0
     AllowAutoFeed: true
@@ -2474,12 +2479,14 @@ Body:
       .@i = getpetinfo(PETINFO_INTIMATE);
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus bBaseAtk,150;
-        bonus bShortAtkRate,5;
-        bonus bLongAtkRate,10;
+        bonus bShortAtkRate,20;
+        bonus bLongAtkRate,20;
         bonus bMaxHP,1000;
+        bonus bMaxSP,100;
         bonus bSpeedAddRate,30;
-        bonus2 bSubRace,RC_DemiHuman,20;
-        bonus2 bSubRace,RC_Player_Human,20;
+        bonus2 bSubRace,RC_DemiHuman,15;
+        bonus2 bSubRace,RC_Player_Human,15;
+      bonus2 bSkillAtk,"CR_ACIDDEMONSTRATION",50;
       }
   - Mob: SPIRIT_I_WATER_M
     TameItem: Pet_Taming
@@ -2488,8 +2495,8 @@ Body:
     Fullness: 1
     HungryDelay: 120
     IntimacyFed: 5
-    IntimacyHungry: -5
     IntimacyOverfed: -100
+    IntimacyHungry: -5
     IntimacyOwnerDie: 0
     CaptureRate: 0
     AllowAutoFeed: true
@@ -2502,9 +2509,10 @@ Body:
         bonus bVariableCastrate,-30;
         bonus bDelayrate,-30;
         bonus bMaxHP,1000;
+        bonus bMaxSP,100;
         bonus bSpeedAddRate,30;
-        bonus2 bSubRace,RC_DemiHuman,20;
-        bonus2 bSubRace,RC_Player_Human,20;
+        bonus2 bSubRace,RC_DemiHuman,15;
+        bonus2 bSubRace,RC_Player_Human,15;
       }
   - Mob: SPIRIT_S_WIND_M
     TameItem: Pet_Taming
@@ -2513,8 +2521,8 @@ Body:
     Fullness: 1
     HungryDelay: 120
     IntimacyFed: 5
-    IntimacyHungry: -5
     IntimacyOverfed: -100
+    IntimacyHungry: -5
     IntimacyOwnerDie: 0
     CaptureRate: 0
     AllowAutoFeed: true
@@ -2524,9 +2532,10 @@ Body:
       if (.@i >= PET_INTIMATE_LOYAL) {
         bonus bMaxHPrate,50;
         bonus bMaxHP,1000;
+        bonus bMaxSP,100;
         bonus bDefRate,-30;
         bonus bMdefRate,-30;
         bonus bSpeedAddRate,30;
-        bonus2 bSubRace,RC_DemiHuman,20;
-        bonus2 bSubRace,RC_Player_Human,20;
+        bonus2 bSubRace,RC_DemiHuman,15;
+        bonus2 bSubRace,RC_Player_Human,15;
       }

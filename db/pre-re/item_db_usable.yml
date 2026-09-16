@@ -2525,6 +2525,17 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
+      setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3", "m_pvp01", "pvp_y_8-2", "pvp_n_1-3", "pvp_n_6-5", "pvp_n_1-5";
+      .@map$ = strcharinfo(3);
+      if (inarray(.@deathmatch_maps$, .@map$) < 0
+          && !getmapflag(.@map$, MF_GVG)
+          && !getmapflag(.@map$, MF_GVG_CASTLE)
+          && !getmapflag(.@map$, MF_GVG_TE)
+          && !getmapflag(.@map$, MF_GVG_TE_CASTLE)) {
+        getitem 12016, 1;
+        dispbottom "This item can only be used in Deathmatch and GVG maps.";
+        end;
+      }
       sc_start SC_SPEEDUP1,5000,50;
   - Id: 12017
     AegisName: Slow_Down_Potion

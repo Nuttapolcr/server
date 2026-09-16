@@ -1537,8 +1537,12 @@ bool battle_status_block_damage(struct block_list *src, struct block_list *targe
 static int64 battle_apply_valor_mvp_battlefield_damage( struct block_list* bl, int64 damage ){
 	static const int16 valor_mvp_battlefield_map = map_mapname2mapid( "valor_pk" );
 
-	if( damage > 0 && bl->m == valor_mvp_battlefield_map && bl->type == BL_MOB && status_get_class_( bl ) == CLASS_BOSS )
-		damage = i64max( damage * 50 / 100, 1 );
+	if( damage > 0 && bl->m == valor_mvp_battlefield_map && bl->type == BL_MOB && status_get_class_( bl ) == CLASS_BOSS ){
+		const mob_data* md = BL_CAST( BL_MOB, bl );
+		const int64 received_damage_rate = md != nullptr && md->mob_id == 1708 ? 1 : 10;
+
+		damage = i64max( damage * received_damage_rate / 100, 1 );
+	}
 
 	return damage;
 }

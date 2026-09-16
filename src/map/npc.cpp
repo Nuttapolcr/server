@@ -4151,6 +4151,12 @@ e_purchase_result npc_barter_purchase( struct map_session_data& sd, std::shared_
 			return e_purchase_result::PURCHASE_FAIL_EXCHANGE_FAILED;
 		}
 
+		// Pet eggs are created by the character server. Do not consume the
+		// required Collection item when that server cannot create the reward.
+		if( purchase.data->type == IT_PETEGG && CheckForCharServer() ){
+			return e_purchase_result::PURCHASE_FAIL_EXCHANGE_FAILED;
+		}
+
 		uint32 amount = purchase.amount;
 
 		if( purchase.item->stockLimited && purchase.item->stock < amount ){
@@ -4405,8 +4411,21 @@ e_purchase_result npc_barter_purchase( struct map_session_data& sd, std::shared_
 	bool protect_used = (pindex > -1);
 
 	if(!sd.state.craft_barter){
+		// Deleting a pet egg also deletes its persistent pet row through the
+		// character server. Verify that transport before consuming any item.
+		for( int i = 0; i < MAX_INVENTORY; i++ ){
+			if( requiredItems[i] > 0 && sd.inventory_data[i]->type == IT_PETEGG &&
+				sd.inventory.u.items_inventory[i].card[0] == CARD0_PET && CheckForCharServer() ){
+				return e_purchase_result::PURCHASE_FAIL_EXCHANGE_FAILED;
+			}
+		}
+
 		for( int i = 0; i < MAX_INVENTORY; i++ ){
 			if( requiredItems[i] > 0 ){
+				if( sd.inventory_data[i]->type == IT_PETEGG && sd.inventory.u.items_inventory[i].card[0] == CARD0_PET ){
+					intif_delete_petdata(MakeDWord(sd.inventory.u.items_inventory[i].card[1], sd.inventory.u.items_inventory[i].card[2]));
+				}
+
 				if( pc_delitem( &sd, i, requiredItems[i], 0, 0, LOG_TYPE_BARTER ) != 0 ){
 					return e_purchase_result::PURCHASE_FAIL_EXCHANGE_FAILED;
 				}

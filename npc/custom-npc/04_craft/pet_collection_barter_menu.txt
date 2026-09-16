@@ -2,7 +2,7 @@
 //= One visible NPC opens the hidden pet collection shops.
 //============================================================
 
-morocc,139,144,4	script	NPCแลกไข่ Collection	4_CAT,{
+morocc,139,144,4	script	NPCแลกไข่ Collection	841,{
 	mes "[NPCแลกไข่ Collection]";
 	mes "เลือกประเภทการแลกเปลี่ยนที่ต้องการ";
 	next;

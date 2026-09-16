@@ -1,5 +1,5 @@
 //!rathena
-// Golden Apple cabinets from spreadsheet "ตู้5/8/69".
+// Golden Apple V2 cabinets for the Valor MVP Battlefield.
 
 function	script	F_GoldenAppleCabinet_Roll	{
 	.@type$ = getarg(0);
@@ -30,11 +30,11 @@ function	script	F_GoldenAppleCabinet_ShowItems	{
 function	script	F_GoldenAppleCabinet_ShowTop	{
 	.@type$ = getarg(0);
 	if (.@type$ == "Slice") {
-		.@table$ = "golden_apple_slice_cabinet_ranking";
-		.@title$ = "ตู้ Golden Apple Slice";
+		.@table$ = "golden_apple_slice_v2_cabinet_ranking";
+		.@title$ = "ตู้ Golden Apple Slice V.2";
 	} else {
-		.@table$ = "golden_apple_cabinet_ranking";
-		.@title$ = "ตู้ Golden Apple";
+		.@table$ = "golden_apple_v2_cabinet_ranking";
+		.@title$ = "ตู้ Golden Apple V.2";
 	}
 
 	query_sql("SELECT `player_name`,`spins` FROM `" + .@table$ + "` ORDER BY `spins` DESC, `player_name` ASC LIMIT 10", .@name$, .@spins);
@@ -51,17 +51,17 @@ function	script	F_GoldenAppleCabinet_ShowTop	{
 function	script	F_GoldenAppleCabinet_RecordSpin	{
 	.@type$ = getarg(0);
 	if (.@type$ == "Slice")
-		.@table$ = "golden_apple_slice_cabinet_ranking";
+		.@table$ = "golden_apple_slice_v2_cabinet_ranking";
 	else
-		.@table$ = "golden_apple_cabinet_ranking";
+		.@table$ = "golden_apple_v2_cabinet_ranking";
 	query_sql("INSERT INTO `" + .@table$ + "` (`char_id`,`player_name`,`spins`) VALUES (" + getcharid(0) + ",'" + escape_sql(strcharinfo(0)) + "',1) ON DUPLICATE KEY UPDATE `player_name`=VALUES(`player_name`), `spins`=`spins`+1");
 	return;
 }
 
-morocc,120,101,4	script	ตู้ Golden Apple Slice#cabinet	563,{
+morocc,172,87,4	script	ตู้ Golden Apple Slice V.2#cabinet	563,{
 L_Main:
-	mes "[ตู้ Golden Apple Slice]";
-	.@choice = select("หมุนตู้ (Golden Apple Slice x2 + 100,000 Zeny):แสดงไอเทมในตู้:อันดับผู้หมุน 1-10:ยกเลิก");
+	mes "[ตู้ Golden Apple Slice V.2]";
+	.@choice = select("หมุนตู้ (Golden Apple Slice V.2 x20 + 300,000 Zeny):แสดงไอเทมในตู้:อันดับผู้หมุน 1-10:ยกเลิก");
 	if (.@choice == 2)
 		callfunc "F_GoldenAppleCabinet_ShowItems", "Slice";
 	if (.@choice == 3) {
@@ -72,8 +72,8 @@ L_Main:
 	if (.@choice != 1)
 		close;
 
-	if (countitem(1030069) < 2 || Zeny < 100000) {
-		mes "ต้องใช้ Golden Apple Slice x2 และ 100,000 Zeny เพื่อหมุนตู้";
+	if (countitem(1500181) < 20 || Zeny < 300000) {
+		mes "ต้องใช้ Golden Apple Slice V.2 x20 และ 300,000 Zeny เพื่อหมุนตู้";
 		close;
 	}
 	.@index = callfunc("F_GoldenAppleCabinet_Roll", "Slice");
@@ -84,13 +84,13 @@ L_Main:
 		mes "กรุณาลดน้ำหนักหรือเคลียร์ช่องเก็บของก่อน";
 		close;
 	}
-	delitem 1030069, 2;
-	Zeny -= 100000;
+	delitem 1500181, 20;
+	Zeny -= 300000;
 	callfunc "F_GoldenAppleCabinet_RecordSpin", "Slice";
 	specialeffect2 EF_COIN;
 	getitem .@item, .@amount;
-	if (.@rate <= 600)
-		announce "[ตู้ Golden Apple Slice] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
+	if (.@rate <= 300)
+		announce "[ตู้ Golden Apple Slice V.2] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
 	mes "คุณได้รับ " + getitemname(.@item) + " x" + .@amount + ".";
 	mes "เลือกหมุนตู้ต่อได้ทันที";
 	next;
@@ -99,14 +99,14 @@ L_Main:
 OnBuyItem:
 	deletearray @bought_nameid;
 	deletearray @bought_quantity;
-	message strcharinfo(0), "[ตู้ Golden Apple Slice] รายการนี้ใช้แสดงตัวอย่างเท่านั้น";
+	message strcharinfo(0), "[ตู้ Golden Apple Slice V.2] รายการนี้ใช้แสดงตัวอย่างเท่านั้น";
 	end;
 }
 
-morocc,120,97,4	script	ตู้ Golden Apple#cabinet	563,{
+morocc,175,87,4	script	ตู้ Golden Apple V.2#cabinet	563,{
 L_Main:
-	mes "[ตู้ Golden Apple]";
-	.@choice = select("หมุนตู้ (Golden Apple x1 + 100,000 Zeny + 50 Cash Point):แสดงไอเทมในตู้:อันดับผู้หมุน 1-10:ยกเลิก");
+	mes "[ตู้ Golden Apple V.2]";
+	.@choice = select("หมุนตู้ (Golden Apple V.2 x5 + 100,000 Zeny + 100 Cash Point):แสดงไอเทมในตู้:อันดับผู้หมุน 1-10:ยกเลิก");
 	if (.@choice == 2)
 		callfunc "F_GoldenAppleCabinet_ShowItems", "Apple";
 	if (.@choice == 3) {
@@ -117,8 +117,8 @@ L_Main:
 	if (.@choice != 1)
 		close;
 
-	if (countitem(1030070) < 1 || Zeny < 100000 || #CASHPOINTS < 50) {
-		mes "ต้องใช้ Golden Apple x1, 100,000 Zeny และ 50 Cash Point เพื่อหมุนตู้";
+	if (countitem(1500182) < 5 || Zeny < 100000 || #CASHPOINTS < 100) {
+		mes "ต้องใช้ Golden Apple V.2 x5, 100,000 Zeny และ 100 Cash Point เพื่อหมุนตู้";
 		close;
 	}
 	.@index = callfunc("F_GoldenAppleCabinet_Roll", "Apple");
@@ -129,14 +129,14 @@ L_Main:
 		mes "กรุณาลดน้ำหนักหรือเคลียร์ช่องเก็บของก่อน";
 		close;
 	}
-	delitem 1030070, 1;
+	delitem 1500182, 5;
 	Zeny -= 100000;
-	#CASHPOINTS -= 50;
+	#CASHPOINTS -= 100;
 	callfunc "F_GoldenAppleCabinet_RecordSpin", "Apple";
 	specialeffect2 EF_COIN;
 	getitem .@item, .@amount;
 	if (.@rate <= 500)
-		announce "[ตู้ Golden Apple] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
+		announce "[ตู้ Golden Apple V.2] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
 	mes "คุณได้รับ " + getitemname(.@item) + " x" + .@amount + ".";
 	mes "เลือกหมุนตู้ต่อได้ทันที";
 	next;
@@ -145,33 +145,50 @@ L_Main:
 OnBuyItem:
 	deletearray @bought_nameid;
 	deletearray @bought_quantity;
-	message strcharinfo(0), "[ตู้ Golden Apple] รายการนี้ใช้แสดงตัวอย่างเท่านั้น";
+	message strcharinfo(0), "[ตู้ Golden Apple V.2] รายการนี้ใช้แสดงตัวอย่างเท่านั้น";
 	end;
 }
 
 -	shop	GoldenAppleSliceCabinet_Show	-1,501:0
 -	shop	GoldenAppleAppleCabinet_Show	-1,501:0
 
--	script	ตู้ Golden Apple#config	-1,{
+-	script	ตู้ Golden Apple V.2#config	-1,{
 OnInit:
-	query_sql("CREATE TABLE IF NOT EXISTS `golden_apple_slice_cabinet_ranking` (`char_id` INT NOT NULL, `player_name` VARCHAR(30) NOT NULL, `spins` INT NOT NULL DEFAULT 0, PRIMARY KEY (`char_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
-	query_sql("CREATE TABLE IF NOT EXISTS `golden_apple_cabinet_ranking` (`char_id` INT NOT NULL, `player_name` VARCHAR(30) NOT NULL, `spins` INT NOT NULL DEFAULT 0, PRIMARY KEY (`char_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+	query_sql("CREATE TABLE IF NOT EXISTS `golden_apple_slice_v2_cabinet_ranking` (`char_id` INT NOT NULL, `player_name` VARCHAR(30) NOT NULL, `spins` INT NOT NULL DEFAULT 0, PRIMARY KEY (`char_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
+	query_sql("CREATE TABLE IF NOT EXISTS `golden_apple_v2_cabinet_ranking` (`char_id` INT NOT NULL, `player_name` VARCHAR(30) NOT NULL, `spins` INT NOT NULL DEFAULT 0, PRIMARY KEY (`char_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8");
 
-	$GoldenAppleSliceCabinetCount = 33;
-	setarray $GoldenAppleSliceCabinetItem[0], 11548,11549,547,7135,7136,606,678,656,657,11503,11504,1000373,1000401,1001685,1001140,1001688,1000445,1001691,1000398,1001686,1001139,1001689,1000442,1001692,1030026,1030027,12264,30001,30001,30001,30001,30001,1030079;
-	setarray $GoldenAppleSliceCabinetAmount[0], 2,2,2,2,2,1,2,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,3,4,5,1;
-	setarray $GoldenAppleSliceCabinetRate[0], 1300,1300,1300,1000,1000,500,1000,500,500,1200,1200,1500,600,600,300,300,300,300,50,50,10,10,10,10,300,300,130,800,500,300,200,200,20;
+	deletearray $GoldenAppleSliceCabinetItem;
+	deletearray $GoldenAppleSliceCabinetAmount;
+	deletearray $GoldenAppleSliceCabinetRate;
+	$GoldenAppleSliceCabinetCount = 24;
+	setarray $GoldenAppleSliceCabinetItem[0], 11548,11549,547,11503,11504,1000373,1001685,1001688,1001691,1001686,1001689,1001692,1030026,1030027,1030028,12264,30001,30001,30001,30001,1000620,12103,1500183,1500184;
+	setarray $GoldenAppleSliceCabinetAmount[0], 2,2,2,5,5,10,2,1,1,1,1,1,1,1,1,1,1,2,3,4,1,1,1,1;
+	setarray $GoldenAppleSliceCabinetRate[0], 1000,1000,1000,1000,1000,700,300,200,100,200,100,100,500,400,300,200,400,200,100,30,60,200,30,30;
 
-	$GoldenAppleAppleCabinetCount = 38;
-	setarray $GoldenAppleAppleCabinetItem[0], 1000401,1001685,1001140,1001688,1000445,1001691,1000419,1000423,1000426,14001,1000373,1000620,7620,7619,12202,12203,12204,12205,12206,12207,6635,1030028,1030029,1030079,12103,1000398,1001686,1001139,1001689,1000442,1001692,6241,6240,30001,30001,30001,30001,30001;
-	setarray $GoldenAppleAppleCabinetAmount[0], 2,2,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,3,4,5;
-	setarray $GoldenAppleAppleCabinetRate[0], 800,800,600,600,400,400,400,400,400,800,700,500,400,400,300,300,300,300,300,300,500,300,300,100,250,150,150,100,100,100,100,350,350,800,500,300,200,200;
+	deletearray $GoldenAppleAppleCabinetItem;
+	deletearray $GoldenAppleAppleCabinetAmount;
+	deletearray $GoldenAppleAppleCabinetRate;
+	$GoldenAppleAppleCabinetCount = 25;
+	setarray $GoldenAppleAppleCabinetItem[0], 1000419,1000423,1000426,14001,1000373,1000620,7620,7619,6635,1030028,1030029,12103,1001686,1001689,1001692,6241,6240,30001,30001,30001,30001,30001,1500183,1500184,1500185;
+	setarray $GoldenAppleAppleCabinetAmount[0], 1,1,1,3,10,1,1,1,1,1,1,1,2,1,1,1,1,1,2,3,4,5,1,1,1;
+	setarray $GoldenAppleAppleCabinetRate[0], 400,400,400,800,700,500,400,400,500,300,300,700,500,300,300,350,350,800,500,300,200,200,100,100,50;
 
 	npcshopdelitem "GoldenAppleSliceCabinet_Show", 501;
-	for (.@i = 0; .@i < $GoldenAppleSliceCabinetCount; .@i++)
-		npcshopadditem "GoldenAppleSliceCabinet_Show", $GoldenAppleSliceCabinetItem[.@i], 0;
+	for (.@i = 0; .@i < $GoldenAppleSliceCabinetCount; .@i++) {
+		.@item = $GoldenAppleSliceCabinetItem[.@i];
+		if (inarray(.@shop_items,.@item) < 0) {
+			.@shop_items[getarraysize(.@shop_items)] = .@item;
+			npcshopadditem "GoldenAppleSliceCabinet_Show", .@item, 0;
+		}
+	}
 	npcshopdelitem "GoldenAppleAppleCabinet_Show", 501;
-	for (.@i = 0; .@i < $GoldenAppleAppleCabinetCount; .@i++)
-		npcshopadditem "GoldenAppleAppleCabinet_Show", $GoldenAppleAppleCabinetItem[.@i], 0;
+	deletearray .@shop_items;
+	for (.@i = 0; .@i < $GoldenAppleAppleCabinetCount; .@i++) {
+		.@item = $GoldenAppleAppleCabinetItem[.@i];
+		if (inarray(.@shop_items,.@item) < 0) {
+			.@shop_items[getarraysize(.@shop_items)] = .@item;
+			npcshopadditem "GoldenAppleAppleCabinet_Show", .@item, 0;
+		}
+	}
 	end;
 }

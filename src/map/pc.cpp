@@ -1312,6 +1312,33 @@ bool pc_can_sell_item(map_session_data *sd, struct item *item, enum npc_subtype 
 	if (!itemdb_cansell(item, pc_get_group_level(sd)))
 		return false;
 
+	// Character-bound rentals from conf/char_athena.conf:start_rental_items
+	// may be discarded through NPC shops while keeping their transfer lock.
+	if (shoptype == NPCTYPE_SHOP && item->bound == BOUND_CHAR && item->expire_time) {
+		switch (item->nameid) {
+			case 1292:
+			case 1394:
+			case 1491:
+			case 1585:
+			case 2015:
+			case 13071:
+			case 13115:
+			case 21000:
+			case 16019:
+			case 18112:
+			case 13316:
+			case 1030046:
+			case 1030047:
+			case 1030048:
+			case 15015:
+			case 2149:
+			case 2460:
+			case 2562:
+			case 28311:
+				return true;
+		}
+	}
+
 	if (item->bound && !pc_can_give_bounded_items(sd))
 		return false; // Don't allow sale of bound items
 	return true;
@@ -7741,6 +7768,15 @@ enum e_setpos pc_setpos(map_session_data* sd, unsigned short mapindex, int x, in
 		if (sc && sc->count) { // Cancel some map related stuff.
 			if (sc->cant.warp)
 				return SETPOS_MAPINDEX; // You may not get out!
+
+			// Chemical Protection statuses explicitly resist ordinary buff clearing.
+			// Remove all four whenever a player enters any WoE castle, including Valor maps.
+			if( mapdata && ( mapdata->getMapFlag( MF_GVG_CASTLE ) || mapdata->getMapFlag( MF_GVG_TE_CASTLE ) ) ){
+				status_change_end( &sd->bl, SC_CP_WEAPON );
+				status_change_end( &sd->bl, SC_CP_SHIELD );
+				status_change_end( &sd->bl, SC_CP_ARMOR );
+				status_change_end( &sd->bl, SC_CP_HELM );
+			}
 
 			for (const auto &it : status_db) {
 				if (sc->getSCE(it.first)) {

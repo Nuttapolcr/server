@@ -1208,6 +1208,9 @@ Body:
       - Combo:
           - Range_Robe_D
           - Range_Bottom
+      - Combo:
+          - Range_Robe_D
+          - Expert_Archer0
     Script: |
       bonus bLongAtkRate,2;
   - Combos:
@@ -1353,8 +1356,6 @@ Body:
             if (.@sum >= 18) {
       bonus bNoWalkDelay;
        }
-
-# Abyss Lake F4
   - Combos:
       - Combo:
           - Ferus_P_Card
@@ -1368,7 +1369,7 @@ Body:
           - Treasure_Mimic_Card
           - Ancient_Mimic_Card
     Script: |
-      bonus bCritAtkRate,2;
+      bonus bCritAtkRate,2*getequiprefinerycnt(EQI_GARMENT);
   - Combos:
       - Combo:
           - Acidus_B_Card

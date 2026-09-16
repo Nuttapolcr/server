@@ -95,10 +95,16 @@ map_session_data *inter_search_sd(uint32 account_id, uint32 char_id)
  * @param pet_name
  * @return 
  */
-int intif_create_pet(uint32 account_id,uint32 char_id,short pet_class,short pet_lv, t_itemid pet_egg_id, t_itemid pet_equip,short intimate,short hungry,char rename_flag,char incubate,const char *pet_name)
+int intif_create_pet(uint32 account_id,uint32 char_id,short pet_class,short pet_lv, t_itemid pet_egg_id, t_itemid pet_equip,short intimate,short hungry,char rename_flag,char incubate,const char *pet_name, bool announce_synthesis)
 {
 	if (CheckForCharServer())
 		return 0;
+	// Replies on the char-server connection preserve request order per account.
+	// Track every request, including ordinary eggs, so only synthesis rewards announce.
+	map_session_data *sd = map_id2sd(account_id);
+	if (sd != nullptr)
+		sd->pet_synthesis_announcements.push_back(announce_synthesis);
+
 	WFIFOHEAD(inter_fd, 28 + NAME_LENGTH);
 	WFIFOW(inter_fd, 0) = 0x3080;
 	WFIFOL(inter_fd, 2) = account_id;

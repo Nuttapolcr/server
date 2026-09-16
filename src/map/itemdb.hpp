@@ -2879,6 +2879,9 @@ enum e_random_item_group {
 	IG_RANDOM_RUDOLF_BOX_19,
 	IG_RANDOM_RUDOLF_BOX_20,
 
+	// Custom: guaranteed Epic -> Legend pet synthesis. Append to preserve existing IDs.
+	IG_PET_COMBINATION_EPIC_REWARD,
+
 	IG_MAX,
 };
 

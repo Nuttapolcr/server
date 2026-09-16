@@ -1636,6 +1636,13 @@ void chrif_on_disconnect(void) {
 		ShowWarning("Connection to Char Server lost.\n\n");
 	chrif_connected = 0;
 
+	// Replies pending on the old connection cannot be matched after reconnect.
+	struct s_mapiterator *pet_iter = mapit_getallusers();
+	for (map_session_data *sd = (map_session_data *)mapit_first(pet_iter);
+		mapit_exists(pet_iter); sd = (map_session_data *)mapit_next(pet_iter))
+		sd->pet_synthesis_announcements.clear();
+	mapit_free(pet_iter);
+
 	other_mapserver_count = 0; //Reset counter. We receive ALL maps from all map-servers on reconnect.
 	map_eraseallipport();
 

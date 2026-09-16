@@ -1006,6 +1006,17 @@ inline bool mapdata_flag_gvg2(struct map_data *mapdata) {
 }
 
 /**
+ * Specifies maps where monster HP bars must stay hidden.
+ * WoE maps are included regardless of whether WoE is currently active.
+ */
+inline bool mapdata_flag_hide_mob_hp_bar(struct map_data *mapdata) {
+	if (mapdata == nullptr)
+		return true;
+
+	return mapdata->getMapFlag(MF_HIDEMOBHPBAR) || mapdata_flag_gvg2(mapdata);
+}
+
+/**
  * No Kill Steal Protection
  * @param mapdata: Map Data
  * @return True on success or false otherwise
@@ -1087,6 +1098,15 @@ inline bool map_flag_gvg2(int16 m) {
 	struct map_data *mapdata = &map[m];
 
 	return mapdata_flag_gvg2(mapdata);
+}
+
+inline bool map_flag_hide_mob_hp_bar(int16 m) {
+	if (m < 0)
+		return true;
+
+	struct map_data *mapdata = &map[m];
+
+	return mapdata_flag_hide_mob_hp_bar(mapdata);
 }
 
 inline bool map_flag_ks(int16 m) {
