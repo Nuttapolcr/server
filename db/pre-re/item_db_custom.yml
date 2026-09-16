@@ -41054,11 +41054,11 @@ Body:
     AegisName: New_Item_1500183
     Name: Black Feather
     Type: Armor
+    Defense: 6
     Slots: 1
     Locations:
       Head_Top: true
     View: 1794
-    Defense: 6
     Script: |-
       .@r = getrefine();
       bonus2 bIgnoreDefClassRate,Class_All,5;
@@ -41069,15 +41069,17 @@ Body:
       if (.@r>=12) {
       bonus bCritAtkRate,10;
       }
+    Refineable: true
+    ArmorLevel: 1
   - Id: 1500184
     AegisName: Plain_Black_Magician_Hat
     Name: Plain Black Magician Hat
     Type: Armor
+    Defense: 6
     Slots: 1
     Locations:
       Head_Top: true
     View: 912
-    Defense: 6
     Script: |-
       .@r = getrefine();
       bonus2 bIgnoreMdefClassRate,Class_All,5;
@@ -41088,6 +41090,8 @@ Body:
       if (.@r>=12) {
       bonus bDelayrate,-5;
       }
+    Refineable: true
+    ArmorLevel: 1
   - Id: 1500185
     AegisName: 12th_Anniversary_Fairy_Ears
     Name: 12th Anniversary Fairy Ears

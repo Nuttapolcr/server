@@ -31,7 +31,7 @@ function	script	F_GoldenAppleCabinet_ShowTop	{
 	.@type$ = getarg(0);
 	if (.@type$ == "Slice") {
 		.@table$ = "golden_apple_slice_v2_cabinet_ranking";
-		.@title$ = "ตู้ Golden Apple Slice V.2";
+		.@title$ = "ตู้ Golden Slice V.2";
 	} else {
 		.@table$ = "golden_apple_v2_cabinet_ranking";
 		.@title$ = "ตู้ Golden Apple V.2";
@@ -58,9 +58,9 @@ function	script	F_GoldenAppleCabinet_RecordSpin	{
 	return;
 }
 
-morocc,172,87,4	script	ตู้ Golden Apple Slice V.2#cabinet	563,{
+morocc,172,87,4	script	ตู้ Golden Slice V.2#cabinet	563,{
 L_Main:
-	mes "[ตู้ Golden Apple Slice V.2]";
+	mes "[ตู้ Golden Slice V.2]";
 	.@choice = select("หมุนตู้ (Golden Apple Slice V.2 x20 + 300,000 Zeny):แสดงไอเทมในตู้:อันดับผู้หมุน 1-10:ยกเลิก");
 	if (.@choice == 2)
 		callfunc "F_GoldenAppleCabinet_ShowItems", "Slice";
@@ -90,7 +90,7 @@ L_Main:
 	specialeffect2 EF_COIN;
 	getitem .@item, .@amount;
 	if (.@rate <= 300)
-		announce "[ตู้ Golden Apple Slice V.2] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
+		announce "[ตู้ Golden Slice V.2] " + strcharinfo(0) + " ได้รับ " + getitemname(.@item) + " x" + .@amount + ".", bc_all, 0xFFFF00;
 	mes "คุณได้รับ " + getitemname(.@item) + " x" + .@amount + ".";
 	mes "เลือกหมุนตู้ต่อได้ทันที";
 	next;
@@ -99,7 +99,7 @@ L_Main:
 OnBuyItem:
 	deletearray @bought_nameid;
 	deletearray @bought_quantity;
-	message strcharinfo(0), "[ตู้ Golden Apple Slice V.2] รายการนี้ใช้แสดงตัวอย่างเท่านั้น";
+	message strcharinfo(0), "[ตู้ Golden Slice V.2] รายการนี้ใช้แสดงตัวอย่างเท่านั้น";
 	end;
 }
 
