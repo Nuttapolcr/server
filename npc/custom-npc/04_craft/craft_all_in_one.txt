@@ -2,6 +2,67 @@
 //= Craft All in One - Barter Shop menu
 //============================================================
 
+function	script	F_RareRentalBox	{
+	.@box_id = getarg(0);
+
+	switch (.@box_id) {
+	case 1500193:
+		.@title$ = "Rare Weapon Box";
+		.@refine = 7;
+		setarray .@items[0],600009,530006,640012,540011,620004,500013,
+			590012,560008,610008,510019,700018,570009,580009,540010,
+			550015,650004,800002,510071,500014,510020,21058,700013,
+			1030049,1030050;
+		break;
+	case 1030111:
+		.@title$ = "Rare Armor Box";
+		.@refine = 7;
+		setarray .@items[0],452025,452026,452027,452028,
+			480421,480422,480423,480424,470278,470279,470280,470281;
+		break;
+	case 1030114:
+		.@title$ = "Rare Accessory Box";
+		.@refine = 0;
+		setarray .@items[0],490487,490488,490489,490490,
+			490499,490500,490501,490502;
+		break;
+	default:
+		end;
+	}
+
+	if (countitem(.@box_id) < 1)
+		end;
+
+	mes "["+.@title$+"]";
+	mes "Select one item. The selected item lasts 7 days.";
+	next;
+
+	.@size = getarraysize(.@items);
+	.@menu$ = "";
+	for (.@i = 0; .@i < .@size; ++.@i)
+		.@menu$ += getitemname(.@items[.@i])+":";
+
+	.@choice = select(.@menu$+"Cancel")-1;
+	if (.@choice >= .@size) {
+		mes "["+.@title$+"]";
+		mes "Selection cancelled. The box was not consumed.";
+		close;
+	}
+
+	.@item_id = .@items[.@choice];
+	if (!checkweight(.@item_id,1)) {
+		mes "["+.@title$+"]";
+		mes "Your inventory cannot hold the selected item.";
+		close;
+	}
+
+	delitem .@box_id,1;
+	rentitem2 .@item_id,604800,1,.@refine,0,0,0,0,0;
+	mes "["+.@title$+"]";
+	mes "You received ^00AA00"+getitemname(.@item_id)+"^000000 for 7 days.";
+	close;
+}
+
 function	script	F_RookieWeaponBox	{
 	mes "[Rookie Box]";
 	mes "เลือกของ Rookie ได้ 1 ชิ้น";
@@ -51,12 +112,24 @@ function	script	F_RookieWeaponBox	{
 	close;
 }
 
+function	script	F_RareWeaponBox	{
+	callfunc "F_RareRentalBox",1500193;
+}
+
+function	script	F_RareArmorBox	{
+	callfunc "F_RareRentalBox",1030111;
+}
+
+function	script	F_RareAccessoryBox	{
+	callfunc "F_RareRentalBox",1030114;
+}
+
 morocc,142,139,4	script	Craft All in One	120,{
 	mes "[Craft All in One]";
 	mes "เลือกหมวด Barter Shop ที่ต้องการ";
 	next;
 
-	switch(select("คราฟเหรียญ:คราฟ Costume Boss:คราฟของทั่วไป:คราฟของ Hotweek:คราฟ Costume Shadow:คราฟ Collection Abyss Lakes:ยกเลิก")) {
+	switch(select("คราฟเหรียญ:คราฟ Costume Boss:คราฟของทั่วไป:คราฟของ Hotweek:คราฟ Costume Shadow:คราฟ Collection Abyss Lakes:คราฟ Collection Einbech Mine 3F:ยกเลิก")) {
 	case 1:
 		close2;
 		callshop "CRAFT_ALL_IN_ONE_COIN",1;
@@ -92,6 +165,10 @@ morocc,142,139,4	script	Craft All in One	120,{
 	case 6:
 		close2;
 		callshop "CRAFT_ABYSS_COLLECTION",1;
+		end;
+	case 7:
+		close2;
+		callshop "CRAFT_EINBECH_COLLECTION",1;
 		end;
 	default:
 		close;

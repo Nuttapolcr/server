@@ -291,7 +291,7 @@ F32: Restrict("Pre-RE",5);
 	Dungeons:
 // --------------------------------------------------
 @d = true;
-menu	"Abyss Lakes",D2, "Amatsu Dungeon",D3,
+menu	"Einbech Mine3F",D1, "Abyss Lakes",D2, "Amatsu Dungeon",D3,
 		"Anthell",D4, "Ayothaya Dungeon",D5, "Beach Dungeon",D6,
 		"Bio Labs",D8, "Byalan Dungeon",D10, "Clock Tower",D11,
 		"Coal Mines",D12, "Culvert",D13, "Cursed Abbey",D14,
@@ -304,6 +304,8 @@ menu	"Abyss Lakes",D2, "Amatsu Dungeon",D3,
 		"Sphinx",D45, "Sunken Ship",D46, "Thanatos Tower",D47,
 		"Thor Volcano",D48, "Toy Factory",D49, "Turtle Dungeon",D50, "Umbala Dungeon",D51;
 
+D1:
+	Go("ein_dun03",268,279);
 D2:
 	setarray @c[2],261,272,275,270,116,27,169,159;
 	Disp("Abyss Lakes",1,4); Pick("abyss_");
@@ -820,6 +822,7 @@ OnNaviGenerate:
 		}
 	}
 
+	naviregisterwarp("Warper > Einbech Mine3F", "ein_dun03", 268, 279);
 	naviregisterwarp("Warper > Abyss Lakes 1", "abyss_01", 261, 272);
 	if (!.OnlyFirstDun) {
 		naviregisterwarp("Warper > Abyss Lakes 2", "abyss_02", 275, 270);

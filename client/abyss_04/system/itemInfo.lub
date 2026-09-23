@@ -74015,8 +74015,7 @@ tbl = {
 			"ใช้สำหรับ : ^777777Upper^000000",
 			"น้ำหนัก : ^7777770^000000",
 			"Lv ที่ต้องการ : ^77777712^000000",
-			"อาชีพที่ใช้ได้ : ^777777ทุกอาชีพ^000000",
-			"^FF0000ไม่มีผลใน PvP & GvG^000000"
+			"อาชีพที่ใช้ได้ : ^777777ทุกอาชีพ^000000"
 		},
 		slotCount = 0,
 		ClassNum = 314,
@@ -127601,7 +127600,7 @@ tbl = {
 		identifiedResourceName = "ภฬผำม๕ฐกฦ๗ผว",
 		identifiedDescriptionName = {
 			"Potion ที่เพิ่มความเร็วในการเคลื่อนที่ชั่วขณะ",
-			"^FF0000BAN PVP,GVG^000000",
+			"^FF0000ใช้ได้เฉพาะแมพDeathmatch และ GVG^000000",
 			"น้ำหนัก : ^77777710^000000"
 		},
 		slotCount = 0,
@@ -268350,7 +268349,7 @@ tbl = {
 		identifiedDisplayName = "White Porcellio Card",
 		identifiedResourceName = "ภฬธงพ๘ดยฤซตๅ",
 		identifiedDescriptionName = {
-			"ATK +20, เมื่อใช้กับ Porcellio Card, ATK +10",
+			"HP +10%,  ATK +20, เมื่อใช้กับ Porcellio Card, ATK +10",
 			"ทุก ๆ การอัพเกรด Shoes 1 ขั้น ATK +1",
 			"ประเภท : ^777777Card^000000",
 			"ใช้กับ : ^777777Shoes^000000",
@@ -268373,8 +268372,7 @@ tbl = {
 		identifiedDisplayName = "Neo Mineral Card",
 		identifiedResourceName = "ภฬธงพ๘ดยฤซตๅ",
 		identifiedDescriptionName = {
-			"DEF +30, เมื่อใช้ร่วมกับ Mineral Card, DEF +20",
-			"ทุก ๆ การอัพเกรด Garment 1 ขั้น DEF +3",
+			"-ปิดใช้งาน-",
 			"ประเภท : ^777777Card^000000",
 			"ใช้กับ : ^777777Garment^000000",
 			"น้ำหนัก : ^7777771^000000"
@@ -268396,8 +268394,8 @@ tbl = {
 		identifiedDisplayName = "Abyssman Card",
 		identifiedResourceName = "ภฬธงพ๘ดยฤซตๅ",
 		identifiedDescriptionName = {
-			"HP +10%, เพิ่ม Damage สกิล Earth Grave 10%",
-			"เมื่อใช้ร่วมกับ Pitman Card เพิ่ม Damage สกิล Earth Grave ขึ้นอีก 10%, ทุก ๆ การอัพเกรด Shoes 1 ขั้น Damage สกิล Earth Grave ขึ้นอีก 1%",
+			"HP +10%,  MATK +20",
+			"เมื่อใช้ร่วมกับ Pitman Card เพิ่ม MATK +10, ทุก ๆ การอัพเกรด Shoes 1 ขั้น MATK +1",
 			"ประเภท : ^777777Card^000000",
 			"ใช้กับ : ^777777Shoes^000000",
 			"น้ำหนัก : ^7777771^000000"
@@ -268419,8 +268417,7 @@ tbl = {
 		identifiedDisplayName = "Jeweliant Card",
 		identifiedResourceName = "ภฬธงพ๘ดยฤซตๅ",
 		identifiedDescriptionName = {
-			"เมื่อโจมตีทางกายภาพ มีโอกาสใช้สกิล Psychic Wave Lv. 1 โดยอัตโนมัติ",
-			"เมื่อใช้ร่วมกับ Ungoliant Card เพิ่ม Damage ทางเวทมนตร์ธาตุ Neutral 30%",
+			"-ปิดใช้งาน-",
 			"ประเภท : ^777777Card^000000",
 			"ใช้กับ : ^777777Accessory (Left)^000000",
 			"น้ำหนัก : ^7777771^000000"
@@ -286570,6 +286567,22 @@ tbl = {
 		identifiedDisplayName = "[Legend] MedJay Egg",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"สามารถฟักไข่ได้โดย  ^33CC33Pet Incubator^000000",
+			"^33CC33เมื่อสัตว์เลี้ยงสนิทสนม^000000",
+			"เมื่อโจมตีกายภาพ มีโอกาส10% ได้รับโจมตีกายภาพบอสแรงขึ้น100% Perfect Dodge+50 เป็นเวลา10วินาที",
+			"เปิดกล่องบอสเร็วขึ้น30%",
+			"HP+1000",
+			"SP+100",
+			"Move Speed +30%",
+			"กันPlayer 15%",
+			"--------------------------------",
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"เมื่อโจมตีกายภาพ มีโอกาส10%ได้รับโจมตีกายภาพบอสแรงขึ้น100% Perfect Dodge+50 เป็นเวลา10วินาที",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP +20%",
 			"--------------------------------",
 			"^af00fe[ Legend Egg ]^000000 MedJay",
 			"--------------------------------",
@@ -286591,6 +286604,22 @@ tbl = {
 		identifiedDisplayName = "[Legend] MedJee Egg",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"สามารถฟักไข่ได้โดย  ^33CC33Pet Incubator^000000",
+			"^33CC33เมื่อสัตว์เลี้ยงสนิทสนม^000000",
+			"เมื่อโจมตีเวทย์ มีโอกาส10%ได้รับโจมตีเวทย์บอสแรงขึ้น100% Perfect Dodge+50 เป็นเวลา10วินาที",
+			"เปิดกล่องบอสเร็วขึ้น30%",
+			"HP+1000",
+			"SP+100",
+			"Move Speed +30%",
+			"กันPlayer 15%",
+			"--------------------------------",
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"เมื่อโจมตีเวทย์ มีโอกาส10%ได้รับโจมตีเวทย์บอสแรงขึ้น100% Perfect Dodge+50 เป็นเวลา10วินาที",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP +20%",
 			"--------------------------------",
 			"^af00fe[ Legend Egg ]^000000 MedJee",
 			"--------------------------------",
@@ -286612,6 +286641,23 @@ tbl = {
 		identifiedDisplayName = "[Legend] MedJed Egg",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"สามารถฟักไข่ได้โดย  ^33CC33Pet Incubator^000000",
+			"^33CC33เมื่อสัตว์เลี้ยงสนิทสนม^000000",
+			"CRITICAL RATE +100",
+			"Critical Damage+ 30%",
+			"HP+1000",
+			"SP+100",
+			"Move Speed +30%",
+			"กันPlayer 15%",
+			"--------------------------------",
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"CRITICAL RATE +50",
+			"Critical Damage+ 20%",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP+20%",
 			"--------------------------------",
 			"^af00fe[ Legend Egg ]^000000 MedJed",
 			"--------------------------------",
@@ -286633,6 +286679,27 @@ tbl = {
 		identifiedDisplayName = "[Legend] Spirit Flame Egg",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"สามารถฟักไข่ได้โดย  ^33CC33Pet Incubator^000000",
+			"^33CC33เมื่อสัตว์เลี้ยงสนิทสนม^000000",
+			"ATK+150",
+			"โจมตีระยะประชิด+20%",
+			"โจมตีระยะไกล+20%",
+			"^00AA00Acid Demonstration^000000+50%",
+			"HP+1000",
+			"SP+100",
+			"Move Speed +30% ",
+			"กันPlayer 15%",
+			"--------------------------------",
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"ATK+100",
+			"โจมตีระยะประชิด+10%",
+			"โจมตีระยะไกล+10%",
+			"^00AA00Acid Demonstration^000000+30%",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP+20%",
 			"--------------------------------",
 			"^af00fe[ Legend Egg ]^000000 Spirit Flame",
 			"--------------------------------",
@@ -286654,6 +286721,27 @@ tbl = {
 		identifiedDisplayName = "[Legend] Spirit Water Egg",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"สามารถฟักไข่ได้โดย  ^33CC33Pet Incubator^000000",
+			"^33CC33เมื่อสัตว์เลี้ยงสนิทสนม^000000",
+			"MATK+300",
+			"MATK+20%",
+			"ลดร่าย30%",
+			"ลดดีเลย์ 30%",
+			"HP+1000",
+			"SP+100",
+			"Move Speed +30%",
+			"กันPlayer 15%",
+			"--------------------------------",
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"MATK+150 ",
+			"MATK+10%",
+			"ลดร่าย20%",
+			"ลดดีเลย์ 20%",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP+20%",
 			"--------------------------------",
 			"^af00fe[ Legend Egg ]^000000 Spirit Water",
 			"--------------------------------",
@@ -286675,6 +286763,19 @@ tbl = {
 		identifiedDisplayName = "[Legend] Spirit Wind Egg",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"สามารถฟักไข่ได้โดย  ^33CC33Pet Incubator^000000",
+			"^33CC33เมื่อสัตว์เลี้ยงสนิทสนม^000000",
+			"HP+50% , Def-30% , MDef-30% , HP+1000 , Move Speed +30% , กันPlayer 15%",
+			"--------------------------------",
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"HP+30%",
+			"Def+10",
+			"Mdef+5",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP+20%",
 			"--------------------------------",
 			"^af00fe[ Legend Egg ]^000000 Spirit Wind",
 			"--------------------------------",
@@ -291699,6 +291800,13 @@ tbl = {
 		identifiedDisplayName = "[ Collection ] MedJay",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"เมื่อโจมตีกายภาพ มีโอกาส10%ได้รับโจมตีกายภาพบอสแรงขึ้น100% Perfect Dodge+50 เป็นเวลา10วินาที",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP +20%",
 			"----------------------------",
 			"ชนิด : ^777777Etc^000000",
 			"น้ำหนัก : ^7777770.1^000000"
@@ -291718,6 +291826,13 @@ tbl = {
 		identifiedDisplayName = "[ Collection ] MedJee",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"เมื่อโจมตีเวทย์ มีโอกาส10%ได้รับโจมตีเวทย์บอสแรงขึ้น100% Perfect Dodge+50 เป็นเวลา10วินาที",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP +20%",
 			"----------------------------",
 			"ชนิด : ^777777Etc^000000",
 			"น้ำหนัก : ^7777770.1^000000"
@@ -291737,6 +291852,14 @@ tbl = {
 		identifiedDisplayName = "[ Collection ] MedJed",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"CRITICAL RATE +50",
+			"Critical Damage+ 20%",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP+20%",
 			"----------------------------",
 			"ชนิด : ^777777Etc^000000",
 			"น้ำหนัก : ^7777770.1^000000"
@@ -291756,6 +291879,16 @@ tbl = {
 		identifiedDisplayName = "[ Collection ] Spirit Flame",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"ATK+100",
+			"โจมตีระยะประชิด+10%",
+			"โจมตีระยะไกล+10%",
+			"^00AA00Acid Demonstration^000000+30%",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP+20%",
 			"----------------------------",
 			"ชนิด : ^777777Etc^000000",
 			"น้ำหนัก : ^7777770.1^000000"
@@ -291775,6 +291908,16 @@ tbl = {
 		identifiedDisplayName = "[ Collection ] Spirit Water",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"MATK+150 ",
+			"MATK+10%",
+			"ลดร่าย20%",
+			"ลดดีเลย์ 20%",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP+20%",
 			"----------------------------",
 			"ชนิด : ^777777Etc^000000",
 			"น้ำหนัก : ^7777770.1^000000"
@@ -291794,6 +291937,15 @@ tbl = {
 		identifiedDisplayName = "[ Collection ] Spirit Wind",
 		identifiedResourceName = "Kiel_Egg",
 		identifiedDescriptionName = {
+			"ฝากครบ ^ff0000[2]^000000 ชิ้น ",
+			"^0000ffได้รับสเตตัสดังนี้ :^000000",
+			"HP+30%",
+			"Def+10",
+			"Mdef+5",
+			"HP+1000",
+			"SP+100",
+			"Weight +500",
+			"DROP+20%",
 			"----------------------------",
 			"ชนิด : ^777777Etc^000000",
 			"น้ำหนัก : ^7777770.1^000000"
@@ -295168,7 +295320,7 @@ tbl = {
 		costume = false
 	},
 	[29048] = {
-		unidentifiedDisplayName = "Expert Archer",
+		unidentifiedDisplayName = "Range Stone (Middle)",
 		unidentifiedResourceName = "ฟตศฅภวมถฐข",
 		unidentifiedDescriptionName = {
 			"หินที่เพิ่มความเสียหายทางกายภาพระยะไกล",
@@ -295177,7 +295329,7 @@ tbl = {
 			"_______________________",
 			"^0000CCน้ำหนัก:^000000 10"
 		},
-		identifiedDisplayName = "Expert Archer",
+		identifiedDisplayName = "Range Stone (Middle)",
 		identifiedResourceName = "ฟตศฅภวมถฐข",
 		identifiedDescriptionName = {
 			"หินที่เพิ่มความเสียหายทางกายภาพระยะไกล",
@@ -300824,12 +300976,16 @@ tbl = {
 	}
 ,
 	[1030111] = {
-		unidentifiedDisplayName = "New Item 1030111",
-		unidentifiedResourceName = "21th_present_box2",
+		unidentifiedDisplayName = "Rare Armor Selection Box",
+		unidentifiedResourceName = "ภฝฝฤบธภฺฑโ2",
 		unidentifiedDescriptionName = {},
-		identifiedDisplayName = "New Item 1030111",
-		identifiedResourceName = "21th_present_box2",
-		identifiedDescriptionName = {},
+		identifiedDisplayName = "Rare Armor Selection Box",
+		identifiedResourceName = "ภฝฝฤบธภฺฑโ2",
+		identifiedDescriptionName = {
+			"เมื่อเปิดออกเลือกรับ Rare Armor 1 ชิ้น",
+			"^FF0000ไม่สามารถแลกเปลี่ยน หรือ ฝากคลังได้^000000",
+			"น้ำหนัก : ^7777770^000000"
+		},
 		slotCount = 0,
 		ClassNum = 0,
 		costume = false
@@ -304505,6 +304661,929 @@ tbl = {
 		ClassNum = 0,
 		costume = false
 	}
+,
+	[25763] = {
+		unidentifiedDisplayName = "Purple Dragon Orb",
+		unidentifiedResourceName = "dragenergy_purple",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Purple Dragon Orb",
+		identifiedResourceName = "Dragenergy_Purple",
+		identifiedDescriptionName = {
+			"กก้อนผลึกปริศนาที่เกิดจากการรวมตัวกันของพลังมังกรม่วง",
+			"-",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[25759] = {
+		unidentifiedDisplayName = "Green Dragon Orb",
+		unidentifiedResourceName = "dragenergy_green",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Green Dragon Orb",
+		identifiedResourceName = "Dragenergy_Green",
+		identifiedDescriptionName = {
+			"ก้อนผลึกปริศนาที่เกิดจากการรวมตัวกันของพลังมังกรเขียว",
+			"-",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25760] = {
+		unidentifiedDisplayName = "Blue Dragon Orb",
+		unidentifiedResourceName = "dragenergy_blue",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Blue Dragon Orb",
+		identifiedResourceName = "Dragenergy_Blue",
+		identifiedDescriptionName = {
+			"ก้อนผลึกปริศนาที่เกิดจากการรวมตัวกันของพลังมังกรฟ้า",
+			"-",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25761] = {
+		unidentifiedDisplayName = "Red Dragon Orb",
+		unidentifiedResourceName = "dragenergy_red",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Red Dragon Orb",
+		identifiedResourceName = "Dragenergy_Red",
+		identifiedDescriptionName = {
+			"ก้อนผลึกปริศนาที่เกิดจากการรวมตัวกันของพลังมังกรแดง",
+			"-",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25762] = {
+		unidentifiedDisplayName = "Gold Dragon Orb",
+		unidentifiedResourceName = "dragenergy_gold",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Gold Dragon Orb",
+		identifiedResourceName = "Dragenergy_Gold",
+		identifiedDescriptionName = {
+			"ก้อนผลึกปริศนาที่เกิดจากการรวมตัวกันของพลังมังกรทอง",
+			"-",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25764] = {
+		unidentifiedDisplayName = "Silver Dragon Orb",
+		unidentifiedResourceName = "dragenergy_silver",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Silver Dragon Orb",
+		identifiedResourceName = "Dragenergy_Silver",
+		identifiedDescriptionName = {
+			"กก้อนผลึกปริศนาที่เกิดจากการรวมตัวกันของพลังมังกรขาว",
+			"-",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25765] = {
+		unidentifiedDisplayName = "Large Dragon Bone",
+		unidentifiedResourceName = "drabone_l",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Large Dragon Bone",
+		identifiedResourceName = "Drabone_L",
+		identifiedDescriptionName = {
+			"กระดูกที่ยังสมบูรณ์ของมังกรยักษ์",
+			"แม้จะเก่าแก่ แต่ก็ยังสัมผัสได้ถึงพลังอันมหาศาลของมังกร",
+			"-",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25766] = {
+		unidentifiedDisplayName = "Small Dragon Bone",
+		unidentifiedResourceName = "drabone_s",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Small Dragon Bone",
+		identifiedResourceName = "Drabone_S",
+		identifiedDescriptionName = {
+			"กระดูกที่ยังสมบูรณ์ของมังกรตัวเล็ก",
+			"แม้จะเก่าแก่ แต่ก็ยังสัมผัสได้ถึงพลังแห่งมังกร",
+			"-",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500173] = {
+		unidentifiedDisplayName = "Collection HP Absorb",
+		unidentifiedResourceName = "4th_q_necklace",
+		unidentifiedDescriptionName = {
+			"มีโอกาส",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลแค่ชิ้นเดียว^000000",
+			"^FF0000(NO GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		identifiedDisplayName = "Collection HP Absorb",
+		identifiedResourceName = "4th_q_necklace",
+		identifiedDescriptionName = {
+			"เมื่อโจมตีกายภาพและเวทย์ มีโอกาส 10% ที่จะดูดซับ 10% ของความเสียหายที่เกิดขึ้นเปลี่ยนเป็น HP",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 3 ชิ้น ^000000",
+			"^FF0000(NO GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500174] = {
+		unidentifiedDisplayName = "Collection VIT Abyss Lakes",
+		unidentifiedResourceName = "dragenergy_green",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection VIT Abyss Lakes",
+		identifiedResourceName = "dragenergy_green",
+		identifiedDescriptionName = {
+			"DEX +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500175] = {
+		unidentifiedDisplayName = "Collection INT Abyss Lakes",
+		unidentifiedResourceName = "dragenergy_blue",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection INT Abyss Lakes",
+		identifiedResourceName = "dragenergy_blue",
+		identifiedDescriptionName = {
+			"INT +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500176] = {
+		unidentifiedDisplayName = "Collection STR Abyss Lakes",
+		unidentifiedResourceName = "dragenergy_red",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection STR Abyss Lakes",
+		identifiedResourceName = "dragenergy_red",
+		identifiedDescriptionName = {
+			"STR +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500177] = {
+		unidentifiedDisplayName = "Collection AGI Abyss Lakes",
+		unidentifiedResourceName = "dragenergy_gold",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection AGI Abyss Lakes",
+		identifiedResourceName = "dragenergy_gold",
+		identifiedDescriptionName = {
+			"AGI +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500178] = {
+		unidentifiedDisplayName = "Collection LUK Abyss Lakes",
+		unidentifiedResourceName = "dragenergy_purple",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection LUK Abyss Lakes",
+		identifiedResourceName = "dragenergy_purple",
+		identifiedDescriptionName = {
+			"LUK +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500179] = {
+		unidentifiedDisplayName = "Collection VIT Abyss Lakes",
+		unidentifiedResourceName = "dragenergy_silver",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection VIT Abyss Lakes",
+		identifiedResourceName = "dragenergy_silver",
+		identifiedDescriptionName = {
+			"VIT +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500181] = {
+		unidentifiedDisplayName = "Golden Apple Slice V.2",
+		unidentifiedResourceName = "rgศฒฑÝป็ฐ๚มถฐข",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Golden Apple Slice V.2",
+		identifiedResourceName = "rgศฒฑÝป็ฐ๚มถฐข",
+		identifiedDescriptionName = {
+			"แอปเปิ้ลอัลตร้าสมูท ครึ่งใบ",
+			"ใช้สำหรับสุ่มไอเทม สามาถรสุ่มITEM ใน ตู้ Golden Apple Slice V.2",
+			"น้ำหนัก : ^7777770^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500182] = {
+		unidentifiedDisplayName = "Golden Apple V.2",
+		unidentifiedResourceName = "rgศฒฑÝป็ฐ๚",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Golden Apple V.2",
+		identifiedResourceName = "rgศฒฑÝป็ฐ๚",
+		identifiedDescriptionName = {
+			"แอปเปิ้ลอัลตร้าสมูท",
+			"ใช้สำหรับสุ่มของ สามาถรสุ่มITEM ใน ตู้ Golden Apple V.2",
+			"น้ำหนัก : ^7777770^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500183] = {
+		unidentifiedDisplayName = "Black Feather",
+		unidentifiedResourceName = "black_feather",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Black Feather",
+		identifiedResourceName = "black_feather",
+		identifiedDescriptionName = {
+			"เจาะ DEF+5%",
+			"-",
+			"Critical Damage แรงขึ้น 3%",
+			"-",
+			"เมื่อ+7ขึ้นไป :",
+			"Critical Damage แรงขึ้น 7%",
+			"-",
+			"เมื่อ+12ขึ้นไป :",
+			"Critical Damage แรงขึ้น 10%",
+			"-",
+			"ประเภท : ^777777Headgear^000000",
+			"พลังป้องกัน : ^7777776^000000",
+			"ใช้สำหรับ : ^777777Upper^000000",
+			"น้ำหนัก : ^77777710^000000",
+			"Lv ที่ต้องการ : ^77777715^000000",
+			"อาชีพที่ใช้ได้ : ^777777ทุกอาชีพ^000000"
+		},
+		slotCount = 1,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500184] = {
+		unidentifiedDisplayName = "Plain Black Magician Hat",
+		unidentifiedResourceName = "ฦ๒นüวับํทขธลม๖ผววÞ",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Plain Black Magician Hat",
+		identifiedResourceName = "ฦ๒นüวับํทขธลม๖ผววÞ",
+		identifiedDescriptionName = {
+			"เจาะ MDEF+5%",
+			"-",
+			"ลดดีเลย์สกิล 2%",
+			"-",
+			"เมื่อ+7ขึ้นไป :",
+			"ลดดีเลย์สกิล 3%",
+			"-",
+			"เมื่อ+12ขึ้นไป :",
+			"ลดดีเลย์สกิล 5%",
+			"-",
+			"ประเภท : ^777777Headgear^000000",
+			"พลังป้องกัน : ^7777776^000000",
+			"ใช้สำหรับ : ^777777Upper^000000",
+			"น้ำหนัก : ^77777710^000000",
+			"Lv ที่ต้องการ : ^77777715^000000",
+			"อาชีพที่ใช้ได้ : ^777777ทุกอาชีพ^000000"
+		},
+		slotCount = 1,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500185] = {
+		unidentifiedDisplayName = "12th Anniversary Fairy Ears",
+		unidentifiedResourceName = "ลธทนฟไมคภวฑอ",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "12th Anniversary Fairy Ears",
+		identifiedResourceName = "ลธทนฟไมคภวฑอ",
+		identifiedDescriptionName = {
+			"ลดความเสียหายจากประเภทกึ่งมนุษย์ 5%",
+			"HP 5%",
+			"-",
+			"ประเภท : ^777777Headgear^000000",
+			"พลังป้องกัน : ^7777770^000000",
+			"ใช้สำหรับ : ^777777ส่วนหู^000000",
+			"น้ำหนัก : ^7777771^000000",
+			"อาชีพที่ใช้ได้ : ^777777ทุกอาชีพ^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[9517] = {
+		unidentifiedDisplayName = "Bluedium",
+		unidentifiedResourceName = "ein_undium",
+		unidentifiedDescriptionName = {
+			"แร่สีฟ้าที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		identifiedDisplayName = "Bluedium",
+		identifiedResourceName = "Ein_UNDIUM",
+		identifiedDescriptionName = {
+			"แร่สีฟ้าที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25809] = {
+		unidentifiedDisplayName = "Redium",
+		unidentifiedResourceName = "ein_redium",
+		unidentifiedDescriptionName = {
+			"แร่สีแดงที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		identifiedDisplayName = "Redium",
+		identifiedResourceName = "Ein_REDIUM",
+		identifiedDescriptionName = {
+			"แร่สีแดงที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25810] = {
+		unidentifiedDisplayName = "Rindium",
+		unidentifiedResourceName = "ein_rindium",
+		unidentifiedDescriptionName = {
+			"แร่สีเขียวที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		identifiedDisplayName = "Rindium",
+		identifiedResourceName = "Ein_RINDIUM",
+		identifiedDescriptionName = {
+			"แร่สีเขียวที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25811] = {
+		unidentifiedDisplayName = "Odium",
+		unidentifiedResourceName = "ein_odium",
+		unidentifiedDescriptionName = {
+			"แร่สีส้มที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		identifiedDisplayName = "Odium",
+		identifiedResourceName = "Ein_ODIUM",
+		identifiedDescriptionName = {
+			"แร่สีส้มที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25812] = {
+		unidentifiedDisplayName = "Purdium",
+		unidentifiedResourceName = "ein_purdium",
+		unidentifiedDescriptionName = {
+			"แร่สีม่วงที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		identifiedDisplayName = "Purdium",
+		identifiedResourceName = "Ein_PURDIUM",
+		identifiedDescriptionName = {
+			"แร่สีม่วงที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25813] = {
+		unidentifiedDisplayName = "Whidium",
+		unidentifiedResourceName = "ein_whidium",
+		unidentifiedDescriptionName = {
+			"แร่สีขาวที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		identifiedDisplayName = "Whidium",
+		identifiedResourceName = "Ein_WHIDIUM",
+		identifiedDescriptionName = {
+			"แร่สีขาวที่ถูกค้นพบในส่วนลึกของใต้ดิน มันแฝงไว้ด้วยพลังอันลึกลับ",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500186] = {
+		unidentifiedDisplayName = "Collection INT Bluedium",
+		unidentifiedResourceName = "ein_undium",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection INT Bluedium",
+		identifiedResourceName = "ein_undium",
+		identifiedDescriptionName = {
+			"INT +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500187] = {
+		unidentifiedDisplayName = "Collection STR Redium",
+		unidentifiedResourceName = "ein_redium",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection STR Redium",
+		identifiedResourceName = "ein_redium",
+		identifiedDescriptionName = {
+			"STR +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500188] = {
+		unidentifiedDisplayName = "Collection DEX Rindium",
+		unidentifiedResourceName = "ein_rindium",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection DEX Rindium",
+		identifiedResourceName = "ein_rindium",
+		identifiedDescriptionName = {
+			"DEX +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500189] = {
+		unidentifiedDisplayName = "Collection AGI Odium",
+		unidentifiedResourceName = "ein_odium",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection AGI Odium",
+		identifiedResourceName = "ein_odium",
+		identifiedDescriptionName = {
+			"AGI +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500190] = {
+		unidentifiedDisplayName = "Collection LUK Purdium",
+		unidentifiedResourceName = "ein_purdium",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection LUK Purdium",
+		identifiedResourceName = "ein_purdium",
+		identifiedDescriptionName = {
+			"LUK +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500191] = {
+		unidentifiedDisplayName = "Collection VIT Whidium",
+		unidentifiedResourceName = "ein_whidium",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection VIT Whidium",
+		identifiedResourceName = "ein_whidium",
+		identifiedDescriptionName = {
+			"VIT +1",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 2 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[25817] = {
+		unidentifiedDisplayName = "Bizarre Stone Carvings",
+		unidentifiedResourceName = "ein_eyerock",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Bizarre Stone Carvings",
+		identifiedResourceName = "Ein_EYEROCK",
+		identifiedDescriptionName = {
+			"เศษหินที่หลุดออกมาจากแร่",
+			"มีชื่อเสียงในหมู่นักสะสมหินเนื่องจากรูปทรงแปลกตา",
+			"สามารถขายให้กับพ่อค้าของสะสมได้",
+			"น้ำหนัก : ^7777775^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[25815] = {
+		unidentifiedDisplayName = "Hardened Dust",
+		unidentifiedResourceName = "ตน",
+		unidentifiedDescriptionName = {
+			"ฝุ่นละอองหลากหลายชนิดรวมตัวและจับตัวกันเป็นก้อน",
+			"สามารถนำไปขายให้กับพ่อค้ารับซื้อของสะสมได้",
+			"น้ำหนัก : ^7777770^000000"
+		},
+		identifiedDisplayName = "Hardened Dust",
+		identifiedResourceName = "ตน",
+		identifiedDescriptionName = {
+			"ฝุ่นละอองหลากหลายชนิดรวมตัวและจับตัวกันเป็นก้อน",
+			"สามารถนำไปขายให้กับพ่อค้ารับซื้อของสะสมได้",
+			"น้ำหนัก : ^7777770^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25816] = {
+		unidentifiedDisplayName = "Broken Trap",
+		unidentifiedResourceName = "ein_rusthelm",
+		unidentifiedDescriptionName = {
+			"กับดักที่ติดตั้งได้ซึ่งเหล่าคนงานเหมืองพกติดตัวไว้",
+			"ดูเหมือนว่าพวกเขาจะเลิกใช้งานมันไปแล้วด้วยเหตุผลบางอย่าง",
+			"สามารถนำไปขายให้กับพ่อค้ารับซื้อของสะสมได้",
+			"น้ำหนัก : ^7777775^000000"
+		},
+		identifiedDisplayName = "Broken Trap",
+		identifiedResourceName = "Ein_RUSTHELM",
+		identifiedDescriptionName = {
+			"กับดักที่ติดตั้งได้ซึ่งเหล่าคนงานเหมืองพกติดตัวไว้",
+			"ดูเหมือนว่าพวกเขาจะเลิกใช้งานมันไปแล้วด้วยเหตุผลบางอย่าง",
+			"สามารถนำไปขายให้กับพ่อค้ารับซื้อของสะสมได้",
+			"น้ำหนัก : ^7777775^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[25814] = {
+		unidentifiedDisplayName = "Dynite",
+		unidentifiedResourceName = "Ein_DYNITE",
+		unidentifiedDescriptionName = {
+			"แร่ที่เกิดจากการหลอมรวมแร่ลึกลับที่ผ่านการขัดเกลาแล้ว 5 ชิ้นเข้าด้วยกัน",
+			"มันเปล่งประกายด้วยสีสันอันงดงามทั้ง 5 เฉดสี",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		identifiedDisplayName = "Dynite",
+		identifiedResourceName = "Ein_DYNITE",
+		identifiedDescriptionName = {
+			"แร่ที่เกิดจากการหลอมรวมแร่ลึกลับที่ผ่านการขัดเกลาแล้ว 5 ชิ้นเข้าด้วยกัน",
+			"มันเปล่งประกายด้วยสีสันอันงดงามทั้ง 5 เฉดสี",
+			"น้ำหนัก : ^7777771^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500192] = {
+		unidentifiedDisplayName = "Coin Valor V.5",
+		unidentifiedResourceName = "22nd_Souvenir_Medal2",
+		unidentifiedDescriptionName = {
+			"ใช้สำหรับแลกของที่ NPC แลกของการันตี",
+			"-",
+			"น้ำหนัก : ^7777770^000000"
+		},
+		identifiedDisplayName = "Coin Valor V.5",
+		identifiedResourceName = "22nd_Souvenir_Medal2",
+		identifiedDescriptionName = {
+			"ใช้สำหรับแลกของที่ NPC แลกของการันตี",
+			"-",
+			"น้ำหนัก : ^7777770^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500193] = {
+		unidentifiedDisplayName = "Rare Weapon Selection Box",
+		unidentifiedResourceName = "ภฝฝฤบธภฺฑโ2",
+		unidentifiedDescriptionName = {
+			"กล่องสำหรับเลือกรับของ Rookie ได้ 1 ชิ้น",
+			"^FF0000ไม่สามารถแลกเปลี่ยนได้^000000",
+			"น้ำหนัก : ^7777770^000000",
+			""
+		},
+		identifiedDisplayName = "Rare Weapon Selection Box",
+		identifiedResourceName = "ภฝฝฤบธภฺฑโ2",
+		identifiedDescriptionName = {
+			"กล่องสำหรับเลือกรับ Rare Weapon ได้ 1 ชิ้น",
+			"^FF0000ไม่สามารถแลกเปลี่ยนได้^000000",
+			"น้ำหนัก : ^7777770^000000",
+			""
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500197] = {
+		unidentifiedDisplayName = "Collection Max HP%",
+		unidentifiedResourceName = "heros_red_h_powder",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection Max HP%",
+		identifiedResourceName = "heros_red_h_powder",
+		identifiedDescriptionName = {
+			"Max HP +1%",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 10 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500198] = {
+		unidentifiedDisplayName = "Collection Max SP%",
+		unidentifiedResourceName = "heros_blue_h_powder",
+		unidentifiedDescriptionName = {},
+		identifiedDisplayName = "Collection Max SP%",
+		identifiedResourceName = "heros_blue_h_powder",
+		identifiedDescriptionName = {
+			"Max SP +1%",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 10 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500199] = {
+		unidentifiedDisplayName = "Collection Flee",
+		unidentifiedResourceName = "heros_white_h_powder",
+		unidentifiedDescriptionName = {
+			"Flee +10",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 5 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		identifiedDisplayName = "Collection Flee",
+		identifiedResourceName = "heros_white_h_powder",
+		identifiedDescriptionName = {
+			"Flee +10",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 5 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	},
+	[1500200] = {
+		unidentifiedDisplayName = "Collection HIT",
+		unidentifiedResourceName = "heros_yellow_h_powder",
+		unidentifiedDescriptionName = {
+			"HIT +10",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 5 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		identifiedDisplayName = "Collection HIT",
+		identifiedResourceName = "heros_yellow_h_powder",
+		identifiedDescriptionName = {
+			"HIT +10",
+			"^00CC66สามารถใช้ร่วมกับ Collection ชนิดอื่นได้^000000",
+			"^000000^FF0000Collection ชิ้นเดียวกัน แสดงผลได้สูงสุด 5 ชิ้น ^000000",
+			"^00AA00(GVG)^000000",
+			"-",
+			"น้ำหนัก : ^7777770^000000",
+			"วิธีการใช้งาน :  ^777777ฝาก Collection^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
+,
+	[1500201] = {
+		unidentifiedDisplayName = "Pecopeco Hairband",
+		unidentifiedResourceName = "ฦไฤฺฦไฤฺธำธฎถ์",
+		unidentifiedDescriptionName = {
+			"รูปร่างเหมือนปีกของ Pecopeco ช่วยให้วิ่ง เร็วเหมือน Pecopeo",
+			"เพิ่มความเร็วในการ ",
+			"เคลื่อนที เพิ่ม ASPD 5% Delay หลังการโจมตีลดลง 5% ลดระยะเวลา ร่ายเวทย์ 5%",
+			"^FF0000ไม่สามารถอัพเกรดได้^000000",
+			"ประเภท : ^777777Headgear^000000",
+			"พลังป้องกัน : ^7777773^000000",
+			"ใช้สำหรับ : ^777777Upper^000000",
+			"น้ำหนัก : ^7777770^000000",
+			"Lv ที่ต้องการ : ^77777712^000000",
+			"อาชีพที่ใช้ได้ : ^777777ทุกอาชีพ^000000"
+		},
+		identifiedDisplayName = "Pecopeco Hairband",
+		identifiedResourceName = "ฦไฤฺฦไฤฺธำธฎถ์",
+		identifiedDescriptionName = {
+			"รูปร่างเหมือนปีกของ Pecopeco ช่วยให้วิ่ง เร็วเหมือน Pecopeo",
+			"เพิ่มความเร็วในการ ",
+			"เคลื่อนที เพิ่ม ASPD 5% Delay หลังการโจมตีลดลง 5% ลดระยะเวลา ร่ายเวทย์ 5%",
+			"^FF0000ไม่สามารถอัพเกรดได้^000000",
+			"ประเภท : ^777777Headgear^000000",
+			"พลังป้องกัน : ^7777773^000000",
+			"ใช้สำหรับ : ^777777Upper^000000",
+			"น้ำหนัก : ^7777770^000000",
+			"Lv ที่ต้องการ : ^77777712^000000",
+			"อาชีพที่ใช้ได้ : ^777777ทุกอาชีพ^000000"
+		},
+		slotCount = 1,
+		ClassNum = 314,
+		costume = false
+	}
+,
+	[1500194] = {
+		unidentifiedDisplayName = "Jejecap",
+		unidentifiedResourceName = "Black_Jejecap",
+		unidentifiedDescriptionName = {
+			"เพิ่มปริมาณการฟื้นฟูของ Mastela Fruit 200%",
+			"^FF0000ตัวอย่าง^000000 : เมื่อใส่หมวกนี้จะปั้ม Mastela Fruit แรงขึ้นจาก10%เป็น18%",
+			"-",
+			"เพิ่ม Damage ทางกายภาพต่อศัตรูทุกประเภท 3%",
+			"MATK +3%",
+			"เพิ่มความต้านทานต่อศัตรูประเภท ^00AA00Human Player^000000 2%",
+			"-",
+			"เมื่อ+7ขึ้นไป :",
+			"CRI +10",
+			"ASPD +1, LUK +5",
+			"เพิ่มความต้านทานต่อศัตรูประเภท ^00AA00Human Player^000000 3%",
+			"-",
+			"เมื่อ+12ขึ้นไป :",
+			"เพิ่มความต้านทานต่อศัตรูประเภท ^00AA00Human Player^000000 5%",
+			"-",
+			"^FF0000หมายเหตุ :^000000 ถ้าไอเทมชิ้นนี้ +12 สเตตัสที่ได้ทั้งหมด :",
+			"เพิ่มปริมาณการฟื้นฟูของ Red Potion, White Potion 100%",
+			"เพิ่มปริมาณการฟื้นฟูของ Siege White Potion(11548) 80%",
+			"CRI +10",
+			"ASPD +1, LUK +5",
+			"เพิ่ม Damage ทางกายภาพต่อศัตรูทุกประเภท 3%",
+			"MATK +3%",
+			"เพิ่มความต้านทานต่อศัตรูประเภท ^00AA00Human Player^000000 10%",
+			"-",
+			"ประเภท : ^777777Headgear^000000",
+			"พลังป้องกัน : ^7777773^000000",
+			"ใช้สำหรับ : ^777777Upper^000000",
+			"น้ำหนัก : ^7777770^000000",
+			"Lv ที่ต้องการ : ^77777712^000000",
+			"อาชีพที่ใช้ได้ : ^777777ทุกอาชีพ^000000"
+		},
+		identifiedDisplayName = "Jejecap",
+		identifiedResourceName = "Black_Jejecap",
+		identifiedDescriptionName = {
+			"เพิ่มปริมาณการฟื้นฟูของ Mastela Fruit 200%",
+			"-",
+			"เพิ่มความต้านทานต่อศัตรูประเภท ^00AA00Human Player^000000 3%",
+			"-",
+			"เมื่อ+7ขึ้นไป :",
+			"All Stats +1",
+			"เพิ่มความต้านทานต่อศัตรูประเภท ^00AA00Human Player^000000 4%",
+			"-",
+			"เมื่อ+12ขึ้นไป :",
+			"All Stats +1",
+			"เพิ่มความต้านทานต่อศัตรูประเภท ^00AA00Human Player^000000 6%",
+			"-",
+			"ประเภท : ^777777Headgear^000000",
+			"พลังป้องกัน : ^7777773^000000",
+			"ใช้สำหรับ : ^777777Upper^000000",
+			"น้ำหนัก : ^7777770^000000",
+			"Lv ที่ต้องการ : ^77777712^000000",
+			"อาชีพที่ใช้ได้ : ^777777ทุกอาชีพ^000000"
+		},
+		slotCount = 1,
+		ClassNum = 1011,
+		costume = false
+	}
+,
+	[1030114] = {
+		unidentifiedDisplayName = "Rare Accessory Selection Box",
+		unidentifiedResourceName = "ภฝฝฤบธภฺฑโ2",
+		unidentifiedDescriptionName = {
+			"เมื่อเปิดออกเลือกรับ Rare Accessory 1 ชิ้น",
+			"^FF0000ไม่สามารถแลกเปลี่ยน หรือ ฝากคลังได้^000000",
+			"น้ำหนัก : ^7777770^000000"
+		},
+		identifiedDisplayName = "Rare Accessory Selection Box",
+		identifiedResourceName = "ภฝฝฤบธภฺฑโ2",
+		identifiedDescriptionName = {
+			"เมื่อเปิดออกเลือกรับ Rare Accessory 1 ชิ้น",
+			"^FF0000ไม่สามารถแลกเปลี่ยน หรือ ฝากคลังได้^000000",
+			"น้ำหนัก : ^7777770^000000"
+		},
+		slotCount = 0,
+		ClassNum = 0,
+		costume = false
+	}
 }
 
 main = function()
@@ -304541,285 +305620,3 @@ main = function()
 	end
 	return true, "good"
 end
-
--- Abyss Lake F4 item additions.
--- Translation: zackdreaver/ROenglishRE, distributed freely under the source notice.
-tbl[23981] = {
-		unidentifiedDisplayName = "ผาฟ๋ตนภฬ ฤกดย ฟ๋ภว ศ๛",
-		unidentifiedResourceName = "Abyss_Ddbox",
-		unidentifiedDescriptionName = { "ฟ๋ภว ศ๛ภฬ ฐลฤฅฐิ ศึธ๔พฦฤกฐํ ภึดย บธมึ",
-		"ดูภฝ พฦภฬลÛต้ฟก ทฃดýฟษผวภป ภ๛ฟ๋ ฝรลณ ผ๖ ภึดู.",
-		"_ ",
-		"[ด๋ป๓ พฦภฬลÛ] ",
-		"ทนตๅ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"ฑืธฐ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"ฐ๑ตๅ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"ฦÛวร ตๅทกฐ๏ วรทนภฬฦฎ",
-		"บํท็ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"ฝวน๖ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"_ " },
-		identifiedDisplayName = "ผาฟ๋ตนภฬ ฤกดย ฟ๋ภว ศ๛",
-		identifiedResourceName = "Abyss_Ddbox",
-		identifiedDescriptionName = {"ฟ๋ภว ศ๛ภฬ ฐลฤฅฐิ ศึธ๔พฦฤกฐํ ภึดย บธมึ",
-		"ดูภฝ พฦภฬลÛต้ฟก ทฃดýฟษผวภป ภ๛ฟ๋ ฝรลณ ผ๖ ภึดู.",
-		"_ ",
-		"[ด๋ป๓ พฦภฬลÛ] ",
-		"ทนตๅ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"ฑืธฐ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"ฐ๑ตๅ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"ฦÛวร ตๅทกฐ๏ วรทนภฬฦฎ",
-		"บํท็ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"ฝวน๖ ตๅทกฐ๏ วรทนภฬฦฎ",
-		"_ ",
-		"นซฐิ : ^7777771^000000" },
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[100142] = {
-		unidentifiedDisplayName = "พศมคตศ ฟ๋ภว ศ๛",
-		unidentifiedResourceName = "Abyss_Ddbox2",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "พศมคตศ ฟ๋ภว ศ๛",
-		identifiedResourceName = "Abyss_Ddbox2",
-		identifiedDescriptionName = {
-			"พศมคตศ ฟ๋ภว ศ๛ภฬ ดใฐÜมฎ ภึดย บธมึ.",
-			"ดูภฝ พฦภฬลÛต้ฟก ทฃดýฟษผวภป ภ๛ฟ๋ ฝรลณ ผ๖ ภึดู.",
-			"_ ",
-			"[ด๋ป๓ พฦภฬลÛ] ",
-			"ทนตๅ ตๅทกฐ๏ วรทนภฬฦฎ",
-			"ฑืธฐ ตๅทกฐ๏ วรทนภฬฦฎ",
-			"ฐ๑ตๅ ตๅทกฐ๏ วรทนภฬฦฎ",
-			"ฦÛวร ตๅทกฐ๏ วรทนภฬฦฎ",
-			"บํท็ ตๅทกฐ๏ วรทนภฬฦฎ",
-			"ฝวน๖ ตๅทกฐ๏ วรทนภฬฦฎ",
-			"_ ",
-			"นซฐิ: ^7777771^000000" 
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[100144] = {
-		unidentifiedDisplayName = "บาลธดย ฟ๋ภว ศ๛",
-		unidentifiedResourceName = "Abyss_Ddbox4",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "บาลธดย ฟ๋ภว ศ๛",
-		identifiedResourceName = "Abyss_Ddbox4",
-		identifiedDescriptionName = {
-			"ฟ๋ภว ศ๛ภป ภๅภÛป๏พฦ บาลธฐํ ภึดยตํวั บธมึ",
-			"ดูภฝ พฦภฬลÛฟก ทฃดýฟษผวภป ภ๛ฟ๋ ฝรลณ ผ๖ ภึดู.",
-			"_ ",
-			"[ด๋ป๓ พฦภฬลÛ] ",
-			"ตๅทกฐ๏ ฝบฤษภฯ ศฤตๅ",
-			"_ ",
-			"นซฐิ: ^7777771^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[100145] = {
-		unidentifiedDisplayName = "ถ฿ฐลฟ๎ ฟ๋ภว ศ๛",
-		unidentifiedResourceName = "Abyss_Ddbox4",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "ถ฿ฐลฟ๎ ฟ๋ภว ศ๛",
-		identifiedResourceName = "Abyss_Ddbox4",
-		identifiedDescriptionName = {
-			"ภภรเตศ ฟ๋ภว ศ๛ ด๖บะฟก ถ฿ฐฬฐิ ลธฟภธฃฐํ ภึดย บธมึ",
-			"ดูภฝ พฦภฬลÛฟก ทฃดýฟษผวภป ภ๛ฟ๋ ฝรลณ ผ๖ ภึดู.",
-			"_ ",
-			"[ด๋ป๓ พฦภฬลÛ] ",
-			"ตๅทกฐ๏ ฝบฤษภฯ บฮร๗",
-			"_ ",
-			"นซฐิ: ^7777771^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[23985] = {
-		unidentifiedDisplayName = "ฟ๋ภว บธนฐ",
-		unidentifiedResourceName = "ถ๓ววณืถาตüป๓ภฺ",
-		unidentifiedDescriptionName = {
-			"Can be identified by using a ^990099Magnifier^000000."
-		},
-		identifiedDisplayName = "ฟ๋ภว บธนฐ",
-		identifiedResourceName = "ถ๓ววณืถาตüป๓ภฺ",
-		identifiedDescriptionName = {"ฟ๋ภว บธนฐภฬ ต้พ๎ภึดย ป๓ภฺ",
-		"พฦทก พฦภฬลÛ ม฿ วฯณชธฆ ศนตๆ วา ผ๖ ภึดู.",
-		"^ffffff_^000000",
-		"[ศนตๆ ฐกดษวั พฦภฬลÛ] ",
-		"ผาฟ๋ตนภฬ ฤกดย ฟ๋ภว ศ๛",
-		"บาลธดย ฟ๋ภว ศ๛",
-		"ถ฿ฐลฟ๎ ฟ๋ภว ศ๛",
-		"ฤฟดูถ๕ ฟ๋ภว ปภ",
-		"ภÛภบ ฟ๋ภว ปภ",
-		"ตๅทกฐ๏ ฝบฤษภฯ บฮร๗",
-		"ตๅทกฐ๏ ฝบฤษภฯ ศฤตๅ",
-		"ทนตๅ ตๅทกฐ๏ ฟภบ๊",
-		"ฑืธฐ ตๅทกฐ๏ ฟภบ๊",
-		"ฐ๑ตๅ ตๅทกฐ๏ ฟภบ๊",
-		"ฦÛวร ตๅทกฐ๏ ฟภบ๊",
-		"บํท็ ตๅทกฐ๏ ฟภบ๊",
-		"ฝวน๖ ตๅทกฐ๏ ฟภบ๊",
-		"ตๅทกฐ๏ภว ฒฎม๚",
-		"ตๅทกฐ๏ภว ภฬปก",
-		"ตๅทกฐ๏ภว บ๑ดร",
-		"ตๅทกฐ๏ภว ฒฟธฎ",
-		"^ffffff_^000000",
-		"นซฐิ : ^77777710^000000" },
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25765] = {
-		unidentifiedDisplayName = "ฤฟดูถ๕ ฟ๋ภว ปภ",
-		unidentifiedResourceName = "Drabone_L",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "ฤฟดูถ๕ ฟ๋ภว ปภ",
-		identifiedResourceName = "Drabone_L",
-		identifiedDescriptionName = {
-			"ฐลด๋วั ฟ๋ภว ฟยภüวั ปภ.",
-			"ฟภทก ตศ ฐอภำฟกตต บาฑธวฯฐํ ฟ๋ภว ศ๛ภฬ ฐญวฯฐิ ดภฒธม๘ดู.",
-			"________________________",
-			"นซฐิ : ^77777720^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25766] = {
-		unidentifiedDisplayName = "ภÛภบ ฟ๋ภว ปภ",
-		unidentifiedResourceName = "Drabone_S",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "ภÛภบ ฟ๋ภว ปภ",
-		identifiedResourceName = "Drabone_S",
-		identifiedDescriptionName = {
-			"ภÛภบ ฟ๋ภว ฟยภüวั ปภ.",
-			"ฟภทก ตศ ฐอภำฟกตต บาฑธวฯฐํ ฟ๋ภว ศ๛ภฬ ดภฒธม๘ดู.",
-			"________________________",
-			"นซฐิ : ^77777710^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25760] = {
-		unidentifiedDisplayName = "บํท็ ตๅทกฐ๏ ฟภบ๊",
-		unidentifiedResourceName = "Dragenergy_Blue",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "บํท็ ตๅทกฐ๏ ฟภบ๊",
-		identifiedResourceName = "Dragenergy_Blue",
-		identifiedDescriptionName = {
-			"รปป๖ฟ๋ภว ศ๛ภฬ ภภฐํตศ ฝลบ๑วั ฐแมครผ",
-			"________________________",
-			"นซฐิ : ^7777771^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25762] = {
-		unidentifiedDisplayName = "ฐ๑ตๅ ตๅทกฐ๏ ฟภบ๊",
-		unidentifiedResourceName = "Dragenergy_Gold",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "ฐ๑ตๅ ตๅทกฐ๏ ฟภบ๊",
-		identifiedResourceName = "Dragenergy_Gold",
-		identifiedDescriptionName = {
-			"ศฒป๖ฟ๋ภว ศ๛ภฬ ภภฐํตศ ฝลบ๑วั ฐแมครผ",
-			"________________________",
-			"นซฐิ : ^7777771^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25759] = {
-		unidentifiedDisplayName = "ฑืธฐ ตๅทกฐ๏ ฟภบ๊",
-		unidentifiedResourceName = "Dragenergy_Green",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "ฑืธฐ ตๅทกฐ๏ ฟภบ๊",
-		identifiedResourceName = "Dragenergy_Green",
-		identifiedDescriptionName = {
-			"ณ์ป๖ฟ๋ภว ศ๛ภฬ ภภฐํตศ ฝลบ๑วั ฐแมครผ",
-			"________________________",
-			"นซฐิ : ^7777771^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25763] = {
-		unidentifiedDisplayName = "ฦÛวร ตๅทกฐ๏ ฟภบ๊",
-		unidentifiedResourceName = "Dragenergy_Purple",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "ฦÛวร ตๅทกฐ๏ ฟภบ๊",
-		identifiedResourceName = "Dragenergy_Purple",
-		identifiedDescriptionName = {
-			"ภฺป๖ฟ๋ภว ศ๛ภฬ ภภฐํตศ ฝลบ๑วั ฐแมครผ",
-			"________________________",
-			"นซฐิ : ^7777771^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25761] = {
-		unidentifiedDisplayName = "ทนตๅ ตๅทกฐ๏ ฟภบ๊",
-		unidentifiedResourceName = "Dragenergy_Red",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "ทนตๅ ตๅทกฐ๏ ฟภบ๊",
-		identifiedResourceName = "Dragenergy_Red",
-		identifiedDescriptionName = {
-			"ภ๛ป๖ฟ๋ภว ศ๛ภฬ ภภฐํตศ ฝลบ๑วั ฐแมครผ",
-			"________________________",
-			"นซฐิ : ^7777771^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25764] = {
-		unidentifiedDisplayName = "ฝวน๖ ตๅทกฐ๏ ฟภบ๊",
-		unidentifiedResourceName = "Dragenergy_Silver",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "ฝวน๖ ตๅทกฐ๏ ฟภบ๊",
-		identifiedResourceName = "Dragenergy_Silver",
-		identifiedDescriptionName = {
-			"ภบป๖ฟ๋ภว ศ๛ภฬ ภภฐํตศ ฝลบ๑วั ฐแมครผ",
-			"________________________",
-			"นซฐิ : ^7777771^000000"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25729] = {
-		unidentifiedDisplayName = "Shadowdecon",
-		unidentifiedResourceName = "Shadowdecon",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "Shadowdecon",
-		identifiedResourceName = "Shadowdecon",
-		identifiedDescriptionName = {
-			"A metal with mysterious light. It is harder than anything, but it is necessary to make special equipment.",
-			"________________________",
-			"^0000CCWeight:^000000 2"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}
-tbl[25731] = {
-		unidentifiedDisplayName = "Zelunium",
-		unidentifiedResourceName = "Zelunium",
-		unidentifiedDescriptionName = {
-		},
-		identifiedDisplayName = "Zelunium",
-		identifiedResourceName = "Zelunium",
-		identifiedDescriptionName = {
-			"A metal with a golden glow. Zelunium can be purified to make various armors.",
-			"________________________",
-			"^0000CCWeight:^000000 2"
-		},
-		slotCount = 0,
-		ClassNum = 0
-	}

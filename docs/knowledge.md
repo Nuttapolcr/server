@@ -161,6 +161,14 @@ bonus2 bSkillAtk,"SKILL",N;      # Skill damage +N%
 
 ## Script Patterns
 
+### WoE controller selection and ValorFight entry
+
+- `WOE_CONTROL.Active[0]` is the running castle mask; `$WOE_CONTROL` stores the schedule. These can differ while global WoE is already running, so each scheduled check must compare the current session mask before skipping startup.
+- `hero_ent1` uses bit 20 (`1048576`); `hero_ent2` uses bit 21 (`2097152`). The shared lobby is `guild_vs2-1`.
+- Preserve event scores and timers when both WoE editions are active and the current mask already matches. An explicit Reload Settings still restarts the round.
+- ValorFight 2 entry also requires `Agit#hero_ent2.active`; enabling only global WoE does not start its score event.
+- Runtime regression fixture: `tests/woe_controller_selection.txt`. Load only on an idle test map-server; it checks database `valor_test`, refuses active WoE or online players, and restores the schedule and controller settings. Unload the fixture afterward.
+
 ### Tool Dealer inventory sources
 
 - Standard town Tool Dealer inventories are defined in `npc/pre-re/merchants/shops.txt`.

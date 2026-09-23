@@ -1390,3 +1390,31 @@ Body:
       bonus2 bAddRace,RC_Dragon,5;
       bonus2 bAddRace,RC_Brute,5;
       bonus2 bAddRace,RC_Player_Doram,5;
+  - Combos:
+      - Combo:
+          - Poisonous_Card
+          - Anacondaq_Card
+    Script: bonus2 bAddEle,Ele_Poison,15;
+  - Combos:
+      - Combo:
+          - Toxious_Card
+          - Noxious_Card
+    Script: |-
+      bonus bLongAtkDef,10;
+      bonus bMaxHPrate,5;
+  - Combos:
+      - Combo:
+          - Porcellio_W_Card
+          - Porcellio_Card
+    Script: |-
+      .@r = getequiprefinerycnt(EQI_SHOES);
+      bonus bBaseAtk,10;
+      bonus bBaseAtk,.@r;
+  - Combos:
+      - Combo:
+          - Abyss_Man_Card
+          - Pitman_Card
+    Script: |-
+      .@r = getequiprefinerycnt(EQI_SHOES);
+      bonus bMatk,10;
+      bonus bMatk,.@r;

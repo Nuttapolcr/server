@@ -14669,3 +14669,27 @@ Body:
           - Index: 14
             Item: Abyss_Ddbox4
             Rate: 70
+
+  # Einbech Mine F3: Untouched Gemstone rewards.
+  - Group: EIN_UNDIUM
+    SubGroups:
+      - SubGroup: 6
+        List:
+          - Index: 0
+            Item: Ein_REDIUM
+            Rate: 1999
+          - Index: 1
+            Item: Ein_RINDIUM
+            Rate: 1999
+          - Index: 2
+            Item: Ein_ODIUM
+            Rate: 1999
+          - Index: 3
+            Item: Ein_PURDIUM
+            Rate: 1999
+          - Index: 4
+            Item: Ein_WHIDIUM
+            Rate: 1999
+          - Index: 5
+            Item: Ein_DYNITE
+            Rate: 5

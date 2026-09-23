@@ -26314,8 +26314,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bDex,1;
+    CharmMaxEffect: 2
   - Id: 25760
     AegisName: Dragenergy_Blue
     Name: Blue Dragon Orb
@@ -26332,8 +26332,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bInt,1;
+    CharmMaxEffect: 2
   - Id: 25761
     AegisName: Dragenergy_Red
     Name: Red Dragon Orb
@@ -26350,8 +26350,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bStr,1;
+    CharmMaxEffect: 2
   - Id: 25762
     AegisName: Dragenergy_Gold
     Name: Gold Dragon Orb
@@ -26368,8 +26368,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bAgi,1;
+    CharmMaxEffect: 2
   - Id: 25763
     AegisName: Dragenergy_Purple
     Name: Purple Dragon Orb
@@ -26386,8 +26386,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bLuk,1;
+    CharmMaxEffect: 2
   - Id: 25764
     AegisName: Dragenergy_Silver
     Name: Silver Dragon Orb
@@ -26404,8 +26404,8 @@ Body:
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bVit,1;
+    CharmMaxEffect: 2
   - Id: 25765
     AegisName: Drabone_L
     Name: Large Dragon Bone
@@ -26517,3 +26517,224 @@ Body:
       bonus2 bAddRace,RC_Dragon,40;
       bonus2 bAddEle,Ele_Ghost,40;
       bonus2 bAddEle,Ele_Undead,40;
+  - Id: 25728
+    AegisName: Shadowdecon_Ore
+    Name: Rough Shadowdecon
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 25730
+    AegisName: Zelunium_Ore
+    Name: Rough Zelunium
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 25809
+    AegisName: Ein_REDIUM
+    Name: Redium
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Sell: 1750
+  - Id: 1500187
+    AegisName: Collection_STR_Redium
+    Name: Collection STR Redium
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bStr,1;
+    Weight: 0
+  - Id: 25810
+    AegisName: Ein_RINDIUM
+    Name: Rindium
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Sell: 1750
+  - Id: 1500188
+    AegisName: Collection_DEX_Rindium
+    Name: Collection DEX Rindium
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bDex,1;
+    Weight: 0
+  - Id: 25811
+    AegisName: Ein_ODIUM
+    Name: Odium
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Sell: 1750
+  - Id: 1500189
+    AegisName: Collection_AGI_Odium
+    Name: Collection AGI Odium
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bAgi,1;
+    Weight: 0
+  - Id: 25812
+    AegisName: Ein_PURDIUM
+    Name: Purdium
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Sell: 1750
+  - Id: 1500190
+    AegisName: Collection_LUK_Purdium
+    Name: Collection LUK Purdium
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bLuk,1;
+    Weight: 0
+  - Id: 25813
+    AegisName: Ein_WHIDIUM
+    Name: Whidium
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Sell: 1750
+  - Id: 1500191
+    AegisName: Collection_VIT_Whidium
+    Name: Collection VIT Whidium
+    Type: Charm
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bVit,1;
+    Weight: 0
+  - Id: 25814
+    AegisName: Ein_DYNITE
+    Name: Dynite
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Sell: 1750
+  - Id: 25815
+    AegisName: Ein_SOLIDDUST
+    Name: Hardened Dust
+    Type: Etc
+  - Id: 25816
+    AegisName: Ein_RUSTHELM
+    Name: Broken Trap
+    Type: Etc
+    Weight: 10
+  - Id: 25817
+    AegisName: Ein_EYEROCK
+    Name: Bizarre Stone Carvings
+    Type: Etc
+    Weight: 50
+    Sell: 1750
+  - Id: 300001
+    AegisName: Poisonous_Card
+    Name: Poisonous Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Right_Hand: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus2 bAddEle,Ele_Poison,25;
+  - Id: 300002
+    AegisName: Toxious_Card
+    Name: Toxious Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Armor: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bLongAtkDef,5;
+      bonus bMaxHPrate,10;
+  - Id: 300003
+    AegisName: Porcellio_W_Card
+    Name: White Porcellio Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Shoes: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bMaxHPrate,10;
+      bonus bBaseAtk,20;
+  - Id: 300004
+    AegisName: Neo_Mineral_Card
+    Name: Neo Mineral Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Garment: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 300005
+    AegisName: Abyss_Man_Card
+    Name: Abyssman Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Shoes: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bMaxHPrate,10;
+      bonus bMatk,20;
+  - Id: 300006
+    AegisName: Jeweliant_Card
+    Name: Jewelry Ant Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Left_Accessory: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+  - Id: 300007
+    AegisName: Jungoliant_Card
+    Name: Jeweled Ungoliant Card
+    Type: Card
+    Weight: 10
+    Locations:
+      Armor: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus2 bAddEle,Ele_Fire,40;
+      bonus2 bAddEle,Ele_Water,40;
+      bonus2 bAddRace,RC_Formless,40;
+      bonus2 bAddRace,RC_Plant,40;

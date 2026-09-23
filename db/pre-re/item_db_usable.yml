@@ -22247,8 +22247,6 @@ Body:
       BuyingStore: true
     Script: |
       itemheal 1000,0;
-
-# Abyss Lake F4
   - Id: 23981
     AegisName: Abyss_Ddbox
     Name: Turbulence Dragon's Power
@@ -22302,3 +22300,21 @@ Body:
     Weight: 10
     Script: |
       laphine_upgrade();
+  - Id: 9517
+    AegisName: Ein_UNDIUM
+    Name: Bluedium
+    Type: Etc
+    Weight: 10
+    Flags:
+      Container: true
+      DropEffect: CLIENT
+  - Id: 1500186
+    AegisName: Collection_INT_Bluedium
+    Name: Collection INT Bluedium
+    Type: Charm
+    Flags:
+      Container: true
+      DropEffect: CLIENT
+    CharmMaxEffect: 2
+    CharmScript: bonus bInt,1;
+    Weight: 0

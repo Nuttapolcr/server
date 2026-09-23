@@ -38,3 +38,18 @@ ein_dun02,155,230,140,55	monster	Teddy Bear	1622,20,480000
 ein_dun02,0,0	monster	Old Stove	1617,10
 ein_dun02,154,80,134,55	monster	Old Stove	1617,20,480000
 ein_dun02,0,0,0,0	boss_monster	RSX-0806	1623,1,1800000,0,0
+
+//==================================================
+// ein_dun03 - Einbech Mine F3
+//==================================================
+ein_dun03,0,0	monster	Poisonous	20592,35
+ein_dun03,0,0	monster	Toxious	20593,35
+ein_dun03,0,0	monster	Green Mineral	20594,40
+ein_dun03,0,0	monster	Red Mineral	20595,40
+ein_dun03,0,0	monster	White Mineral	20596,40
+ein_dun03,0,0	monster	Purple Mineral	20597,40
+ein_dun03,0,0	monster	Abyssman	20603,20
+ein_dun03,0,0	monster	White Porcellio	20602,22
+ein_dun03,0,0	monster	Jeweliant	20598,20
+ein_dun03,0,0	monster	Jewel	20600,3
+ein_dun03,0,0,0,0	boss_monster	Jewgoliant	20601,1,7200000,600000,0

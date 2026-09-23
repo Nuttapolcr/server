@@ -39113,6 +39113,23 @@ Body:
       NoCart: true
     Script: |
       callfunc "F_RookieWeaponBox";
+  - Id: 1500193
+    AegisName: Rookie_Weapon_Box_Copy
+    Name: Rare Weapon Selection Box
+    Type: Usable
+    Flags:
+      NoConsume: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      callfunc "F_RareWeaponBox";
   - Id: 1030079
     AegisName: New_Item_1030079
     Name: "[E] Collection MVP Battlefield"
@@ -39340,14 +39357,39 @@ Body:
       NoAuction: true
     Script: getitem 1030098,2;
   - Id: 1030111
-    AegisName: New_Item_1030111
-    Name: New Item 1030111
-    Type: Cash
-    Script: |-
-      rentitem2 15015,259200,1,7,0,0,0,0,0;
-      rentitem2 2460,259200,1,7,0,0,0,0,0;
-      rentitem2 2562,259200,1,7,0,0,0,0,0;
-      rentitem2 2149,259200,1,7,0,0,0,0,0;
+    AegisName: Rookie_Armor_Box
+    Name: Rare Armor Selection Box
+    Type: Usable
+    Flags:
+      NoConsume: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      callfunc "F_RareArmorBox";
+  - Id: 1030114
+    AegisName: Rookie_Accessory_Box
+    Name: Rare Accessory Selection Box
+    Type: Usable
+    Flags:
+      NoConsume: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      callfunc "F_RareAccessoryBox";
   - Id: 1500017
     AegisName: Equipment_Hide_Ticket
     Name: Equipment Hide Charm
@@ -39403,6 +39445,10 @@ Body:
   - Id: 1500166
     AegisName: Coin_Valor_V4
     Name: Coin Valor V.4
+    Type: Etc
+  - Id: 1500192
+    AegisName: Coin_Valor_V5
+    Name: Coin Valor V.5
     Type: Etc
   - Id: 1500025
     AegisName: Costume_Weapon_Ticket
@@ -41006,9 +41052,9 @@ Body:
       specialeffect2 18;
   - Id: 1500167
     AegisName: Bloody_Branch_40_Box
-    Name: Bloody Branch (30) Box
+    Name: Bloody Branch (40) Box
     Type: Usable
-    Script: getitem 12103,30;
+    Script: getitem 12103,40;
   - Id: 1500168
     AegisName: Collection_Ignore_DEF
     Name: Collection Ignore DEF
@@ -41058,6 +41104,8 @@ Body:
     Slots: 1
     Locations:
       Head_Top: true
+    ArmorLevel: 1
+    Refineable: true
     View: 1794
     Script: |-
       .@r = getrefine();
@@ -41069,8 +41117,6 @@ Body:
       if (.@r>=12) {
       bonus bCritAtkRate,10;
       }
-    Refineable: true
-    ArmorLevel: 1
   - Id: 1500184
     AegisName: Plain_Black_Magician_Hat
     Name: Plain Black Magician Hat
@@ -41079,6 +41125,8 @@ Body:
     Slots: 1
     Locations:
       Head_Top: true
+    ArmorLevel: 1
+    Refineable: true
     View: 912
     Script: |-
       .@r = getrefine();
@@ -41090,8 +41138,6 @@ Body:
       if (.@r>=12) {
       bonus bDelayrate,-5;
       }
-    Refineable: true
-    ArmorLevel: 1
   - Id: 1500185
     AegisName: 12th_Anniversary_Fairy_Ears
     Name: 12th Anniversary Fairy Ears
@@ -41103,3 +41149,60 @@ Body:
       bonus2 bSubRace,RC_Player_Human,5;
       bonus2 bSubRace,RC_Player_Doram,5;
       bonus bMaxHPrate,5;
+  - Id: 1500194
+    AegisName: Jejecap
+    Name: Jejecap
+    Type: Armor
+    View: 1011
+    Locations:
+      Head_Top: true
+    Refineable: true
+    EquipLevelMin: 1
+    ArmorLevel: 1
+    Slots: 1
+    Script: |-
+      .@r = getrefine();
+      bonus2 bAddItemHealRate,522,200;
+      bonus2 bSubRace,RC_Player_Human,3;
+      bonus2 bSubRace,RC_Player_Doram,3;
+      if (.@r>=7) {
+      bonus bAllStats,1;
+      bonus2 bSubRace,RC_Player_Human,4;
+      bonus2 bSubRace,RC_Player_Doram,4;
+      }
+      if (.@r>=12) {
+      bonus bAllStats,1;
+      bonus2 bSubRace,RC_Player_Human,6;
+      bonus2 bSubRace,RC_Player_Doram,6;
+      }
+    Defense: 3
+  - Id: 1500195
+    AegisName: New_Item_1500195
+    Name: New Item 1500195
+  - Id: 1500196
+    AegisName: New_Item_1500196
+    Name: New Item 1500196
+  - Id: 1500197
+    AegisName: Collection_Max_HP%
+    Name: Collection Max HP%
+    Type: Charm
+    CharmMaxEffect: 10
+    CharmScript: bonus bMaxHPrate,1;
+  - Id: 1500198
+    AegisName: Collection_Max_SP%
+    Name: Collection Max SP%
+    Type: Charm
+    CharmMaxEffect: 10
+    CharmScript: bonus bMaxSPrate,1;
+  - Id: 1500199
+    AegisName: Collection_Flee1
+    Name: Collection Flee
+    Type: Charm
+    CharmMaxEffect: 5
+    CharmScript: bonus bFlee,10;
+  - Id: 1500200
+    AegisName: Collection_HIT1
+    Name: Collection HIT
+    Type: Charm
+    CharmMaxEffect: 5
+    CharmScript: bonus bHit,10;

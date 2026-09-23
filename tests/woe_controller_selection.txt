@@ -1,0 +1,56 @@
+// Runtime regression: load only on an idle valor_test map-server.
+// Backs up and restores the WoE schedule and controller settings.
+-	script	WOE_SelectionTest	-1,{
+OnInit:
+ query_sql "SELECT DATABASE()",.@db$;
+ if (.@db$ != "valor_test" || agitcheck() || agitcheck2() || getusers(1)) {
+  debugmes "WOE_SELECTION SKIP: requires idle valor_test without players";
+  end;
+ }
+ .size=getarraysize($WOE_CONTROL);
+ copyarray .schedule[0],$WOE_CONTROL[0],.size;
+ .controller_size=getvariableofnpc(.Size,"WOE_CONTROL");
+ .init=getvariableofnpc(.Init,"WOE_CONTROL");
+ .mask=getvariableofnpc(.Active[0],"WOE_CONTROL");
+ .regions=getvariableofnpc(.Active[1],"WOE_CONTROL");
+ .options=getvariableofnpc(.Options,"WOE_CONTROL");
+ .force=getvariableofnpc(.ForceEnd,"WOE_CONTROL");
+ set getvariableofnpc(.Options,"WOE_CONTROL"),0;
+ set getvariableofnpc(.Size,"WOE_CONTROL"),4;
+ set getvariableofnpc(.Init,"WOE_CONTROL"),0;
+ .slot=gettime(3)*2+(gettime(2)>=30);
+ deletearray $WOE_CONTROL[0],getarraysize($WOE_CONTROL);
+ setarray $WOE_CONTROL[0],gettime(4),.slot,.slot+1,1<<21;
+ // Global WoE is already running with the previous castle selection.
+ set getvariableofnpc(.Active[0],"WOE_CONTROL"),1<<20;
+ set getvariableofnpc(.Active[1],"WOE_CONTROL"),1<<5;
+ agitstart; agitstart2;
+ donpcevent "WOE_CONTROL::OnMinute00";
+ sleep 1500;
+ .ok=(getvariableofnpc(.Active[0],"WOE_CONTROL")==1<<21 && !callfunc("F_ValorFightActive") && callfunc("F_ValorFight2Active") && mobcount("hero_ent1","Agit#hero_ent1::OnAgitBreak")==0);
+ debugmes "WOE_SELECTION stale_map1_to_map2="+.ok+" mask="+getvariableofnpc(.Active[0],"WOE_CONTROL")+" entry1="+callfunc("F_ValorFightActive")+" entry2="+callfunc("F_ValorFight2Active");
+ // An unchanged active round must preserve the event start time and score.
+ .tick=getvariableofnpc(.start_tick,"Agit#hero_ent2");
+ set getvariableofnpc(.guild_id[0],"Agit#hero_ent2"),999999;
+ set getvariableofnpc(.guild_score[0],"Agit#hero_ent2"),7;
+ donpcevent "WOE_CONTROL::OnMinute00";
+ sleep 1500;
+ .ok=(getvariableofnpc(.start_tick,"Agit#hero_ent2")==.tick && getvariableofnpc(.guild_score[0],"Agit#hero_ent2")==7);
+ debugmes "WOE_SELECTION unchanged_round="+.ok;
+ // Remove the synthetic score before ending, so no test winner is saved.
+ deletearray getvariableofnpc(.guild_id[0],"Agit#hero_ent2"),getarraysize(getvariableofnpc(.guild_id,"Agit#hero_ent2"));
+ deletearray getvariableofnpc(.guild_score[0],"Agit#hero_ent2"),getarraysize(getvariableofnpc(.guild_score,"Agit#hero_ent2"));
+ set getvariableofnpc(.ForceEnd,"WOE_CONTROL"),2;
+ donpcevent "WOE_CONTROL::OnWOEEnd";
+ sleep 1500;
+ deletearray $WOE_CONTROL[0],getarraysize($WOE_CONTROL);
+ copyarray $WOE_CONTROL[0],.schedule[0],.size;
+ set getvariableofnpc(.Size,"WOE_CONTROL"),.controller_size;
+ set getvariableofnpc(.Init,"WOE_CONTROL"),.init;
+ set getvariableofnpc(.Active[0],"WOE_CONTROL"),.mask;
+ set getvariableofnpc(.Active[1],"WOE_CONTROL"),.regions;
+ set getvariableofnpc(.Options,"WOE_CONTROL"),.options;
+ set getvariableofnpc(.ForceEnd,"WOE_CONTROL"),.force;
+ debugmes "WOE_SELECTION restored schedule="+getarraysize($WOE_CONTROL)+" agit="+agitcheck()+" agit2="+agitcheck2();
+ end;
+}

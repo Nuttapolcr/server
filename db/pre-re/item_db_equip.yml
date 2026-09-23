@@ -28774,21 +28774,21 @@ Body:
     Locations:
       Head_Mid: true
     ArmorLevel: 1
+    EquipLevelMin: 1
     View: 229
     Script: bonus2 bIgnoreDefClassRate,Class_All,5;
-    EquipLevelMin: 1
   - Id: 1500165
     AegisName: Censor_Bar_Copy_Copy
     Name: Censor Bar
     Type: Armor
     Weight: 100
+    Slots: 1
     Locations:
       Head_Mid: true
     ArmorLevel: 1
+    EquipLevelMin: 1
     View: 229
     Script: bonus2 bIgnoreDefClassRate,Class_All,5;
-    EquipLevelMin: 1
-    Slots: 1
   - Id: 5176
     AegisName: Hahoe_Mask
     Name: Hahoe Mask
@@ -30902,6 +30902,24 @@ Body:
       bonus bAspdRate,5;
       bonus bCastrate,-5;
       bonus bDelayRate,-5;
+  - Id: 1500201
+    AegisName: Pecopeco_Hairband_Copy
+    Name: Pecopeco Hairband
+    Type: Armor
+    Buy: 0
+    Sell: 0
+    Defense: 3
+    Locations:
+      Head_Top: true
+    ArmorLevel: 1
+    EquipLevelMin: 12
+    View: 314
+    Script: |
+      bonus bSpeedAddRate,15;
+      bonus bAspdRate,5;
+      bonus bCastrate,-5;
+      bonus bDelayRate,-5;
+    Slots: 1
   - Id: 5287
     AegisName: Vacation_Hat
     Name: Vacation Hat
@@ -36930,13 +36948,13 @@ Body:
     Name: 3D Glasses
     Type: Armor
     Weight: 100
+    Slots: 1
     Locations:
       Head_Mid: true
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 661
     Script: bonus2 bIgnoreMdefClassRate,Class_All,3;
-    Slots: 1
   - Id: 5792
     AegisName: Fish_Pin
     Name: Fish Pin

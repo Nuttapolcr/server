@@ -1,0 +1,3 @@
+// Einbech Mine F2 <-> F3. The original level-180 gate is omitted for this PRE server.
+ein_dun02,16,250,0	warp	ein_dun03_in	1,1,ein_dun03,268,279
+ein_dun03,268,283,0	warp2	ein_dun03_out	1,1,ein_dun02,24,250

@@ -118,28 +118,31 @@ OnMinute30:
 				break;
 			}
 	}
-	if ((!agitcheck() && !agitcheck2()) || .Init) {
-		if (!agitcheck() && !agitcheck2()) set .Init,0;
-		for(set .@i,0; .@i<.Size; set .@i,.@i+4)
-			if (gettime(4) == $WOE_CONTROL[.@i] && .@now_slot >= $WOE_CONTROL[.@i+1] && .@now_slot < $WOE_CONTROL[.@i+2]) {
-				deletearray .Active[0],2;
-				set .Active[0], $WOE_CONTROL[.@i+3];
-				if (.Init) { agitend; agitend2; }
-				else announce "สงคราม กิลวอร์ ได้เริ่มขึ้นแล้ว!",bc_all|bc_woe;
-				sleep 1000;
-				agitstart; agitstart2;
-				for(set .@j,0; .@j<.CastleCount; set .@j,.@j+1) {
-					if (.Active[0]&(1<<.@j)) {
-						if (!.Init) Disp_Owner(.Castles$[.@j],0);
-						set .Active[1], .Active[1] | (1<<((.@j/5)+1)); // บิตภูมิภาค
-					} else {
-						donpcevent "Agit#"+.Castles$[.@j]+"::OnAgitEnd";
-						killmonster .Castles$[.@j], "Agit#"+.Castles$[.@j]+"::OnAgitBreak";
-					}
-				}
+	if (!agitcheck() && !agitcheck2()) set .Init,0;
+	for(set .@i,0; .@i<.Size; set .@i,.@i+4)
+		if (gettime(4) == $WOE_CONTROL[.@i] && .@now_slot >= $WOE_CONTROL[.@i+1] && .@now_slot < $WOE_CONTROL[.@i+2]) {
+			// Global WoE may still be running with a different castle selection.
+			// Preserve the current round only when both editions and its mask match.
+			if (!.Init && agitcheck() && agitcheck2() && .Active[0] == $WOE_CONTROL[.@i+3])
 				break;
+			if (agitcheck() || agitcheck2()) set .Init,1;
+			deletearray .Active[0],2;
+			set .Active[0], $WOE_CONTROL[.@i+3];
+			if (.Init) { agitend; agitend2; }
+			else announce "สงคราม กิลวอร์ ได้เริ่มขึ้นแล้ว!",bc_all|bc_woe;
+			sleep 1000;
+			agitstart; agitstart2;
+			for(set .@j,0; .@j<.CastleCount; set .@j,.@j+1) {
+				if (.Active[0]&(1<<.@j)) {
+					if (!.Init) Disp_Owner(.Castles$[.@j],0);
+					set .Active[1], .Active[1] | (1<<((.@j/5)+1)); // บิตภูมิภาค
+				} else {
+					donpcevent "Agit#"+.Castles$[.@j]+"::OnAgitEnd";
+					killmonster .Castles$[.@j], "Agit#"+.Castles$[.@j]+"::OnAgitBreak";
+				}
 			}
-	}
+			break;
+		}
 	set .Init,0;
 	end;
 
