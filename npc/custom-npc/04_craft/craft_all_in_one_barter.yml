@@ -721,6 +721,20 @@ Body:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 2
+      - Index: 36
+        Item: Collection_SP # 1500171
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 2
+      - Index: 37
+        Item: E_Charm_Valor V.1_Copy # 1500172
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 3
 
   - Name: CRAFT_SHADOW_9
     CraftBarter: false
