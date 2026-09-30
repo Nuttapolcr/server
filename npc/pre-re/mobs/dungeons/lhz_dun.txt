@@ -108,3 +108,23 @@ OnMyMVPDead:
 OnMy99Dead:
 	end;
 }
+
+//========================================================================================
+// lhz_dun04 - Bio Lab 4
+// Reference: https://www.divine-pride.net/database/map/lhz_dun04
+//========================================================================================
+lhz_dun04,0,0	monster	Randel	2221,42,5000
+lhz_dun04,0,0	monster	Flamel	2222,42,5000
+lhz_dun04,0,0	monster	Celia	2223,81,5000
+lhz_dun04,0,0	monster	Chen	2224,42,5000
+lhz_dun04,0,0	monster	Gertie	2225,57,5000
+lhz_dun04,0,0	monster	Alphoccio	2226,42,5000
+lhz_dun04,0,0	monster	Trentini	2227,42,5000
+lhz_dun04,0,0	monster	Celia Ringleader	2875,3,300000
+lhz_dun04,0,0	monster	Paladin Randel	2228,1,3300000,3000000
+lhz_dun04,0,0	monster	Creator Flamel	2229,1,3300000,3000000
+lhz_dun04,0,0	monster	Professor Celia	2230,1,3300000,3000000
+lhz_dun04,0,0	monster	Champion Chen	2231,1,3300000,3000000
+lhz_dun04,0,0	monster	Stalker Gertie	2232,1,3300000,3000000
+lhz_dun04,0,0	monster	Clown Alphoccio	2233,1,3300000,3000000
+lhz_dun04,0,0	monster	Gypsy Trentini	2234,1,3300000,3000000

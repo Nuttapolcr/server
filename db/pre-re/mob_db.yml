@@ -46525,6 +46525,676 @@ Body:
         Rate: 5
         StealProtected: true
     Defense: 42
+  # Bio Lab 4 monsters used by npc/pre-re/mobs/dungeons/lhz_dun.txt.
+  # Stats, drops, and required drop items follow the Renewal database.
+  - Id: 2221
+    AegisName: RANDEL
+    Name: Randel
+    Level: 141
+    Hp: 1078745
+    BaseExp: 32367
+    JobExp: 31752
+    Attack: 8055
+    Attack2: 9300
+    Defense: 80
+    MagicDefense: 56
+    Str: 158
+    Agi: 120
+    Vit: 100
+    Int: 50
+    Dex: 185
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Holy
+    ElementLevel: 3
+    WalkSpeed: 180
+    AttackDelay: 76
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 19
+    Drops:
+      - Item: Armlet_Of_Prisoner
+        Rate: 2000
+      - Item: Particles_Of_Energy4
+        Rate: 700
+      - Item: Elunium
+        Rate: 100
+      - Item: Blood_Thirst
+        Rate: 500
+      - Item: Randel_Card
+        Rate: 1
+        StealProtected: true
+      - Item: Goast_Chill_Lab4
+        Rate: 300
+      - Item: Blood_Thirst_Lab4
+        Rate: 300
+      - Item: Goast_Chill
+        Rate: 500
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2222
+    AegisName: FLAMEL
+    Name: Flamel
+    Level: 141
+    Hp: 1016468
+    BaseExp: 26397
+    JobExp: 30465
+    Attack: 8017
+    Attack2: 9602
+    Defense: 80
+    MagicDefense: 12
+    Str: 141
+    Agi: 130
+    Vit: 70
+    Int: 81
+    Dex: 150
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Fire
+    ElementLevel: 3
+    WalkSpeed: 180
+    AttackDelay: 1152
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 19
+    Drops:
+      - Item: Armlet_Of_Prisoner
+        Rate: 2000
+      - Item: Goast_Chill
+        Rate: 500
+      - Item: Particles_Of_Energy4
+        Rate: 700
+      - Item: Oridecon
+        Rate: 100
+      - Item: Blood_Thirst
+        Rate: 500
+      - Item: Flamel_Card
+        Rate: 1
+        StealProtected: true
+      - Item: Goast_Chill_Lab4
+        Rate: 300
+      - Item: Blood_Thirst_Lab4
+        Rate: 300
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2223
+    AegisName: CELIA
+    Name: Celia
+    Level: 141
+    Hp: 1053145
+    BaseExp: 22107
+    JobExp: 25102
+    Attack: 8612
+    Attack2: 9450
+    Defense: 74
+    MagicDefense: 312
+    Str: 136
+    Agi: 99
+    Vit: 61
+    Int: 121
+    Dex: 125
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Ghost
+    ElementLevel: 3
+    WalkSpeed: 180
+    AttackDelay: 1152
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 20
+    Drops:
+      - Item: Armlet_Of_Prisoner
+        Rate: 2000
+      - Item: Goast_Chill
+        Rate: 500
+      - Item: Particles_Of_Energy4
+        Rate: 700
+      - Item: Blood_Thirst
+        Rate: 500
+      - Item: Ceila_Card
+        Rate: 1
+        StealProtected: true
+      - Item: Goast_Chill_Lab4
+        Rate: 300
+      - Item: Blood_Thirst_Lab4
+        Rate: 300
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2224
+    AegisName: CHEN
+    Name: Chen
+    Level: 141
+    Hp: 1079562
+    Sp: 25
+    BaseExp: 25684
+    JobExp: 26149
+    Attack: 8501
+    Attack2: 9048
+    Defense: 125
+    MagicDefense: 56
+    Str: 122
+    Agi: 81
+    Vit: 83
+    Int: 130
+    Dex: 201
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demon
+    RaceGroups:
+      Biolab: true
+    Element: Water
+    ElementLevel: 4
+    WalkSpeed: 180
+    AttackDelay: 76
+    AttackMotion: 768
+    DamageMotion: 288
+    Ai: 19
+    Drops:
+      - Item: Goast_Chill
+        Rate: 500
+      - Item: Lab_Staff_Record
+        Rate: 2000
+      - Item: Particles_Of_Energy4
+        Rate: 700
+      - Item: Oridecon
+        Rate: 100
+      - Item: Blood_Thirst
+        Rate: 500
+      - Item: Chen_Card
+        Rate: 1
+        StealProtected: true
+      - Item: Blood_Thirst_Lab4
+        Rate: 300
+      - Item: Goast_Chill_Lab4
+        Rate: 300
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2225
+    AegisName: GERTIE
+    Name: Gertie
+    Level: 141
+    Hp: 1066926
+    BaseExp: 24267
+    JobExp: 26706
+    Attack: 8684
+    Attack2: 9007
+    Defense: 108
+    MagicDefense: 10
+    Str: 180
+    Agi: 125
+    Vit: 55
+    Int: 51
+    Dex: 211
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demon
+    RaceGroups:
+      Biolab: true
+    Element: Poison
+    ElementLevel: 4
+    WalkSpeed: 150
+    AttackDelay: 76
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 19
+    Modes:
+      Detector: true
+    Drops:
+      - Item: Goast_Chill
+        Rate: 500
+      - Item: Lab_Staff_Record
+        Rate: 2000
+      - Item: Particles_Of_Energy4
+        Rate: 700
+      - Item: Elunium
+        Rate: 100
+      - Item: Blood_Thirst
+        Rate: 500
+      - Item: Gertie_Card
+        Rate: 1
+        StealProtected: true
+      - Item: Goast_Chill_Lab4
+        Rate: 300
+      - Item: Blood_Thirst_Lab4
+        Rate: 300
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2226
+    AegisName: ALPHOCCIO
+    Name: Alphoccio
+    Level: 142
+    Hp: 1056202
+    BaseExp: 22192
+    JobExp: 26824
+    Attack: 7273
+    Attack2: 9076
+    Defense: 84
+    MagicDefense: 15
+    Str: 120
+    Agi: 97
+    Vit: 71
+    Int: 181
+    Dex: 81
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Wind
+    ElementLevel: 3
+    WalkSpeed: 180
+    AttackDelay: 76
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 19
+    Drops:
+      - Item: Goast_Chill
+        Rate: 500
+      - Item: Lab_Staff_Record
+        Rate: 2000
+      - Item: Particles_Of_Energy4
+        Rate: 1000
+      - Item: Oridecon
+        Rate: 100
+      - Item: Blood_Thirst
+        Rate: 500
+      - Item: Alphoccio_Card
+        Rate: 1
+        StealProtected: true
+      - Item: Goast_Chill_Lab4
+        Rate: 300
+      - Item: Blood_Thirst_Lab4
+        Rate: 300
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2227
+    AegisName: TRENTINI
+    Name: Trentini
+    Level: 142
+    Hp: 1004962
+    BaseExp: 15995
+    JobExp: 17486
+    Attack: 8070
+    Attack2: 9206
+    Defense: 70
+    MagicDefense: 60
+    Str: 115
+    Agi: 81
+    Vit: 65
+    Int: 194
+    Dex: 95
+    Luk: 120
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Wind
+    ElementLevel: 3
+    WalkSpeed: 180
+    AttackDelay: 76
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 19
+    Drops:
+      - Item: Goast_Chill
+        Rate: 500
+      - Item: Lab_Staff_Record
+        Rate: 2000
+      - Item: Particles_Of_Energy4
+        Rate: 700
+      - Item: Blood_Thirst
+        Rate: 500
+      - Item: Trentini_Card
+        Rate: 1
+        StealProtected: true
+      - Item: Goast_Chill_Lab4
+        Rate: 300
+      - Item: Blood_Thirst_Lab4
+        Rate: 300
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2228
+    AegisName: G_RANDEL
+    Name: Paladin Randel
+    Level: 160
+    Hp: 3163000
+    Attack: 8537
+    Attack2: 9017
+    Defense: 70
+    MagicDefense: 60
+    Str: 291
+    Agi: 120
+    Vit: 102
+    Int: 101
+    Dex: 150
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Holy
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 76
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Drops:
+      - Item: Old_Violet_Box
+        Rate: 10
+      - Item: Goast_Chill_Lab4
+        Rate: 1000
+      - Item: Blood_Thirst_Lab4
+        Rate: 1000
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2229
+    AegisName: G_FLAMEL
+    Name: Creator Flamel
+    Level: 160
+    Hp: 2531750
+    Attack: 8355
+    Attack2: 10514
+    Defense: 70
+    MagicDefense: 60
+    Str: 159
+    Agi: 120
+    Vit: 157
+    Int: 170
+    Dex: 130
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Fire
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 1152
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Drops:
+      - Item: Old_Violet_Box
+        Rate: 10
+      - Item: Goast_Chill_Lab4
+        Rate: 1000
+      - Item: Blood_Thirst_Lab4
+        Rate: 1000
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2230
+    AegisName: G_CELIA
+    Name: Professor Celia
+    Level: 160
+    Hp: 2025160
+    Attack: 8481
+    Attack2: 10114
+    Defense: 70
+    MagicDefense: 60
+    Str: 165
+    Agi: 120
+    Vit: 171
+    Int: 155
+    Dex: 120
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Ghost
+    ElementLevel: 3
+    WalkSpeed: 100
+    AttackDelay: 1152
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Drops:
+      - Item: Old_Violet_Box
+        Rate: 10
+      - Item: Goast_Chill_Lab4
+        Rate: 1000
+      - Item: Blood_Thirst_Lab4
+        Rate: 1000
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2231
+    AegisName: G_CHEN
+    Name: Champion Chen
+    Level: 160
+    Hp: 2236500
+    Sp: 1553
+    Attack: 8617
+    Attack2: 10947
+    Defense: 70
+    MagicDefense: 60
+    Str: 180
+    Agi: 120
+    Vit: 165
+    Int: 50
+    Dex: 140
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Water
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 76
+    AttackMotion: 768
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Drops:
+      - Item: Old_Violet_Box
+        Rate: 10
+      - Item: Goast_Chill_Lab4
+        Rate: 1000
+      - Item: Blood_Thirst_Lab4
+        Rate: 1000
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2232
+    AegisName: G_GERTIE
+    Name: Stalker Gertie
+    Level: 160
+    Hp: 2135410
+    Attack: 8162
+    Attack2: 10274
+    Defense: 70
+    MagicDefense: 60
+    Str: 217
+    Agi: 120
+    Vit: 127
+    Int: 51
+    Dex: 150
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: Demon
+    RaceGroups:
+      Biolab: true
+    Element: Poison
+    ElementLevel: 4
+    WalkSpeed: 100
+    AttackDelay: 76
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Drops:
+      - Item: Old_Violet_Box
+        Rate: 10
+      - Item: Goast_Chill_Lab4
+        Rate: 1000
+      - Item: Blood_Thirst_Lab4
+        Rate: 1000
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2233
+    AegisName: G_ALPHOCCIO
+    Name: Clown Alphoccio
+    Level: 160
+    Hp: 2049620
+    Attack: 8641
+    Attack2: 10749
+    Defense: 70
+    MagicDefense: 60
+    Str: 219
+    Agi: 120
+    Vit: 130
+    Int: 107
+    Dex: 140
+    Luk: 120
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Wind
+    ElementLevel: 4
+    WalkSpeed: 150
+    AttackDelay: 76
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Drops:
+      - Item: Old_Violet_Box
+        Rate: 10
+      - Item: Goast_Chill_Lab4
+        Rate: 1000
+      - Item: Blood_Thirst_Lab4
+        Rate: 1000
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2234
+    AegisName: G_TRENTINI
+    Name: Gypsy Trentini
+    Level: 160
+    Hp: 2049620
+    Attack: 8016
+    Attack2: 9036
+    Defense: 70
+    MagicDefense: 60
+    Str: 167
+    Agi: 120
+    Vit: 165
+    Int: 217
+    Dex: 140
+    Luk: 120
+    AttackRange: 2
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    RaceGroups:
+      Biolab: true
+    Element: Wind
+    ElementLevel: 4
+    WalkSpeed: 150
+    AttackDelay: 76
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 21
+    Class: Boss
+    Drops:
+      - Item: Old_Violet_Box
+        Rate: 10
+      - Item: Goast_Chill_Lab4
+        Rate: 1000
+      - Item: Blood_Thirst_Lab4
+        Rate: 1000
+      - Item: Meteorite_Fragment
+        Rate: 100
+  - Id: 2875
+    AegisName: C3_CELIA
+    Name: Celia Ringleader
+    Level: 141
+    Hp: 1265725
+    BaseExp: 110535
+    JobExp: 376530
+    Attack: 1934
+    Attack2: 2450
+    Defense: 74
+    MagicDefense: 312
+    Str: 136
+    Agi: 99
+    Vit: 61
+    Int: 121
+    Dex: 121
+    Luk: 49
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Medium
+    Race: DemiHuman
+    Element: Ghost
+    ElementLevel: 3
+    WalkSpeed: 180
+    AttackDelay: 1152
+    AttackMotion: 864
+    DamageMotion: 288
+    Ai: 20
+    Drops:
+      - Item: Armlet_Of_Prisoner
+        Rate: 10000
+      - Item: Goast_Chill
+        Rate: 5
+      - Item: Elunium
+        Rate: 500
+      - Item: Blood_Thirst
+        Rate: 750
   - Id: 2235
     AegisName: B_RANDEL
     Name: Paladin Randel
@@ -46533,16 +47203,16 @@ Body:
     BaseExp: 3674489
     JobExp: 2149566
     MvpExp: 1837244
-    Attack: 5537
-    Attack2: 3017
-    Defense: 667
-    MagicDefense: 151
+    Attack: 9537
+    Attack2: 12017
+    Defense: 90
+    MagicDefense: 60
     Str: 291
-    Agi: 155
+    Agi: 120
     Vit: 201
     Int: 101
-    Dex: 265
-    Luk: 66
+    Dex: 160
+    Luk: 120
     AttackRange: 1
     SkillRange: 10
     ChaseRange: 12
@@ -46561,6 +47231,15 @@ Body:
     Class: Boss
     Modes:
       Mvp: true
+    Drops:
+      - Item: Particles_Of_Energy4
+        Rate: 10000
+      - Item: Particles_Of_Energy4
+        Rate: 10000
+      - Item: Goast_Chill_Lab4
+        Rate: 10000
+      - Item: Blood_Thirst_Lab4
+        Rate: 10000
   - Id: 2236
     AegisName: B_FLAMEL
     Name: Creator Flamel
@@ -46569,16 +47248,16 @@ Body:
     BaseExp: 2611785
     JobExp: 1446694
     MvpExp: 1305892
-    Attack: 2355
-    Attack2: 2514
-    Defense: 253
-    MagicDefense: 113
+    Attack: 12355
+    Attack2: 12514
+    Defense: 70
+    MagicDefense: 60
     Str: 159
-    Agi: 175
+    Agi: 120
     Vit: 157
     Int: 170
-    Dex: 237
-    Luk: 71
+    Dex: 160
+    Luk: 120
     AttackRange: 1
     SkillRange: 10
     ChaseRange: 12
@@ -46596,6 +47275,15 @@ Body:
     Class: Boss
     Modes:
       Mvp: true
+    Drops:
+      - Item: Particles_Of_Energy4
+        Rate: 10000
+      - Item: Particles_Of_Energy4
+        Rate: 10000
+      - Item: Goast_Chill_Lab4
+        Rate: 10000
+      - Item: Blood_Thirst_Lab4
+        Rate: 10000
   - Id: 2237
     AegisName: B_CELIA
     Name: Professor Celia
@@ -46604,16 +47292,16 @@ Body:
     BaseExp: 2513654
     JobExp: 1380385
     MvpExp: 1256827
-    Attack: 2481
-    Attack2: 3114
-    Defense: 201
-    MagicDefense: 543
+    Attack: 12481
+    Attack2: 13114
+    Defense: 70
+    MagicDefense: 60
     Str: 165
-    Agi: 148
+    Agi: 120
     Vit: 171
     Int: 155
-    Dex: 267
-    Luk: 85
+    Dex: 160
+    Luk: 120
     AttackRange: 1
     SkillRange: 10
     ChaseRange: 12
@@ -46631,6 +47319,15 @@ Body:
     Class: Boss
     Modes:
       Mvp: true
+    Drops:
+      - Item: Particles_Of_Energy4
+        Rate: 10000
+      - Item: Particles_Of_Energy4
+        Rate: 10000
+      - Item: Goast_Chill_Lab4
+        Rate: 10000
+      - Item: Blood_Thirst_Lab4
+        Rate: 10000
   - Id: 2238
     AegisName: B_CHEN
     Name: Champion Chen
@@ -46640,16 +47337,15 @@ Body:
     BaseExp: 2556784
     JobExp: 1614235
     MvpExp: 1278392
-    Attack: 3617
-    Attack2: 1947
-    Defense: 216
-    MagicDefense: 134
+    Attack: 13617
+    Attack2: 11947
+    Defense: 70
     Str: 180
-    Agi: 165
+    Agi: 120
     Vit: 165
     Int: 50
-    Dex: 298
-    Luk: 66
+    Dex: 160
+    Luk: 120
     AttackRange: 1
     SkillRange: 10
     ChaseRange: 12
@@ -46667,6 +47363,16 @@ Body:
     Class: Boss
     Modes:
       Mvp: true
+    Drops:
+      - Item: Particles_Of_Energy4
+        Rate: 10000
+      - Item: Particles_Of_Energy4
+        Rate: 10000
+      - Item: Goast_Chill_Lab4
+        Rate: 10000
+      - Item: Blood_Thirst_Lab4
+        Rate: 10000
+    MagicDefense: 60
   - Id: 22201
     AegisName: SPIRIT_S_WIND_M
     Name: Spirit of Wind

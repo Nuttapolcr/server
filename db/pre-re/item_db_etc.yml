@@ -9711,6 +9711,106 @@ Body:
       BuyingStore: true
     Script: |
       bonus bBaseAtk,25;
+  - Id: 4567
+    AegisName: Alphoccio_Card
+    Name: Alphoccio Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Garment: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bFlee,10;
+      bonus bMaxHPrate,10;
+      bonus bMaxSPrate,5;
+  - Id: 4568
+    AegisName: Ceila_Card
+    Name: Celia Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Garment: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bFlee,10;
+  - Id: 4569
+    AegisName: Chen_Card
+    Name: Chen Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Garment: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bFlee,10;
+      skill "MO_CALLSPIRITS",2;
+  - Id: 4570
+    AegisName: Flamel_Card
+    Name: Flamel Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Garment: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bFlee,10;
+      bonus2 bAddItemGroupHealRate,IG_Flamel_Card,200;
+  - Id: 4571
+    AegisName: Gertie_Card
+    Name: Gertie Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Garment: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bFlee,10;
+      skill "RG_CLOSECONFINE",1;
+  - Id: 4572
+    AegisName: Randel_Card
+    Name: Randel Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Garment: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |
+      bonus bFlee,10;
+      skill "CR_AUTOGUARD",3;
+  - Id: 4573
+    AegisName: Trentini_Card
+    Name: Trentini Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Garment: true
+    Flags:
+      BuyingStore: true
+      DropEffect: CLIENT
+    Script: |+
+      bonus bFlee,10;
+      bonus bMaxHPrate,5;
+      bonus bMaxSPrate,10;
+
   - Id: 4584
     AegisName: Manananggal_Card
     Name: Manananggal Card
@@ -15902,6 +16002,62 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+  - Id: 6470
+    AegisName: Blood_Thirst
+    Name: Blood Thirst
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+    Buy: 200
+  - Id: 1500203
+    AegisName: Blood_Thirst_Lab4
+    Name: Blood Thirst Biolab4
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+    Sell: 2000
+  - Id: 1500205
+    AegisName: Blood_Thirst_Lab4_Copy
+    Name: Collection Blood Thirst Biolab4
+    Type: Charm
+    Weight: 10
+    Flags:
+      BuyingStore: true
+    Sell: 2000
+    CharmMaxEffect: 10
+    CharmScript: |-
+      bonus bMaxHPrate,1;
+      bonus bMaxHP,50;
+  - Id: 6471
+    AegisName: Goast_Chill
+    Name: Ghost Chill
+    Type: Etc
+    Weight: 10
+    Flags:
+      BuyingStore: true
+    Buy: 200
+  - Id: 1500202
+    AegisName: Goast_Chill_Lab4
+    Name: Ghost Chill BioLab4
+    Type: Etc
+    Sell: 2000
+    Weight: 10
+    Flags:
+      BuyingStore: true
+  - Id: 1500204
+    AegisName: Goast_Chill_Lab4_Copy
+    Name: Collection Ghost Chilll BioLab4
+    Type: Charm
+    Weight: 10
+    Flags:
+      BuyingStore: true
+    Sell: 2000
+    CharmMaxEffect: 10
+    CharmScript: |-
+      bonus bMaxSPrate,1;
+      bonus bMaxSP,20;
   - Id: 6493
     AegisName: Makibishi
     Name: Makibishi
@@ -18379,7 +18535,7 @@ Body:
     AegisName: Fragment_Of_Crystal
     Name: Crystal Fragment
     Type: Etc
-    Buy: 552
+    Buy: 1750
     Weight: 10
     Flags:
       BuyingStore: true
@@ -24640,6 +24796,14 @@ Body:
     Type: Etc
     Buy: 10
     Weight: 100
+  - Id: 25130
+    AegisName: Particles_Of_Energy4
+    Name: Sinister Energy Particle
+    Type: Etc
+    Flags:
+      BuyingStore: true
+    Sell: 1750
+    Weight: 10
   - Id: 25170
     AegisName: MinorCastingStone_Robe
     Name: Max HP Stone (Garment)
@@ -26537,106 +26701,106 @@ Body:
     AegisName: Ein_REDIUM
     Name: Redium
     Type: Etc
+    Sell: 1750
     Weight: 10
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Sell: 1750
   - Id: 1500187
     AegisName: Collection_STR_Redium
     Name: Collection STR Redium
     Type: Charm
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bStr,1;
-    Weight: 0
+    CharmMaxEffect: 2
   - Id: 25810
     AegisName: Ein_RINDIUM
     Name: Rindium
     Type: Etc
+    Sell: 1750
     Weight: 10
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Sell: 1750
   - Id: 1500188
     AegisName: Collection_DEX_Rindium
     Name: Collection DEX Rindium
     Type: Charm
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bDex,1;
-    Weight: 0
+    CharmMaxEffect: 2
   - Id: 25811
     AegisName: Ein_ODIUM
     Name: Odium
     Type: Etc
+    Sell: 1750
     Weight: 10
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Sell: 1750
   - Id: 1500189
     AegisName: Collection_AGI_Odium
     Name: Collection AGI Odium
     Type: Charm
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bAgi,1;
-    Weight: 0
+    CharmMaxEffect: 2
   - Id: 25812
     AegisName: Ein_PURDIUM
     Name: Purdium
     Type: Etc
+    Sell: 1750
     Weight: 10
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Sell: 1750
   - Id: 1500190
     AegisName: Collection_LUK_Purdium
     Name: Collection LUK Purdium
     Type: Charm
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bLuk,1;
-    Weight: 0
+    CharmMaxEffect: 2
   - Id: 25813
     AegisName: Ein_WHIDIUM
     Name: Whidium
     Type: Etc
+    Sell: 1750
     Weight: 10
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Sell: 1750
   - Id: 1500191
     AegisName: Collection_VIT_Whidium
     Name: Collection VIT Whidium
     Type: Charm
+    Weight: 0
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    CharmMaxEffect: 2
     CharmScript: bonus bVit,1;
-    Weight: 0
+    CharmMaxEffect: 2
   - Id: 25814
     AegisName: Ein_DYNITE
     Name: Dynite
     Type: Etc
+    Sell: 1750
     Weight: 10
     Flags:
       BuyingStore: true
       DropEffect: CLIENT
-    Sell: 1750
   - Id: 25815
     AegisName: Ein_SOLIDDUST
     Name: Hardened Dust
@@ -26650,8 +26814,8 @@ Body:
     AegisName: Ein_EYEROCK
     Name: Bizarre Stone Carvings
     Type: Etc
-    Weight: 50
     Sell: 1750
+    Weight: 50
   - Id: 300001
     AegisName: Poisonous_Card
     Name: Poisonous Card

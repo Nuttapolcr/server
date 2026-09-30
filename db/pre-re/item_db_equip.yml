@@ -6782,6 +6782,29 @@ Body:
       bonus bStr,1;
       bonus bInt,2;
       bonus bDex,1;
+  - Id: 1435
+    AegisName: Cannon_Spear
+    Name: Cannon Spear
+    Type: Weapon
+    SubType: 1hSpear
+    Buy: 56000
+    Weight: 1600
+    Attack: 180
+    Range: 3
+    Slots: 1
+    Jobs:
+      Crusader: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 100
+    Refineable: true
+    Script: |
+      bonus bMaxSP,-100;
+      bonus2 bSkillAtk,"LG_CANNONSPEAR",10+(getrefine()*3);
   - Id: 1438
     AegisName: Thanos_Spear
     Name: Thanos Spear
@@ -11149,6 +11172,37 @@ Body:
          bonus bUseSPrate,-15;
          bonus bInt,3;
       }
+  - Id: 1654
+    AegisName: Mental_Stick
+    Name: Mental Stick
+    Type: Weapon
+    SubType: Staff
+    Buy: 20
+    Weight: 500
+    Attack: 40
+    MagicAttack: 170
+    Range: 1
+    Slots: 1
+    Jobs:
+      Sage: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 102
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      if (.@r>5) {
+         bonus2 bSkillAtk,"SO_PSYCHIC_WAVE",(.@r-6)*2;
+         bonus bMaxHPrate,-(.@r-6)*2;
+      }
+      bonus2 bSkillVariableCast,"SO_PSYCHIC_WAVE",-3000;
+      bonus2 bSkillUseSP,"SO_PSYCHIC_WAVE",-60;
+    UnEquipScript: |
+      heal 0,-100;
   - Id: 1669
     AegisName: Thanos_Staff
     Name: Thanos Staff
@@ -12830,6 +12884,34 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 1830
+    AegisName: Sura_Rampage
+    Name: Sura Rampage
+    Type: Weapon
+    SubType: Knuckle
+    Buy: 20
+    Weight: 500
+    Attack: 142
+    Range: 1
+    Slots: 1
+    Jobs:
+      Monk: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 102
+    Refineable: true
+    Script: |
+      bonus2 bSkillAtk,"SR_EARTHSHAKER",20;
+      bonus2 bSkillAtk,"SR_SKYNETBLOW",20;
+      bonus bUseSPrate,5;
+      .@r = getrefine();
+      if (.@r>6) {
+         bonus bUseSPrate,-1*(.@r-6);
+      }
   - Id: 1836
     AegisName: Thanos_Knuckle
     Name: Thanos Knuckle
@@ -13489,6 +13571,36 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 1930
+    AegisName: Green_Whistle
+    Name: Green Whistle
+    Type: Weapon
+    SubType: Musical
+    Buy: 20
+    Weight: 800
+    Attack: 170
+    MagicAttack: 50
+    Range: 1
+    Slots: 1
+    Jobs:
+      BardDancer: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Gender: Male
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 102
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      if (.@r>5) {
+         bonus2 bSkillUseSP,"MI_RUSH_WINDMILL",(.@r-5)*4;
+         bonus2 bSkillUseSP,"WM_LULLABY_DEEPSLEEP",(.@r-5)*4;
+      }
+      bonus2 bSkillVariableCast,"MI_RUSH_WINDMILL",-2000;
+      bonus2 bSkillVariableCast,"WM_LULLABY_DEEPSLEEP",-2000;
   - Id: 1933
     AegisName: Thanos_Violin
     Name: Thanos Violin
@@ -14269,6 +14381,36 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 1984
+    AegisName: Stem_Whip
+    Name: Stem Whip
+    Type: Weapon
+    SubType: Whip
+    Buy: 20
+    Weight: 800
+    Attack: 170
+    MagicAttack: 50
+    Range: 1
+    Slots: 1
+    Jobs:
+      BardDancer: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Gender: Female
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 102
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      if (.@r>5) {
+         bonus2 bSkillUseSP,"WA_SWING_DANCE",(.@r-5)*4;
+         bonus2 bSkillUseSP,"WM_LULLABY_DEEPSLEEP",(.@r-5)*4;
+      }
+      bonus2 bSkillVariableCast,"WA_SWING_DANCE",-2000;
+      bonus2 bSkillVariableCast,"WM_LULLABY_DEEPSLEEP",-2000;
   - Id: 1988
     AegisName: Thanos_Whip
     Name: Thanos Whip
@@ -15346,6 +15488,55 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 99
     View: 1
+  - Id: 2161
+    AegisName: Geffenia_Book_Water
+    Name: Geffenia Tomb of Water
+    Type: Armor
+    Buy: 56000
+    Weight: 1000
+    Defense: 30
+    Slots: 1
+    Jobs:
+      Wizard: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 100
+    Refineable: true
+    View: 5
+    Script: |
+      bonus bMdef,2;
+      bonus bInt,1;
+      if (readparam(bInt)>=120) {
+         bonus bMatk,10;
+         bonus bMaxHP,800;
+      }
+  - Id: 2162
+    AegisName: Bible_Of_Promise2
+    Name: Bible of Promise(2nd Vol.)
+    Type: Armor
+    Buy: 56000
+    Weight: 500
+    Defense: 20
+    Slots: 1
+    Jobs:
+      Priest: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 140
+    Refineable: true
+    View: 5
+    Script: |
+      bonus bMdef,5;
+      skill "ALL_ODINS_POWER",2;
+      bonus bHealPower,5;
   - Id: 2185
     AegisName: Magic_Reflector
     Name: Magic Reflect
@@ -20432,6 +20623,29 @@ Body:
       bonus bAddItemHealRate,5;
       bonus bMdef,3;
       bonus bVit,2;
+  - Id: 2465
+    AegisName: Dance_Shoes
+    Name: Dance Shoes
+    Type: Armor
+    Buy: 20
+    Weight: 300
+    Defense: 15
+    Slots: 1
+    Jobs:
+      BardDancer: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Gender: Female
+    Locations:
+      Shoes: true
+    ArmorLevel: 1
+    EquipLevelMin: 105
+    Refineable: true
+    Script: |
+      bonus bAgi,1;
+      bonus bAspdRate,2;
+      bonus2 bSkillUseSP,"WA_SWING_DANCE",32;
   - Id: 2486
     AegisName: Shadow_Walk_
     Name: Shadow Walk
@@ -25435,6 +25649,61 @@ Body:
       skill "MG_COLDBOLT",1;
       skill "MG_FIREWALL",1;
       skill "MG_FIREBOLT",1;
+  - Id: 2853
+    AegisName: Telekinetic_Orb
+    Name: Telekinetic Orb
+    Type: Armor
+    Buy: 20
+    Weight: 200
+    Defense: 2
+    Jobs:
+      Alchemist: true
+      Assassin: true
+      BardDancer: true
+      Blacksmith: true
+      Crusader: true
+      Hunter: true
+      Knight: true
+      Monk: true
+      Priest: true
+      Rogue: true
+      Sage: true
+      Wizard: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Both_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 110
+    Script: |
+      bonus bMdef,1;
+      bonus bInt,3;
+      bonus bMaxSP,30;
+      bonus2 bSkillAtk,"WL_SOULEXPANSION",10;
+      bonus2 bSkillAtk,"SO_PSYCHIC_WAVE",10;
+      bonus2 bSkillUseSP,"WL_SOULEXPANSION",-50;
+      bonus2 bSkillUseSP,"SO_PSYCHIC_WAVE",-50;
+  - Id: 2892
+    AegisName: Assassin_Handcuffs
+    Name: Assassin Handcuffs
+    Type: Armor
+    Buy: 56000
+    Weight: 400
+    Defense: 3
+    Slots: 1
+    Jobs:
+      Assassin: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Both_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 100
+    Script: |
+      bonus bMaxSP,20;
+      bonus bCritical,3;
   - Id: 2949
     AegisName: Silversmith_Bracelet
     Name: Silversmith Bracelet
@@ -39626,6 +39895,33 @@ Body:
       NoAuction: true
     Script: |
       bonus2 bAddSize,Size_All,40;
+  - Id: 13061
+    AegisName: Black_Wing
+    Name: Black Wing
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 600
+    Attack: 142
+    Range: 1
+    Slots: 1
+    Jobs:
+      Rogue: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 102
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus2 bSkillAtk,"SC_FATALMENACE",30;
+      if (.@r>=6) {
+         bonus2 bSkillAtk,"SC_FATALMENACE",(.@r-5)*2;
+         bonus bMatk,((.@r-5)*3);
+      }
   - Id: 13086
     AegisName: Goldsmithing_Dagger
     Name: Goldsmithing Dagger
@@ -41827,6 +42123,27 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+  - Id: 15044
+    AegisName: Green_Operation_Coat
+    Name: Green Surgical Gown
+    Type: Armor
+    Buy: 56000
+    Weight: 660
+    Defense: 66
+    Slots: 1
+    Jobs:
+      Alchemist: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    EquipLevelMin: 100
+    Refineable: true
+    Script: |
+      bonus bDex,1;
+      bonus bMaxSP,30;
   - Id: 15066
     AegisName: Engraved_Armor
     Name: Engraved Plate Armor
@@ -41933,6 +42250,37 @@ Body:
     Refineable: true
     Script: |
       bonus2 bSubEle,Ele_Holy,10+getrefine()*2;
+  - Id: 16010
+    AegisName: Red_Ether_Bag
+    Name: Red Ether Bag
+    Type: Weapon
+    SubType: Mace
+    Buy: 20
+    Weight: 1000
+    Attack: 15
+    MagicAttack: 100
+    Range: 1
+    Slots: 1
+    Jobs:
+      Alchemist: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 102
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      if (.@r>=6) {
+         bonus2 bSkillAtk,"GN_CRAZYWEED_ATK",20+((.@r-5)*2);
+         bonus2 bSkillAtk,"GN_DEMONIC_FIRE",20+((.@r-5)*2);
+      }
+      else {
+         bonus2 bSkillAtk,"GN_CRAZYWEED_ATK",20;
+         bonus2 bSkillAtk,"GN_DEMONIC_FIRE",20;
+      }
   - Id: 16028
     AegisName: Thanos_Hammer
     Name: Thanos Hammer
@@ -41968,6 +42316,54 @@ Body:
       bonus2 bHPLossRate,100,10000;
     UnEquipScript: |
       heal -1000,0;
+  - Id: 18109
+    AegisName: Catapult
+    Name: Thief Crossbow
+    Type: Weapon
+    SubType: Bow
+    Buy: 56000
+    Weight: 1100
+    Attack: 150
+    Range: 5
+    Slots: 2
+    Jobs:
+      Rogue: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 100
+    Refineable: true
+    Script: |
+      .@r = getrefine();
+      bonus2 bSkillAtk,"SC_TRIANGLESHOT",(.@r*2);
+      bonus2 bSkillUseSP,"SC_TRIANGLESHOT",-(.@r*2);
+  - Id: 18111
+    AegisName: Creeper_Bow
+    Name: Creeper Bow
+    Type: Weapon
+    SubType: Bow
+    Buy: 56000
+    Weight: 1500
+    Attack: 150
+    Range: 5
+    Slots: 2
+    Jobs:
+      BardDancer: true
+      Hunter: true
+    Classes:
+      All_Third: true
+      Fourth: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    EquipLevelMin: 120
+    Refineable: true
+    Script: |
+      bonus bDex,1;
+      bonus3 bAutoSpell,"PF_SPIDERWEB",1,200;
   - Id: 18119
     AegisName: Thanos_Bow
     Name: Thanos Bow

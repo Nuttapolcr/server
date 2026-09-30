@@ -1229,3 +1229,49 @@ Body:
           - Index: 0
             Item: Ein_PURDIUM # 25812
             Amount: 1500
+
+  # MA 30/9/69 - heading 8: Bio Lab 4.
+  - Name: CRAFT_BIOLAB4
+    CraftBarter: false
+    Items:
+      - Index: 0
+        Item: Goast_Chill_Lab4_Copy # 1500204
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Goast_Chill_Lab4 # 1500202
+            Amount: 500
+          - Index: 1
+            Item: Goast_Chill # 6471
+            Amount: 1500
+      - Index: 1
+        Item: Blood_Thirst_Lab4_Copy # 1500205
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Blood_Thirst_Lab4 # 1500203
+            Amount: 500
+          - Index: 1
+            Item: Blood_Thirst # 6470
+            Amount: 1500
+      - Index: 2
+        Item: Cos_Option_box # 1500195
+        Zeny: 1000000
+        RequiredItems:
+          - Index: 0
+            Item: Goast_Chill_Lab4 # 1500202
+            Amount: 300
+      - Index: 3
+        Item: Cos_Option_box # 1500195
+        Zeny: 1000000
+        RequiredItems:
+          - Index: 0
+            Item: Blood_Thirst_Lab4 # 1500203
+            Amount: 300
+      - Index: 4
+        Item: Cos_Option_box # 1500195
+        Zeny: 1000000
+        RequiredItems:
+          - Index: 0
+            Item: Particles_Of_Energy4 # 25130
+            Amount: 1000

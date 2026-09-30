@@ -40104,21 +40104,21 @@ Body:
     AegisName: New_Item_1500074
     Name: ATK
     Type: Charm
-    CharmScript: |
-      bonus bBossBoxSpeed,1;
-      bonus2 bSkillAtk,"PA_SACRIFICE",300;
-      bonus bInventorySlots,1;
+    CharmScript: bonus bSpeedRate,1;
     CharmMaxEffect: 1000
     CharmUpgradeMaxEffect: 1000
   - Id: 1500075
     AegisName: New_Item_1500075
     Name: New Item 1500075
-    Type: Charm
+    Type: Armor
     CharmScript: |-
       bonus2 bAddRace,RC_DemiHuman,1;
       bonus2 bAddRace,RC_Player_Human,1;
     CharmMaxEffect: 1000
     CharmUpgradeMaxEffect: 1000
+    Script: bonus bSpeedRate,20;
+    Locations:
+      Head_Top: true
   - Id: 1500076
     AegisName: New_Item_1500076
     Name: โจมกึ่งมนุษย์
@@ -41177,11 +41177,24 @@ Body:
       }
     Defense: 3
   - Id: 1500195
-    AegisName: New_Item_1500195
-    Name: New Item 1500195
+    AegisName: Cos_Option_box
+    Name: Option Costume Box
+    Type: DelayConsume
+    Script: |
+      callfunc "F_HICostumeShadowOptionBox",1500195;
   - Id: 1500196
-    AegisName: New_Item_1500196
-    Name: New Item 1500196
+    AegisName: Reward_Infinity_Space
+    Name: Reward Infinity Space
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoGuildStorage: true
+      NoMail: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
   - Id: 1500197
     AegisName: Collection_Max_HP%
     Name: Collection Max HP%

@@ -260,3 +260,192 @@ function	script	F_HICostumeOption_Roll	{
 	@hicostume_option_id = @hicostume_pool_id[0];
 	return;
 }
+
+// Item 1500195: roll two independent random-option rows for five Shadow slots.
+function	script	F_HICostumeShadowOptionBox	{
+	.@box_id = getarg(0, 1500195);
+	disable_items;
+
+	if (countitem(.@box_id) < 1) {
+		mes "^FF3300[ Option Costume Box ]^000000";
+		mes "ไม่พบกล่องออฟชั่นในตัวละคร";
+		close;
+	}
+
+	setarray .@equip_pos[0],
+		EQI_SHADOW_ARMOR,
+		EQI_SHADOW_SHIELD,
+		EQI_SHADOW_SHOES,
+		EQI_SHADOW_ACC_R,
+		EQI_SHADOW_ACC_L;
+	setarray .@equip_mask[0],
+		EQP_SHADOW_ARMOR,
+		EQP_SHADOW_SHIELD,
+		EQP_SHADOW_SHOES,
+		EQP_SHADOW_ACC_R,
+		EQP_SHADOW_ACC_L;
+	setarray .@equip_name$[0],
+		"Shadow Armor",
+		"Shadow Shield",
+		"Shadow Shoes",
+		"Shadow Accessory ขวา",
+		"Shadow Accessory ซ้าย";
+
+	mes "^FF3300[ Option Costume Box ]^000000";
+	mes "เลือก Shadow Armor, Shield, Shoes หรือ Accessory ที่สวมใส่อยู่";
+	mes "^FF0000ไม่สามารถใช้กับ Costume และ Weapon ทุกชนิด^000000";
+	mes "กล่องจะสุ่มออฟชั่นแถว 1 และ 2 ใหม่";
+	mes "^FF0000ออฟชั่นเดิมในสองแถวนี้จะถูกเขียนทับ^000000";
+	next;
+
+	for (.@i = 0; .@i < getarraysize(.@equip_pos); .@i++) {
+		.@menu$ += .@equip_name$[.@i] + " - ";
+		if (getequipisequiped(.@equip_pos[.@i]))
+			.@menu$ += getequipname(.@equip_pos[.@i]);
+		else
+			.@menu$ += "(ไม่ได้สวมใส่)";
+		.@menu$ += ":";
+	}
+	.@menu$ += "ยกเลิก";
+
+	.@selected = select(.@menu$) - 1;
+	if (.@selected == getarraysize(.@equip_pos))
+		close;
+
+	.@part = .@equip_pos[.@selected];
+	if (!getequipisequiped(.@part)) {
+		mes "^FF3300[ Option Costume Box ]^000000";
+		mes "ไม่ได้สวมใส่อุปกรณ์ในช่องที่เลือก";
+		close;
+	}
+
+	.@equip_id = getequipid(.@part);
+	.@unique_id$ = getequipuniqueid(.@part);
+
+	// Rebuild the equipped item instead of mutating it in place. The in-place
+	// random-option command can leave some clients waiting for an equipment
+	// update, while this path safely preserves the equipped Shadow item's data.
+	getinventorylist;
+	.@inventory_pos = -1;
+	for (.@i = 0; .@i < @inventorylist_count; ++.@i) {
+		if (@inventorylist_id[.@i] == .@equip_id &&
+		    (@inventorylist_equip[.@i] & .@equip_mask[.@selected])) {
+			.@inventory_pos = .@i;
+			break;
+		}
+	}
+	if (.@inventory_pos < 0) {
+		mes "^FF3300[ Option Costume Box ]^000000";
+		mes "ไม่พบอุปกรณ์ที่สวมใส่ กรุณาถอดและสวมใหม่แล้วลองอีกครั้ง";
+		close;
+	}
+	if (@inventorylist_expire[.@inventory_pos]) {
+		mes "^FF3300[ Option Costume Box ]^000000";
+		mes "ไม่สามารถสุ่มออฟชั่นให้อุปกรณ์เช่าได้";
+		close;
+	}
+	if (@inventorylist_favorite[.@inventory_pos]) {
+		mes "^FF3300[ Option Costume Box ]^000000";
+		mes "กรุณานำอุปกรณ์ออกจากรายการโปรดก่อนสุ่มออฟชั่น";
+		close;
+	}
+
+	.@identify = @inventorylist_identify[.@inventory_pos];
+	.@refine = @inventorylist_refine[.@inventory_pos];
+	.@attribute = @inventorylist_attribute[.@inventory_pos];
+	.@bound = @inventorylist_bound[.@inventory_pos];
+	.@grade = @inventorylist_enchantgrade[.@inventory_pos];
+	setarray .@card[0],
+		@inventorylist_card1[.@inventory_pos],
+		@inventorylist_card2[.@inventory_pos],
+		@inventorylist_card3[.@inventory_pos],
+		@inventorylist_card4[.@inventory_pos];
+	setarray .@OptID[0],
+		@inventorylist_option_id1[.@inventory_pos],
+		@inventorylist_option_id2[.@inventory_pos],
+		@inventorylist_option_id3[.@inventory_pos],
+		@inventorylist_option_id4[.@inventory_pos],
+		@inventorylist_option_id5[.@inventory_pos];
+	setarray .@OptVal[0],
+		@inventorylist_option_value1[.@inventory_pos],
+		@inventorylist_option_value2[.@inventory_pos],
+		@inventorylist_option_value3[.@inventory_pos],
+		@inventorylist_option_value4[.@inventory_pos],
+		@inventorylist_option_value5[.@inventory_pos];
+	setarray .@OptParam[0],
+		@inventorylist_option_parameter1[.@inventory_pos],
+		@inventorylist_option_parameter2[.@inventory_pos],
+		@inventorylist_option_parameter3[.@inventory_pos],
+		@inventorylist_option_parameter4[.@inventory_pos],
+		@inventorylist_option_parameter5[.@inventory_pos];
+
+	mes "^FF3300[ Option Costume Box ]^000000";
+	mes "อุปกรณ์: ^0000FF" + getitemname(.@equip_id) + "^000000";
+	mes "สุ่มออฟชั่นแถว 1 และ 2 จากตารางเดียวกัน";
+	mes "แต่ละแถวสุ่มแยกกันและอาจได้ออฟชั่นซ้ำ";
+	mes "ต้องการดำเนินการต่อหรือไม่?";
+	next;
+	if (select("ยืนยัน:ยกเลิก") == 2)
+		close;
+
+	if (countitem(.@box_id) < 1 ||
+	    !getequipisequiped(.@part) ||
+	    getequipid(.@part) != .@equip_id ||
+	    (.@unique_id$ != "" && getequipuniqueid(.@part) != .@unique_id$)) {
+		mes "^FF3300[ Option Costume Box ]^000000";
+		mes "อุปกรณ์หรือกล่องมีการเปลี่ยนแปลง กรุณาลองใหม่";
+		close;
+	}
+
+	setarray .@option_id[0],
+		17, 19, 13, 14, 15, 16, 22, 23, 24,
+		170, 164, 166, 171, 1, 2, 9, 10, 18;
+	setarray .@option_min[0],
+		1, 1, 1, 1, 1, 1, 5, 1, 1,
+		1, 1, 1, 1, 100, 20, 1, 1, 5;
+	setarray .@option_max[0],
+		15, 15, 3, 3, 1, 5, 15, 3, 5,
+		3, 5, 5, 3, 500, 100, 2, 2, 15;
+	// Ratio is the value interval from the sheet, not a random weight.
+	setarray .@option_ratio[0],
+		1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 50, 10, 1, 1, 1;
+	setarray .@option_percent[0],
+		0, 0, 1, 1, 0, 1, 0, 0, 0,
+		1, 1, 1, 1, 0, 0, 1, 1, 0;
+	setarray .@option_name$[0],
+		"ATK", "MATK", "ATK", "MATK", "ASPD", "ASPD", "Flee", "Perfect Dodge", "CRITICAL",
+		"ลด Variable Cast Time", "Critical Damage", "Ranged Damage", "ลดดีเลย์", "Max HP", "Max SP", "Max HP", "Max SP", "Hit";
+
+	for (.@slot = 0; .@slot < 2; .@slot++) {
+		.@roll = rand(getarraysize(.@option_id));
+		.@ratio_count = (.@option_max[.@roll] - .@option_min[.@roll]) / .@option_ratio[.@roll];
+		.@value = .@option_min[.@roll] + (rand(.@ratio_count + 1) * .@option_ratio[.@roll]);
+		.@OptID[.@slot] = .@option_id[.@roll];
+		.@OptVal[.@slot] = .@value;
+		.@OptParam[.@slot] = 0;
+		.@result_index[.@slot] = .@roll;
+		.@result_value[.@slot] = .@value;
+	}
+
+	if (!delequip(.@part)) {
+		mes "^FF3300[ Option Costume Box ]^000000";
+		mes "ไม่สามารถนำอุปกรณ์ออกเพื่อเพิ่มออฟชั่นได้ กรุณาลองใหม่";
+		close;
+	}
+	delitem .@box_id, 1;
+	getitembound4 .@equip_id, 1, .@identify, .@refine, .@attribute,
+		.@card[0], .@card[1], .@card[2], .@card[3], .@bound, .@grade,
+		.@OptID, .@OptVal, .@OptParam;
+	equip .@equip_id;
+	specialeffect2 154;
+
+	mes "^FF3300[ Option Costume Box ]^000000";
+	mes "สุ่มออฟชั่นสำเร็จ";
+	for (.@slot = 0; .@slot < 2; .@slot++) {
+		.@roll = .@result_index[.@slot];
+		.@suffix$ = (.@option_percent[.@roll]) ? "%" : "";
+		mes "แถว " + (.@slot + 1) + ": ^009900" + .@option_name$[.@roll] + " " + .@result_value[.@slot] + .@suffix$ + "^000000";
+	}
+	close;
+}

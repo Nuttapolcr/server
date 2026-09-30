@@ -1828,6 +1828,11 @@ static int pet_ai_sub_hard(struct pet_data *pd, map_session_data *sd, t_tick tic
 			case 1651: case 2235: case 2236: case 2237: case 2238:
 				loot_range = 12;
 				break;
+			// Legend: MEDJAY, CP_HEKA, MEDJED and the three elemental spirits.
+			case 22397: case 22402: case 22395: case 22227: case 22205:
+			case 22201:
+				loot_range = 15;
+				break;
 		}
 		map_foreachinallrange(pet_ai_sub_hard_lootsearch, &pd->bl, loot_range, BL_ITEM, pd, &target);
 	}

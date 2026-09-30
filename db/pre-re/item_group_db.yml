@@ -4310,6 +4310,19 @@ Body:
           - Index: 1
             Item: Shusi
             Rate: 1
+  - Group: FLAMEL_CARD
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Index: 0
+            Item: Red_Slim_Potion
+            Rate: 1
+          - Index: 1
+            Item: Yellow_Slim_Potion
+            Rate: 1
+          - Index: 2
+            Item: White_Slim_Potion
+            Rate: 1
   - Group: FOOD
     SubGroups:
       - SubGroup: 1
