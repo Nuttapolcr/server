@@ -420,7 +420,10 @@ function	script	F_HICostumeShadowOptionBox	{
 	for (.@slot = 0; .@slot < 2; .@slot++) {
 		.@roll = rand(getarraysize(.@option_id));
 		.@ratio_count = (.@option_max[.@roll] - .@option_min[.@roll]) / .@option_ratio[.@roll];
-		.@value = .@option_min[.@roll] + (rand(.@ratio_count + 1) * .@option_ratio[.@roll]);
+		if (.@ratio_count > 0)
+			.@value = .@option_min[.@roll] + (rand(.@ratio_count + 1) * .@option_ratio[.@roll]);
+		else
+			.@value = .@option_min[.@roll];
 		.@OptID[.@slot] = .@option_id[.@roll];
 		.@OptVal[.@slot] = .@value;
 		.@OptParam[.@slot] = 0;
