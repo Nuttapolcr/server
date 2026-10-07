@@ -155,6 +155,23 @@ Body:
     Type: Usable
     Script: |
       rentitem 97001,604800;
+  - Id: 1500207
+    AegisName: AUTOATTACK_AI_RENT_7D_NT
+    Name: Ai Box 7 Day [NT]
+    Type: Usable
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |
+      rentitem 97001,604800;
   - Id: 1500067
     AegisName: AUTOATTACK_AI_RENT_30D
     Name: Ai Box 30 Day
@@ -37953,8 +37970,8 @@ Body:
       if (.@r>=11) {
          bonus bAspdRate,15;
       bonus2 bAddClass,Class_Boss,20;
-      bonus2 bSubRace,RC_Player_Human,20;
-      bonus2 bSubRace,RC_Player_Doram,20;
+      bonus2 bSubRace,RC_Player_Human,5;
+      bonus2 bSubRace,RC_Player_Doram,5;
       }
       if (.@g >= ENCHANTGRADE_D) {
          bonus bAtkRate,5;
@@ -40111,14 +40128,14 @@ Body:
     AegisName: New_Item_1500075
     Name: New Item 1500075
     Type: Armor
+    Locations:
+      Head_Top: true
+    Script: bonus bSpeedRate,20;
     CharmScript: |-
       bonus2 bAddRace,RC_DemiHuman,1;
       bonus2 bAddRace,RC_Player_Human,1;
     CharmMaxEffect: 1000
     CharmUpgradeMaxEffect: 1000
-    Script: bonus bSpeedRate,20;
-    Locations:
-      Head_Top: true
   - Id: 1500076
     AegisName: New_Item_1500076
     Name: โจมกึ่งมนุษย์
@@ -40909,8 +40926,12 @@ Body:
       getitem 1000603,30;
       getitem 1030074,20;
   - Id: 1500139
-    AegisName: New_Item_1500139
-    Name: New Item 1500139
+    AegisName: Rare_Fragment_NT
+    Name: Rare Fragment (NT)
+    Type: Usable
+    Script: |-
+      getgroupitem(IG_RANDOM_RUDOLF_BOX_10);
+      specialeffect2 18;
   - Id: 1500140
     AegisName: New_Item_1500140
     Name: New Item 1500140
@@ -41061,9 +41082,21 @@ Body:
     Type: Charm
     CharmScript: bonus2 bIgnoreDefClassRate,Class_All,1;
     CharmMaxEffect: 3
+  - Id: 1500209
+    AegisName: Collection_Ignore_DEF_Copy
+    Name: Collection Ignore DEF V.2
+    Type: Charm
+    CharmScript: bonus2 bIgnoreDefClassRate,Class_All,1;
+    CharmMaxEffect: 3
   - Id: 1500169
     AegisName: Collection_Ignore_MDEF
     Name: Collection Ignore MDEF
+    Type: Charm
+    CharmScript: bonus2 bIgnoreMdefClassRate,Class_All,1;
+    CharmMaxEffect: 3
+  - Id: 1500210
+    AegisName: Collection_Ignore_MDEF_Copy
+    Name: Collection Ignore MDEF V.2
     Type: Charm
     CharmScript: bonus2 bIgnoreMdefClassRate,Class_All,1;
     CharmMaxEffect: 3
@@ -41153,13 +41186,14 @@ Body:
     AegisName: Jejecap
     Name: Jejecap
     Type: Armor
-    View: 1011
+    Defense: 3
+    Slots: 1
     Locations:
       Head_Top: true
-    Refineable: true
-    EquipLevelMin: 1
     ArmorLevel: 1
-    Slots: 1
+    EquipLevelMin: 1
+    Refineable: true
+    View: 1011
     Script: |-
       .@r = getrefine();
       bonus2 bAddItemHealRate,522,200;
@@ -41175,7 +41209,6 @@ Body:
       bonus2 bSubRace,RC_Player_Human,6;
       bonus2 bSubRace,RC_Player_Doram,6;
       }
-    Defense: 3
   - Id: 1500195
     AegisName: Cos_Option_box
     Name: Option Costume Box
@@ -41184,38 +41217,151 @@ Body:
       callfunc "F_HICostumeShadowOptionBox",1500195;
   - Id: 1500196
     AegisName: Reward_Infinity_Space
-    Name: Reward Infinity Space
+    Name: Reward Infinity Space Eazy
     Type: Usable
     Trade:
       NoDrop: true
-      NoGuildStorage: true
-      NoMail: true
       NoTrade: true
       TradePartner: true
       NoSell: true
       NoCart: true
       NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 6635,4;
+      getitem 1000398,10;
+      getitem 1001139,2;
+      getitem 1000442,2;
+      getitem 1001600,4;
+      getitem 12103,1;
+      getitem 1001718,2;
+      getitem 1030012,10;
+  - Id: 1500206
+    AegisName: Reward_Infinity_Space_Copy
+    Name: Reward Infinity Space Hard
+    Type: Usable
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      TradePartner: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+    Script: |-
+      getitem 6635,8;
+      getitem 1000398,20;
+      getitem 1001139,4;
+      getitem 1000442,4;
+      getitem 1001600,8;
+      getitem 12103,2;
+      getitem 1001718,4;
+      getitem 1030012,20;
   - Id: 1500197
     AegisName: Collection_Max_HP%
     Name: Collection Max HP%
     Type: Charm
-    CharmMaxEffect: 10
     CharmScript: bonus bMaxHPrate,1;
+    CharmMaxEffect: 10
   - Id: 1500198
     AegisName: Collection_Max_SP%
     Name: Collection Max SP%
     Type: Charm
-    CharmMaxEffect: 10
     CharmScript: bonus bMaxSPrate,1;
+    CharmMaxEffect: 10
   - Id: 1500199
     AegisName: Collection_Flee1
     Name: Collection Flee
     Type: Charm
-    CharmMaxEffect: 5
     CharmScript: bonus bFlee,10;
+    CharmMaxEffect: 5
   - Id: 1500200
     AegisName: Collection_HIT1
     Name: Collection HIT
     Type: Charm
-    CharmMaxEffect: 5
     CharmScript: bonus bHit,10;
+    CharmMaxEffect: 5
+  - Id: 1500208
+    AegisName: Coin_Valor_V6
+    Name: Coin Valor V.6
+    Type: Etc
+  - Id: 1500211
+    AegisName: Collection_Warrior
+    Name: Collection Warrior
+    Type: Charm
+    CharmMaxEffect: 1
+    CharmScript: |2-
+        bonus bStr,5;
+        bonus bAtk,30;
+        bonus bMaxHP,500;
+        bonus bHit,10;
+        bonus bCritical,5;
+  - Id: 1500212
+    AegisName: "Collection_Assassin "
+    Name: "Collection Assassin "
+    Type: Charm
+    CharmMaxEffect: 1
+    CharmScript: |2-
+        bonus bAgi,5;
+        bonus bAtk,25;
+        bonus bCritical,10;
+        bonus bFlee,10;
+        bonus bAspd,2;
+  - Id: 1500213
+    AegisName: Collection_Mage
+    Name: Collection Mage
+    Type: Charm
+    CharmMaxEffect: 1
+    CharmScript: |2-
+        bonus bInt,5;
+        bonus bMatk,30;
+        bonus bMaxSP,150;
+        bonus bMdef,3;
+        bonus bVariableCastrate,-3;
+  - Id: 1500214
+    AegisName: Collection_Guardian
+    Name: Collection Guardian
+    Type: Charm
+    CharmMaxEffect: 1
+    CharmScript: |2-
+        bonus bVit,5;
+        bonus bMaxHP,1000;
+        bonus bDef,5;
+        bonus bMdef,3;
+        bonus bHPrecovRate,10;
+  - Id: 1500215
+    AegisName: Collection_Hunter
+    Name: Collection Hunter
+    Type: Charm
+    CharmMaxEffect: 1
+    CharmScript: |2-
+        bonus bDex,5;
+        bonus bAtk,25;
+        bonus bHit,15;
+        bonus bCritical,5;
+        bonus bFlee,5;
+  - Id: 1500216
+    AegisName: Collection_Legendary
+    Name: Collection Legendary
+    Type: Charm
+    CharmMaxEffect: 1
+    CharmScript: |2-
+        bonus bStr,3;
+        bonus bAgi,3;
+        bonus bVit,3;
+        bonus bInt,3;
+        bonus bAtk,40;
+        bonus bMatk,40;
+        bonus bMaxHP,1000;
+        bonus bMaxSP,200;
+  - Id: 1500217
+    AegisName: Collection_SP_Absorb
+    Name: Collection SP Absorb
+    Type: Charm
+    CharmScript: |+
+      if (getmapflag(strcharinfo(3), MF_GVG) || getmapflag(strcharinfo(3), MF_GVG_CASTLE)) end;
+      bonus2 bSPDrainRate,10,4;
+
+    CharmMaxEffect: 3

@@ -1,0 +1,36 @@
+// แจก Ai Box 7 Day แบบผูกบัญชี รับได้หนึ่งครั้งต่อบัญชี
+
+morocc,173,87,4	script	รับ AI ฟรี	922,{
+	mes "[รับ AI ฟรี]";
+	if (#free_ai_7day_claimed) {
+		mes "บัญชีนี้รับ AI ฟรีไปแล้ว";
+		close;
+	}
+
+	mes "รับ Ai Box 7 Day [NT] ฟรี 1 ชิ้น";
+	mes "รับได้ 1 ครั้งต่อบัญชี";
+	next;
+	if (select("รับไอเทม:ยกเลิก") == 2)
+		close;
+
+	if (#free_ai_7day_claimed) {
+		mes "[รับ AI ฟรี]";
+		mes "บัญชีนี้รับ AI ฟรีไปแล้ว";
+		close;
+	}
+	if (!checkweight(1500207,1)) {
+		mes "[รับ AI ฟรี]";
+		mes "น้ำหนักหรือช่องเก็บของไม่เพียงพอ";
+		close;
+	}
+
+	getitembound 1500207,1,Bound_Account;
+	#free_ai_7day_claimed = 1;
+	mes "[รับ AI ฟรี]";
+	mes "ได้รับ Ai Box 7 Day [NT] เรียบร้อยแล้ว";
+	close;
+
+OnInit:
+	waitingroom "รับ AI ฟรี",0;
+	end;
+}

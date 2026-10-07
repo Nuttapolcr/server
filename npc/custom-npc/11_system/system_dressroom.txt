@@ -64,7 +64,7 @@ function	script	F_HiclassStylistPreview	{
 	}
 }
 
-morocc,167,111,3	script	Stylist#super_stylist	87,{
+sec_pri,34,34,3	script	Stylist#super_stylist	87,{
 	doevent "super_stylist_main::OnTalk";
 	end;
 }

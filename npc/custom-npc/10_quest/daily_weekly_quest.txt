@@ -16,7 +16,7 @@ function	script	F_DWQ_RecordTitanOrThanatosKill	{
 	return;
 }
 
-morocc,160,150,4	script	NPC Daily-Weekly Quest	412,{
+morocc,142,85,4	script	NPC Daily-Weekly Quest	412,{
 	callsub S_ResetExpired;
 
 	mes "[Daily-Weekly Quest]";
@@ -418,6 +418,7 @@ OnInit:
 		"‡§« µÏ√“¬ —ª¥“ÀÏ Hardcore";
 	for (.@i = 0; .@i < getarraysize(.qid); .@i++)
 		setd "$@dwq_title_" + .qid[.@i] + "$", .title$[.@i];
+	waitingroom "‡§« Daily & Weekly",0;
 	questinfo QTYPE_QUEST, QMARK_YELLOW;
 	end;
 }

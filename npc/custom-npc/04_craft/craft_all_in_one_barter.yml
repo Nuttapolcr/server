@@ -735,6 +735,55 @@ Body:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 3
+      - Index: 38
+        Item: Jejecap # 1500194
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 5
+      - Index: 39
+        Item: Pecopeco_Hairband_Copy # 1500201
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 5
+      - Index: 40
+        Item: Epic_Pet_Random # 1500161
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 3
+      - Index: 41
+        Item: "Collection_Max_HP%" # 1500197
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 3
+      - Index: 42
+        Item: "Collection_Max_SP%" # 1500198
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 3
+      - Index: 43
+        Item: Collection_Flee1 # 1500199
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 2
+      - Index: 44
+        Item: Collection_HIT1 # 1500200
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 2
 
   - Name: CRAFT_SHADOW_9
     CraftBarter: false

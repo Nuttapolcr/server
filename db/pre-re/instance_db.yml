@@ -131,3 +131,10 @@ Body:
       Map: champvs
       X: 104
       Y: 62
+  - Id: 901
+    Name: Valor Infinite Space
+    TimeLimit: 3600
+    Enter:
+      Map: 1@infi
+      X: 30
+      Y: 10

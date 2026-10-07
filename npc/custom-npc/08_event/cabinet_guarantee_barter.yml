@@ -1,4 +1,4 @@
-# Guarantee exchange from HICLASS sheet "ตู้ 23/9/69" (MA 23/9/69).
+# Guarantee exchange from HICLASS sheet "ตู้ 7/10/69" (MA 7/10/69).
 Header:
   Type: BARTER_DB
   Version: 1
@@ -8,62 +8,68 @@ Body:
     CraftBarter: false
     Items:
       - Index: 0
-        Item: Jejecap # 1500194
+        Item: Collection_Warrior # 1500211
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
-            Amount: 5
+            Item: Coin_Valor_V6 # 1500208
+            Amount: 4
       - Index: 1
-        Item: Pecopeco_Hairband_Copy # 1500201
+        Item: "Collection_Assassin " # 1500212
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
-            Amount: 5
+            Item: Coin_Valor_V6 # 1500208
+            Amount: 4
       - Index: 2
-        Item: Epic_Pet_Random # 1500161
+        Item: Collection_Mage # 1500213
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
-            Amount: 3
+            Item: Coin_Valor_V6 # 1500208
+            Amount: 4
       - Index: 3
-        Item: "Collection_Max_HP%" # 1500197
+        Item: Collection_Guardian # 1500214
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
-            Amount: 3
+            Item: Coin_Valor_V6 # 1500208
+            Amount: 4
       - Index: 4
-        Item: "Collection_Max_SP%" # 1500198
+        Item: Collection_Hunter # 1500215
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
-            Amount: 3
+            Item: Coin_Valor_V6 # 1500208
+            Amount: 4
       - Index: 5
-        Item: Collection_Flee1 # 1500199
+        Item: Collection_SP_Absorb # 1500217
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
-            Amount: 2
+            Item: Coin_Valor_V6 # 1500208
+            Amount: 3
       - Index: 6
-        Item: Collection_HIT1 # 1500200
+        Item: Collection_Ignore_DEF_Copy # 1500209
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
-            Amount: 2
+            Item: Coin_Valor_V6 # 1500208
+            Amount: 3
       - Index: 7
+        Item: Collection_Ignore_MDEF_Copy # 1500210
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Valor_V6 # 1500208
+            Amount: 3
+      - Index: 8
         Item: Bloody_Branch_40_Box # 1500167
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
+            Item: Coin_Valor_V6 # 1500208
             Amount: 1
-      - Index: 8
+      - Index: 9
         Item: Refine_Booster_Potion_5 # 1030015
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
+            Item: Coin_Valor_V6 # 1500208
             Amount: 1
-      - Index: 9
+      - Index: 10
         Item: Refine_Booster_Potion_10 # 1030016
         RequiredItems:
           - Index: 0
-            Item: Coin_Valor_V5 # 1500192
+            Item: Coin_Valor_V6 # 1500208
             Amount: 2

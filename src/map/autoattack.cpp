@@ -2465,8 +2465,8 @@ bool aa_checkactivestatus(map_session_data* sd, sc_type type) {
 
 // Automatically use buff items
 bool aa_status_buffitem(map_session_data* sd, t_tick last_tick) {
-    // Return early if the feature is disabled or no buff items are configured
-    if (!battle_config.feature_autoattack_buffitems || sd->aa.autobuffitems.empty() || sd->st != nullptr || sd->npc_id != 0) {
+    // Dead characters must not consume buff items while waiting to respawn.
+    if (pc_isdead(sd) || !battle_config.feature_autoattack_buffitems || sd->aa.autobuffitems.empty() || sd->st != nullptr || sd->npc_id != 0) {
         return false;
     }
 

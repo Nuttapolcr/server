@@ -4110,3 +4110,21 @@ Body:
           - Index: 0
             Item: Rudolf_Coin # 1500089
             Amount: 200
+      - Index: 7
+        Item: Rare_Fragment_NT # 1500139
+        Zeny: 10000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rudolf_Coin # 1500089
+            Amount: 2
+      - Index: 8
+        Item: Meteorite_Fragment # 1000373
+        Zeny: 10000
+        Rate: 10000
+        IsNPC: true
+        RequiredItems:
+          - Index: 0
+            Item: Rudolf_Coin # 1500089
+            Amount: 1

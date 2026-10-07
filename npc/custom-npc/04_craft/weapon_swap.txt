@@ -1,6 +1,6 @@
 //===== HICLASS =============================================================
 //= Weapon Swapper
-//= Exchanges one weapon for another weapon of the same Rare/Epic/Legend tier.
+//= Exchanges one item for another item of the same category/tier.
 //===========================================================================
 
 morocc,139,141,4	script	Swap item#hiclass	110,{
@@ -11,7 +11,7 @@ morocc,139,141,4	script	Swap item#hiclass	110,{
 	mes "ระบบจะคงค่า refine, การ์ด, ออปชัน และ Grade ไว้";
 	next;
 
-	switch (select("สลับอาวุธ:สลับเสื้อ:สลับมัพ:สลับรองเท้า:สลับประดับ[R]:สลับประดับ[L]:ยกเลิก")) {
+	switch (select("สลับอาวุธ:สลับเสื้อ:สลับมัพ:สลับรองเท้า:สลับประดับ[R]:สลับประดับ[L]:สลับคอสอาวุธ:ยกเลิก")) {
 	case 1:
 		callsub S_SelectTier, 0;
 		break;
@@ -29,6 +29,9 @@ morocc,139,141,4	script	Swap item#hiclass	110,{
 		break;
 	case 6:
 		callsub S_SelectTier, 5;
+		break;
+	case 7:
+		callsub S_Swap, 6, 0;
 		break;
 	default:
 		close;
@@ -52,8 +55,13 @@ S_Swap:
 	.@tier = getarg(1);
 	.@start = .CategoryStart[.@category] + (.@tier * .CategoryCount[.@category]);
 	.@end = .@start + .CategoryCount[.@category];
-	.@card_cost = .CardCost[.@tier];
-	.@zeny_cost = .ZenyCost[.@tier];
+	if (.@category == 6) {
+		.@card_cost = 3;
+		.@zeny_cost = 10000000;
+	} else {
+		.@card_cost = .CardCost[.@tier];
+		.@zeny_cost = .ZenyCost[.@tier];
+	}
 
 	getinventorylist;
 	.@source_count = 0;
@@ -75,7 +83,7 @@ S_Swap:
 
 	if (!.@source_count) {
 		mes "[ Swap item ]";
-		mes "ไม่พบ" + .CategoryName$[.@category] + " " + .TierName$[.@tier] + " ที่สลับได้";
+		mes "ไม่พบ" + .CategoryName$[.@category] + ((.@category == 6) ? "" : " " + .TierName$[.@tier]) + " ที่สลับได้";
 		mes "ไอเทมต้องอยู่ในกระเป๋า, ไม่สวมใส่, ไม่ใช่ของเช่า และไม่ติด Favorite";
 		return;
 	}
@@ -175,9 +183,9 @@ S_Swap:
 OnInit:
 	set .SwapCard, 1030072;
 	setarray .TierName$[0], "Rare", "Epic", "Legend";
-	setarray .CategoryName$[0], "อาวุธ", "เสื้อ", "มัพ", "รองเท้า", "ประดับ[R]", "ประดับ[L]";
-	setarray .CategoryStart[0], 0, 72, 84, 96, 108, 120;
-	setarray .CategoryCount[0], 24, 4, 4, 4, 4, 4;
+	setarray .CategoryName$[0], "อาวุธ", "เสื้อ", "มัพ", "รองเท้า", "ประดับ[R]", "ประดับ[L]", "คอสอาวุธ";
+	setarray .CategoryStart[0], 0, 72, 84, 96, 108, 120, 132;
+	setarray .CategoryCount[0], 24, 4, 4, 4, 4, 4, 14;
 	setarray .CardCost[0], 1, 2, 4;
 	setarray .ZenyCost[0], 3000000, 10000000, 20000000;
 	setarray .SwapItem[0],
@@ -194,7 +202,8 @@ OnInit:
 		480421, 480422, 480423, 480424, 480425, 480426, 480427, 480428, 480429, 480430, 480431, 480432,
 		470278, 470279, 470280, 470281, 470282, 470283, 470284, 470285, 470286, 470287, 470288, 470289,
 		490499, 490500, 490501, 490502, 490503, 490504, 490505, 490506, 490507, 490508, 490509, 490510,
-		490487, 490488, 490489, 490490, 490491, 490492, 490493, 490494, 490495, 490496, 490497, 490498;
+		490487, 490488, 490489, 490490, 490491, 490492, 490493, 490494, 490495, 490496, 490497, 490498,
+		55000, 55001, 55002, 55003, 55004, 55005, 55006, 55007, 55008, 55009, 55010, 55011, 55012, 55013;
 	waitingroom "Swap item", 0;
 	end;
 }

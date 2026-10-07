@@ -10660,63 +10660,55 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 888
-            Amount: 3
+            Amount: 5
           - Index: 1
             Item: Meteorite_Fragment
             Rate: 1110
-            Amount: 4
+            Amount: 6
           - Index: 2
             Item: Meteorite_Fragment
             Rate: 888
-            Amount: 5
+            Amount: 7
           - Index: 3
             Item: Meteorite_Fragment
             Rate: 710
-            Amount: 6
+            Amount: 8
           - Index: 4
             Item: Crt_Meteorite_Dust_NT
             Rate: 816
-            Amount: 1
+            Amount: 2
           - Index: 5
             Item: Crt_Meteorite_Dust_NT
             Rate: 1020
-            Amount: 2
+            Amount: 3
           - Index: 6
             Item: Crt_Meteorite_Dust_NT
             Rate: 816
-            Amount: 3
+            Amount: 4
           - Index: 7
             Item: Crt_Meteorite_Dust_NT
             Rate: 653
-            Amount: 4
+            Amount: 5
           - Index: 8
             Item: Barmund_Ice_Essence_NT
             Rate: 700
-            Amount: 1
+            Amount: 2
           - Index: 9
             Item: Barmund_Ice_Essence_NT
             Rate: 560
-            Amount: 2
+            Amount: 3
           - Index: 10
             Item: Crt_Meteorite_Fragment_NT
             Rate: 700
-            Amount: 1
+            Amount: 2
           - Index: 11
             Item: Crt_Meteorite_Fragment_NT
             Rate: 560
-            Amount: 2
-          - Index: 12
-            Item: Yggdrasilberry
-            Rate: 170
-            Amount: 1
+            Amount: 3
           - Index: 13
             Item: Yggdrasilberry
             Rate: 136
             Amount: 2
-          - Index: 14
-            Item: Seed_Of_Yggdrasil
-            Rate: 170
-            Amount: 1
           - Index: 15
             Item: Seed_Of_Yggdrasil
             Rate: 136
@@ -10729,24 +10721,36 @@ Body:
             Item: Enriched_Oridecon
             Rate: 50
             Amount: 1
+          - Index: 18
+            Item: Blacksmith_Blessing
+            Rate: 50
+            Amount: 1
+          - Index: 19
+            Item: CASH
+            Rate: 135
+            Amount: 1
+          - Index: 20
+            Item: CASH
+            Rate: 135
+            Amount: 2
       - SubGroup: 2
         List:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 525
-            Amount: 3
+            Amount: 4
           - Index: 1
             Item: Meteorite_Fragment
             Rate: 656
-            Amount: 4
+            Amount: 5
           - Index: 2
             Item: Meteorite_Fragment
             Rate: 820
-            Amount: 5
+            Amount: 6
           - Index: 3
             Item: Meteorite_Fragment
             Rate: 656
-            Amount: 6
+            Amount: 7
           - Index: 4
             Item: Meteorite_Fragment
             Rate: 525
@@ -10754,67 +10758,59 @@ Body:
           - Index: 5
             Item: Meteorite_Fragment
             Rate: 420
-            Amount: 8
+            Amount: 9
           - Index: 6
             Item: Crt_Meteorite_Dust_NT
             Rate: 816
-            Amount: 2
+            Amount: 3
           - Index: 7
             Item: Crt_Meteorite_Dust_NT
             Rate: 1020
-            Amount: 3
+            Amount: 4
           - Index: 8
             Item: Crt_Meteorite_Dust_NT
             Rate: 816
-            Amount: 4
+            Amount: 5
           - Index: 9
             Item: Crt_Meteorite_Dust_NT
             Rate: 653
-            Amount: 5
+            Amount: 6
           - Index: 10
             Item: Barmund_Ice_Essence_NT
             Rate: 320
-            Amount: 1
+            Amount: 2
           - Index: 11
             Item: Barmund_Ice_Essence_NT
             Rate: 400
-            Amount: 2
+            Amount: 3
           - Index: 12
             Item: Barmund_Ice_Essence_NT
             Rate: 320
-            Amount: 3
+            Amount: 4
           - Index: 13
             Item: Barmund_Ice_Essence_NT
             Rate: 256
-            Amount: 4
+            Amount: 5
           - Index: 14
             Item: Crt_Meteorite_Fragment_NT
             Rate: 320
-            Amount: 1
+            Amount: 2
           - Index: 15
             Item: Crt_Meteorite_Fragment_NT
             Rate: 400
-            Amount: 2
+            Amount: 3
           - Index: 16
             Item: Crt_Meteorite_Fragment_NT
             Rate: 320
-            Amount: 3
+            Amount: 4
           - Index: 17
             Item: Crt_Meteorite_Fragment_NT
             Rate: 256
-            Amount: 4
-          - Index: 18
-            Item: Yggdrasilberry
-            Rate: 169
-            Amount: 1
+            Amount: 5
           - Index: 19
             Item: Yggdrasilberry
             Rate: 136
             Amount: 2
-          - Index: 20
-            Item: Seed_Of_Yggdrasil
-            Rate: 170
-            Amount: 1
           - Index: 21
             Item: Seed_Of_Yggdrasil
             Rate: 136
@@ -10827,6 +10823,18 @@ Body:
             Item: Enriched_Oridecon
             Rate: 50
             Amount: 1
+          - Index: 24
+            Item: Blacksmith_Blessing
+            Rate: 50
+            Amount: 1
+          - Index: 25
+            Item: CASH
+            Rate: 135
+            Amount: 1
+          - Index: 26
+            Item: CASH
+            Rate: 135
+            Amount: 2
   - Group: MVP_TREASURE_RED
     SubGroups:
       - SubGroup: 1
@@ -10834,127 +10842,119 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 297
-            Amount: 3
+            Amount: 5
           - Index: 1
             Item: Meteorite_Fragment
             Rate: 371
-            Amount: 4
+            Amount: 6
           - Index: 2
             Item: Meteorite_Fragment
             Rate: 464
-            Amount: 5
+            Amount: 7
           - Index: 3
             Item: Meteorite_Fragment
             Rate: 580
-            Amount: 6
+            Amount: 8
           - Index: 4
             Item: Meteorite_Fragment
             Rate: 464
-            Amount: 7
+            Amount: 9
           - Index: 5
             Item: Meteorite_Fragment
             Rate: 371
-            Amount: 8
+            Amount: 10
           - Index: 6
             Item: Meteorite_Fragment
             Rate: 297
-            Amount: 9
+            Amount: 11
           - Index: 7
             Item: Meteorite_Fragment
             Rate: 238
-            Amount: 10
+            Amount: 12
           - Index: 8
             Item: Crt_Meteorite_Dust_NT
             Rate: 154
-            Amount: 2
+            Amount: 3
           - Index: 9
             Item: Crt_Meteorite_Dust_NT
             Rate: 192
-            Amount: 3
+            Amount: 4
           - Index: 10
             Item: Crt_Meteorite_Dust_NT
             Rate: 240
-            Amount: 4
+            Amount: 5
           - Index: 11
             Item: Crt_Meteorite_Dust_NT
             Rate: 300
-            Amount: 5
+            Amount: 6
           - Index: 12
             Item: Crt_Meteorite_Dust_NT
             Rate: 240
-            Amount: 6
+            Amount: 7
           - Index: 13
             Item: Crt_Meteorite_Dust_NT
             Rate: 192
-            Amount: 5
+            Amount: 8
           - Index: 14
             Item: Crt_Meteorite_Dust_NT
             Rate: 154
-            Amount: 6
+            Amount: 9
           - Index: 15
             Item: Crt_Meteorite_Dust_NT
             Rate: 123
-            Amount: 7
+            Amount: 10
           - Index: 16
             Item: Barmund_Ice_Essence_NT
             Rate: 544
-            Amount: 1
+            Amount: 3
           - Index: 17
             Item: Barmund_Ice_Essence_NT
             Rate: 680
-            Amount: 2
+            Amount: 4
           - Index: 18
             Item: Barmund_Ice_Essence_NT
             Rate: 544
-            Amount: 3
+            Amount: 5
           - Index: 19
             Item: Barmund_Ice_Essence_NT
             Rate: 435
-            Amount: 4
+            Amount: 6
           - Index: 20
             Item: Crt_Meteorite_Fragment_NT
             Rate: 544
-            Amount: 1
+            Amount: 3
           - Index: 21
             Item: Crt_Meteorite_Fragment_NT
             Rate: 680
-            Amount: 2
+            Amount: 4
           - Index: 22
             Item: Crt_Meteorite_Fragment_NT
             Rate: 544
-            Amount: 3
+            Amount: 5
           - Index: 23
             Item: Crt_Meteorite_Fragment_NT
             Rate: 435
-            Amount: 4
+            Amount: 6
           - Index: 24
             Item: Pow_Meteorite_Dust_NT
             Rate: 55
-            Amount: 1
+            Amount: 2
           - Index: 25
             Item: Pow_Meteorite_Dust_NT
             Rate: 44
-            Amount: 2
+            Amount: 3
           - Index: 26
             Item: Barmund_Flame_Essence_NT
             Rate: 100
-            Amount: 1
+            Amount: 2
           - Index: 27
             Item: Pow_Meteorite_Fragment_NT
             Rate: 100
-            Amount: 1
-          - Index: 28
-            Item: Yggdrasilberry
-            Rate: 165
-            Amount: 1
+            Amount: 2
           - Index: 29
             Item: Yggdrasilberry
             Rate: 132
             Amount: 2
-          - Index: 30
-            Item: Seed_Of_Yggdrasil
-            Rate: 165
-            Amount: 1
           - Index: 31
             Item: Seed_Of_Yggdrasil
             Rate: 132
@@ -10966,6 +10966,18 @@ Body:
           - Index: 33
             Item: Enriched_Elunium
             Rate: 100
+            Amount: 1
+          - Index: 34
+            Item: CASH
+            Rate: 135
+            Amount: 1
+          - Index: 35
+            Item: CASH
+            Rate: 135
+            Amount: 2
+          - Index: 36
+            Item: Blacksmith_Blessing
+            Rate: 50
             Amount: 1
       - SubGroup: 2
         List:
@@ -11209,6 +11221,18 @@ Body:
             Item: Enriched_Elunium
             Rate: 100
             Amount: 1
+          - Index: 60
+            Item: CASH
+            Rate: 135
+            Amount: 1
+          - Index: 61
+            Item: CASH
+            Rate: 135
+            Amount: 2
+          - Index: 62
+            Item: Blacksmith_Blessing
+            Rate: 50
+            Amount: 1
   - Group: MVP_TREASURE_PURPLE
     SubGroups:
       - SubGroup: 1
@@ -11216,11 +11240,11 @@ Body:
           - Index: 0
             Item: Meteorite_Fragment
             Rate: 42
-            Amount: 3
+            Amount: 5
           - Index: 1
             Item: Meteorite_Fragment
             Rate: 52
-            Amount: 4
+            Amount: 5
           - Index: 2
             Item: Meteorite_Fragment
             Rate: 66
@@ -11280,15 +11304,15 @@ Body:
           - Index: 16
             Item: Crt_Meteorite_Dust_NT
             Rate: 40
-            Amount: 2
+            Amount: 3
           - Index: 17
             Item: Crt_Meteorite_Dust_NT
             Rate: 50
-            Amount: 1
+            Amount: 4
           - Index: 18
             Item: Crt_Meteorite_Dust_NT
             Rate: 62
-            Amount: 2
+            Amount: 5
           - Index: 19
             Item: Crt_Meteorite_Dust_NT
             Rate: 78
@@ -11348,7 +11372,7 @@ Body:
           - Index: 33
             Item: Barmund_Ice_Essence_NT
             Rate: 301
-            Amount: 1
+            Amount: 4
           - Index: 34
             Item: Barmund_Ice_Essence_NT
             Rate: 376
@@ -11376,11 +11400,11 @@ Body:
           - Index: 40
             Item: Crt_Meteorite_Fragment_NT
             Rate: 241
-            Amount: 1
+            Amount: 3
           - Index: 41
             Item: Crt_Meteorite_Fragment_NT
             Rate: 301
-            Amount: 2
+            Amount: 4
           - Index: 42
             Item: Crt_Meteorite_Fragment_NT
             Rate: 376
@@ -11408,31 +11432,23 @@ Body:
           - Index: 48
             Item: Pow_Meteorite_Dust_NT
             Rate: 170
-            Amount: 1
+            Amount: 2
           - Index: 49
             Item: Pow_Meteorite_Dust_NT
             Rate: 136
-            Amount: 2
+            Amount: 3
           - Index: 50
             Item: Barmund_Flame_Essence_NT
             Rate: 300
-            Amount: 1
+            Amount: 2
           - Index: 51
             Item: Pow_Meteorite_Fragment_NT
             Rate: 300
-            Amount: 1
-          - Index: 52
-            Item: Yggdrasilberry
-            Rate: 170
-            Amount: 1
+            Amount: 3
           - Index: 53
             Item: Yggdrasilberry
             Rate: 136
             Amount: 2
-          - Index: 54
-            Item: Seed_Of_Yggdrasil
-            Rate: 170
-            Amount: 1
           - Index: 55
             Item: Seed_Of_Yggdrasil
             Rate: 136
@@ -11444,6 +11460,18 @@ Body:
             Item: Enriched_Oridecon
             Rate: 300
             Amount: 1
+          - Index: 58
+            Item: Blacksmith_Blessing
+            Rate: 50
+            Amount: 1
+          - Index: 59
+            Item: CASH
+            Rate: 135
+            Amount: 1
+          - Index: 60
+            Item: CASH
+            Rate: 135
+            Amount: 2
       - SubGroup: 2
         List:
           - Index: 0
@@ -11874,6 +11902,18 @@ Body:
             Item: Enriched_Elunium
             Rate: 300
             Amount: 1
+          - Index: 107
+            Item: Blacksmith_Blessing
+            Rate: 50
+            Amount: 1
+          - Index: 108
+            Item: CASH
+            Rate: 135
+            Amount: 1
+          - Index: 109
+            Item: CASH
+            Rate: 135
+            Amount: 2
   - Group: CITY_TITAN_BLUE
     SubGroups:
       - SubGroup: 1
@@ -14537,8 +14577,16 @@ Body:
     SubGroups:
       - SubGroup: 1
         List:
-          - Index: 0
-            Item: Jellopy
+          - Index: 1
+            Item: Barmund_Ice_Essence_NT
+            Rate: 1
+            Amount: 1
+          - Index: 2
+            Item: Crt_Meteorite_Dust_NT
+            Rate: 1
+            Amount: 1
+          - Index: 3
+            Item: Crt_Meteorite_Fragment_NT
             Rate: 1
             Amount: 1
   - Group: RANDOM_RUDOLF_BOX_11
