@@ -195,6 +195,7 @@ std::map<int, std::string> get_unique_buff_skills(TBL_PC* sd, const char* skill_
 				&& skill_get_sc(skill->nameid) != SC_NONE)
 				|| skill->nameid == MO_CALLSPIRITS
 				|| skill->nameid == CH_SOULCOLLECT
+				|| skill->nameid == CR_FULLPROTECTION
 				|| skill->nameid == SA_AUTOSPELL ) {
 
 				if (unique_skills.count(skill->nameid) == 0) {
@@ -973,7 +974,7 @@ void handleAutoBuffSkills(const std::vector<std::string>& result, map_session_da
 		if (!skill)
 			return; // Invalid skill
 
-		if (skill_id != MO_CALLSPIRITS && skill_id != CH_SOULCOLLECT && skill_id != CH_SOULCOLLECT) { // Bypass if one of this skill
+		if (skill_id != MO_CALLSPIRITS && skill_id != CH_SOULCOLLECT && skill_id != CR_FULLPROTECTION) { // Bypass if one of these skills
 			if (!(skill->inf & (INF_SUPPORT_SKILL | INF_SELF_SKILL)))
 				return; // not a support/self skill
 

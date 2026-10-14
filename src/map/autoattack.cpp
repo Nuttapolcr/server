@@ -463,7 +463,7 @@ void aa_save(map_session_data* sd){
         "`action_on_end` = %d, "
         "`monster_surround` = %d, "
         "`monk_combo` = %d",
-        // INSERT VALUES (23 Ã?Â¨Ã’Â©
+		// INSERT VALUES (23 values)
         sd->status.char_id,
         sd->aa.stopmelee,
         sd->aa.pickup_item_config,
@@ -487,7 +487,7 @@ void aa_save(map_session_data* sd){
         sd->aa.action_on_end,
         sd->aa.monster_surround,
         sd->aa.monk_combo,
-        // UPDATE VALUES (22 Ã?Â¨Ã’Â - Ã¤?Â¨Ã•Â©Ã?Â§ char_id)
+		// UPDATE VALUES (22 values, excluding char_id)
         sd->aa.stopmelee,
         sd->aa.pickup_item_config,
         sd->aa.prio_item_config,
@@ -1499,13 +1499,13 @@ void aa_refill_arrows(map_session_data* sd, int current_ammo_id) {
 		return;
 	
 	struct ammo_container_pair {
-		unsigned short ammo_id;      // ID CÃ??Ã?Â¹/Ã…?xÃ??
-		unsigned short container_id; // ID Ã??Ã??
-		int amount;                  // Ã?â€?Ã??Ã?Â·Ã•Â¨Ã¤Â´Â©
+		unsigned short ammo_id;      // Ammunition item ID
+		unsigned short container_id; // Container item ID
+		int amount;                  // Amount received
 	};
 	
 	ammo_container_pair pairs[] = {
-		// ===== ARROWS (Ã…?xÃ??) =====
+		// ===== ARROWS =====
 		{1750, 12004, 500},  // Arrow
 		{1751, 12009, 500},  // Silver Arrow
 		{1752, 12008, 500},  // Fire Arrow
@@ -1523,7 +1523,7 @@ void aa_refill_arrows(map_session_data* sd, int current_ammo_id) {
 		{1773, 12575, 500},  // Hunting Arrow
 		{1774, 12576, 500},  // Siege Arrow
 		
-		// ===== BULLETS (CÃ??Ã?Â¹?â€”Ã?Â© =====
+		// ===== BULLETS =====
 		{13200, 12149, 500}, // Bullet
 		{13201, 12151, 500}, // Silver Bullet
 		{13215, 22744, 500}, // Bullet (Fire)
@@ -1891,7 +1891,7 @@ void aa_buyitem(struct map_session_data *sd) {
 						default: discount_percent = 0; break;
 					}
 					
-					// Ã…Â´Ã?â€?Ã?â€? (Ã…Âº %)
+					// Apply discount (percentage)
 					price = price - (price * discount_percent / 100);
 				}
 				
@@ -2338,9 +2338,23 @@ bool aa_status_buffs(map_session_data* sd, t_tick last_tick) {
 			continue; // Skip inactive buffs or buffs on cooldown
 		}
 
+		bool needs_buff = false;
+		if (autobuff.skill_id == CR_FULLPROTECTION) {
+			const unsigned int equipment[] = { EQP_WEAPON, EQP_SHIELD, EQP_ARMOR, EQP_HEAD_TOP };
+			const sc_type protections[] = { SC_CP_WEAPON, SC_CP_SHIELD, SC_CP_ARMOR, SC_CP_HELM };
+
+			for (size_t i = 0; i < ARRAYLENGTH(equipment); ++i) {
+				if (pc_checkequip(sd, equipment[i]) >= 0 && !sd->sc.getSCE(protections[i])) {
+					needs_buff = true;
+					break;
+				}
+			}
+		} else {
+			needs_buff = !sd->sc.getSCE(skill_get_sc(autobuff.skill_id));
+		}
+
 		// Check if the skill can be used and the player is not already under its effect
-		if (aa_canuseskill(sd, autobuff.skill_id, autobuff.skill_lv) &&
-			!sd->sc.getSCE(skill_get_sc(autobuff.skill_id))) {
+		if (aa_canuseskill(sd, autobuff.skill_id, autobuff.skill_lv) && needs_buff) {
 
 			// Handle specific cases for special skills
 			if ((autobuff.skill_id == MO_CALLSPIRITS || autobuff.skill_id == CH_SOULCOLLECT) && sd->spiritball == 5)
