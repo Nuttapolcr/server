@@ -11,7 +11,7 @@ morocc,139,141,4	script	Swap item#hiclass	110,{
 	mes "ระบบจะคงค่า refine, การ์ด, ออปชัน และ Grade ไว้";
 	next;
 
-	switch (select("สลับอาวุธ:สลับเสื้อ:สลับมัพ:สลับรองเท้า:สลับประดับ[R]:สลับประดับ[L]:สลับคอสอาวุธ:ยกเลิก")) {
+	switch (select("สลับอาวุธ:สลับเสื้อ:สลับมัพ:สลับรองเท้า:สลับประดับ[R]:สลับประดับ[L]:สลับคอสอาวุธ:สลับ Shadow:ยกเลิก")) {
 	case 1:
 		callsub S_SelectTier, 0;
 		break;
@@ -33,6 +33,9 @@ morocc,139,141,4	script	Swap item#hiclass	110,{
 	case 7:
 		callsub S_Swap, 6, 0;
 		break;
+	case 8:
+		callsub S_SelectShadow;
+		break;
 	default:
 		close;
 	}
@@ -50,6 +53,15 @@ S_SelectTier:
 	}
 	return;
 
+S_SelectShadow:
+	mes "[ Swap item ]";
+	mes "เลือกตำแหน่ง Shadow ที่ต้องการสลับ";
+	.@selection = select("Shadow Armor:Shadow Shield:Shadow Shoes:Shadow Earring:Shadow Pendant:ยกเลิก");
+	if (.@selection == 6)
+		return;
+	callsub S_Swap, 6 + .@selection, 0;
+	return;
+
 S_Swap:
 	.@category = getarg(0);
 	.@tier = getarg(1);
@@ -58,6 +70,9 @@ S_Swap:
 	if (.@category == 6) {
 		.@card_cost = 3;
 		.@zeny_cost = 10000000;
+	} else if (.@category >= 7) {
+		.@card_cost = 2;
+		.@zeny_cost = 5000000;
 	} else {
 		.@card_cost = .CardCost[.@tier];
 		.@zeny_cost = .ZenyCost[.@tier];
@@ -83,7 +98,7 @@ S_Swap:
 
 	if (!.@source_count) {
 		mes "[ Swap item ]";
-		mes "ไม่พบ" + .CategoryName$[.@category] + ((.@category == 6) ? "" : " " + .TierName$[.@tier]) + " ที่สลับได้";
+		mes "ไม่พบ" + .CategoryName$[.@category] + ((.@category >= 6) ? "" : " " + .TierName$[.@tier]) + " ที่สลับได้";
 		mes "ไอเทมต้องอยู่ในกระเป๋า, ไม่สวมใส่, ไม่ใช่ของเช่า และไม่ติด Favorite";
 		return;
 	}
@@ -109,7 +124,7 @@ S_Swap:
 	mes "เลือกไอเทมปลายทาง";
 	.@target_id = .@target_id[select(.@menu$) - 1];
 
-	mes "[ ช่างสลับอาวุธ ]";
+	mes "[ Swap item ]";
 	mes "^0000FF" + getitemname(.@source_id) + "^000000";
 	mes "เปลี่ยนเป็น";
 	mes "^00AA00" + getitemname(.@target_id) + "^000000";
@@ -133,20 +148,20 @@ S_Swap:
 	}
 
 	if (.@source_pos < 0) {
-		mes "[ ช่างสลับอาวุธ ]";
-		mes "ไม่พบอาวุธต้นทางที่เลือก โปรดลองใหม่อีกครั้ง";
+		mes "[ Swap item ]";
+		mes "ไม่พบไอเทมต้นทางที่เลือก โปรดลองใหม่อีกครั้ง";
 		return;
 	}
 
 	if (Zeny < .@zeny_cost || countitem(.SwapCard) < .@card_cost) {
-		mes "[ ช่างสลับอาวุธ ]";
+		mes "[ Swap item ]";
 		mes "เงินหรือ Swap item Card ไม่เพียงพอ";
 		return;
 	}
 
 	.@weight_after = Weight - getiteminfo(.@source_id, ITEMINFO_WEIGHT) - (getiteminfo(.SwapCard, ITEMINFO_WEIGHT) * .@card_cost) + getiteminfo(.@target_id, ITEMINFO_WEIGHT);
 	if (.@weight_after > MaxWeight) {
-		mes "[ ช่างสลับอาวุธ ]";
+		mes "[ Swap item ]";
 		mes "น้ำหนักหลังสลับจะเกินกำหนด กรุณาลดน้ำหนักก่อน";
 		return;
 	}
@@ -165,8 +180,8 @@ S_Swap:
 	setarray .@opt_param[0], @inventorylist_option_parameter1[.@source_pos], @inventorylist_option_parameter2[.@source_pos], @inventorylist_option_parameter3[.@source_pos], @inventorylist_option_parameter4[.@source_pos], @inventorylist_option_parameter5[.@source_pos];
 
 	if (!delitemidx(.@source_slot, 1)) {
-		mes "[ ช่างสลับอาวุธ ]";
-		mes "ไม่สามารถนำอาวุธต้นทางออกได้";
+		mes "[ Swap item ]";
+		mes "ไม่สามารถนำไอเทมต้นทางออกได้";
 		return;
 	}
 
@@ -175,17 +190,17 @@ S_Swap:
 	getitembound4 .@target_id, 1, .@identify, .@refine, .@attribute, .@card1, .@card2, .@card3, .@card4, .@bound, .@grade, .@opt_id, .@opt_value, .@opt_param;
 
 	specialeffect2 EF_REPAIRWEAPON;
-	mes "[ ช่างสลับอาวุธ ]";
-	mes "สลับอาวุธเรียบร้อยแล้ว";
+	mes "[ Swap item ]";
+	mes "สลับไอเทมเรียบร้อยแล้ว";
 	mes "ได้รับ ^00AA00" + getitemname(.@target_id) + "^000000";
 	return;
 
 OnInit:
 	set .SwapCard, 1030072;
 	setarray .TierName$[0], "Rare", "Epic", "Legend";
-	setarray .CategoryName$[0], "อาวุธ", "เสื้อ", "มัพ", "รองเท้า", "ประดับ[R]", "ประดับ[L]", "คอสอาวุธ";
-	setarray .CategoryStart[0], 0, 72, 84, 96, 108, 120, 132;
-	setarray .CategoryCount[0], 24, 4, 4, 4, 4, 4, 14;
+	setarray .CategoryName$[0], "อาวุธ", "เสื้อ", "มัพ", "รองเท้า", "ประดับ[R]", "ประดับ[L]", "คอสอาวุธ", "Shadow Armor", "Shadow Shield", "Shadow Shoes", "Shadow Earring", "Shadow Pendant";
+	setarray .CategoryStart[0], 0, 72, 84, 96, 108, 120, 132, 146, 149, 152, 155, 159;
+	setarray .CategoryCount[0], 24, 4, 4, 4, 4, 4, 14, 3, 3, 3, 4, 4;
 	setarray .CardCost[0], 1, 2, 4;
 	setarray .ZenyCost[0], 3000000, 10000000, 20000000;
 	setarray .SwapItem[0],
@@ -203,7 +218,12 @@ OnInit:
 		470278, 470279, 470280, 470281, 470282, 470283, 470284, 470285, 470286, 470287, 470288, 470289,
 		490499, 490500, 490501, 490502, 490503, 490504, 490505, 490506, 490507, 490508, 490509, 490510,
 		490487, 490488, 490489, 490490, 490491, 490492, 490493, 490494, 490495, 490496, 490497, 490498,
-		55000, 55001, 55002, 55003, 55004, 55005, 55006, 55007, 55008, 55009, 55010, 55011, 55012, 55013;
+		55000, 55001, 55002, 55003, 55004, 55005, 55006, 55007, 55008, 55009, 55010, 55011, 55012, 55013,
+		1500035, 1500039, 1500043,
+		1500057, 1500058, 1500059,
+		1500036, 1500040, 1500044,
+		1500037, 1500041, 1500045, 1500055,
+		1500038, 1500042, 1500046, 1500056;
 	waitingroom "Swap item", 0;
 	end;
 }

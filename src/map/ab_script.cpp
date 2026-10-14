@@ -139,7 +139,8 @@ std::map<int, std::string> get_unique_skills(TBL_PC* sd, const party_data* p, co
 			if (!skill) continue;
 
 			e_cast_type type = skill_get_casttype(sd->status.skill[i].id);
-			if ((type == CAST_NODAMAGE && skill->inf & (INF_SUPPORT_SKILL | INF_SELF_SKILL) && (skill_get_sc(skill->nameid) > 0) || skill->nameid == CR_FULLPROTECTION)) {
+			if (type == CAST_NODAMAGE && skill->inf & (INF_SUPPORT_SKILL | INF_SELF_SKILL) &&
+				(skill_get_sc(skill->nameid) > 0 || skill->nameid == CR_FULLPROTECTION)) {
 
 				if (unique_skills.count(skill->nameid) == 0) {
 					std::ostringstream skill_temp;
@@ -959,7 +960,8 @@ void ab_handleAutoBuffSkills(const std::vector<std::string>& result, TBL_PC* sd,
 		ab_targettype priorize_buff = static_cast<ab_targettype>(std::stoi(result.at(4)));
 
 		auto skill = skill_db.find(skill_id);
-		if (!skill || !(skill->inf & (INF_SUPPORT_SKILL | INF_SELF_SKILL)) || skill_get_sc(skill->nameid) == 0)
+		if (!skill || !(skill->inf & (INF_SUPPORT_SKILL | INF_SELF_SKILL)) ||
+			(skill_get_sc(skill->nameid) == SC_NONE && skill->nameid != CR_FULLPROTECTION))
 			return; // Invalid skill or not a support/self skill
 
 		if (!is_active) {

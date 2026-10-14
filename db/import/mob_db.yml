@@ -194,50 +194,6 @@ Body:
     Ai: 02
     Class: Boss
 
-  - Id: 31100
-    AegisName: CITY_THANATOS
-    Name: City Thanatos
-    Level: 150
-    Hp: 100000000
-    Sp: 10000
-    BaseExp: 500000
-    JobExp: 250000
-    MvpExp: 100000
-    Attack: 3812
-    Attack2: 7483
-    Defense: 35
-    MagicDefense: 35
-    Str: 100
-    Agi: 108
-    Vit: 30
-    Int: 86
-    Dex: 147
-    Luk: 32
-    AttackRange: 3
-    SkillRange: 10
-    ChaseRange: 12
-    Size: Large
-    Race: Demon
-    Element: Ghost
-    ElementLevel: 4
-    WalkSpeed: 120
-    AttackDelay: 115
-    AttackMotion: 816
-    ClientAttackMotion: 672
-    DamageMotion: 504
-    Ai: 21
-    Class: Boss
-    Modes:
-      Mvp: true
-      Aggressive: true
-    Drops:
-      - Item: Thanatos_Card
-        Rate: 1
-        StealProtected: true
-      - Item: Memory_of_Rudolf_Card
-        Rate: 200
-        StealProtected: true
-
   # ValorFight Map 2 timed scoring objectives (Google Sheet MA item 1).
   - Id: 31101
     AegisName: VF2_BIG_FLAG

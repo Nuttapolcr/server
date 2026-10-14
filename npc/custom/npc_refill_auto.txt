@@ -69,7 +69,7 @@ OnInit:
 					continue;
 				}
 
-				set .@cash, .get_cash_amount[.@amt] * 2;
+				set .@cash, .get_cash_amount[.@amt];
 				if (.@cash > 0) {
 					set #CASHPOINTS, #CASHPOINTS + .@cash;
 					dispbottom "[Refill] ได้รับ " + callfunc("F_InsertComma", .@cash) + " Cash รวม " + callfunc("F_InsertComma", #CASHPOINTS) + " Cash", 0xAEFF00;

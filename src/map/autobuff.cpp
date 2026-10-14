@@ -704,17 +704,21 @@
  			encore = (sd->skill_id_dance == buff.skill_id && sd->skill_lv_dance == buff.skill_lv);
  		}
  
- 		auto needs_buff = [&](map_session_data* target) -> bool {
- 			if (!target || pc_isdead(target) || target->bl.m != sd->bl.m)
- 				return false;
- 			if (buff.skill_id == CR_FULLPROTECTION) {
- 				return !target->sc.getSCE(SC_CP_WEAPON) &&
- 					!target->sc.getSCE(SC_CP_SHIELD) &&
- 					!target->sc.getSCE(SC_CP_ARMOR) &&
- 					!target->sc.getSCE(SC_CP_HELM);
- 			}
- 			return !target->sc.getSCE(skill_get_sc(buff.skill_id));
- 			};
+		auto needs_buff = [&](map_session_data* target) -> bool {
+			if (!target || pc_isdead(target) || target->bl.m != sd->bl.m)
+				return false;
+			if (buff.skill_id == CR_FULLPROTECTION) {
+				const unsigned int equipment[] = { EQP_WEAPON, EQP_SHIELD, EQP_ARMOR, EQP_HEAD_TOP };
+				const sc_type protections[] = { SC_CP_WEAPON, SC_CP_SHIELD, SC_CP_ARMOR, SC_CP_HELM };
+
+				for (size_t i = 0; i < ARRAYLENGTH(equipment); ++i) {
+					if (pc_checkequip(target, equipment[i]) >= 0 && !target->sc.getSCE(protections[i]))
+						return true;
+				}
+				return false;
+			}
+			return !target->sc.getSCE(skill_get_sc(buff.skill_id));
+			};
  
  		auto valid_target = [&](map_session_data* target) -> bool {
  			if (!target) return false;
