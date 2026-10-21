@@ -29,6 +29,9 @@ gef_dun01
 gef_dun02
 gef_dun03
 valor_pk
+valor_easy
+valor_norm
+valor_hard
 gef_fild00
 gef_fild01
 gef_fild02

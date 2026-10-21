@@ -1,2 +1,8 @@
 valor_pk.gat#gef_dun03.gat#
 valor_pk.rsw#gef_dun03.rsw#
+valor_easy.gat#gef_dun03.gat#
+valor_easy.rsw#gef_dun03.rsw#
+valor_norm.gat#gef_dun03.gat#
+valor_norm.rsw#gef_dun03.rsw#
+valor_hard.gat#gef_dun03.gat#
+valor_hard.rsw#gef_dun03.rsw#

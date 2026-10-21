@@ -67,8 +67,9 @@ OnInit:
 	end;
 
 OnNPCKillEvent:
-	// Valor MVP Battlefield has its own normal-drop rules and Thanatos chest.
-	if (strcharinfo(3) == "valor_pk") end;
+	// Valor MVP Battlefield has its own drop rules and never creates these chests.
+	.@map$ = strcharinfo(3);
+	if (.@map$ == "valor_easy" || .@map$ == "valor_norm" || .@map$ == "valor_hard") end;
 
 	// which tier is the killed mob?
 	.@tier = 0;

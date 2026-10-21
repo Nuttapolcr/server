@@ -1,243 +1,287 @@
 //===== Valor MVP Battlefield ===============================================
-//= Public PK MVP map cloned from gef_dun03 (client alias: valor_pk).
-//= One ticket grants the account three hours of re-entry, including after death.
+//= Three public PK MVP maps cloned from gef_dun03.
+//= Entry is free for every difficulty.
 //===========================================================================
 
-morocc,170,84,3	script	Valor MVP Battlefield	752,{
-	.@now = gettimetick(2);
+function	script	F_ValorMvpRestrictedGear	{
+	.@difficulty = getarg(0);
+	@valor_blocked_item = 0;
+	if (.@difficulty < 1 || .@difficulty > 2)
+		return 0;
+
+	setarray .@slots[0],
+		EQI_HEAD_TOP,EQI_HEAD_MID,EQI_HEAD_LOW,EQI_ARMOR,EQI_HAND_R,EQI_HAND_L,
+		EQI_GARMENT,EQI_SHOES,EQI_ACC_L,EQI_ACC_R,EQI_COSTUME_HEAD_TOP,
+		EQI_COSTUME_HEAD_MID,EQI_COSTUME_HEAD_LOW,EQI_COSTUME_GARMENT,
+		EQI_SHADOW_ARMOR,EQI_SHADOW_WEAPON,EQI_SHADOW_SHIELD,EQI_SHADOW_SHOES,
+		EQI_SHADOW_ACC_R,EQI_SHADOW_ACC_L;
+	setarray .@epic[0],
+		600017,630012,640020,540020,520008,500026,550024,560018,610021,510032,
+		700032,570018,580017,540023,550026,650009,800003,500025,1030018,1030019,
+		530013,700031,1030051,1030052,452029,452030,452031,452032,480425,480426,
+		480427,480428,470282,470283,470284,470285,490503,490504,490505,490506,
+		490491,490492,490493,490494,1030010;
+	setarray .@legend[0],
+		21016,1450,1600,28605,28107,13455,16041,1800,28008,28706,
+		18121,1900,1996,1029019,2026,13328,13128,13468,1030022,1030023,
+		1400,1030024,1030053,1030054,452033,452034,452035,452036,480429,480430,
+		480431,480432,470286,470287,470288,470289,490507,490508,490509,490510,
+		490495,490496,490497,490498,1030011;
+
+	for (.@i = 0; .@i < getarraysize(.@slots); ++.@i) {
+		if (!getequipisequiped(.@slots[.@i]))
+			continue;
+		.@item_id = getequipid(.@slots[.@i]);
+		if (inarray(.@legend,.@item_id) >= 0 ||
+			(.@difficulty == 1 && inarray(.@epic,.@item_id) >= 0)) {
+			@valor_blocked_item = .@item_id;
+			return 1;
+		}
+	}
+	return 0;
+}
+
+morocc,159,105,3	script	Valor MVP Battlefield	752,{
 	mes "[ สนามรบ MVP Valor ]";
 	mes "สนามรบ MVP แบบ PK เปิดตลอดเวลา";
-	mes "ตั๋วใช้งานได้นาน 3 ชั่วโมง และกลับเข้าใหม่ได้แม้เสียชีวิต";
-	if (#valor_mvp_until > .@now) {
-		.@remain = #valor_mvp_until - .@now;
-		mes "สิทธิ์เข้าสนามรบคงเหลือ " + (.@remain / 3600) + " ชั่วโมง " + ((.@remain % 3600) / 60) + " นาที";
-	}
-	switch(select("เข้าสนามรบ:ซื้อตั๋ว - 10,000,000 Zeny:ซื้อตั๋ว - CashCoin 30 เหรียญ + 1,000,000 Zeny:ยกเลิก")) {
-	case 1:
-		if (#valor_mvp_until <= .@now) {
-			if (countitem(1030071) < 1) {
-				mes "คุณต้องมี Gold Ticket MVP Battlefield จำนวน 1 ใบ";
-				close;
-			}
-			delitem 1030071,1;
-			#valor_mvp_until = .@now + 10800;
-		}
-		callsub S_ScheduleExpiry;
-		warp "valor_pk",0,0;
-		end;
-	case 2:
-		if (Zeny < 10000000) {
-			mes "คุณมี Zeny ไม่เพียงพอ ต้องใช้ 10,000,000 Zeny";
-			close;
-		}
-		Zeny -= 10000000;
-		getitem 1030071,1;
-		mes "ได้รับ Gold Ticket MVP Battlefield จำนวน 1 ใบแล้ว";
-		close;
-	case 3:
-		if (Zeny < 1000000 || countitem(30001) < 30) {
-			mes "คุณต้องมี CashCoin 30 เหรียญ และ Zeny 1,000,000";
-			close;
-		}
-		delitem 30001,30;
-		Zeny -= 1000000;
-		getitem 1030071,1;
-		mes "ได้รับ Gold Ticket MVP Battlefield จำนวน 1 ใบแล้ว";
-		close;
-	}
-	close;
+	mes "เข้าฟรีทุกระดับ ไม่ใช้ตั๋ว";
 
-OnInit:
-	.map$ = "valor_pk";
-	.return_map$ = "morocc";
-	.return_x = 170;
-	.return_y = 84;
+	switch(select("เข้าดัน Easy:เข้าดัน Normal:เข้าดัน Hard:ยกเลิก")) {
+	case 1:
+		.@difficulty = 1;
+		.@map$ = "valor_easy";
+		break;
+	case 2:
+		.@difficulty = 2;
+		.@map$ = "valor_norm";
+		break;
+	case 3:
+		.@difficulty = 3;
+		.@map$ = "valor_hard";
+		break;
+	default:
+		close;
+	}
+
+	if (callfunc("F_ValorMvpRestrictedGear",.@difficulty)) {
+		mes "ไม่สามารถเข้าดันระดับนี้ขณะสวมใส่ไอเทมต่อไปนี้:";
+		mes "^FF0000" + getitemname(@valor_blocked_item) + "^000000";
+		close;
+	}
+	warp .@map$,0,0;
+	end;
+}
+
+-	script	ValorMvpBattlefield	FAKE_NPC,{
 	end;
 
 OnPCLoginEvent:
 OnPCLoadMapEvent:
-	if (strcharinfo(3) != .map$) end;
-	if (#valor_mvp_until <= gettimetick(2)) {
-		dispbottom "[สนามรบ MVP Valor] สิทธิ์เข้าสนามรบของคุณหมดเวลาแล้ว";
-		warp .return_map$,.return_x,.return_y;
+	deltimer strnpcinfo(0)+"::OnGearCheck";
+	.@difficulty = callsub(S_GetDifficulty);
+	if (!.@difficulty)
 		end;
-	}
-	callsub S_ScheduleExpiry;
+	if (!callsub(S_ValidatePlayer,.@difficulty))
+		end;
+	callsub S_ScheduleChecks;
 	end;
 
-OnExpire:
-	if (strcharinfo(3) == .map$ && #valor_mvp_until <= gettimetick(2)) {
-		dispbottom "[สนามรบ MVP Valor] สิทธิ์เข้าสนามรบของคุณหมดเวลาแล้ว";
-		warp .return_map$,.return_x,.return_y;
-	}
+OnGearCheck:
+	.@difficulty = callsub(S_GetDifficulty);
+	if (!.@difficulty)
+		end;
+	if (!callsub(S_ValidatePlayer,.@difficulty))
+		end;
+	addtimer 1000,strnpcinfo(0)+"::OnGearCheck";
 	end;
 
-S_ScheduleExpiry:
-	deltimer strnpcinfo(0)+"::OnExpire";
-	.@seconds = #valor_mvp_until - gettimetick(2);
-	if (.@seconds > 0)
-		addtimer .@seconds * 1000, strnpcinfo(0)+"::OnExpire";
+S_GetDifficulty:
+	.@map$ = strcharinfo(3);
+	if (.@map$ == "valor_easy") return 1;
+	if (.@map$ == "valor_norm") return 2;
+	if (.@map$ == "valor_hard") return 3;
+	return 0;
+
+S_ValidatePlayer:
+	.@difficulty = getarg(0);
+	if (callfunc("F_ValorMvpRestrictedGear",.@difficulty)) {
+		dispbottom "[สนามรบ MVP Valor] ตรวจพบไอเทมต้องห้าม: " + getitemname(@valor_blocked_item);
+		warp "morocc",170,84;
+		return 0;
+	}
+	return 1;
+
+S_ScheduleChecks:
+	addtimer 1000,strnpcinfo(0)+"::OnGearCheck";
 	return;
-}
 
-// The special Thanatos keeps its normal drops/card and creates Titan-style chests.
--	script	ValorMvpBattlefield	FAKE_NPC,{
-	end;
-
-OnInit:
-	.map$ = "valor_pk";
-	.chest_radius = 4;
-	.chest_sprite = 1324;
-	setarray .regular_mvp[0],
-		1087,1147,1190,1115,1086,1038,1159,1389,1046,
-		1059,1150,1039,1157,1112,1251,2068,1373,1272,
-		1885,1630,1252,1623,1492,1583,1312,1785,1734,
-		1685,1719,1511,1418,1768,1779,1688,1871;
-	end;
-
-// Valor spawns use this dedicated event so their kills never reach global
-// OnNPCKillEvent handlers (quests and the MVP ranking).
+// Kills on these maps do not reach global OnNPCKillEvent handlers.
 OnValorMobKill:
-	if (strcharinfo(3) != .map$) end;
-	getmapxy .@map$,.@x,.@y,BL_PC;
-	if (.@map$ != .map$) end;
-	if (killedrid != 1708) {
-		if (inarray(.regular_mvp,killedrid) < 0) end;
-		callsub S_DropRegularRewards,.@map$,.@x,.@y;
+	.@map$ = strcharinfo(3);
+	if (.@map$ == "valor_easy") {
+		.@rare_rate = 300;
+		.@stone_rate = 500;
+	} else if (.@map$ == "valor_norm") {
+		.@rare_rate = 500;
+		.@stone_rate = 1000;
+	} else if (.@map$ == "valor_hard") {
+		.@rare_rate = 1000;
+		.@stone_rate = 2000;
+	} else {
 		end;
 	}
-
-	.@purple = (rand(100) < 1) ? rand(1,3) : 0;
-	.@red = (rand(100) < 10) ? rand(1,4) : 0;
-	.@blue = rand(2,6);
-	.@blue_cap = 10 - .@purple - .@red;
-	if (.@blue > .@blue_cap) .@blue = .@blue_cap;
-	callsub S_SpawnChests,"P",.@purple,.@x,.@y;
-	callsub S_SpawnChests,"R",.@red,.@x,.@y;
-	callsub S_SpawnChests,"B",.@blue,.@x,.@y;
-	announce "[ สนามรบ MVP Valor ] กำจัด Memory of Thanatos สำเร็จ! หีบสมบัติ Titan ปรากฏแล้ว!",bc_map|bc_blue;
-	end;
-
-// Regular Valor MVPs only drop the six sheet-defined reward rolls. Rates use
-// SC_ITEMBOOST's val1 so Bubble Gum modifies the drops just like normal loot.
-S_DropRegularRewards:
-	.@map$ = getarg(0);
-	.@x = getarg(1);
-	.@y = getarg(2);
+	getmapxy .@map$,.@x,.@y,BL_PC;
 	.@boost = 100 + getstatus(SC_ITEMBOOST,1);
-	.@slice_rate = min(10000,2000 * .@boost / 100);
-	.@apple_rate = min(10000,1000 * .@boost / 100);
-	.@fragment_rate = min(10000,300 * .@boost / 100);
-	if (rand(10000) < .@slice_rate) makeitem 1500181,1,.@map$,.@x,.@y;
-	if (rand(10000) < .@slice_rate) makeitem 1500181,1,.@map$,.@x,.@y;
-	if (rand(10000) < .@slice_rate) makeitem 1500181,1,.@map$,.@x,.@y;
-	if (rand(10000) < .@apple_rate) makeitem 1500182,1,.@map$,.@x,.@y;
-	if (rand(10000) < .@apple_rate) makeitem 1500182,1,.@map$,.@x,.@y;
-	if (rand(10000) < .@fragment_rate) makeitem 1000373,1,.@map$,.@x,.@y;
-	return;
-
-S_SpawnChests:
-	.@color$ = getarg(0);
-	.@count = getarg(1);
-	.@base_x = getarg(2);
-	.@base_y = getarg(3);
-	if (.@count <= 0) return;
-	for (.@i = 0; .@i < .@count; .@i++) {
-		$VMB_CHEST_UID++;
-		if ($VMB_CHEST_UID > 100000 || $VMB_CHEST_UID < 1) $VMB_CHEST_UID = 1;
-		.@id = $VMB_CHEST_UID;
-		setd "$@vmbchest_"+.@id,0;
-		.@x = .@base_x + rand(-.chest_radius,.chest_radius);
-		.@y = .@base_y + rand(-.chest_radius,.chest_radius);
-		.@name$ = "หีบสมบัติทานาทอส#"+.@color$+"_"+.@id;
-		.@npc$ = duplicate("ValorMvpThanatosChest",.map$,.@x,.@y,.@name$,.chest_sprite);
-		if (.@npc$ != "") donpcevent .@npc$+"::OnArm";
-	}
-	return;
-}
-
--	script	ValorMvpThanatosChest	FAKE_NPC,{
-	explode(.@data$,strnpcinfo(2),"_");
-	.@color$ = .@data$[0];
-	.@id = atoi(.@data$[1]);
-	if (getd("$@vmbchest_"+.@id) || !playerattached()) end;
-
-	.@seconds = 5;
-	.@bar$ = "0x33B5FF";
-	.@group = IG_CITY_TITAN_BLUE;
-	if (.@color$ == "R") {
-		.@seconds = 10;
-		.@bar$ = "0xFF3333";
-		.@group = IG_CITY_TITAN_RED;
-	} else if (.@color$ == "P") {
-		.@seconds = 15;
-		.@bar$ = "0xCC33FF";
-		.@group = IG_CITY_TITAN_PURPLE;
-	}
-	progressbar .@bar$,.@seconds;
-	if (getd("$@vmbchest_"+.@id)) end;
-	setd "$@vmbchest_"+.@id,1;
-	stopnpctimer;
-	getrandgroupitem .@group,0,1;
-	disablenpc strnpcinfo(3);
-	end;
-
-OnArm:
-	initnpctimer;
-	end;
-
-OnTimer1800000:
-	stopnpctimer;
-	disablenpc strnpcinfo(3);
+	.@rare_rate = min(10000,.@rare_rate * .@boost / 100);
+	.@stone_rate = min(10000,.@stone_rate * .@boost / 100);
+	if (rand(10000) < .@rare_rate) makeitem 1000445,1,.@map$,.@x,.@y;
+	if (rand(10000) < .@rare_rate) makeitem 1000401,1,.@map$,.@x,.@y;
+	if (rand(10000) < .@rare_rate) makeitem 1001140,1,.@map$,.@x,.@y;
+	if (rand(10000) < .@stone_rate) makeitem 1000373,1,.@map$,.@x,.@y;
 	end;
 }
 
 // Map rules: PK, no wing/teleport/memo/recall, and death returns to Morocc.
-valor_pk	mapflag	pvp
-valor_pk	mapflag	noteleport
-valor_pk	mapflag	nomemo
-valor_pk	mapflag	noicewall
-valor_pk	mapflag	nobranch
-valor_pk	mapflag	noreturn
-valor_pk	mapflag	nowarp
-valor_pk	mapflag	nowarpto
-valor_pk	mapflag	nosave	morocc	170	84
+valor_easy	mapflag	pvp
+valor_easy	mapflag	loadevent
+valor_easy	mapflag	noteleport
+valor_easy	mapflag	nomemo
+valor_easy	mapflag	noicewall
+valor_easy	mapflag	nobranch
+valor_easy	mapflag	noreturn
+valor_easy	mapflag	nowarp
+valor_easy	mapflag	nowarpto
+valor_easy	mapflag	nosave	morocc	170	84
 
-// Standard MVPs: 2 each, 30-second respawn. They receive 10% damage in
-// battle.cpp; the hourly special Thanatos receives 1% damage.
-valor_pk,0,0,0,0	monster	Orc Hero	1087,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Maya	1147,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Orc Lord	1190,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Eddga	1115,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Golden Thief Bug	1086,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Osiris	1038,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Phreeoni	1159,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Dracula	1389,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Doppelganger	1046,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Mistress	1059,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Moonlight Flower	1150,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Baphomet	1039,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Pharaoh	1157,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Drake	1112,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Stormy Knight	1251,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Boitata	2068,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Lord of Death	1373,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Dark Lord	1272,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Gopinich	1885,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	White Lady	1630,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Hatii	1252,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	RSX-0806	1623,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Samurai Specter	1492,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Tao Gunka	1583,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Turtle General	1312,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Atroce	1785,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Kiel D-01	1734,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Vesper	1685,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Detardeurus	1719,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Amon Ra	1511,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Evil Snake Lord	1418,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Gloom Under Night	1768,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Ktullanux	1779,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Lady Tanee	1688,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,0,0,0,0	monster	Fallen Bishop	1871,2,30000,30000,ValorMvpBattlefield::OnValorMobKill
-valor_pk,136,116,0,0	monster	Memory of Thanatos	1708,1,3600000,3600000,ValorMvpBattlefield::OnValorMobKill
+valor_norm	mapflag	pvp
+valor_norm	mapflag	loadevent
+valor_norm	mapflag	noteleport
+valor_norm	mapflag	nomemo
+valor_norm	mapflag	noicewall
+valor_norm	mapflag	nobranch
+valor_norm	mapflag	noreturn
+valor_norm	mapflag	nowarp
+valor_norm	mapflag	nowarpto
+valor_norm	mapflag	nosave	morocc	170	84
+
+valor_hard	mapflag	pvp
+valor_hard	mapflag	loadevent
+valor_hard	mapflag	noteleport
+valor_hard	mapflag	nomemo
+valor_hard	mapflag	noicewall
+valor_hard	mapflag	nobranch
+valor_hard	mapflag	noreturn
+valor_hard	mapflag	nowarp
+valor_hard	mapflag	nowarpto
+valor_hard	mapflag	nosave	morocc	170	84
+
+// Easy: one of each boss, 40-second respawn, bosses receive 90% damage.
+valor_easy,0,0,0,0	monster	Orc Hero	1087,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Maya	1147,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Orc Lord	1190,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Eddga	1115,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Golden Thief Bug	1086,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Osiris	1038,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Phreeoni	1159,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Dracula	1389,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Doppelganger	1046,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Mistress	1059,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Moonlight Flower	1150,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Baphomet	1039,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Pharaoh	1157,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Drake	1112,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Stormy Knight	1251,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Boitata	2068,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Lord of Death	1373,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Dark Lord	1272,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Gopinich	1885,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	White Lady	1630,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Hatii	1252,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	RSX-0806	1623,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Samurai Specter	1492,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Tao Gunka	1583,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Turtle General	1312,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Atroce	1785,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Kiel D-01	1734,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Vesper	1685,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Detardeurus	1719,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Amon Ra	1511,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Evil Snake Lord	1418,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Gloom Under Night	1768,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Ktullanux	1779,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Lady Tanee	1688,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+valor_easy,0,0,0,0	monster	Fallen Bishop	1871,1,40000,40000,ValorMvpBattlefield::OnValorMobKill
+
+// Normal: one of each boss, 20-second respawn, bosses receive 50% damage.
+valor_norm,0,0,0,0	monster	Orc Hero	1087,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Maya	1147,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Orc Lord	1190,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Eddga	1115,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Golden Thief Bug	1086,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Osiris	1038,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Phreeoni	1159,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Dracula	1389,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Doppelganger	1046,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Mistress	1059,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Moonlight Flower	1150,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Baphomet	1039,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Pharaoh	1157,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Drake	1112,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Stormy Knight	1251,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Boitata	2068,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Lord of Death	1373,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Dark Lord	1272,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Gopinich	1885,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	White Lady	1630,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Hatii	1252,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	RSX-0806	1623,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Samurai Specter	1492,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Tao Gunka	1583,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Turtle General	1312,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Atroce	1785,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Kiel D-01	1734,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Vesper	1685,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Detardeurus	1719,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Amon Ra	1511,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Evil Snake Lord	1418,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Gloom Under Night	1768,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Ktullanux	1779,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Lady Tanee	1688,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_norm,0,0,0,0	monster	Fallen Bishop	1871,1,20000,20000,ValorMvpBattlefield::OnValorMobKill
+
+// Hard: two of each boss, 20-second respawn, bosses receive 10% damage.
+valor_hard,0,0,0,0	monster	Orc Hero	1087,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Maya	1147,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Orc Lord	1190,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Eddga	1115,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Golden Thief Bug	1086,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Osiris	1038,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Phreeoni	1159,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Dracula	1389,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Doppelganger	1046,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Mistress	1059,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Moonlight Flower	1150,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Baphomet	1039,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Pharaoh	1157,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Drake	1112,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Stormy Knight	1251,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Boitata	2068,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Lord of Death	1373,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Dark Lord	1272,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Gopinich	1885,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	White Lady	1630,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Hatii	1252,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	RSX-0806	1623,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Samurai Specter	1492,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Tao Gunka	1583,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Turtle General	1312,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Atroce	1785,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Kiel D-01	1734,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Vesper	1685,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Detardeurus	1719,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Amon Ra	1511,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Evil Snake Lord	1418,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Gloom Under Night	1768,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Ktullanux	1779,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Lady Tanee	1688,2,20000,20000,ValorMvpBattlefield::OnValorMobKill
+valor_hard,0,0,0,0	monster	Fallen Bishop	1871,2,20000,20000,ValorMvpBattlefield::OnValorMobKill

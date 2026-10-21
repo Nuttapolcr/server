@@ -498,292 +498,353 @@ Body:
             Item: Coin_Valor_V5
             Amount: 1
       - Index: 4
+        Item: Coin_Varlor_V.1
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Valor_V6
+      - Index: 5
         Item: Rideword_Hat
         Zeny: 3000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 5
+      - Index: 6
         Item: Anubis_Helm
         Zeny: 3000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 6
+      - Index: 7
         Item: FlyingGalapago
         Zeny: 3000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 7
+      - Index: 8
         Item: Handkerchief_In_Mouth
         Zeny: 3000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 8
+      - Index: 9
         Item: N_Charm_Valor_V.1
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 5
-      - Index: 9
+      - Index: 10
         Item: "R_Charm_Valor V.1"
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 5
-      - Index: 10
+      - Index: 11
         Item: "E_Charm_Valor V.1"
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 5
-      - Index: 11
+      - Index: 12
         Item: RWC_2010_Indonesia
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 12
+      - Index: 13
         Item: Cat_Ear_Beret
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 13
+      - Index: 14
         Item: Red_Pom_Band
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 14
+      - Index: 15
         Item: Blood_Sucker
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 15
+      - Index: 16
         Item: Fan_in_Mouth
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 16
+      - Index: 17
         Item: Happy_Balloon_K
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 17
+      - Index: 18
         Item: Charm_FLEE_Valor
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 18
+      - Index: 19
         Item: Charm_ASPD_Valor
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 19
+      - Index: 20
         Item: Charm_Critical_Valor
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 20
+      - Index: 21
         Item: Gang_Scarf_Copy
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 5
-      - Index: 21
+      - Index: 22
         Item: Gang_Scarf_Copy_Copy
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 5
-      - Index: 22
+      - Index: 23
         Item: Glasses_
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 5
-      - Index: 23
+      - Index: 24
         Item: New_Item_1500094
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 24
+      - Index: 25
         Item: New_Item_1500096
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 2
-      - Index: 25
+      - Index: 26
         Item: Charm_White_Blue_Plus
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 26
+      - Index: 27
         Item: Charm_Reduce_SP
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 27
+      - Index: 28
         Item: Charm_Open_Box
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 3
-      - Index: 28
+      - Index: 29
         Item: Dark_Crystal_C
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 10
-      - Index: 29
+      - Index: 30
         Item: Holy_Crystal
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1
             Amount: 10
-      - Index: 30
+      - Index: 31
         Item: 3D_Glasses_Copy # 1500162
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 5
-      - Index: 31
+      - Index: 32
         Item: Censor_Bar_Copy # 1500163
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 5
-      - Index: 32
+      - Index: 33
         Item: Collection_HP_Absorb # 1500173
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 3
-      - Index: 33
+      - Index: 34
         Item: Collection_Ignore_DEF # 1500168
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 3
-      - Index: 34
+      - Index: 35
         Item: Collection_Ignore_MDEF # 1500169
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 3
-      - Index: 35
+      - Index: 36
         Item: Collection_HP # 1500170
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 2
-      - Index: 36
+      - Index: 37
         Item: Collection_SP # 1500171
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 2
-      - Index: 37
+      - Index: 38
         Item: E_Charm_Valor V.1_Copy # 1500172
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 3
-      - Index: 38
+      - Index: 39
         Item: Jejecap # 1500194
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 5
-      - Index: 39
+      - Index: 40
         Item: Pecopeco_Hairband_Copy # 1500201
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 5
-      - Index: 40
+      - Index: 41
         Item: Epic_Pet_Random # 1500161
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 3
-      - Index: 41
+      - Index: 42
         Item: "Collection_Max_HP%" # 1500197
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 3
-      - Index: 42
+      - Index: 43
         Item: "Collection_Max_SP%" # 1500198
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 3
-      - Index: 43
+      - Index: 44
         Item: Collection_Flee1 # 1500199
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 2
-      - Index: 44
+      - Index: 45
         Item: Collection_HIT1 # 1500200
         Zeny: 5000000
         RequiredItems:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 2
+      - Index: 46
+        Item: Collection_Warrior # 1500211
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 4
+      - Index: 47
+        Item: "Collection_Assassin " # 1500212
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 4
+      - Index: 48
+        Item: Collection_Mage # 1500213
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 4
+      - Index: 49
+        Item: Collection_Guardian # 1500214
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 4
+      - Index: 50
+        Item: Collection_Hunter # 1500215
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 4
+      - Index: 51
+        Item: Collection_SP_Absorb # 1500217
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 3
+      - Index: 52
+        Item: Collection_Ignore_DEF_Copy # 1500209
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 3
+      - Index: 53
+        Item: Collection_Ignore_MDEF_Copy # 1500210
+        Zeny: 5000000
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 3
 
   - Name: CRAFT_SHADOW_9
     CraftBarter: false

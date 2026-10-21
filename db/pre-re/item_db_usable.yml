@@ -21625,7 +21625,7 @@ Body:
       Override: 100
       NoSell: true
     Script: |-
-      setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3", "m_pvp01", "pvp_y_8-2", "pvp_n_1-3", "pvp_n_6-5", "pvp_n_1-5";
+      setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3", "m_pvp01", "pvp_y_8-2", "pvp_n_1-3", "pvp_n_6-5", "pvp_n_1-5", "valor_easy", "valor_norm", "valor_hard";
       .@map$ = strcharinfo(3);
       .@heal = 10;
       if (inarray(.@deathmatch_maps$, .@map$) < 0
@@ -21704,7 +21704,7 @@ Body:
       Override: 100
       NoSell: true
     Script: |
-      setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3", "m_pvp01", "pvp_y_8-2", "pvp_n_1-3", "pvp_n_6-5", "pvp_n_1-5";
+      setarray .@deathmatch_maps$[0], "guild_vs2", "guild_vs3", "m_pvp01", "pvp_y_8-2", "pvp_n_1-3", "pvp_n_6-5", "pvp_n_1-5", "valor_easy", "valor_norm", "valor_hard";
       .@map$ = strcharinfo(3);
       if (inarray(.@deathmatch_maps$, .@map$) < 0
           && !getmapflag(.@map$, MF_GVG)

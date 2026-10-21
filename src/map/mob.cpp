@@ -91,6 +91,14 @@ MobSummonDatabase mob_summon_db;
 MobChatDatabase mob_chat_db;
 MapDropDatabase map_drop_db;
 
+static bool mob_is_valor_mvp_battlefield_map(int16 m) {
+	static const int16 easy_map = map_mapname2mapid("valor_easy");
+	static const int16 normal_map = map_mapname2mapid("valor_norm");
+	static const int16 hard_map = map_mapname2mapid("valor_hard");
+
+	return m == easy_map || m == normal_map || m == hard_map;
+}
+
 // =============================================================
 // Map Drop Nerf (Runtime)
 // - (runtime roll) => No Effect @mi
@@ -2602,8 +2610,8 @@ int mob_getdroprate(struct block_list* src, std::shared_ptr<s_mob_db> mob, item_
            	bool is_mvp = (mob && mob->get_bosstype() == BOSSTYPE_MVP);
 			// The Valor MVP Battlefield's custom rewards intentionally honor Bubble
 			// Gum. Other MVP maps retain their configured item-boost behavior.
-			static const int16 valor_mvp_battlefield_map = map_mapname2mapid("valor_pk");
-			bool allow_itemboost = battle_config.itemboost_affect_mvp || !is_mvp || (md && md->bl.m == valor_mvp_battlefield_map);
+			bool allow_itemboost = battle_config.itemboost_affect_mvp || !is_mvp ||
+				(md && mob_is_valor_mvp_battlefield_map(md->bl.m));
            	if (allow_itemboost) {
                	if (sd->sc.getSCE(SC_ITEMBOOST))
                    	drop_rate_bonus += sd->sc.getSCE(SC_ITEMBOOST)->val1;
@@ -2925,11 +2933,9 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 
 	const bool replace_mob_drops = mapdrops != nullptr && mapdrops->replace_mob_drops
 		&& mapdrops->specific.find( md->mob_id ) != mapdrops->specific.end();
-	// Valor MVP Battlefield uses script-defined drops for regular MVPs. Memory
-	// of Thanatos (1708) remains an exception with its normal drops and card.
-	static const int16 valor_mvp_battlefield_map = map_mapname2mapid( "valor_pk" );
-	const bool suppress_valor_mvp_drops = md->bl.m == valor_mvp_battlefield_map
-		&& md->mob_id != 1708 && md->get_bosstype() == BOSSTYPE_MVP;
+	// Valor MVP Battlefield uses only its script-defined drops.
+	const bool suppress_valor_mvp_drops = mob_is_valor_mvp_battlefield_map(md->bl.m)
+		&& md->get_bosstype() == BOSSTYPE_MVP;
 
 	if( !(type&1) && !suppress_valor_mvp_drops && !map_getmapflag(m, MF_NOMOBLOOT) && !md->state.rebirth && !md->master_id && (
 		!md->special_state.ai || //Non special mob
@@ -3416,7 +3422,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 		if (sd) {
 			std::shared_ptr<s_mob_db> mission_mdb = mob_db.find(sd->mission_mobid), mob = mob_db.find(md->mob_id);
 
-			if (md->bl.m != valor_mvp_battlefield_map && ((sd->mission_mobid == md->mob_id) || (mission_mdb != nullptr &&
+			if (!mob_is_valor_mvp_battlefield_map(md->bl.m) && ((sd->mission_mobid == md->mob_id) || (mission_mdb != nullptr &&
 				((battle_config.taekwon_mission_mobname == 1 && util::vector_exists(status_get_race2(&md->bl), RC2_GOBLIN) && util::vector_exists(mission_mdb->race2, RC2_GOBLIN)) ||
 				(battle_config.taekwon_mission_mobname == 2 && mob->jname.compare(mission_mdb->jname) == 0)))))
 			{ //TK_MISSION [Skotlex]
@@ -3431,7 +3437,7 @@ int mob_dead(struct mob_data *md, struct block_list *src, int type)
 				pc_setglobalreg(sd, add_str(TKMISSIONCOUNT_VAR), sd->mission_count);
 			}
 
-			if (md->bl.m != valor_mvp_battlefield_map) {
+			if (!mob_is_valor_mvp_battlefield_map(md->bl.m)) {
 				if (sd->status.party_id)
 					map_foreachinallrange(quest_update_objective_sub, &md->bl, AREA_SIZE, BL_PC, sd->status.party_id, md);
 				else if (sd->avail_quests)

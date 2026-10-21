@@ -1535,14 +1535,23 @@ bool battle_status_block_damage(struct block_list *src, struct block_list *targe
  * @return damage
  */
 static int64 battle_apply_valor_mvp_battlefield_damage( struct block_list* bl, int64 damage ){
-	static const int16 valor_mvp_battlefield_map = map_mapname2mapid( "valor_pk" );
+	if( damage <= 0 || bl->type != BL_MOB || status_get_class_( bl ) != CLASS_BOSS )
+		return damage;
 
-	if( damage > 0 && bl->m == valor_mvp_battlefield_map && bl->type == BL_MOB && status_get_class_( bl ) == CLASS_BOSS ){
-		const mob_data* md = BL_CAST( BL_MOB, bl );
-		const int64 received_damage_rate = md != nullptr && md->mob_id == 1708 ? 1 : 10;
+	static const int16 easy_map = map_mapname2mapid( "valor_easy" );
+	static const int16 normal_map = map_mapname2mapid( "valor_norm" );
+	static const int16 hard_map = map_mapname2mapid( "valor_hard" );
+	int64 received_damage_rate = 0;
 
+	if( bl->m == easy_map )
+		received_damage_rate = 90;
+	else if( bl->m == normal_map )
+		received_damage_rate = 50;
+	else if( bl->m == hard_map )
+		received_damage_rate = 10;
+
+	if( received_damage_rate > 0 )
 		damage = i64max( damage * received_damage_rate / 100, 1 );
-	}
 
 	return damage;
 }
