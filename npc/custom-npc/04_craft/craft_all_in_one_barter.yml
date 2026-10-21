@@ -845,6 +845,24 @@ Body:
           - Index: 0
             Item: Coin_Varlor_V.1 # 1030066
             Amount: 3
+      - Index: 54
+        Item: Bloody_Branch_40_Box # 1500167
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 1
+      - Index: 55
+        Item: Refine_Booster_Potion_5 # 1030015
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 1
+      - Index: 56
+        Item: Refine_Booster_Potion_10 # 1030016
+        RequiredItems:
+          - Index: 0
+            Item: Coin_Varlor_V.1 # 1030066
+            Amount: 2
 
   - Name: CRAFT_SHADOW_9
     CraftBarter: false
